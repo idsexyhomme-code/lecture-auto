@@ -10,9 +10,9 @@
 {% else %}
 <section class="hero">
   <div class="wrap">
-    <span class="badge">{{ site_config.site_tagline_top }}</span>
-    <h1>{{ site_config.site_headline }}</h1>
-    <p class="lead">{{ site_config.site_subtagline }}</p>
+    <span class="badge" data-edit-field="site_config:site_tagline_top">{{ site_config.site_tagline_top }}</span>
+    <h1 data-edit-field="site_config:site_headline">{{ site_config.site_headline }}</h1>
+    <p class="lead" data-edit-field="site_config:site_subtagline">{{ site_config.site_subtagline }}</p>
   </div>
 </section>
 {% endif %}
@@ -32,8 +32,8 @@
     <div class="grid">
       {% for c in courses %}
       <div class="card">
-        <h3>{{ c.title }}</h3>
-        <p>{{ c.tagline }}</p>
+        <h3 data-edit-field="site_config:course_overrides.{{ c.id }}.title_override">{{ c.title }}</h3>
+        <p data-edit-field="site_config:course_overrides.{{ c.id }}.tagline_override">{{ c.tagline }}</p>
         <a class="cta" href="{{ c.url }}">자세히 보기 →</a>
       </div>
       {% endfor %}

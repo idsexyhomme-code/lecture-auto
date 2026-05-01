@@ -1,0 +1,135 @@
+/* 코어 캠퍼스 — 어드민 모드 스타일
+   ?admin=1 일 때 admin.js가 body.admin-mode 추가하면서 활성화 */
+
+body.admin-mode { padding-top: 44px; }   /* 상단 어드민 바 자리 */
+
+.ce-admin-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 44px;
+  background: #1A3558;
+  color: #fff;
+  display: flex; align-items: center; gap: 12px;
+  padding: 0 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Pretendard", "Malgun Gothic", system-ui, sans-serif;
+  font-size: 13px;
+  z-index: 9999;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+.ce-admin-bar .ce-admin-label { font-weight: 700; letter-spacing: 0.3px; }
+.ce-admin-bar .ce-admin-hint { color: rgba(255,255,255,0.78); font-size: 12px; }
+.ce-admin-bar .ce-admin-spacer { flex: 1; }
+.ce-admin-bar .ce-admin-btn {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .15s;
+}
+.ce-admin-bar .ce-admin-btn:hover { background: rgba(255,255,255,0.22); }
+.ce-admin-bar .ce-admin-btn-danger {
+  border-color: rgba(255,140,140,0.36);
+  color: #ffd6d6;
+}
+.ce-admin-bar .ce-admin-btn-danger:hover {
+  background: rgba(255,140,140,0.18);
+}
+
+/* 편집 가능 표시 */
+body.admin-mode .ce-editable {
+  position: relative;
+  outline: 1px dashed rgba(123, 94, 224, 0.45);
+  outline-offset: 4px;
+  border-radius: 4px;
+  transition: outline-color .15s, background .15s;
+}
+body.admin-mode .ce-editable:hover {
+  outline-color: rgba(123, 94, 224, 0.95);
+  background: rgba(123, 94, 224, 0.04);
+}
+body.admin-mode .ce-edit-btn {
+  display: inline-block;
+  margin-left: 8px;
+  background: #7B5EE0;
+  color: #fff;
+  border: none;
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+  opacity: 0;
+  transition: opacity .15s;
+}
+body.admin-mode .ce-editable:hover .ce-edit-btn,
+body.admin-mode .ce-edit-btn:focus {
+  opacity: 1;
+}
+
+/* 인라인 편집기 */
+.ce-edit-wrap {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 6px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.ce-edit-input {
+  flex: 1 1 auto;
+  min-width: 200px;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 2px solid #7B5EE0;
+  border-radius: 6px;
+  padding: 4px 8px;
+  resize: vertical;
+}
+textarea.ce-edit-input { min-height: 60px; line-height: 1.5; }
+
+.ce-save-btn, .ce-cancel-btn {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--line, #e5e7eb);
+  cursor: pointer;
+  font-family: inherit;
+}
+.ce-save-btn {
+  background: #7B5EE0;
+  color: #fff;
+  border-color: #7B5EE0;
+  font-weight: 600;
+}
+.ce-save-btn:hover:not(:disabled) { background: #6a4cd0; }
+.ce-save-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.ce-cancel-btn { background: #fff; color: var(--muted, #6b7280); }
+.ce-cancel-btn:hover { color: #1a1a1a; border-color: #999; }
+
+/* 토스트 */
+.ce-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translate(-50%, 16px);
+  background: #1a1a1a;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Pretendard", "Malgun Gothic", system-ui, sans-serif;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+  opacity: 0;
+  transition: opacity .25s, transform .25s;
+  z-index: 10000;
+  max-width: 90vw;
+}
+.ce-toast.show { opacity: 1; transform: translate(-50%, 0); }
+.ce-toast-success { background: #2C5282; }
+.ce-toast-error   { background: #B91C1C; }
+.ce-toast-warn    { background: #B45309; }

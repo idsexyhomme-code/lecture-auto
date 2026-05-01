@@ -121,6 +121,27 @@ def _render_tokens_css(tokens: dict) -> str:
     )
 
 
+def _detect_repo_owner_repo() -> tuple[str, str]:
+    """GitHub Actions 환경 변수 GITHUB_REPOSITORY = 'owner/repo' 사용.
+    로컬 빌드 시엔 .git/config에서 origin URL 파싱하거나 환경변수로.
+    실패하면 ('', '') — admin.js가 작동 안 함.
+    """
+    import os, re
+    repo_full = os.environ.get("GITHUB_REPOSITORY", "")
+    if "/" in repo_full:
+        owner, name = repo_full.split("/", 1)
+        return owner, name
+    # 로컬 fallback — .git/config 시도
+    try:
+        cfg = (ROOT / ".git" / "config").read_text(encoding="utf-8")
+        m = re.search(r"github\.com[:/]([^/\s]+)/([^/\s.]+)", cfg)
+        if m:
+            return m.group(1), m.group(2)
+    except Exception:
+        pass
+    return "", ""
+
+
 def _load_site_config() -> dict:
     if not SITE_CONFIG_PATH.exists():
         return dict(DEFAULT_CONFIG)
@@ -244,6 +265,26 @@ def build():
         # design_tokens가 있으면 끝에 :root 블록 추가 (CSS 캐스케이드로 우선 적용)
         css_text += _render_tokens_css(config.get("design_tokens") or {})
         (SITE_DIR / "styles.css").write_text(css_text, encoding="utf-8")
+
+    # 어드민 모드 자원 복사 (admin.css 그대로, admin.js는 repo 정보 inject)
+    admin_css_src = TEMPLATE_DIR / "admin.css"
+    if admin_css_src.exists():
+        (SITE_DIR / "admin.css").write_text(
+            admin_css_src.read_text(encoding="utf-8"), encoding="utf-8"
+        )
+    admin_js_src = TEMPLATE_DIR / "admin.js"
+    if admin_js_src.exists():
+        owner, repo_name = _detect_repo_owner_repo()
+        prefix = (
+            "// auto-injected by build.py\n"
+            f"window.__ADMIN_REPO_OWNER__ = {owner!r};\n"
+            f"window.__ADMIN_REPO_NAME__  = {repo_name!r};\n"
+            f"window.__ADMIN_BRANCH__     = 'main';\n\n"
+        )
+        (SITE_DIR / "admin.js").write_text(
+            prefix + admin_js_src.read_text(encoding="utf-8"),
+            encoding="utf-8",
+        )
 
     print(f"Built site with {len(courses)} course(s) and {len(posts)} post(s).")
 

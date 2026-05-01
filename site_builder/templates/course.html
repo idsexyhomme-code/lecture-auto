@@ -4,8 +4,8 @@
 <section class="hero">
   <div class="wrap">
     <span class="badge">코스</span>
-    <h1>{{ course.title }}</h1>
-    <p class="lead">{{ course.tagline }}</p>
+    <h1 data-edit-field="site_config:course_overrides.{{ course.id }}.title_override">{{ course.title }}</h1>
+    <p class="lead" data-edit-field="site_config:course_overrides.{{ course.id }}.tagline_override">{{ course.tagline }}</p>
   </div>
 </section>
 

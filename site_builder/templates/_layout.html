@@ -6,11 +6,26 @@
   <title>{% block title %}{{ site_config.site_name }}{% endblock %}</title>
   <link rel="stylesheet" href="{{ base_path }}/styles.css" />
   <meta name="description" content="{% block desc %}{{ site_config.site_subtagline }}{% endblock %}" />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "{{ base_path }}/admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "{{ base_path }}/admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
 </head>
 <body>
   <header class="site">
     <div class="wrap">
-      <a href="{{ base_path }}/index.html" class="brand">{{ site_config.site_name }}</a>
+      <a href="{{ base_path }}/index.html" class="brand" data-edit-field="site_config:site_name">{{ site_config.site_name }}</a>
       <nav class="site">
         <a href="{{ base_path }}/index.html">홈</a>
       </nav>
