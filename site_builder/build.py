@@ -30,7 +30,44 @@ DEFAULT_CONFIG = {
     "site_subtagline": "15분 안에 끝나는 단일 학습목표 · 실습 산출물 1개. AI 에이전트와 강사가 함께 설계한 강의들.",
     "course_order": [],
     "course_overrides": {},
+    "design_tokens": {},
 }
+
+# design_tokens 키 → styles.css의 :root 변수명 매핑 (site_developer.py와 동일)
+DESIGN_TOKEN_MAP = {
+    "color_bg":         "--bg",
+    "color_fg":         "--fg",
+    "color_muted":      "--muted",
+    "color_line":       "--line",
+    "color_brand":      "--brand",
+    "color_brand_2":    "--brand-2",
+    "color_accent":     "--accent",
+    "color_soft":       "--soft",
+    "font_family_sans": "--font-family-sans",
+    "radius_card":      "--radius-card",
+}
+
+
+def _render_tokens_css(tokens: dict) -> str:
+    """design_tokens를 :root { --x: y; } 형태 CSS로 렌더 (없으면 빈 문자열)."""
+    if not tokens:
+        return ""
+    rules = []
+    for key, val in tokens.items():
+        var = DESIGN_TOKEN_MAP.get(key)
+        if not var or not isinstance(val, str) or not val.strip():
+            continue
+        # CSS injection 방지: 따옴표·중괄호 등 위험 문자 검사
+        v = val.strip()
+        if any(ch in v for ch in ("{", "}", ";", "<", ">")):
+            continue
+        rules.append(f"  {var}: {v};")
+    if not rules:
+        return ""
+    return (
+        "\n\n/* design_tokens — site_developer Tier 2 (overrides above) */\n"
+        ":root {\n" + "\n".join(rules) + "\n}\n"
+    )
 
 
 def _load_site_config() -> dict:
@@ -145,10 +182,13 @@ def build():
         base_path=".",
     )
 
-    # 정적 자원(공통 CSS) 복사
+    # 정적 자원(공통 CSS) 복사 + design_tokens inject
     css_src = TEMPLATE_DIR / "styles.css"
     if css_src.exists():
-        (SITE_DIR / "styles.css").write_text(css_src.read_text(encoding="utf-8"), encoding="utf-8")
+        css_text = css_src.read_text(encoding="utf-8")
+        # design_tokens가 있으면 끝에 :root 블록 추가 (CSS 캐스케이드로 우선 적용)
+        css_text += _render_tokens_css(config.get("design_tokens") or {})
+        (SITE_DIR / "styles.css").write_text(css_text, encoding="utf-8")
 
     print(f"Built site with {len(courses)} course(s) and {len(posts)} post(s).")
 

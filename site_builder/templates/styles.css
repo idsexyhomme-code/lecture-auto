@@ -8,12 +8,14 @@
   --brand-2: #2E5597;
   --accent: #5B8DEF;
   --soft: #f6f7fb;
+  --font-family-sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Pretendard", "Malgun Gothic", system-ui, sans-serif;
+  --radius-card: 12px;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    "Pretendard", "Malgun Gothic", system-ui, sans-serif;
+  font-family: var(--font-family-sans);
   color: var(--fg); background: var(--bg);
   line-height: 1.6; font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -61,7 +63,7 @@ section h2 {
 }
 .card {
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   padding: 22px;
   background: #fff;
   transition: border-color .15s, transform .15s;
