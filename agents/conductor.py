@@ -16,6 +16,7 @@ from .curriculum import CurriculumArchitect
 from .producer import ContentProducer
 from .marketing import MarketingSpecialist
 from .success import StudentSuccessManager
+from .site_developer import SiteDeveloper
 
 log = logging.getLogger("conductor")
 
@@ -30,6 +31,7 @@ AGENTS = {
     "producer": ContentProducer,
     "marketing": MarketingSpecialist,
     "success": StudentSuccessManager,
+    "site_developer": SiteDeveloper,
 }
 
 

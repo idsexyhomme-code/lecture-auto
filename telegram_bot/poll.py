@@ -12,10 +12,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from agents.base import PENDING_DIR, APPROVED_DIR, REJECTED_DIR, STATE_DIR, AgentResult
+from agents.base import PENDING_DIR, APPROVED_DIR, REJECTED_DIR, STATE_DIR, REPO_ROOT, AgentResult
 from telegram_bot import client as tg
 
 OFFSET_FILE = STATE_DIR / "telegram_offset.json"
+SITE_CONFIG_PATH = REPO_ROOT / "site_config.json"
 log = logging.getLogger("poll")
 
 
@@ -67,6 +68,17 @@ def handle_callback(cq: dict):
         r.status = "approved"
         r.save(p.parent)
         _move(p, APPROVED_DIR)
+
+        # site_developer가 만든 메타데이터 변경은 즉시 site_config.json에 적용
+        if r.kind == "site_config_change":
+            new_cfg = r.meta.get("new_config") if r.meta else None
+            if isinstance(new_cfg, dict):
+                SITE_CONFIG_PATH.write_text(
+                    json.dumps(new_cfg, ensure_ascii=False, indent=2),
+                    encoding="utf-8",
+                )
+                log.info("site_config.json updated from %s", r.id)
+
         tg.answer_callback(cq["id"], "✅ 승인 완료 — 사이트에 반영됩니다")
         tg.edit_message_text(
             chat_id, message_id,

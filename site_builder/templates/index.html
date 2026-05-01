@@ -1,11 +1,11 @@
 {% extends "_layout.html" %}
-{% block title %}강의 홈페이지{% endblock %}
+{% block title %}{{ site_config.site_name }}{% endblock %}
 {% block content %}
 <section class="hero">
   <div class="wrap">
-    <span class="badge">AI Agent × Human-in-the-Loop</span>
-    <h1>학습이 짧을수록, 결과는 또렷해집니다</h1>
-    <p class="lead">15분 안에 끝나는 단일 학습목표 · 실습 산출물 1개. AI 에이전트와 강사가 함께 설계한 강의들.</p>
+    <span class="badge">{{ site_config.site_tagline_top }}</span>
+    <h1>{{ site_config.site_headline }}</h1>
+    <p class="lead">{{ site_config.site_subtagline }}</p>
   </div>
 </section>
 

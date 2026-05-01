@@ -6,6 +6,7 @@
 """
 from __future__ import annotations
 
+import json
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -20,11 +21,37 @@ from agents.base import APPROVED_DIR, AgentResult  # noqa: E402
 
 SITE_DIR = ROOT / "site"
 TEMPLATE_DIR = Path(__file__).resolve().parent / "templates"
+SITE_CONFIG_PATH = ROOT / "site_config.json"
+
+DEFAULT_CONFIG = {
+    "site_name": "강의 홈페이지",
+    "site_tagline_top": "AI Agent × Human-in-the-Loop",
+    "site_headline": "학습이 짧을수록, 결과는 또렷해집니다",
+    "site_subtagline": "15분 안에 끝나는 단일 학습목표 · 실습 산출물 1개. AI 에이전트와 강사가 함께 설계한 강의들.",
+    "course_order": [],
+    "course_overrides": {},
+}
+
+
+def _load_site_config() -> dict:
+    if not SITE_CONFIG_PATH.exists():
+        return dict(DEFAULT_CONFIG)
+    try:
+        cfg = json.loads(SITE_CONFIG_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return dict(DEFAULT_CONFIG)
+    # 누락 키는 기본값으로 보완
+    out = dict(DEFAULT_CONFIG)
+    out.update({k: v for k, v in cfg.items() if k in DEFAULT_CONFIG})
+    return out
+
 
 env = Environment(
     loader=FileSystemLoader(str(TEMPLATE_DIR)),
     autoescape=select_autoescape(["html"]),
 )
+# 모든 템플릿에서 site_config 전역 사용 가능
+env.globals["site_config"] = _load_site_config()
 
 
 def _md_to_html(s: str) -> str:
@@ -39,6 +66,11 @@ def _group_by_course(items: list[AgentResult]) -> dict[str, list[AgentResult]]:
 
 
 def build():
+    # 빌드마다 최신 site_config 다시 읽기 (이전 빌드 이후 승인된 변경 반영)
+    config = _load_site_config()
+    env.globals["site_config"] = config
+    overrides = config.get("course_overrides", {}) or {}
+
     items = [AgentResult.load(p) for p in sorted(APPROVED_DIR.glob("*.json"))]
     grouped = _group_by_course(items)
 
@@ -51,9 +83,13 @@ def build():
         landing = next((g for g in group if g.kind == "landing_copy"), None)
         scripts = [g for g in group if g.kind == "lecture_script"]
         faqs = [g for g in group if g.kind == "faq"]
-        title = (curriculum.title if curriculum else (landing.title if landing else cid))
-        tagline = (curriculum.meta.get("raw", {}).get("tagline") if curriculum else "") or \
-                  (landing.meta.get("raw", {}).get("hero", {}).get("subhead") if landing else "")
+        base_title = (curriculum.title if curriculum else (landing.title if landing else cid))
+        base_tagline = (curriculum.meta.get("raw", {}).get("tagline") if curriculum else "") or \
+                       (landing.meta.get("raw", {}).get("hero", {}).get("subhead") if landing else "")
+        # site_developer가 만든 오버라이드 적용
+        ov = overrides.get(cid) or {}
+        title = ov.get("title_override") or base_title
+        tagline = ov.get("tagline_override") or base_tagline
         courses.append({
             "id": cid,
             "title": title,
@@ -72,6 +108,12 @@ def build():
             md_to_html=_md_to_html,
             base_path="..",
         )
+
+    # course_order 기반 정렬 (목록에 없는 코스는 뒤로)
+    order = config.get("course_order") or []
+    if order:
+        order_map = {cid: i for i, cid in enumerate(order)}
+        courses.sort(key=lambda c: order_map.get(c["id"], 9999))
 
     # 단일 포스트 상세 (스크립트 등)
     posts = []

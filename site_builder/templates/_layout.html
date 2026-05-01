@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{% block title %}강의 홈페이지{% endblock %}</title>
+  <title>{% block title %}{{ site_config.site_name }}{% endblock %}</title>
   <link rel="stylesheet" href="{{ base_path }}/styles.css" />
-  <meta name="description" content="{% block desc %}AI 에이전트가 함께 만든 강의 콘텐츠{% endblock %}" />
+  <meta name="description" content="{% block desc %}{{ site_config.site_subtagline }}{% endblock %}" />
 </head>
 <body>
   <header class="site">
     <div class="wrap">
-      <a href="{{ base_path }}/index.html" class="brand">강의 홈페이지</a>
+      <a href="{{ base_path }}/index.html" class="brand">{{ site_config.site_name }}</a>
       <nav class="site">
         <a href="{{ base_path }}/index.html">홈</a>
       </nav>
