@@ -1,0 +1,11 @@
+{
+    "agent": "curriculum",
+    "brief": {
+          "course_id": "claude-bizflow",
+          "topic": "Claude로 자동화하는 1인 사업가 워크플로우",
+          "audience": "초중급 1인 콘텐츠 사업가",
+          "duration_weeks": 4,
+          "lesson_count": 8,
+          "format": "video"
+    }
+}
