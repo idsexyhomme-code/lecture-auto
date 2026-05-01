@@ -3,13 +3,20 @@
   "course_order": [
     "claude-bizflow"
   ],
+  "site_tagline_top": "AI × 1인 사업가를 위한 실습 강의",
   "site_headline": "반복 업무를 줄이는 AI 강의",
+  "site_subtagline": "Claude·AI 도구를 쓰는 1인 사업가를 위해, 15분 단위로 설계한 실습 강의.",
+  "design_tokens": {
+    "color_brand": "#1A3558",
+    "color_brand_2": "#2C5282",
+    "color_accent": "#4A7AC7",
+    "color_soft": "#EBF0F7",
+    "color_muted": "#6B7A8D"
+  },
   "course_overrides": {
     "claude-bizflow": {
       "title_override": "Claude로 만드는 1인 사업 자동화",
       "tagline_override": "반복 업무를 AI 워크플로우로 대체하는 8차시 실습"
     }
-  },
-  "site_subtagline": "Claude·AI 도구를 쓰는 1인 사업가를 위해, 15분 단위로 설계한 실습 강의.",
-  "site_tagline_top": "AI × 1인 사업가를 위한 실습 강의"
+  }
 }

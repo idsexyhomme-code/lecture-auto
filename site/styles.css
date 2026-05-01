@@ -104,3 +104,13 @@ footer.site {
   border-radius: 999px; background: var(--soft); color: var(--brand-2);
   margin-left: 8px; vertical-align: middle;
 }
+
+
+/* design_tokens — site_developer Tier 2 (overrides above) */
+:root {
+  --brand: #1A3558;
+  --brand-2: #2C5282;
+  --accent: #4A7AC7;
+  --soft: #EBF0F7;
+  --muted: #6B7A8D;
+}
