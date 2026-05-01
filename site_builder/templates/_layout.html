@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}강의 홈페이지{% endblock %}</title>
+  <link rel="stylesheet" href="{{ base_path }}/styles.css" />
+  <meta name="description" content="{% block desc %}AI 에이전트가 함께 만든 강의 콘텐츠{% endblock %}" />
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="{{ base_path }}/index.html" class="brand">강의 홈페이지</a>
+      <nav class="site">
+        <a href="{{ base_path }}/index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer class="site">
+    <div class="wrap">
+      <div>© 2026 — AI 에이전트와 함께 만든 페이지 · 자동 빌드</div>
+    </div>
+  </footer>
+</body>
+</html>

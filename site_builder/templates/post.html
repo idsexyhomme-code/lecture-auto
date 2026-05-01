@@ -1,0 +1,13 @@
+{% extends "_layout.html" %}
+{% block title %}{{ post.title }} — 강의 홈페이지{% endblock %}
+{% block content %}
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>{{ post.title }}<span class="kind-tag">{{ post.kind }}</span></h1>
+    <p class="muted">코스: {{ post.course_id or '미분류' }} · 에이전트: {{ post.agent }}</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    {{ post.body_html | safe }}
+  </div>
+</article>
+{% endblock %}

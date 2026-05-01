@@ -1,0 +1,23 @@
+# Secrets — NEVER commit
+.env
+.env.*
+!.env.example
+*.key
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Node (we don't really use it but just in case)
+node_modules/
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
+
+# Build artifacts (we DO commit site/ — that's what GH Pages serves)
+*.log

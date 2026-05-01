@@ -1,0 +1,57 @@
+{% extends "_layout.html" %}
+{% block title %}{{ course.title }} — 강의 홈페이지{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <span class="badge">코스</span>
+    <h1>{{ course.title }}</h1>
+    <p class="lead">{{ course.tagline }}</p>
+  </div>
+</section>
+
+{% if course.landing %}
+<article class="body">
+  <div class="wrap">
+    <h2>이 코스는요</h2>
+    {{ md_to_html(course.landing.body_md) | safe }}
+  </div>
+</article>
+{% endif %}
+
+{% if course.curriculum %}
+<article class="body" style="background: var(--soft);">
+  <div class="wrap">
+    <h2>커리큘럼</h2>
+    {{ md_to_html(course.curriculum.body_md) | safe }}
+  </div>
+</article>
+{% endif %}
+
+{% if course.scripts %}
+<section>
+  <div class="wrap">
+    <h2>차시별 콘텐츠 ({{ course.scripts|length }})</h2>
+    <div class="grid">
+      {% for s in course.scripts %}
+      <div class="card">
+        <h3>{{ s.title }}</h3>
+        <p class="muted">{{ s.summary }}</p>
+        <a class="cta" href="../posts/{{ s.id }}.html">스크립트 읽기 →</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if course.faqs %}
+<article class="body">
+  <div class="wrap">
+    <h2>자주 묻는 질문</h2>
+    {% for f in course.faqs %}
+      {{ md_to_html(f.body_md) | safe }}
+    {% endfor %}
+  </div>
+</article>
+{% endif %}
+{% endblock %}

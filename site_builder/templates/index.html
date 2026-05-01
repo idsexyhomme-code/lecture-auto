@@ -1,0 +1,53 @@
+{% extends "_layout.html" %}
+{% block title %}강의 홈페이지{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <span class="badge">AI Agent × Human-in-the-Loop</span>
+    <h1>학습이 짧을수록, 결과는 또렷해집니다</h1>
+    <p class="lead">15분 안에 끝나는 단일 학습목표 · 실습 산출물 1개. AI 에이전트와 강사가 함께 설계한 강의들.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>코스 ({{ courses|length }})</h2>
+    {% if courses %}
+    <div class="grid">
+      {% for c in courses %}
+      <div class="card">
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.tagline }}</p>
+        <a class="cta" href="{{ c.url }}">자세히 보기 →</a>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty">아직 승인된 코스가 없습니다. 텔레그램에서 ✅을 누르면 여기에 등록돼요.</div>
+    {% endif %}
+  </div>
+</section>
+
+{% if posts %}
+<section>
+  <div class="wrap">
+    <h2>최근 산출물</h2>
+    <div class="grid">
+      {% for p in posts %}
+      <div class="card">
+        <h3>{{ p.title }}<span class="kind-tag">{{ p.kind }}</span></h3>
+        <p class="muted">코스: {{ p.course_id or '미분류' }}</p>
+        <a class="cta" href="{{ p.url }}">읽기 →</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section>
+  <div class="wrap muted">
+    총 승인된 콘텐츠: {{ total_count }}개 · 마지막 빌드 자동
+  </div>
+</section>
+{% endblock %}
