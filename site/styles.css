@@ -1,0 +1,104 @@
+/* 강의 자동화 사이트 — 깔끔한 한글 산세리프 톤 */
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --brand: #1F3864;
+  --brand-2: #2E5597;
+  --accent: #5B8DEF;
+  --soft: #f6f7fb;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Pretendard", "Malgun Gothic", system-ui, sans-serif;
+  color: var(--fg); background: var(--bg);
+  line-height: 1.6; font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--brand-2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+header.site {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+  background: #fff;
+  position: sticky; top: 0; z-index: 10;
+}
+header.site .wrap { display: flex; justify-content: space-between; align-items: center; }
+.brand { font-weight: 700; color: var(--brand); font-size: 18px; }
+nav.site a { color: var(--muted); margin-left: 20px; font-size: 14px; }
+
+.hero {
+  padding: 72px 0 56px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.hero h1 {
+  font-size: 36px; line-height: 1.25; margin: 0 0 14px;
+  color: var(--brand);
+}
+.hero p.lead { color: var(--muted); font-size: 18px; max-width: 620px; margin: 0 auto; }
+.badge {
+  display: inline-block; padding: 4px 10px; border-radius: 999px;
+  background: var(--soft); color: var(--brand-2); font-size: 12px;
+  font-weight: 600; margin-bottom: 14px;
+}
+
+section { padding: 56px 0; }
+section h2 {
+  font-size: 24px; margin: 0 0 24px; color: var(--fg);
+  letter-spacing: -0.01em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px;
+  background: #fff;
+  transition: border-color .15s, transform .15s;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card h3 { margin: 0 0 8px; font-size: 18px; color: var(--brand); }
+.card p { margin: 0; color: var(--muted); font-size: 14px; }
+.card a.cta {
+  display: inline-block; margin-top: 14px; font-size: 14px;
+  color: var(--brand-2); font-weight: 600;
+}
+
+.empty {
+  border: 1px dashed var(--line); padding: 40px;
+  text-align: center; color: var(--muted); border-radius: 12px;
+}
+
+article.body { padding: 56px 0; }
+article.body h1 { font-size: 30px; color: var(--brand); }
+article.body h2 { font-size: 22px; margin-top: 36px; }
+article.body h3 { font-size: 18px; margin-top: 24px; }
+article.body table {
+  border-collapse: collapse; width: 100%; margin: 16px 0;
+  font-size: 14px;
+}
+article.body th, article.body td {
+  border: 1px solid var(--line); padding: 8px 12px; text-align: left;
+}
+article.body th { background: var(--soft); font-weight: 600; }
+
+footer.site {
+  border-top: 1px solid var(--line); padding: 28px 0; margin-top: 40px;
+  color: var(--muted); font-size: 13px; text-align: center;
+}
+.muted { color: var(--muted); font-size: 14px; }
+.kind-tag {
+  display: inline-block; font-size: 11px; padding: 2px 8px;
+  border-radius: 999px; background: var(--soft); color: var(--brand-2);
+  margin-left: 8px; vertical-align: middle;
+}
