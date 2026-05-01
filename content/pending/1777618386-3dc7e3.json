@@ -1,0 +1,52 @@
+{
+  "id": "1777618386-3dc7e3",
+  "agent": "site_developer",
+  "kind": "site_config_change",
+  "title": "사이트 메타데이터·디자인 토큰 변경 제안 (Tier 2)",
+  "body_md": "## 변경 요약 (Tier 2: 메타데이터 + 디자인 토큰)\n\n### 🎨 디자인 토큰 변경\n**color_muted** (`--muted`)\n- 이전: `(기본값)`\n- 제안: `#6B7A8D`\n\n**color_brand** (`--brand`)\n- 이전: `(기본값)`\n- 제안: `#1A3558`\n\n**color_brand_2** (`--brand-2`)\n- 이전: `(기본값)`\n- 제안: `#2C5282`\n\n**color_accent** (`--accent`)\n- 이전: `(기본값)`\n- 제안: `#4A7AC7`\n\n**color_soft** (`--soft`)\n- 이전: `(기본값)`\n- 제안: `#EBF0F7`\n\n## 변경 이유\n기존 네이비-블루 계열을 유지하되, `color_brand`를 약간 더 짙고 중립적인 먹색 기반 네이비(#1A3558)로 낮춰 '단단한 신뢰감'을 강조했다. `color_accent`는 채도를 소폭 줄인 슬레이트-블루(#4A7AC7)로 조정해 화면 전면에 눈에 띄되 과하지 않은 실용적 느낌을 유지했고, `color_soft`는 아이보리-블루(#EBF0F7)로 배경 보조색에 따뜻함을 약간 더했다. 전체 톤은 30-40대 비전공자 타깃이 '믿을 수 있는 강의'라고 직관적으로 느낄 수 있도록 차분하고 절제된 전문가 분위기를 지향했다.",
+  "summary": "기존 네이비-블루 계열을 유지하되, `color_brand`를 약간 더 짙고 중립적인 먹색 기반 네이비(#1A3558)로 낮춰 '단단한 신뢰감'을 강조했다. `color_accent`는 채도를 소폭 줄인 슬레이트-블",
+  "meta": {
+    "new_config": {
+      "site_name": "단강 스튜디오",
+      "course_order": [
+        "claude-bizflow"
+      ],
+      "site_tagline_top": "AI × 1인 사업가를 위한 실습 강의",
+      "site_headline": "반복 업무를 줄이는 AI 강의",
+      "site_subtagline": "Claude·AI 도구를 쓰는 1인 사업가를 위해, 15분 단위로 설계한 실습 강의.",
+      "design_tokens": {
+        "color_brand": "#1A3558",
+        "color_brand_2": "#2C5282",
+        "color_accent": "#4A7AC7",
+        "color_soft": "#EBF0F7",
+        "color_muted": "#6B7A8D"
+      },
+      "course_overrides": {
+        "claude-bizflow": {
+          "title_override": "Claude로 만드는 1인 사업 자동화",
+          "tagline_override": "반복 업무를 AI 워크플로우로 대체하는 8차시 실습"
+        }
+      }
+    },
+    "old_config": {
+      "site_name": "단강 스튜디오",
+      "course_order": [
+        "claude-bizflow"
+      ],
+      "site_headline": "반복 업무를 줄이는 AI 강의",
+      "course_overrides": {
+        "claude-bizflow": {
+          "title_override": "Claude로 만드는 1인 사업 자동화",
+          "tagline_override": "반복 업무를 AI 워크플로우로 대체하는 8차시 실습"
+        }
+      },
+      "site_subtagline": "Claude·AI 도구를 쓰는 1인 사업가를 위해, 15분 단위로 설계한 실습 강의.",
+      "site_tagline_top": "AI × 1인 사업가를 위한 실습 강의"
+    },
+    "notes": "기존 네이비-블루 계열을 유지하되, `color_brand`를 약간 더 짙고 중립적인 먹색 기반 네이비(#1A3558)로 낮춰 '단단한 신뢰감'을 강조했다. `color_accent`는 채도를 소폭 줄인 슬레이트-블루(#4A7AC7)로 조정해 화면 전면에 눈에 띄되 과하지 않은 실용적 느낌을 유지했고, `color_soft`는 아이보리-블루(#EBF0F7)로 배경 보조색에 따뜻함을 약간 더했다. 전체 톤은 30-40대 비전공자 타깃이 '믿을 수 있는 강의'라고 직관적으로 느낄 수 있도록 차분하고 절제된 전문가 분위기를 지향했다."
+  },
+  "course_id": "",
+  "created_at": "2026-05-01T06:53:06+00:00",
+  "status": "pending",
+  "telegram_message_id": 16
+}
