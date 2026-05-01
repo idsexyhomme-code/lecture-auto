@@ -1,8 +1,13 @@
 {
-  "site_name": "강의 홈페이지",
-  "site_tagline_top": "AI Agent × Human-in-the-Loop",
-  "site_headline": "학습이 짧을수록, 결과는 또렷해집니다",
-  "site_subtagline": "15분 안에 끝나는 단일 학습목표 · 실습 산출물 1개. AI 에이전트와 강사가 함께 설계한 강의들.",
-  "course_order": [],
-  "course_overrides": {}
+    "site_name": "단강 스튜디오",
+    "site_tagline_top": "AI × 1인 사업가를 위한 실습 강의",
+    "site_headline": "반복 업무를 줄이는 AI 강의",
+    "site_subtagline": "Claude·AI 도구를 쓰는 1인 사업가를 위해, 15분 단위로 설계한 실습 강의.",
+    "course_order": ["claude-bizflow"],
+    "course_overrides": {
+          "claude-bizflow": {
+                  "title_override": "Claude로 만드는 1인 사업 자동화",
+                  "tagline_override": "반복 업무를 AI 워크플로우로 대체하는 8차시 실습"
+          }
+    }
 }
