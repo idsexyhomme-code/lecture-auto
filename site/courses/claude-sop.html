@@ -6,11 +6,26 @@
   <title>Claude 워크플로우 SOP 만들기 — 강의 홈페이지</title>
   <link rel="stylesheet" href="../styles.css" />
   <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
 </head>
 <body>
   <header class="site">
     <div class="wrap">
-      <a href="../index.html" class="brand">코어 캠퍼스</a>
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
       <nav class="site">
         <a href="../index.html">홈</a>
       </nav>
@@ -21,8 +36,8 @@
 <section class="hero">
   <div class="wrap">
     <span class="badge">코스</span>
-    <h1>Claude 워크플로우 SOP 만들기</h1>
-    <p class="lead">인수인계·외주에 바로 쓰는 재사용 프롬프트 문서</p>
+    <h1 data-edit-field="site_config:course_overrides.claude-sop.title_override">Claude 워크플로우 SOP 만들기</h1>
+    <p class="lead" data-edit-field="site_config:course_overrides.claude-sop.tagline_override">인수인계·외주에 바로 쓰는 재사용 프롬프트 문서</p>
   </div>
 </section>
 

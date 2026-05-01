@@ -6,11 +6,26 @@
   <title>코어 캠퍼스</title>
   <link rel="stylesheet" href="./styles.css" />
   <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "./admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "./admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
 </head>
 <body>
   <header class="site">
     <div class="wrap">
-      <a href="./index.html" class="brand">코어 캠퍼스</a>
+      <a href="./index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
       <nav class="site">
         <a href="./index.html">홈</a>
       </nav>
@@ -72,14 +87,14 @@
     <div class="grid">
       
       <div class="card">
-        <h3>Claude로 만드는 1인 사업 자동화</h3>
-        <p>반복 업무를 AI 워크플로우로 대체하는 8차시 실습</p>
+        <h3 data-edit-field="site_config:course_overrides.claude-bizflow.title_override">Claude로 만드는 1인 사업 자동화</h3>
+        <p data-edit-field="site_config:course_overrides.claude-bizflow.tagline_override">반복 업무를 AI 워크플로우로 대체하는 8차시 실습</p>
         <a class="cta" href="courses/claude-bizflow.html">자세히 보기 →</a>
       </div>
       
       <div class="card">
-        <h3>Claude 워크플로우 SOP 만들기</h3>
-        <p>인수인계·외주에 바로 쓰는 재사용 프롬프트 문서</p>
+        <h3 data-edit-field="site_config:course_overrides.claude-sop.title_override">Claude 워크플로우 SOP 만들기</h3>
+        <p data-edit-field="site_config:course_overrides.claude-sop.tagline_override">인수인계·외주에 바로 쓰는 재사용 프롬프트 문서</p>
         <a class="cta" href="courses/claude-sop.html">자세히 보기 →</a>
       </div>
       
