@@ -1,22 +1,35 @@
 {
-  "site_name": "단강 스튜디오",
-  "course_order": [
-    "claude-bizflow"
-  ],
-  "site_tagline_top": "AI × 1인 사업가를 위한 실습 강의",
-  "site_headline": "반복 업무를 줄이는 AI 강의",
-  "site_subtagline": "Claude·AI 도구를 쓰는 1인 사업가를 위해, 15분 단위로 설계한 실습 강의.",
-  "design_tokens": {
-    "color_brand": "#1A3558",
-    "color_brand_2": "#2C5282",
-    "color_accent": "#4A7AC7",
-    "color_soft": "#EBF0F7",
-    "color_muted": "#6B7A8D"
-  },
+  "site_headline": "핵심만 파는 AI 실습 강의",
+  "footer_html": "<div style=\"padding: 8px 0; display: flex; flex-direction: column; gap: 4px;\">\n  <p style=\"font-size: 13px; color: var(--muted); margin: 0;\">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>\n  <p style=\"font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;\">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>\n</div>",
   "course_overrides": {
     "claude-bizflow": {
       "title_override": "Claude로 만드는 1인 사업 자동화",
       "tagline_override": "반복 업무를 AI 워크플로우로 대체하는 8차시 실습"
+    },
+    "claude-sop": {
+      "title_override": "Claude 워크플로우 SOP 만들기",
+      "tagline_override": "인수인계·외주에 바로 쓰는 재사용 프롬프트 문서"
     }
-  }
+  },
+  "design_tokens": {
+    "color_bg": "#F7F9FB",
+    "color_fg": "#12233A",
+    "color_muted": "#6B7A8D",
+    "color_line": "#D6DEE8",
+    "color_brand": "#1A3558",
+    "color_brand_2": "#2C5282",
+    "color_accent": "#4A7AC7",
+    "color_soft": "#EBF0F7",
+    "font_family_sans": "'Pretendard', 'Apple SD Gothic Neo', sans-serif",
+    "radius_card": "10px"
+  },
+  "site_name": "코어 캠퍼스",
+  "hero_html": "<div class=\"wrap\" style=\"padding: 72px 0 64px; display: flex; flex-direction: column; gap: 28px;\">\n  <div style=\"display: flex; align-items: center; gap: 10px;\">\n    <span class=\"badge\" style=\"background: var(--soft); color: var(--brand); font-size: 13px; padding: 4px 12px; border-radius: 99px; letter-spacing: 0.02em;\">시리즈 강의 · 2코스 운영 중</span>\n  </div>\n  <div style=\"display: flex; flex-direction: column; gap: 14px; max-width: 600px;\">\n    <h1 style=\"font-size: clamp(26px, 4vw, 40px); font-weight: 700; line-height: 1.25; color: var(--fg); margin: 0; letter-spacing: -0.02em;\">Claude를 쓴다면,<br>제대로 쓰는 법이 있습니다.</h1>\n    <p class=\"lead\" style=\"font-size: clamp(15px, 2vw, 17px); color: var(--muted); line-height: 1.7; margin: 0; max-width: 520px;\">1인 사업가를 위한 AI 실무 시리즈. 자동화·SOP 두 코스로 반복 업무를 줄이고, 혼자서도 돌아가는 구조를 만듭니다.</p>\n  </div>\n  <div style=\"display: flex; gap: 12px; flex-wrap: wrap; align-items: center;\">\n    <a href=\"#courses\" style=\"display: inline-block; background: var(--brand); color: #FFFFFF; font-size: 15px; font-weight: 600; padding: 12px 28px; border-radius: var(--radius-card); text-decoration: none; letter-spacing: 0.01em;\">코스 보기</a>\n    <a href=\"/claude-bizflow\" style=\"display: inline-block; background: transparent; color: var(--brand); font-size: 15px; font-weight: 500; padding: 12px 20px; border-radius: var(--radius-card); text-decoration: none; border: 1.5px solid var(--line);\">시리즈 1부터 시작</a>\n  </div>\n  <div style=\"display: flex; gap: 32px; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--line);\">\n    <div style=\"display: flex; flex-direction: column; gap: 2px;\">\n      <span style=\"font-size: 20px; font-weight: 700; color: var(--brand);\">2</span>\n      <span style=\"font-size: 13px; color: var(--muted);\">시리즈 코스</span>\n    </div>\n    <div style=\"display: flex; flex-direction: column; gap: 2px;\">\n      <span style=\"font-size: 20px; font-weight: 700; color: var(--brand);\">15분</span>\n      <span style=\"font-size: 13px; color: var(--muted);\">단위 설계</span>\n    </div>\n    <div style=\"display: flex; flex-direction: column; gap: 2px;\">\n      <span style=\"font-size: 20px; font-weight: 700; color: var(--brand);\">비전공자</span>\n      <span style=\"font-size: 13px; color: var(--muted);\">기준 설계</span>\n    </div>\n  </div>\n</div>",
+  "home_intro_html": "<div class=\"wrap\" id=\"courses\" style=\"padding: 48px 0 16px;\">\n  <div style=\"display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px;\">\n    <h2 style=\"font-size: clamp(18px, 2.5vw, 22px); font-weight: 700; color: var(--fg); margin: 0; letter-spacing: -0.01em;\">지금 열린 코스</h2>\n    <p style=\"font-size: 14px; color: var(--muted); margin: 0;\">각 코스는 독립적으로 수강 가능하며, 순서대로 따라가면 더 탄탄히 쌓입니다.</p>\n  </div>\n</div>",
+  "site_subtagline": "Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의.",
+  "course_order": [
+    "claude-bizflow",
+    "claude-sop"
+  ],
+  "site_tagline_top": "AI × 1인 사업가를 위한 실습 강의"
 }

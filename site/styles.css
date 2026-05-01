@@ -108,9 +108,14 @@ footer.site {
 
 /* design_tokens — site_developer Tier 2 (overrides above) */
 :root {
+  --bg: #F7F9FB;
+  --fg: #12233A;
+  --muted: #6B7A8D;
+  --line: #D6DEE8;
   --brand: #1A3558;
   --brand-2: #2C5282;
   --accent: #4A7AC7;
   --soft: #EBF0F7;
-  --muted: #6B7A8D;
+  --font-family-sans: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  --radius-card: 10px;
 }
