@@ -1,6 +1,13 @@
 {% extends "_layout.html" %}
 {% block title %}{{ site_config.site_name }}{% endblock %}
 {% block content %}
+{% if site_config.hero_html %}
+<section class="hero hero-custom">
+  <div class="wrap">
+    {{ site_config.hero_html | safe }}
+  </div>
+</section>
+{% else %}
 <section class="hero">
   <div class="wrap">
     <span class="badge">{{ site_config.site_tagline_top }}</span>
@@ -8,6 +15,15 @@
     <p class="lead">{{ site_config.site_subtagline }}</p>
   </div>
 </section>
+{% endif %}
+
+{% if site_config.home_intro_html %}
+<section class="intro-custom">
+  <div class="wrap">
+    {{ site_config.home_intro_html | safe }}
+  </div>
+</section>
+{% endif %}
 
 <section>
   <div class="wrap">

@@ -1,20 +1,22 @@
-"""Site Developer — 사이트 개발자 에이전트 (Tier 2: 메타데이터 + CSS 토큰).
+"""Site Developer — 사이트 개발자 에이전트 (Tier 3: 메타데이터 + 디자인 토큰 + HTML 슬롯).
 
 권한 단계:
   Tier 1         — site_config.json 메타데이터만.
-  Tier 2 (현재)  — Tier 1 + design_tokens(CSS 변수 8종 컬러 + 폰트·간격) 변경 가능.
-  Tier 3 (추후)  — HTML 템플릿 구조 변경 (PR 기반).
-  Tier 4 (추후)  — 새 페이지·새 기능.
+  Tier 2         — Tier 1 + design_tokens(CSS 변수 8종 컬러 + 폰트·간격) 변경.
+  Tier 3 (현재)  — Tier 2 + HTML 슬롯(hero_html, home_intro_html, footer_html) 변경 가능.
+                   인덱스 페이지의 히어로·중간 소개·푸터 영역을 HTML로 직접 디자인.
+                   템플릿 자체(_layout/index/course/post 파일)는 여전히 수정 불가.
+  Tier 4 (추후)  — 새 페이지·새 라우트 추가.
 
-여전히 코드(HTML/JS/Python) 일체는 수정하지 않는다.
-CSS 변경도 :root 변수 토큰 한 묶음으로만 한정 — 셀렉터·구조 변경 불가.
-산출물은 ‘변경된 site_config.json 전체’ + 변경 이유.
-승인되면 poll.py가 site_config.json에 즉시 적용하고, build.py가 design_tokens를
-styles.css에 :root 블록으로 inject한다.
+산출물은 늘 동일 — '변경된 site_config.json 전체' + 변경 이유.
+승인되면 poll.py가 site_config.json에 즉시 적용하고 build.py가 빌드 시 inject한다.
+
+Tier 3의 HTML 슬롯은 시스템 프롬프트로 1차 sanitize, build.py에서 bleach로 2차 sanitize.
 """
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 from .base import BaseAgent, AgentResult, REPO_ROOT, list_approved
@@ -42,35 +44,57 @@ DESIGN_TOKEN_WHITELIST = {
 }
 
 
-SYSTEM = """당신은 강의 홈페이지의 사이트 개발자(Site Developer)다. 권한은 Tier 2.
+SYSTEM = """당신은 강의 홈페이지의 사이트 개발자(Site Developer)다. 권한은 Tier 3.
 
 변경 가능 영역 (이것 외에는 어떤 것도 만지지 않는다):
 
-A. 메타데이터 (Tier 1 권한)
+A. 메타데이터 (Tier 1)
    - site_name (≤8자), site_tagline_top (≤30자)
    - site_headline (12-22자), site_subtagline (25-50자)
    - course_order (배열), course_overrides ({title_override, tagline_override})
 
-B. 디자인 토큰 (Tier 2 권한, design_tokens 객체 하나에 모음)
-   컬러는 모두 #RRGGBB 또는 #RRGGBBAA 헥스 문자열만:
+B. 디자인 토큰 (Tier 2, design_tokens 객체)
+   컬러는 #RRGGBB 또는 #RRGGBBAA 헥스만:
    - color_bg, color_fg, color_muted, color_line
    - color_brand, color_brand_2, color_accent, color_soft
    타이포그래피·간격:
    - font_family_sans (CSS font-family 문자열)
    - radius_card (CSS 길이, 예: "12px")
 
-당신이 절대 시도하지 않는 것:
-- 위에 명시된 키 외의 어떤 필드/토큰도 추가하지 않는다.
-- HTML/CSS 셀렉터/JS/Python 어떤 코드도 만들지 않는다.
-- 컬러를 'red', 'rgb(...)' 같은 비-헥스 형식으로 쓰지 않는다.
-- 과장 표현(반드시·100%·최고·완벽한) 금지.
-- 영어 남발 금지 (브랜드 한 단어 정도 OK).
+C. HTML 슬롯 (Tier 3, 새로 부여됨)
+   메인 페이지의 3개 영역을 HTML로 직접 작성할 수 있다 (없으면 기본값 사용):
+   - hero_html: 히어로 섹션 안의 콘텐츠 (.wrap 안쪽). 제목·설명·CTA 등.
+   - home_intro_html: 코스 섹션 위에 들어가는 소개 영역 (선택).
+   - footer_html: 푸터의 추가 콘텐츠 (선택).
 
-디자인 가드레일:
-- WCAG AA 대비 유지: color_bg 대 color_fg는 명도차 4.5:1 이상.
-- 동시에 너무 많은 컬러 변경은 피한다 (한 번에 3-5개).
-- font_family_sans 변경 시 시스템 폰트 스택을 우선하여 로딩 비용 0 유지.
-- 변경 이유는 ‘브랜드 톤’과 연결지어 한국어로 설명.
+   HTML 작성 규칙 (안전):
+   - 사용 가능 태그: div, section, p, h1, h2, h3, h4, span, strong, em, br, hr,
+     ul, ol, li, a, img, button, blockquote, code, figure, figcaption, small.
+   - 사용 가능 속성: class, id, href, src, alt, target, rel, title, role, aria-*,
+     style (단 url()·expression() 등 위험 패턴 없을 때만).
+   - 절대 금지 태그: script, style, iframe, object, embed, form, input, link, meta.
+   - 절대 금지 속성: on*(onclick 등), javascript: URL.
+   - href·src URL은 https://, http://, mailto:, /, #로 시작하는 것만.
+   - 활용 가능한 CSS 변수: var(--bg), var(--fg), var(--muted), var(--line),
+     var(--brand), var(--brand-2), var(--accent), var(--soft),
+     var(--font-family-sans), var(--radius-card).
+   - 활용 가능한 기존 클래스: .wrap, .badge, .lead, .empty, .card, .grid, .muted,
+     .kind-tag (기존 styles.css 정의).
+   - 인라인 style 사용 OK (예: style="font-size:32px;color:var(--brand)").
+   - 한국어 자연스럽게. 영어 남발·과장 표현(반드시·100%·완벽한) 금지.
+
+당신이 절대 시도하지 않는 것:
+- 위에 명시된 키 외의 어떤 필드도 추가하지 않는다.
+- HTML 안에서 외부 도메인 이미지를 src로 넣지 않는다 (data: URL 또는 사이트 내 자원만).
+- JS·CSS 셀렉터·Python 어떤 코드도 만들지 않는다.
+
+디자인 가드레일 (Tier 3):
+- '대문(히어로)'은 8초 안에 누구를 위한 사이트인지 알아챌 수 있어야 한다.
+- 헤드라인은 결과 약속 또는 호기심 한 줄. 12-22자.
+- 서브카피는 25-60자. 대상·이득·차별점 중 하나는 명시.
+- CTA 버튼은 1-2개로 제한. 동사형 짧은 문구.
+- 이모지는 하나의 영역에 0-2개. 과하지 않게.
+- WCAG AA 대비 유지: color_bg 대 color_fg는 4.5:1 이상.
 
 출력 형식 (반드시 이 순서, 이 형식):
 
@@ -81,10 +105,37 @@ B. 디자인 토큰 (Tier 2 권한, design_tokens 객체 하나에 모음)
 이 코드펜스 다음에 한 줄 비우고:
 
 ### NOTES
-변경 이유를 2-3문장으로 한 단락. 톤 의도를 적는다.
+변경 이유와 디자인 의도를 2-4문장. 어떤 톤·차별화·UX 결정을 했는지 적는다.
 
 JSON과 NOTES 외 다른 어떤 텍스트도 출력하지 않는다.
 """
+
+
+# Tier 3 — HTML sanitize 유틸 (이중 방어 — 에이전트 단 1차)
+_DANGEROUS_PATTERNS = [
+    re.compile(r"<\s*script", re.IGNORECASE),
+    re.compile(r"<\s*style", re.IGNORECASE),
+    re.compile(r"<\s*iframe", re.IGNORECASE),
+    re.compile(r"<\s*object", re.IGNORECASE),
+    re.compile(r"<\s*embed", re.IGNORECASE),
+    re.compile(r"<\s*form", re.IGNORECASE),
+    re.compile(r"<\s*input", re.IGNORECASE),
+    re.compile(r"<\s*meta", re.IGNORECASE),
+    re.compile(r"<\s*link", re.IGNORECASE),
+    re.compile(r"\son\w+\s*=", re.IGNORECASE),       # onclick·onload 등
+    re.compile(r"javascript\s*:", re.IGNORECASE),
+    re.compile(r"expression\s*\(", re.IGNORECASE),    # CSS expression
+    re.compile(r"url\s*\(\s*['\"]?(?!\s*(data:|/|#))", re.IGNORECASE),  # 외부 url()
+]
+
+
+def is_html_safe(s: str) -> bool:
+    if not isinstance(s, str):
+        return False
+    for p in _DANGEROUS_PATTERNS:
+        if p.search(s):
+            return False
+    return True
 
 
 class SiteDeveloper(BaseAgent):
@@ -161,6 +212,9 @@ class SiteDeveloper(BaseAgent):
             "course_order": [],
             "course_overrides": {},
             "design_tokens": {},
+            "hero_html": "",
+            "home_intro_html": "",
+            "footer_html": "",
         }
 
     @staticmethod
@@ -201,7 +255,12 @@ class SiteDeveloper(BaseAgent):
         "course_order",
         "course_overrides",
         "design_tokens",
+        # Tier 3 — HTML 슬롯
+        "hero_html",
+        "home_intro_html",
+        "footer_html",
     }
+    HTML_SLOT_KEYS = {"hero_html", "home_intro_html", "footer_html"}
 
     @classmethod
     def _sanitize(cls, new: dict, fallback: dict) -> dict:
@@ -228,6 +287,21 @@ class SiteDeveloper(BaseAgent):
                 "tagline_override": ov.get("tagline_override"),
             }
         out["course_overrides"] = clean_overrides
+
+        # HTML 슬롯 1차 sanitize — 위험 패턴 발견 시 fallback (또는 빈 문자열)
+        for slot in cls.HTML_SLOT_KEYS:
+            v = out.get(slot)
+            if v is None:
+                v = fallback.get(slot, "") or ""
+            if not isinstance(v, str):
+                v = ""
+            v = v.strip()
+            if v and not is_html_safe(v):
+                # 위험 패턴 발견 — fallback으로 되돌림 (없으면 빈 문자열)
+                v = fallback.get(slot, "") or ""
+                if not isinstance(v, str) or not is_html_safe(v):
+                    v = ""
+            out[slot] = v
 
         # design_tokens 화이트리스트 검증
         tokens_in = out.get("design_tokens") or {}

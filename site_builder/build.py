@@ -11,6 +11,8 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+import bleach
+from bleach.css_sanitizer import CSSSanitizer
 import markdown as md_lib
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
@@ -31,7 +33,56 @@ DEFAULT_CONFIG = {
     "course_order": [],
     "course_overrides": {},
     "design_tokens": {},
+    "hero_html": "",
+    "home_intro_html": "",
+    "footer_html": "",
 }
+
+# Tier 3 — HTML 슬롯 sanitize 화이트리스트 (이중 방어 — build 단 2차)
+_BLEACH_TAGS = [
+    "div", "section", "p", "h1", "h2", "h3", "h4", "h5", "h6",
+    "span", "strong", "em", "b", "i", "u", "br", "hr",
+    "ul", "ol", "li", "a", "img", "button", "blockquote",
+    "code", "figure", "figcaption", "small", "mark",
+]
+_BLEACH_ATTRS = {
+    "*": ["class", "id", "title", "role", "style",
+          "aria-label", "aria-labelledby", "aria-describedby", "aria-hidden"],
+    "a": ["href", "target", "rel"],
+    "img": ["src", "alt", "width", "height", "loading"],
+    "button": ["type"],
+}
+_BLEACH_PROTOCOLS = ["http", "https", "mailto", "tel", "data"]
+_BLEACH_CSS_PROPS = [
+    "color", "background", "background-color", "background-image", "background-size",
+    "background-position", "background-repeat",
+    "font-size", "font-weight", "font-family", "font-style", "line-height", "letter-spacing",
+    "text-align", "text-transform", "text-decoration",
+    "padding", "padding-top", "padding-right", "padding-bottom", "padding-left",
+    "margin", "margin-top", "margin-right", "margin-bottom", "margin-left",
+    "border", "border-top", "border-bottom", "border-radius", "box-shadow",
+    "display", "flex", "flex-direction", "flex-wrap", "justify-content", "align-items", "gap",
+    "grid", "grid-template-columns", "grid-template-rows", "grid-gap",
+    "width", "height", "max-width", "max-height", "min-width", "min-height",
+    "opacity", "transform",
+]
+
+
+def _sanitize_html_slot(s: str) -> str:
+    """build 단 2차 sanitize. site_developer 1차 sanitize 우회 시도까지 차단."""
+    if not s or not isinstance(s, str):
+        return ""
+    css_sanitizer = CSSSanitizer(
+        allowed_css_properties=_BLEACH_CSS_PROPS
+    )
+    return bleach.clean(
+        s,
+        tags=_BLEACH_TAGS,
+        attributes=_BLEACH_ATTRS,
+        protocols=_BLEACH_PROTOCOLS,
+        css_sanitizer=css_sanitizer,
+        strip=True,
+    )
 
 # design_tokens 키 → styles.css의 :root 변수명 매핑 (site_developer.py와 동일)
 DESIGN_TOKEN_MAP = {
@@ -105,6 +156,10 @@ def _group_by_course(items: list[AgentResult]) -> dict[str, list[AgentResult]]:
 def build():
     # 빌드마다 최신 site_config 다시 읽기 (이전 빌드 이후 승인된 변경 반영)
     config = _load_site_config()
+    # Tier 3 — HTML 슬롯 2차 sanitize (defense in depth)
+    for slot in ("hero_html", "home_intro_html", "footer_html"):
+        if config.get(slot):
+            config[slot] = _sanitize_html_slot(config[slot])
     env.globals["site_config"] = config
     overrides = config.get("course_overrides", {}) or {}
 

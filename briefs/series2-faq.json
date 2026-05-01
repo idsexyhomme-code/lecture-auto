@@ -1,0 +1,10 @@
+{
+  "agent": "success",
+  "brief": {
+    "mode": "faq",
+    "course_id": "claude-sop",
+    "course_title": "Claude 워크플로우 SOP 만들기",
+    "topic": "재사용 가능한 Claude SOP 문서 만들기. 인수인계·외주에 그대로 통하는 프롬프트 라이브러리 구조화. 단강 스튜디오 시리즈 2.",
+    "audience": "Claude/ChatGPT 마스터 프롬프트 경험이 있는 30-40대 1인 콘텐츠·서비스 사업자. 단강 스튜디오 첫 코스 'Claude로 만드는 1인 사업 자동화' 수강생도 일부 포함."
+  }
+}

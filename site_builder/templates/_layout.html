@@ -21,7 +21,11 @@
 
   <footer class="site">
     <div class="wrap">
-      <div>© 2026 — AI 에이전트와 함께 만든 페이지 · 자동 빌드</div>
+      {% if site_config.footer_html %}
+        {{ site_config.footer_html | safe }}
+      {% else %}
+        <div>© 2026 — AI 에이전트와 함께 만든 페이지 · 자동 빌드</div>
+      {% endif %}
     </div>
   </footer>
 </body>
