@@ -1,7 +1,7 @@
 {
   "id": "1777706482-7071151003",
   "chat_id": 7071151003,
-  "status": "active",
+  "status": "ready",
   "history": [
     {
       "role": "user",
@@ -26,10 +26,35 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"에디토리얼 모던 톤으로 바꾸는 거군요. 한 가지만 더 확인할게요.\\n\\n**어느 영역**을 새로 디자인할까요?\\n- 히어로(대문)만\\n- 홈 전체\\n- 코스 랜딩 페이지\\n- 기타 (직접 입력)\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "홈 전체"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"READY\", \"message\": \"아래 brief로 ui_designer에게 에디토리얼 모던 홈 전체 시안 3변형을 요청할게요.\\n\\n- **대상**: 홈 전체 (home_intro)\\n- **스타일**: 에디토리얼 모던 — 타이포 중심, 여백 강조, 절제된 컬러\\n- **타깃**: Claude를 실무에 쓰는 1인 사업가\\n\\n이대로 진행해도 될까요?\", \"brief\": {\"agent\": \"ui_designer\", \"brief\": {\"target\": \"home_intro\", \"purpose\": \"1인 사업가가 홈에 처음 도착했을 때, 코어 캠퍼스의 전문성과 신뢰를 즉시 느끼고 코스 탐색으로 자연스럽게 이어지도록 한다\", \"audience\": \"Claude를 실무에 활용하고 싶은 1인 사업가 — 과장된 마케팅보다 실질적 정보를 선호함\", \"style_keywords\": [\"에디토리얼 모던\", \"타이포그래피 중심\", \"넓은 여백\", \"절제된 레이아웃\", \"차분하고 단단한 톤\"], \"color_mood\": \"monochrome\", \"reference_urls\": [], \"additional_context\": \"브랜드 톤 — 차분하고 단단한 한국어, 과장 금지. 등록 코스: 'Claude로 완성하는 1인 사업 자동화', 'Claude 워크플로우 SOP 만들기'. 시안 3변형 생성 후 회원님 선택.\"}}}"
     }
   ],
-  "draft_brief": null,
-  "last_telegram_message_id": 86,
+  "draft_brief": {
+    "agent": "ui_designer",
+    "brief": {
+      "target": "home_intro",
+      "purpose": "1인 사업가가 홈에 처음 도착했을 때, 코어 캠퍼스의 전문성과 신뢰를 즉시 느끼고 코스 탐색으로 자연스럽게 이어지도록 한다",
+      "audience": "Claude를 실무에 활용하고 싶은 1인 사업가 — 과장된 마케팅보다 실질적 정보를 선호함",
+      "style_keywords": [
+        "에디토리얼 모던",
+        "타이포그래피 중심",
+        "넓은 여백",
+        "절제된 레이아웃",
+        "차분하고 단단한 톤"
+      ],
+      "color_mood": "monochrome",
+      "reference_urls": [],
+      "additional_context": "브랜드 톤 — 차분하고 단단한 한국어, 과장 금지. 등록 코스: 'Claude로 완성하는 1인 사업 자동화', 'Claude 워크플로우 SOP 만들기'. 시안 3변형 생성 후 회원님 선택."
+    }
+  },
+  "last_telegram_message_id": 88,
   "created_at": "2026-05-02T07:21:22+00:00",
-  "updated_at": "2026-05-02T07:23:11+00:00"
+  "updated_at": "2026-05-02T07:23:30+00:00"
 }
