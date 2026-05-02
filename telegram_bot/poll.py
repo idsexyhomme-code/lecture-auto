@@ -14,6 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from agents.base import PENDING_DIR, APPROVED_DIR, REJECTED_DIR, STATE_DIR, REPO_ROOT, AgentResult
 from telegram_bot import client as tg
+from telegram_bot.conversation import Conversation
 
 OFFSET_FILE = STATE_DIR / "telegram_offset.json"
 SITE_CONFIG_PATH = REPO_ROOT / "site_config.json"
@@ -117,16 +118,22 @@ def handle_callback(cq: dict):
 
 
 def handle_message(m: dict):
-    """텍스트 메시지/명령 처리. 현재는 reply 기반 ‘revise 지시’만 인식."""
-    reply_to = m.get("reply_to_message")
+    """텍스트 메시지/명령 처리.
+
+    우선순위:
+      1) 봇 카드에 reply → revise 지시
+      2) 명령어(/start, /pending, /cancel 등)
+      3) 일반 텍스트 → idea_intake 대화 라우팅
+    """
     text = m.get("text", "").strip()
+    chat_id = m.get("chat", {}).get("id")
     if not text:
         return
+
+    # 1) 봇 카드 reply → revise (기존 흐름)
+    reply_to = m.get("reply_to_message")
     if reply_to and reply_to.get("from", {}).get("is_bot"):
-        # 사용자가 봇 카드에 답장을 달았다 → revise instruction
-        # message_id로 매칭
         target_id = reply_to.get("message_id")
-        # pending/rejected 어디에 있어도 찾기
         for d in (PENDING_DIR, REJECTED_DIR):
             for p in d.glob("*.json"):
                 r = AgentResult.load(p)
@@ -138,16 +145,100 @@ def handle_message(m: dict):
                         f"📝 수정 지시 저장됨 — `{r.id}`\n다음 실행에서 반영합니다.",
                     )
                     return
-    if text.startswith("/help") or text == "/start":
+
+    # 2) 명령어
+    if text == "/start" or text.startswith("/help"):
         tg.send_text(
-            "안녕하세요. 강의 자동화 컨트롤 패널입니다.\n\n"
-            "- ✅/❌ 버튼으로 승인·거절\n"
-            "- ✏️ 누르고 답장(reply)으로 수정 지시\n"
-            "- /pending — 대기 중인 항목 목록\n"
+            "*코어 캠퍼스 컨트롤 패널*\n\n"
+            "✏️ *아이디어 대화* — 그냥 한 줄로 보내세요. 예: `Claude로 영상 자동화 SOP 시리즈 만들어줘`\n"
+            "✅/❌ — 카드 도착 시 승인·거절\n"
+            "📨 카드에 reply — 수정 지시\n\n"
+            "_명령어_:\n"
+            "/pending — 대기 중 항목\n"
+            "/conv — 진행 중인 대화 상태\n"
+            "/cancel — 진행 중인 대화 취소\n",
         )
-    elif text.startswith("/pending"):
+        return
+    if text.startswith("/pending"):
         items = list(PENDING_DIR.glob("*.json"))
-        tg.send_text(f"대기 중: {len(items)}건")
+        tg.send_text(f"대기 중: {len(items)}건", chat_id=chat_id)
+        return
+    if text.startswith("/conv"):
+        conv = Conversation.load_active(chat_id) if chat_id else None
+        if not conv:
+            tg.send_text("진행 중인 대화가 없습니다. 새 아이디어를 한 줄로 보내주세요.", chat_id=chat_id)
+        else:
+            turns = sum(1 for h in conv.history if h.get("role") == "user")
+            tg.send_text(
+                f"진행 중인 대화 — {turns}턴\n상태: `{conv.status}`\n_/cancel_로 취소 가능",
+                chat_id=chat_id,
+            )
+        return
+    if text.startswith("/cancel"):
+        conv = Conversation.load_active(chat_id) if chat_id else None
+        if not conv:
+            tg.send_text("취소할 대화가 없습니다.", chat_id=chat_id)
+        else:
+            conv.mark_cancelled()
+            conv.save()
+            tg.send_text("대화 취소됨. 새 아이디어 받을 준비 완료 ✓", chat_id=chat_id)
+        return
+
+    # 3) 일반 텍스트 → idea_intake 라우팅
+    if chat_id:
+        _handle_idea_message(chat_id, text)
+
+
+def _handle_idea_message(chat_id: int, text: str):
+    """일반 텍스트를 idea_intake 대화로 라우팅."""
+    # 현재 active 대화가 있으면 이어쓰고, 없으면 새로 시작
+    conv = Conversation.load_active(chat_id) or Conversation.new(chat_id)
+    conv.append_user(text)
+
+    # idea_intake 호출
+    try:
+        from agents.idea_intake import IdeaIntake
+        intake = IdeaIntake()
+        result = intake.propose(conv.history)
+    except Exception as e:
+        log.exception("idea_intake failed")
+        tg.send_text(
+            f"⚠️ 처리 중 오류가 발생했어요. 잠시 후 다시 시도해 주세요.\n_({type(e).__name__})_",
+            chat_id=chat_id,
+        )
+        # 대화는 active 유지 (다음 메시지로 재시도 가능)
+        conv.save()
+        return
+
+    # 응답 history 누적
+    conv.append_assistant({
+        "action": result.action,
+        "message": result.message,
+        "brief": result.brief,
+    })
+
+    # 텔레그램 발송
+    if result.action == "ASK":
+        sent = tg.send_text(result.message, chat_id=chat_id)
+        conv.last_telegram_message_id = sent.get("message_id") if sent else None
+        conv.status = "active"
+    else:  # READY
+        conv.mark_ready(result.brief)
+        # Step 2 단계에서는 텍스트 미리보기로 표시
+        # (Step 3에서 ✅/❌ 카드 + 자동 dispatch로 발전)
+        brief_text = json.dumps(result.brief, ensure_ascii=False, indent=2)
+        if len(brief_text) > 1500:
+            brief_text = brief_text[:1500] + "\n... (잘림)"
+        preview = (
+            "📝 *brief 준비됨*\n\n"
+            + result.message
+            + "\n\n```\n" + brief_text + "\n```\n"
+            + "_(Step 3에서 ✅/❌ 카드로 발전 — 다음 빌드업 단계)_"
+        )
+        sent = tg.send_text(preview, chat_id=chat_id)
+        conv.last_telegram_message_id = sent.get("message_id") if sent else None
+
+    conv.save()
 
 
 def run() -> int:

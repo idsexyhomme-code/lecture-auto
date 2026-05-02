@@ -18,8 +18,9 @@ PENDING_DIR = REPO_ROOT / "content" / "pending"
 APPROVED_DIR = REPO_ROOT / "content" / "approved"
 REJECTED_DIR = REPO_ROOT / "content" / "rejected"
 STATE_DIR = REPO_ROOT / "content" / "state"
+CONVERSATIONS_DIR = REPO_ROOT / "content" / "conversations"
 
-for d in (PENDING_DIR, APPROVED_DIR, REJECTED_DIR, STATE_DIR):
+for d in (PENDING_DIR, APPROVED_DIR, REJECTED_DIR, STATE_DIR, CONVERSATIONS_DIR):
     d.mkdir(parents=True, exist_ok=True)
 
 log = logging.getLogger("agents")
