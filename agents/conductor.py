@@ -2,6 +2,9 @@
 
 briefs/*.json 안의 작업 요청을 읽어서 적절한 도메인 에이전트를 호출하고,
 결과물을 content/pending/ 으로 떨어뜨린다.
+
+진행 상황은 텔레그램으로 실시간 알림:
+  🔨 [에이전트] 작업 시작 → ✓ 산출물 N개 생성 (또는 ⚠️ 실패)
 """
 from __future__ import annotations
 
@@ -36,22 +39,62 @@ AGENTS = {
     "ui_designer": UIDesigner,
 }
 
+AGENT_LABEL = {
+    "curriculum": "📚 강의 기획",
+    "producer": "🎬 콘텐츠 제작",
+    "marketing": "📣 홍보·마케팅",
+    "success": "🎓 수강생 관리",
+    "site_developer": "🛠 사이트 개발자",
+    "ui_designer": "🎨 UI/UX 디자이너",
+}
+
+
+def _notify(text: str):
+    """텔레그램으로 진행 상황 알림. 실패해도 워크플로우 막지 않음."""
+    try:
+        # 파이썬 path에 telegram_bot이 보이도록 (conductor가 -m으로 실행될 때)
+        sys.path.insert(0, str(REPO_ROOT))
+        from telegram_bot import client as tg
+        tg.send_text(text, parse_mode="Markdown")
+    except Exception as e:
+        log.warning("notify failed: %s", e)
+
 
 def run_brief(brief_path: Path) -> list[Path]:
     """단일 brief 파일 실행 → pending에 떨어뜨린 파일 경로 리스트 반환."""
     data = json.loads(brief_path.read_text(encoding="utf-8"))
     agent_key = data.get("agent")
+    label = AGENT_LABEL.get(agent_key, agent_key or "(?)")
+
     if agent_key not in AGENTS:
         log.error("unknown agent: %s", agent_key)
+        _notify(f"⚠️ 알 수 없는 에이전트 — `{agent_key}`\n_brief: `{brief_path.name}`_")
         return []
+
     log.info("running brief=%s agent=%s", brief_path.name, agent_key)
+    _notify(f"🔨 *{label}* 작업 시작...\n_brief: `{brief_path.name}`_")
+
     agent = AGENTS[agent_key]()
-    results = agent.run(data.get("brief", {}))
+    try:
+        results = agent.run(data.get("brief", {}))
+    except Exception as e:
+        log.exception("agent run failed: %s", e)
+        err_short = f"{type(e).__name__}: {str(e)[:300]}"
+        _notify(f"⚠️ *{label}* 실패\n```\n{err_short}\n```")
+        raise
+
     saved = []
     for r in results:
         p = r.save(PENDING_DIR)
         log.info("  → pending/%s", p.name)
         saved.append(p)
+
+    if saved:
+        _notify(
+            f"✓ *{label}* 산출물 {len(saved)}개 생성 — 카드 발송 중..."
+        )
+    else:
+        _notify(f"✓ *{label}* 완료 — (산출물 없음)")
     return saved
 
 
