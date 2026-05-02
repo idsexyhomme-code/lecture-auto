@@ -1,7 +1,7 @@
 {
   "id": "1777709120-7071151003",
   "chat_id": 7071151003,
-  "status": "active",
+  "status": "ready",
   "history": [
     {
       "role": "user",
@@ -34,10 +34,18 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"어떤 코스의 3차시 스크립트를 만들어 드릴까요?\\n\\n- **claude-bizflow** — Claude로 완성하는 1인 사업 자동화\\n- **claude-sop** — Claude 워크플로우 SOP 만들기\\n\\n그리고 3차시 제목·주제가 있으시면 함께 알려주세요!\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "주제도 생성해줘"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"READY\", \"message\": \"두 코스 중 어느 쪽인지만 확인되면 바로 진행할게요. 3차시 제목과 주제는 제가 커리큘럼 맥락에 맞게 생성하겠습니다.\\n\\n**claude-bizflow** vs **claude-sop** — 어느 코스의 3차시인가요?\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 132,
+  "last_telegram_message_id": 134,
   "created_at": "2026-05-02T08:05:20+00:00",
-  "updated_at": "2026-05-02T08:16:04+00:00"
+  "updated_at": "2026-05-02T08:16:50+00:00"
 }
