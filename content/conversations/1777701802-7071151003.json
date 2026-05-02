@@ -1,7 +1,7 @@
 {
   "id": "1777701802-7071151003",
   "chat_id": 7071151003,
-  "status": "ready",
+  "status": "approved",
   "history": [
     {
       "role": "user",
@@ -103,5 +103,5 @@
   },
   "last_telegram_message_id": 67,
   "created_at": "2026-05-02T06:03:22+00:00",
-  "updated_at": "2026-05-02T06:40:19+00:00"
+  "updated_at": "2026-05-02T06:40:24+00:00"
 }
