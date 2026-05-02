@@ -16,8 +16,40 @@ from agents.base import PENDING_DIR, APPROVED_DIR, REJECTED_DIR, STATE_DIR, REPO
 from telegram_bot import client as tg
 from telegram_bot.conversation import Conversation
 
+import requests
+
 OFFSET_FILE = STATE_DIR / "telegram_offset.json"
 SITE_CONFIG_PATH = REPO_ROOT / "site_config.json"
+
+
+def _dispatch_agent_loop() -> bool:
+    """Step 4 — GH_PAT secret이 있으면 GitHub Actions API로 새 사이클 즉시 트리거.
+    없으면 False 반환하고 cron(3분) 대기.
+    """
+    pat = os.environ.get("GH_PAT")
+    if not pat:
+        log.info("GH_PAT 없음 — 다음 cron 사이클 대기")
+        return False
+    repo = os.environ.get("GITHUB_REPOSITORY") or "idsexyhomme-code/lecture-auto"
+    url = f"https://api.github.com/repos/{repo}/actions/workflows/agent-loop.yml/dispatches"
+    try:
+        r = requests.post(
+            url,
+            json={"ref": "main"},
+            headers={
+                "Authorization": f"Bearer {pat}",
+                "Accept": "application/vnd.github+json",
+                "User-Agent": "core-campus-bot",
+            },
+            timeout=15,
+        )
+        ok = r.status_code in (200, 201, 204)
+        if not ok:
+            log.warning("dispatch failed: %s %s", r.status_code, r.text[:200])
+        return ok
+    except Exception as e:
+        log.exception("dispatch exception: %s", e)
+        return False
 log = logging.getLogger("poll")
 
 
@@ -42,6 +74,84 @@ def _move(src: Path, dst_dir: Path) -> Path:
     return dst
 
 
+def _handle_intake_callback(cq: dict, chat_id, message_id):
+    """Step 3 — Idea Intake brief preview 카드의 ✅/✏️/❌ 콜백."""
+    import time as _time
+    data = cq["data"]
+    action, conv_id = data.split(":", 1)
+
+    conv = Conversation.load(conv_id)
+    if not conv:
+        tg.answer_callback(cq["id"], "이미 처리된 대화입니다")
+        try:
+            tg.edit_message_reply_markup(chat_id, message_id, None)
+        except Exception:
+            pass
+        return
+
+    if action == "intake-approve":
+        # brief을 briefs/에 저장 (다음 사이클에서 conductor가 처리)
+        brief_payload = conv.draft_brief
+        if not brief_payload or not isinstance(brief_payload, dict):
+            tg.answer_callback(cq["id"], "brief 정보가 없습니다")
+            return
+        slug_part = (brief_payload.get("brief", {}) or {}).get("course_id") or "intake"
+        # course_id에 한글 들어가면 슬러그화
+        import re
+        slug_part = re.sub(r"[^0-9A-Za-z\-_]", "", str(slug_part))[:30] or "intake"
+        ts = int(_time.time())
+        brief_path = REPO_ROOT / "briefs" / f"intake-{slug_part}-{ts}.json"
+        brief_path.write_text(
+            json.dumps(brief_payload, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+
+        conv.mark_approved()
+        conv.save()
+
+        # Step 4 — 즉시 새 사이클 트리거 (GH_PAT 있으면)
+        dispatched = _dispatch_agent_loop()
+        suffix = (
+            "⚡ *자동 트리거됨* — 약 1~2분 후 산출물 카드가 도착합니다."
+            if dispatched
+            else "다음 사이클(3분 cron)에서 처리됩니다."
+        )
+
+        tg.answer_callback(cq["id"], "✅ brief 등록")
+        tg.edit_message_text(
+            chat_id, message_id,
+            "✅ *승인됨*\n\nbrief이 큐에 들어갔어요. " + suffix + f"\n\n_파일: `{brief_path.name}`_",
+        )
+        return
+
+    if action == "intake-reject":
+        conv.mark_rejected()
+        conv.save()
+        tg.answer_callback(cq["id"], "❌ 취소됨")
+        tg.edit_message_text(
+            chat_id, message_id,
+            "❌ *취소됨*\n\n새 아이디어가 떠오르면 한 줄로 보내주세요.",
+        )
+        return
+
+    if action == "intake-revise":
+        # 대화를 active로 되돌려 추가 답변 받음
+        conv.status = "active"
+        conv.draft_brief = None
+        conv.save()
+        tg.answer_callback(cq["id"], "✏️ 수정 모드 — 무엇을 바꿀지 답해주세요")
+        tg.edit_message_text(
+            chat_id, message_id,
+            "✏️ *수정 모드*\n\n어떻게 바꿀까요? 한 줄로 답해주세요. 예:\n"
+            "- _8차시로 줄여줘_\n"
+            "- _타깃을 초보자로 바꿔줘_\n"
+            "- _형식은 video로_",
+        )
+        return
+
+    tg.answer_callback(cq["id"], "알 수 없는 액션")
+
+
 def handle_callback(cq: dict):
     data = cq.get("data", "")
     msg = cq.get("message", {})
@@ -51,6 +161,10 @@ def handle_callback(cq: dict):
     if ":" not in data:
         tg.answer_callback(cq["id"], "알 수 없는 명령")
         return
+
+    # Step 3 — Idea Intake 콜백
+    if data.startswith("intake-"):
+        return _handle_intake_callback(cq, chat_id, message_id)
 
     action, result_id = data.split(":", 1)
     p = _find_pending(result_id)
@@ -222,20 +336,24 @@ def _handle_idea_message(chat_id: int, text: str):
         sent = tg.send_text(result.message, chat_id=chat_id)
         conv.last_telegram_message_id = sent.get("message_id") if sent else None
         conv.status = "active"
-    else:  # READY
+    else:  # READY — Step 3: 인라인 키보드 카드 발송
         conv.mark_ready(result.brief)
-        # Step 2 단계에서는 텍스트 미리보기로 표시
-        # (Step 3에서 ✅/❌ 카드 + 자동 dispatch로 발전)
         brief_text = json.dumps(result.brief, ensure_ascii=False, indent=2)
-        if len(brief_text) > 1500:
-            brief_text = brief_text[:1500] + "\n... (잘림)"
+        if len(brief_text) > 1400:
+            brief_text = brief_text[:1400] + "\n... (잘림)"
         preview = (
             "📝 *brief 준비됨*\n\n"
             + result.message
-            + "\n\n```\n" + brief_text + "\n```\n"
-            + "_(Step 3에서 ✅/❌ 카드로 발전 — 다음 빌드업 단계)_"
+            + "\n\n```\n" + brief_text + "\n```"
         )
-        sent = tg.send_text(preview, chat_id=chat_id)
+        keyboard = {
+            "inline_keyboard": [[
+                {"text": "✅ 시작", "callback_data": f"intake-approve:{conv.id}"},
+                {"text": "✏️ 수정", "callback_data": f"intake-revise:{conv.id}"},
+                {"text": "❌ 취소", "callback_data": f"intake-reject:{conv.id}"},
+            ]]
+        }
+        sent = tg.send_text(preview, chat_id=chat_id, reply_markup=keyboard)
         conv.last_telegram_message_id = sent.get("message_id") if sent else None
 
     conv.save()

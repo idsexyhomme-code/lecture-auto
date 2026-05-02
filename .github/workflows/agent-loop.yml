@@ -3,7 +3,7 @@ name: Agent Loop
 on:
   workflow_dispatch:        # 수동 실행 (첫 테스트 · 디버그)
   schedule:
-    - cron: "*/10 * * * *"  # 10분마다 실행 (콜백 폴링 + 빌드)
+    - cron: "*/3 * * * *"   # 3분마다 (텔레그램 응답성 위해 단축. public repo라 Actions 무료)
 
 concurrency:
   group: agent-loop
@@ -24,6 +24,8 @@ jobs:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      GH_PAT: ${{ secrets.GH_PAT }}    # Step 4 — ✅ 후 즉시 새 사이클 트리거 (선택, 없으면 cron 대기)
+      GITHUB_REPOSITORY: ${{ github.repository }}
       LOG_LEVEL: INFO
       PYTHONIOENCODING: utf-8
     steps:
