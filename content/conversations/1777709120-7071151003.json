@@ -33,11 +33,11 @@
     },
     {
       "role": "assistant",
-      "content": "{\"action\": \"ASK\", \"message\": \"어떤 코스의 3차시 스크립트를 만들까요?\\n\\n- **claude-bizflow** — Claude로 완성하는 1인 사업 자동화\\n- **claude-sop** — Claude 워크플로우 SOP 만들기\\n\\n그리고 3차시 제목(또는 주제)을 알고 계시면 함께 알려주세요!\", \"brief\": null}"
+      "content": "{\"action\": \"ASK\", \"message\": \"어떤 코스의 3차시 스크립트를 만들어 드릴까요?\\n\\n- **claude-bizflow** — Claude로 완성하는 1인 사업 자동화\\n- **claude-sop** — Claude 워크플로우 SOP 만들기\\n\\n그리고 3차시 제목·주제가 있으시면 함께 알려주세요!\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 131,
+  "last_telegram_message_id": 132,
   "created_at": "2026-05-02T08:05:20+00:00",
-  "updated_at": "2026-05-02T08:16:01+00:00"
+  "updated_at": "2026-05-02T08:16:04+00:00"
 }
