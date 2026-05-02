@@ -18,10 +18,34 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"어느 코스의 몇 차시 영상인가요?\\n\\n- **claude-bizflow** (1인 사업 자동화, 8차시)\\n- **claude-sop** (워크플로우 SOP, 차시 미정)\\n\\n코스와 차시 번호를 알려주시면 바로 brief 잡겠습니다.\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "사이트 메타 디자인 수정"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"어떤 부분을 수정할까요? 아래에서 골라주세요 (복수 선택 가능).\\n\\n- 메타 태그 (제목·설명·OG 이미지)\\n- 디자인 토큰 (색상·폰트·간격 등)\\n- HTML 슬롯 (특정 섹션 구조 변경)\\n\\n그리고 수정 방향을 한 줄로 알려주시면 바로 brief 만들겠습니다.\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "Claude sop워크플로우 sop 차시 미정"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"claude-sop 영상 스크립트 작업이군요! 몇 가지만 확인할게요.\\n\\n1. 몇 차시 영상인가요? (예: 1차시, 3차시...)\\n2. 해당 차시의 제목 또는 다룰 핵심 내용이 있으신가요?\\n3. 영상 길이는 어느 정도로 생각하세요? — **10분 / 15분 / 20분 / 직접 입력**\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "차시는 12로가보자"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"12차시로 가는군요! 그럼 스크립트 작업 전에 커리큘럼부터 잡는 게 맞겠네요.\\n\\n두 가지만 확인할게요.\\n\\n1. 진행 기간은 어떻게 할까요? — **4주 / 6주 / 8주 / 직접 입력**\\n2. 수강 포맷은? — **video / pdf / lms**\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 32,
+  "last_telegram_message_id": 38,
   "created_at": "2026-05-02T01:37:05+00:00",
-  "updated_at": "2026-05-02T01:37:13+00:00"
+  "updated_at": "2026-05-02T01:40:20+00:00"
 }
