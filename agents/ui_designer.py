@@ -426,13 +426,24 @@ color_mood: {color_mood}
         )
 
         # 직접 messages.create 호출 (Vision 블록을 위해 BaseAgent.call 우회)
+        # max_tokens 16000 — 3변형 × (긴 HTML + tokens + prompts + reasoning)이
+        # 8000으로는 잘려 JSONDecodeError 발생.
         msg = self.client.messages.create(
             model=self.model,
-            max_tokens=8000,
+            max_tokens=16000,
             system=self.system_prompt,
             messages=[{"role": "user", "content": content_blocks}],
         )
         raw = "".join(b.text for b in msg.content if getattr(b, "type", None) == "text")
+
+        # 응답이 stop_reason="max_tokens"이면 잘렸다는 신호 — 명시적 에러
+        stop = getattr(msg, "stop_reason", None)
+        if stop == "max_tokens":
+            log.error("ui_designer hit max_tokens limit (16000) — response truncated")
+            raise RuntimeError(
+                "ui_designer 응답이 16000 토큰 한도에 도달해 잘렸습니다. "
+                "변형 수를 줄이거나 HTML을 간결하게 하라고 지시하세요."
+            )
 
         try:
             parsed = _parse_response(raw)
