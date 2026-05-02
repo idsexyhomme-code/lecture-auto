@@ -80,6 +80,66 @@ def send_approval_card(*, result_id: str, title: str, summary: str,
     return send_text(text, chat_id=chat_id, reply_markup=keyboard)
 
 
+def send_design_variants_card(*, result_id: str, title: str, summary: str,
+                              target: str, variants: list[dict],
+                              preview_base_url: str | None,
+                              chat_id: int | None = None) -> dict:
+    """ui_designer가 만든 3변형 시안 카드.
+
+    variants: [{"id": "v1", "name": "...", "vibe": "...", ...}, ...]
+    preview_base_url: GitHub Pages 베이스 URL. 예 "https://user.github.io/repo".
+                     None이면 미리보기 링크는 생략하고 텍스트로만.
+    """
+    lines = [
+        f"🎨 *UI/UX 디자이너* — 시안 3변형",
+        f"*{_md_escape(title)}*",
+        "",
+        f"_target_: `{target}`",
+    ]
+    if summary:
+        lines.append("")
+        lines.append(_md_escape(summary))
+    lines.append("")
+    lines.append("━━━━━━━━━━━━━")
+
+    for v in variants:
+        vid = v.get("id", "?")
+        name = v.get("name", "")
+        vibe = v.get("vibe", "")
+        lines.append(f"*{vid.upper()} · {_md_escape(name)}*")
+        if vibe:
+            lines.append(f"_{_md_escape(vibe)}_")
+        if preview_base_url:
+            lines.append(
+                f"👁 [미리보기]({preview_base_url}/_design_previews/{result_id}/{vid}.html)"
+            )
+        lines.append("")
+
+    if preview_base_url:
+        lines.append("_미리보기 링크는 30~60초 후 활성화됩니다 (Pages 배포 대기)._")
+
+    text = "\n".join(lines)
+
+    # 버튼 — variant 수만큼 ✅vN + 거절
+    button_row = []
+    for v in variants:
+        vid = v.get("id", "?")
+        button_row.append({
+            "text": f"✅ {vid.upper()} 채택",
+            "callback_data": f"design-pick:{result_id}:{vid}",
+        })
+    keyboard = {
+        "inline_keyboard": [
+            button_row,
+            [
+                {"text": "🔁 모두 거절·재의뢰", "callback_data": f"design-reject:{result_id}"},
+                {"text": "👁 본문 보기", "callback_data": f"view:{result_id}"},
+            ],
+        ]
+    }
+    return send_text(text, chat_id=chat_id, reply_markup=keyboard)
+
+
 def get_updates(offset: int | None = None, timeout: int = 0) -> list[dict]:
     params: dict[str, Any] = {"timeout": timeout, "allowed_updates": ["callback_query", "message"]}
     if offset is not None:

@@ -19,11 +19,12 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from agents.base import APPROVED_DIR, AgentResult  # noqa: E402
+from agents.base import APPROVED_DIR, PENDING_DIR, AgentResult  # noqa: E402
 
 SITE_DIR = ROOT / "site"
 TEMPLATE_DIR = Path(__file__).resolve().parent / "templates"
 SITE_CONFIG_PATH = ROOT / "site_config.json"
+DESIGN_PREVIEWS_DIR = SITE_DIR / "_design_previews"
 
 DEFAULT_CONFIG = {
     "site_name": "강의 홈페이지",
@@ -286,7 +287,212 @@ def build():
             encoding="utf-8",
         )
 
+    # ui_designer가 만든 시안 미리보기 렌더 (pending에 있는 동안만)
+    n_previews = _build_design_previews()
+    if n_previews:
+        print(f"Rendered {n_previews} design preview page(s).")
+
     print(f"Built site with {len(courses)} course(s) and {len(posts)} post(s).")
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# ui_designer 시안 미리보기 렌더
+# ─────────────────────────────────────────────────────────────────────────
+
+DESIGN_PREVIEW_HTML = """<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>{title}</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  /* 시안용 inline 토큰 — 본 사이트 토큰을 덮어씀 */
+  :root {{
+{token_rules}
+  }}
+  body {{ margin:0; padding:0; }}
+  .design-preview-banner {{
+    position:sticky; top:0; z-index:100;
+    background:#111; color:#fff; padding:8px 16px;
+    font:13px/1.4 system-ui, sans-serif;
+    border-bottom:1px solid #333;
+    display:flex; justify-content:space-between; align-items:center;
+  }}
+  .design-preview-banner .vid {{ background:#FFD600; color:#111; padding:2px 8px; border-radius:4px; font-weight:700; }}
+  .design-preview-stage {{ padding:48px 0; background:var(--bg, #fff); min-height:80vh; }}
+  .design-preview-stage > .wrap {{ max-width:1100px; margin:0 auto; padding:0 24px; }}
+</style>
+</head>
+<body>
+<div class="design-preview-banner">
+  <span><span class="vid">{vid_upper}</span> · {variant_name} · <em style="opacity:.7">{vibe}</em></span>
+  <span style="opacity:.6">target: {target}</span>
+</div>
+<section class="design-preview-stage" role="region" aria-label="디자인 시안 미리보기">
+{slot_html}
+</section>
+</body>
+</html>
+"""
+
+
+def _render_variant_preview(result_id: str, target: str, variant: dict) -> Path | None:
+    """단일 variant 미리보기 HTML 파일 작성. 실패 시 None."""
+    vid = variant.get("id")
+    if not vid:
+        return None
+
+    raw_html = variant.get("html") or ""
+    safe_html = _sanitize_html_slot(raw_html)
+    if not safe_html.strip():
+        return None
+
+    # target=hero/home_intro/footer 외엔 같은 컨테이너 안에 그대로 넣음
+    if target == "hero":
+        slot_html = f'  <div class="wrap">\n{safe_html}\n  </div>'
+    elif target in ("home_intro", "footer"):
+        slot_html = f'  <div class="wrap">\n{safe_html}\n  </div>'
+    else:  # landing_full 등
+        slot_html = safe_html
+
+    # design_tokens를 inline :root 변수로
+    token_rules = []
+    for k, v in (variant.get("design_tokens") or {}).items():
+        var = DESIGN_TOKEN_MAP.get(k)
+        if not var or not isinstance(v, str):
+            continue
+        v = v.strip()
+        if any(ch in v for ch in ("{", "}", ";", "<", ">")):
+            continue
+        token_rules.append(f"    {var}: {v};")
+    token_rules_str = "\n".join(token_rules) if token_rules else "    /* (no tokens) */"
+
+    name = variant.get("name") or vid
+    vibe = variant.get("vibe") or ""
+
+    out_dir = DESIGN_PREVIEWS_DIR / result_id
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"{vid}.html"
+
+    out_path.write_text(
+        DESIGN_PREVIEW_HTML.format(
+            title=f"[{vid.upper()}] {name} — 시안 미리보기",
+            token_rules=token_rules_str,
+            vid_upper=vid.upper(),
+            variant_name=_html_escape(name),
+            vibe=_html_escape(vibe),
+            target=target,
+            slot_html=slot_html,
+        ),
+        encoding="utf-8",
+    )
+    return out_path
+
+
+def _render_variant_index(result_id: str, target: str, variants: list[dict]) -> Path:
+    """index.html — 시안 3개를 한 페이지에서 비교."""
+    cards = []
+    for v in variants:
+        vid = v.get("id", "?")
+        name = v.get("name", "")
+        vibe = v.get("vibe", "")
+        cards.append(
+            f'<a class="card" href="./{vid}.html" target="_blank" rel="noopener">'
+            f'<h3>{vid.upper()} · {_html_escape(name)}</h3>'
+            f'<p class="muted">{_html_escape(vibe)}</p>'
+            f'<p style="color:var(--brand-2);font-size:14px">미리보기 →</p>'
+            f'</a>'
+        )
+
+    page = f"""<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>디자인 시안 — {result_id}</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body {{ padding:48px 24px; max-width:1000px; margin:0 auto; }}
+  h1 {{ font-size:28px; margin:0 0 8px; }}
+  .grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-top:32px; }}
+  .card {{ display:block; padding:24px; border:1px solid var(--line,#ddd); border-radius:12px; text-decoration:none; color:inherit; }}
+  .card:hover {{ background:var(--soft,#f5f5f5); }}
+  .card h3 {{ margin:0 0 8px; }}
+</style>
+</head><body>
+<h1>디자인 시안 — target: {target}</h1>
+<p class="muted">아래 3개 변형을 비교하고 텔레그램 카드에서 채택하실 시안을 선택하세요.</p>
+<div class="grid">
+{''.join(cards)}
+</div>
+</body></html>
+"""
+    out_path = DESIGN_PREVIEWS_DIR / result_id / "index.html"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(page, encoding="utf-8")
+    return out_path
+
+
+def _build_design_previews() -> int:
+    """pending/*.json 중 kind=design_variants 항목들의 미리보기 페이지 렌더.
+
+    return: 렌더된 *시안 결과* 개수 (한 결과 = 변형 N개).
+    """
+    if not PENDING_DIR.exists():
+        return 0
+
+    rendered = 0
+    seen_ids: set[str] = set()
+
+    for path in sorted(PENDING_DIR.glob("*.json")):
+        try:
+            r = AgentResult.load(path)
+        except Exception:
+            continue
+        if r.kind != "design_variants":
+            continue
+        target = (r.meta or {}).get("target", "hero")
+        variants = (r.meta or {}).get("variants") or []
+        if not variants:
+            continue
+
+        seen_ids.add(r.id)
+        for v in variants:
+            try:
+                _render_variant_preview(r.id, target, v)
+            except Exception as e:
+                print(f"[warn] variant preview failed {r.id}/{v.get('id')}: {e}")
+        try:
+            _render_variant_index(r.id, target, variants)
+        except Exception as e:
+            print(f"[warn] variant index failed {r.id}: {e}")
+        rendered += 1
+
+    # pending에서 이미 사라진 result_id의 미리보기 디렉토리는 정리
+    if DESIGN_PREVIEWS_DIR.exists():
+        for d in DESIGN_PREVIEWS_DIR.iterdir():
+            if not d.is_dir():
+                continue
+            if d.name not in seen_ids:
+                try:
+                    import shutil
+                    shutil.rmtree(d)
+                except Exception:
+                    pass
+
+    return rendered
+
+
+def _html_escape(s: str) -> str:
+    return (
+        str(s)
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+        .replace("'", "&#39;")
+    )
 
 
 def _render(template_name: str, out: Path, **ctx):
