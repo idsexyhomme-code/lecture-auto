@@ -58,10 +58,18 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"ㅎㅎ 맥미니군요 😄\\n\\n다시 본론으로 — 홈페이지에 추가할 강의 제목이나 주제가 뭔가요? 알려주시면 바로 brief 만들어드릴게요!\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "지금은 홈페이지 개발자분께 패스트캠퍼스라는 사이트를 레퍼런스삼아 우리 홈페이지를\n빌드해달라고 요청하고싶어 단계적으로"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"좋아요! `site_developer` 에이전트로 brief 만들어드릴게요.\\n\\n한 가지만 확인할게요 — 패스트캠퍼스를 레퍼런스로 삼되, 코어 캠퍼스만의 톤·방향에서 **특별히 강조하거나 제외할 것**이 있나요?\\n예) \\\"강의 목록 페이지 먼저\\\" / \\\"메인 히어로 섹션 우선\\\" / \\\"과장된 카피는 빼고\\\" 등\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 58,
+  "last_telegram_message_id": 60,
   "created_at": "2026-05-02T06:03:22+00:00",
-  "updated_at": "2026-05-02T06:34:13+00:00"
+  "updated_at": "2026-05-02T06:34:55+00:00"
 }
