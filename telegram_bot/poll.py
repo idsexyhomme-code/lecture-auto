@@ -203,76 +203,69 @@ def _handle_design_callback(cq: dict, chat_id, message_id):
         r.save(p.parent)
         _move(p, APPROVED_DIR)
 
-        # 2) site_developer brief 자동 생성 — 선택된 variant의 HTML+토큰을
-        #    site_config.json에 적용하라는 instruction
-        instruction_lines = [
-            f"UI/UX 디자이너가 산출한 시안 {vid.upper()} ({chosen.get('name', '')})를 사이트에 반영합니다.",
-            f"디자이너 의도: {chosen.get('vibe', '')}",
-            f"근거: {chosen.get('reasoning', '')}",
-            "",
-            "다음 슬롯과 토큰을 site_config.json에 그대로 반영하세요 (다른 필드는 건드리지 마세요):",
-        ]
+        # 2) ★ site_developer 우회 — site_config.json에 직접 적용
+        #    (LLM 두 번 거치면 응답이 잘려 JSONDecodeError, 또 비용 낭비)
+        applied_keys = []
+        try:
+            cfg: dict = {}
+            if SITE_CONFIG_PATH.exists():
+                cfg = json.loads(SITE_CONFIG_PATH.read_text(encoding="utf-8"))
 
-        # target별로 어느 슬롯에 들어갈지 매핑
-        slot_map = {
-            "hero": "hero_html",
-            "home_intro": "home_intro_html",
-            "footer": "footer_html",
-        }
+            # target별 슬롯 매핑
+            slot_map = {
+                "hero": "hero_html",
+                "home_intro": "home_intro_html",
+                "footer": "footer_html",
+            }
+            chosen_html = chosen.get("html", "") or ""
 
-        forced_config: dict = {}
-        if target in slot_map:
-            forced_config[slot_map[target]] = chosen.get("html", "")
-            instruction_lines.append(f"- {slot_map[target]} ← 시안 {vid.upper()}의 HTML")
-        elif target == "landing_full":
-            # variant.html이 분할되어 있을 수도 있음 — 휴리스틱
-            html_full = chosen.get("html", "")
-            forced_config["hero_html"] = html_full
-            instruction_lines.append("- hero_html ← 시안 전체 HTML (landing_full)")
+            if target in slot_map:
+                cfg[slot_map[target]] = chosen_html
+                applied_keys.append(slot_map[target])
+            elif target == "landing_full":
+                # 통째 시안이면 hero_html에 넣음 (추후 분할 휴리스틱 가능)
+                cfg["hero_html"] = chosen_html
+                applied_keys.append("hero_html")
 
-        chosen_tokens = chosen.get("design_tokens") or {}
-        if chosen_tokens:
-            forced_config["design_tokens"] = chosen_tokens
-            instruction_lines.append(
-                f"- design_tokens ← {len(chosen_tokens)}개 토큰 ({', '.join(list(chosen_tokens.keys())[:5])}{'...' if len(chosen_tokens) > 5 else ''})"
+            # design_tokens는 *기존 토큰 위에 덮어쓰기*
+            chosen_tokens = chosen.get("design_tokens") or {}
+            if chosen_tokens:
+                existing = cfg.get("design_tokens") or {}
+                if not isinstance(existing, dict):
+                    existing = {}
+                existing.update(chosen_tokens)
+                cfg["design_tokens"] = existing
+                applied_keys.append(f"design_tokens(+{len(chosen_tokens)})")
+
+            SITE_CONFIG_PATH.write_text(
+                json.dumps(cfg, ensure_ascii=False, indent=2),
+                encoding="utf-8",
             )
+            log.info("design v%s applied to site_config.json — %s", vid, applied_keys)
+        except Exception as e:
+            log.exception("design apply failed: %s", e)
+            tg.answer_callback(cq["id"], "적용 실패 — 로그 확인")
+            tg.edit_message_text(
+                chat_id, message_id,
+                f"⚠️ *적용 실패* — `{type(e).__name__}: {str(e)[:200]}`",
+            )
+            return
 
-        instruction = "\n".join(instruction_lines)
-
-        slug_part = f"design-{vid}"
-        ts = int(_time.time())
-        brief_path = REPO_ROOT / "briefs" / f"design-apply-{slug_part}-{ts}.json"
-        brief_payload = {
-            "agent": "site_developer",
-            "brief": {
-                "instruction": instruction,
-                "brand_tone": "차분하고 단단한 한국어, 과장 표현 금지",
-                "target_audience": "1인 콘텐츠 사업가·지식 창업가",
-                "restrictions": "WCAG AA 유지, 외부 도메인 이미지 금지",
-                # ↓ site_developer 시스템 프롬프트는 이걸 직접 보지 않지만,
-                #   추후 force_apply 모드를 만들 때 사용할 수 있도록 남겨둠
-                "_forced_config_hint": forced_config,
-            },
-        }
-        brief_path.write_text(
-            json.dumps(brief_payload, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-
-        # 3) 즉시 새 사이클 트리거
+        # 3) 빌드만 트리거 (LLM 호출 없음 — 빠름)
         dispatched = _dispatch_agent_loop()
         suffix = (
-            "⚡ *자동 트리거됨* — 1~2분 후 site_developer가 적용한 결과 카드가 도착합니다."
+            "⚡ *자동 트리거됨* — 30~60초 안에 사이트에 반영됩니다."
             if dispatched
-            else "다음 cron 사이클에서 site_developer가 적용합니다."
+            else "다음 cron 사이클(3분)에서 빌드·배포됩니다."
         )
 
-        tg.answer_callback(cq["id"], f"✅ {vid.upper()} 채택")
+        applied_summary = ", ".join(applied_keys) if applied_keys else "(없음)"
+        tg.answer_callback(cq["id"], f"✅ {vid.upper()} 적용 완료")
         tg.edit_message_text(
             chat_id, message_id,
-            f"✅ *시안 {vid.upper()} 채택됨* — _{chosen.get('name', '')}_\n\n"
-            f"site_developer에게 적용 의뢰를 넘겼습니다.\n{suffix}\n\n"
-            f"_brief: `{brief_path.name}`_",
+            f"✅ *시안 {vid.upper()} 적용됨* — _{chosen.get('name', '')}_\n\n"
+            f"📦 적용된 항목: `{applied_summary}`\n"
+            f"{suffix}",
         )
         return
 

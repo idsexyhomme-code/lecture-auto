@@ -179,7 +179,9 @@ class SiteDeveloper(BaseAgent):
 규칙대로 변경된 site_config.json 전체와 NOTES만 출력하세요. design_tokens는
 설정하고 싶은 토큰만 포함하면 됩니다 (없으면 빈 객체)."""
 
-        raw = self.call(prompt, max_tokens=2500)
+        # max_tokens 6000 — Tier 3 HTML 슬롯(hero+intro+footer)이 동시에 길어지면
+        # 2500으로는 응답이 잘려 JSONDecodeError(Unterminated string) 발생.
+        raw = self.call(prompt, max_tokens=6000)
         new_config, notes = self._parse(raw)
 
         # 안전 검증 — 허용 키 + 허용 토큰만 통과

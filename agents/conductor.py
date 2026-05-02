@@ -28,6 +28,8 @@ BRIEFS_DIR = REPO_ROOT / "briefs"
 BRIEFS_DIR.mkdir(exist_ok=True)
 PROCESSED_DIR = BRIEFS_DIR / "_processed"
 PROCESSED_DIR.mkdir(exist_ok=True)
+FAILED_DIR = BRIEFS_DIR / "_failed"
+FAILED_DIR.mkdir(exist_ok=True)
 
 
 AGENTS = {
@@ -99,7 +101,11 @@ def run_brief(brief_path: Path) -> list[Path]:
 
 
 def process_pending_briefs() -> list[Path]:
-    """briefs/*.json 모두 처리하고 _processed/ 로 이동."""
+    """briefs/*.json 모두 처리하고 _processed/ 또는 _failed/ 로 이동.
+
+    실패한 brief은 _failed/로 옮겨 *재시도 루프*에서 빠져나오게 한다.
+    필요 시 _failed/에서 꺼내 briefs/로 다시 옮기면 재시도 가능.
+    """
     saved: list[Path] = []
     for bp in sorted(BRIEFS_DIR.glob("*.json")):
         try:
@@ -107,6 +113,12 @@ def process_pending_briefs() -> list[Path]:
             bp.rename(PROCESSED_DIR / bp.name)
         except Exception as e:
             log.exception("brief failed: %s — %s", bp.name, e)
+            # 실패한 brief은 _failed/로 격리 — 재시도 폭주 방지
+            try:
+                bp.rename(FAILED_DIR / bp.name)
+                log.info("moved failed brief to _failed/: %s", bp.name)
+            except Exception as move_err:
+                log.error("failed to quarantine %s: %s", bp.name, move_err)
     return saved
 
 
