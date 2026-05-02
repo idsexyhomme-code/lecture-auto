@@ -1,7 +1,7 @@
 {
   "id": "1777706987-7071151003",
   "chat_id": 7071151003,
-  "status": "active",
+  "status": "ready",
   "history": [
     {
       "role": "user",
@@ -26,10 +26,37 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"감사해요! 한 가지만 더 확인할게요.\\n\\n현재 홈페이지 느낌에서 **바꾸고 싶은 방향**이 있으신가요?\\n- A) 더 미니멀·깔끔하게\\n- B) 더 따뜻하고 친근하게\\n- C) 더 전문적·학술적으로\\n- D) 직접 입력 (예: \\\"고급스럽고 차분하게\\\")\\n\\n참고할 만한 사이트가 있으시면 URL도 함께 주시면 좋아요 (없어도 괜찮습니다).\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "더 전문적 친근하게 \n\nhttps://fastcampus.co.kr/event_online_subscription_2605"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"READY\", \"message\": \"확인했습니다. 아래 brief로 ui_designer에게 전달할게요.\\n\\n- **대상**: 홈페이지 전체 페이지\\n- **방향**: 전문적이면서 친근한 톤\\n- **참고 사이트**: 패스트캠퍼스 구독 페이지\\n- **타깃**: Claude 실무 활용을 원하는 1인 사업가\\n\\n시안 3개를 받아보신 후, 마음에 드는 걸 골라 site_developer가 실제 적용하는 순서로 진행됩니다. 이대로 진행해도 될까요?\", \"brief\": {\"agent\": \"ui_designer\", \"brief\": {\"target\": \"landing_full\", \"purpose\": \"1인 사업가가 코어 캠퍼스를 처음 방문했을 때 신뢰감과 친근함을 동시에 느끼며 강의 등록까지 자연스럽게 이어지도록 홈페이지 전체 경험을 개선\", \"audience\": \"Claude AI를 실무에 활용하고 싶은 1인 사업가 및 프리랜서\", \"style_keywords\": [\"전문적\", \"친근한\", \"신뢰감\", \"깔끔한 구조\", \"학습 플랫폼\"], \"color_mood\": \"warm\", \"reference_urls\": [\"https://fastcampus.co.kr/event_online_subscription_2605\"], \"additional_context\": \"코어 캠퍼스는 Claude 실무 활용에 특화된 시리즈 강의 플랫폼. 현재 등록 코스: 'Claude로 완성하는 1인 사업 자동화', 'Claude 워크플로우 SOP 만들기'. 차분하고 단단한 한국어 톤 유지, 과장 금지. 시안 승인 후 site_developer가 실제 적용 예정.\"}}}"
     }
   ],
-  "draft_brief": null,
-  "last_telegram_message_id": 101,
+  "draft_brief": {
+    "agent": "ui_designer",
+    "brief": {
+      "target": "landing_full",
+      "purpose": "1인 사업가가 코어 캠퍼스를 처음 방문했을 때 신뢰감과 친근함을 동시에 느끼며 강의 등록까지 자연스럽게 이어지도록 홈페이지 전체 경험을 개선",
+      "audience": "Claude AI를 실무에 활용하고 싶은 1인 사업가 및 프리랜서",
+      "style_keywords": [
+        "전문적",
+        "친근한",
+        "신뢰감",
+        "깔끔한 구조",
+        "학습 플랫폼"
+      ],
+      "color_mood": "warm",
+      "reference_urls": [
+        "https://fastcampus.co.kr/event_online_subscription_2605"
+      ],
+      "additional_context": "코어 캠퍼스는 Claude 실무 활용에 특화된 시리즈 강의 플랫폼. 현재 등록 코스: 'Claude로 완성하는 1인 사업 자동화', 'Claude 워크플로우 SOP 만들기'. 차분하고 단단한 한국어 톤 유지, 과장 금지. 시안 승인 후 site_developer가 실제 적용 예정."
+    }
+  },
+  "last_telegram_message_id": 103,
   "created_at": "2026-05-02T07:29:47+00:00",
-  "updated_at": "2026-05-02T07:33:20+00:00"
+  "updated_at": "2026-05-02T07:34:17+00:00"
 }
