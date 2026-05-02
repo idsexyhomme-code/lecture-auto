@@ -34,7 +34,15 @@ def _chat_id() -> int:
 
 def _call(method: str, **params) -> dict:
     url = API.format(token=_token(), method=method)
-    r = requests.post(url, json=params, timeout=20)
+    # Telegram long-poll: HTTP timeout은 params["timeout"](Telegram 대기시간)보다
+    # 반드시 커야 한다. getUpdates에 timeout=30이면 HTTP는 40초까지 기다린다.
+    poll_timeout = 0
+    try:
+        poll_timeout = int(params.get("timeout", 0) or 0)
+    except (TypeError, ValueError):
+        poll_timeout = 0
+    http_timeout = max(20, poll_timeout + 10)
+    r = requests.post(url, json=params, timeout=http_timeout)
     if r.status_code != 200:
         log.error("telegram %s failed: %s %s", method, r.status_code, r.text)
         r.raise_for_status()
