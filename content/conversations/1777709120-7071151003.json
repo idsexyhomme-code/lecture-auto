@@ -26,10 +26,18 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"저는 코어 캠퍼스의 강의·마케팅·사이트 작업만 도와드릴 수 있어요. 셸 스크립트 실행이나 앱 개발 관련 지원은 제 역할 밖이라 도움드리기 어렵습니다.\\n\\n코어 캠퍼스 관련해서 필요한 작업이 있으시면 말씀해 주세요!\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "테스트용 3차시 강의 만들어줘"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"어떤 코스의 3차시 스크립트를 만들까요?\\n\\n- **claude-bizflow** — Claude로 완성하는 1인 사업 자동화\\n- **claude-sop** — Claude 워크플로우 SOP 만들기\\n\\n그리고 3차시 제목(또는 주제)을 알고 계시면 함께 알려주세요!\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 129,
+  "last_telegram_message_id": 131,
   "created_at": "2026-05-02T08:05:20+00:00",
-  "updated_at": "2026-05-02T08:15:50+00:00"
+  "updated_at": "2026-05-02T08:16:01+00:00"
 }
