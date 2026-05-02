@@ -9,11 +9,11 @@
     },
     {
       "role": "assistant",
-      "content": "{\"action\": \"ASK\", \"message\": \"'V1으로 갈게요' — 어떤 작업을 말씀하시는 건가요?\\n\\n**A.** 기존 코스(claude-bizflow 또는 claude-sop) 중 하나의 1차시 스크립트 작성\\n**B.** 새 코스 커리큘럼의 첫 번째 버전 설계\\n**C.** 사이트·디자인 시안의 첫 번째 버전 제작\\n**D.** 다른 작업 (직접 입력)\", \"brief\": null}"
+      "content": "{\"action\": \"ASK\", \"message\": \"'V1으로 갈게요' — 어떤 작업을 말씀하시는 건가요?\\n\\n현재 등록된 코스 기준으로, 아래 중 하나를 생각하고 계신 건지요?\\n\\n1. **기존 코스** (claude-bizflow 또는 claude-sop)의 특정 작업\\n2. **새 코스** V1 기획\\n3. **사이트** 디자인·텍스트 변경\\n\\n어느 쪽에 가깝나요?\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 81,
+  "last_telegram_message_id": 82,
   "created_at": "2026-05-02T07:21:22+00:00",
   "updated_at": "2026-05-02T07:21:27+00:00"
 }
