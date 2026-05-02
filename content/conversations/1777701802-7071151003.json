@@ -66,10 +66,18 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"좋아요! `site_developer` 에이전트로 brief 만들어드릴게요.\\n\\n한 가지만 확인할게요 — 패스트캠퍼스를 레퍼런스로 삼되, 코어 캠퍼스만의 톤·방향에서 **특별히 강조하거나 제외할 것**이 있나요?\\n예) \\\"강의 목록 페이지 먼저\\\" / \\\"메인 히어로 섹션 우선\\\" / \\\"과장된 카피는 빼고\\\" 등\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "왜 답장이없엉?"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"앗, 늦었죠 죄송해요 😅\\n\\n앞 질문 다시 드릴게요 — 패스트캠퍼스 레퍼런스로 홈페이지 빌드 요청 시, **어느 페이지부터** 시작할까요?\\n\\n① 메인(홈) 페이지 → ② 강의 목록 페이지 → ③ 강의 상세 페이지 순서로 단계적으로, 아니면 다른 순서가 있나요?\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 60,
+  "last_telegram_message_id": 63,
   "created_at": "2026-05-02T06:03:22+00:00",
-  "updated_at": "2026-05-02T06:34:55+00:00"
+  "updated_at": "2026-05-02T06:38:10+00:00"
 }
