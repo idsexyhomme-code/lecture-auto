@@ -1,7 +1,7 @@
 {
   "id": "1777685348-7071151003",
   "chat_id": 7071151003,
-  "status": "active",
+  "status": "ready",
   "history": [
     {
       "role": "user",
@@ -18,10 +18,28 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"감사해요! 한 가지만 더요.\\n\\n형식은 어떻게 할까요? **영상(video) / PDF / LMS** 중 하나로 골라주세요.\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "Lms로해보자"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"READY\", \"message\": \"아래 brief로 curriculum 에이전트를 실행할게요.\\n\\n- **코스**: Claude로 완성하는 영상 콘텐츠 자동화 SOP\\n- **타깃**: Claude를 실무에 쓰는 1인 사업가\\n- **구성**: 12차시 / LMS 형식\\n\\n이대로 진행해도 될까요?\", \"brief\": {\"agent\": \"curriculum\", \"brief\": {\"course_id\": \"claude-video-sop\", \"topic\": \"Claude로 완성하는 영상 콘텐츠 자동화 SOP\", \"audience\": \"Claude를 실무에 활용하는 1인 사업가\", \"duration_weeks\": 6, \"lesson_count\": 12, \"format\": \"lms\"}}}"
     }
   ],
-  "draft_brief": null,
-  "last_telegram_message_id": 26,
+  "draft_brief": {
+    "agent": "curriculum",
+    "brief": {
+      "course_id": "claude-video-sop",
+      "topic": "Claude로 완성하는 영상 콘텐츠 자동화 SOP",
+      "audience": "Claude를 실무에 활용하는 1인 사업가",
+      "duration_weeks": 6,
+      "lesson_count": 12,
+      "format": "lms"
+    }
+  },
+  "last_telegram_message_id": 30,
   "created_at": "2026-05-02T01:29:08+00:00",
-  "updated_at": "2026-05-02T01:31:44+00:00"
+  "updated_at": "2026-05-02T01:37:05+00:00"
 }
