@@ -1,0 +1,19 @@
+{
+  "id": "1777685348-7071151003",
+  "chat_id": 7071151003,
+  "status": "active",
+  "history": [
+    {
+      "role": "user",
+      "content": "Claude로 영상 콘텐츠 자동화 SOP 시리즈 만들어줘"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"좋아요! 몇 가지만 확인할게요.\\n\\n1. **새 코스 설계**부터 시작할까요, 아니면 기존 코스에 차시 스크립트 바로 작성할까요?\\n2. 타깃은 기존 코스와 동일하게 **'Claude를 실무에 쓰는 1인 사업가'**로 가면 될까요?\\n3. 차시 수는 — **8차시 / 12차시 / 직접 입력** 중 어느 게 맞을까요?\", \"brief\": null}"
+    }
+  ],
+  "draft_brief": null,
+  "last_telegram_message_id": 24,
+  "created_at": "2026-05-02T01:29:08+00:00",
+  "updated_at": "2026-05-02T01:29:12+00:00"
+}
