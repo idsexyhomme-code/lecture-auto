@@ -21,6 +21,7 @@ from .marketing import MarketingSpecialist
 from .success import StudentSuccessManager
 from .site_developer import SiteDeveloper
 from .ui_designer import UIDesigner
+from . import safety
 
 log = logging.getLogger("conductor")
 
@@ -73,8 +74,20 @@ def run_brief(brief_path: Path) -> list[Path]:
         _notify(f"⚠️ 알 수 없는 에이전트 — `{agent_key}`\n_brief: `{brief_path.name}`_")
         return []
 
+    # ★ 안전장치 게이트 — 일일 한도/비용/버스트 검사
+    allowed, deny_msg = safety.gate(agent_key)
+    if not allowed:
+        log.warning("[safety] blocked: %s", deny_msg)
+        _notify(deny_msg + f"\n_blocked brief: `{brief_path.name}`_")
+        # 거부된 brief은 _failed/로 격리하지 않고 그대로 둠 — 정지 해제 후 다음 cron이 재시도
+        raise RuntimeError(f"safety gate blocked: {agent_key}")
+
     log.info("running brief=%s agent=%s", brief_path.name, agent_key)
-    _notify(f"🔨 *{label}* 작업 시작...\n_brief: `{brief_path.name}`_")
+    _notify(
+        f"🔨 *{label}* 작업 시작...\n"
+        f"_brief: `{brief_path.name}`_\n"
+        f"_{safety.status()}_"
+    )
 
     agent = AGENTS[agent_key]()
     try:

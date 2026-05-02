@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  코어 캠퍼스 long-poll 데몬 — launchd 설정.
+
+  이 파일을 ~/Library/LaunchAgents/com.corecampus.longpoll.plist 로 복사하면
+  Mac이 켜질 때마다 데몬이 자동으로 시작되고, 죽으면 자동 재시작됩니다.
+
+  설치:
+    cp launchd/com.corecampus.longpoll.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.corecampus.longpoll.plist
+
+  중지 (정지하고 자동시작 끄기):
+    launchctl unload ~/Library/LaunchAgents/com.corecampus.longpoll.plist
+
+  로그 확인:
+    tail -f ~/Library/Logs/corecampus-longpoll.log
+    tail -f ~/Library/Logs/corecampus-longpoll.err.log
+
+  주의:
+    아래 ProgramArguments의 두 번째 항목(파이썬 경로)이 실제 venv의
+    python 경로와 일치해야 합니다. 확인:
+      ls -la "/Users/seohyeongmin/Desktop/강의 홈페이지 제작/.venv/bin/python"
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.corecampus.longpoll</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/seohyeongmin/Desktop/강의 홈페이지 제작/.venv/bin/python</string>
+        <string>-m</string>
+        <string>telegram_bot.long_poll</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/seohyeongmin/Desktop/강의 홈페이지 제작</string>
+
+    <!-- Mac 켜질 때 자동 시작 -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- 데몬이 죽으면 자동 재시작 (10초 후) -->
+    <key>KeepAlive</key>
+    <true/>
+
+    <!-- 환경변수 — .env 파일을 long_poll.py가 자동 로드하지만 fallback -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>LANG</key>
+        <string>ko_KR.UTF-8</string>
+        <key>LC_ALL</key>
+        <string>ko_KR.UTF-8</string>
+        <key>PYTHONIOENCODING</key>
+        <string>utf-8</string>
+    </dict>
+
+    <!-- 로그 파일 경로 -->
+    <key>StandardOutPath</key>
+    <string>/Users/seohyeongmin/Library/Logs/corecampus-longpoll.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/seohyeongmin/Library/Logs/corecampus-longpoll.err.log</string>
+
+    <!-- 너무 자주 재시작되면 throttle (10초 최소 간격) -->
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+</dict>
+</plist>

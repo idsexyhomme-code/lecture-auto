@@ -74,6 +74,157 @@ def _move(src: Path, dst_dir: Path) -> Path:
     return dst
 
 
+# ─────────────────────────────────────────────────────────────────────────
+# Phase A2 — 자동 캐스케이드
+# ─────────────────────────────────────────────────────────────────────────
+
+def _cascade_after_approve(r: AgentResult) -> list[Path]:
+    """승인된 결과물 기반으로 *다음 단계 brief*을 자동 생성.
+
+    매핑:
+      curriculum_outline → producer(1차시) + marketing + success(faq)
+      lecture_script     → producer(다음 차시) [같은 코스에 다음 차시 있을 때만]
+      그 외             → 캐스케이드 없음 (terminal)
+    """
+    try:
+        if r.kind == "curriculum_outline":
+            return _cascade_from_curriculum(r)
+        if r.kind == "lecture_script":
+            return _cascade_from_lecture_script(r)
+    except Exception as e:
+        log.exception("[cascade] failed for %s: %s", r.id, e)
+    return []
+
+
+def _cascade_from_curriculum(r: AgentResult) -> list[Path]:
+    """curriculum 승인 → producer 1차시 + marketing + success FAQ 자동 발주."""
+    raw = (r.meta or {}).get("raw") or {}
+    lessons = raw.get("lessons") or []
+    course_id = r.course_id or "unknown"
+    course_title = raw.get("title") or r.title
+
+    briefs: list[dict] = []
+
+    # 1. Producer brief — 1차시부터 시작
+    if lessons:
+        l1 = lessons[0]
+        briefs.append({
+            "agent": "producer",
+            "brief": {
+                "course_id": course_id,
+                "course_title": course_title,
+                "lesson_no": l1.get("no", 1),
+                "lesson_title": l1.get("title", ""),
+                "objective": l1.get("objective", ""),
+                "key_concepts": l1.get("key_concepts", []),
+                "exercise": l1.get("exercise", ""),
+                "duration_min": l1.get("duration_min", 15),
+            },
+        })
+
+    # 2. Marketing brief — 랜딩 카피
+    briefs.append({
+        "agent": "marketing",
+        "brief": {
+            "course_id": course_id,
+            "curriculum": raw,
+            "price_hint": "30~70만원대",
+        },
+    })
+
+    # 3. Success brief — FAQ 7개
+    briefs.append({
+        "agent": "success",
+        "brief": {
+            "mode": "faq",
+            "course_id": course_id,
+            "course_title": course_title,
+            "topic": raw.get("tagline", ""),
+            "audience": raw.get("target_audience", ""),
+        },
+    })
+
+    return _save_cascade_briefs(briefs, prefix=f"cascade-curriculum-{course_id}")
+
+
+def _cascade_from_lecture_script(r: AgentResult) -> list[Path]:
+    """lecture_script 승인 → 같은 코스의 *다음 차시* producer brief.
+
+    같은 course_id의 curriculum_outline을 approved/에서 찾아 lessons[]에서
+    현재 lesson_no + 1을 다음 차시로 발주.
+    """
+    course_id = r.course_id
+    if not course_id:
+        return []
+
+    cur_lesson_no = ((r.meta or {}).get("brief") or {}).get("lesson_no")
+    if not cur_lesson_no:
+        return []
+
+    # 같은 course_id의 curriculum 결과를 approved에서 찾음
+    curriculum_result = None
+    for ap in APPROVED_DIR.glob("*.json"):
+        try:
+            cr = AgentResult.load(ap)
+        except Exception:
+            continue
+        if cr.kind == "curriculum_outline" and cr.course_id == course_id:
+            curriculum_result = cr
+            break
+
+    if not curriculum_result:
+        log.warning("[cascade] no curriculum for course=%s, can't continue lessons", course_id)
+        return []
+
+    raw = (curriculum_result.meta or {}).get("raw") or {}
+    lessons = raw.get("lessons") or []
+    next_lesson = next((l for l in lessons if l.get("no") == cur_lesson_no + 1), None)
+
+    if not next_lesson:
+        log.info("[cascade] curriculum complete for course=%s (last lesson %d)", course_id, cur_lesson_no)
+        return []
+
+    course_title = raw.get("title") or curriculum_result.title
+    brief = {
+        "agent": "producer",
+        "brief": {
+            "course_id": course_id,
+            "course_title": course_title,
+            "lesson_no": next_lesson.get("no"),
+            "lesson_title": next_lesson.get("title", ""),
+            "objective": next_lesson.get("objective", ""),
+            "key_concepts": next_lesson.get("key_concepts", []),
+            "exercise": next_lesson.get("exercise", ""),
+            "duration_min": next_lesson.get("duration_min", 15),
+        },
+    }
+
+    return _save_cascade_briefs(
+        [brief],
+        prefix=f"cascade-lesson-{course_id}-{next_lesson.get('no')}",
+    )
+
+
+def _save_cascade_briefs(briefs: list[dict], prefix: str) -> list[Path]:
+    """캐스케이드 brief을 briefs/<prefix>-<agent>-<ts>-<idx>.json으로 저장."""
+    import time as _time
+    out: list[Path] = []
+    ts = int(_time.time())
+    for i, b in enumerate(briefs):
+        agent_key = b.get("agent", "unknown")
+        path = REPO_ROOT / "briefs" / f"{prefix}-{agent_key}-{ts}-{i}.json"
+        try:
+            path.write_text(
+                json.dumps(b, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            out.append(path)
+            log.info("[cascade] saved: %s", path.name)
+        except Exception as e:
+            log.error("[cascade] failed to save %s: %s", path.name, e)
+    return out
+
+
 def _handle_intake_callback(cq: dict, chat_id, message_id):
     """Step 3 — Idea Intake brief preview 카드의 ✅/✏️/❌ 콜백."""
     import time as _time
@@ -318,10 +469,23 @@ def handle_callback(cq: dict):
                 )
                 log.info("site_config.json updated from %s", r.id)
 
+        # ★ Phase A2 — 자동 캐스케이드 (다음 단계 brief 자동 생성)
+        cascaded_briefs = _cascade_after_approve(r)
+        cascade_msg = ""
+        if cascaded_briefs:
+            cascade_lines = [
+                f"\n\n⚡ *자동 다음 단계* — {len(cascaded_briefs)}개 brief 자동 발주:"
+            ]
+            for cp in cascaded_briefs:
+                cascade_lines.append(f"• `{cp.name}`")
+            cascade_msg = "\n".join(cascade_lines)
+            # 즉시 새 사이클 트리거 — 다음 작업이 1-2분 안에 시작됨
+            _dispatch_agent_loop()
+
         tg.answer_callback(cq["id"], "✅ 승인 완료 — 사이트에 반영됩니다")
         tg.edit_message_text(
             chat_id, message_id,
-            f"✅ *승인됨* — `{r.kind}`\n*{r.title}*\n\n다음 빌드에서 사이트에 반영돼요.",
+            f"✅ *승인됨* — `{r.kind}`\n*{r.title}*\n\n다음 빌드에서 사이트에 반영돼요." + cascade_msg,
         )
 
     elif action == "reject":
