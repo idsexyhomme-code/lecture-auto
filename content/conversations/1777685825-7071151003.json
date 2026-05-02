@@ -1,7 +1,7 @@
 {
   "id": "1777685825-7071151003",
   "chat_id": 7071151003,
-  "status": "active",
+  "status": "ready",
   "history": [
     {
       "role": "user",
@@ -58,10 +58,28 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"포맷은 LMS로 확인했어요. 기간은 어떻게 할까요?\\n\\n**4주 / 6주 / 8주 / 직접 입력**\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "12주"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"READY\", \"message\": \"brief 완성됐습니다. 확인해 주세요.\\n\\n- **코스**: claude-sop (Claude 워크플로우 SOP 만들기)\\n- **대상**: 인수인계·외주에 바로 쓰는 재사용 프롬프트 문서가 필요한 1인 사업가\\n- **차시**: 12차시 / 12주 / LMS\\n\\n이대로 진행해도 될까요?\", \"brief\": {\"agent\": \"curriculum\", \"brief\": {\"course_id\": \"claude-sop\", \"topic\": \"Claude로 재사용 가능한 워크플로우 SOP 만들기\", \"audience\": \"인수인계·외주에 바로 쓸 프롬프트 문서가 필요한 1인 사업가\", \"duration_weeks\": 12, \"lesson_count\": 12, \"format\": \"lms\"}}}"
     }
   ],
-  "draft_brief": null,
-  "last_telegram_message_id": 42,
+  "draft_brief": {
+    "agent": "curriculum",
+    "brief": {
+      "course_id": "claude-sop",
+      "topic": "Claude로 재사용 가능한 워크플로우 SOP 만들기",
+      "audience": "인수인계·외주에 바로 쓸 프롬프트 문서가 필요한 1인 사업가",
+      "duration_weeks": 12,
+      "lesson_count": 12,
+      "format": "lms"
+    }
+  },
+  "last_telegram_message_id": 48,
   "created_at": "2026-05-02T01:37:05+00:00",
-  "updated_at": "2026-05-02T01:51:20+00:00"
+  "updated_at": "2026-05-02T06:03:22+00:00"
 }
