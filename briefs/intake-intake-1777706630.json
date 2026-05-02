@@ -1,0 +1,18 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "home_intro",
+    "purpose": "1인 사업가가 홈에 처음 도착했을 때, 코어 캠퍼스의 전문성과 신뢰를 즉시 느끼고 코스 탐색으로 자연스럽게 이어지도록 한다",
+    "audience": "Claude를 실무에 활용하고 싶은 1인 사업가 — 과장된 마케팅보다 실질적 정보를 선호함",
+    "style_keywords": [
+      "에디토리얼 모던",
+      "타이포그래피 중심",
+      "넓은 여백",
+      "절제된 레이아웃",
+      "차분하고 단단한 톤"
+    ],
+    "color_mood": "monochrome",
+    "reference_urls": [],
+    "additional_context": "브랜드 톤 — 차분하고 단단한 한국어, 과장 금지. 등록 코스: 'Claude로 완성하는 1인 사업 자동화', 'Claude 워크플로우 SOP 만들기'. 시안 3변형 생성 후 회원님 선택."
+  }
+}
