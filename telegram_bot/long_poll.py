@@ -138,6 +138,65 @@ def _has_new_brief_in_dir() -> bool:
     return False
 
 
+def _run_local_pipeline():
+    """로컬에서 conductor → notify → build 풀 파이프라인 실행.
+
+    cron이 작동 안 해도 데몬이 24시간 돌면 이 함수가 모든 brief을 처리한다.
+    각 단계 실패해도 다음 단계는 계속 시도.
+    """
+    briefs_dir = REPO_ROOT / "briefs"
+    pending_dir = REPO_ROOT / "content" / "pending"
+
+    queued_briefs = list(briefs_dir.glob("*.json")) if briefs_dir.exists() else []
+    pending_results = list(pending_dir.glob("*.json")) if pending_dir.exists() else []
+
+    # 할 일이 없으면 빠르게 종료
+    if not queued_briefs and not pending_results:
+        return
+
+    log.info("[local-pipeline] briefs=%d pending=%d", len(queued_briefs), len(pending_results))
+
+    # venv의 python 사용 (subprocess가 시스템 python을 잡으면 의존성 안 맞음)
+    venv_python = REPO_ROOT / ".venv" / "bin" / "python"
+    if venv_python.exists():
+        py = str(venv_python)
+    else:
+        py = sys.executable
+
+    def _run_module(module: str, timeout: int = 600):
+        try:
+            r = subprocess.run(
+                [py, "-m", module],
+                cwd=str(REPO_ROOT),
+                capture_output=True,
+                text=True,
+                timeout=timeout,
+                env={**os.environ},  # API 키·설정 모두 전달
+            )
+            if r.returncode == 0:
+                log.info("[local-pipeline] ✓ %s", module)
+                if r.stdout.strip():
+                    for line in r.stdout.strip().split("\n")[-3:]:
+                        log.info("    %s", line)
+            else:
+                log.warning("[local-pipeline] ✗ %s (rc=%d)", module, r.returncode)
+                err = (r.stderr or r.stdout or "").strip().split("\n")[-3:]
+                for line in err:
+                    log.warning("    %s", line)
+        except Exception as e:
+            log.exception("[local-pipeline] %s 예외: %s", module, e)
+
+    # 1) Conductor — briefs/ 처리 → pending/ 생성
+    if queued_briefs:
+        _run_module("agents.conductor")
+
+    # 2) Notify — pending/ 항목 발송 (AUTO 모드면 자동 승인 + 캐스케이드)
+    _run_module("telegram_bot.notify", timeout=180)
+
+    # 3) Build — site/ 재생성
+    _run_module("site_builder.build", timeout=180)
+
+
 def _trigger_build():
     """새 brief이 생겼으면 GitHub Actions를 dispatch로 깨움."""
     ok = poll._dispatch_agent_loop()
@@ -206,11 +265,23 @@ def run_loop():
             # 변경 사항 있으면 git push
             pushed = _git_sync_changes()
 
-            # 빌드 트리거 정책 (즉각 반응 위해 광범위하게)
-            #   1. 새 brief 생성 → 무조건 트리거 (다음 작업 즉시 시작)
-            #   2. callback이 있었고 git push가 있었다 → 트리거
-            #      (승인·반영 결과 즉시 빌드)
-            should_trigger = had_brief_creation or (had_callback and pushed)
+            # ★ 로컬 파이프라인 실행 — cron 의존성 제거.
+            # briefs/에 파일 있거나 pending/에 미발송이 있으면 로컬에서 처리.
+            # 클라우드 워크플로우가 어떤 이유로 안 돌아도 이 데몬이 일을 끝까지 한다.
+            try:
+                _run_local_pipeline()
+            except Exception as e:
+                log.exception("로컬 파이프라인 에러 (무시하고 계속): %s", e)
+
+            # 로컬 파이프라인이 만든 변경 다시 push
+            pushed_after = _git_sync_changes()
+
+            # 빌드 트리거 (Pages 배포)
+            should_trigger = (
+                had_brief_creation
+                or (had_callback and pushed)
+                or pushed_after
+            )
             if should_trigger:
                 _trigger_build()
 
