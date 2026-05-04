@@ -68,6 +68,26 @@ def _auto_approve(r: AgentResult, path: Path) -> bool:
             )
             log.info("[auto] site_config updated from %s", r.id)
 
+    # ★ curriculum_outline 자동 승인 시 course_order 자동 추가 (Site Dev 빈자리 메우기)
+    elif r.kind == "curriculum_outline":
+        course_id = r.course_id or ""
+        if course_id and SITE_CONFIG_PATH.exists():
+            try:
+                cfg = _json.loads(SITE_CONFIG_PATH.read_text(encoding="utf-8"))
+                order = cfg.get("course_order") or []
+                if not isinstance(order, list):
+                    order = []
+                if course_id not in order:
+                    order.append(course_id)
+                    cfg["course_order"] = order
+                    SITE_CONFIG_PATH.write_text(
+                        _json.dumps(cfg, ensure_ascii=False, indent=2),
+                        encoding="utf-8",
+                    )
+                    log.info("[auto] course_order에 %s 추가", course_id)
+            except Exception as e:
+                log.warning("[auto] course_order 갱신 실패: %s", e)
+
     # 디자인 시안 — V1 자동 채택 (가장 보수적)
     elif r.kind == "design_variants":
         variants = (r.meta or {}).get("variants") or []

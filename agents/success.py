@@ -83,10 +83,25 @@ JSON 스키마:
 
     @staticmethod
     def _safe_json(s: str) -> list:
-        s = s.strip()
+        s = (s or "").strip()
+        # 빈 응답 — Claude가 컨텍스트 부족 등으로 nothing 반환한 경우
+        if not s:
+            raise ValueError(
+                "Success agent: LLM 응답이 비어있음 (브리프 컨텍스트 부족 의심). "
+                "course_title/topic/audience 채워서 재시도하세요."
+            )
         if s.startswith("```"):
             s = s.split("```", 2)[1]
             if s.startswith("json"):
                 s = s[4:]
             s = s.rsplit("```", 1)[0].strip()
+        # 다시 한 번 빈 체크 (코드펜스만 있고 빈 경우)
+        if not s:
+            raise ValueError("Success agent: 코드펜스 안이 비어있음")
+        # JSON 배열로 시작 안 하면 첫 [ 부터 마지막 ]까지만 추출
+        if not s.startswith("["):
+            i = s.find("[")
+            j = s.rfind("]")
+            if i >= 0 and j > i:
+                s = s[i:j + 1]
         return json.loads(s)
