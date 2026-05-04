@@ -1,14 +1,14 @@
 {
   "last_reset_date": "2026-05-04",
-  "daily_brief_count": 7,
+  "daily_brief_count": 8,
   "daily_agent_calls": {
     "ui_designer": 1,
     "curriculum": 2,
     "marketing": 1,
-    "producer": 2,
+    "producer": 3,
     "success": 1
   },
-  "daily_estimated_cost_usd": 0.49000000000000005,
+  "daily_estimated_cost_usd": 0.56,
   "recent_call_timestamps": [
     {
       "agent": "marketing",
@@ -25,6 +25,10 @@
     {
       "agent": "producer",
       "ts": 1777936325.8449438
+    },
+    {
+      "agent": "producer",
+      "ts": 1777936415.811553
     }
   ],
   "paused": false,
