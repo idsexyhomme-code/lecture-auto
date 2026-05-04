@@ -108,14 +108,14 @@ footer.site {
 
 /* design_tokens — site_developer Tier 2 (overrides above) */
 :root {
-  --bg: #0A0A0A;
-  --fg: #F5F5F5;
-  --muted: #8A8A8A;
-  --line: #1E1E1E;
-  --brand: #00E5BE;
-  --brand-2: #141414;
-  --accent: #FF3D5A;
-  --soft: #141414;
-  --font-family-sans: 'Pretendard', system-ui, sans-serif;
-  --radius-card: 4px;
+  --bg: #F8F7F4;
+  --fg: #1C2333;
+  --muted: #6B7280;
+  --line: #DDD9D2;
+  --brand: #2C3E6B;
+  --brand-2: #3D5A8A;
+  --accent: #5578B8;
+  --soft: #EEF0F6;
+  --font-family-sans: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  --radius-card: 10px;
 }
