@@ -1,0 +1,127 @@
+{
+  "id": "1777706339-05bb64",
+  "agent": "ui_designer",
+  "kind": "design_variants",
+  "title": "[디자인 시안] hero — 3개 변형",
+  "body_md": "## hero — 변형 3개\n\n코어 캠퍼스 메인 히어로 3변형 — 에디토리얼/임팩트/서사\n\n### V1 · 에디토리얼 모던\n_차분한 학술 매거진 같은 진중함 — 텍스트 우선, 여백이 말을 걸다_\n\n**팔레트**: bg=#FBF8F3, fg=#1A1714, brand=#3B2A1A, accent=#A67C52, soft=#EDE5D8\n\n**이유**: 지식 창업가는 '진지하게 일하는 전문가'로 인식되고 싶어 하므로, 학술 매거진풍 좌우 분할 레이아웃이 신뢰감을 즉시 전달합니다. 텍스트를 주인공으로 두고 통계 수치로 사회적 증거를 제공하면, 클릭 전 단계에서 이미 의사결정이 이뤄집니다. 따뜻한 베이지-브라운 팔레트는 과장 없이 차분한 전문성을 표현합니다.\n\n**이미지 프롬프트** (4개):\n- 베이지와 딥브라운 팔레트, 책상 위 노트북과 오픈 노트를 위에서 내려다본 플랫레이, 따뜻한 자연광, 미니멀 스타일, 사람 없음\n- 추상 기하 도형이 단계적으로 연결되는 구조 다이어그램, 크림화이트 배경에 브라운·머스타드 선, 아이소메트릭 투시, 클린한 느낌\n- 한 장의 종이에 깔끔하게 정리된 커리큘럼 노트 텍스처 근접 촬영, 따뜻한 아이보리 톤, 섬세한 연필선 디테일\n- 모듈형 블록들이 수직으로 쌓이는 추상 일러스트, 베이지·샌드·다크브라운 그라데이션, 미니멀 벡터, 글로벌 아카데믹 톤\n\n### V2 · 풀블리드 임팩트\n_단 한 줄 헤드라인이 화면을 지배하는 선언적 구성 — Stripe의 절제된 임팩트_\n\n**팔레트**: bg=#211810, fg=#F5EFE6, brand=#C99A6B, accent=#E8B97A, soft=#2E1E12\n\n**이유**: 다크 배경에 풀블리드 대형 헤드라인은 Stripe의 '선언적 임팩트' 문법을 차용하되 따뜻한 앰버-브라운으로 브랜드 온기를 유지합니다. 헤드라인 세 줄이 화면을 지배하는 구성은 '나에게 말 거는 메시지'로 읽히며, 수강 후기 인용구를 하단에 배치해 결정의 마찰을 낮춥니다.\n\n**이미지 프롬프트** (4개):\n- 다크브라운 배경에 미세한 필름 그레인 텍스처 타일, 모노톤, 고해상도 노이즈 패턴, 투명 오버레이용\n- 밤의 작업실 분위기, 어두운 책상 위 노트북 화면만 빛나는 장면, 앰버-브라운 팔레트, 시네마틱, 인물 없음\n- 딥브라운과 번트오렌지 추상 빛 번짐, 어두운 배경에 따뜻한 광원 효과, 미니멀 디지털 아트, 글로벌 아카데믹 톤\n- 연기나 안개처럼 퍼지는 추상 웨이브 일러스트, 다크 배경에 골드-앰버 라인, 세련된 벡터 아트\n\n### V3 · 서사 분할\n_좌측 이야기, 우측 구조 — 독자가 자신의 문제를 보며 해결책을 발견하는 흐름_\n\n**팔레트**: bg=#F7F3ED, fg=#241C14, brand=#5C3D1E, accent=#D4874B, soft=#EAE0D2\n\n**이유**: 독자가 먼저 자신의 문제('막히는 이유')를 확인하고 즉시 해결 구조(우측 커리큘럼 카드)를 보는 서사 흐름은 전환 설득력이 높습니다. 좌측 밝은 베이지와 우측 다크브라운의 색 대비가 '문제-해결'을 공간으로 시각화하며, 토픽 태그와 단계 번호가 정보 스캔 속도를 높여 바쁜 1인 사업가에게 적합합니다.\n\n**이미지 프롬프트** (5개):\n- 따뜻한 베이지 톤의 작업 공간 플랫레이, 오픈 노트북·수첩·펜이 정돈된 구성, 자연광, 인물 없음, 한국적 정서\n- 모듈 카드들이 수직 리스트로 쌓이는 UI 목업 추상 일러스트, 크림-브라운 배경, 번호 레이블이 있는 단계 구조, 미니멀 벡터\n- 황토 오렌지와 다크브라운의 추상 수평선 레이어, 따뜻한 반건식 수채화 텍스처, 한국적 정서의 침착한 무드\n- 밀도 있는 타이포그래피 포스터 스타일 구성, 베이지 배경에 브라운 텍스트 블록, 그리드 기반 레이아웃, 글로벌 아카데믹 톤\n- 작은 체크마크와 넘버링이 있는 추상 리스트 패턴, 샌드-아이보리 배경, 브라운 계열 선, 정돈된 인포그래픽 무드",
+  "summary": "코어 캠퍼스 메인 히어로 3변형 — 에디토리얼/임팩트/서사",
+  "meta": {
+    "target": "hero",
+    "variants": [
+      {
+        "id": "v1",
+        "name": "에디토리얼 모던",
+        "vibe": "차분한 학술 매거진 같은 진중함 — 텍스트 우선, 여백이 말을 걸다",
+        "color_palette": {
+          "bg": "#FBF8F3",
+          "fg": "#1A1714",
+          "brand": "#3B2A1A",
+          "accent": "#A67C52",
+          "soft": "#EDE5D8"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:1120px;margin:0 auto;padding:80px 40px 88px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;\">\n  <div style=\"grid-column:1/2;\">\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent,#A67C52);margin:0 0 20px;\">Core Campus · Series Lecture</p>\n    <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(36px,4.5vw,56px);font-weight:700;line-height:1.18;letter-spacing:-0.025em;color:var(--fg,#1A1714);margin:0 0 28px;\">Claude를 실무에<br>단단하게 연결하는<br><em style=\"font-style:italic;color:var(--brand,#3B2A1A);\">단계별 시리즈 강의</em></h1>\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:17px;line-height:1.72;color:#5A4E42;margin:0 0 40px;max-width:440px;\">막연하게 써보는 AI가 아니라, 1인 사업에 실제로 작동하는 구조를 만듭니다.<br>코어 캠퍼스는 개념이 아닌 실행을 가르칩니다.</p>\n    <div style=\"display:flex;gap:16px;flex-wrap:wrap;align-items:center;\">\n      <a href=\"/courses\" style=\"display:inline-block;background:var(--brand,#3B2A1A);color:#FBF8F3;font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:600;text-decoration:none;padding:14px 32px;border-radius:6px;letter-spacing:0.01em;\">강의 살펴보기</a>\n      <a href=\"/about\" style=\"display:inline-block;color:var(--brand,#3B2A1A);font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:500;text-decoration:none;border-bottom:1.5px solid var(--accent,#A67C52);padding-bottom:2px;\">코어 캠퍼스란?</a>\n    </div>\n    <div style=\"display:flex;gap:32px;margin-top:48px;padding-top:32px;border-top:1px solid #DDD5C8;\">\n      <div>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:26px;font-weight:700;color:var(--brand,#3B2A1A);margin:0 0 4px;\">14+</p>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#7A6E64;margin:0;\">단계별 강의</p>\n      </div>\n      <div style=\"width:1px;background:#DDD5C8;\"></div>\n      <div>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:26px;font-weight:700;color:var(--brand,#3B2A1A);margin:0 0 4px;\">3,200+</p>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#7A6E64;margin:0;\">수강 중인 1인 사업가</p>\n      </div>\n      <div style=\"width:1px;background:#DDD5C8;\"></div>\n      <div>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:26px;font-weight:700;color:var(--brand,#3B2A1A);margin:0 0 4px;\">4.9</p>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#7A6E64;margin:0;\">평균 수강 만족도</p>\n      </div>\n    </div>\n  </div>\n  <div style=\"grid-column:2/3;display:flex;justify-content:center;align-items:center;\">\n    <figure style=\"margin:0;width:100%;max-width:480px;\">\n      <img src=\"/assets/placeholder/hero-editorial.svg\" alt=\"단계별 강의 구조를 시각화한 추상 일러스트\" style=\"width:100%;height:auto;border-radius:12px;display:block;\" />\n      <figcaption style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#9A8E84;margin-top:12px;text-align:center;letter-spacing:0.03em;\">실행 가능한 커리큘럼 설계</figcaption>\n    </figure>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#FBF8F3",
+          "color_fg": "#1A1714",
+          "color_muted": "#7A6E64",
+          "color_line": "#DDD5C8",
+          "color_brand": "#3B2A1A",
+          "color_accent": "#A67C52",
+          "color_soft": "#EDE5D8",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "12px"
+        },
+        "image_prompts": [
+          "베이지와 딥브라운 팔레트, 책상 위 노트북과 오픈 노트를 위에서 내려다본 플랫레이, 따뜻한 자연광, 미니멀 스타일, 사람 없음",
+          "추상 기하 도형이 단계적으로 연결되는 구조 다이어그램, 크림화이트 배경에 브라운·머스타드 선, 아이소메트릭 투시, 클린한 느낌",
+          "한 장의 종이에 깔끔하게 정리된 커리큘럼 노트 텍스처 근접 촬영, 따뜻한 아이보리 톤, 섬세한 연필선 디테일",
+          "모듈형 블록들이 수직으로 쌓이는 추상 일러스트, 베이지·샌드·다크브라운 그라데이션, 미니멀 벡터, 글로벌 아카데믹 톤"
+        ],
+        "reasoning": "지식 창업가는 '진지하게 일하는 전문가'로 인식되고 싶어 하므로, 학술 매거진풍 좌우 분할 레이아웃이 신뢰감을 즉시 전달합니다. 텍스트를 주인공으로 두고 통계 수치로 사회적 증거를 제공하면, 클릭 전 단계에서 이미 의사결정이 이뤄집니다. 따뜻한 베이지-브라운 팔레트는 과장 없이 차분한 전문성을 표현합니다."
+      },
+      {
+        "id": "v2",
+        "name": "풀블리드 임팩트",
+        "vibe": "단 한 줄 헤드라인이 화면을 지배하는 선언적 구성 — Stripe의 절제된 임팩트",
+        "color_palette": {
+          "bg": "#211810",
+          "fg": "#F5EFE6",
+          "brand": "#C99A6B",
+          "accent": "#E8B97A",
+          "soft": "#2E1E12"
+        },
+        "html": "<div class=\"wrap\" style=\"position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(150deg,#211810 60%,#3B2210 100%);overflow:hidden;padding:80px 40px;\">\n  <div style=\"position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:0.06;\">\n    <img src=\"/assets/placeholder/hero-texture-grain.svg\" alt=\"\" role=\"presentation\" style=\"width:100%;height:100%;object-fit:cover;\" />\n  </div>\n  <div style=\"position:relative;z-index:1;max-width:1120px;margin:0 auto;width:100%;\">\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#C99A6B;margin:0 0 32px;\">Core Campus</p>\n    <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(48px,7vw,88px);font-weight:800;line-height:1.06;letter-spacing:-0.04em;color:#F5EFE6;margin:0 0 0;max-width:900px;\">\n      Claude,<br>\n      <span style=\"color:#C99A6B;\">실무에</span><br>\n      써먹는 법.\n    </h1>\n    <div style=\"display:flex;align-items:flex-end;gap:48px;margin-top:48px;flex-wrap:wrap;\">\n      <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:18px;line-height:1.65;color:#C4AE98;margin:0;max-width:380px;\">1인 사업가를 위해 단계별로 설계한 시리즈 강의.<br>개념을 넘어 지금 당장 쓸 수 있는 구조를 드립니다.</p>\n      <div style=\"display:flex;flex-direction:column;gap:12px;\">\n        <a href=\"/courses\" style=\"display:inline-block;background:#C99A6B;color:#1A0F08;font-family:'Pretendard',system-ui,sans-serif;font-size:16px;font-weight:700;text-decoration:none;padding:16px 40px;border-radius:4px;letter-spacing:0.01em;white-space:nowrap;\">지금 시작하기</a>\n        <a href=\"/curriculum\" style=\"display:inline-block;color:#C4AE98;font-family:'Pretendard',system-ui,sans-serif;font-size:14px;font-weight:500;text-decoration:none;text-align:center;padding:4px 0;\">커리큘럼 전체 보기 →</a>\n      </div>\n    </div>\n    <div style=\"margin-top:72px;padding-top:32px;border-top:1px solid #3E2B1C;display:flex;gap:48px;flex-wrap:wrap;\">\n      <blockquote style=\"margin:0;max-width:340px;\">\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:15px;line-height:1.7;color:#A08878;margin:0 0 10px;font-style:italic;\">&ldquo;막연하게 써보다가 코어 캠퍼스 듣고 나서야 진짜 업무에 붙이기 시작했어요.&rdquo;</p>\n        <small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#6A5448;letter-spacing:0.04em;\">— 퍼스널 브랜딩 코치, 수강생</small>\n      </blockquote>\n      <blockquote style=\"margin:0;max-width:340px;\">\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:15px;line-height:1.7;color:#A08878;margin:0 0 10px;font-style:italic;\">&ldquo;단계별 구조 덕분에 어디서 막히는지 바로 알 수 있었습니다.&rdquo;</p>\n        <small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#6A5448;letter-spacing:0.04em;\">— 온라인 강의 크리에이터, 수강생</small>\n      </blockquote>\n    </div>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#211810",
+          "color_fg": "#F5EFE6",
+          "color_muted": "#A08878",
+          "color_line": "#3E2B1C",
+          "color_brand": "#C99A6B",
+          "color_accent": "#E8B97A",
+          "color_soft": "#2E1E12",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "4px"
+        },
+        "image_prompts": [
+          "다크브라운 배경에 미세한 필름 그레인 텍스처 타일, 모노톤, 고해상도 노이즈 패턴, 투명 오버레이용",
+          "밤의 작업실 분위기, 어두운 책상 위 노트북 화면만 빛나는 장면, 앰버-브라운 팔레트, 시네마틱, 인물 없음",
+          "딥브라운과 번트오렌지 추상 빛 번짐, 어두운 배경에 따뜻한 광원 효과, 미니멀 디지털 아트, 글로벌 아카데믹 톤",
+          "연기나 안개처럼 퍼지는 추상 웨이브 일러스트, 다크 배경에 골드-앰버 라인, 세련된 벡터 아트"
+        ],
+        "reasoning": "다크 배경에 풀블리드 대형 헤드라인은 Stripe의 '선언적 임팩트' 문법을 차용하되 따뜻한 앰버-브라운으로 브랜드 온기를 유지합니다. 헤드라인 세 줄이 화면을 지배하는 구성은 '나에게 말 거는 메시지'로 읽히며, 수강 후기 인용구를 하단에 배치해 결정의 마찰을 낮춥니다."
+      },
+      {
+        "id": "v3",
+        "name": "서사 분할",
+        "vibe": "좌측 이야기, 우측 구조 — 독자가 자신의 문제를 보며 해결책을 발견하는 흐름",
+        "color_palette": {
+          "bg": "#F7F3ED",
+          "fg": "#241C14",
+          "brand": "#5C3D1E",
+          "accent": "#D4874B",
+          "soft": "#EAE0D2"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:1120px;margin:0 auto;padding:72px 40px 80px;\">\n  <div style=\"display:grid;grid-template-columns:5fr 4fr;gap:0;min-height:540px;border-radius:16px;overflow:hidden;box-shadow:0 2px 32px rgba(60,30,10,0.08);\">\n    <div style=\"background:#F0E7DA;padding:56px 48px;display:flex;flex-direction:column;justify-content:space-between;\">\n      <div>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#D4874B;margin:0 0 24px;\">1인 사업가를 위한 강의</p>\n        <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(30px,3.6vw,46px);font-weight:700;line-height:1.22;letter-spacing:-0.02em;color:#241C14;margin:0 0 24px;\">Claude가 있어도<br>막히는 이유,<br><span style=\"color:#5C3D1E;text-decoration:underline;text-decoration-color:#D4874B;text-underline-offset:6px;\">코어 캠퍼스가 풉니다.</span></h1>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:16px;line-height:1.75;color:#6B5040;margin:0 0 32px;max-width:380px;\">도구는 있는데 방법을 모르는 1인 사업가를 위해 실무 구조부터 설계합니다. 단계별 시리즈 강의로, 한 번에 하나씩.</p>\n        <a href=\"/courses\" style=\"display:inline-block;background:#5C3D1E;color:#F7F3ED;font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:600;text-decoration:none;padding:15px 36px;border-radius:8px;\">내 강의 찾기</a>\n      </div>\n      <div style=\"display:flex;gap:8px;margin-top:40px;flex-wrap:wrap;\">\n        <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;background:#E8D8C4;color:#5C3D1E;padding:6px 14px;border-radius:20px;font-weight:500;\"># Claude 활용</span>\n        <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;background:#E8D8C4;color:#5C3D1E;padding:6px 14px;border-radius:20px;font-weight:500;\"># 1인 사업 자동화</span>\n        <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;background:#E8D8C4;color:#5C3D1E;padding:6px 14px;border-radius:20px;font-weight:500;\"># 콘텐츠 설계</span>\n        <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;background:#E8D8C4;color:#5C3D1E;padding:6px 14px;border-radius:20px;font-weight:500;\"># 수익화 구조</span>\n      </div>\n    </div>\n    <div style=\"background:#3A2210;padding:48px 40px;display:flex;flex-direction:column;justify-content:flex-start;gap:24px;\">\n      <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C99A6B;margin:0 0 8px;\">강의 구성</p>\n      <div style=\"display:flex;flex-direction:column;gap:16px;\">\n        <div style=\"background:#4A2E18;border-radius:10px;padding:20px 22px;display:flex;align-items:flex-start;gap:16px;\">\n          <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:22px;font-weight:800;color:#C99A6B;min-width:36px;\">01</span>\n          <div>\n            <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;font-weight:600;color:#F0E7DA;margin:0 0 4px;\">Claude 실무 기초 세팅</p>\n            <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#9A7A60;margin:0;line-height:1.5;\">업무에 붙이는 첫 번째 구조 만들기</p>\n          </div>\n        </div>\n        <div style=\"background:#4A2E18;border-radius:10px;padding:20px 22px;display:flex;align-items:flex-start;gap:16px;\">\n          <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:22px;font-weight:800;color:#C99A6B;min-width:36px;\">02</span>\n          <div>\n            <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;font-weight:600;color:#F0E7DA;margin:0 0 4px;\">콘텐츠 생산 파이프라인</p>\n            <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#9A7A60;margin:0;line-height:1.5;\">반복 작업을 시스템으로 전환</p>\n          </div>\n        </div>\n        <div style=\"background:#4A2E18;border-radius:10px;padding:20px 22px;display:flex;align-items:flex-start;gap:16px;\">\n          <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:22px;font-weight:800;color:#C99A6B;min-width:36px;\">03</span>\n          <div>\n            <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;font-weight:600;color:#F0E7DA;margin:0 0 4px;\">수익화 구조 설계</p>\n            <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#9A7A60;margin:0;line-height:1.5;\">강의·서비스·자동화를 연결하는 방법</p>\n          </div>\n        </div>\n      </div>\n      <div style=\"margin-top:auto;padding-top:24px;border-top:1px solid #5A3820;\">\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#7A5A40;margin:0 0 12px;\">다음 기수 모집 중</p>\n        <a href=\"/enroll\" style=\"display:block;background:#C99A6B;color:#1A0A02;font-family:'Pretendard',system-ui,sans-serif;font-size:14px;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:6px;text-align:center;\">사전 등록하기</a>\n      </div>\n    </div>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#F7F3ED",
+          "color_fg": "#241C14",
+          "color_muted": "#6B5040",
+          "color_line": "#D8C9B4",
+          "color_brand": "#5C3D1E",
+          "color_brand_2": "#3A2210",
+          "color_accent": "#D4874B",
+          "color_soft": "#EAE0D2",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "10px"
+        },
+        "image_prompts": [
+          "따뜻한 베이지 톤의 작업 공간 플랫레이, 오픈 노트북·수첩·펜이 정돈된 구성, 자연광, 인물 없음, 한국적 정서",
+          "모듈 카드들이 수직 리스트로 쌓이는 UI 목업 추상 일러스트, 크림-브라운 배경, 번호 레이블이 있는 단계 구조, 미니멀 벡터",
+          "황토 오렌지와 다크브라운의 추상 수평선 레이어, 따뜻한 반건식 수채화 텍스처, 한국적 정서의 침착한 무드",
+          "밀도 있는 타이포그래피 포스터 스타일 구성, 베이지 배경에 브라운 텍스트 블록, 그리드 기반 레이아웃, 글로벌 아카데믹 톤",
+          "작은 체크마크와 넘버링이 있는 추상 리스트 패턴, 샌드-아이보리 배경, 브라운 계열 선, 정돈된 인포그래픽 무드"
+        ],
+        "reasoning": "독자가 먼저 자신의 문제('막히는 이유')를 확인하고 즉시 해결 구조(우측 커리큘럼 카드)를 보는 서사 흐름은 전환 설득력이 높습니다. 좌측 밝은 베이지와 우측 다크브라운의 색 대비가 '문제-해결'을 공간으로 시각화하며, 토픽 태그와 단계 번호가 정보 스캔 속도를 높여 바쁜 1인 사업가에게 적합합니다."
+      }
+    ],
+    "brief_echo": {
+      "purpose": "코어 캠퍼스 메인 히어로를 따뜻하고 차분한 톤으로 재설계해 1인 사업가에게 신뢰감과 진입 동기를 준다",
+      "audience": "Claude를 실무에 활용하고 싶은 1인 사업가",
+      "style_keywords": [
+        "미니멀",
+        "따뜻한 톤",
+        "차분한 임팩트",
+        "단단한 타이포그래피"
+      ],
+      "color_mood": "warm",
+      "reference_urls": [
+        "https://stripe.com"
+      ]
+    },
+    "chosen_variant_id": "v1"
+  },
+  "course_id": "",
+  "created_at": "2026-05-02T07:18:59+00:00",
+  "status": "approved",
+  "telegram_message_id": 79
+}
