@@ -102,6 +102,21 @@ def _auto_approve(r: AgentResult, path: Path) -> bool:
         f"⚡ AUTO 승인 — {label}\n[{r.kind}] {title_short}",
         parse_mode="",
     )
+
+    # ★ Cascade — curriculum 자동 승인 후 producer/marketing/success 자동 발주
+    try:
+        from telegram_bot import poll as _poll
+        cascaded = _poll._cascade_after_approve(r)
+        if cascaded:
+            tg.send_text(
+                f"⚡ 자동 캐스케이드 — {len(cascaded)}개 brief 발주\n"
+                + "\n".join(f"• {p.name}" for p in cascaded[:5]),
+                parse_mode="",
+            )
+            log.info("[auto] cascaded %d briefs from %s", len(cascaded), r.id)
+    except Exception as e:
+        log.warning("[auto] cascade failed: %s", e)
+
     return True
 
 
@@ -112,10 +127,9 @@ def notify_new_pending() -> int:
 
     for path in sorted(PENDING_DIR.glob("*.json")):
         r = AgentResult.load(path)
-        if r.telegram_message_id:
-            continue  # 이미 발송됨
 
-        # AUTO 모드 — Telegram 카드 안 보내고 즉시 처리
+        # ★ AUTO 모드는 telegram_message_id 무시하고 *모든 pending* 자동 처리.
+        # (HITL 모드일 때만 이미 발송된 카드 skip)
         if auto:
             try:
                 if _auto_approve(r, path):
@@ -124,6 +138,9 @@ def notify_new_pending() -> int:
                     continue
             except Exception as e:
                 log.exception("[auto] approve failed for %s: %s — fallback to HITL", r.id, e)
+
+        if r.telegram_message_id:
+            continue  # HITL: 이미 발송됨
 
         try:
             # 디자인 시안 — 전용 카드 (v1/v2/v3 미리보기 + 채택 버튼)
