@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 내 집중 도둑 지도 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 내 집중 도둑 지도 만들기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: deepwork-1hr-test · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>오늘도 2시간 앉아 있었는데 한 일이 없죠?</p>
+<p>타이머는 돌아가고 있었는데, 정작 뇌는 딴 데 있었던 그 느낌.</p>
+<p>그 이유가 의지력 부족이 아니에요.</p>
+<p>제 경험상, 대부분의 경우 <strong>'어디서 새는지 모르는 것'</strong> 이 진짜 문제입니다.</p>
+<p>이 영상에서 여러분의 집중을 훔쳐가는 요인을 지도로 그려드릴게요.</p>
+<p>지도가 생기면 도둑을 잡을 수 있습니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면 여러분은 지난 3일간 자신의 작업을 방해한 요인을 <strong>외부·내부·디지털 3가지 범주</strong>로 나눈 목록표를 손에 들고 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 딥워크 vs 얕은 작업</h3>
+<p><strong>설명</strong>
+딥워크는 인지적 한계까지 밀어붙이는 집중 상태입니다.
+Cal Newport가 정의한 개념이에요.
+얕은 작업은 이메일 확인, 일정 조율처럼 자동적으로 처리되는 일입니다.</p>
+<p><strong>예시</strong>
+보고서 초안 작성 = 딥워크.
+받은 메일 분류 = 얕은 작업.</p>
+<p><strong>반례</strong>
+회의가 항상 얕은 작업은 아니에요.
+전략 토론처럼 깊은 사고가 필요한 회의도 있습니다.
+그러나 대부분의 일상 회의는 얕은 작업에 가깝습니다.</p>
+<p><strong>정리 — 메모리 페그</strong>
+<strong>'잠수함 vs 보트'</strong> 로 기억하세요.
+잠수함은 수면 아래 깊이 들어가는 딥워크.
+보트는 수면 위를 바쁘게 오가는 얕은 작업.
+지금 여러분의 하루는 어느 쪽인가요?</p>
+<hr />
+<h3>핵심 개념 2 — 주의 분산의 3가지 유형</h3>
+<p><strong>설명</strong>
+주의를 빼앗는 요인은 크게 세 범주입니다.</p>
+<ul>
+<li><strong>외부 방해</strong>: 소음, 동료 말걸기, 환경 자극</li>
+<li><strong>내부 방해</strong>: 걱정, 잡념, 미완료 과제가 떠오르는 현상</li>
+<li><strong>디지털 방해</strong>: 알림, SNS, 메신저 팝업</li>
+</ul>
+<p><strong>예시</strong>
+외부 — 옆자리 전화 소리에 문장을 잃어버린 경험.
+내부 — 글 쓰다가 갑자기 "아, 그 카드 결제 확인해야 하는데" 가 떠오르는 순간.
+디지털 — 카카오톡 점 세 개가 깜빡이는 걸 본 순간 이미 집중이 깨진 상태.</p>
+<p><strong>반례</strong>
+음악이 항상 외부 방해는 아닙니다.
+단순 반복 작업 중 익숙한 음악은 오히려 집중을 돕기도 해요.
+그러나 가사 있는 음악은 언어 처리 작업에 방해가 됩니다.</p>
+<p><strong>정리 — 메모리 페그</strong>
+<strong>'환경·머릿속·화면'</strong> 세 단어로 기억하세요.
+각각 외부·내부·디지털입니다.
+이 세 곳에서 도둑이 들어옵니다.</p>
+<hr />
+<h3>핵심 개념 3 — 주의 잔여물 메커니즘</h3>
+<p><strong>설명</strong>
+Sophie Leroy의 연구에서 나온 개념입니다.
+한 작업에서 다른 작업으로 전환할 때, 이전 작업의 생각이 완전히 지워지지 않고 남습니다.
+이걸 <strong>주의 잔여물(attention residue)</strong> 이라고 해요.
+메신저 하나 확인하고 돌아왔을 때, 집중이 원래대로 돌아오는 데 평균 <strong>23분</strong> 이 걸린다는 연구 결과도 있습니다.</p>
+<p><strong>예시</strong>
+보고서 쓰다가 슬랙 알림 확인, 5초 만에 닫았지만.
+머릿속엔 "저 메시지 나중에 답해야 하는데"가 남아 있어요.
+그 잔여물이 다음 30분을 오염시킵니다.</p>
+<p><strong>반례</strong>
+모든 전환이 잔여물을 남기지는 않아요.
+완전히 마무리된 작업에서 이동할 때는 잔여물이 적습니다.
+문제는 <strong>중간에 끊긴 작업</strong>입니다.</p>
+<p><strong>정리 — 메모리 페그</strong>
+<strong>'젖은 발로 카펫 걷기'</strong> 를 떠올리세요.
+한 번 발이 젖으면 카펫 곳곳에 흔적이 남죠.
+방해 하나가 그렇게 작업 전체에 번집니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 <strong>일시정지</strong> 하고 따라오세요.</p>
+<p><strong>준비물</strong>: 종이 한 장 또는 메모 앱</p>
+<hr />
+<p><strong>Step 1 — 표 만들기 (1분)</strong></p>
+<p>A4를 세로로 3등분합니다.
+왼쪽부터 순서대로 상단에 적으세요.</p>
+<blockquote>
+<p>외부 방해 / 내부 방해 / 디지털 방해</p>
+</blockquote>
+<hr />
+<p><strong>Step 2 — 지난 3일 회상 (2분)</strong></p>
+<p>눈을 감고 최근 3일간 작업하던 장면을 떠올려 보세요.
+언제 흐름이 끊겼나요?
+무엇 때문이었나요?</p>
+<p>떠오르는 것을 해당 칸에 씁니다.
+각 칸에 <strong>최소 3개</strong> 씩 채우는 게 목표예요.</p>
+<p>예시로 제가 먼저 보여드릴게요.</p>
+<ul>
+<li>외부: 택배 초인종, 에어컨 소음, 가족 말걸기</li>
+<li>내부: 마감 걱정, 어제 대화 반추, 배고픔 신호</li>
+<li>디지털: 유튜브 추천 영상 클릭, 카톡 확인, 이메일 새로고침</li>
+</ul>
+<hr />
+<p><strong>Step 3 — 가장 잦은 도둑 표시 (30초)</strong></p>
+<p>각 칸에서 <strong>가장 자주 등장한 항목</strong> 하나에 별표를 치세요.</p>
+<p>이게 여러분의 <strong>집중 도둑 1순위</strong>입니다.</p>
+<p>다음 차시에서 이 1순위부터 차단하는 방법을 다룹니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>워크시트를 완성하셨나요?</p>
+<p>완성된 분은 댓글에 <strong>"도둑 잡기 완료"</strong> 라고만 남겨주세요.</p>
+<p>다음 차시에서는 지금 찾아낸 방해 요인을 실제로 차단하는 <strong>딥워크 환경 설계법</strong>을 다룹니다.</p>
+<p>워크시트 없이 들으면 절반만 얻어 갑니다.</p>
+<p>꼭 완성하고 다음 영상으로 넘어오세요.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

@@ -215,6 +215,8 @@ def run_loop():
     log.info("=" * 60)
 
     backoff = RETRY_BACKOFF_BASE
+    last_pipeline_check = 0
+    PIPELINE_INTERVAL = 60  # 60초마다 큐 점검 (메시지 없어도)
 
     while not _should_stop:
         try:
@@ -223,11 +225,31 @@ def run_loop():
 
             updates = tg.get_updates(offset=next_offset, timeout=LONG_POLL_TIMEOUT)
 
+            # ★ 메시지 없어도 60초마다 큐 점검 (24/7 자동화 핵심)
+            now = time.time()
             if not updates:
-                # timeout 도달했는데 update 없음 — 정상. 다음 루프.
+                if now - last_pipeline_check >= PIPELINE_INTERVAL:
+                    last_pipeline_check = now
+                    try:
+                        # origin pull (다른 사이트에서 새 brief 가져왔을 수 있음)
+                        rc, out = _git("pull", "--ff-only", "origin", "main")
+                        if rc == 0 and out.strip() and "Already up to date" not in out:
+                            log.info("✓ origin pull (정기 동기화)")
+                    except Exception as e:
+                        log.warning("정기 pull 실패: %s", e)
+
+                    try:
+                        _run_local_pipeline()
+                    except Exception as e:
+                        log.exception("정기 파이프라인 에러: %s", e)
+
+                    pushed = _git_sync_changes()
+                    if pushed:
+                        _trigger_build()
                 continue
 
             log.info("📨 %d개 update 수신", len(updates))
+            last_pipeline_check = now  # 메시지 처리도 파이프라인 활동으로 카운트
 
             # ★ Phase A4 — callback 처리 *전* origin에서 fast-forward pull.
             # 클라우드(GitHub Actions)에서 만든 새 pending 파일이 로컬에 없으면
