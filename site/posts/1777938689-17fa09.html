@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 딥워크 환경 설계하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 딥워크 환경 설계하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: deepwork-1hr · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>집중하려고 앉았는데, 10분도 안 돼서 핸드폰을 집어들고 있죠?</p>
+<p>작업 창 하나 띄웠는데 어느새 탭이 열두 개.</p>
+<p>오늘 강의는 그 반복을 끊어냅니다.</p>
+<p>환경을 설계하지 않으면, 집중력은 의지력 싸움이 됩니다.</p>
+<p>그리고 그 싸움, 우리는 대부분 집니다.</p>
+<p>지금부터 딥워크에 진입하는 환경을 처음부터 다시 만들겠습니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 나를 방해하는 요소 5가지를 정확히 꼽고 각각을 막는 차단 규칙을 한 장짜리 문서로 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 딥워크 vs 얕은 작업 구분</h3>
+<p><strong>설명</strong></p>
+<p>딥워크는 Cal Newport가 정의한 개념입니다.</p>
+<p>인지 능력을 한계까지 끌어올려야 하는 집중 작업입니다.</p>
+<p>반대편에 있는 게 얕은 작업, 즉 Shallow Work입니다.</p>
+<p>이메일 확인, 메신저 답장, 간단한 자료 정리.</p>
+<p>이것들은 분산돼도 완수할 수 있는 작업입니다.</p>
+<p><strong>예시</strong></p>
+<p>보고서 초안 작성, 코드 설계, 강의 스크립트 작성.</p>
+<p>이건 딥워크입니다.</p>
+<p>슬랙 알림 처리, 회의 일정 잡기.</p>
+<p>이건 얕은 작업입니다.</p>
+<p><strong>반례</strong></p>
+<p>"저는 멀티태스킹으로 다 처리해요."</p>
+<p>제 경험상, 그건 딥워크와 얕은 작업을 섞은 겁니다.</p>
+<p>결과적으로 둘 다 품질이 낮아집니다.</p>
+<p><strong>정리 — 메모리 페그: '수심(水深)'</strong></p>
+<p>딥워크는 깊은 물, 얕은 작업은 얕은 물.</p>
+<p>깊은 물에서는 파도에 흔들리지 않습니다.</p>
+<p>오늘부터 작업을 시작하기 전, 먼저 물어보세요.</p>
+<p>"지금 내가 하려는 게 깊은 물인가, 얕은 물인가?"</p>
+<hr />
+<h3>개념 2 — 주의 잔류물(Attention Residue)</h3>
+<p><strong>설명</strong></p>
+<p>연구자 Sophie Leroy가 밝혀낸 개념입니다.</p>
+<p>작업 A를 끝내지 않고 작업 B로 넘어갈 때, A에 대한 생각이 B에 남아 있는 현상입니다.</p>
+<p>이름이 어렵게 느껴지면 이렇게 기억하세요.</p>
+<p><strong>메모리 페그: '커피 잔의 커피 얼룩'</strong></p>
+<p>다 마신 커피 잔을 헹구지 않고 물을 새로 부으면, 물에 커피가 배어납니다.</p>
+<p>주의 잔류물이 바로 그겁니다.</p>
+<p>이전 작업의 얼룩이 새 작업에 번집니다.</p>
+<p><strong>예시</strong></p>
+<p>오전에 급한 메일을 처리하다가 중단하고 보고서 작성으로 넘어갔습니다.</p>
+<p>보고서 쓰는 내내 "그 메일 어떻게 됐지?"가 머릿속을 맴돕니다.</p>
+<p>집중 품질이 절반 이하로 떨어집니다.</p>
+<p><strong>반례</strong></p>
+<p>"저는 전환할 때 금방 잊어요."</p>
+<p>의식적으로는 잊어도, 작업 성과가 증명합니다.</p>
+<p>전환 직후 30분간 생산성 측정을 해보면, 대부분의 경우 눈에 띄게 낮습니다.</p>
+<p><strong>정리</strong></p>
+<p>딥워크 전에는 이전 작업을 의도적으로 마감해야 합니다.</p>
+<p>완전히 끝낼 수 없다면, 다음 행동을 메모에 적고 머릿속에서 내려놓는 것만으로도 효과가 있습니다.</p>
+<hr />
+<h3>개념 3 — 물리적·디지털 환경 분리 원칙</h3>
+<p><strong>설명</strong></p>
+<p>환경은 뇌에 신호를 보냅니다.</p>
+<p>침대에 누우면 졸리고, 카페에 가면 뭔가 해야 할 것 같은 느낌.</p>
+<p>그게 환경이 보내는 신호입니다.</p>
+<p>딥워크를 위한 공간과 얕은 작업 공간을 물리적으로 분리하면, 뇌가 스스로 모드를 전환하기 시작합니다.</p>
+<p><strong>메모리 페그: '3개의 방'</strong></p>
+<p>방 1 — 딥워크 전용 공간.</p>
+<p>방 2 — 커뮤니케이션 처리 공간.</p>
+<p>방 3 — 휴식 공간.</p>
+<p>실제로 방이 세 개일 필요는 없습니다.</p>
+<p>책상의 구역, 노트북 바탕화면, 브라우저 프로파일로도 분리할 수 있습니다.</p>
+<p><strong>예시</strong></p>
+<p>딥워크 시간에는 브라우저 프로파일을 'DEEP'으로 전환합니다.</p>
+<p>이 프로파일에는 이메일, SNS, 유튜브 탭이 없습니다.</p>
+<p>작업 앱만 열려 있습니다.</p>
+<p>디지털 공간도 물리 공간처럼 설계하는 겁니다.</p>
+<p><strong>반례</strong></p>
+<p>"그냥 알림만 끄면 되지 않나요?"</p>
+<p>알림을 끄는 건 필요조건입니다.</p>
+<p>하지만 충분조건은 아닙니다.</p>
+<p>알림이 없어도, 앱 아이콘이 보이면 클릭 충동이 생깁니다.</p>
+<p>환경 자체를 바꿔야 충동의 빈도가 줄어듭니다.</p>
+<p><strong>정리</strong></p>
+<p>물리적 공간 하나, 디지털 프로파일 하나.</p>
+<p>딥워크 전용으로 분리된 환경이 있으면, 집중은 의지력이 아니라 설계의 결과가 됩니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 직접 만들어보겠습니다.</p>
+<p>준비물은 종이 한 장 또는 메모 앱 하나면 됩니다.</p>
+<p><strong>Step 1 — 방해 요소 5개 뽑기 (1분)</strong></p>
+<p>오늘 혹은 지난주를 떠올려보세요.</p>
+<p>집중을 깼던 것들을 떠오르는 대로 씁니다.</p>
+<p>예: 스마트폰 알림, 카카오톡, 유튜브 자동재생, 가족의 말 걸기, 배경 소음.</p>
+<p>판단하지 말고 일단 5개를 적으세요.</p>
+<p><strong>Step 2 — 대응 규칙 1개씩 연결하기 (1분 30초)</strong></p>
+<p>각 방해 요소 옆에 차단 규칙을 하나씩 씁니다.</p>
+<p>규칙은 단순하고 구체적일수록 좋습니다.</p>
+<p>예시를 드리겠습니다.</p>
+<ul>
+<li>스마트폰 알림 → 딥워크 시작 전 비행기 모드 전환</li>
+<li>카카오톡 → PC 앱 종료, 스마트폰은 다른 방에</li>
+<li>유튜브 → 브라우저 'DEEP' 프로파일에서 YouTube 차단 확장 프로그램 활성화</li>
+<li>가족의 말 걸기 → 딥워크 시간 알림판을 책상 앞에 붙이기</li>
+<li>배경 소음 → 노이즈 캔슬링 헤드폰 착용 또는 백색소음 틀기</li>
+</ul>
+<p><strong>Step 3 — 표로 정리하기 (1분)</strong></p>
+<p>두 칸짜리 표를 그립니다.</p>
+<p>왼쪽 열에 '방해 요소', 오른쪽 열에 '차단 규칙'.</p>
+<p>5행을 채우면 완성입니다.</p>
+<p>이게 여러분의 첫 번째 방해 요소 차단 프로토콜입니다.</p>
+<p>책상 앞에 붙여두거나 작업 폴더에 저장해두세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 딥워크 1시간을 실제로 예약하는 법을 다룹니다.</p>
+<p>환경을 만들었으니, 이제 시간을 설계할 차례입니다.</p>
+<p>오늘 만든 차단 프로토콜 표, 댓글에 방해 요소 한 가지만 공유해주세요.</p>
+<p>어떤 걸 막기 가장 어려운지, 함께 이야기 나눠보겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

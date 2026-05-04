@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 한 페이지 인사메일의 구조를 분해한다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 한 페이지 인사메일의 구조를 분해한다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-intro-email · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>지금까지 공들여 쓴 인사메일, 답장이 없었던 적 있으시죠?</p>
+<p>내용이 부족해서가 아닙니다.
+구조가 없어서입니다.</p>
+<p>수신자는 메일을 처음 3초 안에 닫을지 읽을지 결정합니다.
+그 3초를 잡지 못하면, 아무리 좋은 내용도 휴지통으로 직행합니다.</p>
+<p>이번 차시에서는 답장을 부르는 메일과 묻히는 메일의 결정적 차이, 구조를 해부합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 어떤 인사메일이든 4개의 블록으로 분해하고 "이 메일이 왜 읽히지 않는지"를 스스로 진단할 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 한 페이지 메일의 4블록 구조</h3>
+<p><strong>설명</strong></p>
+<p>효과적인 인사메일에는 공통적으로 4개의 블록이 있습니다.
+순서대로, <strong>후크 → 자기소개 → 가치제안 → CTA</strong>입니다.</p>
+<p>이 구조를 기억하는 메모리 페그는 <strong>"현자가CTA"</strong>입니다.
+현(후크) 자(자기소개) 가(가치제안) CTA, 이렇게 외우세요.</p>
+<p>각 블록의 역할은 딱 하나씩입니다.
+후크는 열게, 자기소개는 신뢰를, 가치제안은 이유를, CTA는 다음 행동을.</p>
+<p><strong>예시</strong></p>
+<blockquote>
+<p>"지난달 김대리님 발표 자료를 보고 연락드립니다." → <strong>후크</strong>
+"저는 마케팅 3년 차 이진영입니다." → <strong>자기소개</strong>
+"저는 B2B 콘텐츠 전환율을 평균 2배 높인 경험이 있습니다." → <strong>가치제안</strong>
+"15분 짧은 통화 가능하실까요?" → <strong>CTA</strong></p>
+</blockquote>
+<p><strong>반례</strong></p>
+<p>블록이 섞인 메일은 수신자를 혼란스럽게 합니다.
+"안녕하세요, 저는 이진영이고 마케팅을 잘하며 만나고 싶습니다." 이런 식이면, 구조가 없는 겁니다.</p>
+<p><strong>정리</strong></p>
+<p>4블록은 설득의 흐름입니다.
+이 순서를 지키는 것만으로 메일의 가독성이 크게 달라집니다.</p>
+<hr />
+<h3>핵심 개념 2 — 수신자 관점의 가치제안 vs 자기자랑</h3>
+<p><strong>설명</strong></p>
+<p>가치제안 블록에서 가장 흔한 실수가 있습니다.
+바로 <strong>수신자 입장이 아닌 나 중심의 자기자랑</strong>입니다.</p>
+<p>메모리 페그는 <strong>"거울 vs 창문"</strong>입니다.
+자기자랑은 거울, 나만 보입니다.
+가치제안은 창문, 수신자의 세계가 보입니다.</p>
+<p>테스트 방법은 하나입니다.
+문장 주어가 "저는"이면 거울, "귀사는" 또는 "○○님은"이면 창문입니다.</p>
+<p><strong>예시</strong></p>
+<ul>
+<li>자기자랑: "저는 수상 경력이 3회 있고, 다양한 프로젝트를 해왔습니다."</li>
+<li>가치제안: "귀사의 신규 고객 유입 비용을 줄이는 데 제가 기여할 수 있습니다."</li>
+</ul>
+<p>두 문장의 차이가 느껴지시나요?</p>
+<p><strong>반례</strong></p>
+<p>수치를 쓰더라도 나 중심이면 자기자랑입니다.
+"저는 ROI를 30% 높였습니다." 는 가치제안처럼 보이지만, 수신자와 연결이 없으면 여전히 거울입니다.
+"귀사와 유사한 구조의 팀에서 ROI를 30% 높였습니다." 로 바꿔야 창문이 됩니다.</p>
+<p><strong>정리</strong></p>
+<p>가치제안을 쓸 때는 항상 이 질문을 먼저 하세요.
+"이 문장이 수신자에게 무슨 의미인가?"
+그 답이 바로 가치제안의 핵심입니다.</p>
+<hr />
+<h3>핵심 개념 3 — CTA 설계 원칙</h3>
+<p><strong>설명</strong></p>
+<p>CTA는 메일의 마지막 블록입니다.
+하지만 대부분의 경우, 가장 허술하게 쓰입니다.</p>
+<p>메모리 페그는 <strong>"1·1·1 법칙"</strong>입니다.
+<strong>1가지 행동, 1가지 기한, 1가지 방식</strong>만 요청하는 겁니다.</p>
+<p>CTA가 복잡할수록 수신자는 아무것도 하지 않습니다.
+이것을 심리학에서는 '선택 과부하'라고 부릅니다.</p>
+<p><strong>예시</strong></p>
+<ul>
+<li>나쁜 CTA: "전화나 메일이나 편하신 방법으로 연락 주시고, 미팅이든 통화든 가능하시면 알려주세요."</li>
+<li>좋은 CTA: "이번 주 안으로 15분 통화 가능하신 시간이 있으신가요?"</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>1·1·1 법칙이라도 요청 수위가 너무 높으면 역효과가 납니다.
+첫 인사메일에서 "정식 계약 미팅을 요청드립니다." 는 너무 빠른 단계입니다.
+제 경험상, 첫 CTA는 15분 이하의 가벼운 접점이 가장 반응률이 높습니다.</p>
+<p><strong>정리</strong></p>
+<p>좋은 CTA는 수신자가 "Yes"라고 말하기 쉬운 구조입니다.
+작게 요청할수록 문은 더 쉽게 열립니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하세요.</p>
+<p>준비물은 딱 하나입니다.
+과거에 직접 보냈거나 받은 인사메일 1건을 텍스트로 복사해 두세요.</p>
+<p>없다면, 아래 샘플 메일을 사용하세요.</p>
+<blockquote>
+<p>"안녕하세요. 저는 콘텐츠 마케터 박수진입니다. 귀사의 블로그를 즐겨 읽고 있어 연락드렸습니다. 저는 지난 2년간 SaaS 회사에서 월 방문자를 3배 늘린 경험이 있습니다. 혹시 콘텐츠 전략 관련해서 짧게 이야기 나눌 기회가 생긴다면 좋겠습니다. 감사합니다."</p>
+</blockquote>
+<p><strong>Step 1.</strong> 텍스트 문서를 열고, 메일 전문을 붙여넣습니다.</p>
+<p><strong>Step 2.</strong> 각 문장 끝에 대괄호로 블록 이름을 표시합니다.
+표시 방법: [후크] [자기소개] [가치제안] [CTA] [미분류]</p>
+<p><strong>Step 3.</strong> 분류가 끝났으면 스스로에게 세 가지를 물어보세요.
+- 4개 블록이 모두 있는가?
+- 가치제안은 수신자 중심인가, 나 중심인가?
+- CTA는 1가지 행동만 요청하는가?</p>
+<p><strong>Step 4.</strong> 고칠 점을 한 줄로 메모합니다.</p>
+<p>완료되셨으면 영상을 다시 재생하세요.
+이 워크시트는 다음 차시에서 Claude에게 넘겨줄 원재료가 됩니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 방금 분해한 구조를 바탕으로, Claude에게 첫 번째 인사메일 초안을 직접 생성하게 합니다.</p>
+<p>어떤 프롬프트를 쓰면 쓸 만한 초안이 나오는지, 그 구체적인 방법을 다룹니다.</p>
+<p>방금 만드신 구조 분석 워크시트, 잘 저장해 두세요.
+다음 영상에서 바로 씁니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

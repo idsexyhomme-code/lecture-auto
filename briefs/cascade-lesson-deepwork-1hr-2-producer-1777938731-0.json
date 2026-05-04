@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "deepwork-1hr",
+    "course_title": "딥워크 1시간 진입법",
+    "lesson_no": 2,
+    "lesson_title": "몰입 진입 루틴 설계하기",
+    "objective": "딥워크 시작 전 15분 안에 실행 가능한 나만의 준비 루틴 3단계를 순서대로 기술한다",
+    "key_concepts": [
+      "시작 의식(Shutdown Ritual)의 반대 개념으로서의 Startup Ritual",
+      "단일 과제 집중 선언(Task Intention Setting)",
+      "생체리듬 기반 최적 집중 시간대 선택법"
+    ],
+    "exercise": "딥워크 스타트업 루틴 카드 (단계별 행동·소요 시간·트리거를 기입한 1페이지 문서)",
+    "duration_min": 15
+  }
+}

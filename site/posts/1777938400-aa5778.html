@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 내 업무에서 AI가 대체할 수 있는 것 찾기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 내 업무에서 AI가 대체할 수 있는 것 찾기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-autowork · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>매주 월요일 아침, 똑같은 보고서를 또 만들고 있을 때.
+'이걸 내가 왜 또 하고 있지?' 그 짜증, 아시죠?</p>
+<p>문제는 그 반복 작업이 퇴근을 2시간씩 늦춥니다.
+더 큰 문제는, 그게 없애질 수 있다는 걸 모른다는 거예요.</p>
+<p>이번 차시가 끝나면 달라집니다.
+내 업무 중 Claude가 대신할 수 있는 것을 직접 찾아냅니다.
+더 이상 '바쁜 것'과 '중요한 것'을 헷갈리지 않게 됩니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 영상이 끝나면, 여러분은 자신의 주간 업무 목록에서 반복·위임 가능한 업무를 최소 10개 골라내고, 자동화 우선순위 표를 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 반복 업무 vs 판단 업무</h3>
+<p><strong>설명</strong>
+업무에는 두 종류만 있습니다.
+매번 같은 과정을 밟는 <strong>반복 업무</strong>,
+그리고 경험과 맥락이 필요한 <strong>판단 업무</strong>입니다.</p>
+<p>AI는 반복 업무를 대신합니다.
+판단 업무는 여러분이 해야 합니다.</p>
+<p><strong>예시</strong>
+주간 매출 집계 → 반복 업무.
+숫자를 보고 다음 달 전략을 결정하는 것 → 판단 업무.
+회의록 요약 → 반복 업무.
+회의 결과로 팀 방향을 바꾸는 것 → 판단 업무.</p>
+<p><strong>반례</strong>
+"고객 응대는 사람이 해야 해"라고 생각하기 쉽습니다.
+하지만 FAQ 답변 초안 작성은 반복 업무입니다.
+고객 감정을 읽고 최종 판단하는 건 여러분의 몫이고요.
+경계는 생각보다 안쪽에 있습니다.</p>
+<p><strong>정리 — 메모리 페그 🤖 vs 🧠</strong>
+로봇 이모지는 반복, 뇌 이모지는 판단.
+업무를 볼 때마다 둘 중 하나를 떠올리세요.</p>
+<hr />
+<h3>핵심 개념 2 — 80/20 업무 분석</h3>
+<p><strong>설명</strong>
+파레토 법칙, 들어보셨죠?
+업무 성과의 80%는 20%의 핵심 업무에서 나옵니다.
+반대로 나머지 80%의 업무는 성과에 20%만 기여합니다.</p>
+<p>자동화는 그 80% 구간을 공략합니다.
+시간은 많이 쓰지만, 성과 기여는 작은 업무들이요.</p>
+<p><strong>예시</strong>
+하루 2시간짜리 데이터 정리,
+매주 반복되는 SNS 캡션 초안 작성,
+비슷한 형식의 이메일 회신.
+이런 업무들은 80%에 해당할 가능성이 높습니다.</p>
+<p><strong>반례</strong>
+시간이 짧다고 자동화 후순위는 아닙니다.
+매일 5분짜리 업무도 연간 20시간입니다.
+빈도가 높으면 작은 업무도 우선순위가 됩니다.</p>
+<p><strong>정리 — 메모리 페그 '2080 지도'</strong>
+업무 지도를 그린다고 상상하세요.
+왼쪽에 성과 기여 높은 20%,
+오른쪽에 시간 잡아먹는 80%.
+자동화는 오른쪽 땅부터 개간합니다.</p>
+<hr />
+<h3>핵심 개념 3 — 자동화 적합성 기준</h3>
+<p><strong>설명</strong>
+모든 반복 업무를 바로 자동화할 수는 없습니다.
+세 가지 기준으로 적합성을 판단합니다.</p>
+<p><strong>기준 1. 입력이 명확한가?</strong>
+업무를 시작할 때 필요한 정보가 매번 비슷한가요?
+그렇다면 Claude에게 맡길 수 있습니다.</p>
+<p><strong>기준 2. 출력 형식이 정해져 있는가?</strong>
+결과물의 형태가 일정한가요?
+표, 요약문, 이메일 형식처럼 틀이 있다면 적합합니다.</p>
+<p><strong>기준 3. 실수 허용 범위는?</strong>
+재무 결산처럼 오류가 치명적인 업무는 신중해야 합니다.
+초안 작성처럼 사람이 검토하는 단계가 있다면 괜찮습니다.</p>
+<p><strong>예시</strong>
+경쟁사 뉴스 요약 → 입력 명확, 형식 정해짐, 실수 허용 가능 → 적합성 높음.
+법적 계약서 최종 검토 → 판단 필요, 실수 치명적 → 적합성 낮음.</p>
+<p><strong>반례</strong>
+"우리 업무는 매번 달라"라는 말을 자주 듣습니다.
+하지만 잘 보면 달라지는 건 내용이고,
+구조와 형식은 반복되는 경우가 많습니다.
+그 구조만 자동화해도 시간이 줄어듭니다.</p>
+<p><strong>정리 — 메모리 페그 '신호등 3색'</strong>
+🟢 입력 명확 + 형식 일정 + 실수 허용 → 바로 자동화.
+🟡 하나라도 애매 → 부분 자동화(초안 생성 후 검토).
+🔴 판단 중심 + 실수 치명 → 자동화 보류.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>영상을 지금 일시정지하고 따라오세요.
+워크시트 한 장만 있으면 됩니다.</p>
+<p><strong>Step 1 — 업무 목록 작성 (5분)</strong>
+지난 한 주를 떠올리세요.
+했던 업무를 떠오르는 대로 적습니다.
+목표는 최소 15개입니다.
+너무 작은 것도 괜찮습니다. 일단 다 씁니다.</p>
+<p><strong>Step 2 — 반복/판단 분류 (3분)</strong>
+각 업무 옆에 🤖 또는 🧠를 표시합니다.
+매번 비슷하게 반복된다면 🤖,
+경험과 맥락이 필요하다면 🧠입니다.</p>
+<p><strong>Step 3 — 자동화 적합성 점수 매기기 (5분)</strong>
+🤖 표시된 업무만 대상으로 합니다.
+아래 세 항목을 각 1–3점으로 채점합니다.</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>1점</th>
+<th>2점</th>
+<th>3점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>입력 명확성</td>
+<td>매번 다름</td>
+<td>대체로 비슷</td>
+<td>항상 동일</td>
+</tr>
+<tr>
+<td>출력 형식</td>
+<td>형식 없음</td>
+<td>부분 정형</td>
+<td>완전 정형</td>
+</tr>
+<tr>
+<td>실수 허용</td>
+<td>치명적</td>
+<td>검토 필요</td>
+<td>허용 가능</td>
+</tr>
+</tbody>
+</table>
+<p>합산 점수가 7점 이상이면 1순위 자동화 대상입니다.</p>
+<p><strong>Step 4 — 우선순위 표 완성</strong>
+점수 높은 순으로 10개를 골라 표에 순위를 매깁니다.
+이게 오늘 완성할 자동화 로드맵의 첫 페이지입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>워크시트 완성하셨나요?
+완성된 표, 댓글에 몇 개 나왔는지만 숫자로 남겨주세요.
+다른 수강생들과 비교해보는 것만으로도 시야가 넓어집니다.</p>
+<p>다음 차시에서는 오늘 찾아낸 1순위 업무에 Claude 프롬프트를 처음 붙여봅니다.
+'좋은 프롬프트'가 뭔지, 실제 업무 예시로 바로 보여드릴게요.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
