@@ -1,7 +1,7 @@
 {
   "id": "1777717825-7071151003",
   "chat_id": 7071151003,
-  "status": "active",
+  "status": "ready",
   "history": [
     {
       "role": "user",
@@ -26,10 +26,39 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"홈 전체 리디자인이군요.\\n\\n두 가지만 더요.\\n\\n1. **느낌**은요? 미니멀·차분 / 따뜻·부드러움 / 전문·학술적 / 직접 말씀\\n2. 참고하고 싶은 사이트 있으세요? (없어도 괜찮아요)\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "패스트 캠퍼스이지만 트랜드한\n코어라는 네임에\n어울리는 테크채널같은 형태면 좋겠어\n먼가 잇섭이나 서울리안같은"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"READY\", \"message\": \"알겠습니다. 이렇게 정리했어요.\\n\\n- **영역**: 홈 전체 (`home_intro`)\\n- **스타일**: 패스트캠퍼스 구조감 + 트렌디한 테크 채널 무드\\n- **레퍼런스 방향**: 잇섭·서울리안 스타일 — 다크 베이스, 선명한 포인트 컬러, 타이포 중심\\n- **키워드**: 테크, 코어(묵직함), 미니멀, 트렌디\\n\\n이대로 시안 3개 뽑아드릴까요?\", \"brief\": {\"agent\": \"ui_designer\", \"brief\": {\"target\": \"home_intro\", \"purpose\": \"1인 사업가에게 '전문적이고 트렌디한 AI 실무 학습 플랫폼'이라는 첫인상을 각인시키기\", \"audience\": \"Claude를 실무에 활용하고 싶은 1인 사업가·프리랜서\", \"style_keywords\": [\"테크 채널\", \"트렌디\", \"묵직한 코어감\", \"타이포 중심\", \"미니멀\"], \"color_mood\": \"cool\", \"reference_urls\": [\"https://fastcampus.co.kr\", \"https://www.youtube.com/@itsub\", \"https://www.youtube.com/@seoulian\"], \"additional_context\": \"'코어 캠퍼스'라는 브랜드명의 묵직함과 테크 유튜브 채널(잇섭·서울리안) 특유의 트렌디하고 선명한 비주얼 언어를 결합. 다크 베이스 또는 강한 대비 권장. 과장된 광고 문구 없이 단단한 카피 톤 유지.\"}}}"
     }
   ],
-  "draft_brief": null,
-  "last_telegram_message_id": 183,
+  "draft_brief": {
+    "agent": "ui_designer",
+    "brief": {
+      "target": "home_intro",
+      "purpose": "1인 사업가에게 '전문적이고 트렌디한 AI 실무 학습 플랫폼'이라는 첫인상을 각인시키기",
+      "audience": "Claude를 실무에 활용하고 싶은 1인 사업가·프리랜서",
+      "style_keywords": [
+        "테크 채널",
+        "트렌디",
+        "묵직한 코어감",
+        "타이포 중심",
+        "미니멀"
+      ],
+      "color_mood": "cool",
+      "reference_urls": [
+        "https://fastcampus.co.kr",
+        "https://www.youtube.com/@itsub",
+        "https://www.youtube.com/@seoulian"
+      ],
+      "additional_context": "'코어 캠퍼스'라는 브랜드명의 묵직함과 테크 유튜브 채널(잇섭·서울리안) 특유의 트렌디하고 선명한 비주얼 언어를 결합. 다크 베이스 또는 강한 대비 권장. 과장된 광고 문구 없이 단단한 카피 톤 유지."
+    }
+  },
+  "last_telegram_message_id": 185,
   "created_at": "2026-05-02T10:30:25+00:00",
-  "updated_at": "2026-05-04T15:58:05+00:00"
+  "updated_at": "2026-05-04T16:27:54+00:00"
 }
