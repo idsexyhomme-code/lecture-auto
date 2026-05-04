@@ -1,0 +1,19 @@
+{
+  "id": "1777934588-7071151003",
+  "chat_id": 7071151003,
+  "status": "active",
+  "history": [
+    {
+      "role": "user",
+      "content": "한 페이지 인사메일 잘 쓰는 법 강의 만들어줘. 3차시."
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"빠르게 확인할게요!\\n\\n1. 이 강의는 기존 코어 캠퍼스 시리즈의 일부인가요, 아니면 독립 코스인가요?\\n2. **타깃**이 누구인지 — (A) Claude·AI 활용에 관심 있는 1인 사업가 / (B) 직장인·취준생 / (C) 다른 타깃?\", \"brief\": null}"
+    }
+  ],
+  "draft_brief": null,
+  "last_telegram_message_id": 204,
+  "created_at": "2026-05-04T22:43:08+00:00",
+  "updated_at": "2026-05-04T22:43:12+00:00"
+}
