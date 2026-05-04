@@ -169,13 +169,27 @@ def run_loop():
                 continue
 
             log.info("📨 %d개 update 수신", len(updates))
+
+            # ★ Phase A4 — callback 처리 *전* origin에서 fast-forward pull.
+            # 클라우드(GitHub Actions)에서 만든 새 pending 파일이 로컬에 없으면
+            # design-pick 같은 콜백이 _find_pending에서 무반응으로 끝난다.
+            # ff-only면 충돌 없을 때만 pull, 안전.
+            try:
+                rc, out = _git("pull", "--ff-only", "origin", "main")
+                if rc == 0 and out.strip() and "Already up to date" not in out:
+                    log.info("✓ origin pull 적용 (사전 동기화)")
+            except Exception as e:
+                log.warning("pre-callback pull 실패 (무시): %s", e)
+
             last_id = offset or 0
+            had_callback = False
             had_brief_creation = False
 
             for u in updates:
                 last_id = max(last_id, u["update_id"])
                 try:
                     if "callback_query" in u:
+                        had_callback = True
                         # callback에서 brief이 생성될 수 있음 (intake-approve)
                         before = _list_briefs()
                         poll.handle_callback(u["callback_query"])
@@ -192,8 +206,12 @@ def run_loop():
             # 변경 사항 있으면 git push
             pushed = _git_sync_changes()
 
-            # 새 brief이 생긴 경우 빌드 트리거 (push 후)
-            if had_brief_creation and pushed:
+            # 빌드 트리거 정책 (즉각 반응 위해 광범위하게)
+            #   1. 새 brief 생성 → 무조건 트리거 (다음 작업 즉시 시작)
+            #   2. callback이 있었고 git push가 있었다 → 트리거
+            #      (승인·반영 결과 즉시 빌드)
+            should_trigger = had_brief_creation or (had_callback and pushed)
+            if should_trigger:
                 _trigger_build()
 
             backoff = RETRY_BACKOFF_BASE  # 정상 한 사이클 — backoff 리셋
