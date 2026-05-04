@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 콘텐츠 엔진 전체 구조 파악하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 콘텐츠 엔진 전체 구조 파악하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-content-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>콘텐츠 하나 만들려고 앉았다가, 결국 아무것도 못 올리고 하루가 끝난 적 있으시죠?</p>
+<p>아이디어는 있는데 어디서 시작할지 모르겠고, 블로그 쓰면 인스타는 따로 또 써야 하고, 유튜브 스크립트는 또 별개인 것 같고.</p>
+<p>그 분산된 에너지가 오늘 이 영상 하나로 정리됩니다.</p>
+<p>콘텐츠를 한 번 만들어서 여러 채널에 뿌리는 파이프라인, 지금부터 직접 그려보겠습니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 여러분은 자신의 사업에 맞는 콘텐츠 파이프라인 4단계를 손으로 직접 도식화할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 원소스 멀티유즈(OSMU)</h3>
+<p><strong>설명</strong></p>
+<p>원소스 멀티유즈, 줄여서 OSMU입니다.</p>
+<p>하나의 소스를 만들고, 여러 형태로 변환해 쓰는 방식입니다.</p>
+<p>콘텐츠 세계에서는 '글 하나 = 재료 하나'라고 보시면 됩니다.</p>
+<p><strong>예시</strong></p>
+<p>'퍼스널 브랜딩 3원칙'이라는 핵심 글 하나를 씁니다.</p>
+<p>이게 블로그 포스팅이 되고, 인스타 카드뉴스 3장이 되고, 뉴스레터 한 편이 됩니다.</p>
+<p>심지어 유튜브 쇼츠 스크립트로도 쓰입니다.</p>
+<p>재료는 하나인데 요리가 네 가지 나오는 겁니다.</p>
+<p><strong>반례</strong></p>
+<p>반례를 봐야 개념이 더 선명해집니다.</p>
+<p>채널마다 처음부터 다른 글을 쓰는 분들이 많습니다.</p>
+<p>블로그 따로, 인스타 따로, 유튜브 따로.</p>
+<p>이건 원소스가 아니라 '멀티소스 멀티유즈'입니다.</p>
+<p>시간은 세 배인데 퀄리티는 오히려 낮아집니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>OSMU를 기억하는 이미지는 '깔때기 반대'입니다.</p>
+<p>하나가 들어가서 여러 개로 퍼져나오는 역깔때기 모양, 머릿속에 그려두세요.</p>
+<hr />
+<h3>핵심 개념 2 — 콘텐츠 파이프라인 4단계</h3>
+<p><strong>설명</strong></p>
+<p>파이프라인이란 물이 관을 따라 흐르듯, 콘텐츠가 단계별로 흐르는 구조입니다.</p>
+<p>4단계는 이렇습니다.</p>
+<p>1단계 아이디어, 2단계 핵심 글, 3단계 파생 글, 4단계 배포.</p>
+<p>이 순서를 벗어나면 막힙니다.</p>
+<p><strong>예시</strong></p>
+<p>1단계, 아이디어 단계입니다.</p>
+<p>'1인 강사가 뉴스레터를 시작해야 하는 이유'라는 주제를 잡습니다.</p>
+<p>2단계, 핵심 글입니다.</p>
+<p>Claude에게 이 주제로 800자 블로그 초안을 뽑게 합니다.</p>
+<p>이게 파이프라인의 원료입니다.</p>
+<p>3단계, 파생 글입니다.</p>
+<p>핵심 글을 기반으로 인스타 캡션, 쇼츠 대본, 뉴스레터 도입부로 각각 변환합니다.</p>
+<p>4단계, 배포입니다.</p>
+<p>각 채널에 맞는 시간대와 형식으로 올립니다.</p>
+<p><strong>반례</strong></p>
+<p>4단계를 뒤집으면 어떻게 될까요?</p>
+<p>배포 채널을 먼저 정하고, 거기 맞춰 콘텐츠를 각각 만드는 방식입니다.</p>
+<p>인스타용 글 따로, 블로그용 글 따로.</p>
+<p>이렇게 하면 핵심 메시지가 채널마다 달라지고, 브랜드 일관성이 흔들립니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>숫자로 기억하세요.</p>
+<p>아이디어(씨앗) → 핵심 글(나무) → 파생 글(열매) → 배포(수확).</p>
+<p>씨앗 하나에서 열매 여럿이 열리는 나무 이미지입니다.</p>
+<hr />
+<h3>핵심 개념 3 — 반자동화 vs 완전자동화</h3>
+<p><strong>설명</strong></p>
+<p>이 파이프라인을 어느 정도까지 자동화할 것인가, 꼭 결정해야 합니다.</p>
+<p>두 가지 선택지가 있습니다.</p>
+<p>반자동화와 완전자동화입니다.</p>
+<p><strong>예시</strong></p>
+<p>반자동화는 Claude가 초안을 만들고, 여러분이 검토하고 수정해서 올리는 방식입니다.</p>
+<p>제 경험상 1인 사업자 대부분은 이 방식이 맞습니다.</p>
+<p>브랜드 목소리를 지키면서도 시간을 아낄 수 있습니다.</p>
+<p>완전자동화는 아이디어 입력부터 배포까지 사람 손이 거의 안 들어가는 방식입니다.</p>
+<p>Zapier나 Make 같은 도구를 연결해서 구현합니다.</p>
+<p><strong>반례</strong></p>
+<p>완전자동화가 무조건 좋아 보이지만, 맹점이 있습니다.</p>
+<p>퀄리티 검수 단계가 없으면 오류가 그대로 배포됩니다.</p>
+<p>팔로워 1만 명 계정에서 맞춤법 오류 투성이 글이 자동 발행된 사례, 실제로 자주 있습니다.</p>
+<p>초기에는 반자동화로 파이프라인 자체를 먼저 익히는 게 중요합니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>반자동화는 '반자동 세탁기'를 떠올리세요.</p>
+<p>기계가 돌리지만, 빨래는 내가 넣고 꺼냅니다.</p>
+<p>완전자동화는 '로봇 청소기'입니다.</p>
+<p>내가 없어도 돌아가지만, 가끔 먼지통은 비워줘야 합니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고, 아래 3단계를 순서대로 따라 해 보세요.</p>
+<p>준비물은 종이 한 장과 펜 하나, 또는 메모 앱입니다.</p>
+<p><strong>1단계 — 나의 채널 목록 쓰기</strong></p>
+<p>현재 운영 중이거나 운영할 채널을 전부 적습니다.</p>
+<p>블로그, 인스타그램, 유튜브, 뉴스레터 등 생각나는 것 모두 씁니다.</p>
+<p>없으면 앞으로 하고 싶은 채널을 적어도 됩니다.</p>
+<p><strong>2단계 — 4단계 박스 그리기</strong></p>
+<p>종이 위쪽에 박스 4개를 나란히 그립니다.</p>
+<p>왼쪽부터 순서대로 씁니다.</p>
+<p>아이디어, 핵심 글, 파생 글, 배포.</p>
+<p>박스 사이에는 화살표를 넣으세요.</p>
+<p><strong>3단계 — 채널 연결하기</strong></p>
+<p>배포 박스 아래에 1단계에서 적은 채널들을 적습니다.</p>
+<p>파생 글 박스에서 각 채널로 화살표를 연결합니다.</p>
+<p>핵심 글 하나가 몇 개의 채널로 뻗어나가는지 숫자를 세어 보세요.</p>
+<p>이 숫자가 여러분의 현재 OSMU 지수입니다.</p>
+<p>완성되면 사진 찍어두세요. 다음 차시에서 이 다이어그램을 Claude와 함께 더 구체화합니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 아이디어 단계를 다룹니다.</p>
+<p>Claude에게 어떻게 질문해야 사업에 딱 맞는 콘텐츠 주제가 나오는지, 프롬프트 구조를 처음부터 같이 만들어 봅니다.</p>
+<p>오늘 그린 파이프라인 다이어그램 사진을 댓글에 올려주세요.</p>
+<p>여러분의 사업 구조를 보고, 다음 차시에서 실제 예시로 활용해 보겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
