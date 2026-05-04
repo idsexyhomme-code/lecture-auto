@@ -26,10 +26,18 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"주제만 알려주시면 바로 진행할게요! 어떤 주제로 코스를 만들까요?\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "너가정해줘"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"코어 캠퍼스의 기존 코스 흐름상, 다음 단계로 자연스러운 주제를 제안해 드릴게요.\\n\\n**\\\"Claude로 만드는 1인 사업 콘텐츠 엔진\\\"**\\n— 블로그·뉴스레터·SNS 콘텐츠를 Claude로 반자동화하는 실전 워크플로우\\n\\n이 방향으로 8차시 영상 코스로 잡을까요? 아니면 다른 방향이 있으신가요?\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 198,
+  "last_telegram_message_id": 200,
   "created_at": "2026-05-04T22:28:30+00:00",
-  "updated_at": "2026-05-04T22:29:37+00:00"
+  "updated_at": "2026-05-04T22:29:55+00:00"
 }
