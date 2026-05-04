@@ -13,6 +13,14 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from agents.base import PENDING_DIR, APPROVED_DIR, REPO_ROOT, AgentResult
+
+# .env 자동 로드
+try:
+    from dotenv import load_dotenv
+    load_dotenv(REPO_ROOT / ".env")
+except ImportError:
+    pass
+
 from telegram_bot import client as tg
 from agents import safety
 

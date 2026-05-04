@@ -118,16 +118,27 @@ class SafetyState:
         # 4) 버스트 보호 — 같은 에이전트 5분 내 10회 = 루프 의심
         now = time.time()
         cutoff = now - (DEFAULT_LIMITS["burst_window_minutes"] * 60)
+
+        def _ts_of(entry):
+            """entry가 dict면 ts, float이면 자기 자신. 알 수 없으면 0."""
+            if isinstance(entry, dict):
+                return float(entry.get("ts", 0) or 0)
+            try:
+                return float(entry)
+            except (TypeError, ValueError):
+                return 0.0
+
+        def _agent_of(entry):
+            return entry.get("agent") if isinstance(entry, dict) else None
+
         # 오래된 timestamp 정리
         self.recent_call_timestamps = [
-            t for t in self.recent_call_timestamps if t >= cutoff
+            t for t in self.recent_call_timestamps if _ts_of(t) >= cutoff
         ]
         same_agent_recent = sum(
             1 for entry in self.recent_call_timestamps
-            if isinstance(entry, dict) and entry.get("agent") == agent_key
+            if _agent_of(entry) == agent_key
         )
-        # recent_call_timestamps은 호환을 위해 dict 또는 float 허용
-        # 단순화 — 같은 agent 호출만 새로 카운트
         if same_agent_recent >= DEFAULT_LIMITS["burst_max_per_agent"]:
             self.paused = True
             self.pause_reason = (

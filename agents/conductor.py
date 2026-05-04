@@ -15,6 +15,13 @@ import sys
 from pathlib import Path
 
 from .base import PENDING_DIR, REPO_ROOT
+
+# .env 자동 로드 — 터미널 직접 실행 / 데몬 subprocess 양쪽 모두 안전.
+try:
+    from dotenv import load_dotenv
+    load_dotenv(REPO_ROOT / ".env")
+except ImportError:
+    pass
 from .curriculum import CurriculumArchitect
 from .producer import ContentProducer
 from .marketing import MarketingSpecialist
