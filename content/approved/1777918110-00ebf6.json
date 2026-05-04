@@ -121,10 +121,11 @@
         "https://www.youtube.com/@itsub",
         "https://www.youtube.com/@seoulian"
       ]
-    }
+    },
+    "chosen_variant_id": "v2"
   },
   "course_id": "",
   "created_at": "2026-05-04T18:08:30+00:00",
-  "status": "pending",
+  "status": "approved",
   "telegram_message_id": 188
 }
