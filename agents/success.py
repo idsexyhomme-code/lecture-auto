@@ -68,7 +68,8 @@ JSON 스키마:
 질문: {brief.get('question','')}
 참고 문맥(있다면):
 {brief.get('context_md','(없음)')}"""
-        body_md = self.call(prompt, max_tokens=1200)
+        # max_tokens 3000 — 답변이 길어지면 1200 부족
+        body_md = self.call(prompt, max_tokens=3000)
         result = AgentResult.new(
             agent=self.name,
             kind="qna_draft",
