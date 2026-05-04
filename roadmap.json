@@ -1,0 +1,108 @@
+{
+  "title": "코어 캠퍼스 — 강의 로드맵",
+  "description": "사전 등록된 코스 큐. Orchestrator가 매일 9시(KST)에 다음 안건을 제안합니다. AUTO 모드 ON이면 ✅ 없이 자동 시작.",
+  "schedule": {
+    "daily_propose_hour_kst": 9,
+    "max_proposals_per_day": 1,
+    "skip_weekends": false
+  },
+  "courses": [
+    {
+      "course_id": "claude-mail-writing",
+      "title": "Claude로 1페이지 인사메일 잘 쓰는 법",
+      "status": "planned",
+      "priority": 1,
+      "topic": "Claude로 짧고 단단한 인사메일·후속메일을 1페이지 안에 작성하는 법",
+      "audience": "처음 만난 사람·잠재 고객에게 메일 보낼 때 매번 막히는 1인 사업가",
+      "duration_weeks": 3,
+      "lesson_count": 3,
+      "format": "video",
+      "promises_hint": [
+        "5분 안에 깔끔한 인사메일 1통 완성",
+        "후속·재의뢰 메일까지 일관된 톤으로",
+        "답신을 받아내는 문장 패턴"
+      ]
+    },
+    {
+      "course_id": "claude-meeting-notes",
+      "title": "Claude로 미팅 후 5분 안에 정리노트 만들기",
+      "status": "planned",
+      "priority": 2,
+      "topic": "녹음·메모를 Claude가 회의록·다음 액션으로 즉시 정리하는 워크플로우",
+      "audience": "회의 끝나고도 정리가 미뤄지는 1인 사업가·소규모 팀 리더",
+      "duration_weeks": 2,
+      "lesson_count": 4,
+      "format": "video",
+      "promises_hint": [
+        "미팅 후 5분 안에 회의록 발송",
+        "다음 액션·담당자가 자동으로 추출",
+        "한 달치 회의록을 검색 가능한 자산으로"
+      ]
+    },
+    {
+      "course_id": "claude-pricing-page",
+      "title": "Claude로 가격 페이지·세일즈 카피 다듬는 법",
+      "status": "planned",
+      "priority": 3,
+      "topic": "결제 전환을 만드는 가격 페이지 카피·반박 처리 FAQ를 Claude로 설계·검증",
+      "audience": "강의·서비스 가격 페이지에서 막히는 1인 사업가",
+      "duration_weeks": 3,
+      "lesson_count": 5,
+      "format": "video",
+      "promises_hint": [
+        "가격 anchoring 3가지 패턴 적용",
+        "흔한 5가지 반박을 사전에 무력화",
+        "결제 전환율 측정 지표 셋업"
+      ]
+    },
+    {
+      "course_id": "claude-sop-onboarding",
+      "title": "Claude로 신규 입사자 온보딩 SOP 한 시간에 만들기",
+      "status": "planned",
+      "priority": 4,
+      "topic": "팀 합류 시 Day 1·Week 1·Month 1 단계별 SOP를 Claude가 생성·구조화",
+      "audience": "팀 채용 시작했지만 SOP 없이 매번 같은 설명 반복하는 1인→소규모 팀 운영자",
+      "duration_weeks": 3,
+      "lesson_count": 6,
+      "format": "video",
+      "promises_hint": [
+        "신입 첫날·첫주·첫달 체크리스트 3종",
+        "외주·인턴에도 그대로 통하는 단단한 SOP",
+        "신규 합류자 자기주도 학습 경로 자동화"
+      ]
+    },
+    {
+      "course_id": "claude-customer-support",
+      "title": "Claude로 1인 사업가 CS 자동 응대 시스템 만들기",
+      "status": "planned",
+      "priority": 5,
+      "topic": "FAQ·환불·문의 응대를 Claude+RAG로 1인 사업가 톤 그대로 자동화",
+      "audience": "문의 응답이 본업 시간을 잡아먹는 1인 강사·서비스 사업자",
+      "duration_weeks": 4,
+      "lesson_count": 6,
+      "format": "video",
+      "promises_hint": [
+        "내 톤·정책 그대로 답하는 응답 템플릿 20개",
+        "환불·법적 이슈는 사람으로 자동 escalate",
+        "응답 시간 평균 2시간 → 5분 이내"
+      ]
+    },
+    {
+      "course_id": "claude-content-engine",
+      "title": "Claude 콘텐츠 엔진 — 1주 1콘텐츠 시스템",
+      "status": "planned",
+      "priority": 6,
+      "topic": "주 1회 발행 리듬을 끊지 않게 — 아이디어→초안→편집→발행을 Claude로 시스템화",
+      "audience": "글·영상 발행 시도했지만 3주 만에 끊긴 1인 콘텐츠 사업가",
+      "duration_weeks": 5,
+      "lesson_count": 8,
+      "format": "video",
+      "promises_hint": [
+        "한 달치 콘텐츠 캘린더 1시간에 완성",
+        "발행 끊김 없이 12주 연속 운영하는 시스템",
+        "3개 채널 동시 발행 자동 분배"
+      ]
+    }
+  ],
+  "log": []
+}

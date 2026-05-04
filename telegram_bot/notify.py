@@ -12,8 +12,9 @@ from pathlib import Path
 # repo root를 path에 추가
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from agents.base import PENDING_DIR, AgentResult
+from agents.base import PENDING_DIR, APPROVED_DIR, REPO_ROOT, AgentResult
 from telegram_bot import client as tg
+from agents import safety
 
 LABEL = {
     "curriculum": "📚 강의 기획",
@@ -39,14 +40,91 @@ def _pages_base_url() -> str | None:
     return f"https://{owner.lower()}.github.io/{name}"
 
 
+def _auto_approve(r: AgentResult, path: Path) -> bool:
+    """AUTO 모드 — Telegram 카드 안 보내고 *즉시 적용 + approved로 이동*.
+
+    return: True면 처리됨, False면 자동 처리 불가능 (HITL fallback 권장).
+    """
+    import json as _json
+    SITE_CONFIG_PATH = REPO_ROOT / "site_config.json"
+
+    label = LABEL.get(r.agent, r.agent)
+
+    # site_config 변경 — new_config 그대로 적용
+    if r.kind == "site_config_change":
+        new_cfg = (r.meta or {}).get("new_config")
+        if isinstance(new_cfg, dict):
+            SITE_CONFIG_PATH.write_text(
+                _json.dumps(new_cfg, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            log.info("[auto] site_config updated from %s", r.id)
+
+    # 디자인 시안 — V1 자동 채택 (가장 보수적)
+    elif r.kind == "design_variants":
+        variants = (r.meta or {}).get("variants") or []
+        chosen = next((v for v in variants if v.get("id") == "v1"), variants[0] if variants else None)
+        if chosen:
+            target = (r.meta or {}).get("target", "hero")
+            slot_map = {"hero": "hero_html", "home_intro": "home_intro_html", "footer": "footer_html"}
+            slot = slot_map.get(target, "hero_html")
+            try:
+                cfg = _json.loads(SITE_CONFIG_PATH.read_text(encoding="utf-8")) if SITE_CONFIG_PATH.exists() else {}
+                cfg[slot] = chosen.get("html") or ""
+                existing = cfg.get("design_tokens") or {}
+                if not isinstance(existing, dict):
+                    existing = {}
+                existing.update(chosen.get("design_tokens") or {})
+                cfg["design_tokens"] = existing
+                SITE_CONFIG_PATH.write_text(_json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
+                r.meta["chosen_variant_id"] = chosen.get("id")
+                log.info("[auto] design v1 applied to %s for %s", slot, r.id)
+            except Exception as e:
+                log.exception("[auto] design apply failed: %s", e)
+                return False
+
+    # 결과 status=approved + approved/로 이동
+    r.status = "approved"
+    new_path = APPROVED_DIR / path.name
+    APPROVED_DIR.mkdir(parents=True, exist_ok=True)
+    new_path.write_text(
+        _json.dumps(r.__dict__, ensure_ascii=False, indent=2, default=str),
+        encoding="utf-8",
+    )
+    try:
+        path.unlink()
+    except Exception:
+        pass
+
+    # AUTO 처리 알림 — 짧게
+    title_short = (r.title or "")[:60].replace("\n", " ")
+    tg.send_text(
+        f"⚡ AUTO 승인 — {label}\n[{r.kind}] {title_short}",
+        parse_mode="",
+    )
+    return True
+
+
 def notify_new_pending() -> int:
     sent = 0
     pages_base = _pages_base_url()
+    auto = safety.is_auto_mode()
 
     for path in sorted(PENDING_DIR.glob("*.json")):
         r = AgentResult.load(path)
         if r.telegram_message_id:
             continue  # 이미 발송됨
+
+        # AUTO 모드 — Telegram 카드 안 보내고 즉시 처리
+        if auto:
+            try:
+                if _auto_approve(r, path):
+                    sent += 1
+                    log.info("[auto] approved %s", r.id)
+                    continue
+            except Exception as e:
+                log.exception("[auto] approve failed for %s: %s — fallback to HITL", r.id, e)
+
         try:
             # 디자인 시안 — 전용 카드 (v1/v2/v3 미리보기 + 채택 버튼)
             if r.kind == "design_variants":

@@ -551,44 +551,191 @@ def handle_message(m: dict):
     # 2) 명령어
     if text == "/start" or text.startswith("/help"):
         tg.send_text(
-            "*코어 캠퍼스 컨트롤 패널*\n\n"
-            "✏️ *아이디어 대화* — 그냥 한 줄로 보내세요. 예: `Claude로 영상 자동화 SOP 시리즈 만들어줘`\n"
-            "✅/❌ — 카드 도착 시 승인·거절\n"
-            "📨 카드에 reply — 수정 지시\n\n"
-            "_명령어_:\n"
-            "/pending — 대기 중 항목\n"
-            "/conv — 진행 중인 대화 상태\n"
-            "/cancel — 진행 중인 대화 취소\n",
+            "코어 캠퍼스 컨트롤 패널\n\n"
+            "✏️ 아이디어 대화 — 그냥 한 줄로 보내세요\n"
+            "✅/❌ — 카드 도착 시 승인·거절\n\n"
+            "─ 명령어 ─\n"
+            "/status — 시스템 상태 한눈에\n"
+            "/cards  — 대기 카드 다시 띄움\n"
+            "/site   — 라이브 사이트 URL\n"
+            "/pending — 대기 항목 개수\n"
+            "/conv   — 대화 상태\n"
+            "/cancel — 대화 취소\n"
+            "─ AUTO 모드 ─\n"
+            "/auto on  — 모든 산출물 자동 승인 + 캐스케이드\n"
+            "/auto off — 자동 모드 끄기 (HITL 복귀)\n"
+            "/stop   — 즉시 정지 (auto OFF + 일시정지)\n"
+            "/resume — 정지 해제",
+            chat_id=chat_id, parse_mode="",
         )
+        return
+    if text.startswith("/status"):
+        _send_status_overview(chat_id)
+        return
+    if text.startswith("/cards"):
+        _resend_pending_cards(chat_id)
+        return
+    if text.startswith("/site"):
+        url = _pages_url()
+        tg.send_text(f"🌐 라이브 사이트\n{url}" if url else "사이트 URL 미설정", chat_id=chat_id, parse_mode="")
+        return
+    if text.startswith("/auto"):
+        from agents import safety
+        parts = text.split()
+        if len(parts) >= 2 and parts[1].lower() in ("off", "stop", "0"):
+            safety.set_auto_mode(False, "user /auto off")
+            tg.send_text("⏸ AUTO 모드 OFF — 모든 산출물 다시 ✅ 승인 필요", chat_id=chat_id, parse_mode="")
+        else:
+            safety.set_auto_mode(True, "user /auto on")
+            tg.send_text(
+                "⚡ AUTO 모드 ON\n\n"
+                "지금부터 모든 산출물 자동 승인·적용·캐스케이드.\n"
+                "디자인 시안은 V1 자동 채택.\n"
+                "일일 한도 50 brief / $5 도달 시 자동 정지.\n\n"
+                "정지: /stop — 즉시 멈춤\n"
+                "재개: /resume",
+                chat_id=chat_id, parse_mode="",
+            )
+        return
+    if text.startswith("/stop"):
+        from agents import safety
+        safety.force_pause("user /stop")
+        tg.send_text("🛑 정지 — AUTO 모드 OFF + brief 처리 일시정지\n/resume으로 재개", chat_id=chat_id, parse_mode="")
+        return
+    if text.startswith("/resume"):
+        from agents import safety
+        safety.force_resume("user /resume")
+        tg.send_text("▶ 재개 — brief 처리 정상화\n(AUTO 모드는 별도로 켜야 함: /auto)", chat_id=chat_id, parse_mode="")
         return
     if text.startswith("/pending"):
         items = list(PENDING_DIR.glob("*.json"))
-        tg.send_text(f"대기 중: {len(items)}건", chat_id=chat_id)
+        tg.send_text(f"대기 중: {len(items)}건", chat_id=chat_id, parse_mode="")
         return
     if text.startswith("/conv"):
         conv = Conversation.load_active(chat_id) if chat_id else None
         if not conv:
-            tg.send_text("진행 중인 대화가 없습니다. 새 아이디어를 한 줄로 보내주세요.", chat_id=chat_id)
+            tg.send_text("진행 중인 대화가 없습니다. 새 아이디어를 한 줄로 보내주세요.", chat_id=chat_id, parse_mode="")
         else:
             turns = sum(1 for h in conv.history if h.get("role") == "user")
             tg.send_text(
-                f"진행 중인 대화 — {turns}턴\n상태: `{conv.status}`\n_/cancel_로 취소 가능",
-                chat_id=chat_id,
+                f"진행 중인 대화 — {turns}턴\n상태: {conv.status}\n/cancel로 취소 가능",
+                chat_id=chat_id, parse_mode="",
             )
         return
     if text.startswith("/cancel"):
         conv = Conversation.load_active(chat_id) if chat_id else None
         if not conv:
-            tg.send_text("취소할 대화가 없습니다.", chat_id=chat_id)
+            tg.send_text("취소할 대화가 없습니다.", chat_id=chat_id, parse_mode="")
         else:
             conv.mark_cancelled()
             conv.save()
-            tg.send_text("대화 취소됨. 새 아이디어 받을 준비 완료 ✓", chat_id=chat_id)
+            tg.send_text("대화 취소됨. 새 아이디어 받을 준비 완료 ✓", chat_id=chat_id, parse_mode="")
         return
 
     # 3) 일반 텍스트 → idea_intake 라우팅
     if chat_id:
         _handle_idea_message(chat_id, text)
+
+
+def _pages_url() -> str:
+    repo = os.environ.get("GITHUB_REPOSITORY") or "idsexyhomme-code/lecture-auto"
+    if "/" not in repo:
+        return ""
+    owner, name = repo.split("/", 1)
+    return f"https://{owner.lower()}.github.io/{name}/"
+
+
+def _send_status_overview(chat_id: int):
+    """/status — 시스템 현재 상태 한눈에 (plain text)."""
+    pending = list(PENDING_DIR.glob("*.json"))
+    approved = list(APPROVED_DIR.glob("*.json"))
+    rejected = list(REJECTED_DIR.glob("*.json"))
+    briefs_dir = REPO_ROOT / "briefs"
+    queued = list(briefs_dir.glob("*.json")) if briefs_dir.exists() else []
+    failed_dir = briefs_dir / "_failed" if briefs_dir.exists() else None
+    failed_briefs = list(failed_dir.glob("*.json")) if failed_dir and failed_dir.exists() else []
+
+    lines = ["📊 코어 캠퍼스 현재 상태", ""]
+    lines.append(f"📨 대기 중 카드: {len(pending)}건")
+    lines.append(f"✓ 완료된 산출물: {len(approved)}건")
+    if rejected:
+        lines.append(f"❌ 거절: {len(rejected)}건")
+    lines.append("")
+    lines.append(f"📋 대기 brief: {len(queued)}건")
+    if failed_briefs:
+        lines.append(f"⚠️ 실패 brief: {len(failed_briefs)}건 (격리됨)")
+    lines.append("")
+    try:
+        from agents import safety
+        s = safety.status().replace("*", "").replace("_", "")
+        lines.append(s)
+    except Exception:
+        pass
+    lines.append("")
+    url = _pages_url()
+    if url:
+        lines.append(f"🌐 사이트: {url}")
+    if pending:
+        lines.append("")
+        lines.append("최근 대기 카드:")
+        recent = sorted(pending, key=lambda p: p.stat().st_mtime, reverse=True)[:3]
+        for p in recent:
+            try:
+                r = AgentResult.load(p)
+                title = (r.title or "")[:50].replace("\n", " ")
+                lines.append(f"  • [{r.kind}] {title}")
+            except Exception:
+                continue
+    tg.send_text("\n".join(lines), chat_id=chat_id, parse_mode="")
+
+
+def _resend_pending_cards(chat_id: int):
+    """/cards — 대기 카드 다시 발송."""
+    pending = sorted(PENDING_DIR.glob("*.json"), key=lambda p: p.stat().st_mtime)
+    if not pending:
+        tg.send_text("대기 카드 없음 ✓", chat_id=chat_id, parse_mode="")
+        return
+    pages_base = _pages_url().rstrip("/") if _pages_url() else None
+    tg.send_text(f"📋 대기 카드 {len(pending)}개 ↓", chat_id=chat_id, parse_mode="")
+
+    LABEL = {
+        "curriculum": "📚 강의 기획",
+        "producer": "🎬 콘텐츠 제작",
+        "marketing": "📣 홍보·마케팅",
+        "success": "🎓 수강생 관리",
+        "site_developer": "🛠 사이트 개발자",
+        "ui_designer": "🎨 UI/UX 디자이너",
+    }
+    n = 0
+    for path in pending:
+        try:
+            r = AgentResult.load(path)
+        except Exception:
+            continue
+        try:
+            if r.kind == "design_variants":
+                target = (r.meta or {}).get("target", "hero")
+                variants = (r.meta or {}).get("variants") or []
+                if variants:
+                    tg.send_design_variants_card(
+                        result_id=r.id, title=r.title,
+                        summary=r.summary or "", target=target,
+                        variants=variants, preview_base_url=pages_base,
+                        chat_id=chat_id,
+                    )
+                    n += 1
+            else:
+                tg.send_approval_card(
+                    result_id=r.id, title=r.title,
+                    summary=r.summary or "(요약 없음)",
+                    agent_label=LABEL.get(r.agent, r.agent),
+                    kind=r.kind, body_preview=r.body_md,
+                    chat_id=chat_id,
+                )
+                n += 1
+        except Exception as e:
+            log.exception("resend %s: %s", r.id, e)
+    tg.send_text(f"✓ {n}개 재발송 완료", chat_id=chat_id, parse_mode="")
 
 
 def _handle_idea_message(chat_id: int, text: str):

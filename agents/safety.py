@@ -55,6 +55,9 @@ class SafetyState:
     recent_call_timestamps: list = field(default_factory=list)  # epoch sec
     paused: bool = False
     pause_reason: str = ""
+    # AUTO 모드 — 모든 산출물에 대해 ✅ 클릭 없이 자동 승인 + 적용 + 캐스케이드.
+    # 일일 한도·비용 한도는 여전히 작동 (자동 모드라도 한도 초과 시 정지).
+    auto_mode: bool = False
 
     @classmethod
     def load(cls) -> "SafetyState":
@@ -149,6 +152,8 @@ class SafetyState:
             f"📊 오늘 {self.daily_brief_count}/{DEFAULT_LIMITS['daily_brief_max']} brief",
             f"💰 ~${self.daily_estimated_cost_usd:.2f}/${DEFAULT_LIMITS['daily_cost_usd_max']:.2f}",
         ]
+        if self.auto_mode:
+            bits.append("⚡ AUTO 모드")
         if self.paused:
             bits.append(f"⏸ *정지: {self.pause_reason}*")
         return " · ".join(bits)
@@ -179,6 +184,26 @@ def force_resume(reason: str = "수동 해제"):
     state.pause_reason = ""
     state.save()
     log.info("[safety] manually resumed: %s", reason)
+
+
+def is_auto_mode() -> bool:
+    return SafetyState.load().auto_mode
+
+
+def set_auto_mode(on: bool, reason: str = ""):
+    state = SafetyState.load()
+    state.auto_mode = bool(on)
+    state.save()
+    log.info("[safety] auto_mode = %s (%s)", on, reason)
+
+
+def force_pause(reason: str):
+    state = SafetyState.load()
+    state.paused = True
+    state.pause_reason = reason
+    state.auto_mode = False    # 정지 시 AUTO도 자동 OFF
+    state.save()
+    log.info("[safety] force paused: %s", reason)
 
 
 if __name__ == "__main__":
