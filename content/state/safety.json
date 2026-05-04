@@ -12,5 +12,6 @@
     }
   ],
   "paused": false,
-  "pause_reason": ""
+  "pause_reason": "",
+  "auto_mode": true
 }
