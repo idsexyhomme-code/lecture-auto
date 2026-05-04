@@ -1,0 +1,11 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-intro-email",
+    "topic": "Claude를 활용해 한 페이지 인사메일을 효과적으로 작성하는 법",
+    "audience": "Claude를 실무에 활용 중인 1인 사업가",
+    "duration_weeks": 1,
+    "lesson_count": 3,
+    "format": "video"
+  }
+}
