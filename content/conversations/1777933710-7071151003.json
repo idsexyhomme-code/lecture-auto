@@ -1,0 +1,19 @@
+{
+  "id": "1777933710-7071151003",
+  "chat_id": 7071151003,
+  "status": "active",
+  "history": [
+    {
+      "role": "user",
+      "content": "테스트"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"안녕하세요, 서형님! 어떤 아이디어를 던져주실 건가요? 새 코스 설계, 영상 스크립트, 랜딩 카피, FAQ, 사이트 수정 등 뭐든 편하게 말씀해 주세요.\", \"brief\": null}"
+    }
+  ],
+  "draft_brief": null,
+  "last_telegram_message_id": 194,
+  "created_at": "2026-05-04T22:28:30+00:00",
+  "updated_at": "2026-05-04T22:28:34+00:00"
+}
