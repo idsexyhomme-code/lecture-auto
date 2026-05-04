@@ -1,0 +1,22 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "home_intro",
+    "purpose": "1인 사업가에게 '전문적이고 트렌디한 AI 실무 학습 플랫폼'이라는 첫인상을 각인시키기",
+    "audience": "Claude를 실무에 활용하고 싶은 1인 사업가·프리랜서",
+    "style_keywords": [
+      "테크 채널",
+      "트렌디",
+      "묵직한 코어감",
+      "타이포 중심",
+      "미니멀"
+    ],
+    "color_mood": "cool",
+    "reference_urls": [
+      "https://fastcampus.co.kr",
+      "https://www.youtube.com/@itsub",
+      "https://www.youtube.com/@seoulian"
+    ],
+    "additional_context": "'코어 캠퍼스'라는 브랜드명의 묵직함과 테크 유튜브 채널(잇섭·서울리안) 특유의 트렌디하고 선명한 비주얼 언어를 결합. 다크 베이스 또는 강한 대비 권장. 과장된 광고 문구 없이 단단한 카피 톤 유지."
+  }
+}
