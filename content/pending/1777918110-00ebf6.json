@@ -1,0 +1,130 @@
+{
+  "id": "1777918110-00ebf6",
+  "agent": "ui_designer",
+  "kind": "design_variants",
+  "title": "[디자인 시안] home_intro — 3개 변형",
+  "body_md": "## home_intro — 변형 3개\n\n코어 캠퍼스 홈 인트로 3변형 — 다크 에디토리얼 / 비대칭 임팩트 / 모노크롬 타이포\n\n### V1 · 다크 에디토리얼\n_테크 매거진 특집 기사처럼 묵직하고 차분한 권위감_\n\n**팔레트**: bg=#0D0F12, fg=#E8EAF0, brand=#4F8EF7, accent=#4F8EF7, soft=#1A1E26\n\n**이유**: 1인 사업가는 '진지하게 공부하는 사람'으로 자신을 포지셔닝하고 싶다는 욕구가 강하다. 테크 매거진 에디토리얼 구도(2단 그리드 + 통계 바)는 플랫폼에 학술적 신뢰감을 부여하고, 다크 배경 위 단 하나의 청색 포인트는 '선명하되 과하지 않은' 테크 채널 미학을 구현한다. 카피를 짧은 끊김으로 나눠 마치 코드 줄처럼 읽히게 설계해 AI 실무 맥락을 강조한다.\n\n**이미지 프롬프트** (4개):\n- 짙은 네이비-블랙 배경 위 청색 빛의 얇은 수평선 격자 패턴, 미니멀 테크 텍스처, 광채 없이 차분한 광학적 깊이감\n- 추상적 데이터 플로우 시각화, 깊은 다크 배경에 청색 선형 노드 연결망, 한국 테크 매거진 일러스트 스타일\n- 모노크롬 다크 책상 위 키보드 클로즈업, 청색 키 하이라이트, 얕은 심도, 실무 집중 분위기\n- 딥다크 배경에 청색-화이트 미니멀 타이포그래피 레이아웃, 여백 중심 아카데믹 구도\n\n### V2 · 비대칭 임팩트\n_테크 유튜브 썸네일처럼 강렬하되 정보는 밀도 있게 응축된 비대칭 분할_\n\n**팔레트**: bg=#0A0A0A, fg=#F5F5F5, brand=#00E5BE, accent=#FF3D5A, soft=#141414\n\n**이유**: 잇섭·서울리안 같은 테크 유튜브 채널은 썸네일에서 비대칭 분할과 강렬한 포인트 컬러로 즉각적 주목을 만든다. 5:4 비대칭 그리드는 텍스트 무게감과 비주얼 긴장감을 동시에 주며, 민트 컬러는 '청결하고 앞서가는 AI 도구'라는 인상을 코드화한다. 하단 태그 스트립은 콘텐츠 범위를 한눈에 보여줘 SEO·정보 밀도 양면에서 기능한다.\n\n**이미지 프롬프트** (4개):\n- 딥블랙 배경 위 민트 그린 빛의 추상 데이터 흐름 선들, 동적 방향감, 테크 유튜브 썸네일 스타일 일러스트\n- 어두운 스튜디오 조명 아래 노트북 화면의 코드·텍스트 빛 반사, 민트 컬러 강조, 클로즈업 텍스처\n- 흑백 격자 그리드 위 민트 포인트 노드, 네트워크 연결 시각화, 미니멀 테크 인포그래픽 스타일\n- 딥다크 배경에 민트-화이트 타입 오버레이, 비대칭 여백, 한국 테크 채널 썸네일 구도\n\n### V3 · 모노크롬 타이포\n_활자만으로 승부하는 미니멀리스트 선언문, 여백이 메시지다_\n\n**팔레트**: bg=#111111, fg=#EFEFEF, brand=#FFFFFF, accent=#555555, soft=#191919\n\n**이유**: 모노크롬 팔레트와 대형 타이포그래피 선언문 구조는 '광고처럼 보이는 것'에 피로한 1인 사업가에게 역설적으로 가장 강한 신뢰 신호를 보낸다. 색 대신 크기·여백·굵기의 위계만으로 정보를 구조화해 '실력 있는 곳은 설명하지 않는다'는 인상을 만든다. 3단 그리드 정보 카드는 플랫폼의 대상·도구·목표를 사전 설명 없이 스캔 가능하게 한다.\n\n**이미지 프롬프트** (4개):\n- 순수 흑백 미니멀 활자 레이아웃, 대형 세리프 수자와 여백, 스위스 타이포그래피 스타일, 광고 인쇄물 질감\n- 딥블랙 배경에 얇은 화이트 수평선 격자, 머티리얼 텍스처 없는 플랫 기하 패턴, 아카데믹 모노크롬\n- 어두운 작업 테이블 위 메모와 펜의 흑백 클로즈업, 손글씨 텍스트 없이 질감 중심, 집중적 실무 분위기\n- 흑백 추상 나선 혹은 사선 구도, 극도의 여백, 현대 한국 그래픽 디자인 포스터 스타일",
+  "summary": "코어 캠퍼스 홈 인트로 3변형 — 다크 에디토리얼 / 비대칭 임팩트 / 모노크롬 타이포",
+  "meta": {
+    "target": "home_intro",
+    "variants": [
+      {
+        "id": "v1",
+        "name": "다크 에디토리얼",
+        "vibe": "테크 매거진 특집 기사처럼 묵직하고 차분한 권위감",
+        "color_palette": {
+          "bg": "#0D0F12",
+          "fg": "#E8EAF0",
+          "brand": "#4F8EF7",
+          "accent": "#4F8EF7",
+          "soft": "#1A1E26"
+        },
+        "html": "<div class=\"wrap\" style=\"background:var(--bg,#0D0F12);color:var(--fg,#E8EAF0);padding:80px 24px;font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);max-width:1100px;margin:0 auto;\">\n  <div style=\"display:flex;flex-direction:column;gap:64px;\">\n\n    <!-- 섹션 헤더 -->\n    <div style=\"display:flex;align-items:center;gap:16px;\">\n      <span style=\"display:inline-block;width:3px;height:32px;background:#4F8EF7;border-radius:2px;\"></span>\n      <span style=\"font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#4F8EF7;font-weight:600;\">Core Campus · AI Practice Lab</span>\n    </div>\n\n    <!-- 메인 카피 블록 -->\n    <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;\">\n      <div>\n        <h2 style=\"font-size:clamp(32px,4.5vw,54px);font-weight:800;line-height:1.15;letter-spacing:-0.03em;margin:0 0 24px;\">\n          AI는 이미<br>\n          실무에 들어왔다.<br>\n          <span style=\"color:#4F8EF7;\">당신의 속도만</span><br>\n          남았다.\n        </h2>\n        <a href=\"#curriculum\" style=\"display:inline-flex;align-items:center;gap:10px;background:#4F8EF7;color:#0D0F12;font-size:14px;font-weight:700;letter-spacing:0.04em;padding:14px 28px;border-radius:6px;text-decoration:none;\">커리큘럼 보기 <span style=\"font-size:18px;line-height:1;\">→</span></a>\n      </div>\n      <div style=\"padding-top:8px;\">\n        <p style=\"font-size:17px;line-height:1.8;color:#9AA3B2;margin:0 0 32px;\">코어 캠퍼스는 Claude를 실무 파이프라인에 통합하고 싶은 1인 사업가·프리랜서를 위한 AI 실습 강의 플랫폼입니다. 개념이 아닌 워크플로, 이론이 아닌 출력물에 집중합니다.</p>\n        <ul style=\"list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;\">\n          <li style=\"display:flex;align-items:center;gap:12px;font-size:14px;color:#C4CAD8;\">\n            <span style=\"width:20px;height:20px;border-radius:50%;background:#4F8EF71A;border:1px solid #4F8EF755;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:#4F8EF7;flex-shrink:0;\">✓</span>\n            실무 중심 Claude 프롬프트 설계 과정\n          </li>\n          <li style=\"display:flex;align-items:center;gap:12px;font-size:14px;color:#C4CAD8;\">\n            <span style=\"width:20px;height:20px;border-radius:50%;background:#4F8EF71A;border:1px solid #4F8EF755;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:#4F8EF7;flex-shrink:0;\">✓</span>\n            1인 운영 자동화 파이프라인 템플릿 제공\n          </li>\n          <li style=\"display:flex;align-items:center;gap:12px;font-size:14px;color:#C4CAD8;\">\n            <span style=\"width:20px;height:20px;border-radius:50%;background:#4F8EF71A;border:1px solid #4F8EF755;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:#4F8EF7;flex-shrink:0;\">✓</span>\n            강의 → 즉시 적용 가능한 산출물 구조\n          </li>\n        </ul>\n      </div>\n    </div>\n\n    <!-- 구분선 -->\n    <hr style=\"border:none;border-top:1px solid #252A35;margin:0;\">\n\n    <!-- 스탯 바 -->\n    <div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:24px;\">\n      <div style=\"background:#1A1E26;border-radius:8px;padding:28px 24px;\">\n        <p style=\"font-size:36px;font-weight:800;color:#4F8EF7;margin:0 0 6px;letter-spacing:-0.04em;\">3,400<span style=\"font-size:20px;\">+</span></p>\n        <p style=\"font-size:13px;color:#6B7280;margin:0;\">수강 중인 1인 사업가</p>\n      </div>\n      <div style=\"background:#1A1E26;border-radius:8px;padding:28px 24px;\">\n        <p style=\"font-size:36px;font-weight:800;color:#4F8EF7;margin:0 0 6px;letter-spacing:-0.04em;\">28<span style=\"font-size:20px;\">개</span></p>\n        <p style=\"font-size:13px;color:#6B7280;margin:0;\">Claude 실무 모듈</p>\n      </div>\n      <div style=\"background:#1A1E26;border-radius:8px;padding:28px 24px;\">\n        <p style=\"font-size:36px;font-weight:800;color:#4F8EF7;margin:0 0 6px;letter-spacing:-0.04em;\">4.9<span style=\"font-size:20px;\">/5</span></p>\n        <p style=\"font-size:13px;color:#6B7280;margin:0;\">수강생 평균 만족도</p>\n      </div>\n    </div>\n\n    <!-- 인용 블록 -->\n    <blockquote style=\"margin:0;padding:24px 32px;border-left:3px solid #4F8EF7;background:#1A1E26;border-radius:0 8px 8px 0;\">\n      <p style=\"font-size:16px;line-height:1.75;color:#C4CAD8;margin:0 0 12px;\">&ldquo;강의가 끝나자마자 실제 클라이언트 제안서에 바로 썼습니다. 개념 설명이 아니라 작업 흐름 자체를 가르쳐 줘서요.&rdquo;</p>\n      <small style=\"font-size:12px;color:#6B7280;letter-spacing:0.06em;\">— 콘텐츠 마케터, 수강생 후기</small>\n    </blockquote>\n\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#0D0F12",
+          "color_fg": "#E8EAF0",
+          "color_muted": "#9AA3B2",
+          "color_line": "#252A35",
+          "color_brand": "#4F8EF7",
+          "color_brand_2": "#1A1E26",
+          "color_accent": "#4F8EF7",
+          "color_soft": "#1A1E26",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "8px"
+        },
+        "image_prompts": [
+          "짙은 네이비-블랙 배경 위 청색 빛의 얇은 수평선 격자 패턴, 미니멀 테크 텍스처, 광채 없이 차분한 광학적 깊이감",
+          "추상적 데이터 플로우 시각화, 깊은 다크 배경에 청색 선형 노드 연결망, 한국 테크 매거진 일러스트 스타일",
+          "모노크롬 다크 책상 위 키보드 클로즈업, 청색 키 하이라이트, 얕은 심도, 실무 집중 분위기",
+          "딥다크 배경에 청색-화이트 미니멀 타이포그래피 레이아웃, 여백 중심 아카데믹 구도"
+        ],
+        "reasoning": "1인 사업가는 '진지하게 공부하는 사람'으로 자신을 포지셔닝하고 싶다는 욕구가 강하다. 테크 매거진 에디토리얼 구도(2단 그리드 + 통계 바)는 플랫폼에 학술적 신뢰감을 부여하고, 다크 배경 위 단 하나의 청색 포인트는 '선명하되 과하지 않은' 테크 채널 미학을 구현한다. 카피를 짧은 끊김으로 나눠 마치 코드 줄처럼 읽히게 설계해 AI 실무 맥락을 강조한다."
+      },
+      {
+        "id": "v2",
+        "name": "비대칭 임팩트",
+        "vibe": "테크 유튜브 썸네일처럼 강렬하되 정보는 밀도 있게 응축된 비대칭 분할",
+        "color_palette": {
+          "bg": "#0A0A0A",
+          "fg": "#F5F5F5",
+          "brand": "#00E5BE",
+          "accent": "#FF3D5A",
+          "soft": "#141414"
+        },
+        "html": "<div class=\"wrap\" style=\"background:#0A0A0A;color:#F5F5F5;font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);overflow:hidden;\">\n\n  <!-- 풀 와이드 스플릿 배너 -->\n  <div style=\"display:grid;grid-template-columns:5fr 4fr;min-height:480px;\">\n\n    <!-- 좌: 타이포 임팩트 존 -->\n    <div style=\"padding:64px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;background:#0A0A0A;\">\n      <!-- 배경 액센트 원 -->\n      <div style=\"position:absolute;top:-120px;left:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,#00E5BE18 0%,transparent 70%);pointer-events:none;\"></div>\n\n      <span style=\"font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:#00E5BE;font-weight:700;margin-bottom:20px;display:block;\">AI 실무 · Claude 특화</span>\n\n      <h2 style=\"font-size:clamp(36px,5vw,64px);font-weight:900;line-height:1.05;letter-spacing:-0.04em;margin:0 0 28px;\">\n        <span style=\"display:block;\">일하는 방식을</span>\n        <span style=\"display:block;color:#00E5BE;\">AI로 재설계</span>\n        <span style=\"display:block;\">하는 과정</span>\n      </h2>\n\n      <p style=\"font-size:15px;line-height:1.75;color:#8A8A8A;max-width:380px;margin:0 0 36px;\">프롬프트 한 줄 이상의 이야기. Claude를 실제 업무 흐름에 통합하는 구조를 배웁니다.</p>\n\n      <div style=\"display:flex;gap:12px;flex-wrap:wrap;\">\n        <a href=\"#start\" style=\"display:inline-flex;align-items:center;gap:8px;background:#00E5BE;color:#0A0A0A;font-size:14px;font-weight:800;letter-spacing:0.02em;padding:14px 26px;border-radius:4px;text-decoration:none;\">무료로 시작하기 →</a>\n        <a href=\"#curriculum\" style=\"display:inline-flex;align-items:center;gap:8px;background:transparent;color:#F5F5F5;font-size:14px;font-weight:600;padding:14px 26px;border-radius:4px;text-decoration:none;border:1px solid #2A2A2A;\">커리큘럼 →</a>\n      </div>\n    </div>\n\n    <!-- 우: 비주얼 + 정보 카드 스택 -->\n    <div style=\"background:#141414;display:flex;flex-direction:column;justify-content:center;gap:3px;padding:3px;\">\n\n      <!-- 비주얼 플레이스홀더 -->\n      <div style=\"flex:1;background:#1C1C1C;display:flex;align-items:center;justify-content:center;min-height:240px;position:relative;overflow:hidden;\">\n        <img src=\"/assets/placeholder/home_intro-tech.svg\" alt=\"AI 실무 시각화\" style=\"width:100%;height:100%;object-fit:cover;opacity:0.7;\">\n        <div style=\"position:absolute;inset:0;background:linear-gradient(135deg,transparent 60%,#00E5BE12 100%);\"></div>\n        <span style=\"position:absolute;bottom:12px;right:12px;font-size:9px;letter-spacing:0.16em;color:#00E5BE;opacity:0.7;\">CORE · AI</span>\n      </div>\n\n      <!-- 정보 카드 행 -->\n      <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:3px;\">\n        <div style=\"background:#1C1C1C;padding:20px;\">\n          <p style=\"font-size:28px;font-weight:900;color:#00E5BE;margin:0 0 4px;letter-spacing:-0.03em;\">28<span style=\"font-size:16px;\">개</span></p>\n          <p style=\"font-size:11px;color:#5A5A5A;margin:0;letter-spacing:0.04em;\">실무 모듈</p>\n        </div>\n        <div style=\"background:#1C1C1C;padding:20px;\">\n          <p style=\"font-size:28px;font-weight:900;color:#F5F5F5;margin:0 0 4px;letter-spacing:-0.03em;\">3,400<span style=\"font-size:16px;\">+</span></p>\n          <p style=\"font-size:11px;color:#5A5A5A;margin:0;letter-spacing:0.04em;\">수강 중인 창업가</p>\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n  <!-- 하단 태그 스트립 -->\n  <div style=\"background:#141414;padding:16px 48px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-top:1px solid #1E1E1E;\">\n    <span style=\"font-size:10px;color:#5A5A5A;letter-spacing:0.12em;margin-right:8px;\">다루는 주제</span>\n    <span style=\"font-size:12px;color:#8A8A8A;background:#1E1E1E;padding:5px 12px;border-radius:2px;\">Claude 프롬프트</span>\n    <span style=\"font-size:12px;color:#8A8A8A;background:#1E1E1E;padding:5px 12px;border-radius:2px;\">업무 자동화</span>\n    <span style=\"font-size:12px;color:#8A8A8A;background:#1E1E1E;padding:5px 12px;border-radius:2px;\">콘텐츠 생산</span>\n    <span style=\"font-size:12px;color:#8A8A8A;background:#1E1E1E;padding:5px 12px;border-radius:2px;\">제안서·보고서</span>\n    <span style=\"font-size:12px;color:#00E5BE;background:#00E5BE1A;padding:5px 12px;border-radius:2px;border:1px solid #00E5BE33;\">1인 운영 특화</span>\n  </div>\n\n</div>",
+        "design_tokens": {
+          "color_bg": "#0A0A0A",
+          "color_fg": "#F5F5F5",
+          "color_muted": "#8A8A8A",
+          "color_line": "#1E1E1E",
+          "color_brand": "#00E5BE",
+          "color_brand_2": "#141414",
+          "color_accent": "#FF3D5A",
+          "color_soft": "#141414",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "4px"
+        },
+        "image_prompts": [
+          "딥블랙 배경 위 민트 그린 빛의 추상 데이터 흐름 선들, 동적 방향감, 테크 유튜브 썸네일 스타일 일러스트",
+          "어두운 스튜디오 조명 아래 노트북 화면의 코드·텍스트 빛 반사, 민트 컬러 강조, 클로즈업 텍스처",
+          "흑백 격자 그리드 위 민트 포인트 노드, 네트워크 연결 시각화, 미니멀 테크 인포그래픽 스타일",
+          "딥다크 배경에 민트-화이트 타입 오버레이, 비대칭 여백, 한국 테크 채널 썸네일 구도"
+        ],
+        "reasoning": "잇섭·서울리안 같은 테크 유튜브 채널은 썸네일에서 비대칭 분할과 강렬한 포인트 컬러로 즉각적 주목을 만든다. 5:4 비대칭 그리드는 텍스트 무게감과 비주얼 긴장감을 동시에 주며, 민트 컬러는 '청결하고 앞서가는 AI 도구'라는 인상을 코드화한다. 하단 태그 스트립은 콘텐츠 범위를 한눈에 보여줘 SEO·정보 밀도 양면에서 기능한다."
+      },
+      {
+        "id": "v3",
+        "name": "모노크롬 타이포",
+        "vibe": "활자만으로 승부하는 미니멀리스트 선언문, 여백이 메시지다",
+        "color_palette": {
+          "bg": "#111111",
+          "fg": "#EFEFEF",
+          "brand": "#FFFFFF",
+          "accent": "#555555",
+          "soft": "#191919"
+        },
+        "html": "<div class=\"wrap\" style=\"background:#111111;color:#EFEFEF;font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);padding:96px 24px;\">\n  <div style=\"max-width:860px;margin:0 auto;\">\n\n    <!-- 상단 레이블 -->\n    <div style=\"display:flex;align-items:center;justify-content:space-between;margin-bottom:72px;\">\n      <span style=\"font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:#444444;\">Core Campus — AI Practice</span>\n      <span style=\"font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#444444;\">2025</span>\n    </div>\n\n    <!-- 선언문 타이포 블록 -->\n    <div style=\"margin-bottom:64px;\">\n      <h2 style=\"font-size:clamp(40px,7vw,88px);font-weight:900;line-height:1.0;letter-spacing:-0.045em;margin:0;color:#FFFFFF;\">\n        배운 날,<br>\n        바로 쓴다.\n      </h2>\n      <div style=\"width:48px;height:2px;background:#FFFFFF;margin:32px 0;\"></div>\n      <p style=\"font-size:clamp(16px,2vw,20px);line-height:1.8;color:#888888;max-width:520px;margin:0;font-weight:400;\">코어 캠퍼스의 Claude 실무 과정은 지식을 쌓는 곳이 아닙니다. 오늘 배운 것을 내일 클라이언트에게 쓸 수 있는 출력 구조를 만드는 곳입니다.</p>\n    </div>\n\n    <!-- 수평 구분 그리드 -->\n    <div style=\"display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #222222;\">\n      <div style=\"padding:32px 0 32px;border-right:1px solid #222222;padding-right:32px;\">\n        <p style=\"font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#444444;margin:0 0 12px;\">대상</p>\n        <p style=\"font-size:15px;line-height:1.6;color:#CCCCCC;margin:0;\">1인 사업가<br>프리랜서<br>지식 창업가</p>\n      </div>\n      <div style=\"padding:32px 32px;border-right:1px solid #222222;\">\n        <p style=\"font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#444444;margin:0 0 12px;\">도구</p>\n        <p style=\"font-size:15px;line-height:1.6;color:#CCCCCC;margin:0;\">Claude AI<br>프롬프트 설계<br>워크플로 자동화</p>\n      </div>\n      <div style=\"padding:32px 0 32px 32px;\">\n        <p style=\"font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#444444;margin:0 0 12px;\">목표</p>\n        <p style=\"font-size:15px;line-height:1.6;color:#CCCCCC;margin:0;\">실무 적용<br>시간 절감<br>결과물 품질</p>\n      </div>\n    </div>\n\n    <!-- 중단 인용 -->\n    <div style=\"margin:64px 0;padding:40px 0;border-top:1px solid #222222;border-bottom:1px solid #222222;\">\n      <p style=\"font-size:clamp(18px,2.8vw,26px);font-weight:700;line-height:1.5;letter-spacing:-0.02em;color:#EFEFEF;margin:0;\">&ldquo;AI 강의가 넘쳐나는 시대. 코어 캠퍼스는 실제로 <em style=\"color:#FFFFFF;font-style:normal;\">작동하는 것</em>만 가르칩니다.&rdquo;</p>\n    </div>\n\n    <!-- CTA + 부가 링크 -->\n    <div style=\"display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;\">\n      <a href=\"#curriculum\" style=\"display:inline-flex;align-items:center;gap:12px;background:#FFFFFF;color:#111111;font-size:14px;font-weight:800;letter-spacing:0.04em;padding:16px 32px;text-decoration:none;\">\n        <span>전체 커리큘럼 보기</span>\n        <span style=\"font-size:20px;font-weight:300;\">→</span>\n      </a>\n      <div style=\"display:flex;gap:24px;\">\n        <a href=\"#review\" style=\"font-size:13px;color:#555555;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #333333;padding-bottom:2px;\">수강 후기</a>\n        <a href=\"#about\" style=\"font-size:13px;color:#555555;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #333333;padding-bottom:2px;\">소개</a>\n      </div>\n    </div>\n\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#111111",
+          "color_fg": "#EFEFEF",
+          "color_muted": "#888888",
+          "color_line": "#222222",
+          "color_brand": "#FFFFFF",
+          "color_brand_2": "#191919",
+          "color_accent": "#555555",
+          "color_soft": "#191919",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "0px"
+        },
+        "image_prompts": [
+          "순수 흑백 미니멀 활자 레이아웃, 대형 세리프 수자와 여백, 스위스 타이포그래피 스타일, 광고 인쇄물 질감",
+          "딥블랙 배경에 얇은 화이트 수평선 격자, 머티리얼 텍스처 없는 플랫 기하 패턴, 아카데믹 모노크롬",
+          "어두운 작업 테이블 위 메모와 펜의 흑백 클로즈업, 손글씨 텍스트 없이 질감 중심, 집중적 실무 분위기",
+          "흑백 추상 나선 혹은 사선 구도, 극도의 여백, 현대 한국 그래픽 디자인 포스터 스타일"
+        ],
+        "reasoning": "모노크롬 팔레트와 대형 타이포그래피 선언문 구조는 '광고처럼 보이는 것'에 피로한 1인 사업가에게 역설적으로 가장 강한 신뢰 신호를 보낸다. 색 대신 크기·여백·굵기의 위계만으로 정보를 구조화해 '실력 있는 곳은 설명하지 않는다'는 인상을 만든다. 3단 그리드 정보 카드는 플랫폼의 대상·도구·목표를 사전 설명 없이 스캔 가능하게 한다."
+      }
+    ],
+    "brief_echo": {
+      "purpose": "1인 사업가에게 '전문적이고 트렌디한 AI 실무 학습 플랫폼'이라는 첫인상을 각인시키기",
+      "audience": "Claude를 실무에 활용하고 싶은 1인 사업가·프리랜서",
+      "style_keywords": [
+        "테크 채널",
+        "트렌디",
+        "묵직한 코어감",
+        "타이포 중심",
+        "미니멀"
+      ],
+      "color_mood": "cool",
+      "reference_urls": [
+        "https://fastcampus.co.kr",
+        "https://www.youtube.com/@itsub",
+        "https://www.youtube.com/@seoulian"
+      ]
+    }
+  },
+  "course_id": "",
+  "created_at": "2026-05-04T18:08:30+00:00",
+  "status": "pending",
+  "telegram_message_id": 188
+}

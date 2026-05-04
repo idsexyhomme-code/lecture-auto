@@ -1,0 +1,16 @@
+{
+  "last_reset_date": "2026-05-04",
+  "daily_brief_count": 1,
+  "daily_agent_calls": {
+    "ui_designer": 1
+  },
+  "daily_estimated_cost_usd": 0.07,
+  "recent_call_timestamps": [
+    {
+      "agent": "ui_designer",
+      "ts": 1777918017.162132
+    }
+  ],
+  "paused": false,
+  "pause_reason": ""
+}
