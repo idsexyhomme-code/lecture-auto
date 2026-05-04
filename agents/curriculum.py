@@ -60,7 +60,8 @@ class CurriculumArchitect(BaseAgent):
 최종 산출물 형태: {brief.get('format','video')}
 
 JSON으로만 답하세요."""
-        raw = self.call(prompt, max_tokens=4000)
+        # max_tokens 8000 — 12+ 차시 + 학습목표·실습 모두 길어지면 4000 부족
+        raw = self.call(prompt, max_tokens=8000)
         data = self._safe_json(raw)
 
         body_md = self._render_md(data)

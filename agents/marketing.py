@@ -56,7 +56,8 @@ class MarketingSpecialist(BaseAgent):
 가격대 힌트: {brief.get('price_hint','30~70만원대')}
 
 JSON으로만 답하세요."""
-        raw = self.call(prompt, max_tokens=4000)
+        # max_tokens 8000 — 9섹션 IA + FAQ 5-7개 + 카피 모두 길면 4000 부족
+        raw = self.call(prompt, max_tokens=8000)
         data = self._safe_json(raw)
         body_md = self._render_md(data)
         course_id = brief.get("course_id", "")

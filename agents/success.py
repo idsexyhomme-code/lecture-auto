@@ -45,7 +45,8 @@ class StudentSuccessManager(BaseAgent):
 
 JSON 스키마:
 [{{"q":"질문","a":"답변(공감→답→다음행동, 80자 이내)"}}]"""
-        raw = self.call(prompt, max_tokens=2000)
+        # max_tokens 4000 — FAQ 7개 × 답변 길이 합계가 2000 넘는 경우 잘림
+        raw = self.call(prompt, max_tokens=4000)
         items = self._safe_json(raw)
 
         body_md = "\n\n".join([f"**Q. {x['q']}**\n{x['a']}" for x in items])

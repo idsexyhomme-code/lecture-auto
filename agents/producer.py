@@ -56,7 +56,8 @@ class ContentProducer(BaseAgent):
 목표 분량: {brief.get('duration_min',15)}분
 
 마크다운으로만 답하세요. 코드펜스는 붙이지 말고."""
-        body_md = self.call(prompt, max_tokens=4000)
+        # max_tokens 8000 — 5단 구조 (HOOK·PROMISE·CORE·EXERCISE·CTA) + 메모리 페그 다 들어가면 4000 부족
+        body_md = self.call(prompt, max_tokens=8000)
 
         title = f"#{brief.get('lesson_no','?')} {brief.get('lesson_title','(차시)')}"
         summary = brief.get("objective", "")[:120]
