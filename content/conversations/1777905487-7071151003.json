@@ -1,0 +1,29 @@
+{
+  "id": "1777905487-7071151003",
+  "chat_id": 7071151003,
+  "status": "ready",
+  "history": [
+    {
+      "role": "user",
+      "content": "테스트용 코스 만들어줘. 3차시. 주제는 \"한 페이지 인사 메일 잘 쓰는 법\", \n타깃은 1인 사업가, 영상 형식."
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"READY\", \"message\": \"아래 brief로 커리큘럼을 만들어 드릴게요. 이대로 진행해도 될까요?\\n\\n- **코스 ID:** one-page-intro-email\\n- **주제:** 한 페이지 인사 메일 잘 쓰는 법\\n- **타깃:** 1인 사업가\\n- **차시:** 3차시 / 형식: 영상\\n- **기간:** 1주 (테스트용 단기 코스)\", \"brief\": {\"agent\": \"curriculum\", \"brief\": {\"course_id\": \"one-page-intro-email\", \"topic\": \"한 페이지 인사 메일 잘 쓰는 법\", \"audience\": \"1인 사업가 — 메일 한 통으로 첫인상을 만들어야 하는 초기 사업가\", \"duration_weeks\": 1, \"lesson_count\": 3, \"format\": \"video\"}}}"
+    }
+  ],
+  "draft_brief": {
+    "agent": "curriculum",
+    "brief": {
+      "course_id": "one-page-intro-email",
+      "topic": "한 페이지 인사 메일 잘 쓰는 법",
+      "audience": "1인 사업가 — 메일 한 통으로 첫인상을 만들어야 하는 초기 사업가",
+      "duration_weeks": 1,
+      "lesson_count": 3,
+      "format": "video"
+    }
+  },
+  "last_telegram_message_id": 140,
+  "created_at": "2026-05-04T14:38:07+00:00",
+  "updated_at": "2026-05-04T14:38:13+00:00"
+}
