@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 만드는 1인 사업 콘텐츠 엔진",
+    "lesson_no": 1,
+    "lesson_title": "콘텐츠 엔진 전체 구조 파악하기",
+    "objective": "원소스 멀티유즈 콘텐츠 파이프라인의 4단계(아이디어→핵심글→파생글→배포)를 자신의 사업에 맞게 도식으로 그린다",
+    "key_concepts": [
+      "원소스 멀티유즈(OSMU) 개념",
+      "콘텐츠 파이프라인 4단계",
+      "반자동화 vs 완전자동화 차이"
+    ],
+    "exercise": "내 사업의 콘텐츠 채널과 흐름을 표시한 파이프라인 다이어그램 워크시트",
+    "duration_min": 15
+  }
+}

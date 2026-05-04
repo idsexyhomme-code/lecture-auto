@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-intro-email",
+    "course_title": "Claude로 완성하는 한 페이지 인사메일",
+    "lesson_no": 1,
+    "lesson_title": "한 페이지 인사메일의 구조를 분해한다",
+    "objective": "효과적인 인사메일의 4개 구성 요소(후크·자기소개·가치제안·CTA)를 나열하고, 기존 메일 샘플 1건을 해당 요소로 분류한다",
+    "key_concepts": [
+      "한 페이지 메일의 4블록 구조",
+      "수신자 관점의 가치제안 vs 자기자랑 구분",
+      "CTA(Call To Action) 설계 원칙"
+    ],
+    "exercise": "기존 인사메일 1건을 4개 블록으로 나눈 구조 분석 워크시트(텍스트 문서)",
+    "duration_min": 15
+  }
+}
