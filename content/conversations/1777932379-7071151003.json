@@ -1,0 +1,29 @@
+{
+  "id": "1777932379-7071151003",
+  "chat_id": 7071151003,
+  "status": "ready",
+  "history": [
+    {
+      "role": "user",
+      "content": "테스트 코스 만들어줘. 3차시. \n주제는 \"딥워크 1시간 진입하는 법\", \n타깃은 1인 콘텐츠 사업가, video"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"READY\", \"message\": \"아래 brief로 curriculum 에이전트를 실행할게요.\\n\\n- **코스**: 딥워크 1시간 진입하는 법\\n- **타깃**: 1인 콘텐츠 사업가\\n- **구성**: 3차시 · video · 1주\\n\\n이대로 진행해도 될까요?\", \"brief\": {\"agent\": \"curriculum\", \"brief\": {\"course_id\": \"deepwork-1hr\", \"topic\": \"딥워크 1시간 진입하는 법\", \"audience\": \"1인 콘텐츠 사업가\", \"duration_weeks\": 1, \"lesson_count\": 3, \"format\": \"video\"}}}"
+    }
+  ],
+  "draft_brief": {
+    "agent": "curriculum",
+    "brief": {
+      "course_id": "deepwork-1hr",
+      "topic": "딥워크 1시간 진입하는 법",
+      "audience": "1인 콘텐츠 사업가",
+      "duration_weeks": 1,
+      "lesson_count": 3,
+      "format": "video"
+    }
+  },
+  "last_telegram_message_id": 192,
+  "created_at": "2026-05-04T22:06:19+00:00",
+  "updated_at": "2026-05-04T22:06:24+00:00"
+}
