@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-launchpad",
+    "course_title": "Claude로 부캐 서비스 1주일 런칭",
+    "lesson_no": 8,
+    "lesson_title": "7일 런칭 플랜 실행 & 회고 영상 제작",
+    "objective": "1~7차시 산출물을 통합해 실제 런칭 후 배운 점·수정할 점·다음 액션을 담은 3분 회고 영상을 제작한다",
+    "key_concepts": [
+      "런칭 회고 프레임워크(Keep-Problem-Try)",
+      "지표 기반 의사결정(조회수·DM응답률·전환율)",
+      "2차 스프린트 계획"
+    ],
+    "exercise": "3분 런칭 회고 영상 (결과 지표 + 개선안 + 다음 계획 포함, 세로형 MP4)",
+    "duration_min": 15
+  }
+}
