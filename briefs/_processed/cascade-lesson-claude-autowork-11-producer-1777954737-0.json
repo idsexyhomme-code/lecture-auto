@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 11,
+    "lesson_title": "Claude API 기초 — 코드 없이 파라미터 이해하기",
+    "objective": "Claude API의 temperature·max_tokens·system prompt 파라미터 역할을 각각 설명하고 3가지 설정 조합의 출력 차이를 비교한 분석표를 작성한다",
+    "key_concepts": [
+      "Temperature 제어",
+      "System Prompt 역할",
+      "Max Tokens 설정"
+    ],
+    "exercise": "파라미터 3종 조합 실험 결과 비교표",
+    "duration_min": 15
+  }
+}
