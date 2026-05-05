@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "deepwork-1hr",
+    "course_title": "딥워크 1시간 진입법",
+    "lesson_no": 3,
+    "lesson_title": "1시간 딥워크 세션 완주하기",
+    "objective": "설계한 환경 프로토콜과 루틴을 적용하여 1시간 딥워크 세션을 실행하고, 세션 전·후 집중도와 산출물을 비교 설명하는 영상을 제작한다",
+    "key_concepts": [
+      "포모도로 vs 풀블록 세션 비교",
+      "몰입 유지 전략 (진행 상황 가시화)",
+      "세션 후 회고(Micro-Review) 방법"
+    ],
+    "exercise": "딥워크 세션 회고 영상 (세션 시작 선언 → 작업 과정 요약 → 완료 결과물 공개 → 집중도 자가 평가를 담은 3~5분 분량 video)",
+    "duration_min": 15
+  }
+}

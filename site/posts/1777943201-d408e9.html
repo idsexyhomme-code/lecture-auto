@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#4 블로그 초안 자동 생성하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#4 블로그 초안 자동 생성하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-content-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>블로그 하나 쓰는 데 3시간.</p>
+<p>주제 잡고, 구조 짜고, 초안 쓰고, 퇴고까지.</p>
+<p>그러다 결국 "오늘은 건너뛰자" 하신 적 있으시죠?</p>
+<p>저도 그랬습니다.</p>
+<p>그런데 지금은 15분 안에 SEO 구조까지 갖춘 초안을 뽑아냅니다.</p>
+<p>오늘 차시 하나면, 그 방법이 여러분 손에 들어옵니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 마스터 프롬프트 하나로 H1·H2·메타 설명·CTA까지 포함된 800자 이상 블로그 초안을 15분 안에 생성하고, 어디를 내 손으로 다듬어야 하는지 편집 포인트까지 표시할 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — SEO 친화적 글 구조 (H1·H2·메타 설명)</h3>
+<p><strong>설명</strong></p>
+<p>블로그를 검색 엔진이 읽는 방식은 사람과 다릅니다.</p>
+<p>구글은 글의 '뼈대'를 먼저 스캔합니다.</p>
+<p>그 뼈대가 H1, H2, 메타 설명입니다.</p>
+<p>H1은 글 전체의 핵심 키워드를 담은 제목 하나.</p>
+<p>H2는 각 단락의 소제목으로, 독자의 스크롤을 멈추게 하는 역할.</p>
+<p>메타 설명은 검색 결과 화면에 뜨는 150자 내외의 요약문입니다.</p>
+<p><strong>예시</strong></p>
+<p>키워드가 '1인 사업 블로그 자동화'라면,</p>
+<p>H1: "1인 사업자가 블로그를 자동화하는 3단계 방법"</p>
+<p>H2: "1단계: 키워드 선정 / 2단계: 구조 설계 / 3단계: Claude로 초안 생성"</p>
+<p>메타 설명: "혼자 운영하는 사업에서 블로그 콘텐츠를 15분 만에 완성하는 실전 방법을 소개합니다."</p>
+<p><strong>반례</strong></p>
+<p>H1에 키워드를 두 개 이상 욱여넣으면 역효과입니다.</p>
+<p>"1인 사업 블로그 자동화 + SNS 콘텐츠 전략 총정리" — 이런 제목은 검색 엔진도, 독자도 피곤해합니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 '집의 뼈대'입니다.</p>
+<p>H1은 기둥, H2는 들보, 메타 설명은 현관 간판.</p>
+<p>뼈대가 튼튼해야 집이 검색 지도에 나타납니다.</p>
+<hr />
+<h3>핵심 개념 2 — Claude의 Chain-of-Thought 활용법</h3>
+<p><strong>설명</strong></p>
+<p>Chain-of-Thought, 줄여서 CoT는 Claude에게 "단계별로 생각하면서 써"라고 시키는 기법입니다.</p>
+<p>한 번에 완성된 글을 요청하면 Claude는 평균적인 답을 냅니다.</p>
+<p>반면 "먼저 구조를 짜고, 그다음 각 섹션을 채워"라고 지시하면 결과물의 밀도가 달라집니다.</p>
+<p><strong>예시</strong></p>
+<p>나쁜 프롬프트: "1인 사업 블로그 자동화에 대해 블로그 글 써줘."</p>
+<p>CoT 프롬프트:</p>
+<p>"Step 1: 타깃 독자와 핵심 키워드를 1줄로 정의해.</p>
+<p>Step 2: H1 제목 후보 3개를 제시해.</p>
+<p>Step 3: H2 소제목 4개로 구성된 개요를 작성해.</p>
+<p>Step 4: 각 H2 아래 본문을 200자 이상으로 작성해.</p>
+<p>Step 5: 150자 이내 메타 설명을 작성해."</p>
+<p>이렇게 단계를 명시하면 Claude가 스스로 논리를 점검하며 씁니다.</p>
+<p><strong>반례</strong></p>
+<p>CoT를 쓰더라도 각 Step의 지시가 모호하면 결과가 흐릿해집니다.</p>
+<p>"좋게 써줘", "자세히 써줘"처럼 형용사만 있는 지시는 CoT의 의미가 없습니다.</p>
+<p>구체적인 숫자와 형식이 함께 있어야 합니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 '요리 레시피'입니다.</p>
+<p>재료 목록 없이 "맛있는 거 만들어"라고 하면 결과를 통제할 수 없습니다.</p>
+<p>Step 번호는 재료 목록이고, Claude는 요리사입니다.</p>
+<hr />
+<h3>핵심 개념 3 — 인간 편집 최소화를 위한 출력 형식 지정</h3>
+<p><strong>설명</strong></p>
+<p>Claude 출력물을 바로 쓰지 못하는 이유는 대부분 '형식' 때문입니다.</p>
+<p>내용은 괜찮은데 어디를 고쳐야 할지 모르겠고, 전체를 다시 읽어야 하는 상황.</p>
+<p>이걸 해결하는 방법이 출력 형식 지정입니다.</p>
+<p>Claude에게 편집이 필요한 부분을 대괄호로 표시하게 지시하면, 초안을 받자마자 수정 위치가 보입니다.</p>
+<p><strong>예시</strong></p>
+<p>프롬프트 마지막에 이 한 줄을 추가합니다:</p>
+<p>"내가 직접 검토하거나 개인화해야 할 부분은 [편집 필요: 이유] 형식으로 표시해."</p>
+<p>그러면 Claude는 이렇게 씁니다:</p>
+<p>"저는 [편집 필요: 본인의 실제 사례로 교체] 이후 매출이 30% 늘었습니다."</p>
+<p>초안을 받고 대괄호만 찾아서 수정하면 됩니다.</p>
+<p>편집 시간이 제 경험상 절반 이하로 줄어듭니다.</p>
+<p><strong>반례</strong></p>
+<p>편집 태그를 너무 많이 달게 하면 오히려 역효과입니다.</p>
+<p>글 전체가 대괄호투성이가 되면 읽는 흐름이 끊기고, 편집량이 늘어납니다.</p>
+<p>태그는 '개인화가 꼭 필요한 곳'과 '사실 확인이 필요한 수치'에만 한정하세요.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 '형광펜 3색 세트'입니다.</p>
+<p>미리 색을 정해두면 문서를 받자마자 무엇을 할지 보입니다.</p>
+<p>출력 형식은 여러분과 Claude 사이의 사전 약속입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하세요.</p>
+<p>아래 4단계를 따라 여러분만의 블로그 초안을 만들어 봅니다.</p>
+<p><strong>Step 1 — 키워드와 타깃 독자 정의 (1분)</strong></p>
+<p>본인 사업에서 가장 자주 받는 질문 하나를 떠올리세요.</p>
+<p>그 질문을 검색 키워드로 바꿉니다.</p>
+<p>예: "강의 가격을 어떻게 정하나요?" → "1인 강사 강의 가격 책정 방법"</p>
+<p>이것이 오늘 블로그의 핵심 키워드입니다.</p>
+<p><strong>Step 2 — 마스터 프롬프트 조립 (2분)</strong></p>
+<p>아래 템플릿을 복사해서 [ ] 부분만 교체하세요.</p>
+<hr />
+<p>너는 [1인 사업자]를 위한 SEO 블로그 전문 작가야.</p>
+<p>타깃 독자: [온라인 강의를 막 시작한 1인 강사]</p>
+<p>핵심 키워드: [1인 강사 강의 가격 책정 방법]</p>
+<p>Step 1: 타깃 독자와 키워드를 1줄로 확인해.</p>
+<p>Step 2: H1 제목 후보 2개를 제시해. 각각 핵심 키워드를 포함할 것.</p>
+<p>Step 3: H2 소제목 3–4개로 개요를 작성해.</p>
+<p>Step 4: 각 H2 아래 본문을 최소 200자로 작성해. 총 800자 이상.</p>
+<p>Step 5: 150자 이내 메타 설명을 작성해.</p>
+<p>Step 6: 마지막에 독자 행동을 유도하는 CTA 1문장을 추가해.</p>
+<p>개인화가 필요한 부분은 [편집 필요: 이유] 형식으로 표시해.</p>
+<hr />
+<p><strong>Step 3 — Claude에 붙여넣고 실행 (1분)</strong></p>
+<p>프롬프트를 Claude에 입력하고 출력을 받습니다.</p>
+<p>출력이 완료되면 대괄호 [편집 필요] 태그를 모두 찾아 형광색으로 표시하세요.</p>
+<p><strong>Step 4 — 산출물 저장</strong></p>
+<p>초안 전문과 편집 포인트가 표시된 문서를 하나의 파일로 저장합니다.</p>
+<p>파일명: <code>블로그초안_[키워드]_[날짜].md</code></p>
+<p>이 파일이 오늘 실습의 최종 산출물입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #5에서는 오늘 만든 블로그 초안을 SNS 카드뉴스와 뉴스레터로 한 번에 변환하는 '원소스 멀티유즈 프롬프트'를 다룹니다.</p>
+<p>초안 하나로 3개 채널을 동시에 채우는 방법입니다.</p>
+<p>오늘 실습에서 완성한 블로그 초안, 댓글에 키워드만 남겨주세요.</p>
+<p>다른 수강생들의 키워드를 보는 것만으로도 아이디어가 생깁니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

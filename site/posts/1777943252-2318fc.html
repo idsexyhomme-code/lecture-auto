@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 Claude에게 인사메일 초안을 생성시킨다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 Claude에게 인사메일 초안을 생성시킨다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-intro-email · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>첫 인사메일, 몇 번째 고쳐 쓰고 계세요?</p>
+<p>"안녕하세요, 저는 OOO입니다"로 시작했다가 지우고, 다시 쓰고, 또 지우고.
+30분 넘게 빈 화면 앞에 앉아 있는 분, 저도 그랬습니다.</p>
+<p>오늘 이 영상이 끝나면, Claude에게 정확하게 시켜서 쓸 만한 초안을 5분 안에 뽑아내실 수 있습니다.
+문제는 글솜씨가 아니었어요. 프롬프트 설계가 없었던 겁니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면, 수신자 정보·목적·톤 세 가지를 담은 프롬프트 한 개를 직접 써서 Claude로부터 한 페이지 인사메일 초안 1건을 실제로 생성하실 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 프롬프트 3요소: 역할·맥락·제약</h3>
+<p><strong>설명</strong></p>
+<p>Claude는 질문이 구체적일수록 답이 정교해집니다.
+제 경험상 프롬프트에 세 가지가 빠지면 결과물이 밋밋해집니다.</p>
+<p>첫째, <strong>역할(Role)</strong> — Claude가 누구처럼 써야 하는지.
+둘째, <strong>맥락(Context)</strong> — 어떤 상황인지.
+셋째, <strong>제약(Constraint)</strong> — 분량·형식·금지어.</p>
+<p><strong>예시</strong></p>
+<blockquote>
+<p>"당신은 B2B 영업 담당자입니다. 처음 연락하는 잠재 고객사 구매팀장에게 보내는 한 페이지 인사메일을 써주세요. 300자 이내, 불필요한 자기 자랑 없이."</p>
+</blockquote>
+<p>역할: B2B 영업 담당자.
+맥락: 첫 접촉, 구매팀장 수신.
+제약: 300자 이내, 자기 자랑 금지.</p>
+<p><strong>반례</strong></p>
+<blockquote>
+<p>"인사메일 써줘."</p>
+</blockquote>
+<p>이 한 줄만 입력하면 Claude는 역할도, 수신자도, 길이도 모릅니다.
+결과물은 누구에게나 쓸 수 있는 무난한 메일, 즉 아무에게도 맞지 않는 메일이 나옵니다.</p>
+<p><strong>정리 — 메모리 페그: "RCC 삼각형"</strong></p>
+<p>Role → Context → Constraint.
+이 순서로 쓰면 프롬프트가 흔들리지 않습니다.
+손가락 세 개를 펼치고 "알씨씨" 하고 외워두세요.</p>
+<hr />
+<h3>핵심 개념 2 — 톤 지정어: 격식체 vs 친근체</h3>
+<p><strong>설명</strong></p>
+<p>같은 내용도 톤이 다르면 전혀 다른 메일이 됩니다.
+Claude에게 톤을 명시하지 않으면 Claude가 임의로 선택합니다.
+제 경험상 그 결과는 대부분의 경우 어중간한 중간 톤입니다.</p>
+<p>톤 지정어는 두 축으로 나눕니다.</p>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>권장 지정어</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>공공기관·대기업 첫 접촉</td>
+<td>"격식체", "존댓말 70% 이상", "수동적 표현 배제"</td>
+</tr>
+<tr>
+<td>스타트업·동종업계 지인</td>
+<td>"친근하고 솔직하게", "짧은 문장 위주", "이모지 없이"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>예시</strong></p>
+<p>격식체 지정:</p>
+<blockquote>
+<p>"문체는 격식체로, 과도한 경어 없이 명확하게."</p>
+</blockquote>
+<p>친근체 지정:</p>
+<blockquote>
+<p>"편하게 대화하듯, 그러나 비즈니스 맥락을 잃지 않게."</p>
+</blockquote>
+<p><strong>반례</strong></p>
+<p>"톤은 적당히 자연스럽게"라고 쓰면 Claude는 판단 기준이 없습니다.
+'자연스럽다'는 기준은 사람마다 다르기 때문입니다.</p>
+<p><strong>정리 — 메모리 페그: "온도계"</strong></p>
+<p>격식체는 차갑고 정밀한 10°C.
+친근체는 따뜻하고 부드러운 36°C.
+메일을 보낼 상대방 관계의 온도를 먼저 정하고 그 숫자를 프롬프트에 옮기세요.</p>
+<hr />
+<h3>핵심 개념 3 — 반복 수정(Iteration) 프롬프트 패턴</h3>
+<p><strong>설명</strong></p>
+<p>첫 번째 결과물이 완벽한 경우는 드뭅니다.
+중요한 것은 첫 초안이 아니라 두 번째, 세 번째 프롬프트입니다.
+이것을 '이터레이션 프롬프트'라고 부릅니다.</p>
+<p>이터레이션 프롬프트에는 세 가지 패턴이 있습니다.</p>
+<ol>
+<li><strong>축소 요청</strong>: "첫 단락을 50자로 줄여줘."</li>
+<li><strong>교체 요청</strong>: "세 번째 문장의 표현을 덜 딱딱하게 바꿔줘."</li>
+<li><strong>추가 요청</strong>: "마지막에 다음 단계(미팅 제안)를 한 줄 추가해줘."</li>
+</ol>
+<p><strong>예시</strong></p>
+<p>Claude가 초안을 줬는데 첫 문장이 너무 길다면:</p>
+<blockquote>
+<p>"첫 문장을 20자 이내로 줄이고, 나머지는 그대로 유지해줘."</p>
+</blockquote>
+<p>'나머지는 그대로 유지해줘'가 핵심입니다.
+범위를 지정하지 않으면 Claude가 전체를 다시 씁니다.</p>
+<p><strong>반례</strong></p>
+<blockquote>
+<p>"좀 더 좋게 써줘."</p>
+</blockquote>
+<p>'좋다'의 기준이 없습니다.
+이 패턴은 대부분의 경우 Claude가 처음 결과물과 비슷한 것을 다시 냅니다.</p>
+<p><strong>정리 — 메모리 페그: "외과 수술 3도구"</strong></p>
+<p>축소(절제), 교체(이식), 추가(봉합).
+고치고 싶은 부위를 딱 하나 짚고, 세 도구 중 하나를 선택하세요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>영상을 지금 일시정지하세요.
+아래 4단계를 따라 실제 프롬프트와 초안을 만들어 보겠습니다.</p>
+<hr />
+<p><strong>Step 1 — 상황 카드 작성 (1분)</strong></p>
+<p>메모장이나 노트를 여세요.
+다음 세 줄을 직접 채우세요.</p>
+<ul>
+<li>내가 보내는 사람: (직함·회사)</li>
+<li>받는 사람: (직함·회사·관계)</li>
+<li>이 메일의 목적: (첫 인사 / 협업 제안 / 소개 등 1가지)</li>
+</ul>
+<hr />
+<p><strong>Step 2 — RCC 삼각형으로 프롬프트 완성 (1분)</strong></p>
+<p>아래 틀에 Step 1의 내용을 넣으세요.</p>
+<blockquote>
+<p>"당신은 [역할]입니다. [맥락]에게 보내는 한 페이지 인사메일을 써주세요. [톤 지정어], [분량 제약], [금지 사항]."</p>
+</blockquote>
+<p>빈칸을 채운 프롬프트를 텍스트 파일에 저장하세요.</p>
+<hr />
+<p><strong>Step 3 — Claude에 붙여넣고 초안 생성 (1분)</strong></p>
+<p>완성한 프롬프트를 Claude에 입력하고 결과를 받으세요.
+결과물을 같은 텍스트 파일 아래에 붙여넣으세요.</p>
+<hr />
+<p><strong>Step 4 — 이터레이션 1회 실행 (1분)</strong></p>
+<p>초안을 읽고 마음에 걸리는 부분 딱 하나를 고르세요.
+축소·교체·추가 중 하나로 수정 프롬프트를 써서 Claude에 다시 입력하세요.
+수정된 결과까지 파일에 저장하면 오늘 실습 완료입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 생성된 초안을 실제 발송 전에 점검하는 '5가지 체크리스트'를 다룹니다.
+어색한 문장, 빠진 정보, 톤 불일치를 2분 안에 걸러내는 방법입니다.</p>
+<p>오늘 만드신 텍스트 파일, 댓글에 프롬프트 한 줄만 공유해 주세요.
+다른 분들의 패턴을 보는 것 자체가 좋은 학습이 됩니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

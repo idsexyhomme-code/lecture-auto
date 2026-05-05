@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 만드는 1인 사업 콘텐츠 엔진",
+    "lesson_no": 3,
+    "lesson_title": "마스터 프롬프트 설계하기",
+    "objective": "브랜드 보이스 정의서를 내장한 재사용 가능한 마스터 프롬프트 템플릿을 완성하고 출력 품질을 이전 대비 비교한다",
+    "key_concepts": [
+      "마스터 프롬프트 구조(역할·맥락·지시·형식·제약)",
+      "변수 플레이스홀더 설계 [[주제]], [[길이]]",
+      "출력 품질 체크리스트"
+    ],
+    "exercise": "변수 플레이스홀더가 포함된 마스터 프롬프트 템플릿 파일",
+    "duration_min": 15
+  }
+}
