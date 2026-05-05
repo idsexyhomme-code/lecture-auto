@@ -134,12 +134,16 @@ HTML로만 답하세요. 코드펜스 금지."""
                     tags = ["Claude", "1인 사업가", "코어 캠퍼스", course_title[:20]]
                     # publish=True — 모달에 *공개 발행* 버튼만 있어서 임시저장 불가능.
                     # 즉시 라이브 게시. 회원님이 글 검토 후 비공개 처리는 블로그에서.
+                    # headless=False — 헤드리스 모드에서 모달 클릭이 불안정.
+                        # 환경변수로 강제 가능: TISTORY_HEADLESS=1 → headless=True
+                    headless = os.environ.get("TISTORY_HEADLESS", "0").lower() in ("1", "true", "yes")
                     published_url = publish_post(
                         blog=blog,
                         title=title,
                         body_html=body_html,
                         tags=tags,
                         publish=True,
+                        headless=headless,
                     )
                     log.info("[blog] 임시저장 완료: %s", published_url)
             except Exception as e:

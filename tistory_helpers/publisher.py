@@ -197,21 +197,30 @@ def publish_post(
             _shoot(page, "5-after-done")
 
             # 6. 모달 — 임시저장 또는 공개 발행 선택
+            time.sleep(1.5)  # 모달 애니메이션 대기
             modal_clicked = False
             modal_options = (
                 ["공개 발행", "발행하기", "발행", "확인"]
                 if publish
                 else ["임시저장", "저장"]
             )
+            # 다양한 셀렉터 패턴 — button, a, div, span, role=button 모두 시도
             for label in modal_options:
                 for sel_template in [
                     f"button:has-text('{label}')",
+                    f"a:has-text('{label}')",
+                    f"[role='button']:has-text('{label}')",
+                    f"div.btn:has-text('{label}')",
+                    f"span.btn:has-text('{label}')",
                     f"button[id*='publish']:has-text('{label}')",
+                    f"button[class*='publish']:has-text('{label}')",
+                    f"text=/{label}/",
                 ]:
                     try:
-                        page.wait_for_selector(sel_template, timeout=2500, state="visible")
-                        page.click(sel_template, timeout=2000)
-                        log.info("[tistory] ✓ 모달 %s 클릭", label)
+                        loc = page.locator(sel_template).last
+                        loc.wait_for(state="visible", timeout=3000)
+                        loc.click(timeout=3000, force=True)
+                        log.info("[tistory] ✓ 모달 %s 클릭 (%s)", label, sel_template)
                         modal_clicked = True
                         break
                     except Exception:
@@ -220,7 +229,30 @@ def publish_post(
                     break
 
             if not modal_clicked:
-                log.warning("[tistory] 모달 옵션 못 찾음 — 그래도 1차 클릭으로 저장됐을 가능성 있음")
+                # 마지막 fallback — JS로 모든 버튼 훑어서 텍스트 매칭
+                log.warning("[tistory] 모달 옵션 못 찾음 — JS fallback")
+                try:
+                    res = page.evaluate("""
+                        () => {
+                            const buttons = [...document.querySelectorAll('button, a, [role="button"], div.btn, span.btn')];
+                            const target = buttons.find(b =>
+                                /공개\\s*발행|발행하기|발행/.test(b.textContent) &&
+                                !/취소/.test(b.textContent) &&
+                                b.offsetParent !== null
+                            );
+                            if (target) { target.click(); return 'JS clicked: ' + target.textContent.trim().slice(0,30); }
+                            return 'no target found';
+                        }
+                    """)
+                    log.info("[tistory] JS fallback 결과: %s", res)
+                    modal_clicked = "clicked" in str(res).lower()
+                except Exception as e:
+                    log.warning("[tistory] JS fallback도 실패: %s", e)
+                    try:
+                        page.keyboard.press("Enter")
+                        log.info("[tistory] ✓ Enter 키 fallback")
+                    except Exception:
+                        pass
 
             # 6. 처리 대기
             time.sleep(6)
