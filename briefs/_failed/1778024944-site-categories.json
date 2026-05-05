@@ -1,0 +1,9 @@
+{
+  "agent": "site_developer",
+  "brief": {
+    "instruction": "home_intro_html 슬롯에 *카테고리 nav 영역*을 추가하라. 현재 등록된 코스를 다음 3개 카테고리로 분류해서 시맨틱 HTML(nav>ul>li>a)로 구현. 각 a 태그는 해당 코스 카드로 스크롤되는 #course-{course_id} anchor. 카테고리:\n  1) Claude 자동화 — claude-autowork, claude-content-engine, claude-monthly-revenue, claude-customer-script, claude-launchpad\n  2) 1인 사업가 SOP — claude-sop, claude-intro-email\n  3) 딥워크·생산성 — deepwork-1hr\n기존 home_intro_html 내용은 보존하고 그 위에 카테고리 nav만 추가. design_tokens 베이지·다크브라운 톤 유지.",
+    "brand_tone": "차분하고 전문적인 한국어",
+    "target_audience": "1인 사업가 사이트 방문자",
+    "restrictions": "과장 표현 금지, WCAG AA 색 대비, 기존 home_intro_html 내용 그대로 두고 카테고리 nav만 추가"
+  }
+}
