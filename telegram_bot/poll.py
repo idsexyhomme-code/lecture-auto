@@ -932,9 +932,29 @@ def run() -> int:
 
 
 if __name__ == "__main__":
+    import time
+
     logging.basicConfig(
         level=os.environ.get("LOG_LEVEL", "INFO"),
         format="%(asctime)s [%(name)s] %(message)s",
     )
-    n = run()
-    print(f"Processed {n} update(s)")
+
+    # ★ 데몬 모드 — 환경변수 ONESHOT=1이면 1회만, 기본은 무한 루프 (30초 주기)
+    oneshot = os.environ.get("ONESHOT", "0").lower() in ("1", "true", "yes")
+
+    if oneshot:
+        n = run()
+        print(f"Processed {n} update(s)")
+    else:
+        log.info("[poll] 데몬 모드 시작 — 30초마다 polling")
+        while True:
+            try:
+                n = run()
+                if n > 0:
+                    log.info("Processed %d update(s)", n)
+            except KeyboardInterrupt:
+                log.info("[poll] 종료 신호 받음")
+                break
+            except Exception as e:
+                log.exception("[poll] cycle 실패: %s", e)
+            time.sleep(30)
