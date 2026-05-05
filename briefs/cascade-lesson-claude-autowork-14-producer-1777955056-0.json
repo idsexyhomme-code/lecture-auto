@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 14,
+    "lesson_title": "시간 절감 효과 측정 및 ROI 계산하기",
+    "objective": "자동화 전·후 소요 시간을 기록해 주간 절감 시간과 금전적 ROI를 계산한 분석 시트를 완성한다",
+    "key_concepts": [
+      "업무 시간 측정 방법",
+      "ROI 계산 공식",
+      "자동화 성과 지표"
+    ],
+    "exercise": "AI 자동화 ROI 계산 스프레드시트",
+    "duration_min": 15
+  }
+}
