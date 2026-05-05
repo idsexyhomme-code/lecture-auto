@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-customer-script",
+    "course_title": "Claude로 CS 자동화: 1인 사업가 생존 키트",
+    "lesson_no": 7,
+    "lesson_title": "프롬프트 라이브러리 구축하기",
+    "objective": "3~6차시에서 만든 스크립트·템플릿을 유형별로 분류해 즉시 복붙 가능한 '나만의 CS 프롬프트 라이브러리'를 단일 문서로 조직화한다",
+    "key_concepts": [
+      "프롬프트 라이브러리 폴더 구조 설계 원칙",
+      "태그·검색 키워드 삽입으로 검색 속도 높이기",
+      "팀·외주 공유를 위한 프롬프트 설명 주석 작성법"
+    ],
+    "exercise": "유형 탭(환불/배송/FAQ/클레임/기타)으로 구분된 Notion 또는 Google Docs 기반 'CS 프롬프트 라이브러리' 완성본",
+    "duration_min": 15
+  }
+}
