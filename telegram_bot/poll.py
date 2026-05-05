@@ -12,6 +12,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+# .env 로드 — 데몬이 환경변수 못 읽고 즉시 크래시하는 문제 해결
+try:
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).resolve().parents[1] / ".env")
+except ImportError:
+    pass
+
 from agents.base import PENDING_DIR, APPROVED_DIR, REJECTED_DIR, STATE_DIR, REPO_ROOT, AgentResult
 from telegram_bot import client as tg
 from telegram_bot.conversation import Conversation
