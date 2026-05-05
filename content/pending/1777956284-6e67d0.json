@@ -1,0 +1,128 @@
+{
+  "id": "1777956284-6e67d0",
+  "agent": "ui_designer",
+  "kind": "design_variants",
+  "title": "[디자인 시안] hero — 3개 변형",
+  "body_md": "## hero — 변형 3개\n\n코어 캠퍼스 'Claude로 CS 자동화: 1인 사업가 생존 키트' 히어로 3변형 — 에디토리얼/임팩트/서사\n\n### V1 · 에디토리얼 모던\n_학술 매거진 표지 같은 진중함 — 텍스트 우선, 따뜻한 오프화이트 배경, 격식체 카피_\n\n**팔레트**: bg=#FBF8F3, fg=#1A1814, brand=#3D2F1E, accent=#B8860B, soft=#F0E9DC\n\n**이유**: 지식 창업가가 '진지하게 공부하고 실행하는 사람'으로 자신을 인식할 때 공명하는 에디토리얼 톤을 선택했습니다. 텍스트를 전면에 배치하고 이미지를 보조 역할로 두어 카피의 신뢰도를 극대화했으며, 격식체 한국어와 머스타드 골드 강조색으로 '검증된 전문 코스'의 인상을 8초 안에 전달합니다.\n\n**이미지 프롬프트** (5개):\n- 베이지와 딥브라운 팔레트, 정갈하게 정렬된 태스크 카드와 화살표 플로우차트 추상 일러스트, 미니멀 플랫 스타일, 따뜻한 학술 매거진 분위기\n- 오프화이트 배경 위 머스타드 골드 강조선이 있는 텍스트 레이아웃 추상 컴포지션, 에디토리얼 그래픽 디자인 스타일\n- 손으로 그린 듯한 워크플로 다이어그램, 크림·카멜·다크브라운 톤, 격자 노트 위에 레이어된 구조도, 아날로그 감성\n- 작은 아이콘들이 체계적으로 배열된 인포그래픽 추상화, 따뜻한 갈색 계열, 군더더기 없는 구성\n- 미니멀 추상 기하 패턴, 베이지·머스타드·딥브라운 3색, 신뢰감 있는 아카데믹 톤, 한국적 절제미\n\n### V2 · 임팩트 풀블리드\n_강렬한 대비와 명령형 카피 — 다크 브라운 배경에 크림 타이포, 이미지 전면 활용_\n\n**팔레트**: bg=#1E1510, fg=#F5EFE6, brand=#D4A847, accent=#F5EFE6, soft=#2E2118\n\n**이유**: CS 응대에 지친 1인 사업가의 '고통 인식 → 즉각 해결 욕구'를 자극하기 위해 다크 배경과 대형 타이포로 임팩트를 극대화했습니다. 명령형 카피('Claude가 대신합니다')와 수치 사회적 증거(수강생 후기)를 우측에 배치해 8초 내 신뢰와 행동 동기를 동시에 제공합니다.\n\n**이미지 프롬프트** (5개):\n- 딥브라운·차콜 배경 위에 금색 빛 입자들이 흐르는 추상 텍스처, 고급스럽고 묵직한 무드, 미니멀 풀블리드 배경용\n- 어두운 배경 위 골드 라인으로 그려진 추상 회로·플로우 다이어그램, 기술적이지만 따뜻한 인상, 탑다운 뷰\n- 밤을 연상시키는 딥브라운 그라데이션 배경, 희미한 황금빛 기하 패턴 레이어, 차분하고 진중한 톤\n- 크림 색상 추상 연기 또는 부드러운 곡선 형태들이 다크 배경에 오버레이, 프리미엄 코스 배경 텍스처\n- 골드와 다크브라운 대비 추상 컴포지션, 사선 분할 레이아웃, 강렬하고 선명한 에너지감\n\n### V3 · 서사 비대칭\n_친근한 이야기체 카피와 비대칭 레이아웃 — 따뜻한 중간 톤, 이미지와 텍스트 균형_\n\n**팔레트**: bg=#F7F2EA, fg=#2A2118, brand=#8B5E3C, accent=#C9874F, soft=#EDE3D4\n\n**이유**: 반복 업무에 지쳐 있는 1인 사업가의 공감대를 먼저 건드리는 친근한 이야기체 질문형 카피로 시작해 감정적 접점을 확보합니다. 비대칭 2단 구조로 왼쪽은 서사·설득, 오른쪽은 시각적 증거(수치 카드 + 이미지)를 배치해 좌뇌·우뇌를 동시에 설득하는 레이아웃으로 설계했습니다.\n\n**이미지 프롬프트** (5개):\n- 따뜻한 베이지·카멜·테라코타 팔레트, 워크플로 카드들이 화살표로 연결된 부드러운 플랫 일러스트, 아날로그 노트 감성\n- 크림 색상 배경에 중간 톤 브라운 아이콘들이 격자 배열된 인포그래픽 추상 텍스처, 차분하고 친근한 무드\n- 손그림 스케치 스타일의 CS 자동화 흐름도, 오프화이트·샌드·시에나 톤, 따뜻하고 접근하기 쉬운 느낌\n- 가을 낙엽 같은 어스 톤 추상 기하 도형들의 산만하지 않은 배열, 한국적 여백미와 글로벌 미니멀 혼합\n- 테라코타·베이지·아이보리 그라데이션 배경 위 반투명 카드 레이어 컴포지션, 따뜻하고 믿음직한 톤",
+  "summary": "코어 캠퍼스 'Claude로 CS 자동화: 1인 사업가 생존 키트' 히어로 3변형 — 에디토리얼/임팩트/서사",
+  "meta": {
+    "target": "hero",
+    "variants": [
+      {
+        "id": "v1",
+        "name": "에디토리얼 모던",
+        "vibe": "학술 매거진 표지 같은 진중함 — 텍스트 우선, 따뜻한 오프화이트 배경, 격식체 카피",
+        "color_palette": {
+          "bg": "#FBF8F3",
+          "fg": "#1A1814",
+          "brand": "#3D2F1E",
+          "accent": "#B8860B",
+          "soft": "#F0E9DC"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:1200px;margin:0 auto;padding:80px 48px 72px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;background:var(--bg, #FBF8F3);\"><div style=\"display:flex;flex-direction:column;gap:28px;\"><div style=\"display:inline-flex;align-items:center;gap:10px;\"><span style=\"display:inline-block;width:32px;height:2px;background:#B8860B;\"></span><small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B8860B;\">Core Campus · 실전 코스</small></div><h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(32px,4.5vw,56px);font-weight:800;line-height:1.15;color:#1A1814;letter-spacing:-0.02em;margin:0;\">하루 2시간을<br><em style=\"font-style:normal;color:#3D2F1E;border-bottom:3px solid #B8860B;\">Claude</em>에게<br>돌려받으세요.</h1><p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(15px,1.8vw,18px);line-height:1.75;color:#3D2F1E;opacity:0.85;margin:0;max-width:440px;\">고객 문의 응대, 환불 협의, 반복 안내문 작성.<br>이 모든 CS 업무를 AI 자동화로 전환하는<br><strong>1인 사업가 전용 실전 키트</strong>입니다.</p><div style=\"display:flex;flex-direction:column;gap:12px;\"><div style=\"display:flex;align-items:center;gap:12px;\"><span style=\"width:20px;height:20px;border-radius:50%;background:#F0E9DC;border:2px solid #B8860B;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;\"><span style=\"width:8px;height:8px;border-radius:50%;background:#B8860B;\"></span></span><span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#1A1814;\">CS 응답 자동화 프롬프트 템플릿 <strong>28종</strong> 제공</span></div><div style=\"display:flex;align-items:center;gap:12px;\"><span style=\"width:20px;height:20px;border-radius:50%;background:#F0E9DC;border:2px solid #B8860B;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;\"><span style=\"width:8px;height:8px;border-radius:50%;background:#B8860B;\"></span></span><span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#1A1814;\">실제 셀러 운영 시나리오 기반 <strong>케이스 스터디</strong></span></div><div style=\"display:flex;align-items:center;gap:12px;\"><span style=\"width:20px;height:20px;border-radius:50%;background:#F0E9DC;border:2px solid #B8860B;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;\"><span style=\"width:8px;height:8px;border-radius:50%;background:#B8860B;\"></span></span><span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#1A1814;\">즉시 적용 가능한 <strong>SOP 워크플로</strong> 포함</span></div></div><div style=\"display:flex;align-items:center;gap:16px;padding-top:8px;\"><a href=\"#enroll\" style=\"display:inline-block;padding:16px 36px;background:#3D2F1E;color:#FBF8F3;font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:700;letter-spacing:0.04em;text-decoration:none;border-radius:4px;\">수강 신청하기</a><a href=\"#curriculum\" style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#3D2F1E;text-decoration:none;border-bottom:1px solid #3D2F1E;padding-bottom:2px;\">커리큘럼 보기 →</a></div></div><figure style=\"margin:0;position:relative;\"><img src=\"/assets/placeholder/hero-editorial.svg\" alt=\"CS 자동화 워크플로 일러스트\" style=\"width:100%;border-radius:8px;display:block;background:#F0E9DC;\"><figcaption style=\"margin-top:14px;font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#3D2F1E;opacity:0.6;letter-spacing:0.05em;\">실제 수강생 CS 자동화 워크플로 예시</figcaption></figure></div>",
+        "design_tokens": {
+          "color_bg": "#FBF8F3",
+          "color_fg": "#1A1814",
+          "color_brand": "#3D2F1E",
+          "color_brand_2": "#5C4433",
+          "color_accent": "#B8860B",
+          "color_soft": "#F0E9DC",
+          "color_muted": "#7A6A58",
+          "color_line": "#E4D9C8",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "8px"
+        },
+        "image_prompts": [
+          "베이지와 딥브라운 팔레트, 정갈하게 정렬된 태스크 카드와 화살표 플로우차트 추상 일러스트, 미니멀 플랫 스타일, 따뜻한 학술 매거진 분위기",
+          "오프화이트 배경 위 머스타드 골드 강조선이 있는 텍스트 레이아웃 추상 컴포지션, 에디토리얼 그래픽 디자인 스타일",
+          "손으로 그린 듯한 워크플로 다이어그램, 크림·카멜·다크브라운 톤, 격자 노트 위에 레이어된 구조도, 아날로그 감성",
+          "작은 아이콘들이 체계적으로 배열된 인포그래픽 추상화, 따뜻한 갈색 계열, 군더더기 없는 구성",
+          "미니멀 추상 기하 패턴, 베이지·머스타드·딥브라운 3색, 신뢰감 있는 아카데믹 톤, 한국적 절제미"
+        ],
+        "reasoning": "지식 창업가가 '진지하게 공부하고 실행하는 사람'으로 자신을 인식할 때 공명하는 에디토리얼 톤을 선택했습니다. 텍스트를 전면에 배치하고 이미지를 보조 역할로 두어 카피의 신뢰도를 극대화했으며, 격식체 한국어와 머스타드 골드 강조색으로 '검증된 전문 코스'의 인상을 8초 안에 전달합니다."
+      },
+      {
+        "id": "v2",
+        "name": "임팩트 풀블리드",
+        "vibe": "강렬한 대비와 명령형 카피 — 다크 브라운 배경에 크림 타이포, 이미지 전면 활용",
+        "color_palette": {
+          "bg": "#1E1510",
+          "fg": "#F5EFE6",
+          "brand": "#D4A847",
+          "accent": "#F5EFE6",
+          "soft": "#2E2118"
+        },
+        "html": "<div class=\"wrap\" style=\"position:relative;min-height:600px;background:#1E1510;overflow:hidden;display:flex;align-items:center;\"><div style=\"position:absolute;inset:0;z-index:0;\"><img src=\"/assets/placeholder/hero-impact-bg.svg\" alt=\"\" role=\"presentation\" style=\"width:100%;height:100%;object-fit:cover;opacity:0.18;\"></div><div style=\"position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(105deg,#1E1510 55%,transparent 100%);z-index:1;\"></div><div style=\"position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:88px 48px;display:grid;grid-template-columns:6fr 4fr;gap:48px;align-items:center;\"><div style=\"display:flex;flex-direction:column;gap:32px;\"><div style=\"display:inline-flex;align-items:center;gap:8px;background:#2E2118;border:1px solid #D4A847;border-radius:100px;padding:6px 16px;width:fit-content;\"><span style=\"width:6px;height:6px;border-radius:50%;background:#D4A847;\"></span><small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#D4A847;\">Core Campus 신규 코스</small></div><h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(36px,5.5vw,72px);font-weight:900;line-height:1.05;color:#F5EFE6;letter-spacing:-0.03em;margin:0;\">CS 응대,<br><span style=\"color:#D4A847;\">Claude</span>가<br>대신합니다.</h1><p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(14px,1.6vw,17px);line-height:1.8;color:#F5EFE6;opacity:0.75;margin:0;max-width:480px;\">하루 1~3시간을 고객 문의에 쏟고 있다면,<br>지금 이 코스가 그 시간을 돌려드립니다.<br>프롬프트 하나로 완성되는 1인 사업가 CS 자동화.</p><div style=\"display:flex;gap:16px;flex-wrap:wrap;\"><a href=\"#enroll\" style=\"display:inline-block;padding:18px 44px;background:#D4A847;color:#1E1510;font-family:'Pretendard',system-ui,sans-serif;font-size:16px;font-weight:800;letter-spacing:0.02em;text-decoration:none;border-radius:4px;\">지금 시작하기</a><a href=\"#preview\" style=\"display:inline-flex;align-items:center;gap:8px;padding:18px 28px;border:1px solid rgba(245,239,230,0.35);color:#F5EFE6;font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:500;text-decoration:none;border-radius:4px;\"><span style=\"width:18px;height:18px;border-radius:50%;border:1.5px solid #F5EFE6;display:inline-flex;align-items:center;justify-content:center;\"><span style=\"width:0;height:0;border-style:solid;border-width:4px 0 4px 7px;border-color:transparent transparent transparent #F5EFE6;margin-left:1px;\"></span></span>미리보기</a></div><div style=\"display:flex;gap:40px;padding-top:8px;border-top:1px solid rgba(245,239,230,0.12);\"><div><p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:28px;font-weight:800;color:#D4A847;margin:0;line-height:1;\">28+</p><small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#F5EFE6;opacity:0.55;\">프롬프트 템플릿</small></div><div><p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:28px;font-weight:800;color:#D4A847;margin:0;line-height:1;\">4h</p><small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#F5EFE6;opacity:0.55;\">총 강의 분량</small></div><div><p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:28px;font-weight:800;color:#D4A847;margin:0;line-height:1;\">즉시</p><small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#F5EFE6;opacity:0.55;\">적용 가능</small></div></div></div><div style=\"display:flex;flex-direction:column;gap:16px;\"><div style=\"background:rgba(46,33,24,0.85);border:1px solid rgba(212,168,71,0.25);border-radius:8px;padding:24px;backdrop-filter:blur(4px);\"><blockquote style=\"margin:0;font-family:'Pretendard',system-ui,sans-serif;font-size:14px;line-height:1.75;color:#F5EFE6;opacity:0.85;\">&ldquo;환불 요청 답변을 Claude에게 맡겼더니<br>응답 시간이 4시간 → 12분으로 줄었어요.&rdquo;</blockquote><p style=\"margin:12px 0 0;font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#D4A847;font-weight:600;\">— 핸드메이드 셀러, 수강생</p></div><div style=\"background:rgba(46,33,24,0.85);border:1px solid rgba(212,168,71,0.25);border-radius:8px;padding:24px;backdrop-filter:blur(4px);\"><blockquote style=\"margin:0;font-family:'Pretendard',system-ui,sans-serif;font-size:14px;line-height:1.75;color:#F5EFE6;opacity:0.85;\">&ldquo;주말에도 CS가 쌓이는 게 제일 무서웠는데,<br>이제 월요일 아침이 두렵지 않습니다.&rdquo;</blockquote><p style=\"margin:12px 0 0;font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#D4A847;font-weight:600;\">— 디지털 콘텐츠 판매자, 수강생</p></div></div></div></div>",
+        "design_tokens": {
+          "color_bg": "#1E1510",
+          "color_fg": "#F5EFE6",
+          "color_brand": "#D4A847",
+          "color_brand_2": "#A8793A",
+          "color_accent": "#F5EFE6",
+          "color_soft": "#2E2118",
+          "color_muted": "#9E8E7A",
+          "color_line": "#3A2A1E",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "8px"
+        },
+        "image_prompts": [
+          "딥브라운·차콜 배경 위에 금색 빛 입자들이 흐르는 추상 텍스처, 고급스럽고 묵직한 무드, 미니멀 풀블리드 배경용",
+          "어두운 배경 위 골드 라인으로 그려진 추상 회로·플로우 다이어그램, 기술적이지만 따뜻한 인상, 탑다운 뷰",
+          "밤을 연상시키는 딥브라운 그라데이션 배경, 희미한 황금빛 기하 패턴 레이어, 차분하고 진중한 톤",
+          "크림 색상 추상 연기 또는 부드러운 곡선 형태들이 다크 배경에 오버레이, 프리미엄 코스 배경 텍스처",
+          "골드와 다크브라운 대비 추상 컴포지션, 사선 분할 레이아웃, 강렬하고 선명한 에너지감"
+        ],
+        "reasoning": "CS 응대에 지친 1인 사업가의 '고통 인식 → 즉각 해결 욕구'를 자극하기 위해 다크 배경과 대형 타이포로 임팩트를 극대화했습니다. 명령형 카피('Claude가 대신합니다')와 수치 사회적 증거(수강생 후기)를 우측에 배치해 8초 내 신뢰와 행동 동기를 동시에 제공합니다."
+      },
+      {
+        "id": "v3",
+        "name": "서사 비대칭",
+        "vibe": "친근한 이야기체 카피와 비대칭 레이아웃 — 따뜻한 중간 톤, 이미지와 텍스트 균형",
+        "color_palette": {
+          "bg": "#F7F2EA",
+          "fg": "#2A2118",
+          "brand": "#8B5E3C",
+          "accent": "#C9874F",
+          "soft": "#EDE3D4"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:1200px;margin:0 auto;padding:0 48px;background:var(--bg,#F7F2EA);\"><div style=\"display:grid;grid-template-columns:5fr 7fr;min-height:580px;\"><div style=\"display:flex;flex-direction:column;justify-content:center;padding:80px 48px 80px 0;gap:0;border-right:1px solid #DDD3C0;\"><small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#C9874F;margin-bottom:20px;display:block;\">Core Campus</small><h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(22px,3vw,38px);font-weight:800;line-height:1.3;color:#2A2118;letter-spacing:-0.02em;margin:0 0 24px;\">오늘도 고객 문의<br>답하느라<br>정작 일 못 했나요?</h1><div style=\"width:40px;height:3px;background:#C9874F;margin-bottom:24px;border-radius:2px;\"></div><p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(13px,1.5vw,15px);line-height:1.85;color:#2A2118;opacity:0.7;margin:0 0 32px;max-width:320px;\">1인 사업가의 하루 중 가장 소모적인 업무,<br>CS 응대. <strong style=\"color:#8B5E3C;\">Claude로 CS 자동화</strong> 코스는<br>이 반복을 끊어드립니다.</p><a href=\"#enroll\" style=\"display:inline-block;padding:15px 32px;background:#8B5E3C;color:#F7F2EA;font-family:'Pretendard',system-ui,sans-serif;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;width:fit-content;\">코스 살펴보기</a></div><div style=\"padding:56px 0 56px 56px;display:flex;flex-direction:column;gap:24px;justify-content:center;\"><div style=\"position:relative;border-radius:8px;overflow:hidden;background:#EDE3D4;\"><img src=\"/assets/placeholder/hero-narrative-main.svg\" alt=\"CS 자동화 흐름 시각화\" style=\"width:100%;display:block;min-height:240px;object-fit:cover;\"></div><div style=\"display:grid;grid-template-columns:1fr 1fr;gap:16px;\"><div style=\"background:#EDE3D4;border-radius:8px;padding:20px 22px;\"><p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:22px;font-weight:800;color:#8B5E3C;margin:0 0 4px;\">→ 12분</p><small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#2A2118;opacity:0.65;line-height:1.5;\">환불 요청 응답<br>평균 처리 시간</small></div><div style=\"background:#EDE3D4;border-radius:8px;padding:20px 22px;\"><p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:22px;font-weight:800;color:#8B5E3C;margin:0 0 4px;\">28종</p><small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#2A2118;opacity:0.65;line-height:1.5;\">즉시 쓸 수 있는<br>프롬프트 템플릿</small></div><div style=\"background:#EDE3D4;border-radius:8px;padding:20px 22px;\"><p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:22px;font-weight:800;color:#8B5E3C;margin:0 0 4px;\">4시간</p><small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#2A2118;opacity:0.65;line-height:1.5;\">전체 강의<br>수강 분량</small></div><div style=\"background:#C9874F;border-radius:8px;padding:20px 22px;\"><p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;font-weight:700;color:#F7F2EA;margin:0 0 6px;line-height:1.4;\">1인 사업가를 위한<br>실전 생존 키트</p><small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:11px;color:#F7F2EA;opacity:0.8;\">Core Campus 검수 완료</small></div></div></div></div></div>",
+        "design_tokens": {
+          "color_bg": "#F7F2EA",
+          "color_fg": "#2A2118",
+          "color_brand": "#8B5E3C",
+          "color_brand_2": "#6B4528",
+          "color_accent": "#C9874F",
+          "color_soft": "#EDE3D4",
+          "color_muted": "#8A7A68",
+          "color_line": "#DDD3C0",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "8px"
+        },
+        "image_prompts": [
+          "따뜻한 베이지·카멜·테라코타 팔레트, 워크플로 카드들이 화살표로 연결된 부드러운 플랫 일러스트, 아날로그 노트 감성",
+          "크림 색상 배경에 중간 톤 브라운 아이콘들이 격자 배열된 인포그래픽 추상 텍스처, 차분하고 친근한 무드",
+          "손그림 스케치 스타일의 CS 자동화 흐름도, 오프화이트·샌드·시에나 톤, 따뜻하고 접근하기 쉬운 느낌",
+          "가을 낙엽 같은 어스 톤 추상 기하 도형들의 산만하지 않은 배열, 한국적 여백미와 글로벌 미니멀 혼합",
+          "테라코타·베이지·아이보리 그라데이션 배경 위 반투명 카드 레이어 컴포지션, 따뜻하고 믿음직한 톤"
+        ],
+        "reasoning": "반복 업무에 지쳐 있는 1인 사업가의 공감대를 먼저 건드리는 친근한 이야기체 질문형 카피로 시작해 감정적 접점을 확보합니다. 비대칭 2단 구조로 왼쪽은 서사·설득, 오른쪽은 시각적 증거(수치 카드 + 이미지)를 배치해 좌뇌·우뇌를 동시에 설득하는 레이아웃으로 설계했습니다."
+      }
+    ],
+    "brief_echo": {
+      "purpose": "Claude로 CS 자동화: 1인 사업가 생존 키트 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+      "audience": "CS 응대에 하루 1~3시간을 소모하는 1인 사업가·프리랜서·소규모 셀러",
+      "style_keywords": [
+        "editorial",
+        "warm beige",
+        "trustworthy",
+        "academic"
+      ],
+      "color_mood": "warm",
+      "reference_urls": []
+    }
+  },
+  "course_id": "",
+  "created_at": "2026-05-05T04:44:44+00:00",
+  "status": "pending",
+  "telegram_message_id": 823
+}
