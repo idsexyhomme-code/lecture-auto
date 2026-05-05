@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 만드는 1인 사업 콘텐츠 엔진",
+    "lesson_no": 4,
+    "lesson_title": "블로그 초안 자동 생성하기",
+    "objective": "마스터 프롬프트로 SEO 구조(제목·소제목·CTA 포함)를 갖춘 800자 이상 블로그 초안을 15분 안에 생성하고 편집 포인트를 표시한다",
+    "key_concepts": [
+      "SEO 친화적 글 구조(H1·H2·메타 설명)",
+      "Claude의 Chain-of-thought 활용법",
+      "인간 편집 최소화를 위한 출력 형식 지정"
+    ],
+    "exercise": "마스터 프롬프트로 생성한 블로그 초안 + 편집 포인트 주석 문서",
+    "duration_min": 15
+  }
+}
