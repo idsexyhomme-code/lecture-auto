@@ -34,6 +34,6 @@
     }
   ],
   "paused": true,
-  "pause_reason": "일일 brief 50개 한도 도달",
-  "auto_mode": true
+  "pause_reason": "user /stop",
+  "auto_mode": false
 }
