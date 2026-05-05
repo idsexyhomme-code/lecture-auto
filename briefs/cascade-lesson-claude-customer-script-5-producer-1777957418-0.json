@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-customer-script",
+    "course_title": "Claude로 CS 자동화: 1인 사업가 생존 키트",
+    "lesson_no": 5,
+    "lesson_title": "FAQ 자동 생성기 만들기",
+    "objective": "1차시에서 작성한 문의 유형 분류표를 입력값으로 사용해 Claude로 FAQ 페이지 초안 전체를 생성하고 편집해 발행 가능한 'FAQ 문서'를 완성한다",
+    "key_concepts": [
+      "문의 분류표 → 프롬프트 입력값 변환 방법",
+      "FAQ 구조 설계 원칙 (질문 → 핵심 답변 → 보충 설명)",
+      "Claude 결과물 반복 개선(iterate) 전략"
+    ],
+    "exercise": "10개 이상의 Q&A 항목이 포함된 발행 가능한 FAQ 문서 (Google Docs 또는 Notion 페이지)",
+    "duration_min": 15
+  }
+}
