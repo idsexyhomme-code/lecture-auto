@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-monthly-revenue",
+    "course_title": "Claude로 매출 자동 분석·보고서 완성",
+    "lesson_no": 8,
+    "lesson_title": "매달 10분 루틴: 자동화 SOP 영상으로 완성",
+    "objective": "데이터 수집부터 보고서 완성까지 전 과정을 단계별로 정리한 SOP 문서를 작성하고 본인이 직접 수행하는 과정을 화면 녹화 영상으로 제작한다",
+    "key_concepts": [
+      "SOP(표준 운영 절차) 작성",
+      "화면 녹화 편집 기초",
+      "루틴 자동화 체크리스트"
+    ],
+    "exercise": "10분 이내 매출 분석 루틴을 담은 화면 녹화 영상(MP4) 1편",
+    "duration_min": 15
+  }
+}

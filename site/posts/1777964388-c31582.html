@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#4 랜딩페이지 카피 작성: 방문자를 고객으로 전환하는 글쓰기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#4 랜딩페이지 카피 작성: 방문자를 고객으로 전환하는 글쓰기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-launchpad · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>랜딩페이지 만들었는데 방문자가 그냥 떠나죠?</p>
+<p>디자인도 깔끔하고, 서비스도 좋은데 아무도 신청 버튼을 안 누릅니다. 문제는 디자인이 아니에요. <strong>글</strong>이에요.</p>
+<p>방문자는 페이지에 들어온 순간 3초 안에 결정합니다. "이게 나한테 필요한 건가?" 그 3초를 못 잡으면, 광고비도 노력도 전부 증발합니다.</p>
+<p>오늘은 Claude 프롬프트 체인으로 그 3초를 잡는 카피를 직접 뽑아냅니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, <strong>PASO 구조 기반의 랜딩페이지 카피 초안 전체</strong>를 Claude와 함께 30분 안에 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — PASO 카피라이팅 구조</h3>
+<p><strong>설명</strong></p>
+<p>PASO는 네 단계입니다.</p>
+<ul>
+<li><strong>P</strong>roblem: 고통을 정확히 짚는다</li>
+<li><strong>A</strong>gitate: 그 고통을 키운다</li>
+<li><strong>S</strong>olution: 해결책을 제시한다</li>
+<li><strong>O</strong>utcome: 결과를 그려준다</li>
+</ul>
+<p>이 순서가 틀리면 카피가 안 팔립니다.</p>
+<p><strong>예시</strong></p>
+<p>헬스 PT 부캐 서비스를 예로 들게요.</p>
+<ul>
+<li>P: "퇴근 후 운동할 시간이 없다고요?"</li>
+<li>A: "그 상태로 1년 더 지나면, 체중은 늘고 무릎은 더 나빠집니다."</li>
+<li>S: "20분 홈 트레이닝 1:1 코칭으로 해결합니다."</li>
+<li>O: "3개월 후 거울 앞에서 달라진 몸을 확인하세요."</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>많은 분이 S부터 시작합니다. "저는 홈 트레이닝 코치입니다." 이건 자기소개예요. 카피가 아닙니다. 방문자는 내가 누군지 관심 없어요. 자신의 고통이 해결되는지에만 관심 있습니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그: <strong>"P-A-S-O = 고통 → 불안 → 구원 → 미래"</strong>. 이 4단어를 떠올리면 구조가 보입니다.</p>
+<p>Claude 프롬프트는 이렇게 씁니다.</p>
+<blockquote>
+<p>"내 서비스: [한 줄 설명]. 타깃: [고객 묘사]. PASO 구조로 랜딩페이지 첫 섹션 카피를 써줘. P·A·S·O 각 파트를 구분해서 출력해."</p>
+</blockquote>
+<p>이렇게 체인의 첫 번째 링크를 만듭니다.</p>
+<hr />
+<h3>핵심 개념 2 — 소셜 프루프 배치</h3>
+<p><strong>설명</strong></p>
+<p>소셜 프루프는 "다른 사람도 했다"는 증거입니다. 위치가 중요합니다. 제 경험상, 가장 효과적인 배치는 <strong>세 곳</strong>입니다.</p>
+<ol>
+<li>헤드라인 바로 아래 (숫자 지표)</li>
+<li>솔루션 섹션 직후 (후기 1–2개)</li>
+<li>CTA 버튼 바로 위 (짧은 한 줄 후기)</li>
+</ol>
+<p><strong>예시</strong></p>
+<ul>
+<li>헤드라인 아래: "현재 127명이 수강 중"</li>
+<li>솔루션 후: "3주 만에 첫 클라이언트 받았어요 — 직장인 김○○님"</li>
+<li>CTA 위: "이 강의 덕분에 퇴근 후 30분만 투자했는데 월 50만 원 벌었습니다"</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>후기를 페이지 맨 아래 몰아두는 경우가 많습니다. 스크롤을 거의 안 하는 방문자에게는 보이지도 않아요. 증거는 의심이 생기는 순간 바로 옆에 있어야 합니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그: <strong>"의심 3형제 = 헤드라인·솔루션·CTA"</strong>. 이 세 지점에 증거를 하나씩 꽂아두세요.</p>
+<p>Claude 프롬프트 체인의 두 번째 링크입니다.</p>
+<blockquote>
+<p>"위에서 쓴 PASO 카피에 소셜 프루프 3곳을 추가해줘. 실제 후기가 없으면 [후기 예시 자리]로 표시해. 배치 위치도 명시해."</p>
+</blockquote>
+<hr />
+<h3>핵심 개념 3 — CTA 문구 최적화</h3>
+<p><strong>설명</strong></p>
+<p>CTA(Call to Action)는 버튼 하나짜리 결정입니다. 대부분 "신청하기"로 끝냅니다. 이건 기회 낭비예요.</p>
+<p>좋은 CTA는 세 가지 요소를 담습니다.</p>
+<ol>
+<li><strong>행동</strong> — 무엇을 클릭하는지</li>
+<li><strong>혜택</strong> — 클릭 후 무엇을 얻는지</li>
+<li><strong>긴급성·희소성</strong> — 왜 지금인지</li>
+</ol>
+<p><strong>예시</strong></p>
+<ul>
+<li>나쁜 CTA: "신청하기"</li>
+<li>좋은 CTA: "지금 무료 상담 신청하고 1:1 운동 플랜 받기 (이번 주 3자리 남음)"</li>
+</ul>
+<p>클릭하면 뭘 받는지, 왜 지금인지가 다 들어있습니다.</p>
+<p><strong>반례</strong></p>
+<p>긴급성을 억지로 넣으면 역효과입니다. "오늘만 할인"이 매일 반복되면 방문자가 신뢰를 잃습니다. 긴급성은 진짜일 때만 쓰세요. 없으면 혜택 중심으로만 써도 충분합니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그: <strong>CTA = "행동 + 혜택 + 이유"</strong>, 이 세 글자 <strong>행·혜·이</strong>로 기억하세요.</p>
+<p>Claude 프롬프트 체인의 세 번째 링크입니다.</p>
+<blockquote>
+<p>"이 랜딩페이지에 맞는 CTA 문구 3가지 안을 써줘. 각 안마다 행동·혜택·긴급성 요소를 포함하고, 20자 이내로 작성해."</p>
+</blockquote>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하세요.</p>
+<p>아래 단계대로 따라 하면 랜딩페이지 카피 초안이 완성됩니다. 최소 500자 분량의 문서를 만드는 게 목표입니다.</p>
+<p><strong>Step 1 — 서비스 정의 (2분)</strong></p>
+<p>빈 문서를 열고 다음 두 가지를 적으세요.</p>
+<ul>
+<li>내 서비스 한 줄 설명</li>
+<li>타깃 고객의 가장 큰 고통 한 문장</li>
+</ul>
+<p><strong>Step 2 — PASO 카피 생성 (5분)</strong></p>
+<p>Claude에 아래 프롬프트를 그대로 붙여넣으세요.</p>
+<blockquote>
+<p>"내 서비스: [Step 1에서 쓴 설명]. 타깃 고객의 고통: [Step 1에서 쓴 문장]. PASO 구조로 랜딩페이지 카피를 써줘. P·A·S·O 각 파트를 구분하고, 전체 200자 이상으로 작성해."</p>
+</blockquote>
+<p>Claude 답변을 문서에 붙여넣습니다.</p>
+<p><strong>Step 3 — 소셜 프루프 추가 (3분)</strong></p>
+<p>Claude에 이어서 프롬프트를 입력하세요.</p>
+<blockquote>
+<p>"위 카피에 소셜 프루프 3곳을 추가해줘. 실제 후기가 없으면 [후기 예시 자리]로 표시하고, 배치 위치를 섹션명으로 명시해."</p>
+</blockquote>
+<p>답변을 문서에 이어 붙입니다.</p>
+<p><strong>Step 4 — CTA 완성 (2분)</strong></p>
+<p>마지막 프롬프트를 입력하세요.</p>
+<blockquote>
+<p>"이 랜딩페이지에 맞는 CTA 문구 3가지를 '행동·혜택·긴급성' 요소를 포함해 각 20자 이내로 써줘."</p>
+</blockquote>
+<p>3개 안 중 하나를 골라 문서 맨 아래에 붙입니다.</p>
+<p>문서 총 분량이 500자 이상인지 확인하세요. 이 문서가 오늘 실습 산출물입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 카피를 실제 페이지에 올립니다.</p>
+<p>노션이나 Typedream으로 <strong>무료 랜딩페이지를 1시간 안에 퍼블리시</strong>하는 과정을 다룹니다. 오늘 만든 카피 문서, 꼭 저장해두세요. 바로 쓸 겁니다.</p>
+<p>오늘 완성한 카피 초안, 댓글에 헤드라인 한 줄만 공유해주세요. 직접 읽고 피드백 드리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
