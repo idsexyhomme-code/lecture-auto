@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#7 주간 콘텐츠 캘린더 자동 기획하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#7 주간 콘텐츠 캘린더 자동 기획하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-content-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>매주 월요일 아침, 이번 주 뭘 올려야 하지 고민하다 결국 아무것도 못 올린 적 있으시죠?</p>
+<p>콘텐츠 아이디어는 있는데, 언제, 어디에, 어떤 순서로 올려야 할지 몰라서 흐지부지됩니다.</p>
+<p>오늘 이 문제를 한 번에 끝냅니다.</p>
+<p>키워드 5개만 준비하세요. Claude가 4주치 콘텐츠 캘린더를 표로 뽑아줍니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 핵심 키워드 5개를 입력해서 주제·채널·발행일·프롬프트 키가 담긴 4주치 콘텐츠 캘린더를 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 콘텐츠 캘린더의 4가지 구성 요소</h3>
+<p><strong>설명</strong></p>
+<p>콘텐츠 캘린더는 4개의 열로 이루어집니다.</p>
+<p><strong>주제, 채널, 발행일, 프롬프트 키.</strong></p>
+<p>이 4개가 없으면 캘린더가 아니라 아이디어 메모장입니다.</p>
+<p><strong>예시</strong></p>
+<p>주제: '1인 사업자를 위한 세금 절약법', 채널: 블로그, 발행일: 1월 6일 월요일, 프롬프트 키: <code>#세금_블로그_심화</code>.</p>
+<p>이 한 행이 하나의 콘텐츠 단위입니다.</p>
+<p><strong>반례</strong></p>
+<p>'세금 관련 글 써야지'라고만 적어두면 실행이 안 됩니다.</p>
+<p>채널도 없고 날짜도 없으니까요. 이건 캘린더가 아닙니다.</p>
+<p><strong>정리 — 메모리 페그: 📅 '주·채·일·키'</strong></p>
+<p>주제, 채널, 일자, 키. 이 4글자만 기억하세요.</p>
+<p>캘린더를 열 때마다 이 4개가 채워져 있는지 확인합니다.</p>
+<hr />
+<h3>핵심 개념 2 — 주제 클러스터링과 키워드 배분</h3>
+<p><strong>설명</strong></p>
+<p>키워드 5개를 그냥 나열하면 콘텐츠가 중구난방이 됩니다.</p>
+<p>클러스터링은 관련 키워드를 묶어서 주간 단위로 배분하는 전략입니다.</p>
+<p>4주를 4개의 테마 주간으로 나누고, 키워드를 각 주에 배치합니다.</p>
+<p><strong>예시</strong></p>
+<p>키워드가 '퍼스널 브랜딩, SNS 운영, 글쓰기, 수익화, 시간 관리' 5개라면,</p>
+<p>1주차: 퍼스널 브랜딩 집중, 2주차: SNS 운영 + 글쓰기, 3주차: 수익화, 4주차: 시간 관리 + 복습 콘텐츠.</p>
+<p>이렇게 묶으면 독자가 '이 채널은 이 주제를 깊이 다루는구나' 신뢰를 쌓습니다.</p>
+<p><strong>반례</strong></p>
+<p>매일 다른 키워드를 섞어 올리면 어떻게 될까요.</p>
+<p>팔로워가 채널 정체성을 잡지 못합니다.</p>
+<p>알고리즘도 마찬가지입니다. 제 경험상 주제가 흩어진 계정은 도달률이 눈에 띄게 낮습니다.</p>
+<p><strong>정리 — 메모리 페그: 🍇 포도송이 모델</strong></p>
+<p>하나의 줄기(테마)에 여러 알(키워드 콘텐츠)이 매달린 포도송이를 떠올리세요.</p>
+<p>줄기 없이 알만 있으면 그냥 낱알입니다.</p>
+<hr />
+<h3>핵심 개념 3 — Claude에게 표 형식 출력 요청하기</h3>
+<p><strong>설명</strong></p>
+<p>Claude는 기본적으로 산문으로 답합니다.</p>
+<p>캘린더가 필요하면 표 형식으로 명시적으로 요청해야 합니다.</p>
+<p>프롬프트에 세 가지를 반드시 포함하세요.</p>
+<p>첫째, 출력 형식('마크다운 표로 출력해줘'), 둘째, 열 이름('주제, 채널, 발행일, 프롬프트 키 열을 포함해'), 셋째, 행 수('4주 × 주 3회 발행 기준, 총 12행').</p>
+<p><strong>예시</strong></p>
+<p>실제로 쓰는 프롬프트 구조를 보여드립니다.</p>
+<blockquote>
+<p>"다음 키워드 5개를 활용해 4주치 콘텐츠 캘린더를 작성해줘. [키워드 목록]. 마크다운 표 형식으로, 열은 '주제 / 채널 / 발행일 / 프롬프트 키'로 구성하고, 주 3회 발행 기준 총 12행으로 만들어줘."</p>
+</blockquote>
+<p>이 구조 하나로 대부분의 경우 원하는 표가 한 번에 나옵니다.</p>
+<p><strong>반례</strong></p>
+<p>"콘텐츠 캘린더 만들어줘"라고만 하면 어떻게 될까요.</p>
+<p>Claude는 글머리 기호 목록이나 단락 형태로 답합니다.</p>
+<p>복붙해서 스프레드시트에 넣을 수가 없습니다.</p>
+<p><strong>정리 — 메모리 페그: 🔢 3지정 공식</strong></p>
+<p>형식 지정 + 열 지정 + 행 수 지정. 이 세 숫자를 지정하면 Claude가 표를 만들어냅니다.</p>
+<p>표 요청은 '3지정'으로 기억하세요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 따라해 주세요.</p>
+<p><strong>준비물:</strong> Claude 창 하나, 구글 시트 또는 노션 페이지.</p>
+<hr />
+<p><strong>Step 1 — 키워드 5개 적기 (1분)</strong></p>
+<p>지금 내 사업에서 가장 중요한 키워드 5개를 종이나 메모장에 적습니다.</p>
+<p>너무 고민하지 마세요. 떠오르는 대로 5개면 충분합니다.</p>
+<hr />
+<p><strong>Step 2 — 클러스터 배분하기 (1분)</strong></p>
+<p>5개 키워드를 4주에 배분합니다.</p>
+<p>1주차에 어떤 키워드를 집중 배치할지 간단히 메모합니다.</p>
+<p>키워드가 5개이고 주가 4개니까, 한 주는 2개 키워드가 들어갑니다.</p>
+<hr />
+<p><strong>Step 3 — Claude에게 표 요청하기 (1분)</strong></p>
+<p>아래 템플릿을 복사해서 Claude에 붙여넣습니다.</p>
+<blockquote>
+<p>"다음 키워드 [키워드1, 키워드2, 키워드3, 키워드4, 키워드5]를 활용해 4주치 콘텐츠 캘린더를 작성해줘. 마크다운 표 형식으로, 열은 '주제 / 채널 / 발행일 / 프롬프트 키'로 구성하고, 주 3회 발행 기준 총 12행으로 만들어줘. 채널은 블로그, 인스타그램, 유튜브 중에서 번갈아 배분해줘."</p>
+</blockquote>
+<hr />
+<p><strong>Step 4 — 스프레드시트로 옮기고 발행일 수정하기 (1분)</strong></p>
+<p>Claude가 만든 표를 구글 시트에 붙여넣습니다.</p>
+<p>발행일을 실제 내 일정에 맞게 수정합니다.</p>
+<p>수정이 끝나면 이게 여러분의 첫 번째 4주치 콘텐츠 캘린더입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #8에서는 이 캘린더의 프롬프트 키를 실제 콘텐츠 초안으로 변환하는 방법을 다룹니다.</p>
+<p>캘린더를 만들었으면 이제 콘텐츠를 뽑아낼 차례입니다.</p>
+<p>오늘 실습으로 완성한 캘린더 스크린샷을 댓글에 올려주세요.</p>
+<p>여러분이 어떤 키워드로 시작했는지 궁금합니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

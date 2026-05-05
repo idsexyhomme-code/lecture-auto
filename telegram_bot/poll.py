@@ -183,6 +183,35 @@ def _cascade_from_curriculum(r: AgentResult) -> list[Path]:
         },
     })
 
+    # 4. UI Designer — 코스 hero 시안 3변형 (디자이너에게도 일 분배)
+    briefs.append({
+        "agent": "ui_designer",
+        "brief": {
+            "target": "hero",
+            "purpose": f"{course_title} 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+            "audience": raw.get("target_audience", ""),
+            "style_keywords": ["editorial", "warm beige", "trustworthy", "academic"],
+            "color_mood": "warm",
+            "additional_context": f"코어 캠퍼스 코스 '{course_title}'의 페이지 헤더 시안.",
+        },
+    })
+
+    # 5. Site Developer — 코스 메타데이터 다듬기
+    briefs.append({
+        "agent": "site_developer",
+        "brief": {
+            "instruction": (
+                f"새 코스 '{course_title}' (course_id: {course_id})가 추가됐습니다. "
+                f"site_config.json의 course_overrides에 이 코스의 *title_override*와 "
+                f"*tagline_override*를 다듬어 주세요. 다른 필드는 절대 만지지 않습니다. "
+                f"코스 톤 힌트: {raw.get('tagline', '')}"
+            ),
+            "brand_tone": "차분하고 단단한 한국어, 과장 표현 금지",
+            "target_audience": raw.get("target_audience", ""),
+            "restrictions": "course_overrides 외 다른 필드 변경 금지, WCAG AA 유지",
+        },
+    })
+
     return _save_cascade_briefs(briefs, prefix=f"cascade-curriculum-{course_id}")
 
 
@@ -245,19 +274,60 @@ def _cascade_from_lecture_script(r: AgentResult) -> list[Path]:
 
 
 def _save_cascade_briefs(briefs: list[dict], prefix: str) -> list[Path]:
-    """캐스케이드 brief을 briefs/<prefix>-<agent>-<ts>-<idx>.json으로 저장."""
+    """캐스케이드 brief 저장 — *중복 차단* 포함.
+
+    같은 (agent, course_id, lesson_no) 시그니처가 이미 큐(briefs/) 또는
+    최근 _processed/에 있으면 새로 만들지 않음. 중복 cascade 폭주 방지.
+    """
     import time as _time
     out: list[Path] = []
+
+    # ★ 기존 큐 + 최근 _processed의 시그니처 수집
+    briefs_dir = REPO_ROOT / "briefs"
+    proc_dir = briefs_dir / "_processed"
+
+    def _sig(b: dict) -> tuple:
+        agent = b.get("agent", "")
+        bd = b.get("brief", {}) or {}
+        # course_id + lesson_no가 있으면 그걸로, 없으면 agent + course_id만
+        return (agent, bd.get("course_id", ""), bd.get("lesson_no", "") or "")
+
+    existing_sigs: set = set()
+    # 큐에 있는 모든 brief
+    for p in briefs_dir.glob("*.json"):
+        try:
+            d = json.loads(p.read_text(encoding="utf-8"))
+            existing_sigs.add(_sig(d))
+        except Exception:
+            pass
+    # 최근 _processed (mtime 기준 최근 1시간 — 너무 오래된 건 재처리 OK)
+    cutoff = _time.time() - 3600
+    if proc_dir.exists():
+        for p in proc_dir.glob("*.json"):
+            try:
+                if p.stat().st_mtime < cutoff:
+                    continue
+                d = json.loads(p.read_text(encoding="utf-8"))
+                existing_sigs.add(_sig(d))
+            except Exception:
+                pass
+
     ts = int(_time.time())
     for i, b in enumerate(briefs):
+        sig = _sig(b)
+        if sig in existing_sigs:
+            log.info("[cascade] dedup skip: %s (이미 큐 또는 최근 처리됨)", sig)
+            continue
+
         agent_key = b.get("agent", "unknown")
-        path = REPO_ROOT / "briefs" / f"{prefix}-{agent_key}-{ts}-{i}.json"
+        path = briefs_dir / f"{prefix}-{agent_key}-{ts}-{i}.json"
         try:
             path.write_text(
                 json.dumps(b, ensure_ascii=False, indent=2),
                 encoding="utf-8",
             )
             out.append(path)
+            existing_sigs.add(sig)  # 같은 호출 내 중복도 차단
             log.info("[cascade] saved: %s", path.name)
         except Exception as e:
             log.error("[cascade] failed to save %s: %s", path.name, e)

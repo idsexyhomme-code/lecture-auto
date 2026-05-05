@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 8,
+    "lesson_title": "제안서·보고서 초안 자동화하기",
+    "objective": "고객 정보와 요구사항을 입력하면 제안서 섹션(배경·솔루션·기대효과)이 자동 생성되는 프롬프트 체인을 설계하고 샘플 제안서를 완성한다",
+    "key_concepts": [
+      "프롬프트 체이닝",
+      "섹션별 출력 분리",
+      "고객 맞춤 변수 설계"
+    ],
+    "exercise": "제안서 자동 생성 프롬프트 체인 + 샘플 제안서 1부",
+    "duration_min": 15
+  }
+}

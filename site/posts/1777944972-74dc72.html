@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#7 SNS·뉴스레터 콘텐츠 배치 생성하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#7 SNS·뉴스레터 콘텐츠 배치 생성하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-autowork · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>콘텐츠 하나 만들 때마다 인스타용 따로, 링크드인 따로, 뉴스레터 따로 쓰느라 하루가 다 가고 있진 않으신가요?</p>
+<p>같은 아이디어를 세 번 쓰는 건 시간 낭비입니다. 오늘 이 영상 하나면 그 작업을 Claude가 한 번에 처리하게 만들 수 있습니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면, 하나의 핵심 아이디어를 입력하는 것만으로 인스타·링크드인·뉴스레터 초안을 동시에 뽑아내는 배치 프롬프트를 직접 설계하고 실행할 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 채널별 어조 차별화</h3>
+<p><strong>설명</strong></p>
+<p>채널마다 독자가 다릅니다. 어조가 어긋나면 콘텐츠가 겉돌고, 팔로워는 떠납니다.</p>
+<p>세 채널을 이렇게 기억하세요. <strong>'친구 · 동료 · 편지'</strong> 입니다.</p>
+<ul>
+<li>인스타그램 = 친구. 짧고 감각적이며 이모지가 자연스럽습니다.</li>
+<li>링크드인 = 동료. 인사이트 중심, 전문성이 묻어나야 합니다.</li>
+<li>뉴스레터 = 편지. 1:1로 읽히는 깊이 있는 호흡입니다.</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>핵심 아이디어가 '집중력을 높이는 포모도로 기법'이라면,</p>
+<ul>
+<li>인스타: "25분만 집중하면 됩니다. 나머지는 쉬는 거예요 🍅"</li>
+<li>링크드인: "포모도로 기법이 생산성에 미치는 영향, 실제 적용 사례와 함께 공유합니다."</li>
+<li>뉴스레터: "오늘 아침, 저는 타이머 하나로 오전 업무를 끝냈습니다. 제가 쓴 방법을 솔직하게 풀어볼게요."</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>링크드인에 인스타 어조를 그대로 쓰면 어떻게 될까요? "포모도로 진짜 꿀팁이에요 🍅🍅" 이런 글은 전문가 커뮤니티에서 가볍게 읽히거나 그냥 스크롤됩니다.</p>
+<p><strong>정리</strong></p>
+<p>Claude에게 채널 이름만 던지면 안 됩니다. <strong>'이 채널의 독자는 누구이고, 어떤 어조를 원한다'</strong> 를 명시해야 제대로 된 결과가 나옵니다.</p>
+<hr />
+<h3>핵심 개념 2 — 원소스 멀티유즈 전략</h3>
+<p><strong>설명</strong></p>
+<p>원소스 멀티유즈(One Source Multi-Use)는 하나의 원재료로 여러 결과물을 뽑는 전략입니다. 제 경험상, 소스를 잘 구조화하면 Claude가 변환 품질을 훨씬 높게 유지합니다.</p>
+<p>숫자로 기억하세요. <strong>1-3-5 구조</strong> 입니다.</p>
+<ul>
+<li><strong>1</strong>: 핵심 메시지 1문장</li>
+<li><strong>3</strong>: 뒷받침하는 근거 또는 사례 3가지</li>
+<li><strong>5</strong>: 독자가 가져갈 행동·인사이트 1가지 (5초 안에 기억할 수 있는 것)</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>소스를 이렇게 준비합니다.</p>
+<blockquote>
+<p>핵심 메시지: 포모도로 기법은 집중력을 높인다.
+근거: 25분 집중 + 5분 휴식 사이클 / 심리적 부담 감소 / 완료 경험 누적
+독자 행동: 오늘 타이머 하나 켜보기</p>
+</blockquote>
+<p>이 소스 하나를 Claude에게 넘기면 세 채널 초안이 각각 다른 형태로 완성됩니다.</p>
+<p><strong>반례</strong></p>
+<p>소스 없이 "포모도로에 대해 세 채널용 콘텐츠 써줘" 라고만 하면, Claude가 방향을 추측해서 씁니다. 대부분의 경우 어조가 섞이거나 메시지가 흐릿해집니다.</p>
+<p><strong>정리</strong></p>
+<p><strong>1-3-5 구조로 소스를 먼저 정리하고</strong>, 그 다음 Claude에게 넘기세요. 순서가 품질을 결정합니다.</p>
+<hr />
+<h3>핵심 개념 3 — 배치 프롬프트 설계</h3>
+<p><strong>설명</strong></p>
+<p>배치 프롬프트란, 하나의 프롬프트 안에 여러 결과물 생성을 한꺼번에 지시하는 설계입니다. 은유로 기억하세요. <strong>공장 금형</strong> 입니다. 금형을 한 번 잘 만들어 놓으면, 재료만 바꿔 넣을 때마다 같은 품질의 제품이 나옵니다.</p>
+<p>배치 프롬프트의 3요소는 다음과 같습니다.</p>
+<ul>
+<li><strong>역할 부여</strong>: Claude에게 어떤 전문가로 행동할지 지시</li>
+<li><strong>소스 삽입</strong>: 1-3-5 구조의 원재료를 블록으로 제공</li>
+<li><strong>출력 형식 명시</strong>: 채널별로 구분된 형태, 글자 수 제한, 어조 키워드를 명확히 지정</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>실제 프롬프트 구조를 보여드리겠습니다.</p>
+<blockquote>
+<p>당신은 SNS 콘텐츠 전략가입니다.
+아래 소스를 바탕으로 세 가지 채널용 콘텐츠 초안을 작성해 주세요.</p>
+<p>[소스]
+핵심 메시지: ~
+근거: ~
+독자 행동: ~</p>
+<p>[출력 조건]
+- 인스타그램: 150자 이내, 친근한 구어체, 이모지 2개 이내
+- 링크드인: 300자 이내, 전문가 어조, 인사이트 중심
+- 뉴스레터: 500자 이내, 1:1 편지 형식, 행동 유도 문장 포함</p>
+<p>각 채널은 ### 헤더로 구분해 주세요.</p>
+</blockquote>
+<p><strong>반례</strong></p>
+<p>출력 형식을 지정하지 않으면, Claude가 세 채널을 비슷한 길이와 어조로 뭉쳐 씁니다. 차별화가 사라집니다.</p>
+<p><strong>정리</strong></p>
+<p>배치 프롬프트는 <strong>역할 + 소스 + 출력 형식</strong>, 이 세 요소가 갖춰질 때 원하는 결과에 가장 빠르게 도달합니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 따라해 보세요. 순서대로 진행하면 됩니다.</p>
+<p><strong>Step 1 — 소스 작성 (2분)</strong></p>
+<p>본인 업무나 관심 주제에서 하나를 고르세요. 그리고 아래 양식을 채웁니다.</p>
+<blockquote>
+<ul>
+<li>핵심 메시지: (1문장)</li>
+<li>근거 또는 사례: (3가지, 각각 한 줄)</li>
+<li>독자가 가져갈 행동: (1가지)</li>
+</ul>
+</blockquote>
+<p><strong>Step 2 — 배치 프롬프트 조립 (1분)</strong></p>
+<p>방금 만든 소스를 오늘 배운 프롬프트 틀에 그대로 붙여넣으세요. 출력 조건은 예시 그대로 사용해도 됩니다.</p>
+<p><strong>Step 3 — Claude 실행 및 확인 (1분)</strong></p>
+<p>프롬프트를 Claude에 입력하고 결과를 받으세요. 결과물을 보며 세 가지를 체크합니다.</p>
+<ul>
+<li>채널별 어조가 실제로 다른가?</li>
+<li>핵심 메시지가 세 채널 모두에서 살아있는가?</li>
+<li>글자 수 조건이 지켜졌는가?</li>
+</ul>
+<p>조건이 지켜지지 않은 항목이 있다면, 해당 출력 조건을 더 구체적으로 수정하고 한 번 더 실행해 보세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 오늘 만든 콘텐츠 초안을 <strong>자동으로 일정에 배분하는 콘텐츠 캘린더 워크플로우</strong>를 다룹니다. 이번 실습 결과물이 바로 다음 차시의 재료가 됩니다.</p>
+<p>오늘 만든 배치 프롬프트와 결과물, 댓글에 공유해 주세요. 제가 직접 피드백 드리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

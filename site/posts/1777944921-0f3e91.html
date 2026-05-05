@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#5 이메일 자동 초안 생성 워크플로우 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#5 이메일 자동 초안 생성 워크플로우 만들기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-autowork · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>고객 문의가 쌓여 있는데, 답장 하나 쓰는 데 10분씩 걸리고 있으신가요?</p>
+<p>환불 요청, 배송 문의, 기술 오류 신고.
+유형은 세 가지인데 매번 처음부터 쓰고 있다면, 그건 시간 낭비가 아니라 구조 문제입니다.</p>
+<p>오늘 이 영상이 끝나면, 그 구조를 한 번에 해결하는 프롬프트 템플릿 3종 세트를 손에 쥐게 됩니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시를 마치면, 고객 문의 유형 3가지에 대응하는 이메일 초안을 Claude로 30초 안에 뽑아내는 프롬프트 템플릿을 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 템플릿 변수 설계: '빈칸 계약서'</h3>
+<p><strong>설명</strong>
+프롬프트를 매번 새로 쓰는 건 매번 계약서를 처음부터 타이핑하는 것과 같습니다.
+변수는 그 계약서의 빈칸입니다.
+<code>{{고객명}}</code>, <code>{{주문번호}}</code>, <code>{{문의내용}}</code>처럼 이중 중괄호로 고정값과 바뀌는 값을 분리하세요.</p>
+<p><strong>예시</strong>
+다음 프롬프트를 보겠습니다.</p>
+<blockquote>
+<p>"{{고객명}} 고객님의 {{문의유형}} 요청에 대해 {{브랜드명}} 담당자로서 답변 이메일을 작성해 줘."</p>
+</blockquote>
+<p>여기서 브랜드명은 고정, 고객명과 문의유형은 매번 채워 넣는 값입니다.
+이렇게 분리하면 프롬프트 재사용률이 크게 올라갑니다.</p>
+<p><strong>반례</strong>
+변수를 너무 많이 만들면 오히려 채워 넣는 데 시간이 더 걸립니다.
+제 경험상 변수는 한 템플릿에 5개 이내가 적당합니다.
+6개가 넘는 순간 템플릿이 아니라 설문지가 됩니다.</p>
+<p><strong>정리</strong>
+메모리 페그: '빈칸 계약서'. 고정값은 인쇄, 변수는 손으로 채운다.
+규칙은 하나입니다. 바뀌는 것만 변수로, 나머지는 고정하세요.</p>
+<hr />
+<h3>핵심 개념 2 — 어조(Tone) 제어: '다이얼 세 칸'</h3>
+<p><strong>설명</strong>
+같은 내용이라도 어조가 틀리면 고객 반응이 완전히 달라집니다.
+어조를 Claude에게 맡기면 매번 다른 결과가 나옵니다.
+그래서 어조를 명시적으로 지정해야 합니다.</p>
+<p>어조 다이얼을 세 칸으로 나눠 보겠습니다.</p>
+<ul>
+<li><strong>칸 1 — 공감형</strong>: "유감을 표하며 해결책을 제시하는 따뜻한 어조"</li>
+<li><strong>칸 2 — 정보형</strong>: "사실만 간결하게 전달하는 중립적 어조"</li>
+<li><strong>칸 3 — 안심형</strong>: "불안을 해소하고 신뢰를 주는 안정적 어조"</li>
+</ul>
+<p><strong>예시</strong>
+환불 요청 이메일에는 칸 1, 공감형을 씁니다.</p>
+<blockquote>
+<p>"어조: 고객의 불편에 공감하며 시작하고, 해결 절차를 단계별로 안내하는 따뜻하고 전문적인 어조."</p>
+</blockquote>
+<p>이 한 줄만 추가해도 Claude의 답변 톤이 눈에 띄게 달라집니다.</p>
+<p><strong>반례</strong>
+"친근하게 써줘"처럼 추상적인 지시는 사람마다, 모델마다 해석이 다릅니다.
+"이모티콘을 사용하고 문장을 짧게 유지하는 친근한 어조"처럼 행동 단위로 구체화하세요.</p>
+<p><strong>정리</strong>
+메모리 페그: '다이얼 세 칸'. 공감·정보·안심.
+어조 지시는 추상어 대신 행동어로 쓰세요.</p>
+<hr />
+<h3>핵심 개념 3 — 맥락 주입 기법: '배경 브리핑'</h3>
+<p><strong>설명</strong>
+Claude는 내 회사, 내 고객, 내 정책을 모릅니다.
+맥락을 주지 않으면 일반적인 이메일이 나옵니다.
+맥락을 주면 우리 브랜드 목소리가 나옵니다.</p>
+<p>맥락 주입은 세 층으로 구성합니다.</p>
+<ul>
+<li><strong>1층 — 브랜드 맥락</strong>: 회사명, 업종, 핵심 가치 1–2줄</li>
+<li><strong>2층 — 고객 맥락</strong>: 이 고객의 상황 요약</li>
+<li><strong>3층 — 정책 맥락</strong>: 이 유형에 적용되는 처리 규정</li>
+</ul>
+<p><strong>예시</strong>
+배송 지연 문의 템플릿이라면 이렇게 씁니다.</p>
+<blockquote>
+<p>"브랜드: 친환경 소형가전 쇼핑몰 '그린기어'. 고객 최우선 정책 운영.
+고객 상황: {{고객명}}이 {{주문번호}} 상품을 {{원래배송일}} 기준으로 아직 못 받음.
+정책: 3일 이상 지연 시 500원 적립금 자동 제공, 추가 7일 초과 시 환불 선택 가능."</p>
+</blockquote>
+<p>이 세 층이 갖춰지면 Claude가 브랜드 담당자처럼 씁니다.</p>
+<p><strong>반례</strong>
+맥락이 너무 길면 Claude가 핵심 지시를 놓칩니다.
+각 층은 3문장 이내로 압축하세요.
+배경 소설을 쓰는 게 아니라 브리핑을 하는 겁니다.</p>
+<p><strong>정리</strong>
+메모리 페그: '배경 브리핑 3층'. 브랜드·고객·정책.
+이 세 층을 먼저 채우면 나머지 프롬프트는 짧아도 됩니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 직접 만들어 보세요.
+아래 단계를 순서대로 따라오시면 됩니다.</p>
+<p><strong>준비물</strong>: 텍스트 편집기(노션, 메모장 무엇이든 OK)</p>
+<hr />
+<p><strong>Step 1 — 유형 정하기 (1분)</strong>
+여러분의 비즈니스에서 가장 자주 오는 고객 문의 유형 3가지를 적으세요.
+예시가 필요하면 이걸 써도 됩니다.
+- 유형 A: 환불·교환 요청
+- 유형 B: 배송 지연 문의
+- 유형 C: 제품 사용 오류 신고</p>
+<hr />
+<p><strong>Step 2 — 변수 목록 만들기 (1분)</strong>
+각 유형마다 바뀌는 값을 이중 중괄호로 나열하세요.
+5개를 넘기지 마세요.
+예: <code>{{고객명}} {{주문번호}} {{문의내용}} {{처리예정일}}</code></p>
+<hr />
+<p><strong>Step 3 — 어조 한 줄 작성 (30초)</strong>
+유형별로 어조 다이얼 세 칸 중 하나를 골라 행동어로 1문장 쓰세요.
+예: "고객의 불편을 먼저 인정하고, 해결 단계를 번호 목록으로 전달하는 전문적 어조."</p>
+<hr />
+<p><strong>Step 4 — 맥락 3층 채우기 (1분)</strong>
+브랜드·고객·정책 순서로 각 3문장 이내로 씁니다.
+정책이 아직 없다면 "처리 원칙: 고객 불편 최소화 우선"으로 시작해도 됩니다.</p>
+<hr />
+<p><strong>Step 5 — Claude에 붙여 넣고 결과 확인</strong>
+완성한 템플릿을 Claude에 입력하고 초안을 받아보세요.
+결과물에서 어색한 부분이 있으면 어조 지시나 정책 맥락을 수정해 보세요.
+이 수정 과정이 곧 템플릿을 완성하는 과정입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #6에서는 오늘 만든 템플릿을 Zapier와 연결해서, 이메일이 들어오는 순간 Claude가 초안을 자동으로 생성하는 진짜 자동화 파이프라인을 만듭니다.</p>
+<p>오늘 만든 프롬프트 템플릿 3종 세트를 댓글에 공유해 주세요.
+다른 분들의 템플릿을 보는 것만으로도 아이디어가 생깁니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
