@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#15 팀·외주 파트너와 AI 워크플로우 공유하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#15 팀·외주 파트너와 AI 워크플로우 공유하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-autowork · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>외주 파트너에게 Claude 작업 방식을 넘겼는데, 결과물이 전혀 다르게 나와서 처음부터 다시 하신 적 있으신가요?</p>
+<p>내가 쓰는 프롬프트, 순서, 판단 기준을 말로 설명하면 늘 뭔가 빠집니다.</p>
+<p>이번 차시에서는 그 문제를 구조로 해결합니다.</p>
+<p>SOP 문서 한 장이면, 제가 없어도 팀원이나 파트너가 동일한 품질을 재현합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 외주 파트너나 팀원이 여러분 없이도 Claude 워크플로우를 그대로 실행할 수 있는 SOP 문서를 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — SOP 문서 구조: '비행 체크리스트'</h3>
+<p><strong>설명</strong></p>
+<p>SOP는 표준 운영 절차서입니다.</p>
+<p>핵심은 단 하나입니다. 작성자가 없어도 실행자가 틀리지 않게 만드는 것.</p>
+<p>비행기 조종사는 수천 시간의 경력자여도 이륙 전에 체크리스트를 꺼냅니다.</p>
+<p>경험이 아니라 문서가 품질을 보장하기 때문입니다.</p>
+<p>Claude 워크플로우 SOP도 같은 원리입니다.</p>
+<p>좋은 SOP는 5개 레이어로 구성됩니다.</p>
+<p>첫째, 목적과 적용 범위. 둘째, 사전 준비물. 셋째, 단계별 실행 절차. 넷째, 판단 기준과 예외 처리. 다섯째, 산출물 품질 기준.</p>
+<p><strong>예시</strong></p>
+<p>예를 들어 '고객 제안서 초안 작성' 워크플로우라면, 목적란에는 "Claude를 활용해 고객 미팅 후 24시간 내 제안서 초안 생성"이라고 씁니다.</p>
+<p>사전 준비물에는 고객 인터뷰 메모, 회사 템플릿 파일, 프롬프트 파일 경로를 명시합니다.</p>
+<p><strong>반례</strong></p>
+<p>많은 분이 절차만 쓰고 판단 기준을 빠뜨립니다.</p>
+<p>"Claude 결과물이 이상하면 다시 실행하세요"는 SOP가 아닙니다.</p>
+<p>'이상하다'의 기준이 없으면 실행자는 매번 여러분에게 물어봐야 합니다.</p>
+<p><strong>정리</strong></p>
+<p>SOP = 체크리스트. 5개 레이어, 판단 기준까지 포함해야 진짜 SOP입니다.</p>
+<p>메모리 페그: <strong>'5층 건물'</strong> — 목적·준비·절차·판단·품질, 아래층 없이 위층은 없습니다.</p>
+<hr />
+<h3>핵심 개념 2 — 워크플로우 문서화: '레시피 카드'</h3>
+<p><strong>설명</strong></p>
+<p>워크플로우 문서화는 요리 레시피와 같습니다.</p>
+<p>재료, 순서, 불 세기, 완성 기준이 모두 적혀 있어야 처음 만드는 사람도 같은 음식을 냅니다.</p>
+<p>Claude 워크플로우에서 '재료'는 입력 데이터입니다.</p>
+<p>'순서'는 프롬프트 실행 순서입니다.</p>
+<p>'불 세기'는 Claude 설정값, 즉 온도·모델 버전입니다.</p>
+<p>'완성 기준'은 산출물이 통과해야 할 체크포인트입니다.</p>
+<p>문서화할 때 지켜야 할 규칙이 있습니다.</p>
+<p>프롬프트는 반드시 전문을 붙여넣습니다. 요약하면 안 됩니다.</p>
+<p>각 단계에는 '이 단계의 목적' 한 줄을 추가합니다.</p>
+<p>스크린샷이나 예시 산출물을 한 개 이상 첨부합니다.</p>
+<p><strong>예시</strong></p>
+<p>3단계 워크플로우를 문서화한다면 이렇게 씁니다.</p>
+<p>"Step 1 — 목적: 원문 데이터에서 핵심 키워드 추출. 사용 프롬프트: [전문 붙여넣기]. 예상 출력 형태: 불릿 리스트 5–10개."</p>
+<p>이렇게 쓰면 파트너가 Step 1을 실행했을 때 결과물이 불릿 10개가 아니라 단락으로 나왔다면, 스스로 '뭔가 잘못됐다'는 걸 압니다.</p>
+<p><strong>반례</strong></p>
+<p>"Claude에게 요약하라고 하세요"처럼 의도만 쓰는 문서는 재현이 불가능합니다.</p>
+<p>프롬프트가 조금만 달라도 결과물이 완전히 달라집니다.</p>
+<p>프롬프트 전문 없는 워크플로우 문서는 레시피에서 분량이 빠진 것과 같습니다.</p>
+<p><strong>정리</strong></p>
+<p>문서화 = 레시피 카드. 프롬프트 전문 + 단계 목적 + 예시 산출물, 이 3가지가 세트입니다.</p>
+<p>메모리 페그: <strong>'레시피 3총사'</strong> — 전문·목적·예시.</p>
+<hr />
+<h3>핵심 개념 3 — 재현 가능성 설계: '신호등 시스템'</h3>
+<p><strong>설명</strong></p>
+<p>문서를 완성해도 실행자가 중간에 막히면 다시 여러분에게 연락이 옵니다.</p>
+<p>재현 가능성 설계는 그 '막히는 순간'을 미리 설계하는 것입니다.</p>
+<p>제 경험상 워크플로우에서 실행자가 멈추는 지점은 세 가지입니다.</p>
+<p>첫째, Claude 출력이 예상과 다를 때. 둘째, 입력 데이터가 불완전할 때. 셋째, 다음 단계로 넘어가도 되는지 판단이 안 될 때.</p>
+<p>이 세 지점에 '신호등'을 달아줍니다.</p>
+<p>초록불: 이 조건이면 다음 단계로 진행. 노란불: 이 조건이면 여기서 일단 저장 후 공유. 빨간불: 이 조건이면 중단 후 담당자에게 연락.</p>
+<p><strong>예시</strong></p>
+<p>콘텐츠 초안 생성 워크플로우를 예로 들겠습니다.</p>
+<p>"Claude 출력이 500자 이상이고 핵심 키워드가 3개 이상 포함됐으면 → 초록불, 다음 단계 진행. 출력이 500자 미만이거나 키워드가 누락됐으면 → 노란불, 프롬프트 수정 후 재실행. Claude가 '죄송합니다, 답변이 어렵습니다'라는 응답을 하면 → 빨간불, 담당자에게 원본 입력값과 함께 공유."</p>
+<p><strong>반례</strong></p>
+<p>"결과물 검토 후 판단하세요"는 신호등이 없는 것입니다.</p>
+<p>실행자의 판단 기준이 여러분과 다르면, 검토 후에도 잘못된 방향으로 진행됩니다.</p>
+<p>기준이 주관적이면 SOP가 아니라 가이드라인에 불과합니다.</p>
+<p><strong>정리</strong></p>
+<p>재현 가능성 = 신호등 시스템. 초록·노란·빨간, 3가지 조건을 각 단계에 명시합니다.</p>
+<p>메모리 페그: <strong>'신호등 3색'</strong> — 진행·수정·중단.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 직접 만들어보세요.</p>
+<p>여러분이 지금 가장 자주 반복하는 Claude 워크플로우 하나를 고릅니다.</p>
+<p>A4 2페이지 분량의 SOP 문서를 아래 순서로 작성합니다.</p>
+<p><strong>Step 1 — 문서 헤더 작성 (2분)</strong></p>
+<p>문서 제목, 작성일, 버전, 작성자, 적용 대상을 표로 정리합니다.</p>
+<p>목적 한 줄과 적용 범위 두 줄을 씁니다.</p>
+<p><strong>Step 2 — 사전 준비물 목록 작성 (3분)</strong></p>
+<p>필요한 입력 데이터, 파일, Claude 접속 계정 조건을 불릿으로 나열합니다.</p>
+<p>각 항목 옆에 '어디서 구하는지'를 괄호로 명시합니다.</p>
+<p><strong>Step 3 — 단계별 절차 작성 (5분)</strong></p>
+<p>Step 번호, 단계 목적, 사용 프롬프트 전문, 예상 출력 형태 순으로 각 단계를 작성합니다.</p>
+<p><strong>Step 4 — 신호등 조건 추가 (3분)</strong></p>
+<p>각 Step 아래에 초록·노란·빨간 조건을 한 줄씩 추가합니다.</p>
+<p><strong>Step 5 — 산출물 품질 기준 작성 (2분)</strong></p>
+<p>최종 결과물이 통과해야 할 체크리스트를 3–5개 항목으로 씁니다.</p>
+<p>완성된 문서는 실제 팀원이나 파트너에게 넘겨서 여러분 없이 실행해보게 하는 것이 가장 좋은 검증입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #16에서는 이 SOP를 기반으로 Claude 워크플로우를 Notion이나 Confluence에 팀 전체가 쓸 수 있는 형태로 배포하는 방법을 다룹니다.</p>
+<p>오늘 완성한 SOP 문서 초안을 댓글에 공유해주세요.</p>
+<p>대부분의 경우 피드백 한 번이 문서 품질을 크게 끌어올립니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
