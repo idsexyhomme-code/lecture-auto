@@ -38,12 +38,16 @@ DEFAULT_IMAGE_MODEL = os.environ.get("OPENAI_IMAGE_MODEL", "gpt-image-2")
 
 
 def _pages_base_url() -> str:
-    """GitHub Pages 베이스 URL."""
+    """이미지 호스팅 베이스 URL — raw.githubusercontent.com.
+
+    Pages 빌드 기다릴 필요 없음 → push 즉시 라이브.
+    URL 형식: https://raw.githubusercontent.com/{owner}/{repo}/main/site
+    """
     repo = os.environ.get("GITHUB_REPOSITORY") or "idsexyhomme-code/lecture-auto"
     if "/" not in repo:
         return ""
-    owner, name = repo.split("/", 1)
-    return f"https://{owner.lower()}.github.io/{name}"
+    branch = os.environ.get("GITHUB_BRANCH", "main")
+    return f"https://raw.githubusercontent.com/{repo}/{branch}/site"
 
 
 def generate_blog_image(
