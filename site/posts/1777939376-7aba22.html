@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 Claude가 잘하는 것 vs 못하는 것 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 Claude가 잘하는 것 vs 못하는 것<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-autowork · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>Claude에게 업무를 맡겼는데 결과물이 틀렸던 경험, 있으시죠?</p>
+<p>분명 그럴듯하게 답했는데 나중에 확인해보니 숫자가 잘못됐거나, 존재하지 않는 정보를 당당하게 내놓는 경우.</p>
+<p>그 순간 드는 생각, "이거 믿고 써도 되는 건가?"</p>
+<p>이 차시가 그 불안을 끝냅니다.</p>
+<p>Claude를 믿어야 할 곳과 절대 혼자 두면 안 되는 곳, 오늘 정확히 나눠드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, Claude의 강점 3가지와 한계 3가지를 실제 업무에 1:1로 매핑한 비교표를 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — LLM의 작동 방식: "자동완성의 신"</h3>
+<p><strong>설명</strong></p>
+<p>Claude는 대규모 텍스트 데이터를 학습한 언어 모델입니다.</p>
+<p>쉽게 말해, 다음에 올 말을 확률적으로 예측하는 엔진입니다.</p>
+<p>메모리 페그: <strong>"세상에서 가장 정교한 자동완성"</strong></p>
+<p>이메일 앱의 자동완성을 떠올리세요.</p>
+<p>그런데 그 규모가 수천억 개의 문장을 학습한 수준이라고 생각하면 됩니다.</p>
+<p><strong>예시</strong></p>
+<p>"이 계약서 요약해줘"라고 하면 비슷한 문서 패턴을 학습한 결과로 논리적인 요약을 만들어냅니다.</p>
+<p>문서 구조 파악, 핵심 조항 추출, 어조 변환, 이 세 가지가 모두 강점입니다.</p>
+<p><strong>반례</strong></p>
+<p>하지만 "오늘 기준 환율 알려줘"는 다릅니다.</p>
+<p>Claude는 인터넷에 실시간 접속하지 않습니다.</p>
+<p>학습 데이터의 컷오프 이후 정보는 모릅니다.</p>
+<p><strong>정리</strong></p>
+<p>Claude는 언어 패턴을 다루는 데 강하고, 실시간·외부 데이터에는 약합니다.</p>
+<hr />
+<h3>핵심 개념 2 — 환각(Hallucination): "자신감 넘치는 거짓말쟁이"</h3>
+<p><strong>설명</strong></p>
+<p>Hallucination, 한국어로 환각입니다.</p>
+<p>Claude가 사실처럼 들리지만 실제로는 틀린 정보를 생성하는 현상입니다.</p>
+<p>메모리 페그: <strong>"3H — Hallucination은 Honest하지만 Harmful하다"</strong></p>
+<p>중요한 건, Claude는 틀릴 때도 자신감 있게 말한다는 점입니다.</p>
+<p>틀린 티를 잘 내지 않습니다.</p>
+<p><strong>예시</strong></p>
+<p>"A 기업의 2023년 매출을 알려줘"라고 물으면 그럴듯한 숫자를 만들어낼 수 있습니다.</p>
+<p>비상장사나 소규모 기업일수록 이 위험이 커집니다.</p>
+<p><strong>반례</strong></p>
+<p>반면 "이 숫자들의 평균을 구해줘"처럼 제가 직접 데이터를 입력하면 환각이 개입할 여지가 없습니다.</p>
+<p>외부 사실이 아니라 제공된 정보만 처리하면 되니까요.</p>
+<p><strong>정리</strong></p>
+<p>외부 사실 검증이 필요한 업무는 반드시 사람이 크로스체크해야 합니다.</p>
+<p>Claude의 아웃풋을 초안으로 보고, 팩트는 직접 확인하는 습관이 핵심입니다.</p>
+<hr />
+<h3>핵심 개념 3 — 적합 업무 유형: "3강 3약 프레임"</h3>
+<p><strong>설명</strong></p>
+<p>Claude가 잘하는 업무와 못하는 업무를 각 3가지로 정리합니다.</p>
+<p>메모리 페그: <strong>"3강 3약, 트럼프 카드 두 세트"</strong></p>
+<p><strong>3강 — Claude가 강한 영역</strong></p>
+<p>첫째, <strong>텍스트 생성·변환</strong>: 보고서 초안, 이메일 작성, 번역, 요약.</p>
+<p>둘째, <strong>구조화·분류</strong>: 회의록 정리, 데이터 카테고라이징, 체크리스트 생성.</p>
+<p>셋째, <strong>아이디어 발산</strong>: 브레인스토밍, 카피 변형, 시나리오 대안 제시.</p>
+<p><strong>3약 — Claude가 약한 영역</strong></p>
+<p>첫째, <strong>실시간 정보</strong>: 주가, 뉴스, 날씨처럼 지금 이 순간의 데이터.</p>
+<p>둘째, <strong>정밀 수치 계산</strong>: 복잡한 스프레드시트 연산, 회계 처리는 전용 툴이 적합합니다.</p>
+<p>셋째, <strong>기밀·민감 데이터 처리</strong>: 개인정보나 사내 기밀은 입력 전 보안 정책 확인이 필수입니다.</p>
+<p><strong>예시</strong></p>
+<p>강점 적용: 주간 보고서 초안을 Claude에게 맡기면 제 경험상 초안 작성 시간이 절반 이하로 줄어듭니다.</p>
+<p><strong>반례</strong></p>
+<p>약점 무시: 경쟁사 최신 시장점유율 데이터를 Claude에게 물어보고 그대로 보고서에 쓰면 치명적인 오류로 이어질 수 있습니다.</p>
+<p><strong>정리</strong></p>
+<p>3강은 적극 활용, 3약은 보조 수단으로만 씁니다.</p>
+<p>Claude는 판단을 돕는 파트너이지 정답을 주는 기계가 아닙니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 아래 표를 직접 완성해보세요.</p>
+<p>종이나 노션, 어디든 좋습니다.</p>
+<hr />
+<p><strong>[Claude 강점·한계 매핑 비교표]</strong></p>
+<p><strong>Step 1 — 표 틀 만들기</strong></p>
+<p>4개 열을 만드세요: 영역 / 강점·한계 / 내 실제 업무 사례 / 활용 또는 주의 방법</p>
+<p><strong>Step 2 — 강점 3행 채우기</strong></p>
+<p>오늘 배운 강점 3가지를 왼쪽 두 열에 먼저 씁니다.</p>
+<p>그 다음 내 업무 중 실제로 적용할 수 있는 사례를 옆 칸에 씁니다.</p>
+<p>예: 텍스트 생성 / 강점 / 주간 업무 보고서 초안 작성 / Claude에게 초안 요청 후 수정</p>
+<p><strong>Step 3 — 한계 3행 채우기</strong></p>
+<p>같은 방식으로 한계 3가지도 채웁니다.</p>
+<p>예: 실시간 정보 / 한계 / 경쟁사 최신 뉴스 수집 / Claude 대신 검색 엔진 사용</p>
+<p><strong>Step 4 — 확인 질문</strong></p>
+<p>표를 보며 스스로 물어보세요.</p>
+<p>"내가 지금 Claude에게 맡기려던 그 업무, 어느 칸에 들어가나?"</p>
+<p>이 한 가지 질문만 매번 해도 실수가 크게 줄어듭니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>완성한 비교표, 댓글에 한 줄이라도 올려주세요.</p>
+<p>"내 업무 중 Claude 쓰면 안 되는 건 OOO이었다" 한 줄이면 충분합니다.</p>
+<p>다음 차시에서는 Claude에게 일을 제대로 시키는 방법, 프롬프트 설계 기초를 다룹니다.</p>
+<p>"어떻게 말하느냐"가 결과 품질을 어떻게 바꾸는지 직접 보여드립니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

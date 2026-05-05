@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-intro-email",
+    "course_title": "Claude로 완성하는 한 페이지 인사메일",
+    "lesson_no": 2,
+    "lesson_title": "Claude에게 인사메일 초안을 생성시킨다",
+    "objective": "수신자 정보·목적·톤 3가지 변수를 포함한 프롬프트를 작성하여 Claude로부터 한 페이지 인사메일 초안 1건을 생성한다",
+    "key_concepts": [
+      "역할·맥락·제약을 담은 프롬프트 3요소",
+      "톤 지정어 선택 (격식체 vs 친근체)",
+      "반복 수정(iteration) 프롬프트 패턴"
+    ],
+    "exercise": "나의 실제 비즈니스 상황을 반영한 Claude 프롬프트 1개 + 생성된 메일 초안 1건 (텍스트 파일)",
+    "duration_min": 15
+  }
+}

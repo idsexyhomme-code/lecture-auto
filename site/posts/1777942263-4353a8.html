@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 마스터 프롬프트 설계하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 마스터 프롬프트 설계하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-content-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>Claude한테 콘텐츠 써달라고 했는데, 매번 결과물이 달라서 다시 쓰는 게 반복되죠.</p>
+<p>오늘 쓴 프롬프트를 내일 또 새로 써야 하는 상황, 익숙하실 겁니다.</p>
+<p>그 이유는 단 하나입니다.</p>
+<p>"내 브랜드"를 Claude가 기억하게 설계하지 않았기 때문입니다.</p>
+<p>이번 차시에서 그 문제를 구조적으로 끝냅니다.</p>
+<p>한 번 만들어두면 계속 꺼내 쓰는 마스터 프롬프트 템플릿, 지금 바로 설계합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 내 브랜드 보이스가 내장된 마스터 프롬프트 템플릿을 완성하고, 이전 출력물과 직접 비교해서 품질 차이를 눈으로 확인할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 마스터 프롬프트의 5개 레이어</h3>
+<p><strong>설명</strong></p>
+<p>마스터 프롬프트는 5개 레이어로 구성됩니다.</p>
+<p>기억하기 쉽게 <strong>"역·맥·지·형·제"</strong> 다섯 글자로 외우세요.</p>
+<p>첫째, <strong>역할(Role)</strong> — Claude에게 페르소나를 부여합니다.</p>
+<p>둘째, <strong>맥락(Context)</strong> — 내 브랜드, 타깃 독자, 톤앤매너를 넣습니다.</p>
+<p>셋째, <strong>지시(Instruction)</strong> — 구체적으로 무엇을 만들지 명령합니다.</p>
+<p>넷째, <strong>형식(Format)</strong> — 출력 구조를 지정합니다. 예: 소제목 3개, 글머리표.</p>
+<p>다섯째, <strong>제약(Constraint)</strong> — 쓰지 말아야 할 표현, 금지 어조를 못 박습니다.</p>
+<p><strong>예시</strong></p>
+<p>"당신은 1인 사업자 전문 마케팅 카피라이터입니다.(역할) 독자는 30대 프리랜서이며 실용적인 정보를 선호합니다.(맥락) 인스타그램 캡션을 작성하세요.(지시) 3문단, 이모지 없이.(형식) 과장 표현 금지.(제약)"</p>
+<p>이 5개가 모두 있을 때, 출력이 일관되기 시작합니다.</p>
+<p><strong>반례</strong></p>
+<p>"인스타그램 글 써줘."</p>
+<p>역할도, 맥락도, 제약도 없습니다.</p>
+<p>Claude는 가장 평균적인 결과물을 돌려줍니다.</p>
+<p>브랜드 색깔이 빠진 무난한 글이 나오는 이유가 바로 이것입니다.</p>
+<p><strong>정리</strong></p>
+<p>레이어가 빠질수록 출력의 예측 가능성이 떨어집니다.</p>
+<p>역·맥·지·형·제, 다섯 자리를 채우는 것이 마스터 프롬프트의 뼈대입니다.</p>
+<hr />
+<h3>핵심 개념 2 — 변수 플레이스홀더 설계</h3>
+<p><strong>설명</strong></p>
+<p>마스터 프롬프트를 매번 처음부터 쓰지 않으려면 <strong>변수 플레이스홀더</strong>가 필요합니다.</p>
+<p>이미지로 기억하세요. <strong>빈칸이 뚫린 계약서.</strong></p>
+<p>내용만 바꿔 넣으면 계약서는 그대로 쓰이죠.</p>
+<p>플레이스홀더는 대괄호 두 개로 표시합니다.</p>
+<p>예: <code>[[주제]]</code>, <code>[[길이]]</code>, <code>[[플랫폼]]</code></p>
+<p><strong>예시</strong></p>
+<p>"[[주제]]에 대해 [[플랫폼]] 용 콘텐츠를 [[길이]] 분량으로 작성하세요."</p>
+<p>여기서 [[주제]]에 "시간 관리", [[플랫폼]]에 "뉴스레터", [[길이]]에 "300자"를 넣으면 즉시 완성입니다.</p>
+<p>다음 주에는 [[주제]]만 "가격 책정"으로 바꾸면 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>매번 "시간 관리에 대한 뉴스레터 300자 써줘"라고 직접 치는 방식.</p>
+<p>주제 하나만 바꿔도 문장 전체를 다시 써야 합니다.</p>
+<p>실수가 섞이고, 맥락 레이어는 빠뜨리기 쉽습니다.</p>
+<p><strong>정리</strong></p>
+<p>변수 플레이스홀더는 마스터 프롬프트를 <strong>템플릿 자산</strong>으로 만드는 핵심 장치입니다.</p>
+<p>자주 바뀌는 것만 변수로 빼고, 나머지는 고정하세요.</p>
+<hr />
+<h3>핵심 개념 3 — 출력 품질 체크리스트</h3>
+<p><strong>설명</strong></p>
+<p>좋은 프롬프트인지 판단하는 기준이 없으면 개선 방향을 못 잡습니다.</p>
+<p>숫자로 기억하세요. <strong>3×3 체크리스트.</strong></p>
+<p><strong>출력 전 3가지 확인:</strong></p>
+<ol>
+<li>브랜드 보이스 정의가 맥락 레이어에 들어 있는가?</li>
+<li>변수 플레이스홀더가 올바르게 치환되었는가?</li>
+<li>제약 조건이 명시되어 있는가?</li>
+</ol>
+<p><strong>출력 후 3가지 확인:</strong></p>
+<ol>
+<li>내가 직접 쓴 것처럼 읽히는가?</li>
+<li>타깃 독자의 언어를 쓰고 있는가?</li>
+<li>형식이 지시한 대로 나왔는가?</li>
+</ol>
+<p><strong>예시</strong></p>
+<p>이전 프롬프트(역할·제약 없음)로 뽑은 출력물과, 마스터 프롬프트로 뽑은 출력물을 나란히 놓으세요.</p>
+<p>3×3 체크리스트로 채점하면, 점수 차이가 바로 보입니다.</p>
+<p><strong>반례</strong></p>
+<p>출력물이 어딘가 어색한데 "뭔가 이상하다" 수준에서 멈추는 경우.</p>
+<p>기준이 없으면 어느 레이어가 문제인지 진단이 불가능합니다.</p>
+<p><strong>정리</strong></p>
+<p>체크리스트는 품질을 감각이 아닌 <strong>구조</strong>로 판단하게 해줍니다.</p>
+<p>마스터 프롬프트를 개선할 때마다 이 6개 항목으로 전후를 비교하세요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고, 아래 단계를 순서대로 따라 하세요.</p>
+<p><strong>준비물:</strong> 텍스트 에디터 하나(노션, 메모장, 어디든 괜찮습니다.)</p>
+<hr />
+<p><strong>Step 1 — 브랜드 보이스 한 줄 정의 (1분)</strong></p>
+<p>아래 빈칸을 채우세요.</p>
+<p>"나는 [[타깃 독자]]를 위해 [[형용사 2개]] 톤으로 [[콘텐츠 유형]]을 만드는 [[직함]&gt;이다."</p>
+<p>예: "나는 1인 사업자를 위해 실용적이고 친근한 톤으로 뉴스레터를 만드는 콘텐츠 크리에이터다."</p>
+<hr />
+<p><strong>Step 2 — 5개 레이어 채우기 (2분)</strong></p>
+<p>아래 템플릿을 복사하고, 대괄호 안을 내 정보로 채우세요.</p>
+<p><strong>역할:</strong> 당신은 [내 직함]을 위한 전문 콘텐츠 작성자입니다.</p>
+<p><strong>맥락:</strong> 독자는 [타깃 독자]이며, [브랜드 보이스 한 줄]을 따릅니다.</p>
+<p><strong>지시:</strong> [[주제]]에 대해 [[플랫폼]] 용 콘텐츠를 작성하세요.</p>
+<p><strong>형식:</strong> [[길이]], [고정 구조 — 예: 소제목 2개 + 마무리 문단].</p>
+<p><strong>제약:</strong> [금지 표현 또는 금지 어조]는 사용하지 마세요.</p>
+<hr />
+<p><strong>Step 3 — 전후 비교 (1분)</strong></p>
+<p>완성된 마스터 프롬프트로 Claude에게 콘텐츠를 한 편 요청하세요.</p>
+<p>그다음, 지난 차시에서 썼던 단순 프롬프트 결과물과 나란히 놓으세요.</p>
+<p>3×3 체크리스트 6개 항목 중 몇 개가 개선되었는지 숫자로 적어두세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 마스터 프롬프트를 플랫폼별로 변형하는 방법을 다룹니다.</p>
+<p>뉴스레터, 인스타그램, 유튜브 스크립트, 각각 어떤 레이어를 어떻게 조정하는지 구체적으로 보여드립니다.</p>
+<p>오늘 완성한 마스터 프롬프트를 댓글에 붙여넣어 주세요.</p>
+<p>제 경험상, 다른 분의 템플릿을 보는 것만으로도 내 것이 빠르게 개선됩니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
