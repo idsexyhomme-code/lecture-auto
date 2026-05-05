@@ -35,5 +35,5 @@
   ],
   "paused": true,
   "pause_reason": "user /stop",
-  "auto_mode": false
+  "auto_mode": true
 }
