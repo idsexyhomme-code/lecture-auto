@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 환불·취소 문의 스크립트 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 환불·취소 문의 스크립트 만들기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-customer-script · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>환불 요청 문자가 오면, 손이 멈추시죠?</p>
+<p>뭐라고 답해야 할지 모르겠고, 너무 딱딱하면 분쟁 날 것 같고, 너무 부드러우면 다 들어줘야 할 것 같고.</p>
+<p>결국 답장 한 통 쓰는 데 30분이 걸립니다.</p>
+<p>이 영상이 끝나면 그 30분이 3분으로 줄어듭니다. Claude로 환불·취소 응대 스크립트 세트를 딱 오늘 만들어 놓으면, 다음번엔 복붙만 하면 되거든요.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 환불 가능·불가·부분 환불 3가지 상황에 바로 쓸 수 있는 응대 스크립트를 Claude로 만들고 본인 말투로 다듬어서 실제 발송 가능한 문서로 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — '감정 완화 → 사실 확인 → 해결책 제시' 3단계 구조</h3>
+<p><strong>설명</strong></p>
+<p>환불 문의를 받으면 대부분 즉시 정책 설명부터 꺼냅니다. 하지만 감정이 높아진 고객에게 정책을 먼저 들이밀면 벽을 치는 느낌을 줍니다. 순서가 전부입니다.</p>
+<p>1단계, <strong>감정 완화.</strong> 고객이 불편했다는 사실을 먼저 인정합니다.
+2단계, <strong>사실 확인.</strong> 구매일, 사용 여부, 요청 사유를 확인합니다.
+3단계, <strong>해결책 제시.</strong> 가능한 선택지를 명확하게 안내합니다.</p>
+<p><strong>예시</strong></p>
+<blockquote>
+<p>"불편을 드려 정말 죄송합니다. (감정 완화) 확인을 위해 구매일과 주문번호를 알려 주시겠어요? (사실 확인) 확인 후 바로 처리 방법 안내해 드리겠습니다. (해결책 예고)"</p>
+</blockquote>
+<p>단 세 문장인데, 고객 입장에서는 '내 말을 들어주는 사람'이라는 인상을 받습니다.</p>
+<p><strong>반례</strong></p>
+<blockquote>
+<p>"환불은 구매 후 7일 이내에만 가능합니다."</p>
+</blockquote>
+<p>틀린 말은 아닙니다. 하지만 감정 완화가 없으니 고객은 '거절당했다'고 느낍니다. 이후 대화가 방어적으로 흘러갑니다.</p>
+<p><strong>정리 — 메모리 페그 '신호등'</strong></p>
+<p>빨강(감정 완화) → 노랑(사실 확인) → 초록(해결책). 신호등 순서를 지키면 대화가 흘러갑니다. 순서를 바꾸면 사고가 납니다.</p>
+<hr />
+<h3>핵심 개념 2 — Claude 프롬프트에 맥락·제약조건 넣는 방법</h3>
+<p><strong>설명</strong></p>
+<p>Claude에게 "환불 답장 써줘"라고 하면 평범한 결과가 나옵니다. 제 경험상 결과물의 품질은 프롬프트에 넣은 정보량에 비례합니다.</p>
+<p>좋은 프롬프트에는 네 가지가 들어갑니다.</p>
+<ul>
+<li><strong>역할:</strong> 나는 1인 디지털 강의 판매자입니다.</li>
+<li><strong>상황:</strong> 고객이 강의 수강 후 3일 뒤 환불을 요청했습니다.</li>
+<li><strong>제약조건:</strong> 환불 정책은 수강 시작 후 7일 이내, 30% 이하 수강 시에만 가능합니다.</li>
+<li><strong>톤:</strong> 따뜻하되 명확하게. 2~3문단, 200자 이내.</li>
+</ul>
+<p><strong>예시 프롬프트</strong></p>
+<blockquote>
+<p>"나는 온라인 강의를 판매하는 1인 사업자야. 고객이 강의 수강 3일 후 환불을 요청했어. 내 환불 정책은 수강 시작 후 7일 이내, 30% 이하 수강 시에만 전액 환불 가능해. 이 고객은 정책 범위 안에 있어. 따뜻하고 명확한 톤으로, 3단계 구조(감정 완화→사실 확인→해결책)로 답장 초안을 200자 이내로 써줘."</p>
+</blockquote>
+<p><strong>반례</strong></p>
+<blockquote>
+<p>"환불 답장 써줘. 정중하게."</p>
+</blockquote>
+<p>결과가 나오긴 합니다. 그런데 내 정책이 반영되지 않고, 내 말투도 아닙니다. 수정 시간이 오히려 더 걸립니다.</p>
+<p><strong>정리 — 메모리 페그 '네 칸 서랍'</strong></p>
+<p>역할·상황·제약·톤. 이 네 칸을 채워야 Claude가 제대로 꺼내 줍니다. 한 칸이라도 비면 결과물이 흔들립니다.</p>
+<hr />
+<h3>핵심 개념 3 — 부정적 감정 고객 응대 시 쿠션어 활용 원칙</h3>
+<p><strong>설명</strong></p>
+<p>쿠션어란, 단호한 말 앞에 놓는 완충 표현입니다. 내용을 바꾸지 않고 충격을 줄여 줍니다.</p>
+<p>쿠션어의 두 가지 원칙이 있습니다.</p>
+<ul>
+<li><strong>먼저 공감, 그 다음 사실.</strong> '그 부분이 많이 불편하셨겠어요'를 먼저, 정책 안내는 그 다음.</li>
+<li><strong>가능한 것부터.</strong> 불가능한 것을 먼저 말하지 않습니다. '이렇게는 어렵지만, 이 방법은 가능합니다' 순서로.</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>환불 불가 상황에서:</p>
+<blockquote>
+<p>"오래 기다리셨는데 기대에 못 미쳐 정말 죄송합니다. (쿠션) 다만 수강률이 이미 60%를 넘어 정책상 전액 환불은 어렵습니다. (사실) 대신 1:1 질문 세션을 추가로 제공해 드릴 수 있어요. (대안)"</p>
+</blockquote>
+<p><strong>반례</strong></p>
+<blockquote>
+<p>"이미 60% 수강하셨기 때문에 환불은 불가합니다."</p>
+</blockquote>
+<p>정확합니다. 하지만 고객은 '거절'만 기억합니다. 대부분의 경우 이 한 문장이 부정적 리뷰로 이어집니다.</p>
+<p><strong>정리 — 메모리 페그 '에어백'</strong></p>
+<p>쿠션어는 에어백입니다. 충돌을 막지는 못하지만, 충격을 흡수합니다. 에어백 없는 차에는 타지 않듯, 쿠션어 없는 거절 문장은 보내지 않습니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 따라 해 보세요. 워드나 Notion 문서를 새로 하나 열어 주세요.</p>
+<p><strong>Step 1 — 시나리오 3개 탭(또는 섹션) 만들기</strong></p>
+<ul>
+<li>탭 A: 환불 가능</li>
+<li>탭 B: 환불 불가</li>
+<li>탭 C: 부분 환불</li>
+</ul>
+<p><strong>Step 2 — 탭 A부터 Claude 프롬프트 작성</strong></p>
+<p>앞서 배운 네 칸 서랍(역할·상황·제약·톤)을 채워서 Claude에 입력합니다. 제약조건에는 본인의 실제 환불 정책을 넣어 주세요. 정책이 없다면 지금 간단히 정해도 됩니다. '구매 후 7일, 미수강 시 전액 환불' 정도면 충분합니다.</p>
+<p><strong>Step 3 — Claude 결과물을 문서에 붙여넣고 2곳만 수정</strong></p>
+<p>먼저 내 말투에 맞게 어색한 단어를 바꿉니다. 다음으로 고객 이름이나 주문번호처럼 실제로 채워야 할 자리에 대괄호로 표시합니다. 예시: [고객 성함], [주문번호].</p>
+<p><strong>Step 4 — 탭 B, C도 같은 방식으로 반복</strong></p>
+<p>탭 B(환불 불가)에는 쿠션어와 대안을 반드시 포함했는지 확인합니다. 탭 C(부분 환불)에는 구체적인 금액 또는 비율이 들어가도록 제약조건에 명시합니다.</p>
+<p>세 탭이 완성되면 '환불·취소 응대 스크립트 세트 v1'이라고 문서 제목을 달아 저장해 주세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #4에서는 이 스크립트 세트를 실제 채널(카카오톡, 이메일)에 연결해서 반자동으로 발송하는 방법을 다룹니다.</p>
+<p>오늘 완성한 스크립트 세트, 댓글에 '완료'라고 한 글자만 남겨 주세요. 같이 하는 사람이 있다는 게 생각보다 큰 힘이 됩니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
