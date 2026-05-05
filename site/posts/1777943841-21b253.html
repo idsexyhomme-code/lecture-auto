@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#6 회의록·요약 자동화 워크플로우 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#6 회의록·요약 자동화 워크플로우 만들기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-autowork · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>회의가 끝나고 나면 남는 건 두 가지입니다.
+흐릿한 기억, 그리고 정리 안 된 노트.</p>
+<p>누군가 회의록 보내달라고 하면 다시 녹음 돌려 듣고, 손으로 정리하고, 공유까지 30분은 기본이죠.</p>
+<p>오늘 이 강의 하나로 그 30분을 3분으로 줄입니다.
+회의 텍스트만 붙여 넣으면 액션아이템, 결정사항, 요약이 자동으로 분리되어 나오는 프롬프트를 직접 만들어 드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면, 어떤 회의 텍스트든 Claude에 붙여 넣는 것만으로 깔끔한 구조화 회의록을 즉시 뽑아내는 나만의 프롬프트를 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 구조화 출력 설계: '서랍장 모델'</h3>
+<p><strong>설명</strong></p>
+<p>Claude에게 "요약해줘"라고만 하면 결과물이 매번 달라집니다.
+원하는 형태를 미리 못 박아야 합니다.
+이걸 구조화 출력 설계라고 부릅니다.</p>
+<p>메모리 페그는 <strong>서랍장</strong>입니다.
+서랍이 3개면 결과도 정확히 3칸으로 나옵니다.
+서랍 이름을 프롬프트 안에 직접 써주는 거예요.</p>
+<p><strong>예시</strong></p>
+<p>프롬프트에 이렇게 씁니다.</p>
+<blockquote>
+<p>아래 회의 텍스트를 분석해서 세 개 섹션으로 출력하세요.
+1. 결정사항
+2. 액션아이템 (담당자·기한 포함)
+3. 한 줄 요약</p>
+</blockquote>
+<p>이렇게 하면 Claude는 그 서랍 구조를 그대로 따릅니다.</p>
+<p><strong>반례</strong></p>
+<p>"중요한 내용만 정리해줘"는 서랍이 없는 상태입니다.
+Claude가 임의로 판단하기 때문에 결과물이 매번 달라집니다.
+팀에 공유할 공식 문서로 쓰기 어렵습니다.</p>
+<p><strong>정리</strong></p>
+<p>출력 형태를 먼저 설계하고, 그 이름을 프롬프트에 명시한다.
+서랍장처럼 칸 수와 이름을 못 박으면 됩니다.</p>
+<hr />
+<h3>핵심 개념 2 — 정보 추출 프롬프트: '형사 질문법'</h3>
+<p><strong>설명</strong></p>
+<p>회의록엔 수많은 말이 섞여 있습니다.
+잡담, 논의, 결정, 할 일이 뒤죽박죽입니다.
+Claude가 그 중에서 특정 정보만 뽑게 하려면 질문을 뾰족하게 만들어야 합니다.</p>
+<p>메모리 페그는 <strong>형사의 질문</strong>입니다.
+형사는 "무슨 일 있었어요?" 대신 "3시에 어디 있었어요?"라고 묻습니다.
+범위를 좁혀서 묻는 거예요.</p>
+<p><strong>예시</strong></p>
+<p>추출 프롬프트는 이렇게 씁니다.</p>
+<blockquote>
+<p>다음 기준으로만 정보를 추출하세요.
+- 결정사항: 회의에서 최종 확정된 내용만
+- 액션아이템: '~하기로 했다', '~가 맡는다' 표현이 포함된 문장만
+- 제외: 단순 의견, 질문, 잡담</p>
+</blockquote>
+<p>"~표현이 포함된 문장만"처럼 언어 패턴을 지정하면 정확도가 올라갑니다.</p>
+<p><strong>반례</strong></p>
+<p>"할 일 정리해줘"라고 하면 Claude가 할 일처럼 보이는 모든 문장을 다 포함합니다.
+결과에 잡담까지 섞이는 경우가 생깁니다.
+제 경험상 패턴 지정 하나만으로 정확도가 눈에 띄게 달라집니다.</p>
+<p><strong>정리</strong></p>
+<p>추출 대상의 언어 패턴이나 조건을 프롬프트에 명시한다.
+형사처럼 구체적인 질문일수록 정확한 답이 나옵니다.</p>
+<hr />
+<h3>핵심 개념 3 — 마크다운 포맷 활용: '레고 블록 조립'</h3>
+<p><strong>설명</strong></p>
+<p>출력 결과를 노션, 슬랙, 이메일에 바로 붙여 쓰려면 포맷이 맞아야 합니다.
+마크다운을 지정하면 Claude가 헤더, 리스트, 굵은 글씨를 자동으로 씁니다.
+복사-붙여넣기 한 번으로 끝납니다.</p>
+<p>메모리 페그는 <strong>레고 블록</strong>입니다.
+블록 종류를 미리 고르면 완성 모양이 정해집니다.
+헤더(##), 리스트(-), 굵게(**) 세 가지만 지정하면 대부분의 경우 충분합니다.</p>
+<p><strong>예시</strong></p>
+<p>프롬프트 마지막에 한 줄 추가합니다.</p>
+<blockquote>
+<p>출력은 마크다운 형식으로 작성하세요.
+섹션 제목은 ## 헤더, 항목은 - 리스트, 담당자는 <strong>굵게</strong> 표시하세요.</p>
+</blockquote>
+<p>결과물을 노션에 붙이면 서식이 그대로 적용됩니다.</p>
+<p><strong>반례</strong></p>
+<p>포맷을 지정하지 않으면 Claude가 문장형으로 출력하는 경우가 있습니다.
+팀 문서 도구에 붙였을 때 재정리가 필요해집니다.
+자동화의 의미가 반감됩니다.</p>
+<p><strong>정리</strong></p>
+<p>마크다운 규칙을 프롬프트 끝에 명시한다.
+레고처럼 블록 종류만 골라주면 조립은 Claude가 합니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 직접 만들어 보세요.</p>
+<p><strong>준비물:</strong> Claude 화면, 회의 텍스트 1개 (없으면 아래 샘플 사용)</p>
+<blockquote>
+<p>샘플 회의 텍스트:
+"마케팅 예산은 이번 분기 동결하기로 했습니다. 김지훈 님이 다음 주 금요일까지 SNS 캠페인 시안 3개를 만들기로 했고, 이수연 님은 경쟁사 분석 자료를 이번 주 수요일까지 공유하기로 했습니다. 신규 채용은 다음 분기에 재논의합니다."</p>
+</blockquote>
+<p><strong>Step 1 — 서랍장 설계 (1분)</strong></p>
+<p>새 Claude 대화를 열고 아래를 입력하세요.</p>
+<blockquote>
+<p>다음 회의 텍스트를 분석해서 세 섹션으로 출력하세요.
+1. ## 결정사항
+2. ## 액션아이템 (담당자와 기한 포함, - 리스트)
+3. ## 한 줄 요약
+출력은 마크다운 형식으로 작성하세요. 담당자는 <strong>굵게</strong> 표시하세요.</p>
+</blockquote>
+<p><strong>Step 2 — 회의 텍스트 붙이기 (30초)</strong></p>
+<p>프롬프트 바로 아래에 회의 텍스트를 붙여 넣고 전송합니다.</p>
+<p><strong>Step 3 — 결과 확인 (1분)</strong></p>
+<p>출력된 결과를 보며 세 가지를 체크하세요.</p>
+<ul>
+<li>결정사항과 액션아이템이 분리됐는가?</li>
+<li>담당자 이름이 굵게 표시됐는가?</li>
+<li>기한이 빠진 항목은 없는가?</li>
+</ul>
+<p><strong>Step 4 — 조정 (1분)</strong></p>
+<p>빠진 정보가 있으면 프롬프트에 한 줄을 추가해 보세요.</p>
+<blockquote>
+<p>기한이 명시되지 않은 액션아이템은 '기한 미정'으로 표시하세요.</p>
+</blockquote>
+<p>재전송 후 결과를 비교합니다.</p>
+<p>완성된 프롬프트를 텍스트 파일에 저장해 두세요.
+다음 실제 회의 때 바로 씁니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 오늘 만든 프롬프트를 노션 템플릿과 연결해서 회의가 끝나는 순간 문서가 자동 생성되는 워크플로우를 완성합니다.</p>
+<p>오늘 실습에서 만든 프롬프트 결과물을 댓글에 공유해 주세요.
+어떤 부분에서 출력이 달라졌는지 같이 보겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

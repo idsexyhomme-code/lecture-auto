@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#4 프롬프트 반복 테스트로 품질 높이기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#4 프롬프트 반복 테스트로 품질 높이기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-autowork · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>프롬프트를 짰는데 결과가 별로예요.
+다시 써봤는데 또 별로예요.
+세 번째도 그냥 감으로 고쳤더니
+더 나빠진 경험, 있으시죠?</p>
+<p>문제는 노력이 아니에요.
+<strong>기록 없이 반복</strong>하는 게 문제입니다.</p>
+<p>오늘은 Claude에게 같은 업무를 세 번 시키되,
+매번 '왜 고쳤는지'를 기록하는 방법을 알려드립니다.
+이 방법을 쓰면 시행착오가 자산이 됩니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면,
+프롬프트 v1·v2·v3의 결과를 비교하고
+개선 이유까지 기록한 <strong>로그 한 장</strong>을 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 이터레이션 설계: "다트 3발의 법칙"</h3>
+<p><strong>설명</strong></p>
+<p>이터레이션은 '반복 개선'입니다.
+단순 재시도와 다릅니다.
+재시도는 같은 다트를 같은 자리에 던지는 것,
+이터레이션은 <strong>조준점을 바꾸고</strong> 다시 던지는 겁니다.</p>
+<p>실전에서는 3회가 최소 단위입니다.
+1회는 기준점, 2회는 가설 검증, 3회는 정착입니다.</p>
+<p><strong>예시</strong></p>
+<p>업무: 주간 보고서 요약 프롬프트</p>
+<ul>
+<li>v1: "이 보고서를 요약해 줘"</li>
+<li>v2: "이 보고서를 3줄로 요약하고 핵심 수치를 포함해 줘"</li>
+<li>v3: "이 보고서를 3줄로 요약해. 첫 줄은 성과, 둘째 줄은 리스크, 셋째 줄은 다음 주 액션으로 구성해 줘"</li>
+</ul>
+<p>각 버전마다 <strong>바꾼 것이 딱 하나</strong>입니다.
+그게 이터레이션 설계의 핵심입니다.</p>
+<p><strong>반례</strong></p>
+<p>v1에서 v2로 넘어갈 때 세 가지를 한꺼번에 바꾸면
+어떤 변경이 결과를 개선했는지 알 수 없습니다.
+이건 이터레이션이 아니라 <strong>복권 긁기</strong>입니다.</p>
+<p><strong>정리</strong></p>
+<blockquote>
+<p>🎯 기억 페그 — "다트 3발, 조준점 하나씩"
+한 번에 하나만 바꾸고, 최소 3발을 던져라.</p>
+</blockquote>
+<hr />
+<h3>핵심 개념 2 — 출력 평가 기준: "채점표 없는 시험은 없다"</h3>
+<p><strong>설명</strong></p>
+<p>출력이 '좋다·나쁘다'는 느낌으로 판단하면
+개선 방향이 매번 달라집니다.
+평가 기준을 <strong>숫자와 항목</strong>으로 먼저 정해야 합니다.</p>
+<p>제 경험상 실무에서 쓸 만한 기준은 세 가지입니다.</p>
+<table>
+<thead>
+<tr>
+<th>기준</th>
+<th>질문</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>정확성</strong></td>
+<td>요청한 내용이 다 들어 있나?</td>
+</tr>
+<tr>
+<td><strong>형식 준수</strong></td>
+<td>지정한 포맷을 지켰나?</td>
+</tr>
+<tr>
+<td><strong>사용 가능성</strong></td>
+<td>복붙 후 수정 없이 쓸 수 있나?</td>
+</tr>
+</tbody>
+</table>
+<p>각 기준을 1~3점으로 채점합니다.
+총 9점 만점 구조입니다.</p>
+<p><strong>예시</strong></p>
+<p>주간 보고서 요약 v1 결과를 채점하면:
+- 정확성 2점 (수치 누락)
+- 형식 준수 1점 (줄 수 초과)
+- 사용 가능성 1점 (용어 수정 필요)
+- <strong>합계 4/9점</strong></p>
+<p>이 숫자가 있으면 v2에서 무엇을 고쳐야 할지 명확해집니다.</p>
+<p><strong>반례</strong></p>
+<p>"뭔가 어색하다"는 평가는 기준이 아닙니다.
+어색함을 해소하려고 프롬프트를 바꾸면
+오히려 정확성이 떨어지는 경우가 대부분입니다.
+느낌이 아니라 <strong>항목</strong>으로 평가하세요.</p>
+<p><strong>정리</strong></p>
+<blockquote>
+<p>📋 기억 페그 — "9점 채점표를 먼저 꺼내라"
+정확성·형식·사용 가능성, 각 3점씩.</p>
+</blockquote>
+<hr />
+<h3>핵심 개념 3 — 프롬프트 버전 관리: "코드처럼 커밋하라"</h3>
+<p><strong>설명</strong></p>
+<p>개발자들은 코드를 바꿀 때마다 <strong>커밋 메시지</strong>를 씁니다.
+"왜 바꿨는지"를 기록하는 겁니다.
+프롬프트도 똑같이 관리할 수 있습니다.</p>
+<p>버전 로그는 세 칸으로 충분합니다.</p>
+<table>
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>버전</strong></td>
+<td>v1 / v2 / v3</td>
+</tr>
+<tr>
+<td><strong>변경 내용</strong></td>
+<td>무엇을 바꿨나</td>
+</tr>
+<tr>
+<td><strong>변경 이유</strong></td>
+<td>왜 바꿨나 (채점 결과 기반)</td>
+</tr>
+</tbody>
+</table>
+<p>이 로그가 쌓이면
+같은 유형의 업무에서 v1을 건너뛸 수 있습니다.
+<strong>과거의 실패가 미래의 지름길</strong>이 됩니다.</p>
+<p><strong>예시</strong></p>
+<pre><code>v1 → v2 변경: 출력 길이 제한 추가
+이유: 형식 준수 1점 → 줄 수 초과 문제 해결 목적
+
+v2 → v3 변경: 단락별 역할 명시
+이유: 사용 가능성 1점 → 구조 불명확으로 수정 필요했음
+</code></pre>
+<p><strong>반례</strong></p>
+<p>버전 번호만 붙이고 이유를 안 쓰면
+3개월 뒤에 v2가 왜 존재하는지 알 수 없습니다.
+버전 관리의 핵심은 번호가 아니라 <strong>이유 기록</strong>입니다.</p>
+<p><strong>정리</strong></p>
+<blockquote>
+<p>💾 기억 페그 — "버전·변경·이유, 세 칸 커밋"
+이유 없는 버전은 번호가 아니라 쓰레기다.</p>
+</blockquote>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 <strong>일시정지</strong>하고 따라 해 보세요.
+완성 목표물은 <strong>프롬프트 개선 실험 로그 (v1~v3 비교표)</strong> 입니다.</p>
+<p><strong>Step 1 — 업무 선택 (1분)</strong></p>
+<p>본인이 Claude에 자주 시키는 업무 하나를 고르세요.
+예: 이메일 초안 작성, 회의록 요약, 제품 설명문 생성.
+업무를 한 줄로 적어 두세요.</p>
+<p><strong>Step 2 — 채점표 먼저 작성 (1분)</strong></p>
+<p>아래 표를 복사해서 빈 문서에 붙여 넣으세요.</p>
+<table>
+<thead>
+<tr>
+<th>기준</th>
+<th>배점</th>
+<th>v1</th>
+<th>v2</th>
+<th>v3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>정확성</td>
+<td>/3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>형식 준수</td>
+<td>/3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>사용 가능성</td>
+<td>/3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>합계</strong></td>
+<td>/9</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 3 — v1 실행 및 채점 (1분)</strong></p>
+<p>Claude에 가장 단순한 버전의 프롬프트를 입력하세요.
+결과를 받으면 채점표를 채워 넣으세요.
+낮은 점수 항목 하나를 골라 개선 이유를 메모하세요.</p>
+<p><strong>Step 4 — v2·v3 반복 (1분)</strong></p>
+<p>메모한 이유를 바탕으로 딱 하나만 바꿔 v2를 만드세요.
+같은 방식으로 채점 후 v3까지 완성하세요.
+마지막으로 버전·변경 내용·변경 이유 세 칸을 로그에 기록하세요.</p>
+<p>로그 한 장이 완성되면 일시정지를 해제하세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #5에서는
+완성한 로그를 바탕으로
+<strong>업무 유형별 프롬프트 템플릿</strong>을 만드는 방법을 다룹니다.
+오늘 만든 v3가 그 템플릿의 원본이 됩니다.</p>
+<p>오늘 완성한 비교표,
+댓글에 <strong>가장 개선 폭이 컸던 변경 이유</strong> 하나만 남겨 주세요.
+다른 분들의 로그가 여러분의 v1을 대신해 줄 겁니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

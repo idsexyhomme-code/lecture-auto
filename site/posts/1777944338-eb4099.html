@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#6 SNS 카드뉴스·숏폼 문구 일괄 생성하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#6 SNS 카드뉴스·숏폼 문구 일괄 생성하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-content-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>블로그 글 하나 썼는데, 인스타용 따로 고치고, 링크드인 톤 다시 잡고, X엔 또 줄이고.</p>
+<p>이거 하다 보면 30분이 훌쩍 지나가죠.</p>
+<p>결국 지쳐서 그냥 같은 문구 복붙하거나, 아예 SNS 업로드를 포기하게 됩니다.</p>
+<p>오늘은 그 반복 작업을 Claude 프롬프트 하나로 끝냅니다.</p>
+<p>블로그 초안 붙여넣기 한 번으로 3개 플랫폼 문구가 동시에 완성되는 구조, 지금 바로 만들어드릴게요.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 블로그 초안 1개를 Claude에 입력해서 인스타그램·링크드인·X 각각의 형식에 맞는 SNS 문구 세트를 단일 프롬프트로 한 번에 출력할 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 플랫폼별 글자 수·해시태그·어조 규칙</h3>
+<p><strong>설명</strong></p>
+<p>Claude가 엉뚱한 분량을 뱉는 이유는 단 하나입니다.</p>
+<p>우리가 규칙을 안 알려줬기 때문입니다.</p>
+<p>각 플랫폼에는 제각각 다른 '문법'이 있습니다.</p>
+<p>기억에 박히도록 이렇게 외워두세요.</p>
+<p><strong>3·3·1 숫자 페그</strong></p>
+<ul>
+<li>인스타그램: 본문 <strong>300자 이내</strong>, 해시태그 <strong>3–5개</strong>, 어조는 '친근한 친구'</li>
+<li>링크드인: 본문 <strong>600자 이내</strong>, 해시태그 <strong>3개</strong>, 어조는 '신뢰 가는 동료'</li>
+<li>X(트위터): 본문 <strong>140자 이내</strong>, 해시태그 <strong>1개</strong>, 어조는 '한 줄 팩트'</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>같은 내용 '아침 루틴의 중요성'을 각 플랫폼에 쓴다면,</p>
+<p>인스타는 "☀️ 아침 6시, 딱 10분이면 하루가 달라져요. 제가 3주 동안 직접 해보고 정리했어요 👇 #아침루틴 #생산성"</p>
+<p>링크드인은 "수백 명의 1인 사업자를 인터뷰한 결과, 공통점이 있었습니다. 바로 아침 루틴이었습니다. 구체적인 3단계를 정리했습니다. #ProductivityHacks"</p>
+<p>X는 "아침 10분 루틴이 하루 생산성을 바꾼다. 3주 실험 결과. #아침루틴"</p>
+<p><strong>반례</strong></p>
+<p>링크드인에 이모지를 잔뜩 쓰거나, X에 600자를 넘기면 어떻게 될까요?</p>
+<p>플랫폼 알고리즘이 외면하고, 독자도 이탈합니다.</p>
+<p>규칙을 모르면 Claude가 아무리 잘 써줘도 소용없습니다.</p>
+<p><strong>정리</strong></p>
+<p>프롬프트를 짜기 전에, 3·3·1 규칙표를 항상 먼저 Claude에게 명시하세요.</p>
+<hr />
+<h3>핵심 개념 2 — 멀티 포맷 출력 프롬프트 설계</h3>
+<p><strong>설명</strong></p>
+<p>'각각 따로 요청'하는 것과 '한 번에 같이 요청'하는 건 완전히 다릅니다.</p>
+<p>이미지로 기억하세요.</p>
+<p><strong>'요리사 한 명 vs. 주방 전체'</strong></p>
+<p>따로따로 요청하면, 요리사 한 명이 코스 요리를 하나씩 내옵니다.</p>
+<p>멀티 포맷 프롬프트는 주방 전체가 동시에 움직이는 겁니다.</p>
+<p><strong>설계 골격은 3단 구조입니다.</strong></p>
+<pre><code>[1] 역할 부여: &quot;당신은 SNS 카피라이터입니다.&quot;
+[2] 규칙 선언: 각 플랫폼의 글자 수·해시태그·어조를 표 형태로 제시
+[3] 출력 형식 지정: &quot;아래 형식으로 3개 플랫폼 결과를 한 번에 출력하세요.&quot;
+</code></pre>
+<p><strong>예시 프롬프트 구조</strong></p>
+<blockquote>
+<p>당신은 SNS 카피라이터입니다.
+아래 블로그 초안을 읽고, 다음 규칙에 따라 3개 플랫폼 문구를 동시에 작성해 주세요.</p>
+<p>[규칙표]
+인스타그램 | 300자 이내 | 해시태그 3–5개 | 친근한 어조
+링크드인 | 600자 이내 | 해시태그 3개 | 전문적 어조
+X | 140자 이내 | 해시태그 1개 | 간결한 팩트</p>
+<p>[출력 형식]</p>
+<h2>인스타그램</h2>
+<p>(문구)</p>
+<h2>링크드인</h2>
+<p>(문구)</p>
+<h2>X</h2>
+<p>(문구)</p>
+<p>[블로그 초안]
+(여기에 초안 붙여넣기)</p>
+</blockquote>
+<p><strong>반례</strong></p>
+<p>"인스타용으로 써줘"라고만 하면 Claude는 어조·분량·해시태그를 제멋대로 결정합니다.</p>
+<p>규칙표 없이 멀티 요청을 하면, 3개 결과의 품질이 들쭉날쭉해집니다.</p>
+<p><strong>정리</strong></p>
+<p>역할 → 규칙 → 형식, 이 3단 골격만 지키면 Claude는 매번 일관된 품질을 냅니다.</p>
+<hr />
+<h3>핵심 개념 3 — 배치 출력(Batch Output) 기법</h3>
+<p><strong>설명</strong></p>
+<p>배치 출력은 단순히 '한 번에 많이 받기'가 아닙니다.</p>
+<p><strong>'금형(金型) 은유'로 기억하세요.</strong></p>
+<p>금형을 한 번 만들어두면, 재료만 바꿔 넣어도 같은 모양이 계속 찍혀 나옵니다.</p>
+<p>배치 출력 프롬프트도 마찬가지입니다.</p>
+<p>형식 틀을 한 번 확정해두면, 블로그 초안만 교체해서 무한 반복할 수 있습니다.</p>
+<p><strong>3단계 배치 세팅</strong></p>
+<ol>
+<li><strong>고정 템플릿 저장</strong>: 규칙표 + 출력 형식을 텍스트 파일로 저장</li>
+<li><strong>변수 구간 표시</strong>: 블로그 초안이 들어갈 자리를 <code>[INPUT]</code>으로 표기</li>
+<li><strong>복붙 → 실행</strong>: 새 글 쓸 때마다 <code>[INPUT]</code> 자리만 교체 후 Claude에 붙여넣기</li>
+</ol>
+<p><strong>예시</strong></p>
+<p>한 달에 블로그 글을 8편 쓴다면, 배치 템플릿 하나로 24개 SNS 문구가 자동으로 완성됩니다.</p>
+<p>제 경험상, 세팅 초기 20분 투자로 매달 3–4시간을 절약할 수 있습니다.</p>
+<p><strong>반례</strong></p>
+<p>매번 프롬프트를 새로 쓰면, 규칙이 조금씩 달라집니다.</p>
+<p>결과물의 톤이 흔들리고, 피드 일관성도 무너집니다.</p>
+<p>배치 템플릿 없이 멀티 포맷을 쓰는 건, 금형 없이 도자기를 손으로만 빚는 것과 같습니다.</p>
+<p><strong>정리</strong></p>
+<p>템플릿 저장 → <code>[INPUT]</code> 교체 → 실행, 이 루틴이 콘텐츠 엔진의 핵심 기어입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 <strong>일시정지</strong>하고, 아래 4단계를 직접 따라 해보세요.</p>
+<p>완성 산출물은 <strong>'3개 플랫폼 SNS 문구 세트 시트'</strong> 입니다.</p>
+<hr />
+<p><strong>Step 1 — 재료 준비 (1분)</strong></p>
+<p>본인이 최근에 쓴 블로그 글 또는 긴 SNS 게시물 하나를 복사해두세요.</p>
+<p>없으면 오늘 배운 '아침 루틴' 예시 텍스트를 사용해도 됩니다.</p>
+<hr />
+<p><strong>Step 2 — 배치 템플릿 붙여넣기 (1분)</strong></p>
+<p>Claude 새 대화창을 열고, 아래 템플릿을 그대로 붙여넣으세요.</p>
+<blockquote>
+<p>당신은 SNS 카피라이터입니다.
+아래 블로그 초안을 읽고, 규칙에 따라 3개 플랫폼 문구를 동시에 작성해 주세요.</p>
+<p>[규칙]
+- 인스타그램: 300자 이내, 해시태그 3–5개, 이모지 포함, 친근한 어조
+- 링크드인: 600자 이내, 해시태그 3개, 이모지 없음, 전문적 어조
+- X: 140자 이내, 해시태그 1개, 간결한 팩트 문체</p>
+<p>[출력 형식]</p>
+<h2>인스타그램</h2>
+<h2>링크드인</h2>
+<h2>X</h2>
+<p>[INPUT]
+(여기에 블로그 초안 붙여넣기)</p>
+</blockquote>
+<hr />
+<p><strong>Step 3 — 실행 및 결과 확인 (1분)</strong></p>
+<p><code>[INPUT]</code> 아래에 Step 1의 글을 붙여넣고 전송하세요.</p>
+<p>3개 섹션이 한 번에 출력되는지 확인합니다.</p>
+<p>글자 수가 규칙을 벗어났다면, 해당 플랫폼 섹션만 "X는 140자로 다시"라고 추가 요청하세요.</p>
+<hr />
+<p><strong>Step 4 — 시트 정리 (1분)</strong></p>
+<p>구글 시트 또는 노션을 열고, 탭 3개를 만드세요.</p>
+<p>탭 이름: <code>인스타그램</code> / <code>링크드인</code> / <code>X</code></p>
+<p>각 탭에 오늘 생성한 문구를 붙여넣고 저장합니다.</p>
+<p>다음 달부터는 이 시트에 행(row)만 추가하면 됩니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #7에서는 오늘 만든 SNS 문구 시트를 기반으로, <strong>Claude가 자동으로 1주일 치 콘텐츠 캘린더를 짜주는 방법</strong>을 다룹니다.</p>
+<p>발행 일정, 플랫폼 순서, 재활용 전략까지 한 번에 정리됩니다.</p>
+<p>오늘 실습 결과물, 댓글에 공유해 주세요.</p>
+<p>여러분이 어떤 주제로 만들었는지 제가 직접 피드백 드리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 만드는 1인 사업 콘텐츠 엔진",
+    "lesson_no": 7,
+    "lesson_title": "주간 콘텐츠 캘린더 자동 기획하기",
+    "objective": "핵심 키워드 5개를 입력해 4주치 콘텐츠 캘린더(주제·채널·발행일·프롬프트 키)를 Claude로 생성하고 실제 일정에 맞게 수정한다",
+    "key_concepts": [
+      "콘텐츠 캘린더 구성 요소",
+      "주제 클러스터링과 키워드 배분",
+      "Claude에게 표 형식 출력 요청하기"
+    ],
+    "exercise": "4주치 콘텐츠 캘린더 스프레드시트 (주제·채널·발행일·담당 프롬프트 키 포함)",
+    "duration_min": 15
+  }
+}

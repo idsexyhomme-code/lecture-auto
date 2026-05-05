@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#4 프롬프트 반복 테스트로 품질 높이기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#4 프롬프트 반복 테스트로 품질 높이기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-autowork · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>프롬프트 썼는데 결과가 마음에 안 들어서, 그냥 다시 처음부터 쓴 적 있으시죠?</p>
+<p>뭘 어떻게 고쳐야 할지 몰라서, 감으로 단어만 바꿔보다가 포기하는 그 순간.</p>
+<p>그게 반복되면 Claude가 문제인지, 내 프롬프트가 문제인지조차 알 수 없게 됩니다.</p>
+<p>이번 차시에서는 그 막막함을 끝냅니다.</p>
+<p>프롬프트를 '찍어보는 것'이 아니라, '실험하는 것'으로 바꾸는 방법을 드릴게요.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 프롬프트를 3번 수정하면서 무엇을 왜 바꿨는지 기록한 개선 로그를 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 이터레이션 설계 : "요리 레시피 수정법"</h3>
+<p><strong>설명</strong></p>
+<p>이터레이션은 '무작위로 고치기'가 아닙니다.</p>
+<p>한 번에 딱 한 가지만 바꾸는 것이 핵심입니다.</p>
+<p>역할, 맥락, 출력 형식, 제약 조건 — 이 네 가지 중 하나씩만 손댑니다.</p>
+<p><strong>예시</strong></p>
+<p>v1에서 역할 지정을 추가했다면, v2에서는 역할은 그대로 두고 출력 형식만 바꿉니다.</p>
+<p>그래야 '무엇이 결과를 바꿨는지' 추적이 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>"좀 더 자세하게, 그리고 톤도 바꾸고, 예시도 넣어줘"처럼 한꺼번에 세 가지를 바꾸면, 결과가 좋아져도 이유를 모릅니다.</p>
+<p>다음에 같은 업무를 할 때 재현이 안 됩니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그 — 요리 레시피를 수정할 때 소금만 먼저 늘려보고 맛을 봅니다.</p>
+<p>간장과 소금을 동시에 바꾸면 뭐가 문제인지 알 수 없습니다.</p>
+<p>프롬프트 이터레이션도 똑같습니다. <strong>"한 번에 하나."</strong></p>
+<hr />
+<h3>핵심 개념 2 — 출력 평가 기준 : "채점표를 먼저 만든다"</h3>
+<p><strong>설명</strong></p>
+<p>출력이 마음에 드는지 안 드는지를 '느낌'으로 판단하면, 개선이 불가능합니다.</p>
+<p>출력 전에 평가 기준 3가지를 먼저 정해야 합니다.</p>
+<p>기준 예시: ① 정보 정확성, ② 분량 적절성, ③ 실무 적용 가능성.</p>
+<p><strong>예시</strong></p>
+<p>회의록 요약 프롬프트라면 기준을 이렇게 잡을 수 있습니다.</p>
+<p>"결정 사항이 빠짐없이 포함됐는가, 3줄 이내인가, 담당자 이름이 명시됐는가."</p>
+<p>각 기준을 1~5점으로 채점하면 v1과 v2를 숫자로 비교할 수 있습니다.</p>
+<p><strong>반례</strong></p>
+<p>"왠지 더 나아진 것 같은데"라고 주관적으로 판단하면, 다음 사람에게 프롬프트를 넘겨줄 때 설명이 불가능합니다.</p>
+<p>팀 공유도, 재사용도 어려워집니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그 — 학교 시험 채점표를 떠올리세요.</p>
+<p>채점 기준이 있어야 점수를 매길 수 있습니다.</p>
+<p>프롬프트 평가도 <strong>"기준 3개, 점수 5점 만점."</strong> 이것만 기억하세요.</p>
+<hr />
+<h3>핵심 개념 3 — 프롬프트 버전 관리 : "코드처럼 남긴다"</h3>
+<p><strong>설명</strong></p>
+<p>버전 관리는 개발자만 하는 게 아닙니다.</p>
+<p>프롬프트도 v1, v2, v3으로 날짜와 변경 이유를 함께 기록합니다.</p>
+<p>기록 양식은 단순할수록 좋습니다. 변경 내용, 변경 이유, 점수 변화, 이 세 칸이면 충분합니다.</p>
+<p><strong>예시</strong></p>
+<table>
+<thead>
+<tr>
+<th>버전</th>
+<th>변경 내용</th>
+<th>변경 이유</th>
+<th>점수 변화</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1</td>
+<td>기본 요청만 작성</td>
+<td>초안</td>
+<td>2/5</td>
+</tr>
+<tr>
+<td>v2</td>
+<td>역할 + 출력 형식 추가</td>
+<td>구조가 없어서 산만했음</td>
+<td>4/5</td>
+</tr>
+<tr>
+<td>v3</td>
+<td>분량 제한 + 예시 1개 추가</td>
+<td>너무 길었음</td>
+<td>5/5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>반례</strong></p>
+<p>"저번 거보다 나은 것 같아서 수정했어요"라고만 남기면, 두 달 뒤 같은 업무가 생겼을 때 처음부터 다시 실험해야 합니다.</p>
+<p>시간이 두 배로 듭니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그 — 소프트웨어 버전처럼 생각하세요.</p>
+<p>iOS 18.1 → 18.2, 변경 이유가 항상 따라옵니다.</p>
+<p>프롬프트도 <strong>"v번호 + 이유 + 점수"</strong>, 이 세 칸이 전부입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 직접 만들어 보세요.</p>
+<p><strong>실습 목표:</strong> 프롬프트 개선 실험 로그 (v1~v3 비교표) 완성</p>
+<hr />
+<p><strong>Step 1 — 업무 선택 (1분)</strong></p>
+<p>평소에 Claude에게 자주 맡기는 업무 하나를 고르세요.</p>
+<p>이메일 초안, 회의록 요약, 보고서 목차 — 무엇이든 좋습니다.</p>
+<p>종이나 노션에 업무 이름을 적어두세요.</p>
+<hr />
+<p><strong>Step 2 — 평가 기준 3개 작성 (1분)</strong></p>
+<p>그 업무의 좋은 출력이란 무엇인지 기준 3가지를 먼저 씁니다.</p>
+<p>각 기준은 "~한가?"로 끝나는 질문 형태로 만드세요.</p>
+<p>예: "핵심 내용이 빠짐없이 포함됐는가?"</p>
+<hr />
+<p><strong>Step 3 — v1 프롬프트 작성 후 평가 (1분)</strong></p>
+<p>지금 생각나는 대로 프롬프트를 작성하고 Claude에게 실행해 보세요.</p>
+<p>출력을 받은 뒤, Step 2의 기준 3개로 1~5점 채점합니다.</p>
+<p>로그 표에 v1 행을 채우세요.</p>
+<hr />
+<p><strong>Step 4 — v2, v3 수정 및 기록 (1분)</strong></p>
+<p>한 번에 한 가지만 바꿔서 v2를 만들고 다시 채점합니다.</p>
+<p>같은 방식으로 v3까지 반복합니다.</p>
+<p>각 행에 변경 내용과 변경 이유를 반드시 함께 적으세요.</p>
+<p>로그 표 3행이 채워졌다면 실습 완료입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 완성한 로그를 팀원과 공유하고, 프롬프트를 자산으로 관리하는 방법을 다룹니다.</p>
+<p>오늘 만든 v1~v3 비교표, 댓글에 올려주세요.</p>
+<p>제 경험상, 다른 수강생의 로그를 보는 것만으로도 아이디어가 2배 이상 늘어납니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

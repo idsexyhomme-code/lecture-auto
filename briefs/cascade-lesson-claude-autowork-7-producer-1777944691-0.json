@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 7,
+    "lesson_title": "SNS·뉴스레터 콘텐츠 배치 생성하기",
+    "objective": "하나의 핵심 아이디어로 SNS 3채널(인스타·링크드인·뉴스레터)에 맞는 콘텐츠 초안을 Claude로 한 번에 생성하는 워크플로우를 구성한다",
+    "key_concepts": [
+      "채널별 어조 차별화",
+      "원소스 멀티유즈 전략",
+      "배치 프롬프트 설계"
+    ],
+    "exercise": "1 소스 → 3채널 콘텐츠 배치 생성 프롬프트 및 결과물",
+    "duration_min": 15
+  }
+}
