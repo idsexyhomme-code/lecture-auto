@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 Claude에게 내 브랜드 목소리 학습시키기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 Claude에게 내 브랜드 목소리 학습시키기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-customer-script · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>고객 답장을 보낼 때마다 이런 생각, 하신 적 있으시죠?</p>
+<p>"오늘은 왠지 너무 딱딱하게 썼나?"
+"저번 답변이랑 어투가 달라 보이는데..."</p>
+<p>브랜드가 작을수록 일관된 목소리가 더 중요합니다.
+그런데 혼자 모든 글을 쓰다 보면 어투가 날마다 달라집니다.
+Claude를 쓴다 해도 매번 결과물이 제각각이라면 의미가 없죠.</p>
+<p>이 영상에서 Claude가 <strong>항상 내 목소리처럼 말하게</strong> 만드는 방법을 알려드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 브랜드 톤앤매너 5가지 키워드를 정의하고 Claude가 어떤 고객 질문에도 일관된 어투로 답변을 생성하는 <strong>'브랜드 보이스 마스터 프롬프트'</strong> 1개를 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 시스템 프롬프트: Claude의 '인격 설정 파일'</h3>
+<p><strong>설명</strong></p>
+<p>Claude에게 메시지를 보내는 방법은 두 가지입니다.
+일반 채팅창에 입력하는 <strong>유저 메시지</strong>,
+그리고 그보다 먼저 Claude의 역할 자체를 정의하는 <strong>시스템 프롬프트</strong>입니다.</p>
+<p>시스템 프롬프트는 Claude가 대화 내내 지켜야 할 <strong>행동 규칙서</strong>라고 생각하세요.
+한 번 설정하면 이후 모든 답변에 자동으로 적용됩니다.</p>
+<p><strong>메모리 페그 — '배우의 대본'</strong></p>
+<p>연극 배우를 떠올려 보세요.
+무대에 오르기 전, 감독이 캐릭터 설명서를 건넵니다.
+"당신은 20대 초반의 발랄한 플로리스트입니다."
+그 배우는 이후 어떤 대사를 치든 그 캐릭터로 말합니다.
+시스템 프롬프트가 바로 그 <strong>캐릭터 설명서</strong> 역할을 합니다.</p>
+<p><strong>예시</strong></p>
+<p>시스템 프롬프트에 이렇게 쓴다고 가정해 봅시다.</p>
+<blockquote>
+<p>"당신은 소규모 캔들 브랜드 '루미에르'의 CS 담당자입니다. 따뜻하고 감성적인 어투를 사용하며 고객을 '고객님' 대신 '루미에르 친구분'이라고 부릅니다."</p>
+</blockquote>
+<p>이 설정 이후 고객이 "배송이 왜 이렇게 늦어요?"라고 물으면, Claude는 딱딱한 CS 로봇이 아닌 <strong>루미에르의 목소리</strong>로 답합니다.</p>
+<p><strong>반례</strong></p>
+<p>반대로, 시스템 프롬프트 없이 매번 "따뜻하게 답변해줘"라고만 쓰면 어떻게 될까요?
+Claude는 그 요청을 그 대화에서만 반영합니다.
+다음 대화를 열면 다시 기본값으로 돌아옵니다.
+일관성은 <strong>설정 파일</strong>에서 나옵니다, 매번의 요청에서 나오는 게 아닙니다.</p>
+<p><strong>정리</strong></p>
+<p>시스템 프롬프트 = Claude의 인격 설정 파일.
+한 번 잘 만들어두면 매 대화마다 같은 목소리가 유지됩니다.</p>
+<hr />
+<h3>핵심 개념 2 — 톤앤매너 정의: '형용사 5개 + 금지어 3개' 공식</h3>
+<p><strong>설명</strong></p>
+<p>"우리 브랜드는 친근하고 전문적이에요"라는 말, 막연하게 들리지 않나요?
+Claude도 마찬가지입니다. 추상적인 지시는 추상적인 결과를 냅니다.
+그래서 저는 <strong>형용사 5개 + 금지어 3개</strong> 공식을 씁니다.</p>
+<p><strong>메모리 페그 — '5+3 팔레트'</strong></p>
+<p>화가가 작품을 그리기 전에 쓸 색깔 5개를 고르고, 절대 쓰지 않을 색 3개를 정한다고 상상하세요.
+형용사 5개는 <strong>써도 좋은 색</strong>,
+금지어 3개는 <strong>팔레트에서 치워둔 색</strong>입니다.</p>
+<p><strong>예시</strong></p>
+<p>헬스 PT 1인 사업가의 경우를 봐봅시다.</p>
+<ul>
+<li>형용사 5개: 동기부여적인, 현실적인, 격려하는, 직설적인, 에너지 넘치는</li>
+<li>금지어 3개: '힘드시겠어요'(동정적 표현), '불가능한', '어렵다'</li>
+</ul>
+<p>이 두 목록이 있으면 Claude는 고객 불만 메시지에도 <strong>동정 대신 응원</strong>의 톤으로 답합니다.</p>
+<p><strong>반례</strong></p>
+<p>형용사만 나열하고 금지어를 빠뜨리면 어떻게 될까요?
+"친근하게 답변해줘"라고만 했을 때 Claude가 고객을 "자기야~"처럼 부른 사례가 실제로 있습니다.
+<strong>무엇을 쓰지 말아야 하는지</strong>가 브랜드 경계선을 만듭니다.</p>
+<p><strong>정리</strong></p>
+<p>형용사 5개로 방향을 잡고, 금지어 3개로 경계를 친다.
+이 두 가지가 합쳐져야 진짜 브랜드 목소리가 됩니다.</p>
+<hr />
+<h3>핵심 개념 3 — Few-shot 예시: '정답지를 먼저 보여주기'</h3>
+<p><strong>설명</strong></p>
+<p>지금까지 Claude에게 <strong>어떤 사람인지</strong> 알려줬다면,
+이제는 <strong>실제로 어떻게 말하는지</strong> 보여줄 차례입니다.
+이것이 <strong>Few-shot 예시 삽입</strong>입니다.</p>
+<p>Few-shot이란 '몇 가지 예시를 먼저 보여주는' 방식입니다.
+정답지를 먼저 보여주면 Claude가 그 패턴을 학습해서 비슷한 답변을 생성합니다.</p>
+<p><strong>메모리 페그 — '2쌍의 정답지'</strong></p>
+<p>숫자 2를 기억하세요.
+예시 대화 <strong>최소 2쌍</strong>이면 어투 고정에 충분합니다.
+1쌍은 우연, 2쌍은 패턴입니다.</p>
+<p><strong>예시</strong></p>
+<p>시스템 프롬프트 안에 이렇게 삽입합니다.</p>
+<blockquote>
+<p><strong>예시 1</strong>
+고객: "환불 가능한가요?"
+루미에르: "루미에르 친구분, 문의 주셔서 감사해요. 구매일로부터 7일 이내라면 교환·환불 모두 도와드릴 수 있습니다. 주문번호를 알려주시겠어요?"</p>
+<p><strong>예시 2</strong>
+고객: "향이 생각보다 약한 것 같아요."
+루미에르: "소중한 피드백 감사드려요. 제 경험상 초기 3회 연소 이후 향이 훨씬 풍부해집니다. 조금만 더 경험해보시고 그래도 아쉬우시면 다시 알려주세요!"</p>
+</blockquote>
+<p>이 두 쌍이 있으면 Claude는 이후 새로운 질문에도 <strong>같은 문체와 구조</strong>로 답합니다.</p>
+<p><strong>반례</strong></p>
+<p>예시를 넣되 어투가 서로 다른 두 쌍을 넣으면 역효과입니다.
+예시 1은 격식체, 예시 2는 반말 느낌이면 Claude가 두 스타일을 혼용합니다.
+<strong>예시끼리 어투가 일관</strong>되어야 효과가 납니다.</p>
+<p><strong>정리</strong></p>
+<p>최소 2쌍의 예시 대화를 프롬프트에 넣으면 어투가 고정됩니다.
+예시는 패턴이고, 패턴이 일관성을 만듭니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 따라해 보세요.
+Notion이나 메모장 새 문서를 하나 열어두세요.</p>
+<hr />
+<p><strong>STEP 1 — 기본 정보 채우기 (1분)</strong></p>
+<p>아래 빈칸을 채우세요.</p>
+<ul>
+<li>브랜드명: <strong><em>_</em></strong>____</li>
+<li>업종 / 제공 서비스: <strong><em>_</em></strong>____</li>
+<li>타깃 고객: <strong><em>_</em></strong>____</li>
+</ul>
+<hr />
+<p><strong>STEP 2 — 형용사 5개 + 금지어 3개 쓰기 (1분)</strong></p>
+<p>지금 내 브랜드를 표현하는 형용사 5개를 적으세요.
+막히면 이 질문을 활용하세요.</p>
+<blockquote>
+<p>"내 브랜드가 사람이라면, 어떤 친구 같은가?"</p>
+</blockquote>
+<p>그 다음, 절대 쓰지 않을 단어·표현 3개를 적으세요.</p>
+<hr />
+<p><strong>STEP 3 — 예시 대화 2쌍 작성 (1분)</strong></p>
+<p>실제로 자주 받는 고객 질문 2개를 고르세요.
+각 질문에 대해 <strong>내가 원하는 어투로</strong> 답변을 직접 써보세요.
+이게 Few-shot 예시가 됩니다.</p>
+<hr />
+<p><strong>STEP 4 — 마스터 프롬프트 조합 (30초)</strong></p>
+<p>아래 템플릿에 STEP 1~3 내용을 붙여넣으세요.</p>
+<blockquote>
+<p>"당신은 [브랜드명]의 CS 담당자입니다.
+어투 키워드: [형용사 5개]
+절대 사용 금지: [금지어 3개]
+아래 예시처럼 답변하세요.
+[예시 대화 2쌍]"</p>
+</blockquote>
+<p>완성된 문서를 저장해두세요.
+이것이 앞으로 매번 붙여넣을 <strong>나만의 브랜드 보이스 마스터 프롬프트</strong>입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 마스터 프롬프트를 실제 CS 상황에 적용합니다.
+환불 요청, 배송 불만, 재구매 유도까지 <strong>5가지 고객 시나리오별 답변</strong>을 Claude로 만들어봅니다.</p>
+<p>오늘 완성한 마스터 프롬프트를 댓글에 공유해 주세요.
+브랜드명과 형용사 5개만 올려도 충분합니다.
+다른 분들의 사례가 여러분의 아이디어가 됩니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
