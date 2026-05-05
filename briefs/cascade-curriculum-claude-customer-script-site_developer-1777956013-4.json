@@ -1,0 +1,9 @@
+{
+  "agent": "site_developer",
+  "brief": {
+    "instruction": "새 코스 'Claude로 CS 자동화: 1인 사업가 생존 키트' (course_id: claude-customer-script)가 추가됐습니다. site_config.json의 course_overrides에 이 코스의 *title_override*와 *tagline_override*를 다듬어 주세요. 다른 필드는 절대 만지지 않습니다. 코스 톤 힌트: 하루 2시간 CS 지옥에서 벗어나는 Claude 실전 자동화",
+    "brand_tone": "차분하고 단단한 한국어, 과장 표현 금지",
+    "target_audience": "CS 응대에 하루 1~3시간을 소모하는 1인 사업가·프리랜서·소규모 셀러",
+    "restrictions": "course_overrides 외 다른 필드 변경 금지, WCAG AA 유지"
+  }
+}
