@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 10,
+    "lesson_title": "Zapier·Make로 Claude 워크플로우 연결하기",
+    "objective": "Zapier 또는 Make를 사용해 이메일 수신 → Claude 처리 → 슬랙 알림으로 이어지는 자동화 파이프라인을 직접 구성하고 테스트 결과를 기록한다",
+    "key_concepts": [
+      "노코드 자동화 도구",
+      "API 연결 기초",
+      "트리거·액션 설계"
+    ],
+    "exercise": "Zapier/Make 자동화 파이프라인 캡처 + 테스트 결과 로그",
+    "duration_min": 15
+  }
+}
