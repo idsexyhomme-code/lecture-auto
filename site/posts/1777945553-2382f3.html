@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#8 나만의 콘텐츠 엔진 완성 및 운영 SOP 작성 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#8 나만의 콘텐츠 엔진 완성 및 운영 SOP 작성<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-content-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>1차시부터 7차시까지 열심히 따라왔는데, 막상 혼자 하려니 뭐부터 해야 할지 모르겠죠?</p>
+<p>프롬프트는 여기저기 흩어져 있고, 캘린더는 따로 있고, 템플릿은 또 다른 폴더에 있고.</p>
+<p>매주 월요일 아침, 콘텐츠 만들려고 열어보면 "어디서 시작하더라?" 하면서 30분이 날아갑니다.</p>
+<p>오늘 이 문제를 한 번에 끝냅니다.</p>
+<p>지금까지 만든 모든 것을 하나의 SOP 문서로 묶어서, 다음 주 월요일부터는 문서 하나만 열면 바로 시작할 수 있게 만들겠습니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 매주 반복 가능한 콘텐츠 제작 SOP 문서를 직접 완성하고, 기존 대비 절감되는 시간을 숫자로 계산해서 문서에 기록할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — SOP 작성 원칙: "다른 사람도 따라할 수 있는가"</h3>
+<p><strong>설명</strong></p>
+<p>SOP는 Standard Operating Procedure, 표준운영절차입니다.</p>
+<p>핵심 기준은 하나입니다. "내가 아파서 못 할 때, 다른 누군가가 이 문서만 보고 똑같이 할 수 있는가?"</p>
+<p>1인 사업자는 이 질문이 더 중요합니다. 3개월 뒤의 '나'도 이 문서를 처음 보는 사람이나 마찬가지니까요.</p>
+<p>SOP 작성의 3가지 원칙은 이렇습니다.</p>
+<p>첫째, <strong>액션 중심</strong>으로 씁니다. "콘텐츠를 기획한다"가 아니라 "Claude에 #3 아이디어 발굴 프롬프트를 붙여넣고 결과물 5개를 캘린더에 복사한다"처럼 동사와 대상을 명확히 합니다.</p>
+<p>둘째, <strong>시간 단위</strong>를 붙입니다. 각 단계 옆에 예상 소요시간을 적습니다. "10분", "25분" 이런 식으로요.</p>
+<p>셋째, <strong>링크로 연결</strong>합니다. 문서 안에서 프롬프트, 템플릿, 캘린더로 바로 이동할 수 있게 연결합니다.</p>
+<p><strong>예시</strong></p>
+<p>좋은 SOP 한 줄의 예시입니다.</p>
+<blockquote>
+<p>Step 3 | 초안 작성 | 15분 | [프롬프트 #5 블로그 초안 링크] | Claude에 주제와 타겟 독자를 입력 후 초안 생성 → Google Docs에 붙여넣기</p>
+</blockquote>
+<p>이 한 줄에 순서, 이름, 시간, 링크, 행동이 모두 들어 있습니다.</p>
+<p><strong>반례</strong></p>
+<p>나쁜 SOP 한 줄은 이렇습니다.</p>
+<blockquote>
+<ol>
+<li>글 쓰기</li>
+</ol>
+</blockquote>
+<p>이건 SOP가 아니라 메모입니다. 3개월 뒤에 이걸 보면 "어떻게 썼었지?" 하며 처음부터 다시 고민하게 됩니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>SOP를 쓸 때 이 이미지를 떠올리세요. "레시피 카드."</p>
+<p>좋은 레시피는 재료, 분량, 순서, 시간이 전부 적혀 있습니다. 요리를 못하는 사람도 따라 할 수 있죠. 여러분의 SOP도 그 레시피 카드여야 합니다.</p>
+<hr />
+<h3>핵심 개념 2 — 워크플로우 병목 진단: "가장 오래 걸리는 한 단계를 찾아라"</h3>
+<p><strong>설명</strong></p>
+<p>SOP를 완성했다고 끝이 아닙니다. 운영하다 보면 특정 단계에서 매번 막히는 지점이 생깁니다. 이걸 <strong>병목</strong>이라고 부릅니다.</p>
+<p>병목 진단에는 딱 3가지 질문이면 충분합니다.</p>
+<ol>
+<li>"이 단계를 할 때 가장 많이 미루는가?" — 심리적 저항 확인</li>
+<li>"이 단계에서 예상 시간을 초과한 적이 3번 이상인가?" — 시간 초과 확인</li>
+<li>"이 단계 결과물이 마음에 안 들어서 다시 할 때가 많은가?" — 품질 재작업 확인</li>
+</ol>
+<p>셋 중 하나라도 '예'이면 그 단계가 병목입니다.</p>
+<p><strong>예시</strong></p>
+<p>제 경험상 1인 콘텐츠 운영에서 가장 흔한 병목은 두 곳입니다.</p>
+<p>하나는 <strong>아이디어 선정 단계</strong>입니다. "이게 맞나?" 고민하다 시간을 씁니다.</p>
+<p>다른 하나는 <strong>초안 퇴고 단계</strong>입니다. Claude가 만든 초안을 내 말투로 고치는 데 예상보다 오래 걸립니다.</p>
+<p>병목을 찾았으면 해결책은 단순합니다. 해당 단계의 프롬프트를 더 구체화하거나, 판단 기준을 문서에 추가하거나, 단계를 둘로 나눕니다.</p>
+<p><strong>반례</strong></p>
+<p>병목을 찾지 않고 SOP 전체를 통째로 개선하려는 경우가 있습니다. 이렇게 하면 잘 돌아가던 단계까지 건드리게 되어 오히려 더 복잡해집니다.</p>
+<p>전체 최적화보다 <strong>한 군데 병목 제거</strong>가 훨씬 효과적입니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>병목은 "물 호스의 꺾인 부분"입니다. 호스 전체를 교체할 필요 없이, 꺾인 그 한 곳만 펴면 물이 쭉 흐릅니다. 매주 SOP를 돌린 뒤, 꺾인 곳이 어디인지 딱 하나만 찾으세요.</p>
+<hr />
+<h3>핵심 개념 3 — 프롬프트 버전 관리: "V1, V2, V3의 차이를 남겨라"</h3>
+<p><strong>설명</strong></p>
+<p>프롬프트는 한 번 만들고 끝이 아닙니다. 쓰다 보면 더 좋은 표현을 발견하고 계속 수정하게 됩니다.</p>
+<p>문제는 수정할 때마다 이전 버전을 지워버리면, 어떤 변경이 결과를 좋게 했는지 알 수 없다는 겁니다.</p>
+<p>버전 관리의 핵심 규칙은 3가지입니다.</p>
+<p>첫째, <strong>버전 번호</strong>를 붙입니다. 파일명이나 문서 제목에 V1, V2, V3로 구분합니다.</p>
+<p>둘째, <strong>변경 이유</strong>를 한 줄로 남깁니다. "V2 → V3: 예시 2개 추가, 결과물 톤이 너무 딱딱했던 문제 해결"처럼요.</p>
+<p>셋째, <strong>이전 버전은 지우지 않습니다.</strong> 같은 문서 아래에 접어두거나, 별도 탭에 보관합니다.</p>
+<p><strong>예시</strong></p>
+<p>Notion을 사용한다면 프롬프트 데이터베이스에 '버전' 속성을 하나 추가하는 것만으로 충분합니다.</p>
+<p>Google Docs라면 문서 하단에 "## 이전 버전 보관" 섹션을 만들고 거기에 쌓아가면 됩니다.</p>
+<p>3개월 뒤에 버전 히스토리를 보면, 내 프롬프트가 어떻게 진화했는지 한눈에 보입니다. 이게 나만의 콘텐츠 자산이 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>"어차피 Claude한테 다시 만들면 되니까 프롬프트 관리 안 해도 되지 않나?"라고 생각할 수 있습니다.</p>
+<p>하지만 좋은 결과물이 나왔을 때 어떤 프롬프트를 썼는지 기억하지 못하는 상황이 생기면, 그 품질을 재현하는 데 또 시간이 걸립니다.</p>
+<p>버전 관리는 "좋은 결과를 반복하는 능력"입니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>프롬프트 버전 관리는 <strong>요리 연구가의 레시피 노트</strong>입니다. 처음 만든 버전, 수정한 버전, 지금 가장 잘 되는 버전. 노트에 다 남겨두는 거죠. "이번엔 소금을 조금 줄였더니 더 맛있었다"처럼 변경 이유가 있어야 다음에 더 잘 만들 수 있습니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 직접 만들어 보세요.</p>
+<p>오늘 만들 산출물은 <strong>주간 콘텐츠 제작 SOP 문서</strong> 한 장입니다.</p>
+<p>아래 순서대로 따라오세요.</p>
+<hr />
+<p><strong>Step 1 — 뼈대 만들기 (3분)</strong></p>
+<p>Notion, Google Docs, 또는 메모 앱 어디든 새 문서를 엽니다.</p>
+<p>제목은 "주간 콘텐츠 제작 SOP — V1 | [오늘 날짜]"로 입력합니다.</p>
+<p>그 아래에 표를 하나 만듭니다. 열은 5개입니다.</p>
+<blockquote>
+<p>단계 번호 | 단계 이름 | 예상 소요시간 | 사용 프롬프트 링크 | 개선 메모</p>
+</blockquote>
+<hr />
+<p><strong>Step 2 — 단계 채우기 (5분)</strong></p>
+<p>1~7차시에서 만든 작업 흐름을 떠올리며 단계를 채웁니다.</p>
+<p>최소 5단계, 최대 10단계로 구성하세요.</p>
+<p>예를 들면 이렇습니다.</p>
+<blockquote>
+<p>1 | 주제 아이디어 발굴 | 10분 | [#3 프롬프트 링크] | 아직 개선 메모 없음</p>
+</blockquote>
+<p>각 단계에 실제 소요 시간을 솔직하게 적습니다. 이상적인 시간이 아니라 실제 걸리는 시간으로요.</p>
+<hr />
+<p><strong>Step 3 — 시간 합산 및 절감 계산 (2분)</strong></p>
+<p>모든 단계의 예상 소요시간을 더해 <strong>총 주간 소요시간</strong>을 적습니다.</p>
+<p>그 아래에 한 줄을 추가합니다.</p>
+<blockquote>
+<p>"Claude 도입 전 예상 시간: N시간 → 현재 SOP 기준 시간: N시간 | 주당 절감: N시간"</p>
+</blockquote>
+<p>이 숫자가 여러분의 콘텐츠 엔진이 만들어낸 첫 번째 성과 지표입니다.</p>
+<hr />
+<p><strong>Step 4 — 개선 메모란 활용 선언 (1분)</strong></p>
+<p>맨 아래에 짧게 이 문장을 추가합니다.</p>
+<blockquote>
+<p>"매주 금요일, SOP를 돌린 뒤 병목이었던 단계 1개를 찾아 개선 메모란에 기록한다."</p>
+</blockquote>
+<p>이걸 적는 것만으로 여러분의 SOP는 살아있는 문서가 됩니다.</p>
+<hr />
+<p>다 만들었으면 영상을 다시 재생하세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>오늘로 코스의 모든 차시가 완성됐습니다.</p>
+<p>다음 영상은 <strong>보너스 차시</strong>입니다. 지금까지 만든 콘텐츠 엔진을 외부 도구, Zapier나 Make와 연결해서 자동화하는 방법을 다룹니다.</p>
+<p>SOP 문서를 완성하셨다면, 댓글에 "주당 절감 시간"을 숫자 하나만 남겨주세요.</p>
+<p>다른 수강생들에게 가장 실질적인 동기부여가 될 겁니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
