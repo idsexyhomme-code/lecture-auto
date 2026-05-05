@@ -1,0 +1,16 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "hero",
+    "purpose": "Claude로 부캐 서비스 1주일 런칭 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+    "audience": "본업을 유지하면서 자신의 지식·경험을 상품화하려는 1인 사업가 또는 직장인 부업 준비자",
+    "style_keywords": [
+      "editorial",
+      "warm beige",
+      "trustworthy",
+      "academic"
+    ],
+    "color_mood": "warm",
+    "additional_context": "코어 캠퍼스 코스 'Claude로 부캐 서비스 1주일 런칭'의 페이지 헤더 시안."
+  }
+}

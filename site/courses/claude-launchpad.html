@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Claude로 부캐 서비스 1주일 런칭 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<section class="hero">
+  <div class="wrap">
+    <span class="badge">코스</span>
+    <h1 data-edit-field="site_config:course_overrides.claude-launchpad.title_override">Claude로 부캐 서비스 1주일 런칭</h1>
+    <p class="lead" data-edit-field="site_config:course_overrides.claude-launchpad.tagline_override">아이디어에서 첫 유료 고객까지, 단 7일 완성</p>
+  </div>
+</section>
+
+
+
+
+<article class="body" style="background: var(--soft);">
+  <div class="wrap">
+    <h2>커리큘럼</h2>
+    <h1>Claude로 부캐 서비스 1주일 런칭</h1>
+<blockquote>
+<p>아이디어에서 첫 유료 고객까지, 단 7일 완성</p>
+</blockquote>
+<h2>결과 약속</h2>
+<ul>
+<li>Claude를 활용해 시장조사·포지셔닝·서비스 기획을 하루 만에 완성할 수 있다</li>
+<li>랜딩페이지·오퍼 문서·SNS 콘텐츠를 직접 제작해 7일 안에 서비스를 공개 런칭할 수 있다</li>
+<li>첫 유료 고객 획득을 위한 DM·이메일 세일즈 스크립트를 스스로 작성하고 실행할 수 있다</li>
+</ul>
+<p><strong>타깃:</strong> 본업을 유지하면서 자신의 지식·경험을 상품화하려는 1인 사업가 또는 직장인 부업 준비자</p>
+<p><strong>선수지식:</strong> Claude(claude.ai) 계정 보유 및 기본 채팅 사용 경험, 판매하고 싶은 분야나 스킬에 대한 막연한 아이디어 1개</p>
+<h2>차시별 커리큘럼</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>제목</th>
+<th>학습목표</th>
+<th>실습</th>
+<th>분</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>부캐 콘셉트 발굴: 나만의 틈새시장 찾기</td>
+<td>Claude 프롬프트를 활용해 자신의 경험·스킬 목록에서 수익화 가능한 틈새 포지션 3개를 문서로 도출한다</td>
+<td>나의 스킬 × 타깃 고객 × 문제 매트릭스 워크시트 (A4 1장)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>검증된 오퍼 설계: 팔리는 서비스 패키지 만들기</td>
+<td>Claude와 대화해 선택한 포지션을 기반으로 가격·범위·결과물이 명시된 서비스 패키지 1개를 작성한다</td>
+<td>서비스 패키지 원페이저 문서 (제목·대상·포함내용·가격·CTA 포함)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>시장 검증: 경쟁자 분석 &amp; 차별화 포인트 정리</td>
+<td>Claude를 이용해 유사 서비스 5개를 비교 분석한 표를 만들고 자신만의 차별화 문장 1개를 완성한다</td>
+<td>경쟁자 비교표 + 나만의 USP 한 문장 (스프레드시트 또는 표 문서)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>랜딩페이지 카피 작성: 방문자를 고객으로 전환하는 글쓰기</td>
+<td>Claude 프롬프트 체인을 사용해 헤드라인·문제-해결-증거-CTA 구조의 랜딩페이지 카피 초안을 완성한다</td>
+<td>랜딩페이지 카피 초안 문서 (섹션별 텍스트 전체, 최소 500자)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>5</td>
+<td>런칭 영상 제작: 60초 서비스 소개 영상 스크립트 &amp; 촬영</td>
+<td>Claude로 생성한 스크립트를 바탕으로 서비스 핵심 가치를 전달하는 60초 세로형 소개 영상 1편을 촬영·편집한다</td>
+<td>60초 서비스 소개 영상 파일 (세로형 MP4, 자막 포함)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>6</td>
+<td>SNS 런칭 콘텐츠 5종 세트 제작</td>
+<td>Claude를 활용해 인스타그램·스레드·링크드인용 런칭 게시물 5개를 플랫폼별 톤에 맞게 작성한다</td>
+<td>플랫폼별 런칭 게시물 5개 모음 문서 (각 게시물 본문 + 해시태그 포함)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>7</td>
+<td>첫 고객 유치: DM &amp; 이메일 세일즈 스크립트 작성</td>
+<td>Claude로 잠재 고객 유형 2가지에 대응하는 DM 스크립트와 콜드 이메일 템플릿을 각 1개씩 완성한다</td>
+<td>DM 스크립트 1개 + 콜드 이메일 템플릿 1개 (총 2종 문서)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>8</td>
+<td>7일 런칭 플랜 실행 &amp; 회고 영상 제작</td>
+<td>1~7차시 산출물을 통합해 실제 런칭 후 배운 점·수정할 점·다음 액션을 담은 3분 회고 영상을 제작한다</td>
+<td>3분 런칭 회고 영상 (결과 지표 + 개선안 + 다음 계획 포함, 세로형 MP4)</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<h2>평가</h2>
+<p>8개 차시 산출물(워크시트·패키지 문서·비교표·카피·영상 2편·SNS 콘텐츠·스크립트)을 모두 제출하고, 실제 SNS에 런칭 게시물 1개 이상 공개 업로드 인증 시 수료 뱃지 발급</p>
+  </div>
+</article>
+
+
+
+
+
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-launchpad",
+    "course_title": "Claude로 부캐 서비스 1주일 런칭",
+    "lesson_no": 1,
+    "lesson_title": "부캐 콘셉트 발굴: 나만의 틈새시장 찾기",
+    "objective": "Claude 프롬프트를 활용해 자신의 경험·스킬 목록에서 수익화 가능한 틈새 포지션 3개를 문서로 도출한다",
+    "key_concepts": [
+      "퍼스널 에셋 인벤토리",
+      "틈새 포지셔닝",
+      "페르소나 고객 정의"
+    ],
+    "exercise": "나의 스킬 × 타깃 고객 × 문제 매트릭스 워크시트 (A4 1장)",
+    "duration_min": 15
+  }
+}

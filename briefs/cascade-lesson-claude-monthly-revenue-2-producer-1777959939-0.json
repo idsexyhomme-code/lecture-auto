@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-monthly-revenue",
+    "course_title": "Claude로 매출 자동 분석·보고서 완성",
+    "lesson_no": 2,
+    "lesson_title": "Claude에게 숫자 읽히기: 첫 분석 프롬프트",
+    "objective": "기본 분석 프롬프트 구조(역할·데이터·지시·출력형식)를 활용해 총매출·평균·최고·최저 4가지 지표를 한 번에 추출하는 프롬프트를 작성한다",
+    "key_concepts": [
+      "역할 지정(Role)",
+      "출력 형식 지정",
+      "숫자 지표 추출 명령"
+    ],
+    "exercise": "4가지 지표가 포함된 Claude 응답 캡처 이미지 1장",
+    "duration_min": 15
+  }
+}
