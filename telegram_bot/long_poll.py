@@ -94,8 +94,31 @@ def _git(*args: str) -> tuple[int, str]:
         return -1, str(e)
 
 
+def _ensure_on_main() -> bool:
+    """detached HEAD 상태이면 main 브랜치로 자동 복구.
+
+    rebase가 충돌나거나 force-with-lease 경합으로 detached HEAD에 빠지는 경우 자동 정상화.
+    """
+    rc, out = _git("symbolic-ref", "--short", "HEAD")
+    if rc == 0 and out.strip() == "main":
+        return True
+    log.warning("[git] detached HEAD 감지 — main으로 복구 시도")
+    # rebase 진행 중이면 abort
+    _git("rebase", "--abort")
+    _git("merge", "--abort")
+    # 현재 commit hash 저장
+    rc, current_sha = _git("rev-parse", "HEAD")
+    # main으로 강제 이동 + 커밋 데이터 보존 (cherry-pick 등은 push에서 처리)
+    _git("checkout", "-B", "main")
+    log.info("[git] main 브랜치로 복구 완료 (was %s)", current_sha[:8] if current_sha else "?")
+    return True
+
+
 def _git_sync_changes() -> bool:
     """변경 사항이 있으면 commit + push. 성공 여부 반환."""
+    # ★ detached HEAD 자동 복구
+    _ensure_on_main()
+
     # 현재 변경 사항 확인
     rc, out = _git("status", "--porcelain")
     if rc != 0 or not out.strip():
@@ -115,14 +138,22 @@ def _git_sync_changes() -> bool:
         log.warning("git commit 실패: %s", out[:200])
         return False
 
-    # pull --rebase로 충돌 방지 (agent-bot이 자동 push했을 수 있음)
-    _git("pull", "--rebase")
+    # pull --rebase로 충돌 방지 — 충돌 시 ours 전략 (데몬은 자기 변경을 우선)
+    rc_pull, _ = _git("pull", "--rebase", "-X", "ours", "origin", "main")
+    if rc_pull != 0:
+        log.warning("[git] pull 실패 — rebase 정리 후 재시도")
+        _git("rebase", "--abort")
+        _ensure_on_main()
 
-    # push
-    rc, out = _git("push")
+    # push — HEAD를 명시적으로 origin/main으로 (detached 상태도 안전)
+    rc, out = _git("push", "origin", "HEAD:main")
     if rc != 0:
-        log.warning("git push 실패: %s", out[:200])
-        return False
+        log.warning("git push 실패: %s — main 강제 복구 후 재시도", out[:200])
+        _ensure_on_main()
+        rc, out = _git("push", "origin", "HEAD:main")
+        if rc != 0:
+            log.error("git push 재시도 실패: %s", out[:200])
+            return False
 
     log.info("✓ 변경 사항 push 완료")
     return True

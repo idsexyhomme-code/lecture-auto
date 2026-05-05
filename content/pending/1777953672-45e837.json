@@ -1,0 +1,28 @@
+{
+  "id": "1777953672-45e837",
+  "agent": "producer",
+  "kind": "lecture_script",
+  "title": "#10 Zapier·Make로 Claude 워크플로우 연결하기",
+  "body_md": "## HOOK (45초)\n\n이메일이 쌓일 때마다 Claude 창 열고, 복사하고, 답변 받고, 슬랙에 붙여넣고 — 이 손 노동, 오늘 끝냅니다.\n\nZapier나 Make 한 번만 연결해 두면, 이메일이 도착하는 순간 Claude가 알아서 처리하고 슬랙에 결과를 던져줍니다. 여러분은 아무것도 안 해도 됩니다.\n\n---\n\n## PROMISE (30초)\n\n이 차시가 끝나면, '이메일 수신 → Claude 자동 처리 → 슬랙 알림' 파이프라인을 직접 구성하고 실제 테스트 결과 로그를 손에 쥘 수 있습니다.\n\n---\n\n## CORE (8–10분)\n\n### 핵심 개념 1 — 노코드 자동화 도구: \"레고 블록 조립\"\n\n**설명**\nZapier와 Make는 코드 없이 앱과 앱을 연결하는 자동화 플랫폼입니다. 각 앱은 레고 블록 하나입니다. 블록을 순서대로 이으면 파이프라인이 완성됩니다.\n\nZapier는 블록 연결이 직관적입니다. Make는 시각적 흐름도로 복잡한 분기 처리에 강합니다. 이 강의에서는 두 도구 모두 다루지만, 처음이라면 Zapier를 권장합니다.\n\n**예시**\nGmail에 고객 문의 이메일 도착 → Zapier가 감지 → Claude에 전달 → 요약문 생성 → 슬랙 #고객문의 채널에 자동 전송.\n\n**반례**\n\"그냥 ChatGPT로 하면 안 되나요?\" 됩니다. 하지만 그건 여전히 여러분이 수동으로 열고 붙여넣는 구조입니다. 자동화 도구 없이는 사람이 트리거 역할을 해야 합니다.\n\n**정리**\n메모리 페그: **레고 3단계** — 앱 연결, 순서 배치, 실행. 이 3단계가 노코드 자동화의 전부입니다.\n\n---\n\n### 핵심 개념 2 — API 연결 기초: \"전화번호부\"\n\n**설명**\nClaude를 Zapier·Make에 연결하려면 Anthropic API 키가 필요합니다. API 키는 일종의 전화번호입니다. Zapier가 Claude에게 전화를 걸 때 쓰는 고유 번호입니다.\n\nAnthropic 콘솔(console.anthropic.com)에서 발급받고, Zapier 또는 Make의 'Claude(Anthropic)' 앱 연결 화면에 붙여넣으면 됩니다. HTTP Request 액션을 쓰는 경우에도 동일하게 Authorization 헤더에 `Bearer [API키]` 형태로 입력합니다.\n\n**예시**\nMake에서 HTTP 모듈을 선택 → URL에 `https://api.anthropic.com/v1/messages` 입력 → 헤더에 API 키 붙여넣기 → Body에 프롬프트 JSON 작성. 이 순서면 Claude와 통신이 됩니다.\n\n**반례**\nAPI 키를 Zap 설명란이나 메모 필드에 그냥 적어두는 분이 있습니다. 키는 반드시 플랫폼의 '보안 자격증명' 또는 'Credentials' 영역에만 저장하세요. 외부에 노출되면 과금 위험이 있습니다.\n\n**정리**\n메모리 페그: **전화번호부 1줄** — API 키 1개, 연결 화면 1곳, 입력 1번. 세 번의 1이면 연결 완료입니다.\n\n---\n\n### 핵심 개념 3 — 트리거·액션 설계: \"도미노 법칙\"\n\n**설명**\n자동화 파이프라인은 도미노입니다. 첫 번째 조각이 트리거, 나머지가 액션입니다. 트리거 하나가 쓰러지면 뒤의 액션이 차례로 실행됩니다.\n\n이번 파이프라인의 도미노 순서는 다음과 같습니다.\n\n1. **트리거** — Gmail 새 이메일 수신\n2. **액션 1** — 이메일 본문을 Claude에 전달 (프롬프트 포함)\n3. **액션 2** — Claude 응답(요약·분류 등)을 슬랙 채널에 전송\n\n트리거 설계 시 필터를 걸어두는 것이 중요합니다. 예를 들어, 제목에 '문의'가 포함된 이메일만 처리하도록 조건을 추가하면 불필요한 API 호출을 줄일 수 있습니다.\n\n**예시**\nZapier 설정 화면 기준으로 설명하면, Trigger 앱: Gmail → Event: New Email → Filter: Subject contains '문의'. Action 1 앱: Webhooks by Zapier(또는 Claude 앱) → Claude API 호출. Action 2 앱: Slack → Event: Send Channel Message.\n\n**반례**\n트리거를 '모든 이메일 수신'으로 설정하면, 광고 메일·뉴스레터까지 전부 Claude에 던집니다. API 호출 횟수 = 비용입니다. 필터는 선택이 아니라 설계 필수 요소로 보세요.\n\n**정리**\n메모리 페그: **도미노 3칸** — 트리거(이메일) → 처리(Claude) → 출력(슬랙). 도미노가 서려면 필터라는 '받침대'가 있어야 합니다.\n\n---\n\n## EXERCISE (3–4분)\n\n지금 영상을 일시정지하고 아래 4단계를 직접 따라해 주세요.\n\n**Step 1 — 계정 준비 (2분)**\nZapier(zapier.com) 또는 Make(make.com) 무료 계정을 준비합니다. Anthropic 콘솔에서 API 키를 복사해 두세요.\n\n**Step 2 — 파이프라인 구성 (10분)**\n새 Zap(또는 Scenario)을 만듭니다.\n- 트리거: Gmail → New Email → 필터: Subject contains '테스트'\n- 액션 1: Claude(Anthropic) 앱 또는 HTTP Request → 프롬프트: \"다음 이메일을 3줄로 요약해줘: {{이메일 본문}}\"\n- 액션 2: Slack → Send Channel Message → 채널: #자동화-테스트\n\n**Step 3 — 테스트 실행 (3분)**\n자신의 Gmail로 제목에 '테스트'가 포함된 이메일을 발송합니다. Zapier·Make의 테스트 실행 버튼을 누르고 슬랙 채널에 Claude 응답이 도착하는지 확인합니다.\n\n**Step 4 — 결과 로그 기록 (2분)**\n파이프라인 화면을 캡처합니다. 슬랙에 도착한 Claude 응답도 캡처합니다. 캡처 파일 2장을 하나의 문서에 정리해 두세요. 이것이 오늘의 산출물입니다.\n\n---\n\n## CTA (30초)\n\n다음 차시 #11에서는 Claude를 Notion 데이터베이스와 연결해, 자동으로 회의록을 구조화하는 파이프라인을 만듭니다. 오늘보다 한 단계 더 실용적인 워크플로우입니다.\n\n오늘 만든 파이프라인 캡처를 댓글에 올려주세요. 막히는 단계가 있다면 어느 스텝인지 함께 적어주시면 직접 답변 드리겠습니다.\n\n---\n\n예상 분량: 15분",
+  "summary": "Zapier 또는 Make를 사용해 이메일 수신 → Claude 처리 → 슬랙 알림으로 이어지는 자동화 파이프라인을 직접 구성하고 테스트 결과를 기록한다",
+  "meta": {
+    "brief": {
+      "course_id": "claude-autowork",
+      "course_title": "Claude로 업무 자동화 실전 마스터",
+      "lesson_no": 10,
+      "lesson_title": "Zapier·Make로 Claude 워크플로우 연결하기",
+      "objective": "Zapier 또는 Make를 사용해 이메일 수신 → Claude 처리 → 슬랙 알림으로 이어지는 자동화 파이프라인을 직접 구성하고 테스트 결과를 기록한다",
+      "key_concepts": [
+        "노코드 자동화 도구",
+        "API 연결 기초",
+        "트리거·액션 설계"
+      ],
+      "exercise": "Zapier/Make 자동화 파이프라인 캡처 + 테스트 결과 로그",
+      "duration_min": 15
+    }
+  },
+  "course_id": "claude-autowork",
+  "created_at": "2026-05-05T04:01:12+00:00",
+  "status": "pending",
+  "telegram_message_id": null
+}

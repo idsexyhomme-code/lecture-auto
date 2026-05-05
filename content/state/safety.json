@@ -1,51 +1,21 @@
 {
   "last_reset_date": "2026-05-05",
-<<<<<<< HEAD
-  "daily_brief_count": 44,
+  "daily_brief_count": 2,
   "daily_agent_calls": {
-    "producer": 36,
-    "blog_publisher": 8
+    "producer": 2
   },
-  "daily_estimated_cost_usd": 3.0799999999999987,
-  "recent_call_timestamps": [
-    {
-      "agent": "blog_publisher",
-      "ts": 1777945609.880932
-    },
-    {
-      "agent": "blog_publisher",
-      "ts": 1777945663.089501
-    },
-    {
-      "agent": "blog_publisher",
-      "ts": 1777945723.566648
-    },
-    {
-      "agent": "blog_publisher",
-      "ts": 1777945781.342062
-    },
-    {
-      "agent": "producer",
-      "ts": 1777945890.50311
-=======
-  "daily_brief_count": 45,
-  "daily_agent_calls": {
-    "producer": 37,
-    "blog_publisher": 8
-  },
-  "daily_estimated_cost_usd": 3.1499999999999986,
+  "daily_estimated_cost_usd": 0.14,
   "recent_call_timestamps": [
     {
       "agent": "producer",
-      "ts": 1777945873.6460037
+      "ts": 1777953627.066585
     },
     {
       "agent": "producer",
-      "ts": 1777946146.7966714
->>>>>>> 4d7cef205d52f2ca84baac3344d358349c79b855
+      "ts": 1777953673.704834
     }
   ],
   "paused": false,
   "pause_reason": "",
-  "auto_mode": true
+  "auto_mode": false
 }
