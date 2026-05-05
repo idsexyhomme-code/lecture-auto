@@ -33,7 +33,7 @@
       "ts": 1777964643.629638
     }
   ],
-  "paused": false,
-  "pause_reason": "",
+  "paused": true,
+  "pause_reason": "일일 brief 50개 한도 도달",
   "auto_mode": true
 }
