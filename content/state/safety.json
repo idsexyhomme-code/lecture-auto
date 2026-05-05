@@ -1,19 +1,11 @@
 {
   "last_reset_date": "2026-05-05",
-  "daily_brief_count": 9,
+  "daily_brief_count": 10,
   "daily_agent_calls": {
-    "producer": 9
+    "producer": 10
   },
-  "daily_estimated_cost_usd": 0.6300000000000001,
+  "daily_estimated_cost_usd": 0.7000000000000002,
   "recent_call_timestamps": [
-    {
-      "agent": "producer",
-      "ts": 1777954786.768378
-    },
-    {
-      "agent": "producer",
-      "ts": 1777954795.3038971
-    },
     {
       "agent": "producer",
       "ts": 1777954864.174929
@@ -25,6 +17,10 @@
     {
       "agent": "producer",
       "ts": 1777955062.998506
+    },
+    {
+      "agent": "producer",
+      "ts": 1777955126.606497
     }
   ],
   "paused": false,
