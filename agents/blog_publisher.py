@@ -93,6 +93,31 @@ HTML로만 답하세요. 코드펜스 금지."""
 
         title = (landing.get("hero") or {}).get("headline") or course_title
 
+        # ★ 이미지 자동 생성 (gpt-image-2) + 본문 상단에 임베드
+        # 전략: 티스토리에 업로드 안 함 → GitHub Pages에 호스팅 → <img>가 공개 URL 가리킴
+        hero_img_url = None
+        try:
+            from agents.image_gen import generate_blog_image
+            img_prompt = (
+                f"Editorial magazine cover for Korean online course '{course_title}'. "
+                f"Warm beige and dark brown palette (#F5EFE0, #3B2A1E), "
+                f"minimalist composition, abstract geometric shapes representing "
+                f"knowledge and growth. No Korean text in image (text rendering inconsistent). "
+                f"Quiet intellectual atmosphere, editorial photography style."
+            )
+            _, hero_img_url = generate_blog_image(img_prompt, f"{course_id}-hero")
+            hero_img_html = (
+                f'<p style="text-align:center;margin:20px 0">'
+                f'<img src="{hero_img_url}" alt="{title}" '
+                f'style="max-width:100%;height:auto;border-radius:8px;'
+                f'box-shadow:0 4px 12px rgba(0,0,0,0.08)">'
+                f'</p>'
+            )
+            body_html = hero_img_html + "\n\n" + body_html
+            log.info("[blog] ✓ hero image embedded: %s", hero_img_url)
+        except Exception as e:
+            log.warning("[blog] hero image gen failed (텍스트로만 진행): %s", e)
+
         # 티스토리 자동 게시 시도 — 실패하면 로컬 HTML 파일로 fallback
         published_url = None
         skip_tistory = os.environ.get("TISTORY_SKIP", "").lower() in ("1", "true", "yes")
@@ -153,6 +178,7 @@ HTML로만 답하세요. 코드펜스 금지."""
             meta={
                 "title": title,
                 "body_html": body_html,
+                "hero_image_url": hero_img_url,
                 "tistory_url": published_url,
                 "tistory_status": "draft" if published_url else "failed",
             },
