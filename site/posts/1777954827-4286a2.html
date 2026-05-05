@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#12 나만의 AI 페르소나 설계하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#12 나만의 AI 페르소나 설계하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-autowork · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>Claude한테 같은 질문을 했는데,
+어제는 딱딱하게, 오늘은 친근하게 대답하죠?</p>
+<p>고객이 "AI 같다"는 말을 들을 때마다
+브랜드 신뢰가 조금씩 무너집니다.</p>
+<p>이 문제의 원인은 하나입니다.
+Claude가 <strong>여러분의 브랜드를 모르기 때문</strong>입니다.</p>
+<p>오늘 차시가 끝나면 Claude는
+항상 같은 목소리로, 같은 방식으로 답합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면,
+브랜드 어조·금지 표현·응답 스타일을 담은
+<strong>나만의 System Prompt</strong>를 완성하고,
+3가지 실제 시나리오로 직접 검증할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 브랜드 보이스 정의</h3>
+<p><strong>설명</strong></p>
+<p>브랜드 보이스는 세 가지 층위로 이루어집니다.
+첫째, <strong>어조(Tone)</strong>: 따뜻한가, 전문적인가.
+둘째, <strong>어휘(Vocabulary)</strong>: 쓸 말과 쓰지 않을 말.
+셋째, <strong>문장 길이(Rhythm)</strong>: 짧게 끊을지, 풀어서 설명할지.</p>
+<p>이 세 가지가 정의되지 않으면
+Claude는 매번 다른 브랜드로 대답합니다.</p>
+<p><strong>예시</strong></p>
+<p>스킨케어 브랜드 "루미에르"를 예로 들겠습니다.
+어조는 "따뜻하고 전문적", 어휘 금지 목록에는 "저렴한·싸다·할인폭"을 넣고,
+문장은 2문장 이내로 끊는 방식을 선택했습니다.</p>
+<p><strong>반례</strong></p>
+<p>반대로 어조만 정의하고 금지 어휘를 빠뜨리면
+Claude가 "이 제품은 저렴한 가격에…"라고 쓸 수 있습니다.
+브랜드 이미지와 정반대의 문장이 나오는 거죠.</p>
+<p><strong>정리 — 메모리 페그 🎨 "3색 팔레트"</strong></p>
+<blockquote>
+<p>어조(파랑) · 어휘(빨강) · 리듬(초록).
+이 세 색이 모두 채워져야 브랜드 보이스가 완성됩니다.</p>
+</blockquote>
+<hr />
+<h3>핵심 개념 2 — System Prompt 고급 설계</h3>
+<p><strong>설명</strong></p>
+<p>System Prompt는 Claude에게 주는
+<strong>역할 계약서</strong>입니다.
+좋은 계약서에는 반드시 4개 블록이 있습니다.</p>
+<ul>
+<li><strong>Role(역할)</strong>: "너는 루미에르의 고객 상담 전문가야."</li>
+<li><strong>Style(스타일)</strong>: "두 문장 이내, 경어체 사용."</li>
+<li><strong>Prohibition(금지)</strong>: "경쟁사 언급, 가격 비교 표현 금지."</li>
+<li><strong>Format(형식)</strong>: "목록 대신 자연스러운 문장으로."</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>실제 System Prompt 구조를 보겠습니다.</p>
+<pre><code>[Role] 너는 루미에르 브랜드의 공식 상담 전문가야.
+[Style] 따뜻하고 신뢰감 있는 어조로, 두 문장 이내로 답해.
+[Prohibition] '저렴한', '싸다', '할인폭', 경쟁사 이름은 절대 쓰지 마.
+[Format] 번호 목록 대신 자연스러운 문장으로 구성해.
+</code></pre>
+<p>이 구조만 지켜도 응답 일관성이 눈에 띄게 달라집니다.</p>
+<p><strong>반례</strong></p>
+<p>Role만 넣고 Format을 빠뜨리면
+Claude가 제 멋대로 표 형식이나 긴 목록으로 답합니다.
+고객 채팅창에 표가 뜨면 어색하죠.</p>
+<p><strong>정리 — 메모리 페그 📋 "4블록 계약서"</strong></p>
+<blockquote>
+<p>Role · Style · Prohibition · Format.
+4개 블록, 빠지는 것 없이 채우세요.</p>
+</blockquote>
+<hr />
+<h3>핵심 개념 3 — 페르소나 검증 방법</h3>
+<p><strong>설명</strong></p>
+<p>System Prompt를 썼다고 끝이 아닙니다.
+제 경험상, 처음 작성한 프롬프트의 약 70%는
+첫 번째 검증에서 수정이 필요합니다.</p>
+<p>검증은 <strong>3가지 유형의 시나리오</strong>로 합니다.</p>
+<ul>
+<li><strong>일반 질문</strong>: 브랜드가 가장 많이 받는 평범한 질문.</li>
+<li><strong>경계 질문</strong>: 금지 어휘나 어조가 무너질 수 있는 민감한 질문.</li>
+<li><strong>돌발 질문</strong>: 브랜드 범위 밖의 예상치 못한 질문.</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>루미에르 기준으로 보겠습니다.</p>
+<ul>
+<li>일반: "이 세럼 어떻게 사용하나요?"</li>
+<li>경계: "경쟁 브랜드 A랑 비교하면 어때요?"</li>
+<li>돌발: "피부과 시술도 추천해줄 수 있어요?"</li>
+</ul>
+<p>각 답변이 브랜드 보이스를 유지하는지 체크합니다.</p>
+<p><strong>반례</strong></p>
+<p>일반 질문만 테스트하면
+경계·돌발 상황에서 Claude가 금지 어휘를 씁니다.
+실제 고객 대화에서는 경계·돌발 질문이 더 많이 옵니다.</p>
+<p><strong>정리 — 메모리 페그 🔬 "1–2–3 스트레스 테스트"</strong></p>
+<blockquote>
+<p>일반(1) · 경계(2) · 돌발(3).
+이 순서로 돌려야 진짜 검증이 완성됩니다.</p>
+</blockquote>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 <strong>일시정지</strong>하고 따라 하세요.</p>
+<p><strong>Step 1 — 브랜드 보이스 시트 채우기 (1분)</strong></p>
+<p>종이나 노션을 열고 세 줄을 씁니다.
+- 어조:
+- 금지 어휘 (최소 5개):
+- 문장 리듬 (짧게/길게):</p>
+<p><strong>Step 2 — 4블록 System Prompt 작성 (2분)</strong></p>
+<p>아래 템플릿을 복사해서 여러분 브랜드로 채우세요.</p>
+<pre><code>[Role] 너는 ○○ 브랜드의 공식 상담 전문가야.
+[Style] ○○한 어조로, ○문장 이내로 답해.
+[Prohibition] '○○', '○○' 표현은 쓰지 마.
+[Format] ○○ 형식으로 구성해.
+</code></pre>
+<p><strong>Step 3 — 3가지 시나리오 검증 (1분)</strong></p>
+<p>Claude에 System Prompt를 넣고
+일반·경계·돌발 질문을 각각 1개씩 입력합니다.
+답변 중 어색한 부분을 메모해 두세요.</p>
+<p>산출물은 두 가지입니다.
+첫째, 완성된 System Prompt 문서.
+둘째, 시나리오 3개와 개선 메모.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 <strong>#13</strong>에서는
+이 페르소나를 <strong>실제 고객 응대 자동화 파이프라인</strong>에
+연결하는 방법을 다룹니다.</p>
+<p>오늘 만든 System Prompt를
+댓글에 남겨 주세요.
+제가 직접 피드백 드리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
