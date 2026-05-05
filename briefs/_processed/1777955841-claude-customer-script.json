@@ -1,0 +1,11 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-customer-script",
+    "topic": "Claude로 고객 응대 스크립트·DM 답장 자동화",
+    "audience": "1인 사업가, CS 응대에 시달리는 사람",
+    "duration_weeks": 4,
+    "lesson_count": 8,
+    "format": "video"
+  }
+}

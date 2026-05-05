@@ -1,0 +1,11 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-monthly-revenue",
+    "topic": "Claude로 월 매출 자동 분석 + 보고서 자동 생성",
+    "audience": "1인 사업가, 매출 관리에 시간 쓰기 싫은 사람",
+    "duration_weeks": 4,
+    "lesson_count": 8,
+    "format": "video"
+  }
+}
