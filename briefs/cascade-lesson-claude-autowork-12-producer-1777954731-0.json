@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 12,
+    "lesson_title": "나만의 AI 페르소나 설계하기",
+    "objective": "브랜드 어조·금지 표현·응답 스타일을 반영한 System Prompt를 작성해 Claude가 일관된 브랜드 목소리로 응답하도록 설정하고 3가지 시나리오로 검증한다",
+    "key_concepts": [
+      "브랜드 보이스 정의",
+      "System Prompt 고급 설계",
+      "페르소나 검증 방법"
+    ],
+    "exercise": "브랜드 페르소나 System Prompt 문서 + 검증 시나리오 3개",
+    "duration_min": 15
+  }
+}
