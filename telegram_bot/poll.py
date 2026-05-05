@@ -939,19 +939,41 @@ if __name__ == "__main__":
         format="%(asctime)s [%(name)s] %(message)s",
     )
 
-    # ★ 데몬 모드 — 환경변수 ONESHOT=1이면 1회만, 기본은 무한 루프 (30초 주기)
+    # ★ 데몬 모드 — 환경변수 ONESHOT=1이면 1회만, 기본은 무한 루프
+    #   30초마다: 텔레그램 polling
+    #   150초마다 (5번째 사이클): brief 처리 (conductor.process_pending_briefs)
     oneshot = os.environ.get("ONESHOT", "0").lower() in ("1", "true", "yes")
 
     if oneshot:
         n = run()
         print(f"Processed {n} update(s)")
     else:
-        log.info("[poll] 데몬 모드 시작 — 30초마다 polling")
+        # 데몬 모드 — brief 처리 + 텔레그램 polling 통합
+        from agents.conductor import process_pending_briefs
+
+        log.info("[poll] 데몬 모드 시작 — polling 30s + brief 처리 150s")
+        cycle = 0
         while True:
             try:
+                # ① 텔레그램 polling
                 n = run()
                 if n > 0:
-                    log.info("Processed %d update(s)", n)
+                    log.info("Processed %d telegram update(s)", n)
+
+                # ② 5 사이클(=150초)마다 brief 처리
+                cycle += 1
+                if cycle >= 5:
+                    cycle = 0
+                    try:
+                        log.info("[poll] brief 처리 사이클 시작")
+                        files = process_pending_briefs()
+                        if files:
+                            log.info("[poll] ✓ %d개 brief 처리 완료", len(files))
+                        else:
+                            log.debug("[poll] (대기 brief 없음)")
+                    except Exception as e:
+                        log.exception("[poll] brief 처리 실패: %s", e)
+
             except KeyboardInterrupt:
                 log.info("[poll] 종료 신호 받음")
                 break
