@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#5 뉴스레터 포맷으로 파생 콘텐츠 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#5 뉴스레터 포맷으로 파생 콘텐츠 만들기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-content-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>4차시에서 블로그 초안 완성했죠.</p>
+<p>근데 딱 거기서 멈추셨나요?</p>
+<p>콘텐츠 하나 만드는 데 2시간 걸렸는데, 그걸 블로그 하나에만 쓰고 끝낸다면 솔직히 손해입니다.</p>
+<p>뉴스레터 구독자들은 블로그 독자와 다른 심리로 읽어요.</p>
+<p>같은 글을 그냥 붙여넣으면 열람률이 떨어집니다.</p>
+<p>오늘은 Claude에게 파생 프롬프트 하나를 던져서, 블로그 초안을 뉴스레터 전용 구조로 변환하는 법을 정확히 보여드릴게요.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 블로그 초안을 입력해 Claude가 훅·본문·CTA 3섹션 구조의 뉴스레터를 자동으로 출력하는 파생 프롬프트를 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 콘텐츠 재목적화(Repurposing) 프롬프트 패턴</h3>
+<p><strong>설명</strong></p>
+<p>재목적화는 단순 복붙이 아닙니다.</p>
+<p>채널이 달라지면 형식·길이·어조를 전부 바꿔야 합니다.</p>
+<p>프롬프트 패턴으로 표현하면 이렇습니다.</p>
+<blockquote>
+<p>"이 콘텐츠를 [원본 채널]에서 [목표 채널]로 변환해.
+목표 채널의 독자 특성은 [특성]이고,
+지켜야 할 구조는 [구조]야."</p>
+</blockquote>
+<p>메모리 페그는 <strong>'3C 변환'</strong> 입니다.</p>
+<p>Channel(채널), Character(어조), Constraint(제약).</p>
+<p>이 세 가지를 프롬프트에 명시하면 Claude가 맥락을 잃지 않아요.</p>
+<p><strong>예시</strong></p>
+<p>"이 블로그 포스트를 뉴스레터로 변환해.
+독자는 바쁜 1인 사업자고,
+읽는 시간은 3분 이내야.
+훅·본문·CTA 3섹션 구조를 지켜줘."</p>
+<p><strong>반례</strong></p>
+<p>"이 글 뉴스레터로 바꿔줘."</p>
+<p>이렇게만 입력하면 Claude는 블로그 원문을 그대로 요약합니다.</p>
+<p>채널 특성과 구조 제약이 없으면 재목적화가 아니라 축약이 되죠.</p>
+<p><strong>정리</strong></p>
+<p>재목적화 프롬프트에는 반드시 3C(Channel·Character·Constraint)를 포함하세요.</p>
+<hr />
+<h3>핵심 개념 2 — 뉴스레터 3섹션 구조</h3>
+<p><strong>설명</strong></p>
+<p>뉴스레터는 크게 세 덩어리로 움직입니다.</p>
+<p><strong>1 훅(Hook):</strong> 제목과 첫 두 문장.</p>
+<p>열람을 결정짓는 구간입니다.</p>
+<p><strong>2 본문(Body):</strong> 핵심 인사이트 1~3개.</p>
+<p>리스트·소제목으로 스캔 가능하게 구성합니다.</p>
+<p><strong>3 CTA(Call to Action):</strong> 독자가 지금 해야 할 행동 1가지.</p>
+<p>링크·질문·답장 유도 중 하나만 넣으세요.</p>
+<p>메모리 페그는 <strong>'1-3-1 샌드위치'</strong> 입니다.</p>
+<p>훅 1줄 → 인사이트 3개 → 행동 1개.</p>
+<p><strong>예시</strong></p>
+<p>훅: "프리랜서 95%가 견적서에서 돈을 잃는 이유"</p>
+<p>본문: ① 단가 근거 없음 ② 범위 명시 없음 ③ 수정 횟수 미기재</p>
+<p>CTA: "지금 가장 최근 견적서를 열어서 3가지를 확인해 보세요."</p>
+<p><strong>반례</strong></p>
+<p>CTA에 링크 3개를 넣는 경우.</p>
+<p>독자는 어디로 가야 할지 몰라 아무것도 클릭하지 않습니다.</p>
+<p>행동은 하나만 요청하세요.</p>
+<p><strong>정리</strong></p>
+<p>1-3-1 구조를 프롬프트에 템플릿처럼 고정하면 매번 흔들리지 않습니다.</p>
+<hr />
+<h3>핵심 개념 3 — 채널별 독자 심리 차이</h3>
+<p><strong>설명</strong></p>
+<p>블로그 독자는 <strong>탐색 모드</strong> 입니다.</p>
+<p>검색해서 들어왔고, 깊이 읽을 준비가 되어 있어요.</p>
+<p>뉴스레터 독자는 <strong>수신 모드</strong> 입니다.</p>
+<p>받은편지함에서 열었고, 30초 안에 가치가 보여야 계속 읽습니다.</p>
+<p>메모리 페그는 <strong>'서점 vs. 택배박스'</strong> 입니다.</p>
+<p>서점(블로그)에선 손님이 직접 고릅니다.</p>
+<p>택배박스(뉴스레터)는 내가 먼저 가치를 증명해야 열어봐요.</p>
+<p><strong>예시</strong></p>
+<p>블로그 도입부: "오늘은 콘텐츠 마케팅의 역사를 살펴보고…"</p>
+<p>뉴스레터 훅: "콘텐츠 하나로 리드 23개를 만든 구조, 지금 공개합니다."</p>
+<p>같은 글이어도 뉴스레터는 결과·수치·긴박감을 앞으로 당깁니다.</p>
+<p><strong>반례</strong></p>
+<p>뉴스레터에서 블로그식 긴 배경 설명을 그대로 사용하는 경우.</p>
+<p>독자는 두 번째 줄에서 이미 닫아버립니다.</p>
+<p><strong>정리</strong></p>
+<p>Claude에게 "뉴스레터 독자는 수신 모드"라고 명시하면 어조가 자동으로 바뀝니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 따라해 보세요.</p>
+<p><strong>준비물:</strong> 4차시에서 완성한 블로그 초안 텍스트</p>
+<hr />
+<p><strong>Step 1. 파생 프롬프트 틀 복사</strong></p>
+<p>아래 템플릿을 Claude에 붙여넣으세요.</p>
+<blockquote>
+<p>아래 블로그 초안을 뉴스레터로 변환해줘.</p>
+<p>독자 특성: 바쁜 1인 사업자, 읽기 가능 시간 3분 이내</p>
+<p>출력 구조:
+1. 훅 — 제목 1줄 + 첫 문장 2줄. 결과나 수치를 앞으로 당길 것.
+2. 본문 — 핵심 인사이트 3개를 번호 리스트로. 각 항목은 2문장 이내.
+3. CTA — 독자가 지금 당장 할 수 있는 행동 1가지만 제시.</p>
+<p>어조: 친근하되 군더더기 없이. 존댓말 유지.</p>
+<p>[블로그 초안 붙여넣기]</p>
+</blockquote>
+<hr />
+<p><strong>Step 2. 블로그 초안 붙여넣기</strong></p>
+<p>템플릿 마지막 줄에 4차시 블로그 초안 전체를 붙여넣으세요.</p>
+<hr />
+<p><strong>Step 3. 결과물 검토</strong></p>
+<p>Claude 출력 후 아래 3가지를 확인하세요.</p>
+<ul>
+<li>훅 첫 문장에 수치 또는 결과가 있는가?</li>
+<li>본문 인사이트가 정확히 3개인가?</li>
+<li>CTA 행동이 하나만 있는가?</li>
+</ul>
+<p>하나라도 빠졌다면 "훅에 수치를 추가해줘" 식으로 단계별 수정 프롬프트를 이어서 입력하세요.</p>
+<hr />
+<p><strong>Step 4. 최종 저장</strong></p>
+<p>완성된 뉴스레터 초안을 별도 문서에 저장합니다.</p>
+<p>파일명 규칙 예시: <code>NL_05_뉴스레터초안_YYYYMMDD</code></p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 6차시에서는 이 뉴스레터 초안을 LinkedIn 카드뉴스 캡션으로 한 번 더 파생하는 법을 다룹니다.</p>
+<p>하나의 블로그가 세 채널 콘텐츠로 완성되는 구조예요.</p>
+<p>오늘 실습 결과물이 나왔다면, 댓글에 완성한 뉴스레터 훅 첫 문장만 붙여넣어 주세요.</p>
+<p>제가 직접 피드백 드리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
