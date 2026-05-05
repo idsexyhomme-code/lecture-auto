@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 Claude에게 숫자 읽히기: 첫 분석 프롬프트 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 Claude에게 숫자 읽히기: 첫 분석 프롬프트<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-monthly-revenue · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>매출 데이터를 받은 날, 엑셀 열어서 SUM 함수 치고, AVERAGE 치고, 다시 정렬하고— 이 반복이 지긋지긋하신 분, 지금 딱 맞게 오셨습니다.</p>
+<p>숫자는 있는데, 의미 있는 숫자로 만드는 데 시간이 다 가버리죠.</p>
+<p>오늘 이 영상 하나로, Claude에게 데이터를 던지면 총매출·평균·최고·최저를 한 번에 뽑아주는 프롬프트를 완성합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 역할·데이터·지시·출력형식, 이 4칸짜리 틀 하나로 Claude에서 핵심 지표 4개를 한 번에 뽑는 프롬프트를 직접 작성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 역할 지정(Role): "요리사를 먼저 불러라"</h3>
+<p><strong>설명</strong></p>
+<p>Claude는 역할을 먼저 받으면 응답 방향이 달라집니다.</p>
+<p>"너는 데이터 분석가야"라는 한 문장이 전체 출력의 품질을 바꿉니다.</p>
+<p>프롬프트 맨 앞에 역할을 선언하는 것, 이걸 저는 '요리사 먼저 부르기'라고 부릅니다.</p>
+<p>재료를 올리기 전에 셰프를 주방에 세우는 것과 같습니다.</p>
+<p><strong>예시</strong></p>
+<blockquote>
+<p>"당신은 매출 데이터를 전문으로 분석하는 비즈니스 애널리스트입니다."</p>
+</blockquote>
+<p>이 한 줄만 붙여도, Claude는 이후 숫자를 경영 맥락에서 해석하려 합니다.</p>
+<p><strong>반례</strong></p>
+<p>역할 없이 "이 데이터 분석해줘"라고 쓰면 어떻게 될까요?</p>
+<p>Claude는 일반적인 설명을 늘어놓거나, 지표 대신 그래프 제안을 먼저 합니다.</p>
+<p>원하는 것과 다른 방향으로 흘러가는 경우가 많습니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그: <strong>'요리사 = 역할'.</strong> 프롬프트의 첫 줄은 항상 역할 선언입니다.</p>
+<hr />
+<h3>핵심 개념 2 — 숫자 지표 추출 명령: "4개 자물쇠, 4개 열쇠"</h3>
+<p><strong>설명</strong></p>
+<p>Claude에게 숫자를 뽑으려면, 뽑고 싶은 지표를 명시적으로 나열해야 합니다.</p>
+<p>총매출·평균·최고·최저, 이 4가지를 '4개 열쇠'라고 기억하세요.</p>
+<p>하나라도 빠지면 Claude는 빠진 자물쇠를 그냥 지나칩니다.</p>
+<p><strong>예시</strong></p>
+<blockquote>
+<p>"아래 데이터에서 다음 4가지를 계산해 주세요.
+1) 총매출 합계
+2) 월 평균 매출
+3) 최고 매출 월과 금액
+4) 최저 매출 월과 금액"</p>
+</blockquote>
+<p>이렇게 번호로 나열하면 Claude는 4가지를 빠짐없이 돌려줍니다.</p>
+<p><strong>반례</strong></p>
+<p>"매출 좀 정리해줘"라고 쓰면 Claude는 총합만 주거나, 맥락 설명만 길게 씁니다.</p>
+<p>원하는 4개 지표가 뭔지 Claude는 알 수 없습니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그: <strong>4자물쇠 = 총합·평균·최고·최저.</strong> 지시 섹션에서 번호로 명시합니다.</p>
+<hr />
+<h3>핵심 개념 3 — 출력 형식 지정: "그릇을 먼저 정해라"</h3>
+<p><strong>설명</strong></p>
+<p>분석 결과가 산문으로 오면 복붙하기 불편하고, 표로 오면 바로 보고서에 씁니다.</p>
+<p>출력 형식을 미리 지정하는 것, 저는 이걸 '그릇 먼저 정하기'라고 부릅니다.</p>
+<p>표·번호 목록·마크다운 헤더, 세 가지 중 하나를 골라 명시하세요.</p>
+<p><strong>예시</strong></p>
+<blockquote>
+<p>"결과는 마크다운 표 형식으로 작성해 주세요.
+열은 '지표명 | 값 | 해당 월' 순서로 구성하세요."</p>
+</blockquote>
+<p>이렇게 쓰면 Claude는 정확히 그 형태로 돌려줍니다.</p>
+<p><strong>반례</strong></p>
+<p>형식 지정을 빠뜨리면 Claude는 편한 방식으로 씁니다.</p>
+<p>어떤 날은 표, 어떤 날은 단락, 결과가 매번 달라집니다.</p>
+<p>반복 작업에서 형식 일관성이 무너지면 정리에 시간이 다시 듭니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그: <strong>'그릇 = 출력 형식'.</strong> 프롬프트 마지막 칸은 항상 형식 선언으로 닫습니다.</p>
+<hr />
+<h3>4칸 틀 전체 조합 (1분 요약)</h3>
+<p>지금까지 배운 3개 개념을 4칸 틀로 합치면 이렇게 됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>칸</th>
+<th>내용</th>
+<th>예시 키워드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>역할</td>
+<td>누구로 행동할지</td>
+<td>"비즈니스 애널리스트입니다"</td>
+</tr>
+<tr>
+<td>데이터</td>
+<td>분석할 숫자 원문</td>
+<td>월별 매출 표 붙여넣기</td>
+</tr>
+<tr>
+<td>지시</td>
+<td>4개 지표 번호 나열</td>
+<td>총합·평균·최고·최저</td>
+</tr>
+<tr>
+<td>출력 형식</td>
+<td>결과 형태</td>
+<td>마크다운 표</td>
+</tr>
+</tbody>
+</table>
+<p>이 순서를 지키면 Claude의 응답이 안정적으로 나옵니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고, 아래 단계를 따라 직접 만들어 보세요.</p>
+<p><strong>준비물:</strong> Claude 화면, 월별 매출 데이터 3개월치 이상 (없으면 아래 샘플 사용)</p>
+<blockquote>
+<p>샘플 데이터:
+1월 4,200만 원 / 2월 3,800만 원 / 3월 5,100만 원
+4월 4,600만 원 / 5월 3,500만 원 / 6월 5,400만 원</p>
+</blockquote>
+<hr />
+<p><strong>Step 1 — 역할 칸 작성 (30초)</strong></p>
+<p>Claude 입력창 맨 위에 이렇게 씁니다.</p>
+<blockquote>
+<p>"당신은 소규모 사업체의 매출 데이터를 분석하는 비즈니스 애널리스트입니다."</p>
+</blockquote>
+<hr />
+<p><strong>Step 2 — 데이터 칸 붙여넣기 (30초)</strong></p>
+<p>역할 문장 아래 한 줄 띄고, 준비한 데이터를 그대로 붙여넣습니다.</p>
+<p>샘플을 쓰는 경우, "아래는 월별 매출 데이터입니다:"라는 안내 문장을 데이터 위에 추가하세요.</p>
+<hr />
+<p><strong>Step 3 — 지시 칸 작성 (1분)</strong></p>
+<p>데이터 아래에 이렇게 씁니다.</p>
+<blockquote>
+<p>"위 데이터에서 다음 4가지를 계산해 주세요.
+1) 전체 기간 총매출 합계
+2) 월 평균 매출
+3) 최고 매출 월과 금액
+4) 최저 매출 월과 금액"</p>
+</blockquote>
+<hr />
+<p><strong>Step 4 — 출력 형식 칸 작성 (30초)</strong></p>
+<p>지시 칸 아래에 이렇게 씁니다.</p>
+<blockquote>
+<p>"결과는 마크다운 표로 작성해 주세요. 열 순서는 지표명·값·해당 월입니다."</p>
+</blockquote>
+<hr />
+<p><strong>Step 5 — 전송 후 캡처 (1분)</strong></p>
+<p>프롬프트를 Claude에 전송합니다.</p>
+<p>응답에서 4개 지표가 표 형태로 나왔는지 확인합니다.</p>
+<p>화면을 캡처해서 저장하세요. 이 이미지가 오늘의 실습 산출물입니다.</p>
+<p>지표가 하나라도 빠졌다면, 지시 칸을 다시 확인하고 해당 번호를 보완해서 재전송해 보세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 4개 지표를 넘어서, Claude가 매출 흐름의 원인까지 해석하게 만드는 프롬프트를 다룹니다.</p>
+<p>"왜 이 달이 낮았는가"— 그 질문에 Claude가 답하게 하는 방법입니다.</p>
+<p>오늘 캡처한 실습 이미지를 댓글에 올려주세요. 프롬프트 구조 피드백을 직접 드리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
