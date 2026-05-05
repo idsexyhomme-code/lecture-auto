@@ -28,6 +28,7 @@ from .marketing import MarketingSpecialist
 from .success import StudentSuccessManager
 from .site_developer import SiteDeveloper
 from .ui_designer import UIDesigner
+from .blog_publisher import BlogPublisher
 from . import safety
 
 log = logging.getLogger("conductor")
@@ -47,6 +48,7 @@ AGENTS = {
     "success": StudentSuccessManager,
     "site_developer": SiteDeveloper,
     "ui_designer": UIDesigner,
+    "blog_publisher": BlogPublisher,
 }
 
 AGENT_LABEL = {
@@ -56,6 +58,7 @@ AGENT_LABEL = {
     "success": "🎓 수강생 관리",
     "site_developer": "🛠 사이트 개발자",
     "ui_designer": "🎨 UI/UX 디자이너",
+    "blog_publisher": "📝 블로그 발행자",
 }
 
 

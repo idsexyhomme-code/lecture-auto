@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 목적별 인사메일 템플릿 3종을 완성한다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 목적별 인사메일 템플릿 3종을 완성한다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-intro-email · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>메일 한 통 보내야 하는데, 영업용인지 협업 제안인지 네트워킹인지—
+목적이 달라질 때마다 처음부터 다시 쓰고 계신가요?</p>
+<p>그 시간, 이번 차시 하나로 끝냅니다.</p>
+<p>오늘 우리는 목적별 인사메일 템플릿 3종을 완성합니다.
+앞으로는 상황에 맞는 템플릿을 꺼내서 이름만 바꾸면 됩니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면,
+영업·협업 제안·네트워킹 세 가지 상황에서
+Claude가 만든 초안을 직접 수정해 즉시 발송 가능한
+나만의 메일 플레이북 1건을 손에 쥐게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 목적별 CTA 차별화 전략</h3>
+<p><strong>설명</strong></p>
+<p>메일의 끝, 즉 CTA(Call To Action)는
+수신자에게 딱 한 가지 행동만 요청해야 합니다.
+그런데 목적이 다르면 요청할 행동도 달라집니다.</p>
+<p>메모리 페그: <strong>"문 하나, 손잡이 하나"</strong>
+문이 세 개면 수신자는 어느 문도 열지 않습니다.</p>
+<p><strong>예시</strong></p>
+<ul>
+<li>영업 메일 CTA → "이번 주 15분 통화 가능하신가요?"</li>
+<li>협업 제안 CTA → "초안 기획안을 공유드려도 될까요?"</li>
+<li>네트워킹 CTA → "편하신 시간에 커피챗 30분 어떠세요?"</li>
+</ul>
+<p>세 문장 모두 요청이 하나입니다.
+부담이 적고 답하기 쉽습니다.</p>
+<p><strong>반례</strong></p>
+<p>"통화도 좋고, 메일로 답변 주셔도 되고, 아니면 미팅도 환영합니다."
+이렇게 쓰면 수신자는 결정을 미룹니다.
+선택지가 많을수록 행동률은 낮아집니다.</p>
+<p><strong>정리</strong></p>
+<p>목적마다 CTA를 하나로 고정하세요.
+Claude에게 초안을 받을 때 프롬프트에
+"CTA는 한 문장, 행동 한 가지만"이라고 명시하면
+수정 시간이 절반으로 줄어듭니다.</p>
+<hr />
+<h3>핵심 개념 2 — 수신자 페르소나에 따른 가치제안 변형</h3>
+<p><strong>설명</strong></p>
+<p>같은 제품, 같은 서비스라도
+수신자가 누구냐에 따라 강조할 가치가 달라집니다.
+영업 대상은 '비용 절감 또는 매출 증대',
+협업 파트너는 '시너지와 리스크 분산',
+네트워킹 상대는 '상호 성장과 인사이트 교환'을 봅니다.</p>
+<p>메모리 페그: <strong>"같은 사과, 다른 접시"</strong>
+사과는 하나지만 아이에게는 달콤함을,
+의사에게는 건강 효능을 이야기합니다.</p>
+<p><strong>예시</strong></p>
+<p>동일한 콘텐츠 마케팅 서비스를 소개할 때—</p>
+<ul>
+<li>영업 대상(마케팅 팀장): "월 리드 30% 증가를 목표로 합니다."</li>
+<li>협업 파트너(콘텐츠 에이전시): "각사 고객군을 교차 공략할 수 있습니다."</li>
+<li>네트워킹(프리랜서 작가): "서로의 포트폴리오를 풍부하게 만들 수 있어요."</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>페르소나 구분 없이
+"저희 서비스는 콘텐츠 마케팅 전문입니다"만 쓰면
+누구에게도 자신의 이야기처럼 읽히지 않습니다.</p>
+<p><strong>정리</strong></p>
+<p>Claude에게 초안을 요청할 때
+수신자의 직함, 회사 규모, 현재 고민을 한 줄씩 입력하세요.
+페르소나 정보가 구체적일수록 가치제안이 정확해집니다.</p>
+<hr />
+<h3>핵심 개념 3 — Claude 피드백 루프로 품질 높이기</h3>
+<p><strong>설명</strong></p>
+<p>Claude 초안을 한 번에 완성본으로 쓰려 하면 실망하게 됩니다.
+제 경험상, 2~3회 피드백 루프를 돌리면
+초안 대비 품질이 눈에 띄게 달라집니다.</p>
+<p>메모리 페그: <strong>"3번 다듬는 조각가"</strong>
+1회: 형태 잡기 / 2회: 표면 다듬기 / 3회: 광택 내기</p>
+<p><strong>예시</strong></p>
+<p>1회 프롬프트: "영업 인사메일 초안을 써줘."
+→ Claude가 기본 구조를 잡습니다.</p>
+<p>2회 프롬프트: "수신자는 50인 이하 스타트업 대표야.
+문장을 짧게 하고 CTA를 통화 요청으로 바꿔줘."
+→ 밀도와 방향이 좁혀집니다.</p>
+<p>3회 프롬프트: "첫 문장이 너무 딱딱해.
+좀 더 사람 냄새 나게 고쳐줘."
+→ 어조가 완성됩니다.</p>
+<p><strong>반례</strong></p>
+<p>1회 프롬프트에 조건을 20개 넣으면
+Claude는 모든 조건을 절충한 평범한 결과를 냅니다.
+조건은 회차마다 2~3개씩 추가하는 편이 낫습니다.</p>
+<p><strong>정리</strong></p>
+<p>루프 구조를 기억하세요.
+형태 → 밀도 → 어조, 이 순서로 다듬으면
+대부분의 경우 3회 안에 발송 가능한 수준에 도달합니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 따라오세요.</p>
+<p><strong>산출물: 나만의 메일 플레이북 (문서 1건)</strong>
+문서에 아래 3개 섹션을 만들고 각각 채웁니다.</p>
+<p><strong>Step 1 — 영업 메일 템플릿 작성 (1분)</strong></p>
+<p>Claude에 다음을 입력하세요.</p>
+<blockquote>
+<p>"나는 [내 직함/서비스]야.
+수신자는 [업종, 직함]이고,
+주요 고민은 [고민 한 줄]이야.
+영업 인사메일을 써줘.
+CTA는 15분 통화 요청 한 문장만."</p>
+</blockquote>
+<p>나온 초안을 문서 '영업' 섹션에 붙여넣습니다.</p>
+<p><strong>Step 2 — 협업 제안 메일 템플릿 작성 (1분)</strong></p>
+<p>수신자를 잠재 파트너사 담당자로 바꾸고
+같은 방식으로 Claude에 요청합니다.
+CTA는 "기획안 공유 요청"으로 지정하세요.
+나온 초안을 '협업' 섹션에 붙여넣습니다.</p>
+<p><strong>Step 3 — 네트워킹 메일 템플릿 작성 (1분)</strong></p>
+<p>수신자를 같은 업계 프리랜서 또는 지인으로 설정하고
+CTA를 "커피챗 30분 제안"으로 지정해 요청합니다.
+나온 초안을 '네트워킹' 섹션에 붙여넣습니다.</p>
+<p><strong>Step 4 — 피드백 루프 1회 적용 (30초)</strong></p>
+<p>3개 초안 중 가장 마음에 들지 않는 것을 하나 골라
+2회 프롬프트를 돌려 수정합니다.
+수정 전·후를 나란히 문서에 남겨두세요.
+나중에 패턴이 눈에 보입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 플레이북을 실제로 발송하기 전
+"수신자 눈으로 셀프 검수하는 5가지 체크리스트"를 다룹니다.
+보내기 버튼 누르기 직전의 마지막 관문입니다.</p>
+<p>오늘 만든 플레이북 3종 중
+가장 잘 됐다고 생각하는 템플릿의 첫 문장을
+댓글에 남겨주세요.
+피드백 드리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

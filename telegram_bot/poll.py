@@ -84,16 +84,55 @@ def _cascade_after_approve(r: AgentResult) -> list[Path]:
     매핑:
       curriculum_outline → producer(1차시) + marketing + success(faq)
       lecture_script     → producer(다음 차시) [같은 코스에 다음 차시 있을 때만]
-      그 외             → 캐스케이드 없음 (terminal)
+      landing_copy       → blog_publisher (티스토리 임시저장 자동 게시)
+      그 외             → 캐스케이드 없음
     """
     try:
         if r.kind == "curriculum_outline":
             return _cascade_from_curriculum(r)
         if r.kind == "lecture_script":
             return _cascade_from_lecture_script(r)
+        if r.kind == "landing_copy":
+            return _cascade_from_landing_copy(r)
     except Exception as e:
         log.exception("[cascade] failed for %s: %s", r.id, e)
     return []
+
+
+def _cascade_from_landing_copy(r: AgentResult) -> list[Path]:
+    """marketing landing_copy 승인 → blog_publisher 자동 발주 (티스토리 임시저장)."""
+    course_id = r.course_id or ""
+    if not course_id:
+        return []
+
+    landing_raw = (r.meta or {}).get("raw") or {}
+
+    # 같은 course_id의 curriculum 결과 찾기
+    curriculum_raw = {}
+    course_title = r.title
+    for ap in APPROVED_DIR.glob("*.json"):
+        try:
+            cr = AgentResult.load(ap)
+        except Exception:
+            continue
+        if cr.kind == "curriculum_outline" and cr.course_id == course_id:
+            curriculum_raw = (cr.meta or {}).get("raw") or {}
+            course_title = curriculum_raw.get("title") or cr.title
+            break
+
+    brief = {
+        "agent": "blog_publisher",
+        "brief": {
+            "course_id": course_id,
+            "course_title": course_title,
+            "landing_copy": landing_raw,
+            "curriculum": curriculum_raw,
+        },
+    }
+    return _save_cascade_briefs(
+        [brief],
+        prefix=f"cascade-blog-{course_id}",
+    )
 
 
 def _cascade_from_curriculum(r: AgentResult) -> list[Path]:

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 마스터 프롬프트 설계하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 마스터 프롬프트 설계하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-content-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>Claude한테 콘텐츠 써달라고 했는데, 매번 결과가 달라서 당황한 적 있으시죠?</p>
+<p>어제는 꽤 괜찮았는데, 오늘은 뭔가 내 스타일이 아닌 글이 나옵니다.</p>
+<p>결국 다시 쓰거나, 고치느라 시간을 더 씁니다.</p>
+<p>이건 Claude가 나쁜 게 아닙니다.</p>
+<p>매번 다른 출발선에서 시작하게 만들고 있어서 그렇습니다.</p>
+<p>오늘 이 문제를 구조로 끝냅니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 내 브랜드 보이스가 내장된 마스터 프롬프트 템플릿 파일을 손에 쥐게 됩니다.</p>
+<p>다음부터는 주제와 길이만 바꿔서 붙여넣으면, 매번 일관된 내 스타일의 콘텐츠가 나옵니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 마스터 프롬프트의 5층 구조</h3>
+<p><strong>설명</strong></p>
+<p>프롬프트를 건물이라고 생각해 보세요.</p>
+<p>기초가 없으면 위층이 흔들립니다.</p>
+<p>마스터 프롬프트는 5개 층으로 이루어집니다.</p>
+<p>1층은 <strong>역할(Role)</strong>, 2층은 <strong>맥락(Context)</strong>, 3층은 <strong>지시(Instruction)</strong>, 4층은 <strong>형식(Format)</strong>, 5층은 <strong>제약(Constraint)</strong>입니다.</p>
+<p>이 순서, 기억하세요. 머릿글자를 따면 <strong>RCIFC</strong>인데, '알씨프'라고 외우기보다 그냥 '건물 5층'으로 기억하시는 편이 낫습니다.</p>
+<p><strong>예시</strong></p>
+<p>실제 예시를 보겠습니다.</p>
+<blockquote>
+<p><strong>역할:</strong> 당신은 1인 코치 브랜드를 운영하는 전문가의 콘텐츠 에디터입니다.</p>
+<p><strong>맥락:</strong> 이 브랜드는 30대 직장인을 대상으로 사이드잡 전환을 돕습니다. 톤은 따뜻하지만 실용적입니다.</p>
+<p><strong>지시:</strong> 아래 주제로 인스타그램 캡션을 작성하세요.</p>
+<p><strong>형식:</strong> 첫 줄은 질문 형태, 본문 3문단, 해시태그 5개 이내.</p>
+<p><strong>제약:</strong> 과장 표현, 영어 섞기, 감탄사 금지.</p>
+</blockquote>
+<p>층이 하나라도 빠지면 결과물이 흔들립니다.</p>
+<p><strong>반례</strong></p>
+<p>이런 프롬프트를 쓰는 분이 많습니다.</p>
+<blockquote>
+<p>"인스타그램 글 써줘. 주제는 시간 관리."</p>
+</blockquote>
+<p>역할도 없고, 맥락도 없고, 형식도 없습니다.</p>
+<p>이건 건물 1층만 있는 상태입니다.</p>
+<p>Claude가 나쁜 게 아니라 설계도가 없는 겁니다.</p>
+<p><strong>정리</strong></p>
+<p>마스터 프롬프트는 5층 건물입니다.</p>
+<p>역할·맥락·지시·형식·제약, 이 순서로 쌓으면 매번 비슷한 품질이 나옵니다.</p>
+<hr />
+<h3>핵심 개념 2 — 변수 플레이스홀더 설계</h3>
+<p><strong>설명</strong></p>
+<p>마스터 프롬프트를 한 번 만들면 매번 재사용해야 합니다.</p>
+<p>그런데 매번 달라지는 부분이 있죠. 바로 주제, 길이, 플랫폼입니다.</p>
+<p>이 부분만 비워두면 됩니다.</p>
+<p>그게 변수 플레이스홀더입니다.</p>
+<p>표기법은 간단합니다. 대괄호 두 개로 감쌉니다.</p>
+<p><code>[[주제]]</code>, <code>[[길이]]</code>, <code>[[플랫폼]]</code>처럼요.</p>
+<p>이 방식을 '빈칸 채우기 템플릿'이라고 생각하세요.</p>
+<p>시험지에서 빈칸만 채우면 되는 것과 같습니다.</p>
+<p><strong>예시</strong></p>
+<p>아까 예시에 플레이스홀더를 적용하면 이렇게 됩니다.</p>
+<blockquote>
+<p><strong>지시:</strong> [[주제]]로 [[플랫폼]] 콘텐츠를 작성하세요.</p>
+<p><strong>형식:</strong> [[길이]] 기준으로, 첫 줄은 질문 형태로 시작하세요.</p>
+</blockquote>
+<p>사용할 때는 이렇게 채웁니다.</p>
+<blockquote>
+<p><strong>지시:</strong> 아침 루틴으로 인스타그램 콘텐츠를 작성하세요.</p>
+<p><strong>형식:</strong> 200자 기준으로, 첫 줄은 질문 형태로 시작하세요.</p>
+</blockquote>
+<p><strong>반례</strong></p>
+<p>플레이스홀더를 너무 많이 만드는 경우가 있습니다.</p>
+<p><code>[[톤]]</code>, <code>[[타깃나이]]</code>, <code>[[감정상태]]</code>, <code>[[계절]]</code>까지 비워두면, 매번 채우는 데만 시간이 걸립니다.</p>
+<p>변수로 뺄 건 '자주 바뀌는 것' 3개 이내로 제한하세요.</p>
+<p>나머지는 템플릿 안에 고정값으로 박아둡니다.</p>
+<p><strong>정리</strong></p>
+<p>플레이스홀더는 3개 이내로. 자주 바뀌는 것만 <code>[[변수]]</code>로 비워두고, 나머지는 고정합니다.</p>
+<p>그게 진짜 재사용 가능한 템플릿입니다.</p>
+<hr />
+<h3>핵심 개념 3 — 출력 품질 체크리스트</h3>
+<p><strong>설명</strong></p>
+<p>마스터 프롬프트를 완성했다고 끝이 아닙니다.</p>
+<p>첫 출력을 받은 다음, 반드시 비교 검증을 해야 합니다.</p>
+<p>이때 쓰는 도구가 출력 품질 체크리스트입니다.</p>
+<p>항목은 5개입니다. 숫자 5를 기억하세요.</p>
+<ol>
+<li><strong>브랜드 톤</strong> — 내 말투처럼 들리는가</li>
+<li><strong>타깃 적합성</strong> — 내 독자가 공감할 내용인가</li>
+<li><strong>형식 준수</strong> — 지정한 형식이 지켜졌는가</li>
+<li><strong>제약 준수</strong> — 쓰지 말라고 한 표현이 없는가</li>
+<li><strong>바로 쓸 수 있는가</strong> — 수정 없이 게시해도 되는가</li>
+</ol>
+<p><strong>예시</strong></p>
+<p>이전 차시에서 쓴 단순 프롬프트 결과물과, 오늘 만든 마스터 프롬프트 결과물을 나란히 놓고 이 5항목으로 채점해 보세요.</p>
+<p>제 경험상, 마스터 프롬프트를 쓴 쪽이 4~5번 항목에서 눈에 띄게 점수가 올라갑니다.</p>
+<p><strong>반례</strong></p>
+<p>체크리스트를 만들고 딱 한 번만 쓰는 분이 있습니다.</p>
+<p>이건 한 번의 시험이 아닙니다.</p>
+<p>3~5회 실제 콘텐츠를 생성해 보고, 반복적으로 낮게 나오는 항목이 있다면 그 항목에 해당하는 프롬프트 층을 수정합니다.</p>
+<p>체크리스트는 템플릿 개선의 나침반입니다.</p>
+<p><strong>정리</strong></p>
+<p>출력 품질은 5항목으로 점검합니다.</p>
+<p>낮은 항목이 보이면, 해당 프롬프트 층을 손봅니다.</p>
+<p>이 사이클이 돌아가면 템플릿은 점점 정교해집니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고, 실제로 만들어 보겠습니다.</p>
+<hr />
+<p><strong>준비물:</strong> 텍스트 편집기, 또는 노션·구글독스 아무거나.</p>
+<p><strong>Step 1 — 고정층 채우기 (3분)</strong></p>
+<p>아래 양식을 복사하고, 괄호 안을 내 브랜드에 맞게 채우세요.</p>
+<blockquote>
+<p><strong>[역할]</strong>
+당신은 (내 이름/브랜드명)의 콘텐츠 에디터입니다.</p>
+<p><strong>[맥락]</strong>
+이 브랜드의 타깃은 (타깃 설명)입니다. 톤은 (톤 한 단어)입니다.</p>
+<p><strong>[지시]</strong>
+[[주제]]를 소재로 [[플랫폼]] 콘텐츠를 작성하세요.</p>
+<p><strong>[형식]</strong>
+[[길이]] 기준. (기타 형식 규칙을 1~2줄 추가)</p>
+<p><strong>[제약]</strong>
+(절대 쓰지 않는 표현이나 금지 사항을 2~3개 기재)</p>
+</blockquote>
+<hr />
+<p><strong>Step 2 — 첫 테스트 실행 (1분)</strong></p>
+<p>플레이스홀더에 실제 값을 채우고 Claude에 붙여넣어 결과물을 받으세요.</p>
+<hr />
+<p><strong>Step 3 — 체크리스트 점검 (30초)</strong></p>
+<p>받은 결과물을 5항목으로 채점하세요.</p>
+<p>브랜드 톤 / 타깃 적합성 / 형식 준수 / 제약 준수 / 바로 쓸 수 있는가.</p>
+<p>3점 이하인 항목이 보이면, 해당 층의 문장을 한 줄만 수정합니다.</p>
+<hr />
+<p>다 만드셨으면 영상 재생하세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #4에서는 이 마스터 프롬프트에 콘텐츠 캘린더를 연결합니다.</p>
+<p>한 번의 입력으로 1주일치 아이디어를 뽑는 방법을 다룹니다.</p>
+<p>오늘 만든 마스터 프롬프트 템플릿, 댓글에 인증샷이나 결과물 한 줄만 남겨 주세요.</p>
+<p>다른 수강생분들께도 실제 예시가 가장 큰 도움이 됩니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
