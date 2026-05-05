@@ -1,20 +1,12 @@
 {
   "last_reset_date": "2026-05-05",
-  "daily_brief_count": 43,
+  "daily_brief_count": 44,
   "daily_agent_calls": {
-    "producer": 35,
+    "producer": 36,
     "blog_publisher": 8
   },
-  "daily_estimated_cost_usd": 3.009999999999999,
+  "daily_estimated_cost_usd": 3.0799999999999987,
   "recent_call_timestamps": [
-    {
-      "agent": "producer",
-      "ts": 1777945492.689421
-    },
-    {
-      "agent": "blog_publisher",
-      "ts": 1777945555.064885
-    },
     {
       "agent": "blog_publisher",
       "ts": 1777945609.880932
@@ -30,6 +22,10 @@
     {
       "agent": "blog_publisher",
       "ts": 1777945781.342062
+    },
+    {
+      "agent": "producer",
+      "ts": 1777945890.50311
     }
   ],
   "paused": false,

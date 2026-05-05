@@ -93,25 +93,48 @@ HTML로만 답하세요. 코드펜스 금지."""
 
         title = (landing.get("hero") or {}).get("headline") or course_title
 
-        # 티스토리에 *임시저장*
+        # 티스토리 자동 게시 시도 — 실패하면 로컬 HTML 파일로 fallback
         published_url = None
+        skip_tistory = os.environ.get("TISTORY_SKIP", "").lower() in ("1", "true", "yes")
+
+        if skip_tistory:
+            log.info("[blog] TISTORY_SKIP=true — 자동 게시 건너뜀 (수동 복붙용 HTML만 저장)")
+        else:
+            try:
+                from tistory_helpers.publisher import publish_post
+                blog = os.environ.get("TISTORY_BLOG", "")
+                if not blog:
+                    log.warning("[blog] TISTORY_BLOG 미설정 — 게시 건너뜀")
+                else:
+                    tags = ["Claude", "1인 사업가", "코어 캠퍼스", course_title[:20]]
+                    published_url = publish_post(
+                        blog=blog,
+                        title=title,
+                        body_html=body_html,
+                        tags=tags,
+                        publish=False,  # 임시저장만
+                    )
+                    log.info("[blog] 임시저장 완료: %s", published_url)
+            except Exception as e:
+                log.exception("[blog] 티스토리 게시 실패 (HTML 파일로 fallback): %s", e)
+
+        # ★ 로컬 HTML 파일 저장 — Tistory 자동 게시 실패해도 회원님이 수동 복붙 가능
         try:
-            from tistory_helpers.publisher import publish_post
-            blog = os.environ.get("TISTORY_BLOG", "")
-            if not blog:
-                log.warning("[blog] TISTORY_BLOG 미설정 — 게시 건너뜀")
-            else:
-                tags = ["Claude", "1인 사업가", "코어 캠퍼스", course_title[:20]]
-                published_url = publish_post(
-                    blog=blog,
-                    title=title,
-                    body_html=body_html,
-                    tags=tags,
-                    publish=False,  # ★ 임시저장만 — 회원님이 아침에 검토 후 발행
-                )
-                log.info("[blog] 임시저장 완료: %s", published_url)
+            blog_dir = REPO_ROOT / "site" / "blog-drafts" / course_id
+            blog_dir.mkdir(parents=True, exist_ok=True)
+            html_path = blog_dir / "post.html"
+            html_full = (
+                f"<!doctype html><html lang=\"ko\"><head><meta charset=\"utf-8\">"
+                f"<title>{title}</title>"
+                f"<style>body{{max-width:720px;margin:24px auto;padding:0 20px;"
+                f"font-family:-apple-system,Pretendard,sans-serif;line-height:1.6}}"
+                f"h1{{color:#1A3558}}</style></head><body>"
+                f"<h1>{title}</h1>{body_html}</body></html>"
+            )
+            html_path.write_text(html_full, encoding="utf-8")
+            log.info("[blog] HTML fallback 저장: %s", html_path)
         except Exception as e:
-            log.exception("[blog] 티스토리 게시 실패 (산출물은 생성): %s", e)
+            log.warning("[blog] HTML fallback 저장 실패: %s", e)
 
         # 산출물
         result_body = f"# {title}\n\n"
