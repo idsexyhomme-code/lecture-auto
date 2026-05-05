@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-monthly-revenue",
+    "course_title": "Claude로 매출 자동 분석·보고서 완성",
+    "lesson_no": 6,
+    "lesson_title": "보고서 초안 자동 생성",
+    "objective": "분석 결과를 입력값으로 삼아 경영자 요약·핵심 지표·원인·다음 달 제언 4개 섹션으로 구성된 월간 보고서 초안을 Claude로 생성한다",
+    "key_concepts": [
+      "보고서 섹션 구조 지정",
+      "요약(Executive Summary) 작성 지시",
+      "제언 생성 프롬프트"
+    ],
+    "exercise": "4개 섹션이 갖춰진 월간 보고서 초안 워드/PDF 파일 1개",
+    "duration_min": 15
+  }
+}

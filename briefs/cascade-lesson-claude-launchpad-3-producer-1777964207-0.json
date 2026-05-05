@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-launchpad",
+    "course_title": "Claude로 부캐 서비스 1주일 런칭",
+    "lesson_no": 3,
+    "lesson_title": "시장 검증: 경쟁자 분석 & 차별화 포인트 정리",
+    "objective": "Claude를 이용해 유사 서비스 5개를 비교 분석한 표를 만들고 자신만의 차별화 문장 1개를 완성한다",
+    "key_concepts": [
+      "경쟁자 매핑",
+      "USP(고유 판매 제안)",
+      "포지셔닝 맵"
+    ],
+    "exercise": "경쟁자 비교표 + 나만의 USP 한 문장 (스프레드시트 또는 표 문서)",
+    "duration_min": 15
+  }
+}

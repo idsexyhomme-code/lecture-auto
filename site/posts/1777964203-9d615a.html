@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#5 나만의 분석 템플릿 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#5 나만의 분석 템플릿 만들기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-monthly-revenue · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>매달 보고서 쓸 때마다 지난달 프롬프트를 뒤져서 복붙하고 수정하느라 30분씩 날리고 계시죠?</p>
+<p>어디 저장했는지 몰라서 카카오톡 내게 보내기를 검색하거나, 메모앱 스크롤을 한참 올리거나.</p>
+<p>오늘 이 영상 하나로 그 반복 작업을 완전히 끝냅니다.</p>
+<p>1~4차시에서 만든 프롬프트들을 하나의 마스터 템플릿으로 합쳐서, 다음 달부터는 변수 딱 3~4개만 바꾸면 분석이 바로 돌아가도록 만들어 드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면 [월], [채널명] 같은 변수 자리표시자가 삽입된 마스터 분석 프롬프트 템플릿 파일을 직접 완성하고, 다음 달 보고서부터 즉시 꺼내 쓸 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심개념 1 — 프롬프트 변수화</h3>
+<p><strong>설명</strong></p>
+<p>변수화란 프롬프트 안에서 매번 바뀌는 값을 고정 텍스트에서 분리하는 작업입니다.</p>
+<p>코드의 변수 선언과 같은 원리입니다.</p>
+<p>[월], [채널명], [목표 매출] 처럼 대괄호로 감싸면 눈에 바로 띕니다.</p>
+<p><strong>예시</strong></p>
+<p>변수화 전: "2025년 4월 스마트스토어 채널 매출을 분석해 줘."</p>
+<p>변수화 후: "[월] [채널명] 채널 매출을 분석해 줘."</p>
+<p>다음 달에는 [월]만 5월로 바꾸면 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>"최근 데이터"처럼 모호한 표현은 변수가 아닙니다.</p>
+<p>Claude가 '최근'을 자의적으로 해석할 수 있어서 결과가 달라집니다.</p>
+<p>반드시 구체적인 값이 들어갈 자리만 변수로 처리하세요.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그 — <strong>'빈 액자'</strong> 이미지를 떠올리세요.</p>
+<p>그림(고정 문장)은 그대로이고, 액자 안 사진(변수 값)만 교체합니다.</p>
+<hr />
+<h3>핵심개념 2 — 템플릿 구조 설계</h3>
+<p><strong>설명</strong></p>
+<p>마스터 템플릿은 크게 3개 블록으로 나뉩니다.</p>
+<p><strong>블록 1 · 컨텍스트</strong> — Claude에게 역할과 배경을 줍니다.</p>
+<p><strong>블록 2 · 데이터 지시</strong> — 어떤 데이터를, 어떤 방식으로 볼지 지정합니다.</p>
+<p><strong>블록 3 · 출력 형식</strong> — 결과물의 구조와 분량을 지정합니다.</p>
+<p><strong>예시</strong></p>
+<p>블록 1: "당신은 이커머스 매출 분석 전문가입니다. [브랜드명] 브랜드의 [월] 데이터를 분석합니다."</p>
+<p>블록 2: "아래 데이터를 기반으로 [채널명] 채널의 전월 대비 매출 증감률, 상위 3개 상품, 이탈 원인을 추출하세요."</p>
+<p>블록 3: "결과는 요약 → 수치 분석 → 액션 아이템 순서로, 총 500자 이내로 작성하세요."</p>
+<p><strong>반례</strong></p>
+<p>블록 순서를 뒤섞으면 Claude가 역할을 파악하기 전에 데이터 처리 명령을 받아 출력 품질이 떨어집니다.</p>
+<p>제 경험상 컨텍스트 블록이 맨 앞에 없을 때 분석 톤이 일관되지 않는 경우가 많았습니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그 — <strong>'햄버거 3층'</strong> 을 기억하세요.</p>
+<p>빵(컨텍스트) → 패티(데이터 지시) → 빵(출력 형식).</p>
+<p>순서가 맞아야 맛이 납니다.</p>
+<hr />
+<h3>핵심개념 3 — 재사용성 원칙</h3>
+<p><strong>설명</strong></p>
+<p>재사용성이 높은 템플릿에는 3가지 특징이 있습니다.</p>
+<p><strong>원칙 1 · 변수는 상단에 모은다</strong> — 파일 첫 줄에 변수 목록을 두면 수정이 빠릅니다.</p>
+<p><strong>원칙 2 · 주석을 단다</strong> — 각 블록 앞에 <code># [컨텍스트 블록]</code> 처럼 표시하면 6개월 후에 봐도 바로 읽힙니다.</p>
+<p><strong>원칙 3 · 버전을 기록한다</strong> — 파일명에 날짜나 버전 번호를 붙입니다. 예: <code>master_prompt_v3_2025-05.txt</code></p>
+<p><strong>예시</strong></p>
+<p>파일 맨 위에 이렇게 씁니다.</p>
+<pre><code>=== 변수 목록 ===
+[월]: 2025년 5월
+[채널명]: 스마트스토어
+[브랜드명]: OO브랜드
+[목표 매출]: 3,000만 원
+=================
+</code></pre>
+<p>아래에 블록 1·2·3을 이어 붙입니다.</p>
+<p><strong>반례</strong></p>
+<p>변수를 프롬프트 본문 중간에만 흩어 두면, 다음 달에 어디를 고쳐야 할지 다시 읽어야 합니다.</p>
+<p>재사용 시간이 절약되지 않고 오히려 실수가 늘어납니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그 — <strong>'레시피 카드'</strong> 입니다.</p>
+<p>재료(변수)는 위에, 조리 순서(블록)는 아래에. 누가 봐도 따라 할 수 있어야 진짜 레시피입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 텍스트 에디터(메모장, VS Code, 노션 모두 가능)를 여세요.</p>
+<p>아래 4단계를 순서대로 따라 하시면 됩니다.</p>
+<p><strong>STEP 1 · 변수 목록 작성 (1분)</strong></p>
+<p>파일 첫 줄에 <code>=== 변수 목록 ===</code> 을 쓰고, 자신의 비즈니스에 맞는 변수를 4~6개 나열하세요.</p>
+<p>최소한 [월], [채널명], [브랜드명] 세 가지는 반드시 포함하세요.</p>
+<p><strong>STEP 2 · 블록 1 작성 (1분)</strong></p>
+<p><code># [컨텍스트 블록]</code> 주석 아래에 역할 문장을 씁니다.</p>
+<p>"당신은 [브랜드명]의 매출 분석 전문가입니다. [월] 데이터를 다룹니다." 형태면 충분합니다.</p>
+<p><strong>STEP 3 · 블록 2·3 작성 (1분)</strong></p>
+<p>1~4차시에서 가장 자주 쓴 분석 지시 문장을 블록 2에 붙여 넣고, 변수 부분만 대괄호로 교체하세요.</p>
+<p>블록 3에는 출력 형식(요약·수치·액션 아이템)과 글자 수 제한을 추가합니다.</p>
+<p><strong>STEP 4 · 저장 및 검증 (30초)</strong></p>
+<p>파일명을 <code>master_prompt_v1_[오늘날짜].txt</code> 형식으로 저장하세요.</p>
+<p>저장 후 변수 목록의 값을 실제 데이터로 바꾸고, Claude에 그대로 붙여 넣어 출력 결과를 확인합니다.</p>
+<p>결과가 어색하면 블록 1 역할 문장을 다듬는 것부터 시작하세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #6에서는 이 마스터 템플릿을 노션 데이터베이스와 연결해서 월별 보고서를 자동으로 축적하는 방법을 다룹니다.</p>
+<p>템플릿 하나로 분석뿐 아니라 아카이빙까지 자동화됩니다.</p>
+<p>오늘 만든 템플릿 파일, 댓글에 캡처해서 올려 주세요. 직접 피드백 남겨 드립니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
