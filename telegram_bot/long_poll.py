@@ -47,7 +47,7 @@ except ImportError:
     pass
 
 OFFSET_FILE = STATE_DIR / "telegram_offset.json"
-LONG_POLL_TIMEOUT = 30      # getUpdates timeout (초)
+LONG_POLL_TIMEOUT = 5       # getUpdates timeout (초) — 짧게 잡아 brief 빠르게 점검
 RETRY_BACKOFF_BASE = 5      # 네트워크 오류 시 backoff 초기값
 GIT_COMMIT_AUTHOR_NAME = "long-poll-bot"
 GIT_COMMIT_AUTHOR_EMAIL = "long-poll@local"
@@ -247,7 +247,7 @@ def run_loop():
 
     backoff = RETRY_BACKOFF_BASE
     last_pipeline_check = 0
-    PIPELINE_INTERVAL = 60  # 60초마다 큐 점검 (메시지 없어도)
+    PIPELINE_INTERVAL = 5   # 5초마다 큐 점검 — 새 brief 즉시 잡음
 
     while not _should_stop:
         try:
