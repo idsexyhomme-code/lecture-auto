@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-monthly-revenue",
+    "course_title": "Claude로 매출 자동 분석·보고서 완성",
+    "lesson_no": 5,
+    "lesson_title": "나만의 분석 템플릿 만들기",
+    "objective": "1~4차시에서 사용한 프롬프트를 하나의 재사용 가능한 마스터 프롬프트 템플릿으로 통합하고 변수([월], [채널명] 등) 자리표시자를 삽입한다",
+    "key_concepts": [
+      "프롬프트 변수화",
+      "템플릿 구조 설계",
+      "재사용성 원칙"
+    ],
+    "exercise": "변수 자리표시자가 포함된 마스터 분석 프롬프트 템플릿 텍스트 파일 1개",
+    "duration_min": 15
+  }
+}

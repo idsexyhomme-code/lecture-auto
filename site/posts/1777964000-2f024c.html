@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#4 왜 올랐고 왜 떨어졌나: 원인 추론 프롬프트 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#4 왜 올랐고 왜 떨어졌나: 원인 추론 프롬프트<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-monthly-revenue · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>매출이 갑자기 30% 떨어졌는데,
+팀 회의에서 아무도 이유를 모릅니다.</p>
+<p>"날씨 탓인가요?" "경쟁사 때문인가요?"
+추측만 오가다 회의가 끝납니다.</p>
+<p>그 침묵이 반복되는 이유는 하나입니다.
+데이터는 있는데, 질문법을 모르는 것.</p>
+<p>오늘 차시가 끝나면 그 침묵이 사라집니다.
+Claude에게 정확히 물어보는 법을 배웁니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 매출 증감 구간을 지정하고
+가능한 원인 3가지와 근거를 함께 출력하는
+원인 추론 프롬프트를 직접 작성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 원인 추론(Root Cause) 프롬프트</h3>
+<p><strong>설명</strong>
+Claude는 묻는 만큼만 답합니다.
+"왜 떨어졌어?"는 너무 넓습니다.
+구간·지표·맥락을 함께 줘야 합니다.</p>
+<p>이걸 원인 추론 프롬프트라고 부릅니다.
+구조는 세 칸입니다.</p>
+<blockquote>
+<p><strong>[구간] + [지표 변화] + "가능한 원인 N가지와 각 근거를 설명해줘"</strong></p>
+</blockquote>
+<p><strong>예시</strong>
+"2025년 3월 2주차에 구매 전환율이
+전주 대비 18% 하락했습니다.
+가능한 원인 3가지와 각 근거를 설명해주세요."</p>
+<p>이 프롬프트를 넣으면 Claude는
+채널별 데이터 공백, 외부 이벤트, UX 변수 등을
+순서대로 제안합니다.</p>
+<p><strong>반례</strong>
+"3월에 매출이 떨어진 이유는?" 처럼
+구간도, 지표도, 요청 형식도 없으면
+Claude는 일반론만 돌려줍니다.
+근거 없는 목록이 나올 가능성이 높습니다.</p>
+<p><strong>정리 — 메모리 페그: '세 칸 서랍'</strong>
+서랍 3개를 떠올리세요.
+첫 번째 서랍 = 구간,
+두 번째 서랍 = 지표 변화,
+세 번째 서랍 = 요청 형식.
+세 칸이 다 채워져야 서랍이 열립니다.</p>
+<hr />
+<h3>핵심 개념 2 — 증거 기반 설명 요청</h3>
+<p><strong>설명</strong>
+Claude가 원인을 말할 때,
+"왜 그렇게 생각하는지"도 함께 요청해야 합니다.
+이게 증거 기반 설명 요청입니다.</p>
+<p>프롬프트 끝에 한 문장을 추가합니다.
+"각 원인에 대해 데이터 또는 논리적 근거를
+함께 제시해주세요."</p>
+<p><strong>예시</strong>
+원인만 요청하면 이런 답이 옵니다.
+"원인 1: 광고 노출 감소."</p>
+<p>근거까지 요청하면 이런 답이 옵니다.
+"원인 1: 광고 노출 감소.
+근거: 해당 기간 CPC 상승 추세와
+클릭률 동반 하락이 전형적인 패턴입니다."</p>
+<p>보고서에 바로 붙여넣을 수 있는 문장이 됩니다.</p>
+<p><strong>반례</strong>
+"근거도 써줘"처럼 모호하게 추가하면
+Claude는 '일반적으로 알려진 사실'을
+근거처럼 포장해서 줍니다.
+"데이터 또는 논리적 근거"라고 명시해야
+실용적인 내용이 나옵니다.</p>
+<p><strong>정리 — 메모리 페그: '형사의 두 질문'</strong>
+형사는 항상 두 가지를 묻습니다.
+"무슨 일이 있었나?" 그리고 "증거는?"
+Claude에게도 똑같이 두 가지를 요청하세요.</p>
+<hr />
+<h3>핵심 개념 3 — 가설 열거 기법</h3>
+<p><strong>설명</strong>
+원인은 하나가 아닐 수 있습니다.
+Claude에게 복수의 가설을 나열하게 하고,
+각각의 신뢰도 수준도 붙이게 하면
+의사결정이 훨씬 쉬워집니다.</p>
+<p>프롬프트에 이 문장을 추가합니다.
+"각 원인을 높음·중간·낮음 중
+하나의 신뢰도로 분류해주세요."</p>
+<p><strong>예시</strong>
+Claude 응답 예시입니다.</p>
+<blockquote>
+<p>원인 1: 경쟁사 프로모션 — 신뢰도 높음
+원인 2: 배송 지연 이슈 — 신뢰도 중간
+원인 3: 계절성 요인 — 신뢰도 낮음</p>
+</blockquote>
+<p>이 구조가 있으면 팀이 어디를 먼저
+검증해야 할지 바로 보입니다.</p>
+<p><strong>반례</strong>
+신뢰도 분류를 요청하지 않으면
+Claude는 세 가지를 동등하게 나열합니다.
+중요도 없는 목록은 오히려 혼란을 줍니다.</p>
+<p><strong>정리 — 메모리 페그: '신호등 3색'</strong>
+빨강(높음)부터 확인하고,
+노랑(중간)은 다음에,
+초록(낮음)은 마지막에 검토하세요.
+Claude의 가설 열거를 신호등으로 읽으면 됩니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하세요.</p>
+<p>아래 4단계를 따라 Claude 응답을 만들고
+워드 또는 노션 문서 1개로 정리합니다.</p>
+<p><strong>Step 1 — 분석할 구간 정하기</strong>
+본인의 실제 데이터나 아래 샘플을 사용하세요.
+샘플: "2025년 4월 3주차, 앱 결제 전환율 22% 하락"</p>
+<p><strong>Step 2 — 프롬프트 조립하기</strong>
+다음 세 줄을 그대로 Claude에 입력하세요.</p>
+<blockquote>
+<p>"2025년 4월 3주차에 앱 결제 전환율이
+전주 대비 22% 하락했습니다.
+가능한 원인 3가지를 제시하고,
+각 원인에 데이터 또는 논리적 근거를 함께 써주세요.
+또한 각 원인의 신뢰도를 높음·중간·낮음으로 분류해주세요."</p>
+</blockquote>
+<p><strong>Step 3 — 응답 붙여넣기</strong>
+Claude 응답을 문서에 그대로 붙여넣습니다.
+원인 / 근거 / 신뢰도 세 열로 표를 만들어 정리하세요.</p>
+<p><strong>Step 4 — 한 줄 메모 추가</strong>
+각 원인 옆에 "다음에 확인할 데이터"를
+본인 판단으로 한 줄 적어보세요.</p>
+<p>완성된 문서가 오늘의 실습 산출물입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #5에서는 이 원인 분석을
+실제 보고서 형식으로 자동 변환하는
+출력 포맷 프롬프트를 다룹니다.</p>
+<p>오늘 만든 문서에 댓글로
+"가장 그럴듯한 원인 1번"을 남겨주세요.
+다음 영상에서 실제 사례와 비교해드립니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

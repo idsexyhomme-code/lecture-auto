@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 부캐 콘셉트 발굴: 나만의 틈새시장 찾기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 부캐 콘셉트 발굴: 나만의 틈새시장 찾기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-launchpad · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>지금 이 순간, 머릿속에 '나도 뭔가 팔 수 있을 것 같은데'라는 생각이 맴돌고 있죠?</p>
+<p>그런데 막상 시작하려면 뭘 팔아야 할지 감이 안 잡힌다.</p>
+<p>내 경험이 너무 평범해 보이고, 나만의 전문성이 없는 것 같고.</p>
+<p>그 막막함, 오늘 이 차시 하나로 끝냅니다.</p>
+<p>Claude 프롬프트 딱 3가지만 쓰면, 내 경험과 스킬 속에서 수익화 가능한 틈새 포지션 3개가 문서로 나옵니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 여러분은 자신의 경험과 스킬을 정리한 A4 한 장짜리 매트릭스 워크시트를 완성하고, 그 안에서 수익화 가능한 틈새 포지션 3개를 직접 도출할 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 퍼스널 에셋 인벤토리</h3>
+<p><strong>설명</strong></p>
+<p>퍼스널 에셋 인벤토리는 '내가 가진 자산 목록'입니다.</p>
+<p>경험, 스킬, 자격증, 인간관계, 반복해서 해결한 문제까지 모두 포함됩니다.</p>
+<p>대부분의 사람들이 이 목록을 머릿속에만 둡니다.</p>
+<p>그래서 막연하게 느끼는 거예요.</p>
+<p><strong>메모리 페그: 냉장고 재료 확인</strong></p>
+<p>요리하기 전에 냉장고 문 먼저 열죠?</p>
+<p>퍼스널 에셋 인벤토리는 내 냉장고 속 재료를 꺼내 테이블 위에 늘어놓는 작업입니다.</p>
+<p>재료가 눈앞에 보여야 메뉴가 떠오릅니다.</p>
+<p><strong>예시</strong></p>
+<p>직장 생활 7년 차 마케터라면 이런 재료가 있습니다.</p>
+<p>SNS 콘텐츠 기획, 광고비 최적화 경험, 스타트업과 대기업 양쪽 경험, 그리고 '왜 우리 광고는 안 되냐'는 질문을 수백 번 들은 것도 자산입니다.</p>
+<p><strong>반례</strong></p>
+<p>주의할 점이 있습니다.</p>
+<p>'나는 특별한 스킬이 없다'고 넘어가는 분들이 많습니다.</p>
+<p>그런데 제 경험상, '당연히 아는 것'이 오히려 가장 강력한 자산입니다.</p>
+<p>당신이 쉽다고 느끼는 것, 남들은 어렵다고 느낍니다.</p>
+<p><strong>정리</strong></p>
+<p>퍼스널 에셋 인벤토리 = 내 냉장고 재료 전부 꺼내기.</p>
+<p>Claude에게 "내 경험 목록을 카테고리별로 정리해줘"라고 요청하면 이 과정이 훨씬 빨라집니다.</p>
+<hr />
+<h3>핵심 개념 2 — 틈새 포지셔닝</h3>
+<p><strong>설명</strong></p>
+<p>틈새 포지셔닝은 '누구나 아는 분야'에서 '특정 사람만 아는 자리'를 찾는 전략입니다.</p>
+<p>크게 싸우지 말고 작게 독점하는 것이 핵심입니다.</p>
+<p><strong>메모리 페그: 10만 명 vs 100명</strong></p>
+<p>'마케팅 강사'는 경쟁자가 10만 명입니다.</p>
+<p>'50인 이하 스타트업의 첫 마케터를 위한 광고 세팅 코치'는 경쟁자가 100명도 안 됩니다.</p>
+<p>숫자를 기억하세요. 10만 대 100.</p>
+<p>좁힐수록 이깁니다.</p>
+<p><strong>예시</strong></p>
+<p>퍼스널 에셋이 '육아 + 영어 + 재테크'라면 세 개를 따로 팔지 마세요.</p>
+<p>'영어로 미국 주식 공부하는 워킹맘을 위한 재테크 코칭'으로 묶으면 틈새가 됩니다.</p>
+<p>교집합이 포지션입니다.</p>
+<p><strong>반례</strong></p>
+<p>'좁으면 고객이 없지 않나요?'라는 질문을 자주 받습니다.</p>
+<p>온라인에서는 1만 명 중 1명만 내 고객이어도 됩니다.</p>
+<p>한국에 그 조건에 맞는 사람이 1,000명만 있어도 충분히 서비스가 성립합니다.</p>
+<p><strong>정리</strong></p>
+<p>틈새 포지셔닝 = 내 재료들의 교집합으로 작은 자리 독점.</p>
+<p>Claude에게 "내 스킬 목록에서 겹치는 교집합 포지션 5개를 제안해줘"라고 요청하세요.</p>
+<hr />
+<h3>핵심 개념 3 — 페르소나 고객 정의</h3>
+<p><strong>설명</strong></p>
+<p>페르소나 고객 정의는 내 서비스를 살 사람의 얼굴을 구체적으로 그리는 작업입니다.</p>
+<p>나이, 직업, 고통, 원하는 결과까지 하나의 인물로 만드는 것입니다.</p>
+<p><strong>메모리 페그: 편지 수신인</strong></p>
+<p>편지를 쓸 때 수신인이 없으면 어떻게 됩니까?</p>
+<p>아무 데도 도착하지 못합니다.</p>
+<p>콘텐츠도, 서비스도, 수신인이 구체적일수록 전달이 정확해집니다.</p>
+<p>페르소나 = 편지 수신인.</p>
+<p><strong>예시</strong></p>
+<p>'30대 직장인'은 페르소나가 아닙니다.</p>
+<p>'야근이 잦아 자기계발 시간이 부족한 32세 IT 회사 개발자, 퇴근 후 30분을 활용해 부업을 시작하고 싶지만 무엇부터 해야 할지 모르는 사람'이 페르소나입니다.</p>
+<p>이 차이가 서비스 기획의 전부를 바꿉니다.</p>
+<p><strong>반례</strong></p>
+<p>페르소나를 너무 좁게 잡아서 '이런 사람이 정말 있을까?'싶을 때 멈추는 분들이 있습니다.</p>
+<p>그런데 Claude에게 "이 페르소나가 실제로 존재하는지 검증해줘"라고 물어보면 근거 있는 피드백을 받을 수 있습니다.</p>
+<p>혼자 고민하지 마세요.</p>
+<p><strong>정리</strong></p>
+<p>페르소나 고객 정의 = 편지 수신인 그리기.</p>
+<p>Claude에게 "내 포지션에 맞는 페르소나 고객 3명을 구체적으로 작성해줘"라고 요청하면 됩니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고, 아래 단계를 따라 A4 한 장짜리 워크시트를 완성해 보세요.</p>
+<p>준비물은 종이 한 장, 또는 노션·구글 독스 빈 문서입니다.</p>
+<p><strong>1단계 — 스킬 목록 뽑기 (5분)</strong></p>
+<p>Claude에게 다음 프롬프트를 입력하세요.</p>
+<blockquote>
+<p>"나는 [직업/경력 년수]이고, [주요 경험 2~3가지]를 해왔어. 내가 가진 스킬과 경험을 카테고리별로 최대한 구체적으로 정리해줘."</p>
+</blockquote>
+<p>나온 결과를 워크시트 왼쪽 열에 붙여넣으세요.</p>
+<p><strong>2단계 — 타깃 고객 후보 정하기 (5분)</strong></p>
+<p>Claude에게 이렇게 입력하세요.</p>
+<blockquote>
+<p>"위 스킬 목록을 보고, 내가 도움을 줄 수 있는 타깃 고객 유형 5가지를 구체적인 페르소나 형태로 작성해줘."</p>
+</blockquote>
+<p>그 중에서 본인이 가장 잘 공감할 수 있는 3명을 골라 워크시트 가운데 열에 적으세요.</p>
+<p><strong>3단계 — 문제 매트릭스 완성하기 (5분)</strong></p>
+<p>스킬 한 개와 고객 한 명을 짝지어 Claude에게 물어보세요.</p>
+<blockquote>
+<p>"이 스킬을 가진 사람이 이 타깃 고객의 어떤 문제를 해결해 줄 수 있을지 3가지 시나리오로 써줘."</p>
+</blockquote>
+<p>나온 조합 중 가장 현실적이고 흥미로운 것을 워크시트 오른쪽 열에 정리하세요.</p>
+<p><strong>3단계가 끝나면</strong> 스킬 × 고객 × 문제의 교집합에서 포지션 후보 3개가 보입니다.</p>
+<p>그 3개를 워크시트 맨 아래에 한 줄씩 적고, 완성입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>워크시트 완성하셨나요?</p>
+<p>그 3개 포지션 중 하나가 1주일 뒤 여러분의 첫 서비스가 됩니다.</p>
+<p>다음 차시에서는 이 포지션을 실제 서비스 상품으로 만드는 방법을 다룹니다.</p>
+<p>가격 설정부터 패키지 구성까지, Claude 프롬프트로 30분 안에 끝내는 방법입니다.</p>
+<p>완성한 워크시트 사진이나 포지션 3개를 댓글에 남겨주세요.</p>
+<p>제가 직접 피드백 드리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
