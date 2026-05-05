@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 15,
+    "lesson_title": "팀·외주 파트너와 AI 워크플로우 공유하기",
+    "objective": "외주 파트너 또는 팀원이 동일한 Claude 워크플로우를 재현할 수 있도록 SOP 문서(표준 운영 절차서)를 작성하고 단계별 가이드를 구성한다",
+    "key_concepts": [
+      "SOP 문서 구조",
+      "워크플로우 문서화",
+      "재현 가능성 설계"
+    ],
+    "exercise": "AI 워크플로우 SOP 문서 1종 (A4 2페이지 이상)",
+    "duration_min": 15
+  }
+}
