@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 몰입 진입 루틴 설계하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 몰입 진입 루틴 설계하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: deepwork-1hr · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>딥워크를 시작하려고 자리에 앉았는데, 30분째 멍하게 화면만 보고 있진 않으신가요?</p>
+<p>책상 앞에 있는데 왜 집중이 안 될까, 자책하는 그 시간이 쌓여서 결국 오늘도 얕은 작업만 하다 끝납니다.</p>
+<p>문제는 의지력이 아닙니다. 뇌에게 '지금부터 몰입이야'라는 신호를 준 적이 없는 겁니다.</p>
+<p>이번 차시에서는 15분 안에 뇌를 몰입 모드로 전환하는 루틴을 직접 설계합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 영상이 끝나면, 딥워크 시작 전 15분 안에 실행할 수 있는 나만의 준비 루틴 3단계를 순서대로 종이 한 장에 적어낼 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — Startup Ritual: 뇌에게 보내는 '출발 신호'</h3>
+<p><strong>설명</strong></p>
+<p>많이들 들어보셨을 겁니다, Shutdown Ritual.</p>
+<p>Cal Newport가 말한 퇴근 의식, 즉 '오늘 업무는 끝났다'고 뇌에게 선언하는 루틴이죠.</p>
+<p>Startup Ritual은 그 정반대입니다.</p>
+<p>'지금부터 깊은 작업에 들어간다'고 뇌에게 미리 알려주는 진입 의식입니다.</p>
+<p>핵심은 반복성입니다. 매번 같은 행동을 같은 순서로 하면, 뇌는 그 패턴을 '몰입 직전'으로 학습합니다.</p>
+<p><strong>예시</strong></p>
+<p>매일 오전 9시, 노트북을 열기 전에 항상 같은 머그컵에 커피를 따르고, 이어폰을 끼고, 노트에 오늘의 딥워크 주제를 손으로 씁니다.</p>
+<p>3주가 지나면 커피 향만 맡아도 집중 준비가 됩니다.</p>
+<p>이게 바로 조건반사형 루틴입니다.</p>
+<p><strong>반례</strong></p>
+<p>주의하실 게 있습니다.</p>
+<p>루틴을 너무 정교하게 설계해서 '루틴을 완벽히 지켜야 딥워크를 시작할 수 있다'는 강박이 생기면 역효과입니다.</p>
+<p>루틴은 몰입을 돕는 도구이지, 완수해야 할 목표가 아닙니다.</p>
+<p>제 경험상, 3단계 이하로 단순하게 유지하는 게 지속성이 높습니다.</p>
+<p><strong>정리 — 메모리 페그: '러닝머신 워밍업'</strong></p>
+<p>러닝머신 위에서 갑자기 전속력으로 뛰면 몸이 버팁니다.</p>
+<p>워밍업이 필요하듯, Startup Ritual은 뇌를 위한 워밍업입니다.</p>
+<p>같은 동작, 같은 순서, 반복. 이 세 가지만 기억하세요.</p>
+<hr />
+<h3>핵심 개념 2 — Task Intention Setting: 단일 과제 집중 선언</h3>
+<p><strong>설명</strong></p>
+<p>자리에 앉아서 '오늘 열심히 해야지'라고 생각하는 것과, '오늘 오전 9시부터 10시까지 보고서 3장의 초안을 완성한다'고 선언하는 것은 완전히 다릅니다.</p>
+<p>Task Intention Setting은 딥워크에 들어가기 직전, 단 하나의 과제와 완료 기준을 문장으로 명확히 정하는 행위입니다.</p>
+<p>심리학에서는 이걸 '실행 의도(Implementation Intention)'라고 부릅니다.</p>
+<p>Peter Gollwitzer의 연구에 따르면, '언제, 무엇을, 어떻게'를 구체적으로 적은 집단은 그냥 목표만 적은 집단보다 실행률이 2~3배 높았습니다.</p>
+<p><strong>예시</strong></p>
+<p>나쁜 선언: "오늘 기획서 작업해야지."</p>
+<p>좋은 선언: "오전 9시~10시, 기획서 시장 분석 섹션 500자 초안 완성."</p>
+<p>과제 하나, 시간 범위 하나, 완료 기준 하나. 이 세 가지가 다 들어가야 합니다.</p>
+<p><strong>반례</strong></p>
+<p>과제를 여러 개 나열하면 Task Intention Setting이 아닙니다.</p>
+<p>'오늘 기획서도 쓰고, 메일도 답장하고, 자료도 찾아야지'는 그냥 할 일 목록입니다.</p>
+<p>딥워크 세션 하나에 과제는 반드시 하나여야 합니다.</p>
+<p>두 개를 동시에 의식에 올려놓는 순간, 뇌는 이미 멀티태스킹 모드로 전환됩니다.</p>
+<p><strong>정리 — 메모리 페그: '화살표 하나'</strong></p>
+<p>활을 쏘기 전에 화살을 두 개 걸면 둘 다 빗나갑니다.</p>
+<p>딥워크 세션에는 화살표 하나만 겨냥하세요.</p>
+<p>과제 하나, 시간 하나, 기준 하나.</p>
+<hr />
+<h3>핵심 개념 3 — 생체리듬 기반 최적 집중 시간대 선택법</h3>
+<p><strong>설명</strong></p>
+<p>같은 루틴을 써도 오전 10시에 하는 것과 오후 3시에 하는 것은 결과가 다를 수 있습니다.</p>
+<p>우리 몸에는 울트라디안 리듬(Ultradian Rhythm)이라는 약 90~120분 주기의 집중-휴식 사이클이 있습니다.</p>
+<p>이 리듬을 타면 같은 시간에 더 깊이 집중할 수 있고, 역행하면 아무리 노력해도 얕은 집중에 머뭅니다.</p>
+<p><strong>예시</strong></p>
+<p>자신의 고집중 시간대를 찾는 가장 빠른 방법은 3일 관찰법입니다.</p>
+<p>3일 동안, 2시간마다 '지금 집중이 잘 되는가, 아닌가'를 1점~5점으로 기록합니다.</p>
+<p>대부분의 경우 패턴이 보입니다. 오전 기상 후 2~4시간이 피크인 사람이 많지만, 야간형이라면 저녁이 피크일 수 있습니다.</p>
+<p><strong>반례</strong></p>
+<p>'나는 아침형 인간이니까 무조건 새벽 6시에 딥워크해야 해'처럼 남의 루틴을 그대로 복사하는 건 위험합니다.</p>
+<p>수면 부족 상태라면 이른 새벽이 오히려 최저 집중 시간대일 수 있습니다.</p>
+<p>생체리듬은 개인차가 크기 때문에, 반드시 자신의 데이터를 먼저 확인하세요.</p>
+<p><strong>정리 — 메모리 페그: '파도 타기'</strong></p>
+<p>파도를 거슬러 헤엄치면 지칩니다.</p>
+<p>파도가 올 때 올라타면 힘이 덜 듭니다.</p>
+<p>생체리듬도 마찬가지입니다. 내 집중 파도가 언제 오는지 먼저 파악하세요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고, '딥워크 스타트업 루틴 카드'를 직접 만들어 보겠습니다.</p>
+<p>A4 한 장 또는 노트 한 페이지면 충분합니다.</p>
+<p><strong>Step 1 — 나의 집중 피크 시간대 기입 (1분)</strong></p>
+<p>오늘부터 3일간 관찰할 예정이라면, 일단 현재 기준으로 '내가 집중이 잘 된다고 느끼는 시간대'를 하나 적어두세요.</p>
+<p>예시: 오전 9시~11시</p>
+<p>이 시간이 딥워크 세션의 기본 후보입니다.</p>
+<p><strong>Step 2 — 루틴 3단계 설계 (2분)</strong></p>
+<p>아래 표 형식으로 채워보세요.</p>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>행동</th>
+<th>소요 시간</th>
+<th>트리거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1단계</td>
+<td>(예: 핸드폰 서랍에 넣기)</td>
+<td>(예: 1분)</td>
+<td>(예: 자리에 앉는 순간)</td>
+</tr>
+<tr>
+<td>2단계</td>
+<td>(예: 이어폰 착용 + 집중 플레이리스트 재생)</td>
+<td>(예: 1분)</td>
+<td>(예: 1단계 완료 직후)</td>
+</tr>
+<tr>
+<td>3단계</td>
+<td>(예: 노트에 오늘의 Task Intention 한 문장 쓰기)</td>
+<td>(예: 3분)</td>
+<td>(예: 음악이 시작되는 순간)</td>
+</tr>
+</tbody>
+</table>
+<p>트리거는 '이전 단계가 끝나는 순간' 또는 '특정 감각 신호'로 설정하면 자동화가 빠릅니다.</p>
+<p><strong>Step 3 — 루틴 카드 완성 확인 (30초)</strong></p>
+<p>카드에 다음 세 가지가 모두 있는지 확인하세요.</p>
+<p>하나, 집중 피크 시간대.</p>
+<p>둘, 3단계 이하의 행동 목록과 각 소요 시간.</p>
+<p>셋, 각 단계를 시작하게 하는 트리거.</p>
+<p>세 가지가 모두 있으면 오늘 바로 써볼 수 있는 나만의 루틴 카드가 완성된 겁니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 딥워크 세션 중에 집중이 끊겼을 때, 5분 안에 다시 몰입을 회복하는 방법을 다룹니다.</p>
+<p>시작은 잘 됐는데 중간에 무너지는 분들이라면 꼭 보세요.</p>
+<p>오늘 만든 루틴 카드, 댓글에 단계 이름만이라도 공유해 주시면 다른 수강생들에게 좋은 자극이 됩니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

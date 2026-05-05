@@ -1,59 +1,26 @@
 {
-  "last_reset_date": "2026-05-04",
-  "daily_brief_count": 31,
+  "last_reset_date": "2026-05-05",
+  "daily_brief_count": 4,
   "daily_agent_calls": {
-    "ui_designer": 4,
-    "curriculum": 7,
-    "marketing": 5,
-    "producer": 7,
-    "success": 7,
-    "site_developer": 1
+    "producer": 4
   },
-  "daily_estimated_cost_usd": 2.170000000000001,
+  "daily_estimated_cost_usd": 0.28,
   "recent_call_timestamps": [
     {
       "agent": "producer",
-      "ts": 1777938338.3255162
-    },
-    {
-      "agent": "success",
-      "ts": 1777938382.4892359
-    },
-    {
-      "agent": "marketing",
-      "ts": 1777938395.9320624
+      "ts": 1777939334.8286722
     },
     {
       "agent": "producer",
-      "ts": 1777938419.5199637
-    },
-    {
-      "agent": "success",
-      "ts": 1777938466.6755087
-    },
-    {
-      "agent": "marketing",
-      "ts": 1777938485.9287868
+      "ts": 1777939377.4251385
     },
     {
       "agent": "producer",
-      "ts": 1777938509.2161655
-    },
-    {
-      "agent": "success",
-      "ts": 1777938547.7693675
-    },
-    {
-      "agent": "marketing",
-      "ts": 1777938560.9222383
+      "ts": 1777939427.3928401
     },
     {
       "agent": "producer",
-      "ts": 1777938581.7941735
-    },
-    {
-      "agent": "success",
-      "ts": 1777938625.6958542
+      "ts": 1777939478.0892851
     }
   ],
   "paused": false,
