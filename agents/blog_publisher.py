@@ -107,12 +107,14 @@ HTML로만 답하세요. 코드펜스 금지."""
                     log.warning("[blog] TISTORY_BLOG 미설정 — 게시 건너뜀")
                 else:
                     tags = ["Claude", "1인 사업가", "코어 캠퍼스", course_title[:20]]
+                    # publish=True — 모달에 *공개 발행* 버튼만 있어서 임시저장 불가능.
+                    # 즉시 라이브 게시. 회원님이 글 검토 후 비공개 처리는 블로그에서.
                     published_url = publish_post(
                         blog=blog,
                         title=title,
                         body_html=body_html,
                         tags=tags,
-                        publish=False,  # 임시저장만
+                        publish=True,
                     )
                     log.info("[blog] 임시저장 완료: %s", published_url)
             except Exception as e:
