@@ -91,7 +91,26 @@ HTML로만 답하세요. 코드펜스 금지."""
                 body_html = body_html[4:]
             body_html = body_html.rsplit("```", 1)[0].strip()
 
-        title = (landing.get("hero") or {}).get("headline") or course_title
+        # 제목 — landing의 hero.headline 우선 + 비거나 코스ID 그대로면 Claude로 새로 짓기
+        title = (landing.get("hero") or {}).get("headline") or ""
+        if not title or title == course_id or len(title) < 10:
+            title_prompt = (
+                f"다음 코스의 *블로그 글 제목* 한 줄을 작성하세요.\n"
+                f"코스: {course_title} ({course_id})\n"
+                f"타깃: {curriculum.get('target_audience', '1인 사업가')}\n"
+                f"약속: {json.dumps(curriculum.get('promises', [])[:2], ensure_ascii=False)}\n\n"
+                f"규칙:\n"
+                f"- 30-50자\n"
+                f"- 클릭 유도형이 아닌 *공감·문제 제기형*\n"
+                f"- 따옴표·이모지·마크다운 없이 일반 텍스트만\n"
+                f"- 한 줄로만 답하세요"
+            )
+            try:
+                title = self.call(title_prompt, max_tokens=200).strip().strip('"').strip("'").split("\n")[0]
+                log.info("[blog] ✓ Claude 제목 생성: %s", title)
+            except Exception as e:
+                log.warning("[blog] 제목 생성 실패: %s", e)
+                title = course_title
 
         # ★ 이미지 자동 생성 (gpt-image-2) + 본문 상단에 임베드
         # 전략: 티스토리에 업로드 안 함 → GitHub Pages에 호스팅 → <img>가 공개 URL 가리킴

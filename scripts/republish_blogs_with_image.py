@@ -13,6 +13,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
 import sys
 import time
@@ -21,11 +22,23 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 
+# 로깅 활성화 — INFO 레벨 강제
+logging.basicConfig(
+    level=os.environ.get("LOG_LEVEL", "INFO"),
+    format="%(asctime)s [%(name)s] %(message)s",
+    stream=sys.stdout,
+    force=True,  # 기존 핸들러 덮어씀
+)
+
 try:
     from dotenv import load_dotenv
     load_dotenv(REPO_ROOT / ".env")
 except ImportError:
     pass
+
+# TISTORY_SKIP이 .env에 박혀있어도 강제로 제거 — 자동 발행 시도해야 함
+os.environ.pop("TISTORY_SKIP", None)
+print("[setup] TISTORY_SKIP 제거됨 — 자동 발행 활성화")
 
 from agents.blog_publisher import BlogPublisher
 

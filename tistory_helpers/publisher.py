@@ -118,34 +118,47 @@ def publish_post(
                 raise RuntimeError(f"제목 입력 실패: {e}")
             _shoot(page, "2-title")
 
-            # 3. 본문 — TinyMCE iframe 안의 body#tinymce에 innerHTML 직접 주입
+            # 3. 본문 — TinyMCE 공식 API setContent() 사용 (내부 모델까지 동기화)
+            #    iframe 안 body innerHTML 직접 조작은 TinyMCE 내부 모델과 *동기화 안 됨* → 발행 시 빈 본문
             try:
                 page.wait_for_selector(EDITOR_IFRAME, timeout=10000)
-                frame = page.frame_locator(EDITOR_IFRAME)
-                # body#tinymce의 contenteditable이 활성화될 때까지 대기
-                body_locator = frame.locator(EDITOR_BODY)
-                body_locator.wait_for(state="visible", timeout=10000)
-                # JavaScript evaluate로 innerHTML 주입 + input 이벤트 발생 (TinyMCE 동기화)
+                # TinyMCE editor가 main page (iframe 밖)에서 globally 접근 가능
+                # tinymce.activeEditor.setContent(html) 가 정확한 방법
                 escaped = (
                     body_html
                     .replace("\\", "\\\\")
                     .replace("`", "\\`")
                     .replace("$", "\\$")
                 )
-                body_locator.evaluate(
-                    f"el => {{ el.innerHTML = `{escaped}`; "
-                    f"el.dispatchEvent(new Event('input', {{bubbles: true}})); "
-                    f"el.dispatchEvent(new Event('change', {{bubbles: true}})); }}"
-                )
-                log.info("[tistory] ✓ 본문 (TinyMCE body#tinymce)")
+                inject_result = page.evaluate(f"""
+                    () => {{
+                        if (window.tinymce && window.tinymce.activeEditor) {{
+                            window.tinymce.activeEditor.setContent(`{escaped}`);
+                            window.tinymce.activeEditor.save();  // 내부 모델 → form input 동기화
+                            const len = window.tinymce.activeEditor.getContent().length;
+                            return 'tinymce.setContent OK, content length=' + len;
+                        }}
+                        return 'no tinymce — fallback to innerHTML';
+                    }}
+                """)
+                log.info("[tistory] ✓ 본문 주입: %s", inject_result)
+                # 검증 — 너무 짧으면 실패로 간주
+                if "OK" not in str(inject_result):
+                    raise RuntimeError(f"setContent 실패: {inject_result}")
             except Exception as e:
                 _shoot(page, "FAIL-body")
-                log.warning("[tistory] body#tinymce 주입 실패: %s — keyboard fallback", e)
+                log.warning("[tistory] tinymce.setContent 실패: %s — innerHTML fallback", e)
+                # Fallback — iframe innerHTML
                 try:
                     frame = page.frame_locator(EDITOR_IFRAME)
-                    frame.locator(EDITOR_BODY).click()
-                    page.keyboard.insert_text(body_html[:5000])
-                    log.info("[tistory] ✓ 본문 (keyboard fallback)")
+                    body_locator = frame.locator(EDITOR_BODY)
+                    body_locator.wait_for(state="visible", timeout=10000)
+                    body_locator.evaluate(
+                        f"el => {{ el.innerHTML = `{escaped}`; "
+                        f"el.dispatchEvent(new Event('input', {{bubbles: true}})); "
+                        f"el.dispatchEvent(new Event('change', {{bubbles: true}})); }}"
+                    )
+                    log.info("[tistory] ✓ 본문 (innerHTML fallback)")
                 except Exception as e2:
                     _shoot(page, "FAIL-body-fallback")
                     raise RuntimeError(f"본문 입력 모두 실패: {e2}")
@@ -193,74 +206,112 @@ def publish_post(
                 except Exception:
                     pass
 
-            time.sleep(2)
+            time.sleep(2.5)
             _shoot(page, "5-after-done")
 
-            # 6. 모달 — 임시저장 또는 공개 발행 선택
-            time.sleep(1.5)  # 모달 애니메이션 대기
+            # 6. 모달 진단 — 떠 있는 모든 visible 버튼 dump
+            time.sleep(2)  # 모달 애니메이션 충분히 대기
+            try:
+                visible_buttons = page.evaluate("""
+                    () => {
+                        const all = [...document.querySelectorAll('button, a, [role="button"], input[type="button"], input[type="submit"]')];
+                        return all
+                            .filter(b => b.offsetParent !== null)
+                            .map(b => ({
+                                text: (b.textContent || b.value || '').trim().slice(0, 40),
+                                tag: b.tagName,
+                                id: b.id || '',
+                                cls: (b.className || '').toString().slice(0, 60),
+                            }));
+                    }
+                """)
+                log.info("[tistory] === 모달 단계 visible 버튼 %d개 ===", len(visible_buttons))
+                for b in visible_buttons:
+                    log.info("  · '%s' [%s] id=%s class=%s",
+                            b.get('text'), b.get('tag'), b.get('id'), b.get('cls'))
+            except Exception as e:
+                log.warning("[tistory] 버튼 dump 실패: %s", e)
+
+            # 7. 모달 클릭 — JS로 정확히 매칭
             modal_clicked = False
-            modal_options = (
-                ["공개 발행", "발행하기", "발행", "확인"]
-                if publish
-                else ["임시저장", "저장"]
-            )
-            # 다양한 셀렉터 패턴 — button, a, div, span, role=button 모두 시도
-            for label in modal_options:
-                for sel_template in [
-                    f"button:has-text('{label}')",
-                    f"a:has-text('{label}')",
-                    f"[role='button']:has-text('{label}')",
-                    f"div.btn:has-text('{label}')",
-                    f"span.btn:has-text('{label}')",
-                    f"button[id*='publish']:has-text('{label}')",
-                    f"button[class*='publish']:has-text('{label}')",
-                    f"text=/{label}/",
-                ]:
-                    try:
-                        loc = page.locator(sel_template).last
-                        loc.wait_for(state="visible", timeout=3000)
-                        loc.click(timeout=3000, force=True)
-                        log.info("[tistory] ✓ 모달 %s 클릭 (%s)", label, sel_template)
-                        modal_clicked = True
-                        break
-                    except Exception:
-                        continue
-                if modal_clicked:
-                    break
+            target_text_pattern = "공개\\s*발행|발행하기|^\\s*발행\\s*$" if publish else "임시저장|^\\s*저장\\s*$"
+            try:
+                clicked_info = page.evaluate(f"""
+                    () => {{
+                        const pattern = /{target_text_pattern}/;
+                        const cancelPattern = /취소|닫기|cancel/i;
+                        const all = [...document.querySelectorAll('button, a, [role="button"], input[type="button"], input[type="submit"]')];
+                        const candidates = all.filter(b => {{
+                            const t = (b.textContent || b.value || '').trim();
+                            return pattern.test(t) && !cancelPattern.test(t) && b.offsetParent !== null;
+                        }});
+                        if (candidates.length === 0) return 'no candidates';
+                        // 우선순위: id에 publish 들어있는 것 > 마지막에 추가된 것 (모달 안)
+                        const sorted = candidates.sort((a, b) => {{
+                            const aPub = /publish/i.test(a.id + a.className) ? 1 : 0;
+                            const bPub = /publish/i.test(b.id + b.className) ? 1 : 0;
+                            return bPub - aPub;
+                        }});
+                        const target = sorted[0];
+                        const text = (target.textContent || target.value || '').trim().slice(0, 30);
+                        // 클릭 + 강제 이벤트 발생
+                        target.click();
+                        target.dispatchEvent(new MouseEvent('click', {{bubbles: true, cancelable: true}}));
+                        return 'clicked: ' + text + ' [' + target.tagName + ' id=' + target.id + ']';
+                    }}
+                """)
+                log.info("[tistory] 모달 JS 클릭: %s", clicked_info)
+                modal_clicked = "clicked" in str(clicked_info)
+            except Exception as e:
+                log.warning("[tistory] JS 클릭 실패: %s", e)
 
+            # 8. 그래도 안 되면 — Playwright 셀렉터 시도
             if not modal_clicked:
-                # 마지막 fallback — JS로 모든 버튼 훑어서 텍스트 매칭
-                log.warning("[tistory] 모달 옵션 못 찾음 — JS fallback")
-                try:
-                    res = page.evaluate("""
-                        () => {
-                            const buttons = [...document.querySelectorAll('button, a, [role="button"], div.btn, span.btn')];
-                            const target = buttons.find(b =>
-                                /공개\\s*발행|발행하기|발행/.test(b.textContent) &&
-                                !/취소/.test(b.textContent) &&
-                                b.offsetParent !== null
-                            );
-                            if (target) { target.click(); return 'JS clicked: ' + target.textContent.trim().slice(0,30); }
-                            return 'no target found';
-                        }
-                    """)
-                    log.info("[tistory] JS fallback 결과: %s", res)
-                    modal_clicked = "clicked" in str(res).lower()
-                except Exception as e:
-                    log.warning("[tistory] JS fallback도 실패: %s", e)
-                    try:
-                        page.keyboard.press("Enter")
-                        log.info("[tistory] ✓ Enter 키 fallback")
-                    except Exception:
-                        pass
+                modal_options = ["공개 발행", "발행하기", "발행", "확인"] if publish else ["임시저장", "저장"]
+                for label in modal_options:
+                    for sel in [
+                        f"button:has-text('{label}')",
+                        f"a:has-text('{label}')",
+                        f"[role='button']:has-text('{label}')",
+                    ]:
+                        try:
+                            loc = page.locator(sel).last
+                            loc.click(timeout=3000, force=True)
+                            log.info("[tistory] ✓ Playwright fallback 클릭 (%s)", sel)
+                            modal_clicked = True
+                            break
+                        except Exception:
+                            continue
+                    if modal_clicked:
+                        break
 
-            # 6. 처리 대기
-            time.sleep(6)
+            # 9. URL 변경 대기 — newpost에서 실제 글 페이지로
+            try:
+                page.wait_for_url(
+                    lambda u: "/manage/newpost" not in u and "tistory.com" in u,
+                    timeout=15000,
+                )
+                log.info("[tistory] ✓ URL 변경 감지")
+            except Exception as e:
+                log.warning("[tistory] URL 변경 안됨 (%ds 대기): %s", 15, e)
+                # Enter 키 fallback
+                try:
+                    page.keyboard.press("Enter")
+                    time.sleep(3)
+                except Exception:
+                    pass
+
+            time.sleep(3)
             _shoot(page, "6-final")
             final_url = page.url
             log.info("[tistory] 🌐 final URL: %s", final_url)
 
             browser.close()
+
+            # 발행 검증 — manage/newpost에 머물러 있으면 실패
+            if "/manage/newpost" in final_url or "/login" in final_url:
+                raise RuntimeError(f"발행 확정 실패. final URL: {final_url}")
+
             return final_url
 
         except Exception as e:
