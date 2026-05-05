@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-monthly-revenue",
+    "course_title": "Claude로 매출 자동 분석·보고서 완성",
+    "lesson_no": 7,
+    "lesson_title": "보고서 톤·스타일 내 브랜드에 맞게 교정",
+    "objective": "생성된 보고서 초안에 자신의 브랜드 톤(격식체·친근체 등)과 로고·색상 규칙을 반영하도록 Claude에 교정 지시를 내려 최종 버전을 완성한다",
+    "key_concepts": [
+      "톤 & 보이스 프롬프트",
+      "반복 수정(Iteration) 기법",
+      "출력 포맷 다듬기"
+    ],
+    "exercise": "브랜드 톤이 적용된 최종 월간 보고서 파일 1개",
+    "duration_min": 15
+  }
+}
