@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-customer-script",
+    "course_title": "Claude로 CS 자동화: 1인 사업가 생존 키트",
+    "lesson_no": 2,
+    "lesson_title": "Claude에게 내 브랜드 목소리 학습시키기",
+    "objective": "브랜드 톤앤매너 5가지 키워드를 정의하고 Claude가 일관된 어투로 답변을 생성하는 '브랜드 보이스 마스터 프롬프트'를 작성한다",
+    "key_concepts": [
+      "시스템 프롬프트(System Prompt) 개념과 역할",
+      "톤앤매너 정의 방법 (형용사 5개 + 금지어 3개)",
+      "Few-shot 예시 삽입으로 어투 고정하기"
+    ],
+    "exercise": "브랜드명·업종·톤 키워드·예시 대화 2쌍이 포함된 '나만의 브랜드 보이스 마스터 프롬프트' 문서(Notion 또는 메모장)",
+    "duration_min": 15
+  }
+}
