@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 내 CS 지옥 지도 그리기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 내 CS 지옥 지도 그리기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-customer-script · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>어젯밤 몇 시에 주무셨어요?</p>
+<p>고객 문의 답장하다가 자정 넘긴 분, 손 들어보세요.</p>
+<p>"환불은 어떻게 해요?" "배송은 언제 와요?"</p>
+<p>같은 말을 하루에 열 번 넘게 타이핑하고 있다면, 지금 CS 지옥 한가운데 있는 겁니다.</p>
+<p>오늘 이 영상에서 그 지옥의 지도를 직접 그립니다.</p>
+<p>지도가 생기면 탈출구가 보입니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 내 문의함에서 시간을 가장 많이 잡아먹는 반복 문의 유형 TOP 5를 직접 분류한 표를 손에 쥐게 됩니다.</p>
+<p>이게 앞으로 Claude 자동화를 설계하는 첫 번째 재료입니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 80/20 법칙으로 보는 반복 문의 패턴</h3>
+<p><strong>설명</strong></p>
+<p>경제학자 파레토가 발견한 80/20 법칙, 들어보셨죠?</p>
+<p>전체 결과의 80%는 원인의 20%에서 나옵니다.</p>
+<p>CS도 똑같습니다.</p>
+<p>내 문의함을 열어보면, 전체 문의의 80%가 같은 질문 유형 20%에서 반복됩니다.</p>
+<p>다시 말해, 몇 가지 질문 유형만 처리해도 업무 부하 대부분을 줄일 수 있습니다.</p>
+<p><strong>예시</strong></p>
+<p>스마트스토어를 운영하는 A씨. 한 달 문의 100건을 세어봤더니, 그중 79건이 "배송 조회", "환불 방법", "사이즈 문의" 세 가지였습니다.</p>
+<p>나머지 21건만이 개별 대응이 필요한 복잡한 문의였죠.</p>
+<p><strong>반례</strong></p>
+<p>"우리 업종은 질문이 전부 달라요"라고 말하는 분들 있습니다.</p>
+<p>그런데 제 경험상, 처음엔 다 달라 보여도 분류 기준을 세우면 패턴이 보입니다.</p>
+<p>분류 전에 포기하면 패턴은 영원히 안 보입니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 숫자 <strong>80/20</strong>.</p>
+<p>내 문의의 80%를 만드는 20%의 유형을 찾는 것, 그게 오늘의 목표입니다.</p>
+<hr />
+<h3>핵심 개념 2 — 문의 유형 분류 기준 5가지</h3>
+<p><strong>설명</strong></p>
+<p>문의를 분류할 때 기준이 없으면 뒤섞입니다.</p>
+<p>오늘 이 강의에서는 5개 버킷을 씁니다.</p>
+<p><strong>환불</strong>, <strong>배송</strong>, <strong>사용법</strong>, <strong>불만</strong>, <strong>기타</strong>.</p>
+<p>이 5개가 대부분의 1인 사업 CS를 커버합니다.</p>
+<p>각각을 짧게 정의할게요.</p>
+<ul>
+<li><strong>환불</strong> — 취소, 반품, 교환 요청 전부 포함.</li>
+<li><strong>배송</strong> — 배송 조회, 지연 문의, 오배송 포함.</li>
+<li><strong>사용법</strong> — 제품·서비스 이용 방법 질문.</li>
+<li><strong>불만</strong> — 감정이 담긴 항의, 부정적 후기 선제 대응.</li>
+<li><strong>기타</strong> — 위 4개에 해당하지 않는 모든 것.</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>"주문 취소하고 싶어요" → 환불.</p>
+<p>"택배가 아직 안 왔어요" → 배송.</p>
+<p>"앱에서 로그인이 안 돼요" → 사용법.</p>
+<p>"이렇게 불친절한 곳은 처음이에요" → 불만.</p>
+<p>"사장님 인스타 계정이 어디예요?" → 기타.</p>
+<p><strong>반례</strong></p>
+<p>"환불 요청인데 배송 문제가 겹쳐요"처럼 복합 유형이 있습니다.</p>
+<p>이럴 때는 <strong>고객이 먼저 꺼낸 핵심 요구</strong> 하나만 기준으로 분류하세요.</p>
+<p>두 개 버킷에 동시에 넣으면 나중에 집계할 때 왜곡됩니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 <strong>손가락 5개</strong>.</p>
+<p>환불·배송·사용법·불만·기타, 손가락 하나씩 붙여서 외우세요.</p>
+<hr />
+<h3>핵심 개념 3 — 자동화 우선순위 판단 기준: 빈도 × 처리 시간</h3>
+<p><strong>설명</strong></p>
+<p>5개 버킷으로 분류가 끝났다면, 이제 "뭐부터 자동화할까?"를 결정해야 합니다.</p>
+<p>판단 공식은 단 하나입니다.</p>
+<p><strong>빈도 × 처리 시간 = 자동화 임팩트 점수</strong>.</p>
+<p>빈도가 높아도 처리 시간이 30초면 자동화 효과가 작습니다.</p>
+<p>반대로 빈도가 낮아도 처리 시간이 20분이면 총 소모 시간이 큽니다.</p>
+<p>두 숫자를 곱해서 점수가 높은 유형부터 자동화합니다.</p>
+<p><strong>예시</strong></p>
+<p>배송 문의: 월 40건 × 평균 3분 = <strong>120점</strong>.</p>
+<p>환불 문의: 월 15건 × 평균 10분 = <strong>150점</strong>.</p>
+<p>이 경우 환불 문의를 먼저 자동화하는 게 시간 절감 효과가 더 큽니다.</p>
+<p><strong>반례</strong></p>
+<p>"불만 문의는 처리 시간이 30분이 넘으니 점수가 높겠네요."</p>
+<p>맞습니다. 하지만 불만 문의는 감정 대응이 핵심이라 자동화 완성도가 낮습니다.</p>
+<p>점수가 높아도 자동화 난이도가 높은 유형은 나중 단계에서 다룹니다.</p>
+<p>이 코스에서는 환불·배송·사용법 세 유형부터 시작합니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 <strong>수식 하나: 빈도 × 시간</strong>.</p>
+<p>이 곱셈 하나가 자동화 로드맵의 출발점입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 바로 영상을 일시정지하고 따라 해보세요.</p>
+<p>준비물은 Google 스프레드시트 하나면 됩니다.</p>
+<p><strong>Step 1 — 스프레드시트 열기</strong></p>
+<p>새 시트를 만들고 파일명을 "내 CS 문의 유형 분류표"로 저장하세요.</p>
+<p><strong>Step 2 — 컬럼 4개 만들기</strong></p>
+<p>A열: 문의 내용 요약 (한 줄).
+B열: 유형 (환불·배송·사용법·불만·기타 중 하나).
+C열: 이번 달 발생 건수.
+D열: 건당 평균 처리 시간(분).</p>
+<p><strong>Step 3 — 최근 문의 30건 입력</strong></p>
+<p>카카오채널, 이메일, 인스타 DM 어디든 좋습니다.</p>
+<p>최근 30건을 열어서 A열에 요약, B열에 유형을 넣으세요.</p>
+<p>30건이 없다면 있는 만큼만 넣어도 됩니다.</p>
+<p><strong>Step 4 — 임팩트 점수 계산</strong></p>
+<p>E열을 추가하고 수식을 넣으세요.</p>
+<p><code>=C2*D2</code></p>
+<p>이렇게 하면 빈도 × 처리 시간 점수가 자동으로 나옵니다.</p>
+<p><strong>Step 5 — 점수 높은 순으로 정렬</strong></p>
+<p>E열 기준 내림차순 정렬.</p>
+<p>상위 5개 행을 노란색으로 칠하세요.</p>
+<p>그게 바로 여러분의 <strong>반복 문의 TOP 5</strong>입니다.</p>
+<p>완성되면 스크린샷 찍어두세요. 다음 차시에 바로 씁니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 방금 만든 TOP 5 표를 가지고, Claude에게 첫 번째 답변 초안을 만들게 하는 법을 배웁니다.</p>
+<p>오늘 만든 분류표 스크린샷을 댓글에 올려주세요.</p>
+<p>올리면 제가 직접 피드백 달아드립니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
