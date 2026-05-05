@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-customer-script",
+    "course_title": "Claude로 CS 자동화: 1인 사업가 생존 키트",
+    "lesson_no": 8,
+    "lesson_title": "반자동 CS 워크플로 설계 및 최종 점검",
+    "objective": "문의 수신부터 Claude 초안 생성·수정·발송까지의 전체 CS 처리 흐름을 단계별로 정의한 '나만의 CS 자동화 워크플로 다이어그램'을 완성하고 소요 시간 단축률을 계산해 발표한다",
+    "key_concepts": [
+      "CS 처리 5단계 흐름 (수신→분류→생성→수정→발송)",
+      "Claude 개입 지점 vs 사람 판단 지점 구분 기준",
+      "워크플로 개선 지표 설정 (응대 시간·만족도·재문의율)"
+    ],
+    "exercise": "Figma·FigJam 또는 draw.io로 작성한 'CS 자동화 워크플로 다이어그램' + 도입 전후 예상 시간 비교표",
+    "duration_min": 15
+  }
+}
