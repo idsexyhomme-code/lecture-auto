@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-launchpad",
+    "course_title": "Claude로 부캐 서비스 1주일 런칭",
+    "lesson_no": 6,
+    "lesson_title": "SNS 런칭 콘텐츠 5종 세트 제작",
+    "objective": "Claude를 활용해 인스타그램·스레드·링크드인용 런칭 게시물 5개를 플랫폼별 톤에 맞게 작성한다",
+    "key_concepts": [
+      "플랫폼별 카피 톤 차이",
+      "스토리텔링 런칭 시퀀스",
+      "해시태그 전략"
+    ],
+    "exercise": "플랫폼별 런칭 게시물 5개 모음 문서 (각 게시물 본문 + 해시태그 포함)",
+    "duration_min": 15
+  }
+}
