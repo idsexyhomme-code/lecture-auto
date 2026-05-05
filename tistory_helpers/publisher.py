@@ -34,12 +34,13 @@ log = logging.getLogger("tistory_publisher")
 
 DEBUG_DIR = REPO_ROOT / "content" / "state" / "tistory_debug"
 
-# ─── 확정 셀렉터 ──────────────────────────────────────────
-TITLE_ID = "#post-title-input"
-TAG_ID = "#tag-input"
-PUBLISH_BTN = "#publish-btn"
-SAVE_BTN = "#save-btn"
-EDITOR_IFRAME = "iframe#tx_canvas_iframe"
+# ─── 확정 셀렉터 (실제 jejumomdad 페이지 분석으로 검증) ───
+TITLE_ID = "#post-title-inp"          # textarea (input 아님!)
+TAG_ID = "#tagText"
+PUBLISH_BTN = "#publish-layer-btn"    # 발행 버튼 — 페이지에 없으면 텍스트 매칭 fallback
+SAVE_BTN = "#save-btn"                 # 임시저장 버튼
+EDITOR_IFRAME = "iframe#editor-tistory_ifr"   # TinyMCE
+EDITOR_BODY = "body#tinymce"           # iframe 안의 contenteditable body
 
 
 def _shoot(page, name: str):
@@ -117,45 +118,46 @@ def publish_post(
                 raise RuntimeError(f"제목 입력 실패: {e}")
             _shoot(page, "2-title")
 
-            # 3. 본문 — iframe 안의 body에 innerHTML 직접 주입
+            # 3. 본문 — TinyMCE iframe 안의 body#tinymce에 innerHTML 직접 주입
             try:
                 page.wait_for_selector(EDITOR_IFRAME, timeout=10000)
-                # frame_locator로 iframe 안 진입 → body의 innerHTML 설정
                 frame = page.frame_locator(EDITOR_IFRAME)
-                frame.locator("body").wait_for(state="visible", timeout=10000)
-                # JavaScript evaluate로 innerHTML 직접 주입 (가장 안정적)
-                # body_html에 백틱·달러·백슬래시 escape
+                # body#tinymce의 contenteditable이 활성화될 때까지 대기
+                body_locator = frame.locator(EDITOR_BODY)
+                body_locator.wait_for(state="visible", timeout=10000)
+                # JavaScript evaluate로 innerHTML 주입 + input 이벤트 발생 (TinyMCE 동기화)
                 escaped = (
                     body_html
                     .replace("\\", "\\\\")
                     .replace("`", "\\`")
                     .replace("$", "\\$")
                 )
-                frame.locator("body").evaluate(
+                body_locator.evaluate(
                     f"el => {{ el.innerHTML = `{escaped}`; "
-                    f"el.dispatchEvent(new Event('input', {{bubbles: true}})); }}"
+                    f"el.dispatchEvent(new Event('input', {{bubbles: true}})); "
+                    f"el.dispatchEvent(new Event('change', {{bubbles: true}})); }}"
                 )
-                log.info("[tistory] ✓ 본문 (iframe innerHTML)")
+                log.info("[tistory] ✓ 본문 (TinyMCE body#tinymce)")
             except Exception as e:
                 _shoot(page, "FAIL-body")
-                log.warning("[tistory] iframe 주입 실패: %s — keyboard fallback", e)
-                # fallback: 키보드 입력 (HTML 태그가 텍스트로 들어가지만 일단 저장은 됨)
+                log.warning("[tistory] body#tinymce 주입 실패: %s — keyboard fallback", e)
                 try:
                     frame = page.frame_locator(EDITOR_IFRAME)
-                    frame.locator("body").click()
-                    page.keyboard.insert_text(body_html[:5000])  # 길이 제한
+                    frame.locator(EDITOR_BODY).click()
+                    page.keyboard.insert_text(body_html[:5000])
                     log.info("[tistory] ✓ 본문 (keyboard fallback)")
                 except Exception as e2:
                     _shoot(page, "FAIL-body-fallback")
                     raise RuntimeError(f"본문 입력 모두 실패: {e2}")
             _shoot(page, "3-body")
 
-            # 4. 태그 입력 (옵션)
+            # 4. 태그 입력 (옵션) — input#tagText
             if tags:
                 try:
                     tag_input = page.wait_for_selector(TAG_ID, timeout=5000)
+                    tag_input.click()
                     for tag in tags[:5]:
-                        tag_input.fill(str(tag))
+                        page.keyboard.type(str(tag))
                         page.keyboard.press("Enter")
                         time.sleep(0.4)
                     log.info("[tistory] ✓ 태그 %d개", len(tags[:5]))
@@ -163,36 +165,62 @@ def publish_post(
                     log.warning("[tistory] 태그 입력 무시: %s", e)
             _shoot(page, "4-tags")
 
-            # 5. 임시저장 또는 발행
-            time.sleep(1)
-            if publish:
-                # 공개 발행 → 모달 → 모달 안의 공개 발행 버튼 클릭
-                page.click(PUBLISH_BTN, timeout=5000)
-                log.info("[tistory] ✓ 발행 버튼 클릭 (1차)")
-                _shoot(page, "5a-publish-modal")
-                # 모달의 확인 버튼 — 다양한 후보
-                modal_clicked = False
-                for sel in [
-                    "button:has-text('공개 발행')",
-                    "button:has-text('발행하기')",
-                    "button:has-text('확인')",
-                    "#publish-layer .btn",
-                    ".btn-publish-confirm",
+            # 5. 완료/발행/임시저장 버튼 — 다양한 후보 시도
+            time.sleep(1.5)
+            # 완료 버튼 (페이지 상단 — 누르면 모달 띄움)
+            done_clicked = False
+            for sel in [
+                "#publish-layer-btn",
+                "button#save-btn",
+                "button:has-text('완료')",
+                ".btn-default:has-text('완료')",
+                "button[id*='publish']",
+            ]:
+                try:
+                    page.click(sel, timeout=2500)
+                    log.info("[tistory] ✓ 완료 버튼 (%s)", sel)
+                    done_clicked = True
+                    break
+                except Exception:
+                    continue
+
+            if not done_clicked:
+                _shoot(page, "FAIL-no-done-btn")
+                # 마지막 fallback: 키보드 단축키
+                try:
+                    page.keyboard.press("Control+S" if sys.platform != "darwin" else "Meta+S")
+                    log.info("[tistory] ✓ Cmd+S 단축키")
+                except Exception:
+                    pass
+
+            time.sleep(2)
+            _shoot(page, "5-after-done")
+
+            # 6. 모달 — 임시저장 또는 공개 발행 선택
+            modal_clicked = False
+            modal_options = (
+                ["공개 발행", "발행하기", "발행", "확인"]
+                if publish
+                else ["임시저장", "저장"]
+            )
+            for label in modal_options:
+                for sel_template in [
+                    f"button:has-text('{label}')",
+                    f"button[id*='publish']:has-text('{label}')",
                 ]:
                     try:
-                        # 모달 안에서 visible한 발행 버튼만
-                        page.wait_for_selector(sel, timeout=2000, state="visible")
-                        page.click(sel, timeout=2000)
-                        log.info("[tistory] ✓ 모달 확인 (%s)", sel)
+                        page.wait_for_selector(sel_template, timeout=2500, state="visible")
+                        page.click(sel_template, timeout=2000)
+                        log.info("[tistory] ✓ 모달 %s 클릭", label)
                         modal_clicked = True
                         break
                     except Exception:
                         continue
-                if not modal_clicked:
-                    log.warning("[tistory] 모달 확인 못 찾음 — 그래도 1차 클릭으로 발행됐을 수 있음")
-            else:
-                page.click(SAVE_BTN, timeout=5000)
-                log.info("[tistory] ✓ 임시저장 버튼 클릭")
+                if modal_clicked:
+                    break
+
+            if not modal_clicked:
+                log.warning("[tistory] 모달 옵션 못 찾음 — 그래도 1차 클릭으로 저장됐을 가능성 있음")
 
             # 6. 처리 대기
             time.sleep(6)
