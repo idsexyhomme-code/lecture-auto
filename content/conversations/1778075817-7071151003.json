@@ -34,10 +34,18 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"새 강의 제작을 시작하려는 거죠? 어떤 작업부터 할까요?\\n\\n- **A)** 커리큘럼 설계 — 차시 구조 먼저 잡기\\n- **B)** 스크립트 작성 — 기존 코스의 특정 차시 영상 스크립트\\n- **C)** 랜딩 카피 — 코스 소개 페이지 문구\\n\\n주제나 코스명도 함께 알려주시면 빠르게 진행할게요.\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "B"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"어떤 코스의 몇 차시 스크립트가 필요하신가요?\\n\\n예: `claude-bizflow` 3차시 — 이런 식으로 알려주시면 바로 진행할게요.\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 1253,
+  "last_telegram_message_id": 1255,
   "created_at": "2026-05-06T13:56:57+00:00",
-  "updated_at": "2026-05-06T21:26:58+00:00"
+  "updated_at": "2026-05-06T21:27:17+00:00"
 }
