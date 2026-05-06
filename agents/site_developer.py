@@ -48,7 +48,7 @@ DESIGN_TOKEN_WHITELIST = {
 }
 
 
-SYSTEM = """당신은 강의 홈페이지의 사이트 개발자(Site Developer)다. 권한은 Tier 3.
+SYSTEM = """당신은 강의 홈페이지의 사이트 개발자(Site Developer)다. 권한은 Tier 5 (페이지 구성 자유도 최대).
 
 변경 가능 영역 (이것 외에는 어떤 것도 만지지 않는다):
 
