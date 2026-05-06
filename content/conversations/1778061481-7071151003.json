@@ -26,10 +26,18 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"대문 리디자인 진행 중인데, 블로그 배포 요청이 들어왔네요.\\n\\n잠깐 확인할게요 — 지금 요청하신 '블로그 배포 5개'가 어떤 건지 좀 더 알려주실 수 있을까요?\\n\\n- A) 기존 코스 관련 블로그 글 5편 초안 작성\\n- B) 뉴스레터·SNS용 콘텐츠 5개\\n- C) 다른 것 (직접 입력)\\n\\n그리고 대문 리디자인은 이어서 진행할까요?\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "B"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"알겠습니다. 뉴스레터·SNS 콘텐츠 5개군요.\\n\\n두 가지만 확인할게요.\\n\\n1. **어느 코스** 기반으로 만들까요?\\n   - 기존 코스 목록에서 골라주세요 (예: claude-bizflow, claude-content-engine 등)\\n   - 또는 특정 주제 자유 입력\\n\\n2. **채널 우선순위**는 어느 쪽인가요?\\n   - A) 뉴스레터 위주\\n   - B) SNS(인스타·링크드인 등) 위주\\n   - C) 둘 다 섞어서\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 1189,
+  "last_telegram_message_id": 1191,
   "created_at": "2026-05-06T09:58:01+00:00",
-  "updated_at": "2026-05-06T12:30:46+00:00"
+  "updated_at": "2026-05-06T12:31:01+00:00"
 }
