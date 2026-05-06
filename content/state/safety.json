@@ -33,7 +33,7 @@
       "ts": 1777964643.629638
     }
   ],
-  "paused": true,
-  "pause_reason": "user /stop",
+  "paused": false,
+  "pause_reason": "",
   "auto_mode": true
 }
