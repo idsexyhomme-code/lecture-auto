@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Claude로 1페이지 비즈니스 메일 작성법 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<section class="hero">
+  <div class="wrap">
+    <span class="badge">코스</span>
+    <h1 data-edit-field="site_config:course_overrides.claude-mail-writing.title_override">Claude로 1페이지 비즈니스 메일 작성법</h1>
+    <p class="lead" data-edit-field="site_config:course_overrides.claude-mail-writing.tagline_override">막히는 인사메일·후속메일을 15분 안에 완성한다</p>
+  </div>
+</section>
+
+
+
+
+<article class="body" style="background: var(--soft);">
+  <div class="wrap">
+    <h2>커리큘럼</h2>
+    <h1>Claude로 1페이지 비즈니스 메일 작성법</h1>
+<blockquote>
+<p>막히는 인사메일·후속메일을 15분 안에 완성한다</p>
+</blockquote>
+<h2>결과 약속</h2>
+<ul>
+<li>Claude 프롬프트 3가지 템플릿으로 인사메일을 10분 안에 초안 완성한다</li>
+<li>후속메일의 타이밍·길이·CTA를 스스로 점검하는 체크리스트를 만든다</li>
+<li>실제 잠재 고객 1명에게 보낼 메일을 1페이지 이내로 완성해 발송한다</li>
+</ul>
+<p><strong>타깃:</strong> 처음 만난 사람·잠재 고객에게 메일 쓸 때 매번 막히는 1인 사업가</p>
+<p><strong>선수지식:</strong> Claude(또는 ChatGPT 등 LLM) 계정 보유 및 기본 채팅 사용 경험, 보내고 싶은 실제 대상(잠재 고객 또는 첫 미팅 상대) 1명 준비</p>
+<h2>차시별 커리큘럼</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>제목</th>
+<th>학습목표</th>
+<th>실습</th>
+<th>분</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>인사메일 해부: 1페이지 구조 공식</td>
+<td>효과적인 인사메일의 4블록 구조(훅·공통점·가치제안·CTA)를 명시하고, 자신의 상황에 맞는 구조 초안을 채운 워크시트를 완성한다</td>
+<td>자신의 실제 대상을 기준으로 4블록을 채운 '인사메일 구조 워크시트' 1장</td>
+<td>15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Claude 프롬프트로 인사메일 초안 생성·수정하기</td>
+<td>Claude에 역할·맥락·제약 조건을 포함한 프롬프트를 작성하여 인사메일 초안을 생성하고, 3가지 기준(길이·톤·CTA 단수)으로 초안을 비교·수정한 최종 메일 텍스트를 완성한다</td>
+<td>Claude로 생성·수정한 인사메일 최종본 1개 (before/after 비교 포함)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>후속메일 전략: 타이밍·내용·발송 체크리스트 완성</td>
+<td>미팅·첫 메일 이후 후속메일의 발송 타이밍·내용 요소·금지 패턴을 분류하여 자신만의 후속메일 체크리스트를 만들고, 실제 대상에게 보낼 후속메일 텍스트를 Claude로 완성해 발송한다</td>
+<td>후속메일 체크리스트 1장 + 실제 발송용 후속메일 완성본 1개</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<h2>평가</h2>
+<p>수강생이 실제 대상에게 발송한 인사메일 또는 후속메일 스크린샷과 Claude 프롬프트를 함께 제출하면, 4블록 구조·150단어 이하·CTA 단수 3가지 기준 충족 여부를 체크리스트로 검토하여 완주 인증 발급</p>
+  </div>
+</article>
+
+
+
+
+
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
