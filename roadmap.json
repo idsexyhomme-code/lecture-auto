@@ -2,9 +2,9 @@
   "title": "코어 캠퍼스 — 강의 로드맵",
   "description": "사전 등록된 코스 큐. Orchestrator가 매일 9시(KST)에 다음 안건을 제안합니다. AUTO 모드 ON이면 ✅ 없이 자동 시작.",
   "schedule": {
-    "daily_propose_hour_kst": 9,
-    "max_proposals_per_day": 1,
-    "skip_weekends": false
+    "interval_hours": 6,
+    "max_per_day": 4,
+    "comment": "데몬이 6시간마다 status='planned' 코스 1개 자동 발주. 일일 최대 4개 (24시간 안에 풀 사이클 4번)."
   },
   "courses": [
     {

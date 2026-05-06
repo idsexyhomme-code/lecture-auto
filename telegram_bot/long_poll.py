@@ -175,6 +175,16 @@ def _run_local_pipeline():
     cron이 작동 안 해도 데몬이 24시간 돌면 이 함수가 모든 brief을 처리한다.
     각 단계 실패해도 다음 단계는 계속 시도.
     """
+    # ★ Roadmap 자동 펌프 — N시간마다 신규 코스 brief 자동 발주
+    # should_pump_now() 내부에서 interval(6h) + 일일 한도 체크하므로 매 사이클 호출 무해
+    try:
+        from agents.roadmap_pump import pump_next
+        new_brief = pump_next()
+        if new_brief:
+            log.info("[long_poll] 🚀 roadmap 자동 펌프 — 새 코스 brief: %s", new_brief.name)
+    except Exception as e:
+        log.warning("[long_poll] roadmap_pump 실패 (무해): %s", e)
+
     briefs_dir = REPO_ROOT / "briefs"
     pending_dir = REPO_ROOT / "content" / "pending"
 
