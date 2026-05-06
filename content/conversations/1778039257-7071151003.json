@@ -26,10 +26,18 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"{\\\"action\\\": \\\"ASK\\\", \\\"message\\\": \\\"코스 주제를 알려주세요! 어떤 내용을 가르치고 싶으신가요?\\\\n\\\\n예: \\\"Claude로 유튜브 쇼츠 자동화\\\", \\\"1인 사업가를 위한 세금 기초\\\" 등 한 줄이면 충분해요.\\\", \\\"brief\\\": null}\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "세금 기초"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"확인할게요!\\n\\n1. **차시 수**: 8차시 / 12차시 / 직접 입력 — 어느 게 좋을까요?\\n2. **형식**: 영상(video) / PDF / LMS 중 어떤 형식으로 제작할까요?\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 1100,
+  "last_telegram_message_id": 1102,
   "created_at": "2026-05-06T03:47:37+00:00",
-  "updated_at": "2026-05-06T03:54:12+00:00"
+  "updated_at": "2026-05-06T03:54:28+00:00"
 }
