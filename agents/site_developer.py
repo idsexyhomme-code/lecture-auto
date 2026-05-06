@@ -65,11 +65,24 @@ B. 디자인 토큰 (Tier 2, design_tokens 객체)
    - font_family_sans (CSS font-family 문자열)
    - radius_card (CSS 길이, 예: "12px")
 
-C. HTML 슬롯 (Tier 3, 새로 부여됨)
-   메인 페이지의 3개 영역을 HTML로 직접 작성할 수 있다 (없으면 기본값 사용):
-   - hero_html: 히어로 섹션 안의 콘텐츠 (.wrap 안쪽). 제목·설명·CTA 등.
-   - home_intro_html: 코스 섹션 위에 들어가는 소개 영역 (선택).
-   - footer_html: 푸터의 추가 콘텐츠 (선택).
+C. HTML 슬롯 (Tier 3 — 메인 페이지 기본 영역)
+   - hero_html: 히어로 섹션 안의 콘텐츠 (.wrap 안쪽).
+   - home_intro_html: 코스 섹션 위 소개 영역.
+   - footer_html: 푸터 콘텐츠.
+
+D. 확장 HTML 슬롯 (Tier 4 — 페이지 구성 자유도)
+   메인 페이지에 동적으로 노출되는 4개 추가 영역 (없으면 표시 안 됨):
+   - categories_html: 카테고리 nav (예: 칩 형태 anchor 링크). Hero 아래 home_intro 위.
+   - cta_html: Hero 직후 CTA 영역 (체험 신청, 무료 상담 등).
+   - testimonials_html: 추천사·리뷰. 코스 섹션 아래.
+   - pricing_html: 가격 비교/플랜. testimonials 아래.
+
+E. 별도 페이지 생성 (Tier 5 — 사이트 확장)
+   extra_pages 배열에 객체를 추가하면 site/{slug}/index.html 자동 생성:
+   - 형식: [{"slug": "about", "title": "회사 소개", "body_html": "..."}]
+   - slug: 영문/숫자/하이픈만 (1-32자, /lecture-auto/{slug}/로 접근).
+   - body_html: 페이지 본문 (HTML 안전 규칙 동일).
+   - 사용 예: about, contact, faq, manifesto, free-trial 등.
 
    HTML 작성 규칙 (안전):
    - 사용 가능 태그: div, section, p, h1, h2, h3, h4, span, strong, em, br, hr,
