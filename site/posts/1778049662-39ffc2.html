@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 5분 회고 프롬프트 설계하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 5분 회고 프롬프트 설계하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-daily-recap · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>오늘 하루도 그냥 흘려보냈나요?</p>
+<p>저녁이 되면 뭔가 열심히 살았는데, 뭘 했는지 정리가 안 되는 느낌. 그 답답함 알죠?</p>
+<p>회고를 해야 한다는 건 알아요. 근데 막상 앉으면 뭘 써야 할지 모르고, 쓰다 보면 30분이 지나 있고, 결국 "내일 해야지"로 끝나버리죠.</p>
+<p>이 영상 하나로 그 루프를 끊겠습니다.</p>
+<p>Claude에게 오늘 하루를 3줄만 던지면, 회고 초안이 5분 안에 완성됩니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면, 오늘 있었던 일·감정·결정을 입력하는 즉시 회고 초안을 자동으로 출력하는 나만의 Claude 프롬프트 1개를 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 회고의 3요소: 사실·감정·개선점</h3>
+<p><strong>설명</strong></p>
+<p>회고가 막히는 이유는 하나입니다. "좋은 회고가 뭔지" 정의 없이 쓰려 하기 때문이에요.</p>
+<p>회고에는 딱 3가지만 있으면 됩니다.</p>
+<p>첫째, <strong>사실(Fact)</strong>. 오늘 실제로 일어난 일. 감상 없이 사건만.</p>
+<p>둘째, <strong>감정(Feeling)</strong>. 그 사건에서 내가 느낀 것. 좋다·불편하다·뿌듯하다.</p>
+<p>셋째, <strong>개선점(Finding)</strong>. 내일 다르게 할 한 가지.</p>
+<p><strong>메모리 페그: '3F 공식'</strong> — Fact, Feeling, Finding. 세 글자 F만 기억하세요.</p>
+<p><strong>예시</strong></p>
+<ul>
+<li>사실: 오후 2시 미팅에서 발표를 맡았다.</li>
+<li>감정: 준비가 덜 된 것 같아 불안했다.</li>
+<li>개선점: 다음엔 전날 밤 슬라이드 리허설을 한 번 한다.</li>
+</ul>
+<p>단 3줄. 이게 회고의 전부입니다.</p>
+<p><strong>반례</strong></p>
+<p>"오늘 열심히 살았다. 내일도 잘 하자." 이건 회고가 아니에요. 사실도 없고, 감정도 모호하고, 개선점도 없습니다. 일기와 회고는 다릅니다.</p>
+<p><strong>정리</strong></p>
+<p>좋은 회고 = 사실 + 감정 + 개선점. 이 3F 구조가 프롬프트의 뼈대가 됩니다.</p>
+<hr />
+<h3>핵심 개념 2 — Claude 프롬프트 구조: 역할·입력·출력 형식 지정</h3>
+<p><strong>설명</strong></p>
+<p>Claude는 맥락을 줄수록 정확하게 응답합니다.</p>
+<p>프롬프트에 3가지 레이어를 넣으면 결과물의 품질이 크게 달라집니다.</p>
+<ul>
+<li><strong>역할(Role)</strong>: Claude가 어떤 전문가처럼 행동할지 지정.</li>
+<li><strong>입력(Input)</strong>: 내가 제공하는 오늘 하루 데이터.</li>
+<li><strong>출력 형식(Output Format)</strong>: 결과를 어떤 구조로 써달라고 지정.</li>
+</ul>
+<p><strong>메모리 페그: '역·입·출' 3층 건물</strong>. 1층이 없으면 건물이 무너지듯, 하나라도 빠지면 프롬프트가 흔들립니다.</p>
+<p><strong>예시</strong></p>
+<blockquote>
+<p><strong>역할</strong>: 당신은 성장 지향적인 커리어 코치입니다.</p>
+<p><strong>입력</strong>: 아래는 오늘 하루의 기록입니다. [오늘 한 일], [오늘 느낀 감정], [오늘의 결정]</p>
+<p><strong>출력 형식</strong>: 사실 요약 1줄 / 감정 해석 2줄 / 내일 개선할 행동 1가지. 총 5줄 이내로 작성해 주세요.</p>
+</blockquote>
+<p>이 3층이 갖춰진 프롬프트를 사용하면, 매번 결과물 품질이 일정하게 유지됩니다.</p>
+<p><strong>반례</strong></p>
+<p>"오늘 힘들었어. 회고 써줘."</p>
+<p>역할도, 출력 형식도 없습니다. Claude가 어떤 톤으로, 얼마나 길게, 무슨 항목을 써야 할지 모르는 상태예요. 제 경험상 이런 프롬프트는 쓸 수 없는 에세이를 돌려줍니다.</p>
+<p><strong>정리</strong></p>
+<p>프롬프트 = 역할 + 입력 + 출력 형식. 이 3층 구조가 재현 가능한 회고를 만들어 줍니다.</p>
+<hr />
+<h3>핵심 개념 3 — 5분 입력 루틴: 오늘 한 일 3줄 → Claude 실행</h3>
+<p><strong>설명</strong></p>
+<p>가장 좋은 루틴은 마찰이 없는 루틴입니다.</p>
+<p>입력 장벽을 낮추는 방법은 딱 하나예요. <strong>양식을 고정하는 것</strong>입니다.</p>
+<p>매일 밤, 딱 3줄만 채웁니다.</p>
+<ul>
+<li>1줄: 오늘 가장 중요한 일 하나.</li>
+<li>2줄: 그 일에서 느낀 감정 하나.</li>
+<li>3줄: 오늘 내린 결정 하나.</li>
+</ul>
+<p>이 3줄을 미리 만들어둔 프롬프트 템플릿에 붙여넣고 Claude를 실행하면 끝입니다.</p>
+<p><strong>메모리 페그: '3줄 연료'</strong>. 프롬프트라는 엔진에 딱 3줄 연료를 넣으면 회고가 출발합니다.</p>
+<p><strong>예시</strong></p>
+<ul>
+<li>오늘 한 일: 신규 거래처에 첫 제안서를 보냈다.</li>
+<li>오늘 감정: 기대 반, 불안 반이었다.</li>
+<li>오늘 결정: 다음 주 팔로업 일정을 미리 잡아두기로 했다.</li>
+</ul>
+<p>이 3줄을 프롬프트에 붙여넣으면, 5분 안에 회고 초안이 완성됩니다.</p>
+<p><strong>반례</strong></p>
+<p>"더 자세히 써야 좋은 회고가 나오지 않을까?"라는 생각에 10줄, 20줄을 쓰기 시작하면 루틴이 무너집니다. 대부분의 경우, 분량보다 일관성이 훨씬 강력합니다. 3줄을 매일 쓰는 게, 500자를 가끔 쓰는 것보다 낫습니다.</p>
+<p><strong>정리</strong></p>
+<p>오늘 한 일·감정·결정, 딱 3줄. 이게 5분 회고 루틴의 전부입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고, 아래 4단계를 직접 따라해 보세요.</p>
+<p>Notion이나 메모장 새 페이지를 하나 열어두세요.</p>
+<hr />
+<p><strong>Step 1 — 오늘 하루 3줄 작성하기</strong></p>
+<p>다음 3가지를 지금 바로 써보세요.</p>
+<ul>
+<li>오늘 가장 중요하게 한 일 1가지</li>
+<li>그 일에서 느낀 감정 1가지</li>
+<li>오늘 내린 결정 또는 미룬 결정 1가지</li>
+</ul>
+<p>딱 3줄. 완성형 문장 아니어도 됩니다.</p>
+<hr />
+<p><strong>Step 2 — 마스터 프롬프트 뼈대 붙여넣기</strong></p>
+<p>아래 텍스트를 그대로 복사해서 페이지에 붙여넣으세요.</p>
+<blockquote>
+<p>당신은 성장을 돕는 회고 코치입니다.
+아래 하루 기록을 바탕으로 회고 초안을 작성해 주세요.</p>
+<p>[오늘 한 일]: (여기에 입력)
+[오늘 감정]: (여기에 입력)
+[오늘 결정]: (여기에 입력)</p>
+<p>출력 형식:
+1. 오늘의 핵심 사실 요약 — 1줄
+2. 감정 해석 — 2줄
+3. 내일 실행할 개선 행동 — 1가지
+총 5줄 이내로 작성해 주세요.</p>
+</blockquote>
+<hr />
+<p><strong>Step 3 — Step 1에서 쓴 3줄을 프롬프트에 넣기</strong></p>
+<p>[오늘 한 일], [오늘 감정], [오늘 결정] 자리에 아까 쓴 내용을 채워넣으세요.</p>
+<hr />
+<p><strong>Step 4 — Claude에 붙여넣고 실행하기</strong></p>
+<p>Claude.ai를 열고, 완성된 프롬프트를 붙여넣은 뒤 실행하세요.</p>
+<p>출력된 회고 초안을 같은 페이지 아래에 저장해 두세요.</p>
+<p>이 페이지 1장이 여러분의 <strong>5분 회고 마스터 문서</strong>가 됩니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 마스터 프롬프트를 업그레이드합니다.</p>
+<p>반복되는 패턴을 Claude가 스스로 찾아내서, 주간 인사이트를 자동으로 요약해 주는 방법을 다룰 거예요.</p>
+<p>오늘 만든 회고 초안, 댓글에 한 줄만 남겨주세요.</p>
+<p>여러분의 3줄이 다른 분들에게 좋은 참고가 됩니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

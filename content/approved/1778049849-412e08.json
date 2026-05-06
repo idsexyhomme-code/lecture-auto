@@ -1,0 +1,118 @@
+{
+  "id": "1778049849-412e08",
+  "agent": "ui_designer",
+  "kind": "design_variants",
+  "title": "[디자인 시안] hero — 3개 변형",
+  "body_md": "## hero — 변형 3개\n\n코어 캠퍼스 'Claude로 5분 하루 회고 자동화' 히어로 3변형 — 에디토리얼/임팩트/서사\n\n### V1 · 에디토리얼 모던\n_차분한 학술 매거진 같은 진중함 — 텍스트가 이미지를 압도하는 인쇄물 레이아웃_\n\n**팔레트**: bg=#FBF8F3, fg=#1C1810, brand=#3D2F1E, accent=#B8860B, soft=#EDE4D4\n\n**이유**: 1인 사업가는 '전문적인 나'를 확인받고 싶어한다. Noto Serif KR의 세리프 무게감과 매거진식 2단 그리드가 '이건 진지한 콘텐츠'라는 신호를 0.5초 안에 보낸다. 01-02-03 번호 목록은 학습 효과를 예측 가능하게 보여줘 '부담 없이 할 수 있겠다'는 심리적 안전감을 준다.\n\n**이미지 프롬프트** (4개):\n- 베이지 크림 배경 위에 놓인 열린 노트와 펜, 미니멀한 탑뷰 플랫레이, 따뜻한 황금빛 오후 자연광, 한국적 절제미\n- 추상적 원형 나선 구조를 딥브라운·머스타드·크림 3색으로 표현한 인포그래픽 일러스트, 시간의 반복과 성장 상징\n- 빈 저널 페이지에 손글씨 선이 흐릿하게 새겨진 클로즈업, 따뜻한 암버 톤, 텍스처 풍부, 미니멀리스트\n- 점이 선으로 연결되는 타임라인 추상 패턴, 웜베이지·딥브라운 팔레트, 아카데믹 매거진 표지 스타일\n\n### V2 · 임팩트 풀블리드\n_단 한 줄의 문장이 화면을 점령하는 강렬한 선언 — 회고의 심리적 장벽을 정면으로 깨는 구도_\n\n**팔레트**: bg=#2B1F12, fg=#F5EFE4, brand=#E8C97A, accent=#F5EFE4, soft=#3E2E1A\n\n**이유**: 어두운 다크 베이지(#2B1F12)와 골드 타이포그래피의 대비는 '회고 부담'이라는 무거운 주제를 오히려 정면돌파하는 에너지를 만든다. 숫자 3개(5분/1회/30일)의 스탯 바는 8초 내 '실현 가능성'을 수치로 각인시켜 신뢰를 빠르게 획득한다. 사이드 클리핑 패턴이 비대칭 긴장감을 주며 시선을 헤드라인으로 집중시킨다.\n\n**이미지 프롬프트** (4개):\n- 딥브라운 다크 배경 위 황금색 추상 필선이 원을 이루는 미니멀 라인아트, 밤의 사색 분위기, 아카데믹 아트 포스터\n- 어두운 가죽 노트 표면 클로즈업 텍스처, 주변 아웃포커스, 따뜻한 호박색 조명, 깊은 갈색 톤\n- 황금 먼지 입자가 어두운 배경에서 위로 흩어지는 추상 이미지, 언더라이팅, 미니멀 고급스러움\n- 딥브라운과 앰버 그라데이션 배경에 기하학적 원형 패턴, 사색과 성찰을 상징하는 명상적 분위기\n\n### V3 · 서사적 여정\n_독자와 나란히 걷는 편지 같은 따뜻함 — 텍스트 중심 세로 스크롤 내러티브, 이미지는 조용한 배경_\n\n**팔레트**: bg=#F7F2EA, fg=#2E2719, brand=#6B4C2A, accent=#C17F3E, soft=#E8DED0\n\n**이유**: 실제 수강생 목소리를 인용문으로 시작해 '내 이야기다'라는 공감을 0초에 형성한다. 세로 단일 컬럼의 서사 구조는 스크롤 없이도 히어로 영역에서 완결된 이야기를 전달하며, Step 1-2-3 카드가 '복잡하지 않다'는 안도감을 시각적으로 증명한다. 따뜻한 테라코타·세피아 톤이 판단받지 않는 안전한 공간의 분위기를 만든다.\n\n**이미지 프롬프트** (5개):\n- 크림 베이지 테이블 위 열린 저널과 따뜻한 차 한 잔, 조용한 밤 책상 분위기, 앰버 간접조명, 한국 1인 작업 공간 감성\n- 손으로 그린 듯한 얇은 선의 타임라인 일러스트, 날짜 점들이 이어져 패턴을 이루는 구조, 웜베이지·테라코타 팔레트\n- 여러 개의 작은 메모 카드가 코르크보드에 정돈되어 붙어 있는 탑뷰, 따뜻한 자연광, 미니멀 아카데믹\n- 새벽 또는 해질녘 창가 책상 실루엣, 빛이 노트 위에 걸쳐진 추상 분위기, 세피아 앰버 톤, 사색적\n- 손글씨 원형 루프와 화살표로 구성된 루틴 사이클 다이어그램 일러스트, 웜 브라운·골드 선, 흰 배경",
+  "summary": "코어 캠퍼스 'Claude로 5분 하루 회고 자동화' 히어로 3변형 — 에디토리얼/임팩트/서사",
+  "meta": {
+    "target": "hero",
+    "variants": [
+      {
+        "id": "v1",
+        "name": "에디토리얼 모던",
+        "vibe": "차분한 학술 매거진 같은 진중함 — 텍스트가 이미지를 압도하는 인쇄물 레이아웃",
+        "color_palette": {
+          "bg": "#FBF8F3",
+          "fg": "#1C1810",
+          "brand": "#3D2F1E",
+          "accent": "#B8860B",
+          "soft": "#EDE4D4"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:1080px;margin:0 auto;padding:72px 24px 64px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--bg)\">\n  <div style=\"display:flex;flex-direction:column;gap:20px\">\n    <span style=\"display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-family:var(--font-sans);font-weight:600\">Core Campus &nbsp;/&nbsp; 코스 소개</span>\n    <h1 style=\"font-family:'Noto Serif KR',Georgia,serif;font-size:clamp(32px,4.5vw,54px);font-weight:700;line-height:1.22;color:var(--brand);margin:0\">\n      하루를 되돌아보는 데<br>\n      <em style=\"font-style:normal;color:var(--accent)\">5분</em>이면 충분합니다\n    </h1>\n    <p style=\"font-family:var(--font-sans);font-size:clamp(15px,1.6vw,18px);line-height:1.75;color:var(--fg);opacity:.82;max-width:440px;margin:0\">\n      Claude AI가 오늘의 질문을 건네고, 당신은 짧게 답합니다.<br>\n      쌓인 답변이 당신의 사업 회고록이 됩니다.\n    </p>\n    <hr style=\"border:none;border-top:1px solid var(--soft);margin:4px 0\">\n    <ul style=\"list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px\">\n      <li style=\"display:flex;align-items:flex-start;gap:10px;font-family:var(--font-sans);font-size:14px;color:var(--fg)\">\n        <span style=\"flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--accent);font-weight:700;margin-top:1px\">01</span>\n        <span>매일 같은 페이지를 열어도 막막했던 일기, 이제 Claude가 질문을 대신합니다</span>\n      </li>\n      <li style=\"display:flex;align-items:flex-start;gap:10px;font-family:var(--font-sans);font-size:14px;color:var(--fg)\">\n        <span style=\"flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--accent);font-weight:700;margin-top:1px\">02</span>\n        <span>5분 루틴이 30일 누적되면 사업 패턴이 보입니다</span>\n      </li>\n      <li style=\"display:flex;align-items:flex-start;gap:10px;font-family:var(--font-sans);font-size:14px;color:var(--fg)\">\n        <span style=\"flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--accent);font-weight:700;margin-top:1px\">03</span>\n        <span>자동화 설정 1회. 이후엔 답만 적으면 됩니다</span>\n      </li>\n    </ul>\n    <div style=\"display:flex;align-items:center;gap:16px;margin-top:8px\">\n      <a href=\"#enroll\" style=\"display:inline-block;padding:14px 32px;background:var(--brand);color:#FBF8F3;font-family:var(--font-sans);font-size:15px;font-weight:600;border-radius:var(--radius-card);text-decoration:none;letter-spacing:.02em\">코스 시작하기</a>\n      <a href=\"#preview\" style=\"font-family:var(--font-sans);font-size:14px;color:var(--brand);text-decoration:underline;text-underline-offset:3px;opacity:.75\">무료 미리보기 →</a>\n    </div>\n  </div>\n  <figure style=\"margin:0;border-radius:var(--radius-card);overflow:hidden;background:var(--soft);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center\">\n    <img src=\"/assets/placeholder/hero-editorial.svg\" alt=\"5분 하루 회고 루틴 시각화\" style=\"width:100%;height:100%;object-fit:cover;display:block\">\n  </figure>\n</div>",
+        "design_tokens": {
+          "color_bg": "#FBF8F3",
+          "color_fg": "#1C1810",
+          "color_brand": "#3D2F1E",
+          "color_accent": "#B8860B",
+          "color_soft": "#EDE4D4",
+          "font_family_sans": "'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif",
+          "radius_card": "8px"
+        },
+        "image_prompts": [
+          "베이지 크림 배경 위에 놓인 열린 노트와 펜, 미니멀한 탑뷰 플랫레이, 따뜻한 황금빛 오후 자연광, 한국적 절제미",
+          "추상적 원형 나선 구조를 딥브라운·머스타드·크림 3색으로 표현한 인포그래픽 일러스트, 시간의 반복과 성장 상징",
+          "빈 저널 페이지에 손글씨 선이 흐릿하게 새겨진 클로즈업, 따뜻한 암버 톤, 텍스처 풍부, 미니멀리스트",
+          "점이 선으로 연결되는 타임라인 추상 패턴, 웜베이지·딥브라운 팔레트, 아카데믹 매거진 표지 스타일"
+        ],
+        "reasoning": "1인 사업가는 '전문적인 나'를 확인받고 싶어한다. Noto Serif KR의 세리프 무게감과 매거진식 2단 그리드가 '이건 진지한 콘텐츠'라는 신호를 0.5초 안에 보낸다. 01-02-03 번호 목록은 학습 효과를 예측 가능하게 보여줘 '부담 없이 할 수 있겠다'는 심리적 안전감을 준다."
+      },
+      {
+        "id": "v2",
+        "name": "임팩트 풀블리드",
+        "vibe": "단 한 줄의 문장이 화면을 점령하는 강렬한 선언 — 회고의 심리적 장벽을 정면으로 깨는 구도",
+        "color_palette": {
+          "bg": "#2B1F12",
+          "fg": "#F5EFE4",
+          "brand": "#E8C97A",
+          "accent": "#F5EFE4",
+          "soft": "#3E2E1A"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:100%;padding:80px 5vw 72px;background:var(--bg);display:flex;flex-direction:column;gap:0;position:relative;overflow:hidden\">\n  <div style=\"position:absolute;top:0;right:0;width:42%;height:100%;background:var(--soft);clip-path:polygon(12% 0, 100% 0, 100% 100%, 0% 100%);z-index:0\"></div>\n  <div style=\"position:absolute;top:0;right:0;width:42%;height:100%;z-index:1;overflow:hidden\">\n    <img src=\"/assets/placeholder/hero-fullbleed-texture.svg\" alt=\"\" role=\"presentation\" style=\"width:100%;height:100%;object-fit:cover;opacity:.18;mix-blend-mode:luminosity\">\n  </div>\n  <div style=\"position:relative;z-index:2;max-width:680px\">\n    <p style=\"font-family:var(--font-sans);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--brand);margin:0 0 28px;font-weight:600\">Claude &times; 코어 캠퍼스</p>\n    <h1 style=\"font-family:'Noto Serif KR',Georgia,serif;font-size:clamp(36px,5.5vw,72px);font-weight:900;line-height:1.14;color:var(--accent);margin:0 0 24px\">\n      오늘 하루,<br>\n      <span style=\"color:var(--brand)\">5분이면</span><br>\n      충분합니다\n    </h1>\n    <p style=\"font-family:var(--font-sans);font-size:clamp(15px,1.5vw,19px);line-height:1.8;color:var(--fg);opacity:.78;max-width:520px;margin:0 0 36px\">\n      회고를 시작하지 못한 건 의지의 문제가 아닙니다.<br>\n      시스템이 없었을 뿐입니다. Claude가 대신 물어보고,<br>\n      당신은 짧게 답하기만 합니다.\n    </p>\n    <div style=\"display:flex;flex-wrap:wrap;gap:12px;align-items:center\">\n      <a href=\"#enroll\" style=\"display:inline-block;padding:16px 40px;background:var(--brand);color:var(--bg);font-family:var(--font-sans);font-size:15px;font-weight:700;border-radius:var(--radius-card);text-decoration:none;letter-spacing:.03em\">지금 시작하기</a>\n      <a href=\"#how\" style=\"font-family:var(--font-sans);font-size:14px;color:var(--brand);text-decoration:none;opacity:.85;border-bottom:1px solid currentColor;padding-bottom:1px\">어떻게 작동하나요?</a>\n    </div>\n  </div>\n  <div style=\"position:relative;z-index:2;margin-top:56px;display:flex;gap:32px;flex-wrap:wrap\">\n    <div style=\"display:flex;flex-direction:column;gap:4px\">\n      <span style=\"font-family:'Noto Serif KR',Georgia,serif;font-size:28px;font-weight:700;color:var(--brand)\">5분</span>\n      <span style=\"font-family:var(--font-sans);font-size:12px;color:var(--fg);opacity:.6;letter-spacing:.04em\">하루 소요 시간</span>\n    </div>\n    <div style=\"width:1px;background:var(--soft)\"></div>\n    <div style=\"display:flex;flex-direction:column;gap:4px\">\n      <span style=\"font-family:'Noto Serif KR',Georgia,serif;font-size:28px;font-weight:700;color:var(--brand)\">1회</span>\n      <span style=\"font-family:var(--font-sans);font-size:12px;color:var(--fg);opacity:.6;letter-spacing:.04em\">자동화 초기 설정</span>\n    </div>\n    <div style=\"width:1px;background:var(--soft)\"></div>\n    <div style=\"display:flex;flex-direction:column;gap:4px\">\n      <span style=\"font-family:'Noto Serif KR',Georgia,serif;font-size:28px;font-weight:700;color:var(--brand)\">30일</span>\n      <span style=\"font-family:var(--font-sans);font-size:12px;color:var(--fg);opacity:.6;letter-spacing:.04em\">패턴이 보이는 시점</span>\n    </div>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#2B1F12",
+          "color_fg": "#F5EFE4",
+          "color_brand": "#E8C97A",
+          "color_accent": "#F5EFE4",
+          "color_soft": "#3E2E1A",
+          "font_family_sans": "'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif",
+          "radius_card": "4px"
+        },
+        "image_prompts": [
+          "딥브라운 다크 배경 위 황금색 추상 필선이 원을 이루는 미니멀 라인아트, 밤의 사색 분위기, 아카데믹 아트 포스터",
+          "어두운 가죽 노트 표면 클로즈업 텍스처, 주변 아웃포커스, 따뜻한 호박색 조명, 깊은 갈색 톤",
+          "황금 먼지 입자가 어두운 배경에서 위로 흩어지는 추상 이미지, 언더라이팅, 미니멀 고급스러움",
+          "딥브라운과 앰버 그라데이션 배경에 기하학적 원형 패턴, 사색과 성찰을 상징하는 명상적 분위기"
+        ],
+        "reasoning": "어두운 다크 베이지(#2B1F12)와 골드 타이포그래피의 대비는 '회고 부담'이라는 무거운 주제를 오히려 정면돌파하는 에너지를 만든다. 숫자 3개(5분/1회/30일)의 스탯 바는 8초 내 '실현 가능성'을 수치로 각인시켜 신뢰를 빠르게 획득한다. 사이드 클리핑 패턴이 비대칭 긴장감을 주며 시선을 헤드라인으로 집중시킨다."
+      },
+      {
+        "id": "v3",
+        "name": "서사적 여정",
+        "vibe": "독자와 나란히 걷는 편지 같은 따뜻함 — 텍스트 중심 세로 스크롤 내러티브, 이미지는 조용한 배경",
+        "color_palette": {
+          "bg": "#F7F2EA",
+          "fg": "#2E2719",
+          "brand": "#6B4C2A",
+          "accent": "#C17F3E",
+          "soft": "#E8DED0"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:780px;margin:0 auto;padding:64px 24px 56px;display:flex;flex-direction:column;gap:0;background:var(--bg)\">\n  <div style=\"display:flex;align-items:center;gap:12px;margin-bottom:32px\">\n    <span style=\"display:block;width:28px;height:2px;background:var(--accent)\"></span>\n    <span style=\"font-family:var(--font-sans);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600\">Core Campus 코스</span>\n  </div>\n  <blockquote style=\"margin:0 0 32px;padding:20px 24px;background:var(--soft);border-left:3px solid var(--accent);border-radius:0 var(--radius-card) var(--radius-card) 0\">\n    <p style=\"font-family:'Noto Serif KR',Georgia,serif;font-size:clamp(14px,1.4vw,16px);line-height:1.9;color:var(--fg);margin:0;font-style:italic;opacity:.85\">\n      &ldquo;오늘도 회고 앱을 열었다 닫았습니다. 뭘 써야 할지 모르겠어서요.&rdquo;\n    </p>\n    <figcaption style=\"margin-top:10px;font-family:var(--font-sans);font-size:12px;color:var(--fg);opacity:.5\">— 1인 사업가 수강생 후기</figcaption>\n  </blockquote>\n  <h1 style=\"font-family:'Noto Serif KR',Georgia,serif;font-size:clamp(30px,4vw,50px);font-weight:700;line-height:1.28;color:var(--brand);margin:0 0 20px\">\n    Claude가 물어보면<br>\n    당신은 그냥 답하면 됩니다\n  </h1>\n  <p style=\"font-family:var(--font-sans);font-size:clamp(15px,1.5vw,17px);line-height:1.85;color:var(--fg);opacity:.8;margin:0 0 28px;max-width:620px\">\n    매일 밤 같은 질문이 당신을 기다립니다. &ldquo;오늘 가장 잘한 결정은 무엇인가요?&rdquo;<br>\n    5분이면 충분합니다. 쌓인 답변이 어느 날 당신의 사업 지도가 됩니다.\n  </p>\n  <figure style=\"margin:0 0 32px;border-radius:var(--radius-card);overflow:hidden;aspect-ratio:16/7;background:var(--soft)\">\n    <img src=\"/assets/placeholder/hero-narrative-wide.svg\" alt=\"Claude와 함께하는 하루 회고 루틴 흐름\" style=\"width:100%;height:100%;object-fit:cover;display:block;opacity:.92\">\n  </figure>\n  <div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px\">\n    <div style=\"padding:16px;background:var(--soft);border-radius:var(--radius-card);display:flex;flex-direction:column;gap:6px\">\n      <span style=\"font-family:var(--font-sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600\">Step 1</span>\n      <p style=\"font-family:var(--font-sans);font-size:13px;line-height:1.65;color:var(--fg);margin:0\">Claude 프롬프트 설정.<br>딱 한 번만 합니다.</p>\n    </div>\n    <div style=\"padding:16px;background:var(--soft);border-radius:var(--radius-card);display:flex;flex-direction:column;gap:6px\">\n      <span style=\"font-family:var(--font-sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600\">Step 2</span>\n      <p style=\"font-family:var(--font-sans);font-size:13px;line-height:1.65;color:var(--fg);margin:0\">매일 밤 질문이 옵니다.<br>짧게 답하세요.</p>\n    </div>\n    <div style=\"padding:16px;background:var(--soft);border-radius:var(--radius-card);display:flex;flex-direction:column;gap:6px\">\n      <span style=\"font-family:var(--font-sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600\">Step 3</span>\n      <p style=\"font-family:var(--font-sans);font-size:13px;line-height:1.65;color:var(--fg);margin:0\">30일 후 패턴을<br>리포트로 확인합니다.</p>\n    </div>\n  </div>\n  <div style=\"display:flex;align-items:center;gap:16px;flex-wrap:wrap\">\n    <a href=\"#enroll\" style=\"display:inline-block;padding:15px 36px;background:var(--brand);color:#F7F2EA;font-family:var(--font-sans);font-size:15px;font-weight:600;border-radius:var(--radius-card);text-decoration:none\">코스 살펴보기</a>\n    <small style=\"font-family:var(--font-sans);font-size:13px;color:var(--fg);opacity:.55\">부담 없이 먼저 커리큘럼을 확인하세요</small>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#F7F2EA",
+          "color_fg": "#2E2719",
+          "color_brand": "#6B4C2A",
+          "color_accent": "#C17F3E",
+          "color_soft": "#E8DED0",
+          "font_family_sans": "'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif",
+          "radius_card": "6px"
+        },
+        "image_prompts": [
+          "크림 베이지 테이블 위 열린 저널과 따뜻한 차 한 잔, 조용한 밤 책상 분위기, 앰버 간접조명, 한국 1인 작업 공간 감성",
+          "손으로 그린 듯한 얇은 선의 타임라인 일러스트, 날짜 점들이 이어져 패턴을 이루는 구조, 웜베이지·테라코타 팔레트",
+          "여러 개의 작은 메모 카드가 코르크보드에 정돈되어 붙어 있는 탑뷰, 따뜻한 자연광, 미니멀 아카데믹",
+          "새벽 또는 해질녘 창가 책상 실루엣, 빛이 노트 위에 걸쳐진 추상 분위기, 세피아 앰버 톤, 사색적",
+          "손글씨 원형 루프와 화살표로 구성된 루틴 사이클 다이어그램 일러스트, 웜 브라운·골드 선, 흰 배경"
+        ],
+        "reasoning": "실제 수강생 목소리를 인용문으로 시작해 '내 이야기다'라는 공감을 0초에 형성한다. 세로 단일 컬럼의 서사 구조는 스크롤 없이도 히어로 영역에서 완결된 이야기를 전달하며, Step 1-2-3 카드가 '복잡하지 않다'는 안도감을 시각적으로 증명한다. 따뜻한 테라코타·세피아 톤이 판단받지 않는 안전한 공간의 분위기를 만든다."
+      }
+    ],
+    "brief_echo": {
+      "purpose": "Claude로 5분 하루 회고 자동화 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+      "audience": "매일 일기·회고 작성에 부담을 느끼는 1인 사업가",
+      "style_keywords": [
+        "editorial",
+        "warm beige",
+        "trustworthy",
+        "academic"
+      ],
+      "color_mood": "warm",
+      "reference_urls": []
+    },
+    "chosen_variant_id": "v1"
+  },
+  "course_id": "",
+  "created_at": "2026-05-06T06:44:09+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}
