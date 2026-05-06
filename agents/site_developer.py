@@ -16,10 +16,14 @@ Tier 3의 HTML 슬롯은 시스템 프롬프트로 1차 sanitize, build.py에서
 from __future__ import annotations
 
 import json
+import logging
 import re
+import time
 from pathlib import Path
 
 from .base import BaseAgent, AgentResult, REPO_ROOT, list_approved
+
+log = logging.getLogger("site_developer")
 
 
 SITE_CONFIG_PATH = REPO_ROOT / "site_config.json"
@@ -182,7 +186,24 @@ class SiteDeveloper(BaseAgent):
         # max_tokens 6000 — Tier 3 HTML 슬롯(hero+intro+footer)이 동시에 길어지면
         # 2500으로는 응답이 잘려 JSONDecodeError(Unterminated string) 발생.
         raw = self.call(prompt, max_tokens=6000)
-        new_config, notes = self._parse(raw)
+
+        # ★ graceful fallback — Claude 응답 파싱 실패 시 빈 결과 (raise 금지, 카드도 안 만듦)
+        # raise 시 conductor가 _failed로 격리 + 텔레그램 ⚠️ 알림 → 코스 N개 = N번 반복 알림
+        # 빈 list 방식: conductor가 _processed로 이동 + 카드 0개 → 무한 실패 알림 차단
+        try:
+            new_config, notes = self._parse(raw)
+        except (json.JSONDecodeError, ValueError) as e:
+            log.warning("[site_developer] JSON 파싱 실패 — 변경 건너뜀 (raw 앞 200자): %s", raw[:200])
+            log.warning("[site_developer] 파싱 에러: %s — 다음 cascade에서 재시도 가능", e)
+            # raw 원본을 디버그용으로 보관
+            try:
+                debug_dir = REPO_ROOT / "content" / "state" / "site_developer_failures"
+                debug_dir.mkdir(parents=True, exist_ok=True)
+                ts = int(time.time())
+                (debug_dir / f"{ts}.txt").write_text(raw, encoding="utf-8")
+            except Exception:
+                pass
+            return []  # 빈 list — _processed로 이동 + 카드 0개
 
         # 안전 검증 — 허용 키 + 허용 토큰만 통과
         new_config = self._sanitize(new_config, current)
