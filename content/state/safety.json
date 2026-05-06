@@ -1,23 +1,31 @@
 {
   "last_reset_date": "2026-05-06",
-  "daily_brief_count": 48,
+  "daily_brief_count": 50,
   "daily_agent_calls": {
     "site_developer": 7,
     "success": 4,
     "ui_designer": 6,
-    "producer": 20,
+    "producer": 21,
     "curriculum": 4,
-    "marketing": 7,
+    "marketing": 8,
     "blog_publisher": 6
   },
-  "daily_estimated_cost_usd": 3.779999999999997,
+  "daily_estimated_cost_usd": 3.919999999999997,
   "recent_call_timestamps": [
     {
       "agent": "curriculum",
       "ts": 1778074618.929251
+    },
+    {
+      "agent": "marketing",
+      "ts": 1778074656.177869
+    },
+    {
+      "agent": "producer",
+      "ts": 1778074681.852139
     }
   ],
-  "paused": false,
-  "pause_reason": "",
+  "paused": true,
+  "pause_reason": "일일 brief 50개 한도 도달",
   "auto_mode": true
 }

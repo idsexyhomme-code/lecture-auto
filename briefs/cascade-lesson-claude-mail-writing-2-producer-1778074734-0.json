@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-mail-writing",
+    "course_title": "Claude로 1페이지 비즈니스 메일 작성법",
+    "lesson_no": 2,
+    "lesson_title": "Claude 프롬프트로 인사메일 초안 생성·수정하기",
+    "objective": "Claude에 역할·맥락·제약 조건을 포함한 프롬프트를 작성하여 인사메일 초안을 생성하고, 3가지 기준(길이·톤·CTA 단수)으로 초안을 비교·수정한 최종 메일 텍스트를 완성한다",
+    "key_concepts": [
+      "역할-맥락-제약 3요소 프롬프트 공식",
+      "초안 비교 기준: 길이·톤·CTA 단수",
+      "Claude 재프롬프트 기법 (\"더 짧게\", \"덜 영업스럽게\" 등)"
+    ],
+    "exercise": "Claude로 생성·수정한 인사메일 최종본 1개 (before/after 비교 포함)",
+    "duration_min": 15
+  }
+}
