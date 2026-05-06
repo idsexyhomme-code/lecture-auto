@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-youtube-plan",
+    "course_title": "Claude로 완성하는 1인 사업가 유튜브 기획",
+    "lesson_no": 5,
+    "lesson_title": "후킹 제목과 썸네일 문구 양산하기",
+    "objective": "Claude에게 클릭률을 높이는 제목 공식을 학습시켜 캘린더 영상 10편의 제목 후보 3개씩과 썸네일 문구를 생성하고 A/B 비교안을 작성한다",
+    "key_concepts": [
+      "유튜브 제목 클릭 공식",
+      "썸네일 카피라이팅",
+      "Few-shot 프롬프트"
+    ],
+    "exercise": "영상 10편 제목 후보표 (편당 후보 3개 + 썸네일 문구 1개)",
+    "duration_min": 15
+  }
+}
