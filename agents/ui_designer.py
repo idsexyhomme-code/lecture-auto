@@ -49,11 +49,12 @@ import base64
 import json
 import logging
 import re
+import time
 from pathlib import Path
 
 import requests
 
-from .base import BaseAgent, AgentResult
+from .base import BaseAgent, AgentResult, REPO_ROOT
 from .site_developer import is_html_safe, DESIGN_TOKEN_WHITELIST
 
 log = logging.getLogger("ui_designer")
@@ -436,24 +437,34 @@ color_mood: {color_mood}
         )
         raw = "".join(b.text for b in msg.content if getattr(b, "type", None) == "text")
 
-        # 응답이 stop_reason="max_tokens"이면 잘렸다는 신호 — 명시적 에러
+        # ★ graceful skip — 응답 잘림/파싱 실패 시 빈 list 반환 (raise 금지)
+        # raise 시 conductor가 _failed로 격리 + 텔레그램 ⚠️ 알림 → 코스마다 N번 반복 알림
+        # 빈 list 방식: _processed로 이동 + 카드 0개 → 무한 실패 알림 차단
+        # raw 응답은 디버그 보관 (나중에 prompt 개선용)
+        def _skip_with_log(reason: str) -> list:
+            log.warning("[ui_designer] skip — %s", reason)
+            try:
+                debug_dir = REPO_ROOT / "content" / "state" / "ui_designer_failures"
+                debug_dir.mkdir(parents=True, exist_ok=True)
+                ts = int(time.time())
+                (debug_dir / f"{ts}.txt").write_text(f"reason: {reason}\n\n{raw}", encoding="utf-8")
+            except Exception:
+                pass
+            return []
+
+        # 응답이 stop_reason="max_tokens"이면 잘렸다는 신호
         stop = getattr(msg, "stop_reason", None)
         if stop == "max_tokens":
-            log.error("ui_designer hit max_tokens limit (16000) — response truncated")
-            raise RuntimeError(
-                "ui_designer 응답이 16000 토큰 한도에 도달해 잘렸습니다. "
-                "변형 수를 줄이거나 HTML을 간결하게 하라고 지시하세요."
-            )
+            return _skip_with_log("max_tokens 한도(16000) 도달 — 응답 잘림")
 
         try:
             parsed = _parse_response(raw)
         except Exception as e:
-            log.exception("response parse failed: %s\nraw[:500]=%s", e, raw[:500])
-            raise RuntimeError(f"ui_designer 응답 JSON 파싱 실패: {e}")
+            return _skip_with_log(f"JSON 파싱 실패: {e}")
 
         variants_raw = parsed.get("variants") or []
         if not isinstance(variants_raw, list) or not variants_raw:
-            raise RuntimeError("ui_designer 응답에 variants 배열이 없음")
+            return _skip_with_log("응답에 variants 배열 없음")
 
         clean_variants = []
         for v in variants_raw:
@@ -472,7 +483,7 @@ color_mood: {color_mood}
         clean_variants = deduped
 
         if not clean_variants:
-            raise RuntimeError("ui_designer 응답에서 유효한 variant가 0개")
+            return _skip_with_log("유효한 variant가 0개 (sanitize 후 모두 폐기)")
 
         # body_md — 텔레그램 카드/사이트 미리보기 텍스트
         body_md = self._render_body(target, parsed.get("summary", ""), clean_variants)
