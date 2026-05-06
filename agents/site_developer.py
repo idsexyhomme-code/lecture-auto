@@ -278,12 +278,22 @@ class SiteDeveloper(BaseAgent):
         "course_order",
         "course_overrides",
         "design_tokens",
-        # Tier 3 — HTML 슬롯
+        # Tier 3 — 기본 HTML 슬롯
         "hero_html",
         "home_intro_html",
         "footer_html",
+        # ★ Tier 4 — 확장 HTML 슬롯 (페이지 구성 자유도)
+        "categories_html",      # 카테고리 nav 영역 (메인)
+        "cta_html",             # Hero 아래 CTA 영역
+        "testimonials_html",    # 추천사/리뷰
+        "pricing_html",         # 가격 비교
+        # ★ Tier 5 — 별도 페이지 생성
+        "extra_pages",          # [{slug, title, body_html}] 배열 → site/{slug}/index.html 자동 생성
     }
-    HTML_SLOT_KEYS = {"hero_html", "home_intro_html", "footer_html"}
+    HTML_SLOT_KEYS = {
+        "hero_html", "home_intro_html", "footer_html",
+        "categories_html", "cta_html", "testimonials_html", "pricing_html",
+    }
 
     @classmethod
     def _sanitize(cls, new: dict, fallback: dict) -> dict:
