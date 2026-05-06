@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#5 종합소득세 구조 분해 — 과세표준부터 세율까지 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#5 종합소득세 구조 분해 — 과세표준부터 세율까지<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: tax-basics-solopreneur · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>매년 5월이 되면 이런 생각 하신 적 있죠?</p>
+<p>"국세청 홈택스에서 종합소득세 신고하는데, 이 숫자가 왜 이렇게 나왔는지 전혀 모르겠다."</p>
+<p>그냥 세무사가 알아서 해주겠지, 하고 넘겼는데 고지서에 찍힌 세금이 예상보다 두 배라면?</p>
+<p>오늘 이 영상 한 편으로 그 '모르는 상태'를 끝냅니다.</p>
+<p>총수입에서 세금이 계산되기까지의 구조를 단계별로 직접 추적해 드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면, 본인의 예상 과세표준과 적용 세율 구간을 직접 계산할 수 있게 됩니다.</p>
+<p>세무사에게 맡기더라도, 숫자의 근거를 이해하고 대화할 수 있는 수준이 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 소득금액 계산 구조: "벌었다고 다 세금 내지 않는다"</h3>
+<p><strong>설명</strong></p>
+<p>종합소득세의 첫 번째 관문은 '총수입금액'에서 '필요경비'를 뺀 <strong>소득금액</strong>을 구하는 겁니다.</p>
+<p>공식은 딱 하나입니다.</p>
+<blockquote>
+<p>총수입금액 − 필요경비 = 소득금액</p>
+</blockquote>
+<p>여기서 필요경비란, 사업을 위해 실제로 쓴 비용입니다.</p>
+<p>임차료, 재료비, 광고비, 복리후생비 등이 대표적입니다.</p>
+<p><strong>예시</strong></p>
+<p>프리랜서 디자이너 A씨의 연 수입이 6,000만 원입니다.</p>
+<p>장비 구입, 소프트웨어 구독, 작업실 임차료로 1,500만 원을 썼다면,</p>
+<p>소득금액은 6,000 − 1,500 = <strong>4,500만 원</strong>입니다.</p>
+<p><strong>반례</strong></p>
+<p>주의할 점이 있습니다.</p>
+<p>개인 식사비, 여행비, 가족 경조사비는 필요경비로 인정받지 못합니다.</p>
+<p>"사업과 직접 관련이 있는가?"가 기준입니다.</p>
+<p>관련 없는 지출을 경비에 넣으면 가산세 대상이 됩니다.</p>
+<p><strong>정리 — 메모리 페그: '벽돌 쌓기'</strong></p>
+<p>총수입을 벽돌 더미라고 생각하세요.</p>
+<p>필요경비는 그 더미에서 공식적으로 빼낼 수 있는 벽돌입니다.</p>
+<p>남은 벽돌이 <strong>소득금액</strong>입니다.</p>
+<p>이 벽돌 더미가 세금 계산의 출발점입니다.</p>
+<hr />
+<h3>핵심 개념 2 — 소득공제: "벽돌 더미를 한 번 더 줄인다"</h3>
+<p><strong>설명</strong></p>
+<p>소득금액에서 또 한 번 뺄 수 있는 것이 있습니다.</p>
+<p>바로 <strong>소득공제</strong>입니다.</p>
+<p>소득공제는 크게 두 가지로 나뉩니다.</p>
+<ul>
+<li><strong>기본공제</strong>: 본인 150만 원, 배우자 150만 원, 부양가족 1인당 150만 원</li>
+<li><strong>추가공제</strong>: 경로우대(1인 100만 원), 장애인(200만 원), 한부모(100만 원) 등</li>
+</ul>
+<p>여기에 노란우산공제, 국민연금보험료 공제, 건강보험료 공제도 포함됩니다.</p>
+<p><strong>예시</strong></p>
+<p>앞서 소득금액 4,500만 원인 A씨가 1인 사업가이고, 부양가족이 없다고 가정합니다.</p>
+<p>본인 기본공제 150만 원, 노란우산공제 300만 원, 국민연금 납부액 200만 원을 공제받으면,</p>
+<p>소득공제 합계 = 650만 원.</p>
+<p>과세표준 = 4,500 − 650 = <strong>3,850만 원</strong></p>
+<p><strong>반례</strong></p>
+<p>소득공제는 '쓴다고 무조건 인정'되지 않습니다.</p>
+<p>노란우산공제는 사업자 유형과 소득 수준에 따라 공제 한도가 달라집니다.</p>
+<p>2024년 기준 사업소득 4,000만 원 이하라면 최대 500만 원까지 공제됩니다.</p>
+<p>한도를 초과한 납입액은 공제받지 못합니다.</p>
+<p><strong>정리 — 메모리 페그: '2단 필터'</strong></p>
+<p>소득 계산은 2단 필터를 통과하는 과정입니다.</p>
+<p>1필터 = 필요경비 (사업 비용 제거)</p>
+<p>2필터 = 소득공제 (개인 상황 반영)</p>
+<p>2단 필터를 통과한 숫자가 <strong>과세표준</strong>입니다.</p>
+<hr />
+<h3>핵심 개념 3 — 6단계 누진세율: "구간마다 세율이 다르다"</h3>
+<p><strong>설명</strong></p>
+<p>과세표준이 정해지면 세율을 곱합니다.</p>
+<p>한국 종합소득세는 <strong>6단계 누진세율</strong> 구조입니다.</p>
+<p>2024년 기준 세율 구간은 다음과 같습니다.</p>
+<table>
+<thead>
+<tr>
+<th>과세표준 구간</th>
+<th>세율</th>
+<th>누진공제액</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1,400만 원 이하</td>
+<td>6%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>1,400만 원 초과 ~ 5,000만 원 이하</td>
+<td>15%</td>
+<td>126만 원</td>
+</tr>
+<tr>
+<td>5,000만 원 초과 ~ 8,800만 원 이하</td>
+<td>24%</td>
+<td>576만 원</td>
+</tr>
+<tr>
+<td>8,800만 원 초과 ~ 1억 5,000만 원 이하</td>
+<td>35%</td>
+<td>1,544만 원</td>
+</tr>
+<tr>
+<td>1억 5,000만 원 초과 ~ 3억 원 이하</td>
+<td>38%</td>
+<td>1,994만 원</td>
+</tr>
+<tr>
+<td>3억 원 초과</td>
+<td>45%</td>
+<td>4,094만 원</td>
+</tr>
+</tbody>
+</table>
+<p>핵심은 <strong>전체 소득에 하나의 세율을 곱하지 않는다</strong>는 점입니다.</p>
+<p>각 구간에 해당하는 금액에만 해당 세율을 적용합니다.</p>
+<p><strong>예시</strong></p>
+<p>A씨의 과세표준 3,850만 원을 계산해 보겠습니다.</p>
+<p>빠른 계산법 = 과세표준 × 해당 세율 − 누진공제액</p>
+<p>3,850만 원은 5,000만 원 이하 구간이므로 세율 15% 적용.</p>
+<p>산출세액 = 3,850만 원 × 15% − 126만 원 = 577.5만 원 − 126만 원 = <strong>451.5만 원</strong></p>
+<p><strong>반례</strong></p>
+<p>"연 수입 5,000만 원이니까 세율 24% 아닌가요?"라는 질문을 자주 받습니다.</p>
+<p>필요경비와 소득공제를 빼고 난 <strong>과세표준</strong>을 기준으로 구간을 판단합니다.</p>
+<p>총수입 기준이 아닙니다.</p>
+<p>경비와 공제를 잘 챙기면 더 낮은 구간에 머물 수 있습니다.</p>
+<p><strong>정리 — 메모리 페그: '계단'</strong></p>
+<p>세율 구간을 계단이라고 생각하세요.</p>
+<p>올라갈수록 세율이 높아지지만, 아래 계단에서는 낮은 세율을 그대로 냅니다.</p>
+<p>계단을 어디서 멈추느냐가 <strong>실효세율</strong>을 결정합니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금부터 영상을 일시정지하고, 아래 5단계 계산표를 직접 작성해 보세요.</p>
+<p>종이 한 장이면 충분합니다.</p>
+<hr />
+<p><strong>나의 예상 종합소득세 계산 단계표</strong></p>
+<p><strong>STEP 1 — 총수입금액 기입</strong></p>
+<p>올해 예상되는 총 매출 또는 수입 금액을 적습니다.</p>
+<blockquote>
+<p>총수입금액: ________ 원</p>
+</blockquote>
+<p><strong>STEP 2 — 필요경비 차감</strong></p>
+<p>사업과 직접 관련된 지출 항목을 나열하고 합산합니다.</p>
+<blockquote>
+<p>필요경비 합계: ________ 원
+소득금액(STEP1 − STEP2): ________ 원</p>
+</blockquote>
+<p><strong>STEP 3 — 소득공제 차감</strong></p>
+<p>해당되는 항목에 금액을 적습니다.</p>
+<ul>
+<li>본인 기본공제: 150만 원 (기본 적용)</li>
+<li>부양가족 공제: 1인 × 150만 원 = ____ 원</li>
+<li>노란우산공제 납입액: ________ 원 (한도 확인 필수)</li>
+<li>국민연금 납부액: ________ 원</li>
+</ul>
+<blockquote>
+<p>소득공제 합계: ________ 원
+과세표준(STEP2 − STEP3): ________ 원</p>
+</blockquote>
+<p><strong>STEP 4 — 세율 구간 확인</strong></p>
+<p>STEP 3에서 나온 과세표준을 앞서 본 6단계 구간 표에 대입합니다.</p>
+<blockquote>
+<p>적용 세율: ____ % / 누진공제액: ________ 원</p>
+</blockquote>
+<p><strong>STEP 5 — 산출세액 계산</strong></p>
+<blockquote>
+<p>산출세액 = 과세표준 × 세율 − 누진공제액
+산출세액: ________ 원</p>
+</blockquote>
+<p>작성이 끝났으면 영상을 다시 재생하세요.</p>
+<p>이 숫자가 실제 납부세액의 <strong>추정 기준</strong>이 됩니다.</p>
+<p>세액공제(다음 차시 주제)를 추가로 적용하면 실납부액은 더 줄어듭니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #6에서는 <strong>세액공제</strong>를 다룹니다.</p>
+<p>오늘 계산한 산출세액에서 실제로 얼마를 더 줄일 수 있는지, 전자신고 세액공제부터 중소기업 특별세액감면까지 정리합니다.</p>
+<p>오늘 만든 계산 단계표, 댓글에 과세표준 구간만 공유해 주세요.</p>
+<p>"저는 ___ 구간입니다"로 시작하면 됩니다.</p>
+<p>같은 구간 분들과 정보를 나눌 수 있습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
