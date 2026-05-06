@@ -17,6 +17,24 @@
 </section>
 {% endif %}
 
+{# Tier 4 — Hero 아래 CTA 영역 #}
+{% if site_config.cta_html %}
+<section class="cta-custom">
+  <div class="wrap">
+    {{ site_config.cta_html | safe }}
+  </div>
+</section>
+{% endif %}
+
+{# Tier 4 — 카테고리 nav (메인 위쪽) #}
+{% if site_config.categories_html %}
+<section class="categories-custom">
+  <div class="wrap">
+    {{ site_config.categories_html | safe }}
+  </div>
+</section>
+{% endif %}
+
 {% if site_config.home_intro_html %}
 <section class="intro-custom">
   <div class="wrap">
