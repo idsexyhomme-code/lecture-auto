@@ -1,7 +1,7 @@
 {
   "id": "1778038649-7071151003",
   "chat_id": 7071151003,
-  "status": "active",
+  "status": "ready",
   "history": [
     {
       "role": "user",
@@ -66,10 +66,34 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"전체 사이트 리디자인 시안을 뽑아드릴게요. 두 가지만 확인할게요.\\n\\n1. **스타일 방향** — 어떤 느낌을 원하세요?\\n   - 미니멀·모던\\n   - 따뜻하고 친근한\\n   - 차분하고 학술적\\n   - 기타 (직접 입력)\\n\\n2. **참고 사이트** — 영감 받고 싶은 사이트가 있으면 URL 1-3개 알려주세요. (없으면 패스)\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "1"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"READY\", \"message\": \"미니멀·모던 스타일로 전체 사이트 리디자인 시안 3변형을 준비할게요.\\n\\n- **대상**: 전체 사이트 (홈 히어로 포함)\\n- **스타일**: 미니멀·모던\\n- **타깃**: Claude를 실무에 쓰는 1인 사업가\\n- **참고 URL**: 없음\\n\\n이대로 진행해도 될까요?\", \"brief\": {\"agent\": \"ui_designer\", \"brief\": {\"target\": \"landing_full\", \"purpose\": \"1인 사업가가 코어 캠퍼스를 첫눈에 신뢰하고 코스를 탐색하도록 유도\", \"audience\": \"Claude를 실무에 활용하려는 1인 사업가\", \"style_keywords\": [\"미니멀\", \"모던\", \"깔끔한 타이포그래피\", \"여백 활용\"], \"color_mood\": \"monochrome\", \"reference_urls\": [], \"additional_context\": \"코어 캠퍼스 브랜드 톤 — 차분하고 단단한 한국어. 과장 금지. 등록된 코스 11개를 시리즈 흐름으로 자연스럽게 노출.\"}}}"
     }
   ],
-  "draft_brief": null,
-  "last_telegram_message_id": 1089,
+  "draft_brief": {
+    "agent": "ui_designer",
+    "brief": {
+      "target": "landing_full",
+      "purpose": "1인 사업가가 코어 캠퍼스를 첫눈에 신뢰하고 코스를 탐색하도록 유도",
+      "audience": "Claude를 실무에 활용하려는 1인 사업가",
+      "style_keywords": [
+        "미니멀",
+        "모던",
+        "깔끔한 타이포그래피",
+        "여백 활용"
+      ],
+      "color_mood": "monochrome",
+      "reference_urls": [],
+      "additional_context": "코어 캠퍼스 브랜드 톤 — 차분하고 단단한 한국어. 과장 금지. 등록된 코스 11개를 시리즈 흐름으로 자연스럽게 노출."
+    }
+  },
+  "last_telegram_message_id": 1093,
   "created_at": "2026-05-06T03:37:29+00:00",
-  "updated_at": "2026-05-06T03:47:17+00:00"
+  "updated_at": "2026-05-06T03:47:33+00:00"
 }
