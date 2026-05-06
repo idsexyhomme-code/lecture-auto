@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-daily-recap",
+    "topic": "Claude로 5분 만에 끝내는 하루 회고 자동화",
+    "audience": "1인 사업가, 매일 일기·회고 작성에 시간 쓰기 부담스러운 사람",
+    "duration_weeks": 2,
+    "lesson_count": 3,
+    "format": "video",
+    "promises": [
+      "음성 메모 한 번 → Claude가 핵심 회고 자동 정리",
+      "오늘의 성과·배움·내일 액션 3블록 자동 추출",
+      "주간 리포트도 자동 — 일요일 5분 검토면 끝"
+    ]
+  }
+}

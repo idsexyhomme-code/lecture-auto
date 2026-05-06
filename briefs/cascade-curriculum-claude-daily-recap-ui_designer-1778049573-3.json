@@ -1,0 +1,16 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "hero",
+    "purpose": "Claude로 5분 하루 회고 자동화 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+    "audience": "매일 일기·회고 작성에 부담을 느끼는 1인 사업가",
+    "style_keywords": [
+      "editorial",
+      "warm beige",
+      "trustworthy",
+      "academic"
+    ],
+    "color_mood": "warm",
+    "additional_context": "코어 캠퍼스 코스 'Claude로 5분 하루 회고 자동화'의 페이지 헤더 시안."
+  }
+}

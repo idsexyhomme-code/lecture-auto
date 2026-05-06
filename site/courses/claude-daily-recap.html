@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Claude로 5분 하루 회고 자동화 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<section class="hero">
+  <div class="wrap">
+    <span class="badge">코스</span>
+    <h1 data-edit-field="site_config:course_overrides.claude-daily-recap.title_override">Claude로 5분 하루 회고 자동화</h1>
+    <p class="lead" data-edit-field="site_config:course_overrides.claude-daily-recap.tagline_override">매일 5분으로 1인 사업가의 회고를 자동 완성한다</p>
+  </div>
+</section>
+
+
+
+
+<article class="body" style="background: var(--soft);">
+  <div class="wrap">
+    <h2>커리큘럼</h2>
+    <h1>Claude로 5분 하루 회고 자동화</h1>
+<blockquote>
+<p>매일 5분으로 1인 사업가의 회고를 자동 완성한다</p>
+</blockquote>
+<h2>결과 약속</h2>
+<ul>
+<li>Claude 프롬프트 하나로 하루 회고 초안을 5분 안에 생성할 수 있다</li>
+<li>나만의 회고 템플릿을 설계하고 Claude에 저장·재사용할 수 있다</li>
+<li>일주일치 회고 데이터를 Claude로 분석해 사업 인사이트 요약본을 만들 수 있다</li>
+</ul>
+<p><strong>타깃:</strong> 매일 일기·회고 작성에 부담을 느끼는 1인 사업가</p>
+<p><strong>선수지식:</strong> Claude.ai 계정 보유 및 기본 채팅 사용 경험, 회고 또는 일기를 작성해본 경험 (형식 무관)</p>
+<h2>차시별 커리큘럼</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>제목</th>
+<th>학습목표</th>
+<th>실습</th>
+<th>분</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>5분 회고 프롬프트 설계하기</td>
+<td>오늘 하루의 업무·감정·결정 정보를 입력하면 회고 초안을 즉시 출력하는 Claude 프롬프트를 1개 작성한다</td>
+<td>나의 하루 데이터를 넣어 회고 초안을 생성하는 마스터 프롬프트 문서 (Notion 또는 메모장 1페이지)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>나만의 회고 템플릿 고정하기</td>
+<td>매일 동일한 구조로 회고가 출력되도록 커스텀 템플릿 변수(섹션·질문 항목)를 정의하고 Claude 시스템 프롬프트에 적용한다</td>
+<td>섹션 3개 이상을 포함한 나만의 회고 템플릿이 적용된 Claude 시스템 프롬프트 파일 (복사·붙여넣기 즉시 사용 가능한 텍스트 파일)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>일주일 회고를 인사이트 요약본으로 변환하기</td>
+<td>7일치 회고 텍스트를 Claude에 입력해 반복 패턴·개선 우선순위·다음 주 액션 아이템을 포함한 주간 인사이트 요약본을 생성한다</td>
+<td>7일치 회고를 분석한 주간 인사이트 요약 PDF (Claude 출력 → 복사 → 문서화 완성본)</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<h2>평가</h2>
+<p>수강자가 직접 제작한 마스터 프롬프트·커스텀 템플릿·주간 인사이트 요약본 3종을 영상으로 화면 녹화하여 제출하면 완주 인증 발급</p>
+  </div>
+</article>
+
+
+
+
+
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

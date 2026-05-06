@@ -1,0 +1,10 @@
+{
+  "agent": "success",
+  "brief": {
+    "mode": "faq",
+    "course_id": "claude-daily-recap",
+    "course_title": "Claude로 5분 하루 회고 자동화",
+    "topic": "매일 5분으로 1인 사업가의 회고를 자동 완성한다",
+    "audience": "매일 일기·회고 작성에 부담을 느끼는 1인 사업가"
+  }
+}
