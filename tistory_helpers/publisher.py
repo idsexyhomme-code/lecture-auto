@@ -16,6 +16,7 @@ import logging
 import os
 import sys
 import time
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 
@@ -53,6 +54,144 @@ def _shoot(page, name: str):
         pass
 
 
+def _handle_schedule_mode(page, schedule_at: datetime) -> bool:
+    """티스토리 신에디터 모달의 '예약' 토글 + datepicker 시각 입력.
+
+    schedule_at: KST timezone-aware datetime 권장. naive면 KST로 가정.
+    Returns: 입력 성공 여부 (실패해도 raise 안 함 — 진단 흔적은 남기고 발행 시도)
+    """
+    # naive datetime → KST 가정
+    if schedule_at.tzinfo is None:
+        kst = timezone(timedelta(hours=9))
+        schedule_at = schedule_at.replace(tzinfo=kst)
+
+    target_date = schedule_at.strftime('%Y-%m-%d')   # YYYY-MM-DD
+    target_time = schedule_at.strftime('%H:%M')       # HH:MM
+    target_iso = schedule_at.strftime('%Y-%m-%dT%H:%M')
+    log.info("[tistory] 📅 예약 발행 시각: %s %s (KST)", target_date, target_time)
+
+    # 1. "예약" 버튼 클릭 (button.btn_date:has-text('예약'))
+    schedule_clicked = False
+    for sel in [
+        "button.btn_date:has-text('예약')",
+        "button:has-text('예약')",
+        ".btn_date:has-text('예약')",
+    ]:
+        try:
+            page.locator(sel).first.click(timeout=3000, force=True)
+            log.info("[tistory] ✓ 예약 토글 클릭 (%s)", sel)
+            schedule_clicked = True
+            break
+        except Exception:
+            continue
+
+    if not schedule_clicked:
+        log.error("[tistory] ✗ 예약 버튼 못 찾음 — 즉시 발행으로 진행")
+        return False
+
+    time.sleep(1.5)  # datepicker 애니메이션 대기
+
+    # 2. 모달 내부 input/select 덤프 (진단 — 셀렉터 못 잡으면 다음 작업 단서)
+    try:
+        inputs = page.evaluate("""
+            () => {
+                const els = [...document.querySelectorAll('input, select')];
+                return els
+                    .filter(i => i.offsetParent !== null)
+                    .map(i => ({
+                        tag: i.tagName, type: i.type || '',
+                        id: i.id || '', name: i.name || '',
+                        cls: (i.className || '').toString().slice(0, 60),
+                        value: (i.value || '').toString().slice(0, 30),
+                        placeholder: i.placeholder || ''
+                    }));
+            }
+        """)
+        log.info("[tistory] === 예약 모드 활성 input/select %d개 ===", len(inputs))
+        for i in inputs:
+            log.info("  · [%s/%s] id=%s name=%s cls=%s value='%s' ph='%s'",
+                     i.get('tag'), i.get('type'),
+                     i.get('id'), i.get('name'), i.get('cls'),
+                     i.get('value'), i.get('placeholder'))
+    except Exception as e:
+        log.warning("[tistory] input 덤프 실패: %s", e)
+
+    # 3. datepicker 시각 입력 — 광범위 셀렉터 + JS fallback
+    filled_any = False
+
+    # 시도 A: 텍스트 input (date/time 별도)
+    for sel, value in [
+        ("input.input_date", target_date),
+        ("input[type='date']", target_date),
+        ("input[name*='reserve_date']", target_date),
+        ("input[name*='date']", target_date),
+        ("input.input_time", target_time),
+        ("input[type='time']", target_time),
+        ("input[name*='reserve_time']", target_time),
+        ("input[name*='time']", target_time),
+    ]:
+        try:
+            loc = page.locator(sel).first
+            if loc.count() > 0 and loc.is_visible():
+                loc.fill(value)
+                log.info("[tistory] ✓ fill %s = %s", sel, value)
+                filled_any = True
+        except Exception:
+            continue
+
+    # 시도 B: select 박스 (year/month/day/hour/minute)
+    for field, value in [
+        ('year', schedule_at.year),
+        ('month', schedule_at.month),
+        ('day', schedule_at.day),
+        ('hour', schedule_at.hour),
+        ('minute', schedule_at.minute),
+    ]:
+        for sel in [f"select[name*='{field}']", f"select[id*='{field}']"]:
+            try:
+                loc = page.locator(sel).first
+                if loc.count() > 0 and loc.is_visible():
+                    loc.select_option(str(value))
+                    log.info("[tistory] ✓ select %s = %s", sel, value)
+                    filled_any = True
+            except Exception:
+                continue
+
+    # 시도 C: JS 강제 setter (모달 내부 모든 input 휴리스틱)
+    if not filled_any:
+        log.warning("[tistory] 표준 셀렉터 못 잡음 — JS 휴리스틱 시도")
+        try:
+            page.evaluate(f"""
+                () => {{
+                    const target = '{target_iso}';
+                    const dateOnly = '{target_date}';
+                    const timeOnly = '{target_time}';
+                    document.querySelectorAll('input, select').forEach(el => {{
+                        if (el.offsetParent === null) return;
+                        const id = (el.id || '').toLowerCase();
+                        const cls = (el.className || '').toString().toLowerCase();
+                        const ph = (el.placeholder || '').toLowerCase();
+                        const name = (el.name || '').toLowerCase();
+                        const blob = id + ' ' + cls + ' ' + ph + ' ' + name;
+                        if (/(date|날짜|reserve)/.test(blob) && !/time|시간/.test(blob)) {{
+                            el.value = dateOnly;
+                            el.dispatchEvent(new Event('input', {{bubbles:true}}));
+                            el.dispatchEvent(new Event('change', {{bubbles:true}}));
+                        }} else if (/(time|시간|hour|minute)/.test(blob)) {{
+                            el.value = timeOnly;
+                            el.dispatchEvent(new Event('input', {{bubbles:true}}));
+                            el.dispatchEvent(new Event('change', {{bubbles:true}}));
+                        }}
+                    }});
+                }}
+            """)
+            log.info("[tistory] ✓ JS 휴리스틱 fallback 실행")
+        except Exception as e:
+            log.error("[tistory] JS 휴리스틱 실패: %s", e)
+
+    return True
+
+
 def publish_post(
     *,
     blog: str,
@@ -60,6 +199,7 @@ def publish_post(
     body_html: str,
     tags: Optional[list] = None,
     publish: bool = True,
+    schedule_at: Optional[datetime] = None,
     timeout: int = 60000,
     headless: bool = True,
 ) -> Optional[str]:
@@ -208,6 +348,11 @@ def publish_post(
 
             time.sleep(2.5)
             _shoot(page, "5-after-done")
+
+            # ★ 5b. 예약 발행 모드 — schedule_at 주어지면 "예약" 토글 + 시각 입력
+            if schedule_at and publish:
+                _handle_schedule_mode(page, schedule_at)
+                _shoot(page, "5b-schedule-set")
 
             # 6. 모달 진단 — 떠 있는 모든 visible 버튼 dump
             time.sleep(2)  # 모달 애니메이션 충분히 대기

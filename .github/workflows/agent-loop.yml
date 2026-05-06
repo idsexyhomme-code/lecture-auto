@@ -1,9 +1,9 @@
 name: Agent Loop
 
 on:
-  workflow_dispatch:        # 수동 실행 (첫 테스트 · 디버그)
-  schedule:
-    - cron: "*/3 * * * *"   # 3분마다 (텔레그램 응답성 위해 단축. public repo라 Actions 무료)
+  workflow_dispatch:        # 수동 실행 — 데몬이 변경사항 push 후 dispatch 트리거 (빌드+배포만 담당)
+  # schedule:               # 데몬이 모든 일 처리하므로 cron 비활성화 (3분마다 실패하는 노이즈 제거)
+  #   - cron: "*/3 * * * *"
 
 concurrency:
   group: agent-loop

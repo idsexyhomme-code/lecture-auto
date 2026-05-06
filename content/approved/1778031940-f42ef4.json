@@ -1,0 +1,129 @@
+{
+  "id": "1778031940-f42ef4",
+  "agent": "ui_designer",
+  "kind": "design_variants",
+  "title": "[디자인 시안] hero — 3개 변형",
+  "body_md": "## hero — 변형 3개\n\n코어 캠퍼스 'Claude로 부캐 서비스 1주일 런칭' 히어로 3변형 — 에디토리얼/임팩트/서사\n\n### V1 · 에디토리얼 모던\n_학술 매거진 표지처럼 정제된 진중함 — 텍스트가 주인공, 여백이 신뢰를 만든다_\n\n**팔레트**: bg=#FBF8F3, fg=#1C1814, brand=#3D2F1E, accent=#A07840, soft=#EDE5D8\n\n**이유**: 1인 지식 창업가는 '신뢰'와 '전문성'을 8초 안에 느껴야 다음 스크롤로 넘어간다. 텍스트 중심의 에디토리얼 레이아웃은 과장 없이 정보를 전달하며 학술 매거진의 권위감을 빌린다. 하단 숫자 지표(7일·Claude·부캐)는 추상적 약속을 구체적 사실로 치환해 이탈률을 낮춘다.\n\n**이미지 프롬프트** (5개):\n- 크림-베이지 종이 질감 위에 가느다란 황금 선으로 그린 추상 기하 패턴, 미니멀 에디토리얼, 따뜻한 무드, 텍스처가 살아있는 정방형 구성\n- 낡은 학술 노트 위에 펼쳐진 도식 같은 추상 일러스트, 딥브라운·머스타드·오프화이트 팔레트, 수작업 느낌의 선과 원형 요소들\n- 탁상 위 고요한 정물 — 열린 노트북 옆 커피잔과 펜, 베이지 린넨 배경, 위에서 내려다본 플랫레이, 따뜻한 자연광, 인물 없음\n- 추상적인 지식의 흐름을 표현한 얇은 선 그래프, 황금비율 기반 구성, 크림·앰버·브라운 3색, 아카데믹 무드\n- 한국의 서재를 연상시키는 책등 패턴, 따뜻한 갈색 계열 그라디언트 배경, 최소한의 디테일, 평면 벡터 스타일\n\n### V2 · 스플릿 임팩트\n_대형 타이포가 화면을 반으로 가르는 비대칭 구도 — 시선을 잡아당기는 강렬한 첫인상_\n\n**팔레트**: bg=#1E1610, fg=#F5F0E8, brand=#C8922A, accent=#E8B44A, soft=#2C2016\n\n**이유**: 직장인 부업 준비자는 '정말 1주일에 될까?'라는 의심을 8초 안에 돌파해야 한다. 다크 배경 + 대형 타이포 + 황금 액센트 조합은 고가 마스터클래스의 시각 언어를 빌려 즉각적인 권위감을 형성한다. 좌우 스플릿으로 '메시지(좌)'와 '근거(우)'를 동시에 노출해 클릭 없이도 커리큘럼 흐름을 파악할 수 있어 전환율에 유리하다.\n\n**이미지 프롬프트** (5개):\n- 어두운 황금색과 딥브라운 배경 위 추상적인 빛의 흐름, 노이즈 텍스처, 고급스러운 무드, 새벽 작업실을 연상시키는 분위기\n- 야간 도시 창가에서 바라본 불빛 보케, 딥다크브라운 배경, 앰버-골드 조명, 고요하고 집중된 무드, 인물 없음 풍경 위주\n- 다크 배경 위에 황금 선으로 그린 추상 네트워크 다이어그램, 노드와 연결선, 지식의 확장 은유, 벡터 스타일\n- 오래된 지도 도안 같은 따뜻한 황금-브라운 추상 패턴, 어두운 배경에 잉크 드로잉 질감, 탐험과 발견의 은유\n- 미니멀 아이소메트릭 일러스트 — 작은 노트북과 빛나는 화면, 딥브라운 배경, 앰버 액센트 조명, 평면 벡터\n\n### V3 · 서사 내러티브\n_개인의 이야기에서 시작하는 따뜻한 공감 서사 — 독자가 자신의 이야기로 읽게 만드는 중앙 정렬 구도_\n\n**팔레트**: bg=#F7F3EC, fg=#2A2118, brand=#6B4C2A, accent=#C47F3A, soft=#E8DDD0\n\n**이유**: 직장인 부업 준비자의 가장 큰 장벽은 '나 같은 사람이 할 수 있을까?'라는 내면의 의심이다. 오프닝 질문 인용구로 공감을 유도한 뒤 서사 구조로 희망을 제시하는 중앙 정렬 레이아웃은 설교가 아닌 동반자의 언어로 말을 건넨다. 둥근 CTA 버튼과 넉넉한 여백은 '부담 없이 시작해도 된다'는 심리적 안전감을 시각적으로 지지한다.\n\n**이미지 프롬프트** (5개):\n- 따뜻한 크림-샌드 배경 위 손으로 그린 듯한 부드러운 원형 붓질, 오렌지-브라운 계열 수채화 질감, 명상적이고 서사적인 무드\n- 열린 노트 위에 아이디어가 펼쳐지는 은유적 일러스트, 물결 치듯 번지는 크림색과 앰버색, 따뜻한 자연광, 한국적 감성\n- 봄날 오후의 나무 질감 책상 위 — 노트, 차 한 잔, 작은 식물, 위에서 내려다본 플랫레이, 따뜻한 자연광, 인물 없음\n- 지식의 흐름을 나타내는 추상 일러스트 — 씨앗이 나무가 되는 성장 은유, 베이지-앰버-브라운 팔레트, 수작업 선화 스타일\n- 한국의 따뜻한 가을빛을 담은 추상 풍경, 미니멀한 면 분할, 크림·황토·갈색 3색 구성, 글로벌 아카데믹 무드",
+  "summary": "코어 캠퍼스 'Claude로 부캐 서비스 1주일 런칭' 히어로 3변형 — 에디토리얼/임팩트/서사",
+  "meta": {
+    "target": "hero",
+    "variants": [
+      {
+        "id": "v1",
+        "name": "에디토리얼 모던",
+        "vibe": "학술 매거진 표지처럼 정제된 진중함 — 텍스트가 주인공, 여백이 신뢰를 만든다",
+        "color_palette": {
+          "bg": "#FBF8F3",
+          "fg": "#1C1814",
+          "brand": "#3D2F1E",
+          "accent": "#A07840",
+          "soft": "#EDE5D8"
+        },
+        "html": "<div class=\"wrap\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:88vh;padding:80px 24px 64px;background:var(--bg);\">\n  <div style=\"max-width:740px;width:100%;\">\n\n    <div style=\"display:flex;align-items:center;gap:10px;margin-bottom:32px;\">\n      <span style=\"display:inline-block;width:32px;height:2px;background:var(--accent);\"></span>\n      <span style=\"font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.18em;color:var(--accent);text-transform:uppercase;\">Core Campus · 7-Day Launch Course</span>\n    </div>\n\n    <h1 style=\"font-family:var(--font-sans);font-size:clamp(38px,6vw,72px);font-weight:800;line-height:1.12;letter-spacing:-0.025em;color:var(--fg);margin:0 0 28px;\">\n      Claude로<br>\n      <em style=\"font-style:normal;color:var(--accent);\">부캐 서비스</em>를<br>\n      1주일 안에 런칭한다\n    </h1>\n\n    <p style=\"font-family:var(--font-sans);font-size:clamp(16px,2.2vw,20px);line-height:1.7;color:#4A3F33;max-width:540px;margin:0 0 48px;\">\n      본업을 내려놓지 않아도 됩니다.<br>\n      당신이 이미 가진 지식과 경험을 AI가 상품으로 만들 수 있도록\n      7일 단계별 실전 커리큘럼이 함께합니다.\n    </p>\n\n    <div style=\"display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:56px;\">\n      <a href=\"#enroll\" style=\"display:inline-flex;align-items:center;gap:8px;padding:16px 36px;background:var(--fg);color:var(--bg);font-family:var(--font-sans);font-size:15px;font-weight:700;letter-spacing:0.02em;border-radius:4px;text-decoration:none;\">수강 신청하기\n        <span style=\"font-size:18px;line-height:1;\">→</span>\n      </a>\n      <a href=\"#curriculum\" style=\"display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px;\">커리큘럼 보기</a>\n    </div>\n\n    <div style=\"border-top:1px solid #D9CFC3;padding-top:28px;display:flex;flex-wrap:wrap;gap:32px;\">\n      <div style=\"display:flex;flex-direction:column;gap:4px;\">\n        <span style=\"font-family:var(--font-sans);font-size:28px;font-weight:800;color:var(--fg);\">7일</span>\n        <span style=\"font-family:var(--font-sans);font-size:12px;color:#6B5E50;letter-spacing:0.04em;\">단계별 커리큘럼</span>\n      </div>\n      <div style=\"width:1px;background:#D9CFC3;\"></div>\n      <div style=\"display:flex;flex-direction:column;gap:4px;\">\n        <span style=\"font-family:var(--font-sans);font-size:28px;font-weight:800;color:var(--fg);\">Claude</span>\n        <span style=\"font-family:var(--font-sans);font-size:12px;color:#6B5E50;letter-spacing:0.04em;\">AI 활용 실전 설계</span>\n      </div>\n      <div style=\"width:1px;background:#D9CFC3;\"></div>\n      <div style=\"display:flex;flex-direction:column;gap:4px;\">\n        <span style=\"font-family:var(--font-sans);font-size:28px;font-weight:800;color:var(--fg);\">부업 → 부캐</span>\n        <span style=\"font-family:var(--font-sans);font-size:12px;color:#6B5E50;letter-spacing:0.04em;\">지식 상품화 전략</span>\n      </div>\n    </div>\n\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#FBF8F3",
+          "color_fg": "#1C1814",
+          "color_muted": "#6B5E50",
+          "color_line": "#D9CFC3",
+          "color_brand": "#3D2F1E",
+          "color_brand_2": "#5C4530",
+          "color_accent": "#A07840",
+          "color_soft": "#EDE5D8",
+          "font_family_sans": "'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif",
+          "radius_card": "4px"
+        },
+        "image_prompts": [
+          "크림-베이지 종이 질감 위에 가느다란 황금 선으로 그린 추상 기하 패턴, 미니멀 에디토리얼, 따뜻한 무드, 텍스처가 살아있는 정방형 구성",
+          "낡은 학술 노트 위에 펼쳐진 도식 같은 추상 일러스트, 딥브라운·머스타드·오프화이트 팔레트, 수작업 느낌의 선과 원형 요소들",
+          "탁상 위 고요한 정물 — 열린 노트북 옆 커피잔과 펜, 베이지 린넨 배경, 위에서 내려다본 플랫레이, 따뜻한 자연광, 인물 없음",
+          "추상적인 지식의 흐름을 표현한 얇은 선 그래프, 황금비율 기반 구성, 크림·앰버·브라운 3색, 아카데믹 무드",
+          "한국의 서재를 연상시키는 책등 패턴, 따뜻한 갈색 계열 그라디언트 배경, 최소한의 디테일, 평면 벡터 스타일"
+        ],
+        "reasoning": "1인 지식 창업가는 '신뢰'와 '전문성'을 8초 안에 느껴야 다음 스크롤로 넘어간다. 텍스트 중심의 에디토리얼 레이아웃은 과장 없이 정보를 전달하며 학술 매거진의 권위감을 빌린다. 하단 숫자 지표(7일·Claude·부캐)는 추상적 약속을 구체적 사실로 치환해 이탈률을 낮춘다."
+      },
+      {
+        "id": "v2",
+        "name": "스플릿 임팩트",
+        "vibe": "대형 타이포가 화면을 반으로 가르는 비대칭 구도 — 시선을 잡아당기는 강렬한 첫인상",
+        "color_palette": {
+          "bg": "#1E1610",
+          "fg": "#F5F0E8",
+          "brand": "#C8922A",
+          "accent": "#E8B44A",
+          "soft": "#2C2016"
+        },
+        "html": "<div class=\"wrap\" style=\"display:grid;grid-template-columns:1fr 1fr;min-height:90vh;background:var(--bg);overflow:hidden;\">\n\n  <!-- 좌측: 타이포그래피 임팩트 블록 -->\n  <div style=\"display:flex;flex-direction:column;justify-content:center;padding:72px 48px 72px 64px;position:relative;\">\n\n    <div style=\"position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#2C2016 0%,#1E1610 100%);z-index:0;\"></div>\n\n    <div style=\"position:relative;z-index:1;\">\n      <span style=\"display:inline-block;font-family:var(--font-sans);font-size:10px;font-weight:700;letter-spacing:0.22em;color:var(--accent);text-transform:uppercase;margin-bottom:24px;border:1px solid var(--accent);padding:5px 12px;border-radius:2px;\">7-Day Launch</span>\n\n      <h1 style=\"font-family:var(--font-sans);font-size:clamp(42px,5.5vw,68px);font-weight:900;line-height:1.05;letter-spacing:-0.03em;color:#F5F0E8;margin:0 0 20px;\">\n        1주일,<br>\n        <span style=\"color:var(--accent);\">부캐</span>를<br>\n        세상에<br>\n        꺼낸다\n      </h1>\n\n      <div style=\"width:40px;height:3px;background:var(--accent);margin:24px 0;\"></div>\n\n      <p style=\"font-family:var(--font-sans);font-size:clamp(14px,1.6vw,17px);line-height:1.75;color:#C4B8A8;max-width:340px;margin:0 0 40px;\">\n        Claude AI와 함께라면, 당신의 경험은\n        이미 팔 수 있는 서비스입니다.\n        7일 커리큘럼으로 지금 시작하세요.\n      </p>\n\n      <a href=\"#enroll\" style=\"display:inline-flex;align-items:center;gap:10px;padding:18px 40px;background:var(--accent);color:#1E1610;font-family:var(--font-sans);font-size:15px;font-weight:800;letter-spacing:0.03em;border-radius:3px;text-decoration:none;width:fit-content;\">지금 신청하기 <span style=\"font-size:20px;\">→</span></a>\n    </div>\n  </div>\n\n  <!-- 우측: 비주얼 + 포인트 리스트 -->\n  <div style=\"display:flex;flex-direction:column;justify-content:center;align-items:center;padding:72px 48px;background:#141008;position:relative;overflow:hidden;\">\n\n    <div style=\"position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,#3A2810 0%,transparent 70%);opacity:0.8;\"></div>\n\n    <figure style=\"width:100%;max-width:360px;aspect-ratio:4/3;border-radius:6px;overflow:hidden;margin:0 0 40px;position:relative;z-index:1;\">\n      <img src=\"/assets/placeholder/hero-visual.svg\" alt=\"Claude로 부캐 서비스 런칭 과정 시각화\" style=\"width:100%;height:100%;object-fit:cover;\" />\n      <div style=\"position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,#141008,transparent);\"></div>\n    </figure>\n\n    <ul style=\"list-style:none;margin:0;padding:0;width:100%;max-width:360px;display:flex;flex-direction:column;gap:16px;position:relative;z-index:1;\">\n      <li style=\"display:flex;align-items:flex-start;gap:14px;\">\n        <span style=\"flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#1E1610;\">1</span>\n        <div><strong style=\"font-family:var(--font-sans);font-size:14px;font-weight:700;color:#F5F0E8;display:block;margin-bottom:2px;\">내 지식을 서비스로 정의</strong>\n        <span style=\"font-family:var(--font-sans);font-size:12px;color:#8A7C6E;\">1-2일차 · Claude 프롬프트 설계</span></div>\n      </li>\n      <li style=\"display:flex;align-items:flex-start;gap:14px;\">\n        <span style=\"flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#1E1610;\">2</span>\n        <div><strong style=\"font-family:var(--font-sans);font-size:14px;font-weight:700;color:#F5F0E8;display:block;margin-bottom:2px;\">상품 페이지 · 가격 설정</strong>\n        <span style=\"font-family:var(--font-sans);font-size:12px;color:#8A7C6E;\">3-5일차 · 실전 문서 작성</span></div>\n      </li>\n      <li style=\"display:flex;align-items:flex-start;gap:14px;\">\n        <span style=\"flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#1E1610;\">3</span>\n        <div><strong style=\"font-family:var(--font-sans);font-size:14px;font-weight:700;color:#F5F0E8;display:block;margin-bottom:2px;\">런칭 · 첫 고객 확보</strong>\n        <span style=\"font-family:var(--font-sans);font-size:12px;color:#8A7C6E;\">6-7일차 · 오픈 전략 실행</span></div>\n      </li>\n    </ul>\n  </div>\n\n</div>",
+        "design_tokens": {
+          "color_bg": "#1E1610",
+          "color_fg": "#F5F0E8",
+          "color_muted": "#8A7C6E",
+          "color_line": "#3A2E22",
+          "color_brand": "#C8922A",
+          "color_brand_2": "#A07020",
+          "color_accent": "#E8B44A",
+          "color_soft": "#2C2016",
+          "font_family_sans": "'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif",
+          "radius_card": "6px"
+        },
+        "image_prompts": [
+          "어두운 황금색과 딥브라운 배경 위 추상적인 빛의 흐름, 노이즈 텍스처, 고급스러운 무드, 새벽 작업실을 연상시키는 분위기",
+          "야간 도시 창가에서 바라본 불빛 보케, 딥다크브라운 배경, 앰버-골드 조명, 고요하고 집중된 무드, 인물 없음 풍경 위주",
+          "다크 배경 위에 황금 선으로 그린 추상 네트워크 다이어그램, 노드와 연결선, 지식의 확장 은유, 벡터 스타일",
+          "오래된 지도 도안 같은 따뜻한 황금-브라운 추상 패턴, 어두운 배경에 잉크 드로잉 질감, 탐험과 발견의 은유",
+          "미니멀 아이소메트릭 일러스트 — 작은 노트북과 빛나는 화면, 딥브라운 배경, 앰버 액센트 조명, 평면 벡터"
+        ],
+        "reasoning": "직장인 부업 준비자는 '정말 1주일에 될까?'라는 의심을 8초 안에 돌파해야 한다. 다크 배경 + 대형 타이포 + 황금 액센트 조합은 고가 마스터클래스의 시각 언어를 빌려 즉각적인 권위감을 형성한다. 좌우 스플릿으로 '메시지(좌)'와 '근거(우)'를 동시에 노출해 클릭 없이도 커리큘럼 흐름을 파악할 수 있어 전환율에 유리하다."
+      },
+      {
+        "id": "v3",
+        "name": "서사 내러티브",
+        "vibe": "개인의 이야기에서 시작하는 따뜻한 공감 서사 — 독자가 자신의 이야기로 읽게 만드는 중앙 정렬 구도",
+        "color_palette": {
+          "bg": "#F7F3EC",
+          "fg": "#2A2118",
+          "brand": "#6B4C2A",
+          "accent": "#C47F3A",
+          "soft": "#E8DDD0"
+        },
+        "html": "<div class=\"wrap\" style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:92vh;padding:88px 24px 72px;background:var(--bg);text-align:center;position:relative;overflow:hidden;\">\n\n  <!-- 배경 장식 원 -->\n  <div style=\"position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,#EDE0CC 0%,transparent 65%);pointer-events:none;\"></div>\n\n  <div style=\"max-width:680px;width:100%;position:relative;z-index:1;\">\n\n    <!-- 오프닝 인용구 스타일 -->\n    <blockquote style=\"margin:0 0 40px;padding:0;border:none;\">\n      <p style=\"font-family:var(--font-sans);font-size:clamp(15px,2vw,19px);line-height:1.8;color:#6B5542;font-style:italic;margin:0;\">\n        &ldquo;지식은 충분한데, 어디서 어떻게 팔아야 할지 모르겠다고 느끼신 적 있으신가요?&rdquo;\n      </p>\n    </blockquote>\n\n    <div style=\"width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);margin:0 auto 40px;\"></div>\n\n    <div style=\"margin-bottom:12px;\">\n      <span style=\"font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;\">Core Campus 7-Day Course</span>\n    </div>\n\n    <h1 style=\"font-family:var(--font-sans);font-size:clamp(36px,5.8vw,70px);font-weight:800;line-height:1.13;letter-spacing:-0.02em;color:var(--fg);margin:0 0 24px;\">\n      Claude와 함께<br>\n      <span style=\"position:relative;display:inline-block;\">\n        <span style=\"position:relative;z-index:1;\">내 경험을</span>\n        <span style=\"position:absolute;bottom:4px;left:-2px;right:-2px;height:12px;background:var(--soft);z-index:0;border-radius:2px;\"></span>\n      </span>\n      <br>서비스로 바꾸는<br>\n      <em style=\"font-style:normal;color:var(--accent);\">7일의 여정</em>\n    </h1>\n\n    <p style=\"font-family:var(--font-sans);font-size:clamp(15px,2vw,18px);line-height:1.8;color:#5A4535;max-width:520px;margin:0 auto 20px;\">\n      본업을 유지하면서도, 당신이 이미 알고 있는 것들로<br>\n      <strong style=\"color:var(--fg);font-weight:700;\">첫 부캐 서비스를 1주일 안에 세상에 내놓을 수 있습니다.</strong>\n    </p>\n\n    <p style=\"font-family:var(--font-sans);font-size:13px;line-height:1.7;color:#8C7464;max-width:440px;margin:0 auto 48px;\">\n      AI가 대신 써주는 게 아닙니다. Claude와 함께 당신의 언어로,\n      당신의 고객에게 닿는 서비스를 설계합니다.\n    </p>\n\n    <div style=\"display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:56px;\">\n      <a href=\"#enroll\" style=\"display:inline-flex;align-items:center;gap:8px;padding:18px 48px;background:var(--accent);color:#FBF7F1;font-family:var(--font-sans);font-size:16px;font-weight:700;letter-spacing:0.02em;border-radius:100px;text-decoration:none;\">7일 코스 시작하기 →</a>\n      <span style=\"font-family:var(--font-sans);font-size:12px;color:#9C8878;\">커리큘럼 무료 열람 가능 · 수강 전 언제든 취소 가능</span>\n    </div>\n\n    <!-- 소셜 프루프 바 -->\n    <div style=\"display:flex;justify-content:center;flex-wrap:wrap;gap:28px;padding:28px 32px;background:#EFEAD9;border-radius:12px;\">\n      <div style=\"text-align:center;\">\n        <div style=\"font-family:var(--font-sans);font-size:22px;font-weight:800;color:var(--fg);\">7일</div>\n        <div style=\"font-family:var(--font-sans);font-size:11px;color:#7A6555;margin-top:2px;letter-spacing:0.04em;\">완결형 커리큘럼</div>\n      </div>\n      <div style=\"width:1px;background:#D8CDBF;\"></div>\n      <div style=\"text-align:center;\">\n        <div style=\"font-family:var(--font-sans);font-size:22px;font-weight:800;color:var(--fg);\">실전</div>\n        <div style=\"font-family:var(--font-sans);font-size:11px;color:#7A6555;margin-top:2px;letter-spacing:0.04em;\">Claude 프롬프트 포함</div>\n      </div>\n      <div style=\"width:1px;background:#D8CDBF;\"></div>\n      <div style=\"text-align:center;\">\n        <div style=\"font-family:var(--font-sans);font-size:22px;font-weight:800;color:var(--fg);\">부캐</div>\n        <div style=\"font-family:var(--font-sans);font-size:11px;color:#7A6555;margin-top:2px;letter-spacing:0.04em;\">지식 상품화 완성</div>\n      </div>\n    </div>\n\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#F7F3EC",
+          "color_fg": "#2A2118",
+          "color_muted": "#8C7464",
+          "color_line": "#D8CDBF",
+          "color_brand": "#6B4C2A",
+          "color_brand_2": "#8A6238",
+          "color_accent": "#C47F3A",
+          "color_soft": "#E8DDD0",
+          "font_family_sans": "'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif",
+          "radius_card": "12px"
+        },
+        "image_prompts": [
+          "따뜻한 크림-샌드 배경 위 손으로 그린 듯한 부드러운 원형 붓질, 오렌지-브라운 계열 수채화 질감, 명상적이고 서사적인 무드",
+          "열린 노트 위에 아이디어가 펼쳐지는 은유적 일러스트, 물결 치듯 번지는 크림색과 앰버색, 따뜻한 자연광, 한국적 감성",
+          "봄날 오후의 나무 질감 책상 위 — 노트, 차 한 잔, 작은 식물, 위에서 내려다본 플랫레이, 따뜻한 자연광, 인물 없음",
+          "지식의 흐름을 나타내는 추상 일러스트 — 씨앗이 나무가 되는 성장 은유, 베이지-앰버-브라운 팔레트, 수작업 선화 스타일",
+          "한국의 따뜻한 가을빛을 담은 추상 풍경, 미니멀한 면 분할, 크림·황토·갈색 3색 구성, 글로벌 아카데믹 무드"
+        ],
+        "reasoning": "직장인 부업 준비자의 가장 큰 장벽은 '나 같은 사람이 할 수 있을까?'라는 내면의 의심이다. 오프닝 질문 인용구로 공감을 유도한 뒤 서사 구조로 희망을 제시하는 중앙 정렬 레이아웃은 설교가 아닌 동반자의 언어로 말을 건넨다. 둥근 CTA 버튼과 넉넉한 여백은 '부담 없이 시작해도 된다'는 심리적 안전감을 시각적으로 지지한다."
+      }
+    ],
+    "brief_echo": {
+      "purpose": "Claude로 부캐 서비스 1주일 런칭 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+      "audience": "본업을 유지하면서 자신의 지식·경험을 상품화하려는 1인 사업가 또는 직장인 부업 준비자",
+      "style_keywords": [
+        "editorial",
+        "warm beige",
+        "trustworthy",
+        "academic"
+      ],
+      "color_mood": "warm",
+      "reference_urls": []
+    },
+    "chosen_variant_id": "v1"
+  },
+  "course_id": "",
+  "created_at": "2026-05-06T01:45:40+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}

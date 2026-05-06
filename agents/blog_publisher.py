@@ -156,14 +156,37 @@ HTML로만 답하세요. 코드펜스 금지."""
                     # headless=False — 헤드리스 모드에서 모달 클릭이 불안정.
                         # 환경변수로 강제 가능: TISTORY_HEADLESS=1 → headless=True
                     headless = os.environ.get("TISTORY_HEADLESS", "0").lower() in ("1", "true", "yes")
+
+                    # ★ 자동 분산 예약 발행 — 일일 한도 회피
+                    schedule_at = None
+                    use_schedule = os.environ.get("TISTORY_SCHEDULE", "1").lower() in ("1", "true", "yes")
+                    if use_schedule:
+                        try:
+                            from tistory_helpers.scheduler import next_publish_slot, commit_slot
+                            schedule_at = next_publish_slot()
+                            if schedule_at:
+                                log.info("[blog] 📅 예약 발행 슬롯: %s",
+                                         schedule_at.strftime("%Y-%m-%d %H:%M"))
+                        except Exception as e:
+                            log.warning("[blog] scheduler 실패 — 즉시 발행: %s", e)
+
                     published_url = publish_post(
                         blog=blog,
                         title=title,
                         body_html=body_html,
                         tags=tags,
                         publish=True,
+                        schedule_at=schedule_at,
                         headless=headless,
                     )
+
+                    # 슬롯 사용 확정
+                    if schedule_at and published_url:
+                        try:
+                            from tistory_helpers.scheduler import commit_slot
+                            commit_slot(schedule_at)
+                        except Exception as e:
+                            log.warning("[blog] commit_slot 실패: %s", e)
                     log.info("[blog] 임시저장 완료: %s", published_url)
             except Exception as e:
                 log.exception("[blog] 티스토리 게시 실패 (HTML 파일로 fallback): %s", e)
@@ -187,8 +210,10 @@ HTML로만 답하세요. 코드펜스 금지."""
             log.warning("[blog] HTML fallback 저장 실패: %s", e)
 
         # 산출물
+        scheduled_str = schedule_at.strftime("%Y-%m-%d %H:%M (KST)") if schedule_at else "(즉시)"
         result_body = f"# {title}\n\n"
-        result_body += f"**티스토리 임시저장 URL**: {published_url or '(게시 실패 — 로그 확인)'}\n\n"
+        result_body += f"**티스토리 URL**: {published_url or '(게시 실패 — 로그 확인)'}\n\n"
+        result_body += f"**예약 시각**: {scheduled_str}\n\n"
         result_body += f"**블로그 본문**:\n\n{body_html}"
 
         result = AgentResult.new(
@@ -203,7 +228,8 @@ HTML로만 답하세요. 코드펜스 금지."""
                 "body_html": body_html,
                 "hero_image_url": hero_img_url,
                 "tistory_url": published_url,
-                "tistory_status": "draft" if published_url else "failed",
+                "tistory_status": "scheduled" if (published_url and schedule_at) else ("draft" if published_url else "failed"),
+                "scheduled_at": schedule_at.isoformat() if schedule_at else None,
             },
         )
         return [result]

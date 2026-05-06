@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#8 7일 런칭 플랜 실행 &amp; 회고 영상 제작 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#8 7일 런칭 플랜 실행 &amp; 회고 영상 제작<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-launchpad · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>런칭 콘텐츠를 7일 동안 올렸는데, 막상 결과를 보고 어디서부터 정리해야 할지 막막하신가요?</p>
+<p>조회수는 나왔는데 DM은 없고, DM은 왔는데 전환은 안 되고.</p>
+<p>숫자는 있는데 그게 뭘 뜻하는지, 다음에 뭘 바꿔야 하는지 모르겠는 그 상태.</p>
+<p>이번 차시에서 그 안개를 걷어냅니다.</p>
+<p>1~7차시에서 만든 모든 산출물을 하나의 회고 영상으로 통합하고, 다음 스프린트까지 연결하는 구조를 정확히 짚어드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 런칭 결과 지표를 3가지 기준으로 읽고, 개선안과 다음 계획을 담은 3분짜리 회고 영상을 직접 촬영해 업로드할 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 런칭 회고 프레임워크: Keep-Problem-Try</h3>
+<p><strong>설명</strong></p>
+<p>회고할 때 가장 흔한 실수는 '잘됐나, 못됐나'로만 판단하는 겁니다.</p>
+<p>그 대신 쓸 도구가 KPT입니다.</p>
+<p>Keep: 계속할 것. Problem: 걸림돌. Try: 다음에 시도할 것.</p>
+<p>이 세 칸을 채우면 감정이 아닌 구조로 회고가 됩니다.</p>
+<p><strong>예시</strong></p>
+<p>Keep → "Claude로 만든 카드뉴스 반응이 좋았다. 계속 쓴다."</p>
+<p>Problem → "DM 답변 속도가 느려서 전환 타이밍을 놓쳤다."</p>
+<p>Try → "DM 첫 답변을 Claude로 반자동화한다."</p>
+<p><strong>반례</strong></p>
+<p>"이번 런칭은 망했어"라고만 기록하면 다음 액션이 없습니다.</p>
+<p>KPT는 결과가 나쁠수록 더 강력하게 작동합니다.</p>
+<p>칸이 비어 있으면 비어 있다고 써야 합니다. 억지로 채우지 않아도 됩니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 신호등입니다.</p>
+<p>초록(Keep) → 노랑(Problem) → 파랑(Try).</p>
+<p>파랑이 다음 스프린트의 첫 번째 태스크가 됩니다.</p>
+<hr />
+<h3>핵심 개념 2 — 지표 기반 의사결정: 조회수·DM응답률·전환율</h3>
+<p><strong>설명</strong></p>
+<p>숫자를 보는 순서가 있습니다.</p>
+<p>조회수 → DM응답률 → 전환율, 이 3단계를 깔때기(퍼널)로 읽습니다.</p>
+<p>조회수가 낮으면 콘텐츠 노출 문제입니다.</p>
+<p>DM응답률이 낮으면 CTA 문구나 신뢰도 문제입니다.</p>
+<p>전환율이 낮으면 제안의 명확성 문제입니다.</p>
+<p><strong>예시</strong></p>
+<p>조회수 500 → DM 10 → 결제 1이라면, 퍼널 첫 단계는 충분합니다.</p>
+<p>문제는 DM 10 중 결제가 1이라는 전환 구간입니다.</p>
+<p>이 경우 콘텐츠를 늘리는 것보다 DM 응대 스크립트를 먼저 고쳐야 합니다.</p>
+<p><strong>반례</strong></p>
+<p>조회수만 보고 "반응이 좋았다"고 판단하면 다음 런칭도 같은 실수를 반복합니다.</p>
+<p>조회수 5,000에 DM 0이면 CTA가 없거나 신뢰 신호가 부족한 겁니다.</p>
+<p>숫자는 순서대로 읽어야 진단이 됩니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 물탱크 3층입니다.</p>
+<p>꼭대기(조회수)에서 물이 새는 층을 찾아야 아랫층을 고칠 수 있습니다.</p>
+<p>층을 건너뛰면 진단이 틀립니다.</p>
+<hr />
+<h3>핵심 개념 3 — 2차 스프린트 계획</h3>
+<p><strong>설명</strong></p>
+<p>회고의 마지막 결과물은 다음 7일 계획입니다.</p>
+<p>KPT의 Try 항목 중 실행 가능한 것 3개만 골라서 날짜에 붙입니다.</p>
+<p>3개 이상이면 스프린트가 아니라 희망 목록이 됩니다.</p>
+<p><strong>예시</strong></p>
+<p>Try 1: "DM 응대 스크립트 Claude로 재작성" → Day 1</p>
+<p>Try 2: "후기 콘텐츠 1개 추가 제작" → Day 3</p>
+<p>Try 3: "무료 상담 CTA를 유료 체험으로 교체 테스트" → Day 5</p>
+<p>이렇게 날짜가 붙으면 계획이 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>"다음엔 더 열심히 해야지"는 Try가 아닙니다.</p>
+<p>측정 가능한 행동 단위로 쪼개지 않으면 2차 스프린트도 같은 지점에서 멈춥니다.</p>
+<p>Try 항목이 10개라면 지금 당장 7개를 지우세요.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 다트판입니다.</p>
+<p>과녁 3개만 남기고 나머지는 내려놓는 것, 그게 2차 스프린트의 핵심입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 아래 단계를 순서대로 따라오세요.</p>
+<p><strong>Step 1 — 지표 수집 (1분)</strong></p>
+<p>1~7차시에서 올린 콘텐츠의 조회수, DM 수, 전환(문의·결제) 수를 메모 앱이나 노트에 적습니다.</p>
+<p>숫자가 없으면 0으로 적으세요. 없다는 것도 데이터입니다.</p>
+<p><strong>Step 2 — KPT 작성 (1분)</strong></p>
+<p>Keep 1개, Problem 1개, Try 3개를 적습니다.</p>
+<p>Try는 내일 바로 실행할 수 있는 행동 단위로 씁니다.</p>
+<p><strong>Step 3 — 스크립트 초안 작성 (1분)</strong></p>
+<p>3분 회고 영상의 말할 내용을 3단으로 구성합니다.</p>
+<p>①결과 지표 30초, ②KPT 핵심 1분 30초, ③다음 계획 1분.</p>
+<p>Claude에게 "내 KPT 내용을 바탕으로 3분 회고 영상 스크립트 작성해줘"라고 입력하면 초안이 나옵니다.</p>
+<p><strong>Step 4 — 촬영 &amp; 업로드 (남은 시간)</strong></p>
+<p>세로형(9:16) 비율로 3분 이내 촬영합니다.</p>
+<p>조명과 배경보다 내용의 솔직함이 더 중요합니다.</p>
+<p>인스타그램 릴스 또는 유튜브 쇼츠에 업로드하고 캡션에 #7일런칭회고 를 추가합니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시는 이 코스 전체 보너스 세션입니다.</p>
+<p>7일 런칭을 반복 가능한 시스템으로 자동화하는 Claude 프롬프트 세트를 공개합니다.</p>
+<p>오늘 만드신 회고 영상 링크를 댓글에 남겨주세요.</p>
+<p>제 경험상, 공개하는 것만으로도 2차 스프린트의 실행률이 크게 달라집니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
