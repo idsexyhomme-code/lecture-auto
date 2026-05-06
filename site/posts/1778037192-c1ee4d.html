@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#5 후킹 제목과 썸네일 문구 양산하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#5 후킹 제목과 썸네일 문구 양산하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-youtube-plan · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>유튜브 영상 찍었는데 조회수가 안 나오시죠?</p>
+<p>콘텐츠는 좋은데 아무도 안 클릭합니다.
+이유는 단 하나, 제목과 썸네일이 약해서입니다.</p>
+<p>클릭은 영상 품질이 아니라 제목이 만듭니다.
+그런데 제목 하나 뽑는 데 30분씩 쓰고 계시진 않나요?</p>
+<p>이번 차시에서 Claude에게 클릭 공식을 학습시킵니다.
+10편 제목 후보 30개를, 오늘 안에 뽑아드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, Claude에게 제목 공식을 직접 학습시켜서 캘린더 영상 10편의 제목 후보 3개씩과 썸네일 문구를 한 번에 생성하고 A/B 비교안까지 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 · 유튜브 제목 클릭 공식 — "3C 공식"</h3>
+<p><strong>설명</strong></p>
+<p>클릭을 만드는 제목에는 3가지 요소가 있습니다.
+저는 이걸 <strong>3C</strong>라고 부릅니다.</p>
+<ul>
+<li><strong>Curiosity</strong> — 궁금증을 열어둡니다</li>
+<li><strong>Conflict</strong> — 긴장이나 대비를 넣습니다</li>
+<li><strong>Concrete</strong> — 숫자·고유명사로 구체화합니다</li>
+</ul>
+<p>이 3개가 모두 들어가면 클릭률이 올라갑니다.
+제 경험상, 3C 중 2개 이상이면 충분히 경쟁력이 생깁니다.</p>
+<p><strong>예시</strong></p>
+<p>"월 100만 원 버는 1인 사업가가 절대 안 쓰는 도구 3가지"</p>
+<ul>
+<li>Curiosity: '절대 안 쓰는'이 궁금증을 자극합니다</li>
+<li>Conflict: '버는 사람'이 '안 쓴다'는 대비가 긴장을 만듭니다</li>
+<li>Concrete: '월 100만 원', '3가지'로 구체화됩니다</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>"유튜브 잘 하는 방법 알려드립니다"</p>
+<p>3C가 하나도 없습니다.
+궁금하지 않고, 갈등도 없고, 숫자도 없습니다.
+선의는 있지만 클릭을 만들지 못합니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 <strong>신호등 3색</strong>입니다.
+빨강(Curiosity) · 노랑(Conflict) · 초록(Concrete).
+제목을 쓸 때마다 신호등 3색을 머릿속에 켜세요.</p>
+<hr />
+<h3>핵심 개념 2 · 썸네일 카피라이팅 — "7자 원칙"</h3>
+<p><strong>설명</strong></p>
+<p>썸네일 문구는 읽는 게 아니라 '보는' 것입니다.
+시청자는 0.3초 안에 지나칩니다.</p>
+<p>그래서 썸네일 문구는 <strong>7자 이내</strong>를 지향합니다.
+제목이 문장이라면, 썸네일은 단어 덩어리입니다.</p>
+<p>썸네일 문구는 두 가지 역할 중 하나만 합니다.</p>
+<ul>
+<li><strong>제목을 압축</strong>: 핵심 키워드만 뽑아냅니다</li>
+<li><strong>제목과 대비</strong>: 제목과 다른 각도로 호기심을 더합니다</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>제목: "월 100만 원 버는 1인 사업가가 절대 안 쓰는 도구 3가지"</p>
+<ul>
+<li>압축형 썸네일: <strong>"절대 금지 3가지"</strong></li>
+<li>대비형 썸네일: <strong>"저도 썼었어요"</strong></li>
+</ul>
+<p>둘 다 7자 이내, 둘 다 호기심을 강화합니다.</p>
+<p><strong>반례</strong></p>
+<p>"유튜브를 잘 하기 위한 핵심 전략 총정리"</p>
+<p>썸네일에 이걸 넣으면 글자가 너무 많습니다.
+읽기 전에 시선이 지나갑니다.
+썸네일은 압축이 전부입니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 <strong>번호판</strong>입니다.
+번호판은 7자리, 멀리서도 읽힙니다.
+썸네일 문구도 번호판처럼 짧고 선명하게 만드세요.</p>
+<hr />
+<h3>핵심 개념 3 · Few-shot 프롬프트 — "샘플 3개의 법칙"</h3>
+<p><strong>설명</strong></p>
+<p>Claude에게 제목을 만들어 달라고 하면, 처음엔 평범하게 나옵니다.
+이유는 Claude가 '내 기준'을 모르기 때문입니다.</p>
+<p>Few-shot 프롬프트는 Claude에게 <strong>예시를 먼저 학습시키는</strong> 방식입니다.
+"이런 스타일로 만들어줘"라고 샘플을 보여주는 겁니다.</p>
+<p>샘플은 <strong>3개</strong>가 적정입니다.
+1개는 우연, 2개는 패턴, 3개는 학습입니다.</p>
+<p><strong>프롬프트 구조</strong></p>
+<pre><code>다음은 내가 원하는 제목 스타일 예시 3개야.
+[예시 1]
+[예시 2]
+[예시 3]
+
+위 스타일을 학습해서, 아래 주제로 제목 후보 3개와 썸네일 문구 1개씩 만들어줘.
+주제: [주제 입력]
+</code></pre>
+<p><strong>예시</strong></p>
+<p>예시 3개를 3C 공식 기반 제목으로 넣어줍니다.
+그러면 Claude는 3C 패턴을 읽고 비슷한 구조로 출력합니다.
+제 경험상, 예시 품질이 높을수록 출력 품질도 올라갑니다.</p>
+<p><strong>반례</strong></p>
+<p>"클릭률 높은 유튜브 제목 만들어줘"</p>
+<p>예시 없이 이렇게만 넣으면, Claude는 일반적인 제목을 뽑습니다.
+공식도 없고, 내 채널 톤도 반영이 안 됩니다.
+Few-shot 없이는 '내 것'이 나오지 않습니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 <strong>삼각대</strong>입니다.
+다리가 3개여야 카메라가 흔들리지 않습니다.
+예시 3개가 Claude를 흔들리지 않게 잡아줍니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하세요.
+다음 단계를 따라 직접 만들어보겠습니다.</p>
+<p><strong>준비물</strong>: 4차시에서 완성한 콘텐츠 캘린더 10편 목록</p>
+<hr />
+<p><strong>Step 1 · 샘플 제목 3개 준비 (1분)</strong></p>
+<p>내가 좋아하는 유튜브 제목 3개를 고릅니다.
+내 채널 톤과 비슷한 것으로 고르세요.
+없으면 아래 샘플을 그대로 사용해도 됩니다.</p>
+<ul>
+<li>"블로그 3개월 만에 접은 이유"</li>
+<li>"1인 사업가가 카페 대신 가는 곳"</li>
+<li>"구독자 0명일 때 제가 한 것 딱 하나"</li>
+</ul>
+<hr />
+<p><strong>Step 2 · Few-shot 프롬프트 작성 (1분)</strong></p>
+<p>Claude 창을 열고 아래 구조로 입력합니다.</p>
+<pre><code>다음은 내가 원하는 제목 스타일 예시야.
+[Step 1에서 고른 예시 3개 붙여넣기]
+
+위 스타일로, 아래 주제 10개에 대해 각각 제목 후보 3개와 썸네일 문구 1개를 만들어줘.
+표 형식으로 출력해줘. 열은 '주제 / 후보1 / 후보2 / 후보3 / 썸네일 문구'로 해줘.
+주제 목록: [캘린더 10편 제목 붙여넣기]
+</code></pre>
+<hr />
+<p><strong>Step 3 · 결과 검토 및 A/B 비교안 작성 (1분)</strong></p>
+<p>Claude가 출력한 표를 복사해서 구글 시트나 노션에 붙여넣습니다.
+각 편마다 후보 3개 중 본인이 가장 끌리는 1개에 ✅ 표시합니다.
+나머지 1개는 A/B 테스트용으로 남겨둡니다.</p>
+<hr />
+<p><strong>Step 4 · 썸네일 문구 최종 점검 (30초)</strong></p>
+<p>각 썸네일 문구를 보고 7자를 초과하면 줄입니다.
+7자 이내로 만들지 못하면 Claude에게 "더 짧게, 핵심 단어만"이라고 재요청하세요.</p>
+<p>완성되면 표를 캡처해서 댓글에 올려주세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #6에서는 완성된 제목과 썸네일을 바탕으로 영상 스크립트 초안을 Claude로 자동 생성하는 방법을 다룹니다.</p>
+<p>오늘 만든 '10편 제목 후보표'를 댓글에 공유해주세요.
+제가 직접 피드백 드리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

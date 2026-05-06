@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-youtube-plan",
+    "course_title": "Claude로 완성하는 1인 사업가 유튜브 기획",
+    "lesson_no": 6,
+    "lesson_title": "영상 스크립트 구조 설계하기",
+    "objective": "후킹-문제제기-해결-CTA 4단계 스크립트 프레임을 Claude와 함께 정의하고 선택한 영상 1편의 단락별 키포인트 아웃라인을 작성한다",
+    "key_concepts": [
+      "스크립트 4단계 프레임",
+      "후킹 오프닝 패턴",
+      "CTA 설계 원칙"
+    ],
+    "exercise": "영상 1편 스크립트 아웃라인 (단락별 키포인트·예상 시간 배분 포함)",
+    "duration_min": 15
+  }
+}
