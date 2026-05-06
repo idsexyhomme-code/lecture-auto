@@ -1,0 +1,19 @@
+{
+  "id": "1778061481-7071151003",
+  "chat_id": 7071151003,
+  "status": "active",
+  "history": [
+    {
+      "role": "user",
+      "content": "A"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"안녕하세요, 서형님! 어떤 아이디어를 작업할까요?\\n\\n예시:\\n- 새 코스 커리큘럼 설계\\n- 특정 코스 차시 스크립트\\n- 랜딩 페이지 카피\\n- 사이트 디자인·수정\\n- FAQ / Q&A 초안\", \"brief\": null}"
+    }
+  ],
+  "draft_brief": null,
+  "last_telegram_message_id": 1179,
+  "created_at": "2026-05-06T09:58:01+00:00",
+  "updated_at": "2026-05-06T09:58:06+00:00"
+}
