@@ -1,0 +1,127 @@
+{
+  "id": "1778036863-9172da",
+  "agent": "ui_designer",
+  "kind": "design_variants",
+  "title": "[디자인 시안] hero — 3개 변형",
+  "body_md": "## hero — 변형 3개\n\n코어 캠퍼스 'Claude로 완성하는 1인 사업가 유튜브 기획' 히어로 3변형 — 에디토리얼/임팩트/서사\n\n### V1 · 에디토리얼 모던\n_학술 매거진 표지처럼 진중하고 차분한 텍스트 우선 구도_\n\n**팔레트**: bg=#FBF8F3, fg=#1A1814, brand=#3D2F1E, accent=#B8860B, soft=#F0E9DC\n\n**이유**: 텍스트를 주인공으로 세운 2단 그리드 구도가 '진지하게 일하는 사업가' 이미지를 즉각 형성한다. 수치 배지로 신뢰를 구축하고 추천사 캡션을 이미지 위에 겹쳐 시선을 사진으로 유인하면서도 카피 우선성을 유지한다. 웜베이지·딥브라운 팔레트는 Claude 사용 경험이 있는 지식 창업가가 익숙하게 느끼는 '편집장 감각'을 자극한다.\n\n**이미지 프롬프트** (4개):\n- 베이지와 딥브라운 팔레트의 미니멀 워크스페이스 플랫레이, 노트북·노트·펜이 정갈하게 놓인 탑뷰, 아카데믹 톤, 사람 없음\n- 추상적인 플로우차트 형태의 선 일러스트, 웜베이지 배경에 머스타드 포인트 라인, 아이디어에서 콘텐츠로 이어지는 흐름 암시\n- 손으로 그린 듯한 메모와 화살표가 담긴 기획 노트 질감, 크림 종이 텍스처, 따뜻한 조명, 한국적 정서\n- 유튜브 썸네일 그리드 목업 일러스트, 베이지 배경, 추상 기하 패턴으로 채워진 카드들, 정렬된 레이아웃\n\n### V2 · 임팩트 풀블리드\n_어두운 브랜드 컬러를 배경으로 대형 카피가 시선을 압도하는 명령형 임팩트_\n\n**팔레트**: bg=#1E1510, fg=#FBF8F3, brand=#D4A853, accent=#E8C878, soft=#2E221A\n\n**이유**: 다크 배경 풀블리드 레이아웃은 '기획을 Claude에게 맡겨라'는 명령형 카피와 결합해 8초 안에 강한 첫인상을 남긴다. 골드 컬러 accent가 프리미엄감을 부여하며, 기존 에디토리얼 변형과 컬러 무드·카피 톤·이미지 비중 세 축에서 의미 있게 분기한다. 이미 Claude를 써본 사용자에게 '이 코스는 다르다'는 신호를 준다.\n\n**이미지 프롬프트** (4개):\n- 딥브라운과 차콜 배경의 추상 기하 텍스처, 미세한 그레인 노이즈, 황금 포인트 라인, 프리미엄 아카데믹 톤\n- 어두운 배경에 황금색 빛 번짐이 있는 미니멀 패턴, 고급 온라인 코스 랜딩 분위기, 사람 없음, 글로벌 아카데믹 톤\n- 유튜브 플레이 버튼 형태를 추상화한 기하 일러스트, 딥브라운 배경, 머스타드 골드 라인 강조, 미니멀\n- 추상적인 네트워크 연결선 일러스트, 딥다크 배경에 웜골드 노드, AI와 창작 연결 암시, 한국적 정서 배제\n\n### V3 · 서사 비대칭\n_좌측 대형 이미지와 우측 스토리텔링 텍스트가 균형 잡힌 비대칭 서사 구조_\n\n**팔레트**: bg=#F5F0E8, fg=#211C16, brand=#7A5C3A, accent=#C8864A, soft=#EDE5D8\n\n**이유**: 이미지가 화면 절반을 점유하는 비대칭 레이아웃은 v1의 텍스트 우선, v2의 다크 임팩트와 명확히 분기하며 '보여주는 설득' 방식을 택한다. 스텝 번호 리스트로 커리큘럼 흐름을 서사적으로 제시해 8초 안에 코스의 구조까지 전달하고, 웜테라코타 accent가 신뢰와 친근함을 동시에 만든다.\n\n**이미지 프롬프트** (5개):\n- 따뜻한 크림베이지 배경에 오픈 노트북과 메모장이 놓인 정갈한 책상 탑뷰, 번잡함 없는 1인 작업 공간, 한국적 정서, 사람 없음\n- 유튜브 기획 마인드맵을 연상시키는 손그림 풍 일러스트, 웜베이지와 테라코타 팔레트, 아이디어 노드들이 연결된 구조, 미니멀\n- 노트 페이지 질감에 필기체로 쓰인 콘텐츠 기획 항목들, 크림 종이 위 인디안잉크 색상 선, 따뜻한 자연광, 한국적 정서\n- 스마트폰 화면에 유튜브 썸네일 그리드가 보이는 목업, 따뜻한 라이팅, 베이지 배경, 사람 손 제외한 소품만, 아카데믹 톤\n- 추상화된 콘텐츠 플로우 다이어그램, 테라코타와 크림 팔레트, 선형 아이콘 스타일, 프로세스 암시, 한국적 정서",
+  "summary": "코어 캠퍼스 'Claude로 완성하는 1인 사업가 유튜브 기획' 히어로 3변형 — 에디토리얼/임팩트/서사",
+  "meta": {
+    "target": "hero",
+    "variants": [
+      {
+        "id": "v1",
+        "name": "에디토리얼 모던",
+        "vibe": "학술 매거진 표지처럼 진중하고 차분한 텍스트 우선 구도",
+        "color_palette": {
+          "bg": "#FBF8F3",
+          "fg": "#1A1814",
+          "brand": "#3D2F1E",
+          "accent": "#B8860B",
+          "soft": "#F0E9DC"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:1120px;margin:0 auto;padding:72px 40px 80px;display:grid;grid-template-columns:1fr 420px;gap:56px;align-items:center;background:var(--bg,#FBF8F3)\">\n  <div>\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent,#B8860B);margin:0 0 20px\">Core Campus · AI 기획 코스</p>\n    <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(36px,4.5vw,58px);font-weight:800;line-height:1.15;color:var(--fg,#1A1814);margin:0 0 24px;letter-spacing:-0.02em\">Claude로 완성하는<br><em style=\"font-style:normal;color:var(--brand,#3D2F1E)\">1인 사업가<br>유튜브 기획</em></h1>\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:17px;line-height:1.75;color:#4A4540;max-width:480px;margin:0 0 36px\">아이디어 발굴부터 스크립트 완성까지. Claude를 기획 파트너로 삼아 꾸준히 올릴 수 있는 유튜브 시스템을 만드는 실전 코스입니다.</p>\n    <div style=\"display:flex;align-items:center;gap:20px;flex-wrap:wrap\">\n      <a href=\"#enroll\" style=\"display:inline-block;padding:14px 32px;background:var(--brand,#3D2F1E);color:#FFFDF9;font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:700;border-radius:6px;text-decoration:none;letter-spacing:0.01em\">수강 신청하기</a>\n      <a href=\"#curriculum\" style=\"display:inline-flex;align-items:center;gap:6px;font-family:'Pretendard',system-ui,sans-serif;font-size:14px;font-weight:600;color:var(--brand,#3D2F1E);text-decoration:none;border-bottom:1px solid var(--accent,#B8860B);padding-bottom:2px\">커리큘럼 보기 →</a>\n    </div>\n    <div style=\"display:flex;gap:32px;margin-top:44px;padding-top:36px;border-top:1px solid #E6DDD0\">\n      <div>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:24px;font-weight:800;color:var(--fg,#1A1814);margin:0 0 4px\">8주</p>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#7A6F65;margin:0;letter-spacing:0.05em\">완성 커리큘럼</p>\n      </div>\n      <div style=\"width:1px;background:#E6DDD0\"></div>\n      <div>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:24px;font-weight:800;color:var(--fg,#1A1814);margin:0 0 4px\">32개</p>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#7A6F65;margin:0;letter-spacing:0.05em\">실전 프롬프트</p>\n      </div>\n      <div style=\"width:1px;background:#E6DDD0\"></div>\n      <div>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:24px;font-weight:800;color:var(--fg,#1A1814);margin:0 0 4px\">평생</p>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#7A6F65;margin:0;letter-spacing:0.05em\">수강 권한</p>\n      </div>\n    </div>\n  </div>\n  <figure style=\"margin:0;position:relative\">\n    <img src=\"/assets/placeholder/hero-editorial.svg\" alt=\"유튜브 기획 워크플로우 일러스트\" style=\"width:100%;border-radius:12px;display:block;aspect-ratio:4/5;object-fit:cover\" />\n    <figcaption style=\"position:absolute;bottom:20px;left:20px;right:20px;background:rgba(251,248,243,0.92);backdrop-filter:blur(6px);padding:14px 18px;border-radius:8px;border-left:3px solid var(--accent,#B8860B)\">\n      <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;line-height:1.5;color:#3D2F1E;margin:0\"><strong style=\"font-weight:700\">\"기획이 막혔던 사람이</strong> 매주 1편을 올리게 됐습니다.\"</p>\n    </figcaption>\n  </figure>\n</div>",
+        "design_tokens": {
+          "color_bg": "#FBF8F3",
+          "color_fg": "#1A1814",
+          "color_muted": "#7A6F65",
+          "color_line": "#E6DDD0",
+          "color_brand": "#3D2F1E",
+          "color_brand_2": "#5C4A35",
+          "color_accent": "#B8860B",
+          "color_soft": "#F0E9DC",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "12px"
+        },
+        "image_prompts": [
+          "베이지와 딥브라운 팔레트의 미니멀 워크스페이스 플랫레이, 노트북·노트·펜이 정갈하게 놓인 탑뷰, 아카데믹 톤, 사람 없음",
+          "추상적인 플로우차트 형태의 선 일러스트, 웜베이지 배경에 머스타드 포인트 라인, 아이디어에서 콘텐츠로 이어지는 흐름 암시",
+          "손으로 그린 듯한 메모와 화살표가 담긴 기획 노트 질감, 크림 종이 텍스처, 따뜻한 조명, 한국적 정서",
+          "유튜브 썸네일 그리드 목업 일러스트, 베이지 배경, 추상 기하 패턴으로 채워진 카드들, 정렬된 레이아웃"
+        ],
+        "reasoning": "텍스트를 주인공으로 세운 2단 그리드 구도가 '진지하게 일하는 사업가' 이미지를 즉각 형성한다. 수치 배지로 신뢰를 구축하고 추천사 캡션을 이미지 위에 겹쳐 시선을 사진으로 유인하면서도 카피 우선성을 유지한다. 웜베이지·딥브라운 팔레트는 Claude 사용 경험이 있는 지식 창업가가 익숙하게 느끼는 '편집장 감각'을 자극한다."
+      },
+      {
+        "id": "v2",
+        "name": "임팩트 풀블리드",
+        "vibe": "어두운 브랜드 컬러를 배경으로 대형 카피가 시선을 압도하는 명령형 임팩트",
+        "color_palette": {
+          "bg": "#1E1510",
+          "fg": "#FBF8F3",
+          "brand": "#D4A853",
+          "accent": "#E8C878",
+          "soft": "#2E221A"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:100%;padding:0;position:relative;overflow:hidden;background:var(--bg,#1E1510);min-height:540px;display:flex;align-items:stretch\">\n  <div style=\"position:absolute;inset:0;opacity:0.18\">\n    <img src=\"/assets/placeholder/hero-fullbleed-texture.svg\" alt=\"\" role=\"presentation\" style=\"width:100%;height:100%;object-fit:cover\" />\n  </div>\n  <div style=\"position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;width:100%\">\n    <div>\n      <span style=\"display:inline-block;padding:5px 14px;border:1px solid rgba(212,168,83,0.5);border-radius:4px;font-family:'Pretendard',system-ui,sans-serif;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--brand,#D4A853);margin-bottom:28px\">Claude × YouTube</span>\n      <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(40px,5vw,68px);font-weight:900;line-height:1.08;color:var(--fg,#FBF8F3);margin:0 0 28px;letter-spacing:-0.03em\">기획을<br><span style=\"color:var(--brand,#D4A853)\">Claude에게</span><br>맡겨라</h1>\n      <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:16px;line-height:1.8;color:rgba(251,248,243,0.72);max-width:420px;margin:0 0 40px\">혼자 유튜브를 운영하는 1인 사업가를 위한 AI 기획 시스템. 아이디어 고갈 없이 콘텐츠를 계속 만드는 법을 배웁니다.</p>\n      <div style=\"display:flex;gap:16px;flex-wrap:wrap;align-items:center\">\n        <a href=\"#enroll\" style=\"display:inline-block;padding:15px 36px;background:var(--brand,#D4A853);color:#1E1510;font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:800;border-radius:6px;text-decoration:none;letter-spacing:0.01em\">지금 시작하기</a>\n        <a href=\"#preview\" style=\"display:inline-block;padding:15px 28px;border:1px solid rgba(251,248,243,0.3);color:rgba(251,248,243,0.85);font-family:'Pretendard',system-ui,sans-serif;font-size:14px;font-weight:600;border-radius:6px;text-decoration:none\">무료 맛보기</a>\n      </div>\n    </div>\n    <div style=\"display:flex;flex-direction:column;gap:16px\">\n      <figure style=\"margin:0;background:rgba(46,34,26,0.8);border:1px solid rgba(212,168,83,0.2);border-radius:12px;padding:28px;backdrop-filter:blur(8px)\">\n        <blockquote style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:15px;line-height:1.7;color:rgba(251,248,243,0.88);margin:0 0 16px;font-style:normal\">\"3개월째 영상을 못 올리다가 이 코스 후 매주 업로드하고 있어요. Claude 기획 루틴이 핵심이었습니다.\"</blockquote>\n        <figcaption style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:var(--brand,#D4A853);font-weight:600;letter-spacing:0.05em\">— 온라인 강의 사업가, 수강 완료</figcaption>\n      </figure>\n      <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:12px\">\n        <div style=\"background:rgba(46,34,26,0.8);border:1px solid rgba(212,168,83,0.15);border-radius:10px;padding:20px 22px\">\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:28px;font-weight:900;color:var(--brand,#D4A853);margin:0 0 4px\">8주</p>\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:11px;color:rgba(251,248,243,0.5);margin:0;letter-spacing:0.08em;text-transform:uppercase\">Step-by-step</p>\n        </div>\n        <div style=\"background:rgba(46,34,26,0.8);border:1px solid rgba(212,168,83,0.15);border-radius:10px;padding:20px 22px\">\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:28px;font-weight:900;color:var(--brand,#D4A853);margin:0 0 4px\">32+</p>\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:11px;color:rgba(251,248,243,0.5);margin:0;letter-spacing:0.08em;text-transform:uppercase\">실전 프롬프트</p>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#1E1510",
+          "color_fg": "#FBF8F3",
+          "color_muted": "#A09080",
+          "color_line": "#3A2E24",
+          "color_brand": "#D4A853",
+          "color_brand_2": "#E8C878",
+          "color_accent": "#C0922E",
+          "color_soft": "#2E221A",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "12px"
+        },
+        "image_prompts": [
+          "딥브라운과 차콜 배경의 추상 기하 텍스처, 미세한 그레인 노이즈, 황금 포인트 라인, 프리미엄 아카데믹 톤",
+          "어두운 배경에 황금색 빛 번짐이 있는 미니멀 패턴, 고급 온라인 코스 랜딩 분위기, 사람 없음, 글로벌 아카데믹 톤",
+          "유튜브 플레이 버튼 형태를 추상화한 기하 일러스트, 딥브라운 배경, 머스타드 골드 라인 강조, 미니멀",
+          "추상적인 네트워크 연결선 일러스트, 딥다크 배경에 웜골드 노드, AI와 창작 연결 암시, 한국적 정서 배제"
+        ],
+        "reasoning": "다크 배경 풀블리드 레이아웃은 '기획을 Claude에게 맡겨라'는 명령형 카피와 결합해 8초 안에 강한 첫인상을 남긴다. 골드 컬러 accent가 프리미엄감을 부여하며, 기존 에디토리얼 변형과 컬러 무드·카피 톤·이미지 비중 세 축에서 의미 있게 분기한다. 이미 Claude를 써본 사용자에게 '이 코스는 다르다'는 신호를 준다."
+      },
+      {
+        "id": "v3",
+        "name": "서사 비대칭",
+        "vibe": "좌측 대형 이미지와 우측 스토리텔링 텍스트가 균형 잡힌 비대칭 서사 구조",
+        "color_palette": {
+          "bg": "#F5F0E8",
+          "fg": "#211C16",
+          "brand": "#7A5C3A",
+          "accent": "#C8864A",
+          "soft": "#EDE5D8"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:1120px;margin:0 auto;padding:64px 40px 72px;display:grid;grid-template-columns:520px 1fr;gap:64px;align-items:start;background:var(--bg,#F5F0E8)\">\n  <figure style=\"margin:0;position:sticky;top:40px\">\n    <div style=\"position:relative;border-radius:16px;overflow:hidden\">\n      <img src=\"/assets/placeholder/hero-narrative-main.svg\" alt=\"1인 사업가 유튜브 기획 과정 일러스트\" style=\"width:100%;display:block;aspect-ratio:3/4;object-fit:cover\" />\n      <div style=\"position:absolute;top:20px;left:20px;background:rgba(245,240,232,0.93);backdrop-filter:blur(4px);padding:10px 16px;border-radius:8px\">\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent,#C8864A);margin:0\">Core Campus</p>\n      </div>\n      <div style=\"position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,rgba(33,28,22,0.72),transparent)\"></div>\n      <div style=\"position:absolute;bottom:24px;left:24px;right:24px\">\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:20px;font-weight:800;color:#FBF8F3;margin:0;line-height:1.3\">아이디어 → 스크립트<br>Claude가 함께합니다</p>\n      </div>\n    </div>\n    <div style=\"display:flex;gap:10px;margin-top:12px\">\n      <img src=\"/assets/placeholder/hero-narrative-thumb1.svg\" alt=\"\" style=\"width:calc(50% - 5px);border-radius:10px;aspect-ratio:3/2;object-fit:cover;display:block\" />\n      <img src=\"/assets/placeholder/hero-narrative-thumb2.svg\" alt=\"\" style=\"width:calc(50% - 5px);border-radius:10px;aspect-ratio:3/2;object-fit:cover;display:block\" />\n    </div>\n  </figure>\n  <div style=\"padding-top:8px\">\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent,#C8864A);margin:0 0 18px\">AI 기획 코스 · 2025</p>\n    <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.2;color:var(--fg,#211C16);margin:0 0 20px;letter-spacing:-0.02em\">Claude로 완성하는<br>1인 사업가<br>유튜브 기획</h1>\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:15px;line-height:1.8;color:#6B5F52;margin:0 0 32px\">유튜브를 시작하고 싶지만 기획에서 막히는 1인 사업가를 위해 설계된 코스입니다. Claude를 단순 도구가 아닌 기획 파트너로 활용하는 법을 배웁니다.</p>\n    <ul style=\"list-style:none;padding:0;margin:0 0 36px;display:flex;flex-direction:column;gap:14px\">\n      <li style=\"display:flex;align-items:flex-start;gap:12px;font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#4A3F34;line-height:1.6\">\n        <span style=\"flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent,#C8864A);color:#FBF8F3;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-top:1px\">1</span>\n        <span><strong style=\"color:var(--fg,#211C16);font-weight:700\">채널 포지셔닝부터 시작</strong> — 사업과 연결되는 유튜브 방향을 Claude와 함께 설정합니다</span>\n      </li>\n      <li style=\"display:flex;align-items:flex-start;gap:12px;font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#4A3F34;line-height:1.6\">\n        <span style=\"flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent,#C8864A);color:#FBF8F3;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-top:1px\">2</span>\n        <span><strong style=\"color:var(--fg,#211C16);font-weight:700\">주제 뱅크 구축</strong> — 6개월치 아이디어를 한 번에 정리하는 프롬프트 워크플로우</span>\n      </li>\n      <li style=\"display:flex;align-items:flex-start;gap:12px;font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#4A3F34;line-height:1.6\">\n        <span style=\"flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent,#C8864A);color:#FBF8F3;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-top:1px\">3</span>\n        <span><strong style=\"color:var(--fg,#211C16);font-weight:700\">스크립트 완성 시스템</strong> — 내 목소리가 살아있는 스크립트를 Claude로 빠르게 완성</span>\n      </li>\n    </ul>\n    <hr style=\"border:none;border-top:1px solid #DDD5C6;margin:0 0 28px\" />\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;line-height:1.65;color:#8A7A6E;margin:0 0 28px;font-style:italic\">\"Claude를 기획 파트너로 쓰는 방법을 배운 뒤, 콘텐츠 방향이 명확해졌고 실행 속도가 3배 빨라졌습니다.\"<br><strong style=\"font-style:normal;color:#6B5F52;font-weight:600;font-size:12px\">— 코칭 사업가, 수강 후기</strong></p>\n    <a href=\"#enroll\" style=\"display:inline-block;padding:15px 36px;background:var(--brand,#7A5C3A);color:#FBF8F3;font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:700;border-radius:8px;text-decoration:none;letter-spacing:0.01em\">코스 시작하기</a>\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#A8998A;margin:14px 0 0\">평생 수강 · 업데이트 포함 · 언제든 시작 가능</p>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#F5F0E8",
+          "color_fg": "#211C16",
+          "color_muted": "#8A7A6E",
+          "color_line": "#DDD5C6",
+          "color_brand": "#7A5C3A",
+          "color_brand_2": "#9C7A52",
+          "color_accent": "#C8864A",
+          "color_soft": "#EDE5D8",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "16px"
+        },
+        "image_prompts": [
+          "따뜻한 크림베이지 배경에 오픈 노트북과 메모장이 놓인 정갈한 책상 탑뷰, 번잡함 없는 1인 작업 공간, 한국적 정서, 사람 없음",
+          "유튜브 기획 마인드맵을 연상시키는 손그림 풍 일러스트, 웜베이지와 테라코타 팔레트, 아이디어 노드들이 연결된 구조, 미니멀",
+          "노트 페이지 질감에 필기체로 쓰인 콘텐츠 기획 항목들, 크림 종이 위 인디안잉크 색상 선, 따뜻한 자연광, 한국적 정서",
+          "스마트폰 화면에 유튜브 썸네일 그리드가 보이는 목업, 따뜻한 라이팅, 베이지 배경, 사람 손 제외한 소품만, 아카데믹 톤",
+          "추상화된 콘텐츠 플로우 다이어그램, 테라코타와 크림 팔레트, 선형 아이콘 스타일, 프로세스 암시, 한국적 정서"
+        ],
+        "reasoning": "이미지가 화면 절반을 점유하는 비대칭 레이아웃은 v1의 텍스트 우선, v2의 다크 임팩트와 명확히 분기하며 '보여주는 설득' 방식을 택한다. 스텝 번호 리스트로 커리큘럼 흐름을 서사적으로 제시해 8초 안에 코스의 구조까지 전달하고, 웜테라코타 accent가 신뢰와 친근함을 동시에 만든다."
+      }
+    ],
+    "brief_echo": {
+      "purpose": "Claude로 완성하는 1인 사업가 유튜브 기획 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+      "audience": "Claude 기본 사용 경험이 있고 유튜브로 사업을 확장하려는 1인 사업가",
+      "style_keywords": [
+        "editorial",
+        "warm beige",
+        "trustworthy",
+        "academic"
+      ],
+      "color_mood": "warm",
+      "reference_urls": []
+    },
+    "chosen_variant_id": "v1"
+  },
+  "course_id": "",
+  "created_at": "2026-05-06T03:07:43+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}

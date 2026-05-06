@@ -109,13 +109,13 @@ footer.site {
 /* design_tokens — site_developer Tier 2 (overrides above) */
 :root {
   --bg: #FBF8F3;
-  --fg: #1C1814;
+  --fg: #1A1814;
   --brand: #3D2F1E;
-  --brand-2: #5C4530;
-  --accent: #A07840;
-  --soft: #EDE5D8;
-  --muted: #6B5E50;
-  --line: #D9CFC3;
-  --font-family-sans: 'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif;
-  --radius-card: 4px;
+  --brand-2: #5C4A35;
+  --accent: #B8860B;
+  --soft: #F0E9DC;
+  --muted: #7A6F65;
+  --line: #E6DDD0;
+  --font-family-sans: 'Pretendard', system-ui, sans-serif;
+  --radius-card: 12px;
 }
