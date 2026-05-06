@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 1인 사업가가 내야 할 세금 지도 그리기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 1인 사업가가 내야 할 세금 지도 그리기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: tax-basics-solopreneur · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>매년 5월, 국세청 문자 한 통에 심장이 철렁 내려앉은 적 있으시죠?</p>
+<p>"종합소득세 신고 안내"—근데 부가세는 또 따로 내야 한다고 하고, 지방소득세는 어디서 나온 건지 모르겠고.</p>
+<p>세금이 무서운 이유는 금액 때문이 아닙니다.</p>
+<p><strong>'내가 뭘 모르는지조차 모르기 때문'</strong>입니다.</p>
+<p>이 영상 하나로, 1인 사업가가 마주치는 세금 전체 지형을 딱 한 장에 정리합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 종합소득세·부가가치세·지방소득세 세 가지를 헷갈리지 않고 구분하고, 각각 언제·왜·어떤 기준으로 내는지를 본인 손으로 직접 표로 정리할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 ① 세목 분류 — "버는 돈 vs 거치는 돈"</h3>
+<p><strong>설명</strong></p>
+<p>세금은 딱 두 갈래로 나뉩니다.</p>
+<p>첫째, 내 소득에 붙는 세금.
+둘째, 거래 자체에 붙는 세금.</p>
+<p>종합소득세는 <strong>내가 번 순이익</strong>에 부과됩니다.
+부가가치세는 <strong>고객에게 받은 금액의 일부</strong>를 국가에 대신 납부하는 구조입니다.</p>
+<p><strong>예시</strong></p>
+<p>디자이너 A 씨가 클라이언트에게 110만 원을 청구했습니다.
+이 중 10만 원은 부가세—A 씨 돈이 아닙니다.
+그 10만 원은 잠시 A 씨 통장을 거쳐 국세청으로 가는 돈입니다.
+연말에 순이익이 2,000만 원이었다면, 그 2,000만 원에 종합소득세가 붙습니다.</p>
+<p><strong>반례</strong></p>
+<p>"부가세를 많이 냈으니 소득세가 줄겠지?"—그렇지 않습니다.
+두 세금은 <strong>과세 대상 자체가 다릅니다.</strong>
+부가세를 많이 낸 것과 종합소득세는 전혀 별개의 계산입니다.</p>
+<p><strong>정리 — 메모리 페그 🪣</strong></p>
+<p><em>"부가세는 내 돈이 아닌 세금 보관함."</em>
+버킷(양동이)에 모아뒀다가 국세청에 돌려주는 것, 이미지로 기억하세요.</p>
+<hr />
+<h3>핵심 개념 ② 과세 기간과 신고 기한 — "세금 달력 3개"</h3>
+<p><strong>설명</strong></p>
+<p>세금마다 신고 시계가 다릅니다.</p>
+<table>
+<thead>
+<tr>
+<th>세목</th>
+<th>과세 기간</th>
+<th>신고·납부 기한</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>종합소득세</td>
+<td>1월 1일 ~ 12월 31일</td>
+<td>다음 해 <strong>5월 31일</strong></td>
+</tr>
+<tr>
+<td>부가가치세</td>
+<td>6개월 (1·2기)</td>
+<td><strong>1월 25일 / 7월 25일</strong></td>
+</tr>
+<tr>
+<td>지방소득세</td>
+<td>종합소득세와 동일</td>
+<td>종합소득세 신고 후 <strong>동시 신고</strong></td>
+</tr>
+</tbody>
+</table>
+<p>부가가치세는 1년에 두 번입니다.
+1기: 1월~6월 거래 → 7월 25일 신고.
+2기: 7월~12월 거래 → 다음 해 1월 25일 신고.</p>
+<p><strong>예시</strong></p>
+<p>코치 B 씨는 상반기에 2,200만 원을 벌었습니다.
+7월 25일까지 부가세 신고를 합니다.
+그리고 다음 해 5월에 연간 소득 전체로 종합소득세를 냅니다.
+지방소득세는 5월에 종합소득세 신고 화면에서 바로 함께 처리합니다.</p>
+<p><strong>반례</strong></p>
+<p>"5월에 한꺼번에 다 내면 되겠지?"—아닙니다.
+부가세를 7월 25일 안에 신고하지 않으면 <strong>무신고 가산세 20%</strong>가 붙습니다.
+세금 달력은 세목마다 따로 관리해야 합니다.</p>
+<p><strong>정리 — 메모리 페그 📅</strong></p>
+<p><em>"1월·5월·7월—1인 사업가의 세금 삼각형."</em>
+삼각형 세 꼭짓점을 달력에 먼저 표시해 두세요.</p>
+<hr />
+<h3>핵심 개념 ③ 사업자 유형 — "나는 어느 칸에 있나"</h3>
+<p><strong>설명</strong></p>
+<p>사업자 등록을 하면 세 유형 중 하나가 됩니다.</p>
+<ul>
+<li><strong>일반과세자</strong>: 연 매출 8,000만 원 이상 (2024년 기준). 부가세 10% 전액 적용.</li>
+<li><strong>간이과세자</strong>: 연 매출 8,000만 원 미만. 업종별 부가율 적용, 세 부담이 낮음.</li>
+<li><strong>면세사업자</strong>: 학원·의료·농수산물 등 특정 업종. 부가세 자체를 거래하지 않음.</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>프리랜서 작가 C 씨, 연 매출 4,000만 원 → 간이과세자.
+부가세 신고 의무는 있지만, 일반과세자보다 납부액이 적습니다.</p>
+<p>강의업 D 씨, 학원 등록 → 면세사업자.
+부가세 계산 자체를 하지 않아도 됩니다.
+단, 면세라도 종합소득세·지방소득세는 납부 의무가 있습니다.</p>
+<p><strong>반례</strong></p>
+<p>"간이과세자니까 세금 신경 안 써도 되겠다?"—그렇지 않습니다.
+종합소득세는 사업자 유형과 <strong>무관하게</strong> 모두 납부합니다.
+유형은 '부가세 계산 방식'만 달라지는 것입니다.</p>
+<p><strong>정리 — 메모리 페그 🏷️</strong></p>
+<p><em>"8,000만 원 선이 일반과 간이를 가른다."</em>
+숫자 <strong>8000</strong> 하나만 기억하세요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 <strong>일시정지</strong>하고, 종이 한 장 또는 빈 문서를 여세요.</p>
+<p><strong>Step 1 — 표 틀 만들기 (1분)</strong></p>
+<p>가로 3열을 만듭니다.
+열 제목: <strong>세목명 / 신고월 / 납부 기준</strong></p>
+<p><strong>Step 2 — 3행 채우기 (2분)</strong></p>
+<p>아래 질문에 스스로 답하며 빈칸을 채우세요.</p>
+<ul>
+<li>종합소득세: 신고월은 언제? 무엇을 기준으로 내나?</li>
+<li>부가가치세: 신고월이 두 번—각각 언제? 어떤 금액에서 계산?</li>
+<li>지방소득세: 신고월은? 어떤 세금과 연동?</li>
+</ul>
+<p>모르는 칸은 지금 비워도 됩니다.
+영상을 되감아 확인한 뒤 채우세요.</p>
+<p><strong>Step 3 — 내 사업자 유형 기입 (1분)</strong></p>
+<p>표 아래 한 줄을 추가합니다.
+"나의 사업자 유형: ___" — 일반·간이·면세 중 해당 항목을 적으세요.
+아직 사업자 등록 전이라면, 예상 매출을 기준으로 예상 유형을 적어두세요.</p>
+<p>이 표 한 장이 앞으로 세금 공부 내내 여러분의 <strong>기준표</strong>가 됩니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 세금 지도 위에 <strong>실제 숫자를 올립니다.</strong></p>
+<p>종합소득세율 구간—6%부터 45%까지, 내 소득이 어느 구간에 걸리는지 직접 계산합니다.</p>
+<p>오늘 만든 세금 정리표, 완성되셨나요?</p>
+<p>완성하셨다면 댓글에 <strong>"지도 완성"</strong> 한 마디만 남겨주세요.</p>
+<p>다음 영상에서 뵙겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
