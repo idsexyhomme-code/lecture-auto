@@ -1,7 +1,7 @@
 {
   "id": "1778075590-7071151003",
   "chat_id": 7071151003,
-  "status": "active",
+  "status": "ready",
   "history": [
     {
       "role": "user",
@@ -26,10 +26,28 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"확인했어요. 커리큘럼 설계로 진행할게요.\\n\\n차시 구성은 어느 정도로 생각하세요?\\n- **8차시** (핵심만 압축)\\n- **12차시** (실습 포함 중간 깊이)\\n- **16차시** (단계별 완전정복)\\n\\n또는 직접 숫자 말씀해 주셔도 됩니다.\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "12"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"READY\", \"message\": \"아래 brief로 커리큘럼 설계를 시작할게요.\\n\\n- **코스**: Claude로 티스토리 블로그 완전 자동화\\n- **타깃**: 티스토리로 수익화를 노리는 일반 블로거\\n- **구성**: 12차시 / 영상 포맷\\n- **기간**: 6주\\n\\n이대로 진행해도 될까요?\", \"brief\": {\"agent\": \"curriculum\", \"brief\": {\"course_id\": \"tistory-auto\", \"topic\": \"Claude로 티스토리 블로그 발행 전과정 자동화\", \"audience\": \"티스토리로 수익화를 노리는 일반 블로거\", \"duration_weeks\": 6, \"lesson_count\": 12, \"format\": \"video\"}}}"
     }
   ],
-  "draft_brief": null,
-  "last_telegram_message_id": 1241,
+  "draft_brief": {
+    "agent": "curriculum",
+    "brief": {
+      "course_id": "tistory-auto",
+      "topic": "Claude로 티스토리 블로그 발행 전과정 자동화",
+      "audience": "티스토리로 수익화를 노리는 일반 블로거",
+      "duration_weeks": 6,
+      "lesson_count": 12,
+      "format": "video"
+    }
+  },
+  "last_telegram_message_id": 1244,
   "created_at": "2026-05-06T13:53:10+00:00",
-  "updated_at": "2026-05-06T13:54:57+00:00"
+  "updated_at": "2026-05-06T13:55:09+00:00"
 }
