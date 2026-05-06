@@ -62,6 +62,24 @@
   </div>
 </section>
 
+{# Tier 4 — 추천사·리뷰 #}
+{% if site_config.testimonials_html %}
+<section class="testimonials-custom">
+  <div class="wrap">
+    {{ site_config.testimonials_html | safe }}
+  </div>
+</section>
+{% endif %}
+
+{# Tier 4 — 가격 비교 #}
+{% if site_config.pricing_html %}
+<section class="pricing-custom">
+  <div class="wrap">
+    {{ site_config.pricing_html | safe }}
+  </div>
+</section>
+{% endif %}
+
 {% if posts %}
 <section>
   <div class="wrap">
