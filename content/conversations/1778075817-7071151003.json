@@ -42,10 +42,18 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"어떤 코스의 몇 차시 스크립트가 필요하신가요?\\n\\n예: `claude-bizflow` 3차시 — 이런 식으로 알려주시면 바로 진행할게요.\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "Claude-bizflow 3차시"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"3차시 스크립트를 위해 몇 가지만 확인할게요.\\n\\n1. **차시 제목**이 있으신가요? (없으면 제가 커리큘럼 맥락에서 제안할게요)\\n2. **핵심 개념** — 이 차시에서 꼭 다뤄야 할 내용이 있으면 알려주세요\\n3. **영상 길이** — 몇 분 분량으로 만들 예정인가요? (예: 15분 / 20분 / 30분)\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 1255,
+  "last_telegram_message_id": 1257,
   "created_at": "2026-05-06T13:56:57+00:00",
-  "updated_at": "2026-05-06T21:27:17+00:00"
+  "updated_at": "2026-05-06T21:27:44+00:00"
 }
