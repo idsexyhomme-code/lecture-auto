@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 경쟁 채널 분석표 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 경쟁 채널 분석표 만들기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-youtube-plan · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>유튜브 채널을 시작하려고 마음먹었는데, 막상 뭘 올려야 할지 모르겠죠?</p>
+<p>경쟁 채널을 뒤적이다 보면 두 가지 함정에 빠집니다.</p>
+<p>첫째, 그냥 따라 만들고 싶어집니다.</p>
+<p>둘째, 너무 많아서 포기하고 싶어집니다.</p>
+<p>오늘 이 함정을 Claude로 빠져나옵니다.</p>
+<p>분석이 아니라 <strong>전략</strong>으로 바꾸는 비교표, 지금 바로 만들어 드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 경쟁 채널 5개를 콘텐츠 유형·업로드 패턴·썸네일 전략 기준으로 정리한 비교표를 손에 쥐게 됩니다.</p>
+<p>그리고 그 표에서 <strong>내가 비집고 들어갈 자리</strong>를 딱 하나 찾아냅니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 경쟁 채널 분석 프레임: '3층 건물'</h3>
+<p><strong>설명</strong></p>
+<p>경쟁 채널을 볼 때 대부분 조회수만 봅니다.</p>
+<p>그런데 분석에는 층이 있습니다.</p>
+<ul>
+<li>1층: <strong>겉모습</strong> — 썸네일, 제목, 업로드 빈도</li>
+<li>2층: <strong>구조</strong> — 콘텐츠 유형, 시리즈 여부, 길이</li>
+<li>3층: <strong>전략</strong> — 누구에게 말하는지, 어떤 감정을 자극하는지</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>재테크 채널 A를 보면 1층은 빨간 글씨 썸네일입니다.</p>
+<p>2층에서 보면 '사례 소개형' 영상이 전체의 70%입니다.</p>
+<p>3층에서 보면 '나도 할 수 있다'는 희망을 파는 채널입니다.</p>
+<p><strong>반례</strong></p>
+<p>1층만 보고 "빨간 썸네일 쓰면 되겠다"고 결론 내리면 안 됩니다.</p>
+<p>전략 없이 외형만 따라 하면 비슷한 채널 하나가 더 생길 뿐입니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<blockquote>
+<p>🏢 3층 건물: 겉(썸네일) → 속(유형) → 뼈대(전략)</p>
+</blockquote>
+<p>분석할 때 항상 이 순서로 내려가세요.</p>
+<hr />
+<h3>핵심 개념 2 — 콘텐츠 유형 분류법: '4가지 카드'</h3>
+<p><strong>설명</strong></p>
+<p>유튜브 콘텐츠는 크게 4가지 카드로 나뉩니다.</p>
+<ul>
+<li><strong>정보카드</strong>: 방법·지식 전달 ("이렇게 하세요")</li>
+<li><strong>사례카드</strong>: 실제 이야기 소개 ("이 사람은 이렇게 했어요")</li>
+<li><strong>리뷰카드</strong>: 비교·추천 ("써봤더니 이렇더라")</li>
+<li><strong>브이로그카드</strong>: 과정 공유 ("제 하루는 이렇습니다")</li>
+</ul>
+<p>Claude에 채널 링크나 영상 제목 목록을 붙여넣고 이렇게 프롬프트를 씁니다.</p>
+<blockquote>
+<p>"아래 영상 제목들을 정보·사례·리뷰·브이로그 네 가지로 분류해 줘. 각 유형의 비율도 계산해 줘."</p>
+</blockquote>
+<p><strong>예시</strong></p>
+<p>건강 채널 B의 최근 영상 20개를 넣었더니 정보카드 60%, 사례카드 30%, 리뷰카드 10%가 나왔습니다.</p>
+<p>이 채널은 '지식 전달'에 집중한다는 게 숫자로 보입니다.</p>
+<p><strong>반례</strong></p>
+<p>제목만 보고 분류하면 오분류가 생깁니다.</p>
+<p>"다이어트 성공한 사람들 공통점"은 정보카드처럼 보이지만, 실제 영상은 사례카드일 수 있습니다.</p>
+<p>가능하면 영상 첫 1분과 목차를 함께 Claude에 넣어 주세요.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<blockquote>
+<p>🃏 4장의 카드: 정보·사례·리뷰·브이로그</p>
+</blockquote>
+<p>경쟁 채널마다 어떤 카드를 주로 내는지 파악하면, 내가 낼 카드가 보입니다.</p>
+<hr />
+<h3>핵심 개념 3 — 차별화 포인트 추출: 'GAP 스캐너'</h3>
+<p><strong>설명</strong></p>
+<p>비교표를 완성했으면 마지막 질문을 던져야 합니다.</p>
+<blockquote>
+<p>"이 5개 채널이 <strong>다루지 않는 것</strong>은 무엇인가?"</p>
+</blockquote>
+<p>이것을 GAP 스캐너라고 부르겠습니다.</p>
+<p>G — <strong>Genre Gap</strong>: 없는 콘텐츠 유형은 무엇인가</p>
+<p>A — <strong>Audience Gap</strong>: 누구를 위한 채널이 없는가</p>
+<p>P — <strong>Perspective Gap</strong>: 어떤 시각이 빠져 있는가</p>
+<p>Claude 프롬프트 예시입니다.</p>
+<blockquote>
+<p>"아래 비교표를 보고, 5개 채널이 공통으로 다루지 않는 콘텐츠 유형, 타깃, 관점을 GAP별로 정리해 줘."</p>
+</blockquote>
+<p><strong>예시</strong></p>
+<p>퍼스널 브랜딩 분야 채널 5개를 분석했을 때, 사례카드가 많고 리뷰카드가 거의 없었습니다.</p>
+<p>또 30대 직장인은 많이 다루는데, 40대 이직 준비자를 겨냥한 채널은 없었습니다.</p>
+<p>이게 바로 Audience Gap입니다.</p>
+<p><strong>반례</strong></p>
+<p>GAP이 있다고 무조건 그 자리를 채워야 하는 건 아닙니다.</p>
+<p>GAP이 존재하는 이유가 '수요가 없어서'일 수도 있습니다.</p>
+<p>제 경험상, GAP을 발견한 뒤 관련 키워드의 검색량을 함께 확인하면 훨씬 안전합니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<blockquote>
+<p>🔍 GAP 스캐너 3단계: Genre → Audience → Perspective</p>
+</blockquote>
+<p>이 세 질문을 던지면 비교표가 전략으로 바뀝니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>영상을 지금 일시정지하고 따라 해 주세요.</p>
+<p><strong>Step 1 — 채널 5개 선정 (5분 작업)</strong></p>
+<p>내 분야에서 구독자 1천 명 이상 채널 5개를 골라 줍니다.</p>
+<p>너무 큰 채널(100만 이상)은 제외하세요.</p>
+<p>유사한 규모를 비교하는 게 더 실용적입니다.</p>
+<p><strong>Step 2 — 비교표 틀 만들기</strong></p>
+<p>스프레드시트나 Notion 테이블에 아래 열을 만드세요.</p>
+<table>
+<thead>
+<tr>
+<th>채널명</th>
+<th>구독자 수</th>
+<th>주요 콘텐츠 유형</th>
+<th>업로드 빈도</th>
+<th>썸네일 패턴</th>
+<th>주요 타깃</th>
+<th>특이사항</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 3 — Claude에 데이터 입력</strong></p>
+<p>각 채널의 최근 영상 제목 10개를 복사합니다.</p>
+<p>Claude에 붙여넣고 이 프롬프트를 씁니다.</p>
+<blockquote>
+<p>"아래는 [채널명]의 최근 영상 제목 10개야. 콘텐츠 유형을 정보·사례·리뷰·브이로그로 분류하고, 업로드 패턴과 썸네일에서 보이는 공통 키워드를 정리해 줘."</p>
+</blockquote>
+<p>채널 5개 각각 반복합니다.</p>
+<p><strong>Step 4 — GAP 스캐너 적용</strong></p>
+<p>표가 완성되면 Claude에 표 전체를 붙여넣고 씁니다.</p>
+<blockquote>
+<p>"이 5개 채널의 비교표를 보고, Genre·Audience·Perspective 기준으로 GAP을 찾아 줘."</p>
+</blockquote>
+<p>나온 결과에서 내가 실제로 만들 수 있는 것 하나에 동그라미 치세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 오늘 만든 비교표를 바탕으로, <strong>내 채널의 콘셉트 한 줄</strong>을 Claude와 함께 완성합니다.</p>
+<p>방향 없이 올리는 영상은 아무도 기억하지 않습니다.</p>
+<p>오늘 완성한 비교표 사진을 댓글에 올려 주세요.</p>
+<p>어떤 GAP을 발견했는지 같이 이야기 나눠 봅시다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

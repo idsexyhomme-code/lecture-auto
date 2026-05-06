@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-youtube-plan",
+    "course_title": "Claude로 완성하는 1인 사업가 유튜브 기획",
+    "lesson_no": 3,
+    "lesson_title": "채널 전략서 한 장으로 정리하기",
+    "objective": "1·2차시 결과물을 Claude에 입력해 채널명·슬로건·타깃 페르소나·핵심 메시지를 포함한 채널 전략서 초안을 작성한다",
+    "key_concepts": [
+      "채널 페르소나 설정",
+      "핵심 메시지 압축",
+      "전략 문서 구조화 프롬프트"
+    ],
+    "exercise": "채널 전략서 1페이지 (채널명·슬로건·타깃·핵심 메시지·콘텐츠 방향 포함)",
+    "duration_min": 15
+  }
+}
