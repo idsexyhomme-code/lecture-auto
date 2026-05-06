@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 채널 전략서 한 장으로 정리하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 채널 전략서 한 장으로 정리하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-youtube-plan · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>1차시, 2차시 열심히 따라왔는데 결과물이 메모 앱에 흩어져 있죠?</p>
+<p>채널 콘셉트도 있고, 타깃도 적었는데 막상 "내 채널이 뭐하는 채널이야?"라고 물으면 한 문장이 안 나옵니다.</p>
+<p>오늘은 그 흩어진 조각들을 Claude에 밀어 넣고 채널 전략서 한 장으로 압축합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면 채널명·슬로건·타깃 페르소나·핵심 메시지·콘텐츠 방향이 한 페이지에 정리된 채널 전략서 초안을 손에 쥐게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 채널 페르소나 설정: "3층 집"</h3>
+<p><strong>설명</strong></p>
+<p>채널 페르소나는 3층으로 생각하세요.</p>
+<ul>
+<li>1층: 운영자가 누구인가 (정체성)</li>
+<li>2층: 누구를 위해 만드는가 (타깃)</li>
+<li>3층: 왜 이 채널이어야 하는가 (차별점)</li>
+</ul>
+<p>3층이 없으면 채널은 그냥 또 하나의 유튜브입니다.</p>
+<p><strong>예시</strong></p>
+<p>"마케팅 10년 차 직장인이 퇴사 없이 부업으로 월 300 버는 법을 알려주는 채널" — 이 한 문장에 3층이 모두 들어 있습니다.</p>
+<p><strong>반례</strong></p>
+<p>"유용한 정보를 드리는 채널"은 1층만 있습니다. 타깃도, 차별점도 없어서 누구도 구독 이유를 못 찾습니다.</p>
+<p><strong>정리</strong></p>
+<p>페르소나를 잡을 때 스스로 물어보세요. "내 채널은 왜 존재해야 하나?" 3층 답이 나올 때까지 멈추지 마세요.</p>
+<hr />
+<h3>핵심 개념 2 — 핵심 메시지 압축: "엘리베이터 15초"</h3>
+<p><strong>설명</strong></p>
+<p>핵심 메시지는 엘리베이터 안에서 15초 안에 말할 수 있어야 합니다.</p>
+<p>공식은 이렇습니다.</p>
+<blockquote>
+<p><strong>[타깃]을 위해 [문제]를 [방법]으로 해결합니다.</strong></p>
+</blockquote>
+<p>세 칸을 채우면 핵심 메시지가 완성됩니다.</p>
+<p><strong>예시</strong></p>
+<p>"1인 사업가를 위해 콘텐츠 기획의 막막함을 Claude 활용법으로 해결합니다." — 30자 안에 타깃·문제·방법이 다 들어갑니다.</p>
+<p><strong>반례</strong></p>
+<p>"다양한 분들께 도움이 되는 콘텐츠를 만듭니다." — 타깃이 '다양한 분들'이면 사실상 아무도 아닙니다. 메시지가 희석됩니다.</p>
+<p><strong>정리</strong></p>
+<p>핵심 메시지가 길어질수록 채널의 방향도 흐릿해집니다. 15초 공식으로 한 번에 잘라내세요.</p>
+<hr />
+<h3>핵심 개념 3 — 전략 문서 구조화 프롬프트: "5칸 서랍"</h3>
+<p><strong>설명</strong></p>
+<p>Claude에 그냥 "전략서 만들어줘"라고 하면 평범한 결과가 나옵니다.</p>
+<p>전략 문서를 잘 뽑으려면 프롬프트에 5칸 서랍을 채워줘야 합니다.</p>
+<ul>
+<li>서랍 1: 운영자 배경 (1·2차시 결과물)</li>
+<li>서랍 2: 타깃 페르소나 정보</li>
+<li>서랍 3: 채널이 해결할 문제</li>
+<li>서랍 4: 원하는 출력 형식 (채널명, 슬로건, 핵심 메시지 등)</li>
+<li>서랍 5: 어조·톤 지시 (예: 신뢰감 있되 딱딱하지 않게)</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>프롬프트 예시를 보겠습니다.</p>
+<blockquote>
+<p>"다음 정보를 바탕으로 유튜브 채널 전략서를 작성해 줘. [운영자 배경] [타깃] [해결 문제] / 출력 형식: 채널명 3안, 슬로건 2안, 타깃 페르소나 1명, 핵심 메시지 1문장, 콘텐츠 방향 3가지 / 어조: 전문적이되 친근하게."</p>
+</blockquote>
+<p>5칸이 채워지니 Claude가 방향을 잃지 않습니다.</p>
+<p><strong>반례</strong></p>
+<p>"내 채널 전략서 만들어줘. 나는 마케터야." — 서랍이 2칸밖에 없습니다. 출력이 두루뭉술하게 나옵니다.</p>
+<p><strong>정리</strong></p>
+<p>프롬프트 품질이 전략서 품질을 결정합니다. 5칸 서랍을 기억하세요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 순서대로 따라해 보세요.</p>
+<p><strong>Step 1 — 재료 모으기 (1분)</strong></p>
+<p>1·2차시에서 작성한 내용을 복사해 텍스트 파일이나 메모 앱에 붙여넣습니다.</p>
+<p>없는 항목은 한 줄이라도 지금 써두세요. Claude는 재료가 있어야 요리합니다.</p>
+<p><strong>Step 2 — 5칸 서랍 채우기 (1분)</strong></p>
+<p>아래 양식을 복사해서 각 칸을 채우세요.</p>
+<ul>
+<li>운영자 배경:</li>
+<li>타깃 페르소나:</li>
+<li>채널이 해결할 문제:</li>
+<li>원하는 출력 항목: 채널명 3안 / 슬로건 2안 / 타깃 1명 / 핵심 메시지 1문장 / 콘텐츠 방향 3가지</li>
+<li>어조:</li>
+</ul>
+<p><strong>Step 3 — Claude에 입력하고 초안 받기 (1분)</strong></p>
+<p>5칸 서랍을 프롬프트로 붙여넣고 실행합니다.</p>
+<p>결과물을 받으면 마음에 드는 안에 ✅, 수정이 필요한 부분에 ❌를 표시하세요.</p>
+<p><strong>Step 4 — 1회 리파인 (1분)</strong></p>
+<p>❌ 표시한 항목만 골라 Claude에게 다시 요청하세요.</p>
+<p>예: "채널명 3안 중 2번이 마음에 드는데 좀 더 따뜻한 느낌으로 3안 더 줘."</p>
+<p>이렇게 하면 처음부터 다시 쓰는 것보다 훨씬 빠르게 완성도가 올라갑니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 채널 전략서를 기반으로 영상 아이디어를 한 번에 30개 뽑는 방법을 다룹니다.</p>
+<p>전략서가 있으면 아이디어 고갈이 없다는 걸 직접 확인하게 됩니다.</p>
+<p>오늘 만든 채널 전략서 초안, 댓글에 채널명과 슬로건만 남겨 주세요. 제가 직접 피드백합니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

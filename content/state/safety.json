@@ -1,21 +1,17 @@
 {
   "last_reset_date": "2026-05-06",
-  "daily_brief_count": 12,
+  "daily_brief_count": 13,
   "daily_agent_calls": {
     "site_developer": 6,
     "success": 2,
     "ui_designer": 4,
-    "producer": 3,
+    "producer": 4,
     "curriculum": 1,
     "marketing": 1,
     "blog_publisher": 1
   },
-  "daily_estimated_cost_usd": 1.2600000000000007,
+  "daily_estimated_cost_usd": 1.3300000000000007,
   "recent_call_timestamps": [
-    {
-      "agent": "site_developer",
-      "ts": 1778036674.5420392
-    },
     {
       "agent": "success",
       "ts": 1778036752.099604
@@ -31,6 +27,10 @@
     {
       "agent": "producer",
       "ts": 1778036959.3385448
+    },
+    {
+      "agent": "producer",
+      "ts": 1778037026.48053
     }
   ],
   "paused": false,
