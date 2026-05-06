@@ -293,6 +293,47 @@ def build():
         base_path=".",
     )
 
+    # ★ Tier 5 — extra_pages 자동 생성 (about/contact/landing 등)
+    for p in (config.get("extra_pages") or []):
+        if not isinstance(p, dict):
+            continue
+        slug = p.get("slug", "").strip()
+        title = p.get("title", "").strip()
+        body = p.get("body_html", "").strip()
+        if not (slug and title and body):
+            continue
+        page_dir = SITE_DIR / slug
+        page_dir.mkdir(parents=True, exist_ok=True)
+        # post.html 템플릿 재활용 (post 변수에 매핑)
+        try:
+            _render(
+                "post.html",
+                page_dir / "index.html",
+                post={
+                    "id": slug,
+                    "title": title,
+                    "agent": "site_developer",
+                    "kind": "extra_page",
+                    "course_id": "",
+                    "body_html": body,
+                    "url": f"{slug}/",
+                },
+                base_path="..",
+            )
+        except Exception as e:
+            # 템플릿 에러 시 단순 HTML로 fallback
+            simple_html = (
+                f'<!doctype html><html lang="ko"><head><meta charset="utf-8">'
+                f'<title>{title}</title>'
+                f'<link rel="stylesheet" href="../styles.css">'
+                f'</head><body class="article-page">'
+                f'<header class="page-head"><h1>{title}</h1></header>'
+                f'<main class="article-body">{body}</main>'
+                f'<footer><a href="../">← 메인으로</a></footer>'
+                f'</body></html>'
+            )
+            (page_dir / "index.html").write_text(simple_html, encoding="utf-8")
+
     # 정적 자원(공통 CSS) 복사 + design_tokens inject
     css_src = TEMPLATE_DIR / "styles.css"
     if css_src.exists():
