@@ -139,6 +139,7 @@ HTML로만 답하세요. 코드펜스 금지."""
 
         # 티스토리 자동 게시 시도 — 실패하면 로컬 HTML 파일로 fallback
         published_url = None
+        schedule_at = None  # ★ 모든 분기에서 안전하게 참조 가능하도록 최상위 정의
         skip_tistory = os.environ.get("TISTORY_SKIP", "").lower() in ("1", "true", "yes")
 
         if skip_tistory:
