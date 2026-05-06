@@ -18,10 +18,18 @@
     {
       "role": "assistant",
       "content": "{\"action\": \"ASK\", \"message\": \"세 가지를 순서대로 이어서 진행할게요. 먼저 커리큘럼부터 잡겠습니다.\\n\\n새 코스 주제가 무엇인가요? 그리고 몇 차시로 구성할지도 알려주세요.\\n\\n- 차시: **8차시 / 12차시 / 직접 입력**\\n- 주제: 자유롭게 한 줄로 말씀해 주세요 😊\", \"brief\": null}"
+    },
+    {
+      "role": "user",
+      "content": "자유롭게"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"{\\\"action\\\": \\\"ASK\\\", \\\"message\\\": \\\"코스 주제를 알려주세요! 어떤 내용을 가르치고 싶으신가요?\\\\n\\\\n예: \\\"Claude로 유튜브 쇼츠 자동화\\\", \\\"1인 사업가를 위한 세금 기초\\\" 등 한 줄이면 충분해요.\\\", \\\"brief\\\": null}\", \"brief\": null}"
     }
   ],
   "draft_brief": null,
-  "last_telegram_message_id": 1098,
+  "last_telegram_message_id": 1100,
   "created_at": "2026-05-06T03:47:37+00:00",
-  "updated_at": "2026-05-06T03:53:10+00:00"
+  "updated_at": "2026-05-06T03:54:12+00:00"
 }
