@@ -4,7 +4,8 @@
     "claude-bizflow",
     "claude-sop",
     "claude-launchpad",
-    "claude-youtube-plan"
+    "claude-youtube-plan",
+    "tax-basics-solopreneur"
   ],
   "course_overrides": {
     "claude-bizflow": {
