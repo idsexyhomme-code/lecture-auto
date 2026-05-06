@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#7 Claude로 세금 캘린더 초안 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#7 Claude로 세금 캘린더 초안 만들기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: tax-basics-solopreneur · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>매년 5월이 되면 갑자기 패닉 오는 분 계시죠?</p>
+<p>"어, 종합소득세 신고가 이번 달이었어?"</p>
+<p>그러다 부랴부랴 자료 찾고, 세무사 찾고, 가산세 맞고.</p>
+<p>이게 한 번이 아니라 매년 반복됩니다.</p>
+<p>문제는 게으름이 아닙니다.</p>
+<p><strong>일정을 한눈에 볼 수 있는 지도가 없었던 것</strong>입니다.</p>
+<p>오늘은 Claude에게 몇 가지 정보만 넘겨주면, 나만의 연간 세금 캘린더 초안이 뚝딱 만들어지는 방법을 보여드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 여러분의 업종·매출 규모·사업자 유형을 Claude에 입력해서 <strong>12개월 세금 신고 일정과 준비 체크리스트가 담긴 캘린더 초안 문서</strong>를 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — Claude 프롬프트 설계: <strong>'컨텍스트–조건–출력형식'</strong> 3단 공식</h3>
+<p><strong>설명</strong></p>
+<p>Claude는 질문이 모호할수록 일반적인 답을 내놓습니다.</p>
+<p>세금 캘린더처럼 <strong>내 상황에 딱 맞는</strong> 결과를 원한다면, 프롬프트를 세 층으로 쌓아야 합니다.</p>
+<ul>
+<li><strong>컨텍스트</strong>: 나는 누구인가 (업종, 사업자 유형, 매출 규모)</li>
+<li><strong>조건</strong>: 어떤 범위로 답해줘 (연도, 세목, 형식 조건)</li>
+<li><strong>출력형식</strong>: 어떻게 보여줘 (표, 리스트, 월별 구분 등)</li>
+</ul>
+<p>메모리 페그로 기억하세요. <strong>'CCO' = Context → Condition → Output.</strong></p>
+<p><strong>예시</strong></p>
+<p>나쁜 프롬프트: "세금 일정 알려줘."</p>
+<p>좋은 프롬프트:</p>
+<blockquote>
+<p>"나는 프리랜서 디자이너이고, 일반과세자이며 연 매출은 약 4,000만 원입니다. 2025년 기준으로, 내가 신고해야 할 세목과 각 신고·납부 기한, 그리고 신고 전 준비해야 할 서류 목록을 월별 표 형식으로 정리해 주세요."</p>
+</blockquote>
+<p>이 두 프롬프트의 결과물은 완전히 다릅니다.</p>
+<p><strong>반례</strong></p>
+<p>"저는 소규모 사업자예요"처럼 <strong>숫자 없이 감으로 쓴 컨텍스트</strong>는 역효과입니다.</p>
+<p>소규모의 기준이 Claude와 내가 다를 수 있고, 간이과세자와 일반과세자 분기점(2025년 기준 연 매출 1억 400만 원)을 잘못 적용할 수 있습니다.</p>
+<p><strong>정리</strong></p>
+<p>CCO 공식. 컨텍스트에는 반드시 <strong>업종·사업자 유형·매출 금액(숫자)</strong>을 넣으세요.</p>
+<hr />
+<h3>핵심 개념 2 — 세금 신고 연간 타임라인: <strong>'12칸 달력'</strong></h3>
+<p><strong>설명</strong></p>
+<p>1인 사업가가 놓치기 쉬운 신고 일정은 크게 다섯 덩어리입니다.</p>
+<p>메모리 페그: <strong>'1·3·5·7·11'</strong> — 이 다섯 숫자가 1인 사업가의 세금 인생입니다.</p>
+<p><strong>예시: 일반과세 프리랜서 기준</strong></p>
+<table>
+<thead>
+<tr>
+<th>월</th>
+<th>핵심 이벤트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1월</strong></td>
+<td>부가세 확정 신고 (전년 7~12월분)</td>
+</tr>
+<tr>
+<td><strong>3월</strong></td>
+<td>법인 결산 (법인 사업자 해당)</td>
+</tr>
+<tr>
+<td><strong>5월</strong></td>
+<td>종합소득세 확정 신고·납부</td>
+</tr>
+<tr>
+<td><strong>7월</strong></td>
+<td>부가세 확정 신고 (당해 1~6월분)</td>
+</tr>
+<tr>
+<td><strong>11월</strong></td>
+<td>종합소득세 중간예납</td>
+</tr>
+</tbody>
+</table>
+<p>여기에 더해, <strong>원천세</strong>는 매달 10일까지 신고·납부가 원칙입니다.</p>
+<p>직원이 있거나 강의료·원고료 같은 기타소득을 지급한 경우 놓치면 가산세가 붙습니다.</p>
+<p><strong>반례</strong></p>
+<p>"부가세는 1월이랑 7월만 신고하면 되지"라고 단순화하면 안 됩니다.</p>
+<p>신규 사업자이거나 직전 연도 공급가액이 일정 기준 이하인 경우, <strong>예정 고지 또는 예정 신고</strong> 방식이 달라질 수 있습니다.</p>
+<p>Claude가 내 상황을 정확히 알아야 이 차이를 반영해 줍니다.</p>
+<p><strong>정리</strong></p>
+<p><strong>1·3·5·7·11</strong>, 이 다섯 달을 달력에 먼저 표시해 두세요.</p>
+<p>나머지는 Claude가 내 조건에 맞게 채워줍니다.</p>
+<hr />
+<h3>핵심 개념 3 — AI 출력물 검증 포인트: <strong>'3가지 체크 필터'</strong></h3>
+<p><strong>설명</strong></p>
+<p>Claude는 강력하지만, 세법은 매년 개정됩니다.</p>
+<p>출력물을 그대로 사용하면 위험합니다.</p>
+<p>제 경험상, 검증 포인트는 세 가지로 압축됩니다.</p>
+<p>메모리 페그: <strong>'DDL — Date, Detail, Disclaimer'</strong></p>
+<p><strong>예시</strong></p>
+<ul>
+<li><strong>Date (날짜)</strong>: 신고 기한이 최신 세법 기준인지 확인. 국세청 홈택스 공지 또는 국세청 홈페이지에서 해당 연도 신고 일정을 한 번 교차 확인합니다.</li>
+<li><strong>Detail (세부 조건)</strong>: 간이과세자·일반과세자·면세사업자 구분이 내 상황과 일치하는지 확인. Claude가 잘못된 유형으로 답했다면 프롬프트를 수정해서 재질문합니다.</li>
+<li><strong>Disclaimer (면책 범위)</strong>: Claude 출력물은 참고용 초안입니다. 세무사 또는 국세청 상담(전화 126)으로 최종 확인하는 과정을 캘린더에 함께 기록해 두세요.</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>"AI가 만들어줬으니까 맞겠지"라고 넘어가는 경우, 대부분의 경우 큰 문제는 없지만 간헐적으로 기한이 1~2주 어긋나는 경우가 있었습니다.</p>
+<p>특히 공휴일과 겹친 신고 기한은 자동으로 연장되는데, Claude가 이 점을 빠뜨리는 경우가 있습니다.</p>
+<p><strong>정리</strong></p>
+<p><strong>DDL 필터</strong>. 날짜·세부조건·면책 범위, 이 세 가지를 체크한 뒤에야 캘린더를 확정하세요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 따라 해 보세요.</p>
+<p><strong>Step 1 — 내 정보 3가지 적기</strong></p>
+<p>종이든 메모앱이든 상관없습니다. 다음 세 가지를 적으세요.</p>
+<ol>
+<li>업종 (예: 강의·컨설팅 프리랜서 / 온라인 쇼핑몰 / 개인 카페 등)</li>
+<li>사업자 유형 (일반과세자 / 간이과세자 / 면세사업자 중 하나)</li>
+<li>연 매출 규모 (숫자로, 모르면 예상치라도 적기)</li>
+</ol>
+<p><strong>Step 2 — CCO 프롬프트 완성하기</strong></p>
+<p>아래 템플릿에 내 정보를 채우세요.</p>
+<blockquote>
+<p>"나는 [업종]이고, [사업자 유형]입니다. 연 매출은 약 [금액]원입니다. 2025년 기준으로, 내가 신고해야 할 세목과 신고·납부 기한, 신고 전 준비 서류를 월별 표 형식으로 정리해 주세요. 각 달마다 '해야 할 일'과 '준비 서류' 두 열로 나눠 주세요."</p>
+</blockquote>
+<p><strong>Step 3 — Claude에 입력하고 결과 받기</strong></p>
+<p>claude.ai 또는 Claude 앱을 열고, 완성한 프롬프트를 그대로 붙여넣으세요.</p>
+<p>결과가 나오면 화면 캡처 또는 복사해서 문서에 붙여넣습니다.</p>
+<p><strong>Step 4 — DDL 필터 적용하기</strong></p>
+<p>출력물을 보면서 세 가지를 체크하세요.</p>
+<ul>
+<li>Date: 신고 기한이 맞는지 국세청 일정과 한 번 비교</li>
+<li>Detail: 내 사업자 유형이 정확히 반영됐는지 확인</li>
+<li>Disclaimer: 문서 상단에 "본 캘린더는 AI 초안이며, 최종 확인 필요" 한 줄 추가</li>
+</ul>
+<p>이 네 단계를 마치면 <strong>여러분만의 12개월 세금 캘린더 초안</strong>이 완성됩니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #8에서는 이 캘린더 초안을 실제로 <strong>Notion과 Google 캘린더에 연동</strong>해서, 신고 한 달 전에 자동으로 알림이 오는 시스템을 만듭니다.</p>
+<p>오늘 만든 캘린더 초안, 댓글에 업종만 살짝 남겨 주세요.</p>
+<p>어떤 업종이 많은지 보고, 다음 영상에서 실제 예시로 활용하겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
