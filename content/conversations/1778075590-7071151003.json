@@ -1,0 +1,19 @@
+{
+  "id": "1778075590-7071151003",
+  "chat_id": 7071151003,
+  "status": "active",
+  "history": [
+    {
+      "role": "user",
+      "content": "티스토리 블로그 발행"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"티스토리 블로그 발행과 관련해서, 어떤 작업이 필요하신가요?\\n\\nA) 특정 코스의 홍보·소개 글 작성 (marketing)\\nB) 코스 관련 정보성 콘텐츠·블로그 포스트 스크립트 작성 (producer)\\nC) 다른 용도\\n\\n어느 쪽에 가까운지 알려주시면 바로 이어서 진행할게요.\", \"brief\": null}"
+    }
+  ],
+  "draft_brief": null,
+  "last_telegram_message_id": 1236,
+  "created_at": "2026-05-06T13:53:10+00:00",
+  "updated_at": "2026-05-06T13:53:15+00:00"
+}
