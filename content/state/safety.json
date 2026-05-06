@@ -1,16 +1,8 @@
 {
-  "last_reset_date": "2026-05-05",
-  "daily_brief_count": 50,
-  "daily_agent_calls": {
-    "producer": 34,
-    "curriculum": 3,
-    "marketing": 3,
-    "site_developer": 2,
-    "success": 3,
-    "ui_designer": 2,
-    "blog_publisher": 3
-  },
-  "daily_estimated_cost_usd": 3.499999999999998,
+  "last_reset_date": "2026-05-06",
+  "daily_brief_count": 0,
+  "daily_agent_calls": {},
+  "daily_estimated_cost_usd": 0.0,
   "recent_call_timestamps": [
     {
       "agent": "producer",
