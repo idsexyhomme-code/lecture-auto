@@ -1,22 +1,14 @@
 {
   "last_reset_date": "2026-05-06",
-  "daily_brief_count": 2,
+  "daily_brief_count": 3,
   "daily_agent_calls": {
-    "site_developer": 2
+    "site_developer": 3
   },
-  "daily_estimated_cost_usd": 0.14,
+  "daily_estimated_cost_usd": 0.21000000000000002,
   "recent_call_timestamps": [
     {
       "agent": "site_developer",
-      "ts": 1778028120.106167
-    },
-    {
-      "agent": "site_developer",
-      "ts": 1778028317.209762
-    },
-    {
-      "agent": "site_developer",
-      "ts": 1778028389.543732
+      "ts": 1778028869.322948
     }
   ],
   "paused": false,
