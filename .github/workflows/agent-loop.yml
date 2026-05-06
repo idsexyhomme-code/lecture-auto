@@ -7,7 +7,7 @@ on:
 
 concurrency:
   group: agent-loop
-  cancel-in-progress: false
+  cancel-in-progress: true   # 최신 push만 살아남도록 — 기존 hang된 run 자동 cancel
 
 permissions:
   contents: write
