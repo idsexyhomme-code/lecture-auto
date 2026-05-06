@@ -336,6 +336,29 @@ class SiteDeveloper(BaseAgent):
                     v = ""
             out[slot] = v
 
+        # ★ Tier 5 — extra_pages 배열 sanitize
+        # 형식: [{"slug": "about", "title": "...", "body_html": "..."}, ...]
+        pages_in = out.get("extra_pages") or []
+        if not isinstance(pages_in, list):
+            pages_in = []
+        clean_pages = []
+        for p in pages_in:
+            if not isinstance(p, dict):
+                continue
+            slug = (p.get("slug") or "").strip()
+            title = (p.get("title") or "").strip()
+            body = (p.get("body_html") or "").strip()
+            # slug 검증 — 영문/숫자/하이픈만, 1~32자
+            if not slug or not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,31}", slug):
+                continue
+            if not title or not body:
+                continue
+            # body HTML 안전 검증
+            if not is_html_safe(body):
+                continue
+            clean_pages.append({"slug": slug, "title": title[:120], "body_html": body})
+        out["extra_pages"] = clean_pages
+
         # design_tokens 화이트리스트 검증
         tokens_in = out.get("design_tokens") or {}
         if not isinstance(tokens_in, dict):
