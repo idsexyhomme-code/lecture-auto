@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "tax-basics-solopreneur",
+    "course_title": "1인 사업가 세금 기초 완전정복",
+    "lesson_no": 5,
+    "lesson_title": "종합소득세 구조 분해 — 과세표준부터 세율까지",
+    "objective": "총수입금액에서 필요경비·소득공제를 단계별로 차감하여 본인의 예상 과세표준과 예상 세율 구간을 계산한다",
+    "key_concepts": [
+      "소득금액 계산 구조(총수입-경비=소득)",
+      "기본공제·추가공제 항목",
+      "6단계 누진세율 구간"
+    ],
+    "exercise": "나의 예상 종합소득세 계산 단계표 (수입→경비→소득공제→과세표준→산출세액 5단계)",
+    "duration_min": 15
+  }
+}
