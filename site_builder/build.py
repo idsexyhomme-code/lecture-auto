@@ -178,10 +178,17 @@ def _group_by_course(items: list[AgentResult]) -> dict[str, list[AgentResult]]:
 def build():
     # 빌드마다 최신 site_config 다시 읽기 (이전 빌드 이후 승인된 변경 반영)
     config = _load_site_config()
-    # Tier 3 — HTML 슬롯 2차 sanitize (defense in depth)
-    for slot in ("hero_html", "home_intro_html", "footer_html"):
+    # Tier 3 + Tier 4 — HTML 슬롯 2차 sanitize (defense in depth)
+    for slot in (
+        "hero_html", "home_intro_html", "footer_html",
+        "categories_html", "cta_html", "testimonials_html", "pricing_html",
+    ):
         if config.get(slot):
             config[slot] = _sanitize_html_slot(config[slot])
+    # Tier 5 — extra_pages도 body_html 2차 sanitize
+    for p in (config.get("extra_pages") or []):
+        if isinstance(p, dict) and p.get("body_html"):
+            p["body_html"] = _sanitize_html_slot(p["body_html"])
     env.globals["site_config"] = config
     overrides = config.get("course_overrides", {}) or {}
 
