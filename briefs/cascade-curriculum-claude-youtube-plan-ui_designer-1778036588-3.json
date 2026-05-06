@@ -1,0 +1,16 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "hero",
+    "purpose": "Claude로 완성하는 1인 사업가 유튜브 기획 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+    "audience": "Claude 기본 사용 경험이 있고 유튜브로 사업을 확장하려는 1인 사업가",
+    "style_keywords": [
+      "editorial",
+      "warm beige",
+      "trustworthy",
+      "academic"
+    ],
+    "color_mood": "warm",
+    "additional_context": "코어 캠퍼스 코스 'Claude로 완성하는 1인 사업가 유튜브 기획'의 페이지 헤더 시안."
+  }
+}

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Claude로 완성하는 1인 사업가 유튜브 기획 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<section class="hero">
+  <div class="wrap">
+    <span class="badge">코스</span>
+    <h1 data-edit-field="site_config:course_overrides.claude-youtube-plan.title_override">Claude로 완성하는 1인 사업가 유튜브 기획</h1>
+    <p class="lead" data-edit-field="site_config:course_overrides.claude-youtube-plan.tagline_override">AI로 채널 기획부터 스크립트까지 4주 완성</p>
+  </div>
+</section>
+
+
+
+
+<article class="body" style="background: var(--soft);">
+  <div class="wrap">
+    <h2>커리큘럼</h2>
+    <h1>Claude로 완성하는 1인 사업가 유튜브 기획</h1>
+<blockquote>
+<p>AI로 채널 기획부터 스크립트까지 4주 완성</p>
+</blockquote>
+<h2>결과 약속</h2>
+<ul>
+<li>Claude 프롬프트만으로 내 사업에 맞는 유튜브 채널 전략서를 직접 작성한다</li>
+<li>경쟁 채널 분석 결과를 바탕으로 차별화된 콘텐츠 캘린더 30일치를 완성한다</li>
+<li>촬영 즉시 사용 가능한 영상 스크립트 1편을 Claude와 함께 완성한다</li>
+</ul>
+<p><strong>타깃:</strong> Claude 기본 사용 경험이 있고 유튜브로 사업을 확장하려는 1인 사업가</p>
+<p><strong>선수지식:</strong> Claude 계정 보유 및 기본 채팅 사용 경험, 자신의 사업 분야와 타깃 고객에 대한 기본 이해</p>
+<h2>차시별 커리큘럼</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>제목</th>
+<th>학습목표</th>
+<th>실습</th>
+<th>분</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>내 사업을 유튜브 콘셉트로 번역하기</td>
+<td>Claude에게 내 사업 정보를 입력해 채널 방향성 후보 3개를 도출하고 항목별로 비교한다</td>
+<td>사업 소개·타깃·강점을 담은 Claude용 채널 브리핑 문서 (A4 1장)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>경쟁 채널 분석표 만들기</td>
+<td>Claude를 활용해 동일 분야 유튜브 채널 5개를 분석하고 콘텐츠 유형·업로드 패턴·썸네일 전략을 분류한 비교표를 완성한다</td>
+<td>경쟁 채널 5개 비교 분석표 (스프레드시트 또는 Notion 테이블)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>채널 전략서 한 장으로 정리하기</td>
+<td>1·2차시 결과물을 Claude에 입력해 채널명·슬로건·타깃 페르소나·핵심 메시지를 포함한 채널 전략서 초안을 작성한다</td>
+<td>채널 전략서 1페이지 (채널명·슬로건·타깃·핵심 메시지·콘텐츠 방향 포함)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>30일 콘텐츠 캘린더 자동 생성하기</td>
+<td>채널 전략서를 프롬프트로 변환해 Claude가 생성한 30일 콘텐츠 아이디어 목록을 업로드 빈도·카테고리별로 배치한 캘린더를 완성한다</td>
+<td>30일 콘텐츠 캘린더 (날짜·영상 제목·카테고리·핵심 키워드 포함)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>5</td>
+<td>후킹 제목과 썸네일 문구 양산하기</td>
+<td>Claude에게 클릭률을 높이는 제목 공식을 학습시켜 캘린더 영상 10편의 제목 후보 3개씩과 썸네일 문구를 생성하고 A/B 비교안을 작성한다</td>
+<td>영상 10편 제목 후보표 (편당 후보 3개 + 썸네일 문구 1개)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>6</td>
+<td>영상 스크립트 구조 설계하기</td>
+<td>후킹-문제제기-해결-CTA 4단계 스크립트 프레임을 Claude와 함께 정의하고 선택한 영상 1편의 단락별 키포인트 아웃라인을 작성한다</td>
+<td>영상 1편 스크립트 아웃라인 (단락별 키포인트·예상 시간 배분 포함)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>7</td>
+<td>완성형 스크립트 초안 완성하기</td>
+<td>6차시 아웃라인을 Claude에 입력해 구어체 스크립트 전문을 생성하고 자신의 말투와 사업 사례로 3곳 이상 수정·교체한 최종 스크립트를 완성한다</td>
+<td>촬영용 완성 스크립트 1편 (구어체 전문·타임코드 포함)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>8</td>
+<td>나만의 유튜브 기획 SOP 만들기</td>
+<td>1~7차시 전 과정을 돌아보며 내 채널에 최적화된 영상 1편 제작 표준 프로세스(SOP)를 단계별 체크리스트로 작성하고 재사용 프롬프트 세트를 정리한다</td>
+<td>유튜브 기획 SOP 문서 (단계별 체크리스트 + 재사용 프롬프트 5개 이상)</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<h2>평가</h2>
+<p>최종 과제: 완성된 스크립트(7차시)를 바탕으로 촬영한 영상 1편을 제출하고, 채널 전략서·콘텐츠 캘린더·SOP 문서 3종을 함께 업로드하면 수료 인증 발급</p>
+  </div>
+</article>
+
+
+
+
+
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
