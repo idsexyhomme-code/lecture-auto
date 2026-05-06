@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-daily-recap",
+    "course_title": "Claude로 5분 하루 회고 자동화",
+    "lesson_no": 3,
+    "lesson_title": "일주일 회고를 인사이트 요약본으로 변환하기",
+    "objective": "7일치 회고 텍스트를 Claude에 입력해 반복 패턴·개선 우선순위·다음 주 액션 아이템을 포함한 주간 인사이트 요약본을 생성한다",
+    "key_concepts": [
+      "회고 데이터 누적·붙여넣기 방법 (컨텍스트 창 활용)",
+      "패턴 분석 프롬프트: 빈도·감정 흐름·의사결정 경향",
+      "주간 요약 → 월간 전략 연결 프레임워크"
+    ],
+    "exercise": "7일치 회고를 분석한 주간 인사이트 요약 PDF (Claude 출력 → 복사 → 문서화 완성본)",
+    "duration_min": 15
+  }
+}
