@@ -116,80 +116,42 @@ def _handle_schedule_mode(page, schedule_at: datetime) -> bool:
     except Exception as e:
         log.warning("[tistory] input 덤프 실패: %s", e)
 
-    # 3. datepicker 시각 입력 — 광범위 셀렉터 + JS fallback
+    # 3. datepicker 시각 입력 — 확정 셀렉터 (input#dateHour, input#dateMinute)
+    #    티스토리 신에디터: 예약 토글 클릭 시 자동으로 +1h default 채워짐.
+    #    우리는 scheduler가 계산한 정확한 시각으로 덮어씀.
     filled_any = False
+    target_hour = str(schedule_at.hour)
+    target_minute = str(schedule_at.minute)
 
-    # 시도 A: 텍스트 input (date/time 별도)
     for sel, value in [
-        ("input.input_date", target_date),
-        ("input[type='date']", target_date),
-        ("input[name*='reserve_date']", target_date),
-        ("input[name*='date']", target_date),
-        ("input.input_time", target_time),
-        ("input[type='time']", target_time),
-        ("input[name*='reserve_time']", target_time),
-        ("input[name*='time']", target_time),
+        ("input#dateHour", target_hour),
+        ("input#dateMinute", target_minute),
     ]:
         try:
             loc = page.locator(sel).first
-            if loc.count() > 0 and loc.is_visible():
-                loc.fill(value)
-                log.info("[tistory] ✓ fill %s = %s", sel, value)
+            if loc.count() > 0:
+                # JS로 강제 setting + change 이벤트 (Playwright fill 대신)
+                page.evaluate(
+                    f"""
+                    () => {{
+                        const el = document.querySelector('{sel}');
+                        if (!el) return;
+                        el.value = '{value}';
+                        el.dispatchEvent(new Event('input', {{bubbles:true}}));
+                        el.dispatchEvent(new Event('change', {{bubbles:true}}));
+                        el.dispatchEvent(new Event('blur', {{bubbles:true}}));
+                    }}
+                    """
+                )
+                log.info("[tistory] ✓ %s = %s", sel, value)
                 filled_any = True
-        except Exception:
-            continue
-
-    # 시도 B: select 박스 (year/month/day/hour/minute)
-    for field, value in [
-        ('year', schedule_at.year),
-        ('month', schedule_at.month),
-        ('day', schedule_at.day),
-        ('hour', schedule_at.hour),
-        ('minute', schedule_at.minute),
-    ]:
-        for sel in [f"select[name*='{field}']", f"select[id*='{field}']"]:
-            try:
-                loc = page.locator(sel).first
-                if loc.count() > 0 and loc.is_visible():
-                    loc.select_option(str(value))
-                    log.info("[tistory] ✓ select %s = %s", sel, value)
-                    filled_any = True
-            except Exception:
-                continue
-
-    # 시도 C: JS 강제 setter (모달 내부 모든 input 휴리스틱)
-    if not filled_any:
-        log.warning("[tistory] 표준 셀렉터 못 잡음 — JS 휴리스틱 시도")
-        try:
-            page.evaluate(f"""
-                () => {{
-                    const target = '{target_iso}';
-                    const dateOnly = '{target_date}';
-                    const timeOnly = '{target_time}';
-                    document.querySelectorAll('input, select').forEach(el => {{
-                        if (el.offsetParent === null) return;
-                        const id = (el.id || '').toLowerCase();
-                        const cls = (el.className || '').toString().toLowerCase();
-                        const ph = (el.placeholder || '').toLowerCase();
-                        const name = (el.name || '').toLowerCase();
-                        const blob = id + ' ' + cls + ' ' + ph + ' ' + name;
-                        if (/(date|날짜|reserve)/.test(blob) && !/time|시간/.test(blob)) {{
-                            el.value = dateOnly;
-                            el.dispatchEvent(new Event('input', {{bubbles:true}}));
-                            el.dispatchEvent(new Event('change', {{bubbles:true}}));
-                        }} else if (/(time|시간|hour|minute)/.test(blob)) {{
-                            el.value = timeOnly;
-                            el.dispatchEvent(new Event('input', {{bubbles:true}}));
-                            el.dispatchEvent(new Event('change', {{bubbles:true}}));
-                        }}
-                    }});
-                }}
-            """)
-            log.info("[tistory] ✓ JS 휴리스틱 fallback 실행")
         except Exception as e:
-            log.error("[tistory] JS 휴리스틱 실패: %s", e)
+            log.warning("[tistory] %s 입력 실패: %s", sel, e)
 
-    return True
+    if not filled_any:
+        log.error("[tistory] dateHour/dateMinute 둘 다 못 잡음 — 티스토리 default(+1h)로 발행")
+
+    return filled_any
 
 
 def publish_post(
