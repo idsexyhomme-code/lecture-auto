@@ -223,6 +223,25 @@ def build():
             base_path="..",
         )
 
+        # 짧은 URL redirect 페이지 — site/{cid}/index.html
+        # 회원님이 lecture-auto/{cid}/ 로 가면 자동으로 lecture-auto/courses/{cid}.html 로 이동
+        short_dir = SITE_DIR / cid
+        short_dir.mkdir(parents=True, exist_ok=True)
+        course_title = courses[-1]["title"]
+        redirect_html = (
+            '<!DOCTYPE html>\n'
+            '<html lang="ko">\n<head>\n'
+            '<meta charset="utf-8">\n'
+            f'<meta http-equiv="refresh" content="0; url=../courses/{cid}.html">\n'
+            f'<link rel="canonical" href="../courses/{cid}.html">\n'
+            f'<title>{course_title}</title>\n'
+            '<script>location.replace("../courses/' + cid + '.html");</script>\n'
+            '</head>\n<body>\n'
+            f'<p>이동 중... <a href="../courses/{cid}.html">{course_title}</a></p>\n'
+            '</body>\n</html>'
+        )
+        (short_dir / "index.html").write_text(redirect_html, encoding="utf-8")
+
     # course_order 기반 정렬 (목록에 없는 코스는 뒤로)
     order = config.get("course_order") or []
     if order:
