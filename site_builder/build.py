@@ -34,9 +34,17 @@ DEFAULT_CONFIG = {
     "course_order": [],
     "course_overrides": {},
     "design_tokens": {},
+    # Tier 3
     "hero_html": "",
     "home_intro_html": "",
     "footer_html": "",
+    # Tier 4
+    "categories_html": "",
+    "cta_html": "",
+    "testimonials_html": "",
+    "pricing_html": "",
+    # Tier 5
+    "extra_pages": [],
 }
 
 # Tier 3 — HTML 슬롯 sanitize 화이트리스트 (이중 방어 — build 단 2차)
