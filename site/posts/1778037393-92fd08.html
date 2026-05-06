@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#8 나만의 유튜브 기획 SOP 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#8 나만의 유튜브 기획 SOP 만들기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-youtube-plan · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>영상 기획을 시작할 때마다 "어디서부터 시작하지?" 하고 멍하니 화면만 보신 적 있으시죠?</p>
+<p>1차시부터 7차시까지 배운 걸 다 알면서도, 막상 새 영상 기획하려면 순서가 뒤죽박죽 됩니다.</p>
+<p>그게 지식이 없어서가 아닙니다. <strong>나만의 프로세스</strong>가 없어서입니다.</p>
+<p>오늘 이 영상 하나로, 다음 영상부터는 "뭐부터 하지?"를 다시는 고민하지 않아도 됩니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 여러분은 Claude를 활용해 유튜브 영상 1편을 기획하는 전 과정을 담은 <strong>나만의 SOP 문서</strong>를 손에 쥐게 됩니다.</p>
+<p>단계별 체크리스트와 재사용 프롬프트 5개 이상이 포함된, 내일 당장 써먹을 수 있는 문서입니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — SOP 문서 구조: "요리 레시피 공식"</h3>
+<p><strong>설명</strong></p>
+<p>SOP는 Standard Operating Procedure, 즉 표준 운영 절차입니다.</p>
+<p>복잡하게 생각하지 마세요. 요리 레시피와 똑같습니다.</p>
+<p>재료 목록, 순서, 완성 기준. 이 세 가지만 있으면 누구든 같은 결과를 냅니다.</p>
+<p>유튜브 기획 SOP도 구조가 동일합니다.</p>
+<ul>
+<li><strong>입력값</strong>: 내가 이번 영상에서 다룰 주제·타깃·목적</li>
+<li><strong>단계</strong>: 기획 → 리서치 → 스크립트 → 썸네일 → 업로드 체크</li>
+<li><strong>완료 기준</strong>: 각 단계에서 "이게 되면 다음으로 넘어간다"는 명확한 조건</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>1차시에서 배운 채널 포지셔닝, 3차시의 주제 발굴, 5차시의 스크립트 구조. 이것들을 레시피 순서처럼 나열하면 SOP의 뼈대가 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>"일단 촬영하고 나중에 정리하자"는 방식은 SOP가 아닙니다. 순서가 없는 체크리스트는 결국 매번 다른 결과물을 만들고, 시간도 더 걸립니다.</p>
+<p><strong>정리</strong></p>
+<p>SOP = 재료 + 순서 + 완료 기준. 이 틀로 전 차시 내용을 한 장에 담을 수 있습니다.</p>
+<p>메모리 페그: <strong>"레시피 3단계 — 재료·순서·완성 기준"</strong></p>
+<hr />
+<h3>핵심 개념 2 — 프롬프트 라이브러리 구성: "5개의 열쇠고리"</h3>
+<p><strong>설명</strong></p>
+<p>프롬프트도 매번 새로 쓰면 시간 낭비입니다.</p>
+<p>제 경험상, 유튜브 기획에서 반복적으로 쓰는 프롬프트 유형은 크게 5가지로 압축됩니다.</p>
+<ol>
+<li><strong>주제 발굴 프롬프트</strong> — "내 타깃의 고통 기반으로 주제 10개 뽑아줘"</li>
+<li><strong>제목·후킹 프롬프트</strong> — "클릭율 높은 제목 5가지 변형해줘"</li>
+<li><strong>스크립트 구조 프롬프트</strong> — "HOOK-PROMISE-CORE 구조로 개요 짜줘"</li>
+<li><strong>썸네일 카피 프롬프트</strong> — "썸네일에 들어갈 7자 이내 문구 3개 제안해줘"</li>
+<li><strong>업로드 메타 프롬프트</strong> — "SEO 최적화 설명란과 태그 목록 작성해줘"</li>
+</ol>
+<p>이 5개를 문서 한 곳에 모아두면 라이브러리가 됩니다.</p>
+<p><strong>예시</strong></p>
+<p>노션이나 구글 독스에 탭 하나를 "프롬프트 라이브러리"로 만들고, 위 5가지를 각각 제목 붙여 저장합니다. Claude에 붙여 넣고 내 채널 정보만 바꿔 쓰면 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>"이 프롬프트 어디다 적어뒀더라?" 하고 채팅 기록을 스크롤하는 건 라이브러리가 아닙니다. 찾는 데 걸리는 시간이 쓰는 시간보다 길어지면, 결국 사용하지 않게 됩니다.</p>
+<p><strong>정리</strong></p>
+<p>5가지 유형으로 분류하고, 한 문서에 모아야 비로소 '쓰는 도구'가 됩니다.</p>
+<p>메모리 페그: <strong>"5개의 열쇠고리 — 주제·제목·스크립트·썸네일·메타"</strong></p>
+<hr />
+<h3>핵심 개념 3 — 반복 가능한 기획 루틴: "주 1회 90분 블록"</h3>
+<p><strong>설명</strong></p>
+<p>SOP와 프롬프트 라이브러리가 있어도, 언제 쓸지 정해두지 않으면 흐지부지됩니다.</p>
+<p>루틴의 핵심은 단순합니다. <strong>정해진 시간에, 정해진 순서로, 정해진 도구를 씁니다.</strong></p>
+<p>제 경험상 1인 사업가가 지속하기 좋은 단위는 <strong>주 1회 90분 기획 블록</strong>입니다.</p>
+<ul>
+<li>0–15분: 주제 발굴 (프롬프트 #1 사용)</li>
+<li>15–45분: 제목·스크립트 개요 작성 (프롬프트 #2·#3 사용)</li>
+<li>45–75분: 썸네일 카피·메타 작성 (프롬프트 #4·#5 사용)</li>
+<li>75–90분: 체크리스트 최종 확인 및 촬영 준비</li>
+</ul>
+<p>이 90분 블록이 매주 반복되면, 월 4편의 기획 완료가 현실이 됩니다.</p>
+<p><strong>예시</strong></p>
+<p>매주 월요일 오전 10시를 "유튜브 기획 블록"으로 캘린더에 고정합니다. 이 시간에는 SOP 문서를 열고, 1번 체크리스트부터 순서대로 진행합니다.</p>
+<p><strong>반례</strong></p>
+<p>"영감이 올 때 기획한다"는 방식은 대부분의 경우 월 1편도 완성하기 어렵습니다. 창의성은 루틴 위에서 더 잘 발휘됩니다.</p>
+<p><strong>정리</strong></p>
+<p>루틴 = 정해진 시간 × 정해진 순서 × 정해진 도구. 90분 블록이 쌓이면 채널이 굴러갑니다.</p>
+<p>메모리 페그: <strong>"주 1회 90분, 4주면 4편"</strong></p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 직접 만들어 보세요.</p>
+<p><strong>산출물: 나만의 유튜브 기획 SOP 문서</strong></p>
+<hr />
+<p><strong>Step 1 — 문서 틀 만들기 (5분)</strong></p>
+<p>노션, 구글 독스, 어떤 툴이든 좋습니다. 새 문서를 열고 제목을 "유튜브 기획 SOP — [내 채널명]"으로 적습니다. 섹션을 5개 만드세요: ① 기획 ② 리서치 ③ 스크립트 ④ 썸네일·메타 ⑤ 업로드 체크.</p>
+<p><strong>Step 2 — 각 섹션에 체크리스트 작성 (10분)</strong></p>
+<p>1~7차시에서 배운 내용을 떠올리며, 각 섹션에 실행 항목을 3개 이상 적습니다. 예를 들어 ① 기획 섹션에는 "타깃 고통 1개 정의", "주제 후보 5개 추출", "최종 주제 1개 선택"처럼 구체적인 행동으로 씁니다.</p>
+<p><strong>Step 3 — 프롬프트 라이브러리 탭 추가 (10분)</strong></p>
+<p>문서 하단 또는 별도 탭에 "프롬프트 라이브러리" 섹션을 만듭니다. 주제·제목·스크립트·썸네일·메타, 5가지 유형 각각에 오늘 강의에서 본 예시 프롬프트를 붙여 넣고, 내 채널 정보에 맞게 수정합니다.</p>
+<p><strong>Step 4 — 루틴 캘린더 등록 (2분)</strong></p>
+<p>SOP 문서 링크를 복사해서, 매주 반복되는 "기획 블록" 캘린더 일정 설명란에 붙여 넣습니다. 다음 주 같은 요일, 같은 시간에 90분 블록을 잡으세요.</p>
+<p>완성된 문서, 꼭 저장해 두세요. 다음 영상 기획 때 바로 열어서 씁니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>오늘로 8차시, 이 코스의 모든 내용이 끝났습니다.</p>
+<p>여러분 손에는 이제 SOP 문서, 프롬프트 라이브러리, 그리고 90분 루틴이 있습니다.</p>
+<p>댓글에 여러분의 SOP 문서에서 가장 마음에 드는 체크리스트 항목 하나만 공유해 주세요.</p>
+<p>다른 수강생들에게 좋은 참고가 되고, 저도 다음 코스 기획에 반영하겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
