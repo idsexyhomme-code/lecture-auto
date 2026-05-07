@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-pricing-page",
+    "course_title": "Claude로 만드는 전환 가격 페이지",
+    "lesson_no": 3,
+    "lesson_title": "반박 처리 FAQ Claude 프롬프트 설계",
+    "objective": "1차시의 저항 맵을 입력 재료로 삼아 Claude로 반박 처리 FAQ 5개를 생성하고 각 답변의 설득 구조를 분석한다",
+    "key_concepts": [
+      "반박 처리 FAQ의 3단 구조(공감→재프레이밍→증거)",
+      "Claude에게 페르소나·어조·증거 조건을 지정하는 프롬프트 패턴",
+      "FAQ 배치 순서가 전환에 미치는 심리적 효과"
+    ],
+    "exercise": "저항 유형별 FAQ 5개가 담긴 Claude 생성 초안과 각 답변에 설득 구조를 표기한 'FAQ 분석 주석 문서'",
+    "duration_min": 15
+  }
+}

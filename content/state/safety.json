@@ -1,45 +1,17 @@
 {
   "last_reset_date": "2026-05-07",
-  "daily_brief_count": 37,
+  "daily_brief_count": 43,
   "daily_agent_calls": {
-    "producer": 15,
+    "producer": 17,
     "marketing": 3,
     "success": 4,
     "ui_designer": 4,
     "site_developer": 4,
-    "blog_publisher": 5,
+    "blog_publisher": 9,
     "curriculum": 2
   },
-  "daily_estimated_cost_usd": 2.59,
+  "daily_estimated_cost_usd": 3.009999999999999,
   "recent_call_timestamps": [
-    {
-      "agent": "curriculum",
-      "ts": 1778188810.665926
-    },
-    {
-      "agent": "marketing",
-      "ts": 1778188859.434592
-    },
-    {
-      "agent": "producer",
-      "ts": 1778188889.921519
-    },
-    {
-      "agent": "producer",
-      "ts": 1778188944.6152372
-    },
-    {
-      "agent": "producer",
-      "ts": 1778188950.771227
-    },
-    {
-      "agent": "site_developer",
-      "ts": 1778188990.496046
-    },
-    {
-      "agent": "site_developer",
-      "ts": 1778188997.633964
-    },
     {
       "agent": "success",
       "ts": 1778189069.4523818
@@ -55,6 +27,30 @@
     {
       "agent": "ui_designer",
       "ts": 1778189089.377237
+    },
+    {
+      "agent": "blog_publisher",
+      "ts": 1778189200.0067031
+    },
+    {
+      "agent": "blog_publisher",
+      "ts": 1778189211.036566
+    },
+    {
+      "agent": "blog_publisher",
+      "ts": 1778189266.368421
+    },
+    {
+      "agent": "blog_publisher",
+      "ts": 1778189272.3595881
+    },
+    {
+      "agent": "producer",
+      "ts": 1778189277.060025
+    },
+    {
+      "agent": "producer",
+      "ts": 1778189322.8821702
     }
   ],
   "paused": false,
