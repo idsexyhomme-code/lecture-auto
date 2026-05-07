@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{% block title %}{{ site_config.site_name }}{% endblock %}</title>
-  <link rel="stylesheet" href="{{ base_path }}/styles.css" />
+  <link rel="stylesheet" href="{{ base_path }}/styles.css?v={{ site_config._build_time or 1 }}" />
   <meta name="description" content="{% block desc %}{{ site_config.site_subtagline }}{% endblock %}" />
   <script>
     (function () {
