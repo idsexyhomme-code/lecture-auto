@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 16,
+    "lesson_title": "나만의 AI 업무 자동화 시스템 완성하기",
+    "objective": "12주 동안 구축한 프롬프트·워크플로우·SOP를 통합해 최소 5개 업무 영역을 커버하는 개인 AI 운영 매뉴얼을 완성하고 영상으로 시연한다",
+    "key_concepts": [
+      "시스템 통합 설계",
+      "운영 매뉴얼 구성",
+      "지속적 개선 계획"
+    ],
+    "exercise": "개인 AI 업무 자동화 운영 매뉴얼 + 시연 영상 (5분 이상)",
+    "duration_min": 15
+  }
+}
