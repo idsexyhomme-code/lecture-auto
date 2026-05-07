@@ -13,8 +13,8 @@
     <h1 data-edit-field="site_config:site_headline">{{ site_config.site_headline }}</h1>
     <p class="lead" data-edit-field="site_config:site_subtagline">{{ site_config.site_subtagline }}</p>
     <div class="hero-actions">
-      <a class="cta cta-primary" href="#courses">코스 둘러보기 →</a>
-      <a class="cta cta-secondary" href="/me/">마이페이지</a>
+      <a class="cta cta-primary" href="#courses">코스 둘러보기</a>
+      <a class="cta cta-secondary" href="/me/">나중에 보기</a>
     </div>
   </div>
 </section>
@@ -36,13 +36,14 @@
 <section id="courses" class="section-courses">
   <div class="wrap">
     <h2 class="section-title">전체 코스 <span class="muted-count">{{ courses|length }}개</span></h2>
+    <p class="section-subtitle" style="color:#6B5C4A; margin-top:-20px; margin-bottom:28px; font-size:14px;">관심 가는 분야부터 골라 한 편씩 보세요</p>
 
     {% if categorized %}
       {% for cat in categorized %}
       <div class="cat-block" id="cat-{{ cat.id }}">
         <div class="cat-header">
           <h3 class="cat-title"><span class="cat-emoji-large">{{ cat.icon }}</span> {{ cat.name }}</h3>
-          <span class="cat-badge">{{ cat.courses|length }}개 강의</span>
+          <span class="cat-badge">{{ cat.courses|length }}편</span>
         </div>
         <div class="course-grid">
           {% for c in cat.courses %}
@@ -55,10 +56,10 @@
                 <h4 data-edit-field="site_config:course_overrides.{{ c.id }}.title_override">{{ c.title }}</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.{{ c.id }}.tagline_override">{{ c.tagline }}</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -114,10 +115,10 @@
 
 <section class="stats-bar">
   <div class="wrap">
-    <span class="stat-item"><b>{{ total_count }}</b>개 콘텐츠</span>
-    <span class="stat-item"><b>{{ courses|length }}</b>개 코스</span>
-    <span class="stat-item"><b>매일</b> 자동 신규</span>
-    <span class="stat-item"><b>AI 8</b>명 + 사람</span>
+    <span class="stat-item"><b>{{ courses|length }}</b>편 코스</span>
+    <span class="stat-item"><b>15분</b> 한 편</span>
+    <span class="stat-item"><b>매일</b> 새 코스</span>
+    <span class="stat-item"><b>오늘</b> 첫 실습</span>
   </div>
 </section>
 

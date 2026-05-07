@@ -7,40 +7,40 @@
   <div class="wrap course-hero-inner">
     <div class="course-hero-main">
       <div class="course-breadcrumb">
-        <a href="../index.html">홈</a> · <a href="../index.html#courses">코스</a> · <span>{{ course.id }}</span>
+        <a href="../index.html">홈</a> · <a href="../index.html#courses">전체 코스</a> · <span>{{ course.id }}</span>
       </div>
-      <span class="badge">코스</span>
+      <span class="badge">강의</span>
       <h1 data-edit-field="site_config:course_overrides.{{ course.id }}.title_override">{{ course.title }}</h1>
       <p class="lead" data-edit-field="site_config:course_overrides.{{ course.id }}.tagline_override">{{ course.tagline }}</p>
 
       <div class="course-meta-row">
-        {% if course.scripts %}<span class="meta-chip">📚 {{ course.scripts|length }}차시</span>{% endif %}
-        <span class="meta-chip">⏱ 차시당 15분</span>
-        <span class="meta-chip">🎯 실습 산출물 1개</span>
-        <span class="meta-chip">♾ 평생 소장</span>
+        {% if course.scripts %}<span class="meta-chip">{{ course.scripts|length }}편</span>{% endif %}
+        <span class="meta-chip">한 편 15분</span>
+        <span class="meta-chip">실습 결과물 남음</span>
+        <span class="meta-chip">평생 보기</span>
       </div>
     </div>
 
-    {# === 사이드바 CTA (강의 신청) === #}
+    {# === 사이드바 (코스 시작) === #}
     <aside class="course-sidebar">
       <div class="sidebar-card">
         <div class="price-block">
           <div class="price-label">수강료</div>
-          <div class="price-value">무료 미리보기</div>
-          <div class="price-note">전체 코스는 곧 오픈</div>
+          <div class="price-value">지금은 무료</div>
+          <div class="price-note">정식 가격 곧 공개</div>
         </div>
-        <a href="#scripts" class="cta cta-primary cta-full">📖 차시 미리보기</a>
-        <a href="../me/" class="cta cta-secondary cta-full">💾 마이페이지에 담기</a>
+        <a href="#scripts" class="cta cta-primary cta-full">첫 편부터 보기</a>
+        <a href="../me/" class="cta cta-secondary cta-full">나중에 보기</a>
 
         <div class="sidebar-divider"></div>
 
         <div class="sidebar-includes">
-          <div class="includes-title">코스에 포함된 것</div>
+          <div class="includes-title">받게 되는 것</div>
           <ul>
-            <li>✓ 차시별 핵심 강의 ({{ course.scripts|length if course.scripts else 0 }}개)</li>
-            <li>✓ 실습 가이드 + 체크리스트</li>
-            <li>✓ FAQ + 자주 막히는 곳 안내</li>
-            <li>✓ 코어 캠퍼스 업데이트 평생 적용</li>
+            <li>✓ 영상 {{ course.scripts|length if course.scripts else 0 }}편 (한 편 15분)</li>
+            <li>✓ 보고 따라 할 수 있는 실습 가이드</li>
+            <li>✓ 막힐 때 보는 Q&amp;A</li>
+            <li>✓ 한 번 결제하면 평생 봅니다</li>
           </ul>
         </div>
       </div>
@@ -69,7 +69,7 @@
 {% if course.scripts %}
 <section id="scripts" class="course-section">
   <div class="wrap">
-    <h2>차시별 콘텐츠 <span class="muted-count">{{ course.scripts|length }}개</span></h2>
+    <h2>차시 목록 <span class="muted-count">{{ course.scripts|length }}편</span></h2>
     <div class="lesson-list">
       {% for s in course.scripts %}
       <a href="../posts/{{ s.id }}.html" class="lesson-row">
@@ -79,7 +79,7 @@
           <p>{{ s.summary }}</p>
         </div>
         <div class="lesson-meta">
-          <span class="duration">⏱ 15분</span>
+          <span class="duration">15분</span>
           <span class="arrow">→</span>
         </div>
       </a>
@@ -92,7 +92,7 @@
 {% if course.faqs %}
 <article class="course-section course-section-soft">
   <div class="wrap course-content">
-    <h2>자주 묻는 질문</h2>
+    <h2>막힐 때 보는 Q&amp;A</h2>
     {% for f in course.faqs %}
       <div class="faq-block">{{ md_to_html(f.body_md) | safe }}</div>
     {% endfor %}
@@ -102,11 +102,11 @@
 
 <section class="course-cta-bottom">
   <div class="wrap">
-    <h3>지금 시작하기</h3>
-    <p>차시 1개부터 가볍게 시작하세요. 평생 소장 + 업데이트 자동 적용.</p>
+    <h3>오늘 한 편</h3>
+    <p>한 편 15분, 보고 따라 하면 그날 일에 바로 씁니다.</p>
     <div class="cta-row">
-      <a href="#scripts" class="cta cta-primary">📖 첫 차시 보기</a>
-      <a href="../index.html#courses" class="cta cta-secondary">← 다른 코스</a>
+      <a href="#scripts" class="cta cta-primary">첫 편 보기</a>
+      <a href="../index.html#courses" class="cta cta-secondary">다른 코스</a>
     </div>
   </div>
 </section>

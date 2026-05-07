@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>코어 캠퍼스</title>
-  <link rel="stylesheet" href="./styles.css?v=1778192309" />
-  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <link rel="stylesheet" href="./styles.css?v=1778192823" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
   <script>
     (function () {
       try {
@@ -27,9 +27,9 @@
   <div class="promo-bar">
     <div class="wrap">
       
-      <a href="#courses" class="promo-chip promo-primary">🎓 코스 무료 미리보기</a>
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
       
-      <a href="#newsletter" class="promo-chip promo-secondary">📩 신규 코스 알림 받기</a>
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
       
     </div>
   </div>
@@ -44,27 +44,27 @@
 
       <div class="nav-cat-wrap">
         <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
-          <span class="cat-icon">☰</span> 카테고리
+          <span class="cat-icon">☰</span> 분야 보기
         </button>
         
         <div class="nav-cat-menu">
           
           <a href="./index.html#cat-automation" class="cat-item">
-            <span class="cat-emoji">⚡</span>
-            <span class="cat-name">Claude 자동화</span>
-            <span class="cat-count">6개</span>
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
           </a>
           
-          <a href="./index.html#cat-sop" class="cat-item">
+          <a href="./index.html#cat-operation" class="cat-item">
             <span class="cat-emoji">📋</span>
-            <span class="cat-name">1인 사업 SOP</span>
-            <span class="cat-count">7개</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
           </a>
           
-          <a href="./index.html#cat-productivity" class="cat-item">
+          <a href="./index.html#cat-focus" class="cat-item">
             <span class="cat-emoji">🎯</span>
-            <span class="cat-name">딥워크·생산성</span>
-            <span class="cat-count">2개</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
           </a>
           
         </div>
@@ -72,14 +72,14 @@
       </div>
 
       <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
-        <input type="search" id="navSearchInput" placeholder="🔍 코스 제목·키워드로 검색..." />
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
       </form>
 
       <nav class="nav-actions">
-        <a href="./index.html#courses">코스</a>
+        <a href="./index.html#courses">전체 코스</a>
         <a href="./me/" class="nav-me">
           <span class="me-icon">👤</span>
-          <span>마이</span>
+          <span>나중에 보기</span>
         </a>
       </nav>
     </div>
@@ -89,71 +89,63 @@
 
 
 <section class="hero hero-custom">
-  <div class="wrap"><div class="wrap" style="max-width:1100px;margin:0 auto;padding:80px 32px 88px;">
-  <div style="max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:32px;align-items:flex-start;">
-    <div style="display:flex;align-items:center;gap:10px;">
-      <span style="display:inline-block;width:28px;height:2px;background:var(--accent);"></span>
-      <span style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);">1인 사업가를 위한 AI 실습</span>
-    </div>
-    <h1 style="font-size:clamp(34px,5vw,54px);font-weight:800;line-height:1.2;color:var(--fg);letter-spacing:-0.025em;margin:0;">반복 업무에 치여<br>본업을 못 하고 있다면</h1>
-    <p style="font-size:17px;line-height:1.8;color:var(--muted);margin:0;max-width:540px;">Claude를 실무 도구로 쓰는 방법, 단계별 실습으로 익힙니다. 이론 없이 바로 쓸 수 있는 것만 모았습니다.</p>
-    <a href="#courses" style="display:inline-block;padding:18px 40px;background:var(--brand);color:#FBF8F3;font-size:16px;font-weight:700;text-decoration:none;border-radius:6px;letter-spacing:0.01em;">코스 둘러보기</a>
-    <div style="display:flex;align-items:center;gap:24px;padding-top:4px;border-top:1px solid var(--line);width:100%;">
-      <div style="display:flex;flex-direction:column;gap:2px;">
-        <span style="font-size:20px;font-weight:800;color:var(--fg);">16개</span>
-        <span style="font-size:12px;color:var(--muted);">개설 코스</span>
-      </div>
-      <div style="width:1px;height:36px;background:var(--line);"></div>
-      <div style="display:flex;flex-direction:column;gap:2px;">
-        <span style="font-size:20px;font-weight:800;color:var(--fg);">15분</span>
-        <span style="font-size:12px;color:var(--muted);">단위 설계</span>
-      </div>
-      <div style="width:1px;height:36px;background:var(--line);"></div>
-      <div style="display:flex;flex-direction:column;gap:2px;">
-        <span style="font-size:20px;font-weight:800;color:var(--fg);">당일</span>
-        <span style="font-size:12px;color:var(--muted);">첫 실습 가능</span>
-      </div>
-    </div>
+  <div class="wrap"><div class="wrap" style="display:flex;flex-direction:column;align-items:flex-start;max-width:900px;margin:0 auto;padding:72px 40px 80px;gap:0;">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px;">
+    <span style="display:inline-block;width:32px;height:2px;background:#A0732A;"></span>
+    <small style='font-family:"Pretendard",system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:0.18em;color:#A0732A;text-transform:uppercase;'>Core Campus · SOP Automation</small>
+  </div>
+  <h1 style='font-family:"Pretendard",system-ui,sans-serif;font-size:clamp(36px,5.5vw,64px);font-weight:800;line-height:1.12;color:#1C1917;margin:0 0 24px;max-width:720px;'>
+    팀원이 생겼는데,<br>
+    <em style="font-style:normal;color:#A0732A;">설명은 왜 매번<br>당신 몫인가요?</em>
+  </h1>
+  <p style='font-family:"Pretendard",system-ui,sans-serif;font-size:clamp(16px,1.8vw,20px);line-height:1.75;color:#4A3F35;max-width:560px;margin:0 0 40px;'>
+    Claude가 당신의 말투·절차·기준을 그대로 읽고,
+    <strong style="font-weight:700;color:#1C1917;">팀 온보딩 SOP 문서 전체를 자동으로 완성</strong>합니다.
+    반복 설명 없이, 오해 없이, 처음부터 제대로.
+  </p>
+  <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:56px;">
+    <a href="#enroll" style='display:inline-block;background:#3D2B1F;color:#FBF8F3;font-family:"Pretendard",system-ui,sans-serif;font-size:16px;font-weight:700;padding:16px 36px;border-radius:6px;text-decoration:none;letter-spacing:0.02em;'>코스 시작하기</a>
+    <a href="#preview" style='font-family:"Pretendard",system-ui,sans-serif;font-size:15px;font-weight:500;color:#A0732A;text-decoration:none;border-bottom:1px solid #A0732A;padding-bottom:2px;'>커리큘럼 미리보기 →</a>
+  </div>
+  <hr style="width:100%;border:none;border-top:1px solid #EDE5D8;margin:0 0 40px;">
+  <div style="display:flex;gap:40px;flex-wrap:wrap;">
+    <figure style="margin:0;display:flex;flex-direction:column;gap:4px;">
+      <strong style='font-family:"Pretendard",system-ui,sans-serif;font-size:28px;font-weight:800;color:#1C1917;'>6시간</strong>
+      <figcaption style='font-family:"Pretendard",system-ui,sans-serif;font-size:13px;color:#7A6A5A;'>SOP 초안 완성까지</figcaption>
+    </figure>
+    <div style="width:1px;background:#EDE5D8;"></div>
+    <figure style="margin:0;display:flex;flex-direction:column;gap:4px;">
+      <strong style='font-family:"Pretendard",system-ui,sans-serif;font-size:28px;font-weight:800;color:#1C1917;'>Zero</strong>
+      <figcaption style='font-family:"Pretendard",system-ui,sans-serif;font-size:13px;color:#7A6A5A;'>반복 구두 설명 횟수</figcaption>
+    </figure>
+    <div style="width:1px;background:#EDE5D8;"></div>
+    <figure style="margin:0;display:flex;flex-direction:column;gap:4px;">
+      <strong style='font-family:"Pretendard",system-ui,sans-serif;font-size:28px;font-weight:800;color:#1C1917;'>100%</strong>
+      <figcaption style='font-family:"Pretendard",system-ui,sans-serif;font-size:13px;color:#7A6A5A;'>내 말투로 작성된 문서</figcaption>
+    </figure>
   </div>
 </div></div>
 </section>
 
 
 
-<section class="cta-custom"><div class="wrap"><div style="background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
-  <div class="wrap" style="max-width:1100px;margin:0 auto;padding:48px 32px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;">
-    <p style="font-size:15px;font-weight:600;color:var(--fg);margin:0;">지금 어느 코스부터 시작할지 고민된다면</p>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
-      <a href="/claude-bizflow" style="display:inline-block;padding:15px 32px;background:var(--brand);color:#FBF8F3;font-size:15px;font-weight:700;text-decoration:none;border-radius:6px;">첫 코스 무료 체험</a>
-      <a href="#courses" style="display:inline-block;padding:15px 32px;background:#FFFFFF;color:var(--brand);font-size:15px;font-weight:600;text-decoration:none;border-radius:6px;border:1px solid var(--line);">전체 코스 둘러보기</a>
-    </div>
-    <p style="font-size:13px;color:var(--muted);margin:0;">별도 구독 없이 코스별로 개별 수강할 수 있습니다.</p>
-  </div>
+<section class="cta-custom"><div class="wrap"><div style="text-align:center;padding:36px 20px;background:#F5EFE0;border-radius:12px;margin:8px 0;">
+  <h3 style="color:#1A3558;font-size:20px;margin-bottom:8px;font-weight:800;">어떤 코스부터 시작할지 모르겠으면</h3>
+  <p style="color:#6B5C4A;margin-bottom:24px;font-size:15px;">첫 코스를 무료로 끝까지 보세요. 마음에 들면 그때 다음.</p>
+  <a href="#courses" style="display:inline-block;background:#1A3558;color:white;padding:13px 26px;border-radius:8px;font-weight:700;text-decoration:none;margin:0 5px 8px;">첫 코스 무료로 보기</a>
+  <a href="#courses" style="display:inline-block;background:white;color:#1A3558;padding:13px 26px;border-radius:8px;font-weight:700;text-decoration:none;border:1px solid #1A3558;margin:0 5px;">전체 코스 둘러보기</a>
 </div></div></section>
 
 
 
-<section class="categories-custom"><div class="wrap"><div style="background:var(--bg);border-bottom:1px solid var(--line);">
-  <div class="wrap" style="max-width:1100px;margin:0 auto;padding:20px 32px;">
-    
-
-      <span style="font-size:12px;color:var(--muted);font-weight:600;margin-right:4px;">카테고리</span>
-      <a href="#course-claude-bizflow" style="display:inline-block;padding:6px 16px;background:var(--soft);color:var(--fg);border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:13px;font-weight:500;">Claude 자동화</a>
-      <a href="#course-claude-sop" style="display:inline-block;padding:6px 16px;background:var(--soft);color:var(--fg);border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:13px;font-weight:500;">1인 사업 SOP</a>
-      <a href="#course-claude-content-engine" style="display:inline-block;padding:6px 16px;background:var(--soft);color:var(--fg);border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:13px;font-weight:500;">콘텐츠 생산</a>
-      <a href="#course-deepwork-1hr" style="display:inline-block;padding:6px 16px;background:var(--soft);color:var(--fg);border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:13px;font-weight:500;">딥워크</a>
-    
-  </div>
-</div></div></section>
 
 
-
-<section class="intro-custom"><div class="wrap"><div class="wrap" style="max-width:1100px;margin:0 auto;padding:56px 32px 16px;">
-  <div style="max-width:600px;display:flex;flex-direction:column;gap:12px;">
-    <span style="font-size:12px;font-weight:600;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;">왜 코어 캠퍼스인가</span>
-    <h2 style="font-size:clamp(20px,2.6vw,26px);font-weight:700;color:var(--fg);margin:0;letter-spacing:-0.015em;line-height:1.35;">핵심만 남긴 강의, 쓸 수 있는 것만 담았습니다</h2>
-    <p style="font-size:14px;color:var(--muted);margin:0;line-height:1.75;">15분 단위로 설계해 바쁜 일정에도 진도를 낼 수 있고, 별도 도구 없이 Claude 하나로 당일 실습이 가능합니다. 각 코스는 독립적으로 완결되며, 시리즈로 이어가면 더 탄탄해집니다.</p>
-  </div>
+<section class="intro-custom"><div class="wrap"><div style="max-width:680px;margin:0 auto;text-align:center;">
+  <p style="color:#C99756;font-size:13px;font-weight:700;margin-bottom:10px;letter-spacing:0.05em;">우리가 다른 점</p>
+  <h2 style="color:#1A3558;font-size:24px;margin-bottom:16px;font-weight:800;">보고 따라 하면 오늘 일에 바로 씁니다</h2>
+  <p style="color:#6B5C4A;font-size:15px;line-height:1.75;">
+    이론은 빼고 실제 화면을 그대로 따라갑니다. 차시 하나가 15분이고, 마치면 손에 결과물이 남아요. 이미 하던 일에 Claude를 얹는 방식이라 새 도구를 배울 필요도 없습니다.
+  </p>
 </div></div></section>
 
 
@@ -161,29 +153,30 @@
 <section id="courses" class="section-courses">
   <div class="wrap">
     <h2 class="section-title">전체 코스 <span class="muted-count">17개</span></h2>
+    <p class="section-subtitle" style="color:#6B5C4A; margin-top:-20px; margin-bottom:28px; font-size:14px;">관심 가는 분야부터 골라 한 편씩 보세요</p>
 
     
       
       <div class="cat-block" id="cat-automation">
         <div class="cat-header">
-          <h3 class="cat-title"><span class="cat-emoji-large">⚡</span> Claude 자동화</h3>
-          <span class="cat-badge">6개 강의</span>
+          <h3 class="cat-title"><span class="cat-emoji-large">✉️</span> 반복 업무 줄이기</h3>
+          <span class="cat-badge">6편</span>
         </div>
         <div class="course-grid">
           
           <a href="courses/claude-autowork.html" class="course-card" data-course-id="claude-autowork" id="course-claude-autowork">
             <div class="course-card-inner">
               <div class="course-thumb">
-                <div class="course-thumb-bg">⚡</div>
+                <div class="course-thumb-bg">✉️</div>
               </div>
               <div class="course-body">
                 <h4 data-edit-field="site_config:course_overrides.claude-autowork.title_override">Claude로 업무 자동화 실전 마스터</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-autowork.tagline_override">반복 업무를 AI에게 넘기고 핵심 일에만 집중하라</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -191,16 +184,16 @@
           <a href="courses/claude-content-engine.html" class="course-card" data-course-id="claude-content-engine" id="course-claude-content-engine">
             <div class="course-card-inner">
               <div class="course-thumb">
-                <div class="course-thumb-bg">⚡</div>
+                <div class="course-thumb-bg">✉️</div>
               </div>
               <div class="course-body">
                 <h4 data-edit-field="site_config:course_overrides.claude-content-engine.title_override">Claude로 만드는 1인 사업 콘텐츠 엔진</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-content-engine.tagline_override">블로그·뉴스레터·SNS를 Claude로 반자동화하는 4주 실전</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -208,16 +201,16 @@
           <a href="courses/claude-monthly-revenue.html" class="course-card" data-course-id="claude-monthly-revenue" id="course-claude-monthly-revenue">
             <div class="course-card-inner">
               <div class="course-thumb">
-                <div class="course-thumb-bg">⚡</div>
+                <div class="course-thumb-bg">✉️</div>
               </div>
               <div class="course-body">
                 <h4 data-edit-field="site_config:course_overrides.claude-monthly-revenue.title_override">Claude로 매출 자동 분석·보고서 완성</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-monthly-revenue.tagline_override">월 매출 분석을 30분에서 5분으로 줄인다</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -225,16 +218,16 @@
           <a href="courses/claude-customer-script.html" class="course-card" data-course-id="claude-customer-script" id="course-claude-customer-script">
             <div class="course-card-inner">
               <div class="course-thumb">
-                <div class="course-thumb-bg">⚡</div>
+                <div class="course-thumb-bg">✉️</div>
               </div>
               <div class="course-body">
                 <h4 data-edit-field="site_config:course_overrides.claude-customer-script.title_override">Claude로 CS 응대 자동화하기</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-customer-script.tagline_override">하루 1~3시간 CS 응대를 Claude 스크립트로 줄이는 실전 과정</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -242,16 +235,16 @@
           <a href="courses/claude-launchpad.html" class="course-card" data-course-id="claude-launchpad" id="course-claude-launchpad">
             <div class="course-card-inner">
               <div class="course-thumb">
-                <div class="course-thumb-bg">⚡</div>
+                <div class="course-thumb-bg">✉️</div>
               </div>
               <div class="course-body">
                 <h4 data-edit-field="site_config:course_overrides.claude-launchpad.title_override">Claude로 부캐 서비스 7일 런칭</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-launchpad.tagline_override">아이디어에서 첫 유료 고객까지, 1주일 안에 직접 완성하는 실전 과정</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -259,16 +252,16 @@
           <a href="courses/claude-pricing-page.html" class="course-card" data-course-id="claude-pricing-page" id="course-claude-pricing-page">
             <div class="course-card-inner">
               <div class="course-thumb">
-                <div class="course-thumb-bg">⚡</div>
+                <div class="course-thumb-bg">✉️</div>
               </div>
               <div class="course-body">
                 <h4 data-edit-field="site_config:course_overrides.claude-pricing-page.title_override">Claude로 만드는 전환 가격 페이지</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-pricing-page.tagline_override">망설이던 고객을 결제로 이끄는 카피·FAQ 설계법</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -276,10 +269,10 @@
         </div>
       </div>
       
-      <div class="cat-block" id="cat-sop">
+      <div class="cat-block" id="cat-operation">
         <div class="cat-header">
-          <h3 class="cat-title"><span class="cat-emoji-large">📋</span> 1인 사업 SOP</h3>
-          <span class="cat-badge">5개 강의</span>
+          <h3 class="cat-title"><span class="cat-emoji-large">📋</span> 혼자도 굴러가는 시스템</h3>
+          <span class="cat-badge">5편</span>
         </div>
         <div class="course-grid">
           
@@ -292,10 +285,10 @@
                 <h4 data-edit-field="site_config:course_overrides.claude-sop.title_override">Claude 워크플로우 SOP 만들기</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-sop.tagline_override">인수인계·외주에 바로 쓰는 재사용 프롬프트 문서</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -309,10 +302,10 @@
                 <h4 data-edit-field="site_config:course_overrides.claude-bizflow.title_override">Claude로 만드는 1인 사업 자동화</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-bizflow.tagline_override">반복 업무를 AI 워크플로우로 대체하는 8차시 실습</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -326,10 +319,10 @@
                 <h4 data-edit-field="site_config:course_overrides.claude-intro-email.title_override">Claude로 완성하는 한 페이지 인사메일</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-intro-email.tagline_override">1인 사업가를 위한 AI 메일 작성 실전 3단계</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -343,10 +336,10 @@
                 <h4 data-edit-field="site_config:course_overrides.claude-mail-writing.title_override">Claude로 1페이지 비즈니스 메일 작성법</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-mail-writing.tagline_override">막히는 인사메일·후속메일을 15분 안에 완성한다</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -360,10 +353,10 @@
                 <h4 data-edit-field="site_config:course_overrides.claude-meeting-notes.title_override">Claude로 회의록 즉시 자동화</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-meeting-notes.tagline_override">녹음 하나로 회의록·액션아이템을 5분 안에 완성</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -371,10 +364,10 @@
         </div>
       </div>
       
-      <div class="cat-block" id="cat-productivity">
+      <div class="cat-block" id="cat-focus">
         <div class="cat-header">
-          <h3 class="cat-title"><span class="cat-emoji-large">🎯</span> 딥워크·생산성</h3>
-          <span class="cat-badge">2개 강의</span>
+          <h3 class="cat-title"><span class="cat-emoji-large">🎯</span> 집중·일하는 법</h3>
+          <span class="cat-badge">2편</span>
         </div>
         <div class="course-grid">
           
@@ -387,10 +380,10 @@
                 <h4 data-edit-field="site_config:course_overrides.deepwork-1hr.title_override">딥워크 1시간 진입법</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.deepwork-1hr.tagline_override">1인 사업가를 위한 집중력 설계 3단계 시스템</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -404,10 +397,10 @@
                 <h4 data-edit-field="site_config:course_overrides.claude-daily-recap.title_override">하루 5분 회고, Claude로 자동 완성</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-daily-recap.tagline_override">부담 없이 매일 쌓이는 회고 루틴을 Claude와 함께 만드는 실습 과정</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -418,7 +411,7 @@
       <div class="cat-block" id="cat-other">
         <div class="cat-header">
           <h3 class="cat-title"><span class="cat-emoji-large">📂</span> 기타 코스</h3>
-          <span class="cat-badge">4개 강의</span>
+          <span class="cat-badge">4편</span>
         </div>
         <div class="course-grid">
           
@@ -431,10 +424,10 @@
                 <h4 data-edit-field="site_config:course_overrides.claude-youtube-plan.title_override">Claude로 완성하는 유튜브 채널 기획</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.claude-youtube-plan.tagline_override">채널 콘셉트부터 스크립트까지, 4주 단계별 실습 과정</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -448,10 +441,10 @@
                 <h4 data-edit-field="site_config:course_overrides.tax-basics-solopreneur.title_override">1인 사업가 세금 기초 완전정복</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.tax-basics-solopreneur.tagline_override">8차시로 끝내는 절세 루틴 — 신고부터 환급까지</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -465,10 +458,10 @@
                 <h4 data-edit-field="site_config:course_overrides.deepwork-1hr-test.title_override">딥워크 1시간 진입법</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.deepwork-1hr-test.tagline_override">1인 사업가를 위한 집중력 설계 3단계</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -482,10 +475,10 @@
                 <h4 data-edit-field="site_config:course_overrides.core-campus-general.title_override">코어 캠퍼스 — 랜딩 카피</h4>
                 <p class="course-tag" data-edit-field="site_config:course_overrides.core-campus-general.tagline_override">콘텐츠·분석·자동화까지, Claude 하나로 하루 업무 흐름을 바꿉니다.</p>
                 <div class="course-meta">
-                  <span class="meta-chip">📚 강의</span>
-                  <span class="meta-chip">⏱ 15분/차시</span>
+                  <span class="meta-chip">한 편 15분</span>
+                  <span class="meta-chip">실습 결과물</span>
                 </div>
-                <span class="course-cta">자세히 보기 →</span>
+                <span class="course-cta">코스 보기</span>
               </div>
             </div>
           </a>
@@ -497,12 +490,6 @@
   </div>
 </section>
 
-
-<section class="testimonials-custom"><div class="wrap"><div style="background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
-  <div class="wrap" style="max-width:1100px;margin:0 auto;padding:48px 32px;text-align:center;">
-    <p style="font-size:14px;color:var(--muted);margin:0;">✦ 실 사용 후기가 곧 도착합니다</p>
-  </div>
-</div></div></section>
 
 
 
@@ -580,10 +567,10 @@
 
 <section class="stats-bar">
   <div class="wrap">
-    <span class="stat-item"><b>266</b>개 콘텐츠</span>
-    <span class="stat-item"><b>17</b>개 코스</span>
-    <span class="stat-item"><b>매일</b> 자동 신규</span>
-    <span class="stat-item"><b>AI 8</b>명 + 사람</span>
+    <span class="stat-item"><b>17</b>편 코스</span>
+    <span class="stat-item"><b>15분</b> 한 편</span>
+    <span class="stat-item"><b>매일</b> 새 코스</span>
+    <span class="stat-item"><b>오늘</b> 첫 실습</span>
   </div>
 </section>
 
@@ -592,17 +579,13 @@
   <footer class="site-footer">
     <div class="wrap">
       
-        <div style="display:flex;flex-direction:column;gap:12px;">
-  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
-    <strong style="font-size:14px;color:var(--fg);">코어 캠퍼스</strong>
-    <span style="font-size:13px;color:var(--muted);">핵심을 다지는 AI 실무 강의</span>
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
   </div>
-  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
-    <a href="mailto:hello@corecampus.kr" style="font-size:13px;color:var(--accent);text-decoration:none;">hello@corecampus.kr</a>
-    <span style="font-size:13px;color:var(--muted);">·</span>
-    <span style="font-size:13px;color:var(--muted);">운영: 코어 캠퍼스 팀</span>
-  </div>
-  <p style="font-size:12px;color:var(--muted);margin:0;opacity:0.7;">&copy; 2025 코어 캠퍼스. 강의 콘텐츠의 무단 복제 및 배포를 금합니다.</p>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
 </div>
       
     </div>

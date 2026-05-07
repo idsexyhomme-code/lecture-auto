@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>#9 고객 FAQ 자동 응답 시스템 설계하기 — 강의 홈페이지</title>
-  <link rel="stylesheet" href="../styles.css?v=1778192309" />
-  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <link rel="stylesheet" href="../styles.css?v=1778192823" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
   <script>
     (function () {
       try {
@@ -27,9 +27,9 @@
   <div class="promo-bar">
     <div class="wrap">
       
-      <a href="#courses" class="promo-chip promo-primary">🎓 코스 무료 미리보기</a>
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
       
-      <a href="#newsletter" class="promo-chip promo-secondary">📩 신규 코스 알림 받기</a>
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
       
     </div>
   </div>
@@ -44,27 +44,27 @@
 
       <div class="nav-cat-wrap">
         <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
-          <span class="cat-icon">☰</span> 카테고리
+          <span class="cat-icon">☰</span> 분야 보기
         </button>
         
         <div class="nav-cat-menu">
           
           <a href="../index.html#cat-automation" class="cat-item">
-            <span class="cat-emoji">⚡</span>
-            <span class="cat-name">Claude 자동화</span>
-            <span class="cat-count">6개</span>
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
           </a>
           
-          <a href="../index.html#cat-sop" class="cat-item">
+          <a href="../index.html#cat-operation" class="cat-item">
             <span class="cat-emoji">📋</span>
-            <span class="cat-name">1인 사업 SOP</span>
-            <span class="cat-count">7개</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
           </a>
           
-          <a href="../index.html#cat-productivity" class="cat-item">
+          <a href="../index.html#cat-focus" class="cat-item">
             <span class="cat-emoji">🎯</span>
-            <span class="cat-name">딥워크·생산성</span>
-            <span class="cat-count">2개</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
           </a>
           
         </div>
@@ -72,14 +72,14 @@
       </div>
 
       <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
-        <input type="search" id="navSearchInput" placeholder="🔍 코스 제목·키워드로 검색..." />
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
       </form>
 
       <nav class="nav-actions">
-        <a href="../index.html#courses">코스</a>
+        <a href="../index.html#courses">전체 코스</a>
         <a href="../me/" class="nav-me">
           <span class="me-icon">👤</span>
-          <span>마이</span>
+          <span>나중에 보기</span>
         </a>
       </nav>
     </div>
@@ -239,17 +239,13 @@ FAQ 중 3개를 직접 질문해 보세요.
   <footer class="site-footer">
     <div class="wrap">
       
-        <div style="display:flex;flex-direction:column;gap:12px;">
-  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
-    <strong style="font-size:14px;color:var(--fg);">코어 캠퍼스</strong>
-    <span style="font-size:13px;color:var(--muted);">핵심을 다지는 AI 실무 강의</span>
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
   </div>
-  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
-    <a href="mailto:hello@corecampus.kr" style="font-size:13px;color:var(--accent);text-decoration:none;">hello@corecampus.kr</a>
-    <span style="font-size:13px;color:var(--muted);">·</span>
-    <span style="font-size:13px;color:var(--muted);">운영: 코어 캠퍼스 팀</span>
-  </div>
-  <p style="font-size:12px;color:var(--muted);margin:0;opacity:0.7;">&copy; 2025 코어 캠퍼스. 강의 콘텐츠의 무단 복제 및 배포를 금합니다.</p>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
 </div>
       
     </div>

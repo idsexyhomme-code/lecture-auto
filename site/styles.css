@@ -300,13 +300,13 @@ a:hover { text-decoration: underline; }
 /* design_tokens — site_developer Tier 2 (overrides above) */
 :root {
   --bg: #FBF8F3;
-  --fg: #1C1814;
-  --brand: #3D2F1E;
-  --accent: #A0722A;
-  --soft: #EDE4D6;
+  --fg: #1C1917;
+  --brand: #3D2B1F;
+  --accent: #A0732A;
+  --soft: #EDE5D8;
   --font-family-sans: 'Pretendard', system-ui, sans-serif;
-  --radius-card: 8px;
-  --muted: #5A4E42;
-  --line: #DDD5C8;
-  --brand-2: #6B4E2E;
+  --radius-card: 6px;
+  --muted: #7A6A5A;
+  --line: #EDE5D8;
+  --brand-2: #5C3D22;
 }
