@@ -1,0 +1,13 @@
+{
+  "agent": "marketing",
+  "brief": {
+    "course_id": "claude-bizflow",
+    "course_title": "Claude로 만드는 1인 사업 자동화",
+    "audience": "혼자 다 하느라 본업 시간 못 내는 1인 사업가",
+    "promises": [
+      "고객 응대·이메일·SOP 모두 Claude에 위임",
+      "주 10시간 이상 자유 시간 회복",
+      "1주일에 1코스 완성 가능한 워크플로우"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "agent": "success",
+  "brief": {
+    "course_id": "claude-bizflow",
+    "course_title": "Claude로 만드는 1인 사업 자동화",
+    "audience": "본업 시간 못 내는 1인 사업가",
+    "common_concerns": [
+      "기술 모르는데 따라갈 수 있을까",
+      "Claude API 비용 너무 비싸지 않나",
+      "보안 — 내 데이터 안전한가"
+    ]
+  }
+}

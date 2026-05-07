@@ -1,0 +1,9 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "hero",
+    "style_keywords": ["editorial", "warm beige", "minimal", "trustworthy"],
+    "color_mood": "warm",
+    "additional_context": "코어 캠퍼스 메인 hero 영역. 1인 사업가에게 *Claude로 사업 자동화* 가치를 8초 안에 전달."
+  }
+}

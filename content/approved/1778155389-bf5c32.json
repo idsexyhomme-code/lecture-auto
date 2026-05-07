@@ -1,0 +1,127 @@
+{
+  "id": "1778155389-bf5c32",
+  "agent": "ui_designer",
+  "kind": "design_variants",
+  "title": "[디자인 시안] hero — 3개 변형",
+  "body_md": "## hero — 변형 3개\n\n코어 캠퍼스 메인 히어로 3변형 — 에디토리얼/임팩트/서사\n\n### V1 · 에디토리얼 모던\n_차분한 학술 매거진 같은 진중함 — 텍스트가 주인공, 이미지는 보조_\n\n**팔레트**: bg=#FBF8F3, fg=#1A1814, brand=#3D2F1E, accent=#B8860B, soft=#F0E9DC\n\n**이유**: 지식 창업가는 '진지하게 일하는 전문가'로 보이고 싶어한다. 매거진 그리드 레이아웃은 정보를 위계 있게 배치해 신뢰감을 먼저 구축하고, 수치 배지가 결과를 조용하지만 강하게 증명한다. 텍스트 우선 구도는 독서 습관이 있는 1인 사업가에게 8초 안에 가치를 읽히도록 설계되었다.\n\n**이미지 프롬프트** (4개):\n- 베이지와 딥브라운 팔레트, 얇은 선으로 그린 추상 워크플로우 다이어그램, 미니멀 에디토리얼 스타일, 흰 여백 중심\n- 머스타드 골드 포인트 컬러의 기하학적 노드 네트워크 패턴, 크림 바탕, 잉크 드로잉 질감\n- 책상 위 노트북과 메모지 플랫레이, 따뜻한 자연광, 오버헤드 뷰, 인물 없음, 아카데믹 분위기\n- 손으로 쓴 한국어 마인드맵 스케치, 크림 종이 질감, 브라운 잉크, 미니멀 구도\n\n### V2 · 임팩트 풀블리드\n_강렬하고 단호한 선언 — 이미지가 배경을 장악하고 카피가 명령형으로 끊어침_\n\n**팔레트**: bg=#1C1712, fg=#F5F0E8, brand=#C8922A, accent=#E8C87A, soft=#2E2820\n\n**이유**: 명령형 카피('넘기세요')는 결단을 앞둔 1인 사업가의 내면 목소리를 대신하며 즉각적인 공감을 유도한다. 다크 풀블리드 배경은 '기회비용'이라는 무게감을 시각화하고, 골드 액센트가 프리미엄 신뢰를 구축한다. 우측 소셜 프루프 카드는 시선이 자연히 좌→우로 이동하면서 결심을 강화하는 흐름을 설계한다.\n\n**이미지 프롬프트** (4개):\n- 딥브라운-블랙 배경에 골드 발광 입자들로 이루어진 추상 네트워크, 사이버펑크보다 차분한 아카데믹 톤, 넓은 화각\n- 어두운 크래프트 페이퍼 질감 배경 위 골드 잉크로 그린 흐름도, 따뜻한 앰버 빛, 미니멀\n- 블랙 책상 위 노트북 화면에서 흘러나오는 따뜻한 황금빛, 오버헤드 뷰, 인물 없음, 드라마틱 조명\n- 딥 차콜 바탕에 얇은 황금 선으로 연결된 기하학 노드, 추상적, 넓은 여백, 글로벌 아카데믹 톤\n\n### V3 · 서사 비대칭\n_1인 사업가의 여정을 이야기처럼 풀어내는 온기 있는 서사 — 분할 레이아웃, 세리프 혼합_\n\n**팔레트**: bg=#F7F3EC, fg=#2C2318, brand=#8B5E3C, accent=#D4854A, soft=#EDE5D8\n\n**이유**: 1인 사업가는 도구 설명 전에 자신의 문제가 먼저 '이해받는다'는 감각을 필요로 한다. 3단계 서사 구조(문제→해결책→행동)가 비대칭 분할 레이아웃 안에서 자연스럽게 읽히며, 브라운 좌측 패널이 코어 캠퍼스의 권위를 조용히 확보한다. 세리프 이탤릭 헤드라인은 에디토리얼 감성과 온기를 동시에 주어 '설득'보다 '공감'으로 전환율을 높인다.\n\n**이미지 프롬프트** (5개):\n- 테라코타-브라운 팔레트, 추상 상승 곡선과 점선으로 표현한 성장 여정 일러스트, 따뜻한 한국적 정서, 세로 구도\n- 크림 종이 위 오렌지브라운 수채화 번짐, 미니멀 기하 도형, 온기 있는 분위기, 패턴 없이 여백 중심\n- 나무 책상 위 열린 다이어리와 커피잔, 따뜻한 오후 햇살, 인물 없음, 플랫레이, 한국적 아늑함\n- 테라코타 오렌지 톤의 추상 워크플로우 노드 다이어그램, 손그림 스타일 선, 크림 바탕, 아카데믹 미니멀\n- 따뜻한 앰버 빛 그라데이션 배경 위 흰 선으로 그린 추상 성장 그래프, 글로벌 아카데믹 톤, 와이드 비율",
+  "summary": "코어 캠퍼스 메인 히어로 3변형 — 에디토리얼/임팩트/서사",
+  "meta": {
+    "target": "hero",
+    "variants": [
+      {
+        "id": "v1",
+        "name": "에디토리얼 모던",
+        "vibe": "차분한 학술 매거진 같은 진중함 — 텍스트가 주인공, 이미지는 보조",
+        "color_palette": {
+          "bg": "#FBF8F3",
+          "fg": "#1A1814",
+          "brand": "#3D2F1E",
+          "accent": "#B8860B",
+          "soft": "#F0E9DC"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:1120px;margin:0 auto;padding:80px 40px 96px;display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:center;\">\n  <div style=\"display:flex;flex-direction:column;gap:32px;\">\n    <div style=\"display:flex;align-items:center;gap:12px;\">\n      <span style=\"display:inline-block;width:32px;height:2px;background:var(--accent,#B8860B);\"></span>\n      <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:12px;font-weight:600;letter-spacing:0.14em;color:var(--accent,#B8860B);text-transform:uppercase;\">Core Campus · AI 사업 자동화</span>\n    </div>\n    <h1 style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:clamp(36px,5vw,60px);font-weight:800;line-height:1.12;letter-spacing:-0.03em;color:var(--fg,#1A1814);margin:0;\">\n      Claude로<br>\n      <em style=\"font-style:normal;color:var(--brand,#3D2F1E);\">당신의 사업을</em><br>\n      스스로 돌아가게.\n    </h1>\n    <p style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:18px;line-height:1.7;color:#4A4238;max-width:480px;margin:0;\">혼자 운영하는 사업에서 반복 업무는 성장을 막는 벽입니다. 코어 캠퍼스는 1인 사업가가 Claude를 실무에 연결해 <strong>하루 3시간을 되찾는 법</strong>을 가르칩니다.</p>\n    <div style=\"display:flex;align-items:center;gap:16px;flex-wrap:wrap;\">\n      <a href=\"/courses\" style=\"display:inline-flex;align-items:center;gap:8px;background:var(--brand,#3D2F1E);color:#FBF8F3;font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:15px;font-weight:600;padding:14px 28px;border-radius:var(--radius-card,8px);text-decoration:none;letter-spacing:0.01em;\" role=\"button\">강의 둘러보기 <span aria-hidden=\"true\" style=\"font-size:18px;\">→</span></a>\n      <a href=\"/about\" style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:14px;font-weight:500;color:var(--brand,#3D2F1E);text-decoration:underline;text-underline-offset:4px;\">어떤 강의인지 먼저 보기</a>\n    </div>\n    <div style=\"display:flex;align-items:center;gap:24px;padding-top:8px;border-top:1px solid #E8E0D4;\">\n      <div style=\"text-align:center;\">\n        <span style=\"display:block;font-size:22px;font-weight:800;color:var(--fg,#1A1814);\">1,200+</span>\n        <span style=\"font-size:12px;color:#7A6E64;\">수강생</span>\n      </div>\n      <div style=\"width:1px;height:32px;background:#E8E0D4;\"></div>\n      <div style=\"text-align:center;\">\n        <span style=\"display:block;font-size:22px;font-weight:800;color:var(--fg,#1A1814);\">4.9</span>\n        <span style=\"font-size:12px;color:#7A6E64;\">평균 만족도</span>\n      </div>\n      <div style=\"width:1px;height:32px;background:#E8E0D4;\"></div>\n      <div style=\"text-align:center;\">\n        <span style=\"display:block;font-size:22px;font-weight:800;color:var(--fg,#1A1814);\">8주</span>\n        <span style=\"font-size:12px;color:#7A6E64;\">완성 커리큘럼</span>\n      </div>\n    </div>\n  </div>\n  <figure style=\"margin:0;border-radius:var(--radius-card,8px);overflow:hidden;position:relative;\">\n    <img src=\"/assets/placeholder/hero-editorial.svg\" alt=\"Claude 자동화 워크플로우 추상 일러스트\" style=\"width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border-radius:var(--radius-card,8px);\" />\n    <figcaption style=\"position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(26,24,20,0.7));padding:24px 20px 20px;\">\n      <blockquote style=\"margin:0;border:none;padding:0;\">\n        <p style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:14px;line-height:1.6;color:#F0E9DC;margin:0 0 8px;\">&ldquo;Claude 연동 후 고객 응대 시간이 90% 줄었습니다.&rdquo;</p>\n        <small style=\"font-size:12px;color:#B8A898;\">— 마케팅 컨설턴트, 수강생</small>\n      </blockquote>\n    </figcaption>\n  </figure>\n</div>",
+        "design_tokens": {
+          "color_bg": "#FBF8F3",
+          "color_fg": "#1A1814",
+          "color_muted": "#7A6E64",
+          "color_line": "#E8E0D4",
+          "color_brand": "#3D2F1E",
+          "color_brand_2": "#5C4A35",
+          "color_accent": "#B8860B",
+          "color_soft": "#F0E9DC",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "8px"
+        },
+        "image_prompts": [
+          "베이지와 딥브라운 팔레트, 얇은 선으로 그린 추상 워크플로우 다이어그램, 미니멀 에디토리얼 스타일, 흰 여백 중심",
+          "머스타드 골드 포인트 컬러의 기하학적 노드 네트워크 패턴, 크림 바탕, 잉크 드로잉 질감",
+          "책상 위 노트북과 메모지 플랫레이, 따뜻한 자연광, 오버헤드 뷰, 인물 없음, 아카데믹 분위기",
+          "손으로 쓴 한국어 마인드맵 스케치, 크림 종이 질감, 브라운 잉크, 미니멀 구도"
+        ],
+        "reasoning": "지식 창업가는 '진지하게 일하는 전문가'로 보이고 싶어한다. 매거진 그리드 레이아웃은 정보를 위계 있게 배치해 신뢰감을 먼저 구축하고, 수치 배지가 결과를 조용하지만 강하게 증명한다. 텍스트 우선 구도는 독서 습관이 있는 1인 사업가에게 8초 안에 가치를 읽히도록 설계되었다."
+      },
+      {
+        "id": "v2",
+        "name": "임팩트 풀블리드",
+        "vibe": "강렬하고 단호한 선언 — 이미지가 배경을 장악하고 카피가 명령형으로 끊어침",
+        "color_palette": {
+          "bg": "#1C1712",
+          "fg": "#F5F0E8",
+          "brand": "#C8922A",
+          "accent": "#E8C87A",
+          "soft": "#2E2820"
+        },
+        "html": "<div class=\"wrap\" style=\"position:relative;min-height:620px;display:flex;align-items:flex-end;overflow:hidden;border-radius:0;\">\n  <figure style=\"position:absolute;inset:0;margin:0;z-index:0;\">\n    <img src=\"/assets/placeholder/hero-fullbleed.svg\" alt=\"추상 AI 네트워크 배경 일러스트\" style=\"width:100%;height:100%;object-fit:cover;display:block;opacity:0.55;\" />\n    <div style=\"position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,23,18,0.92) 45%,rgba(28,23,18,0.3) 100%);\"></div>\n  </figure>\n  <div style=\"position:relative;z-index:1;width:100%;max-width:1120px;margin:0 auto;padding:80px 40px 72px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;\">\n    <div style=\"display:flex;flex-direction:column;gap:28px;\">\n      <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:11px;font-weight:700;letter-spacing:0.18em;color:var(--accent,#E8C87A);text-transform:uppercase;\">Claude · 사업 자동화 강의</span>\n      <h1 style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:clamp(40px,5.5vw,68px);font-weight:900;line-height:1.06;letter-spacing:-0.04em;color:#F5F0E8;margin:0;\">\n        반복 업무,<br>\n        <span style=\"color:var(--accent,#E8C87A);\">Claude에게</span><br>\n        넘기세요.\n      </h1>\n      <p style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:17px;line-height:1.65;color:#C8BFB0;max-width:420px;margin:0;\">1인 사업가가 하루 3시간을 되찾는 실전 자동화. 이론 없이, 즉시 쓰는 워크플로우만 담았습니다.</p>\n      <a href=\"/courses\" style=\"display:inline-flex;align-items:center;gap:10px;background:var(--brand,#C8922A);color:#1C1712;font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:15px;font-weight:800;padding:16px 32px;border-radius:var(--radius-card,8px);text-decoration:none;letter-spacing:0.01em;width:fit-content;\" role=\"button\">지금 시작하기 <span aria-hidden=\"true\" style=\"font-size:20px;\">↗</span></a>\n    </div>\n    <div style=\"display:flex;flex-direction:column;gap:16px;\">\n      <div style=\"background:rgba(255,255,255,0.06);border:1px solid rgba(200,180,140,0.2);border-radius:var(--radius-card,8px);padding:20px 24px;backdrop-filter:blur(8px);\">\n        <span style=\"font-size:13px;font-weight:600;color:var(--accent,#E8C87A);display:block;margin-bottom:8px;\">수강생 후기</span>\n        <p style=\"font-size:15px;line-height:1.6;color:#E8E0D0;margin:0 0 10px;\">&ldquo;강의 듣고 다음 날부터 바로 적용했습니다. 한 달 만에 외주비 200만 원을 줄였어요.&rdquo;</p>\n        <small style=\"font-size:12px;color:#8A8070;\">— 브랜드 컨설턴트</small>\n      </div>\n      <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:12px;\">\n        <div style=\"background:rgba(255,255,255,0.04);border:1px solid rgba(200,180,140,0.15);border-radius:var(--radius-card,8px);padding:16px 20px;\">\n          <span style=\"font-size:28px;font-weight:900;color:#F5F0E8;display:block;\">1,200<span style=\"color:var(--accent,#E8C87A);\">+</span></span>\n          <span style=\"font-size:12px;color:#8A8070;\">누적 수강생</span>\n        </div>\n        <div style=\"background:rgba(255,255,255,0.04);border:1px solid rgba(200,180,140,0.15);border-radius:var(--radius-card,8px);padding:16px 20px;\">\n          <span style=\"font-size:28px;font-weight:900;color:#F5F0E8;display:block;\">3<span style=\"color:var(--accent,#E8C87A);\">hr</span></span>\n          <span style=\"font-size:12px;color:#8A8070;\">평균 절약 시간/일</span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#1C1712",
+          "color_fg": "#F5F0E8",
+          "color_muted": "#8A8070",
+          "color_line": "#3A3228",
+          "color_brand": "#C8922A",
+          "color_brand_2": "#A87520",
+          "color_accent": "#E8C87A",
+          "color_soft": "#2E2820",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "8px"
+        },
+        "image_prompts": [
+          "딥브라운-블랙 배경에 골드 발광 입자들로 이루어진 추상 네트워크, 사이버펑크보다 차분한 아카데믹 톤, 넓은 화각",
+          "어두운 크래프트 페이퍼 질감 배경 위 골드 잉크로 그린 흐름도, 따뜻한 앰버 빛, 미니멀",
+          "블랙 책상 위 노트북 화면에서 흘러나오는 따뜻한 황금빛, 오버헤드 뷰, 인물 없음, 드라마틱 조명",
+          "딥 차콜 바탕에 얇은 황금 선으로 연결된 기하학 노드, 추상적, 넓은 여백, 글로벌 아카데믹 톤"
+        ],
+        "reasoning": "명령형 카피('넘기세요')는 결단을 앞둔 1인 사업가의 내면 목소리를 대신하며 즉각적인 공감을 유도한다. 다크 풀블리드 배경은 '기회비용'이라는 무게감을 시각화하고, 골드 액센트가 프리미엄 신뢰를 구축한다. 우측 소셜 프루프 카드는 시선이 자연히 좌→우로 이동하면서 결심을 강화하는 흐름을 설계한다."
+      },
+      {
+        "id": "v3",
+        "name": "서사 비대칭",
+        "vibe": "1인 사업가의 여정을 이야기처럼 풀어내는 온기 있는 서사 — 분할 레이아웃, 세리프 혼합",
+        "color_palette": {
+          "bg": "#F7F3EC",
+          "fg": "#2C2318",
+          "brand": "#8B5E3C",
+          "accent": "#D4854A",
+          "soft": "#EDE5D8"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:1120px;margin:0 auto;padding:64px 40px 88px;\">\n  <div style=\"display:grid;grid-template-columns:2fr 3fr;gap:0;min-height:520px;border-radius:var(--radius-card,8px);overflow:hidden;box-shadow:0 2px 40px rgba(44,35,24,0.08);\">\n    <div style=\"background:var(--brand,#8B5E3C);padding:48px 40px;display:flex;flex-direction:column;justify-content:space-between;\">\n      <div>\n        <span style=\"display:block;font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:11px;font-weight:700;letter-spacing:0.16em;color:rgba(240,233,220,0.7);text-transform:uppercase;margin-bottom:32px;\">Core Campus</span>\n        <h2 style=\"font-family:Georgia,'Times New Roman',serif;font-size:clamp(22px,2.8vw,34px);font-weight:400;font-style:italic;line-height:1.35;color:#F0E9DC;margin:0 0 24px;\">혼자 일하면서도<br>크게 성장하는<br>방법이 있습니다.</h2>\n        <p style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:14px;line-height:1.75;color:rgba(240,233,220,0.75);margin:0;\">1인 사업가 1,200명이<br>이미 확인했습니다.</p>\n      </div>\n      <figure style=\"margin:0;border-radius:4px;overflow:hidden;\">\n        <img src=\"/assets/placeholder/hero-story-left.svg\" alt=\"따뜻한 톤의 추상 성장 곡선 일러스트\" style=\"width:100%;aspect-ratio:4/3;object-fit:cover;display:block;opacity:0.85;\" />\n      </figure>\n    </div>\n    <div style=\"background:var(--bg,#F7F3EC);padding:48px 48px 40px;display:flex;flex-direction:column;justify-content:space-between;\">\n      <div style=\"display:flex;flex-direction:column;gap:24px;\">\n        <div style=\"display:flex;gap:16px;align-items:flex-start;\">\n          <span style=\"flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--soft,#EDE5D8);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--brand,#8B5E3C);\">1</span>\n          <p style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:15px;line-height:1.65;color:#4A3C2E;margin:0;\"><strong style=\"color:var(--fg,#2C2318);\">반복 업무가 하루를 잡아먹는다</strong> — 견적서, 고객 응대, SNS 답변. 혼자 하면 끝이 없습니다.</p>\n        </div>\n        <div style=\"display:flex;gap:16px;align-items:flex-start;\">\n          <span style=\"flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--soft,#EDE5D8);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--brand,#8B5E3C);\">2</span>\n          <p style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:15px;line-height:1.65;color:#4A3C2E;margin:0;\"><strong style=\"color:var(--fg,#2C2318);\">Claude는 실무 도구다</strong> — 코딩 없이 연결하고, 자동화하고, 시간을 되찾습니다.</p>\n        </div>\n        <div style=\"display:flex;gap:16px;align-items:flex-start;\">\n          <span style=\"flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent,#D4854A);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#FBF8F3;\">3</span>\n          <p style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:15px;line-height:1.65;color:#4A3C2E;margin:0;\"><strong style=\"color:var(--fg,#2C2318);\">코어 캠퍼스가 연결해 드립니다</strong> — 8주 커리큘럼, 실전 예제, 즉시 적용 가능한 프롬프트.</p>\n        </div>\n      </div>\n      <div style=\"margin-top:32px;\">\n        <h1 style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:clamp(28px,3.5vw,46px);font-weight:900;line-height:1.1;letter-spacing:-0.03em;color:var(--fg,#2C2318);margin:0 0 20px;\">Claude로 사업을<br><span style=\"color:var(--accent,#D4854A);\">자동화</span>하세요.</h1>\n        <div style=\"display:flex;align-items:center;gap:12px;flex-wrap:wrap;\">\n          <a href=\"/courses\" style=\"display:inline-flex;align-items:center;gap:8px;background:var(--accent,#D4854A);color:#FBF8F3;font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:15px;font-weight:700;padding:14px 28px;border-radius:var(--radius-card,8px);text-decoration:none;\" role=\"button\">무료 맛보기 강의 →</a>\n          <div style=\"display:flex;align-items:center;gap:6px;\">\n            <span style=\"color:#D4854A;font-size:14px;\">★★★★★</span>\n            <span style=\"font-size:13px;color:#7A6858;\">4.9점 · 수강생 1,200+</span>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#F7F3EC",
+          "color_fg": "#2C2318",
+          "color_muted": "#7A6858",
+          "color_line": "#E0D8CC",
+          "color_brand": "#8B5E3C",
+          "color_brand_2": "#6A4828",
+          "color_accent": "#D4854A",
+          "color_soft": "#EDE5D8",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "8px"
+        },
+        "image_prompts": [
+          "테라코타-브라운 팔레트, 추상 상승 곡선과 점선으로 표현한 성장 여정 일러스트, 따뜻한 한국적 정서, 세로 구도",
+          "크림 종이 위 오렌지브라운 수채화 번짐, 미니멀 기하 도형, 온기 있는 분위기, 패턴 없이 여백 중심",
+          "나무 책상 위 열린 다이어리와 커피잔, 따뜻한 오후 햇살, 인물 없음, 플랫레이, 한국적 아늑함",
+          "테라코타 오렌지 톤의 추상 워크플로우 노드 다이어그램, 손그림 스타일 선, 크림 바탕, 아카데믹 미니멀",
+          "따뜻한 앰버 빛 그라데이션 배경 위 흰 선으로 그린 추상 성장 그래프, 글로벌 아카데믹 톤, 와이드 비율"
+        ],
+        "reasoning": "1인 사업가는 도구 설명 전에 자신의 문제가 먼저 '이해받는다'는 감각을 필요로 한다. 3단계 서사 구조(문제→해결책→행동)가 비대칭 분할 레이아웃 안에서 자연스럽게 읽히며, 브라운 좌측 패널이 코어 캠퍼스의 권위를 조용히 확보한다. 세리프 이탤릭 헤드라인은 에디토리얼 감성과 온기를 동시에 주어 '설득'보다 '공감'으로 전환율을 높인다."
+      }
+    ],
+    "brief_echo": {
+      "purpose": "(미지정)",
+      "audience": "(미지정)",
+      "style_keywords": [
+        "editorial",
+        "warm beige",
+        "minimal",
+        "trustworthy"
+      ],
+      "color_mood": "warm",
+      "reference_urls": []
+    },
+    "chosen_variant_id": "v1"
+  },
+  "course_id": "",
+  "created_at": "2026-05-07T12:03:09+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}

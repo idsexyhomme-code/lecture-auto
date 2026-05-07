@@ -109,10 +109,13 @@ footer.site {
 /* design_tokens — site_developer Tier 2 (overrides above) */
 :root {
   --bg: #FBF8F3;
-  --fg: #1C1810;
+  --fg: #1A1814;
   --brand: #3D2F1E;
   --accent: #B8860B;
-  --soft: #EDE4D4;
-  --font-family-sans: 'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif;
+  --soft: #F0E9DC;
+  --font-family-sans: 'Pretendard', system-ui, sans-serif;
   --radius-card: 8px;
+  --muted: #7A6E64;
+  --line: #E8E0D4;
+  --brand-2: #5C4A35;
 }
