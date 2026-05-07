@@ -1,0 +1,125 @@
+{
+  "id": "1778189172-63e548",
+  "agent": "ui_designer",
+  "kind": "design_variants",
+  "title": "[디자인 시안] hero — 3개 변형",
+  "body_md": "## hero — 변형 3개\n\n코어 캠퍼스 'Claude로 만드는 전환 가격 페이지' 히어로 3변형 — 에디토리얼/임팩트/서사\n\n### V1 · 에디토리얼 모던\n_학술 매거진 표지처럼 차분하고 진중한 신뢰감. 텍스트가 중심이고 여백이 말한다._\n\n**팔레트**: bg=#FBF8F3, fg=#1C1815, brand=#3D2B1A, accent=#A0732A, soft=#EDE5D8\n\n**이유**: 지식 창업가가 처음 랜딩에서 느껴야 할 감정은 '이 사람은 나와 진지하게 일한다'는 신뢰다. 세리프 헤드라인과 그리드 기반 2단 구성은 학술 매거진의 편집 언어를 빌려 그 신뢰를 즉각적으로 전달한다. 텍스트 우선 레이아웃과 절제된 웜 팔레트는 과장 없이 코스의 전문성을 증명한다.\n\n**이미지 프롬프트** (4개):\n- 베이지와 딥브라운 팔레트의 미니멀 추상 구성, 종이 질감 위에 기하학적 선과 면이 레이어드된 아카데믹 일러스트\n- 따뜻한 크림색 배경에 손으로 스케치된 것 같은 가격표와 체크마크 아이콘, 잉크 드로잉 스타일, 한국적 정서\n- 머스타드 골드와 오프화이트 색감의 추상 페이퍼 텍스처, 미니멀 편집 디자인, 학술 매거진 표지 스타일\n- 딥브라운 선으로 그려진 열린 노트북과 문서 아이콘, 베이지 배경, 글로벌 아카데믹 톤\n\n### V2 · 풀블리드 임팩트\n_첫 문장이 주먹처럼 꽂히는 직접적 선언. 어두운 배경과 대형 타이포가 8초 안에 메시지를 완성한다._\n\n**팔레트**: bg=#1E1710, fg=#F5F0E8, brand=#C4873A, accent=#E8C97A, soft=#2E2518\n\n**이유**: 전환이 막힌 1인 사업가는 이미 무언가 잘못됐다는 것을 안다. 이 변형은 그 감각을 정면으로 건드리는 선언형 카피를 대형 타이포로 즉각 제시한다. 어두운 배경은 고급감과 집중도를 동시에 높이며, 중앙 정렬 풀블리드 구성은 8초 안에 헤드라인 하나만 읽히도록 시선 경로를 단순화한다.\n\n**이미지 프롬프트** (3개):\n- 딥 브라운-블랙 배경에 골드 머스타드 빛이 중앙에서 퍼져나오는 추상 라이트 블룸, 고급스러운 글로벌 아카데믹 톤\n- 어두운 카페 테이블 위 오픈된 노트와 따뜻한 조명, 미니멀 탑뷰 스타일, 배경 없이 텍스처만, 브라운 팔레트\n- 금색 선으로 그려진 상승 곡선과 체크포인트 아이콘, 다크 배경, 절제된 인포그래픽 스타일, 한국적 정서\n\n### V3 · 서사형 분할\n_고객의 현재 고통에서 출발해 해결로 이어지는 이야기 구조. 비대칭 레이아웃이 여정을 암시한다._\n\n**팔레트**: bg=#F6F2EC, fg=#252018, brand=#6B4C2A, accent=#C07840, soft=#E8DFD0\n\n**이유**: 전환이 막힌 1인 사업가는 이미 여러 번 시도했지만 안 됐다는 좌절을 갖고 있다. 이 변형은 그 실제 목소리를 인용구로 시작해 공감을 먼저 얻은 다음 해결책으로 자연스럽게 진입하는 서사 구조를 취한다. 비대칭 5:4 그리드와 세리프 헤드라인은 에디토리얼 신뢰감을 유지하면서도, 우측 체크리스트가 구체적 결과물을 눈에 띄게 나열해 구매 결정을 돕는다.\n\n**이미지 프롬프트** (4개):\n- 크림 베이지 배경 위에 종이 서류와 체크리스트를 미니멀하게 표현한 플랫 일러스트, 딥브라운과 테라코타 팔레트, 한국적 정서\n- 따뜻한 갈색 계열 수채화 텍스처 배경에 열린 노트와 펜 아이콘, 아카데믹하고 사색적인 분위기, 글로벌 아카데믹 톤\n- 오프화이트 위에 브론즈 선으로 그린 미니멀 UI 와이어프레임, 가격 카드 형태, 편집 디자인 스타일\n- 옅은 크림과 딥 앰버 색감의 추상 종이 콜라주, 기하학적 면 분할, 한국적 정서",
+  "summary": "코어 캠퍼스 'Claude로 만드는 전환 가격 페이지' 히어로 3변형 — 에디토리얼/임팩트/서사",
+  "meta": {
+    "target": "hero",
+    "variants": [
+      {
+        "id": "v1",
+        "name": "에디토리얼 모던",
+        "vibe": "학술 매거진 표지처럼 차분하고 진중한 신뢰감. 텍스트가 중심이고 여백이 말한다.",
+        "color_palette": {
+          "bg": "#FBF8F3",
+          "fg": "#1C1815",
+          "brand": "#3D2B1A",
+          "accent": "#A0732A",
+          "soft": "#EDE5D8"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:960px;margin:0 auto;padding:80px 32px 72px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;\">\n  <div style=\"display:flex;flex-direction:column;gap:24px;\">\n    <div style=\"display:inline-flex;align-items:center;gap:10px;\">\n      <span style=\"display:block;width:32px;height:2px;background:var(--accent,#A0732A);\"></span>\n      <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent,#A0732A);\">Core Campus · 강의</span>\n    </div>\n    <h1 style=\"font-family:'Georgia','Batang',serif;font-size:clamp(32px,4.5vw,52px);font-weight:700;line-height:1.18;letter-spacing:-0.01em;color:var(--fg,#1C1815);margin:0;\">\n      가격 페이지에서<br>\n      <em style=\"font-style:italic;color:var(--accent,#A0732A);\">팔리지 않는 이유</em>는<br>\n      하나입니다\n    </h1>\n    <p style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:17px;line-height:1.75;color:#5C4F42;max-width:400px;margin:0;\">Claude와 함께 고객이 &lsquo;이 가격, 납득된다&rsquo;고 느끼는 전환 가격 페이지를 설계하는 실전 코스입니다.</p>\n    <div style=\"display:flex;align-items:center;gap:16px;margin-top:8px;\">\n      <a href=\"#enroll\" style=\"display:inline-block;padding:14px 28px;background:var(--brand,#3D2B1A);color:#FBF8F3;font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:15px;font-weight:600;text-decoration:none;border-radius:var(--radius-card,8px);letter-spacing:0.02em;\">수강 신청하기</a>\n      <a href=\"#curriculum\" style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:14px;font-weight:500;color:var(--accent,#A0732A);text-decoration:underline;text-underline-offset:3px;\">커리큘럼 보기 →</a>\n    </div>\n    <div style=\"display:flex;gap:28px;margin-top:16px;padding-top:16px;border-top:1px solid #DDD5C8;\">\n      <div style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);\">\n        <div style=\"font-size:22px;font-weight:700;color:var(--fg,#1C1815);\">4주</div>\n        <div style=\"font-size:12px;color:#8A7A6A;margin-top:2px;\">집중 과정</div>\n      </div>\n      <div style=\"width:1px;background:#DDD5C8;\"></div>\n      <div style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);\">\n        <div style=\"font-size:22px;font-weight:700;color:var(--fg,#1C1815);\">12강</div>\n        <div style=\"font-size:12px;color:#8A7A6A;margin-top:2px;\">실전 레슨</div>\n      </div>\n      <div style=\"width:1px;background:#DDD5C8;\"></div>\n      <div style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);\">\n        <div style=\"font-size:22px;font-weight:700;color:var(--fg,#1C1815);\">1인 사업가</div>\n        <div style=\"font-size:12px;color:#8A7A6A;margin-top:2px;\">전용 설계</div>\n      </div>\n    </div>\n  </div>\n  <figure style=\"margin:0;position:relative;\">\n    <div style=\"border-radius:var(--radius-card,8px);overflow:hidden;background:var(--soft,#EDE5D8);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;\">\n      <img src=\"/assets/placeholder/hero-editorial.svg\" alt=\"가격 페이지 설계 과정을 보여주는 추상 일러스트\" style=\"width:100%;height:100%;object-fit:cover;border-radius:var(--radius-card,8px);\" />\n    </div>\n    <figcaption style=\"margin-top:10px;font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:11px;color:#9A8A7A;text-align:right;letter-spacing:0.04em;\">Core Campus 수강생 가격 페이지 작업 예시</figcaption>\n    <div style=\"position:absolute;top:-16px;right:-16px;width:80px;height:80px;border-radius:50%;background:var(--accent,#A0732A);display:flex;align-items:center;justify-content:center;\">\n      <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:11px;font-weight:700;color:#FBF8F3;text-align:center;line-height:1.3;\">Claude<br>활용</span>\n    </div>\n  </figure>\n</div>",
+        "design_tokens": {
+          "color_bg": "#FBF8F3",
+          "color_fg": "#1C1815",
+          "color_muted": "#8A7A6A",
+          "color_line": "#DDD5C8",
+          "color_brand": "#3D2B1A",
+          "color_brand_2": "#5C4038",
+          "color_accent": "#A0732A",
+          "color_soft": "#EDE5D8",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "8px"
+        },
+        "image_prompts": [
+          "베이지와 딥브라운 팔레트의 미니멀 추상 구성, 종이 질감 위에 기하학적 선과 면이 레이어드된 아카데믹 일러스트",
+          "따뜻한 크림색 배경에 손으로 스케치된 것 같은 가격표와 체크마크 아이콘, 잉크 드로잉 스타일, 한국적 정서",
+          "머스타드 골드와 오프화이트 색감의 추상 페이퍼 텍스처, 미니멀 편집 디자인, 학술 매거진 표지 스타일",
+          "딥브라운 선으로 그려진 열린 노트북과 문서 아이콘, 베이지 배경, 글로벌 아카데믹 톤"
+        ],
+        "reasoning": "지식 창업가가 처음 랜딩에서 느껴야 할 감정은 '이 사람은 나와 진지하게 일한다'는 신뢰다. 세리프 헤드라인과 그리드 기반 2단 구성은 학술 매거진의 편집 언어를 빌려 그 신뢰를 즉각적으로 전달한다. 텍스트 우선 레이아웃과 절제된 웜 팔레트는 과장 없이 코스의 전문성을 증명한다."
+      },
+      {
+        "id": "v2",
+        "name": "풀블리드 임팩트",
+        "vibe": "첫 문장이 주먹처럼 꽂히는 직접적 선언. 어두운 배경과 대형 타이포가 8초 안에 메시지를 완성한다.",
+        "color_palette": {
+          "bg": "#1E1710",
+          "fg": "#F5F0E8",
+          "brand": "#C4873A",
+          "accent": "#E8C97A",
+          "soft": "#2E2518"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:960px;margin:0 auto;padding:96px 32px 88px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px;position:relative;\">\n  <div style=\"position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:0;\">\n    <div style=\"position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(196,135,58,0.18) 0%,rgba(30,23,16,0) 70%);\"></div>\n  </div>\n  <div style=\"position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:32px;\">\n    <div style=\"display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid rgba(196,135,58,0.45);border-radius:100px;\">\n      <span style=\"display:block;width:6px;height:6px;border-radius:50%;background:#C4873A;\"></span>\n      <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:12px;font-weight:500;letter-spacing:0.1em;color:#C4873A;\">CORE CAMPUS · NEW COURSE</span>\n    </div>\n    <h1 style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:clamp(40px,7vw,84px);font-weight:800;line-height:1.06;letter-spacing:-0.03em;color:#F5F0E8;margin:0;max-width:780px;\">\n      전환이 막히는 건<br>\n      <span style=\"color:#E8C97A;\">가격의 문제가 아닙니다</span>\n    </h1>\n    <p style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:18px;line-height:1.7;color:rgba(245,240,232,0.72);max-width:520px;margin:0;\">Claude를 활용해 고객이 납득하는 가격 페이지를 직접 설계합니다. 카피·구조·심리 트리거를 한 코스에서.</p>\n    <div style=\"display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:8px;\">\n      <a href=\"#enroll\" style=\"display:inline-block;padding:18px 48px;background:#C4873A;color:#1E1710;font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:16px;font-weight:700;text-decoration:none;border-radius:var(--radius-card,8px);letter-spacing:0.01em;\">지금 수강 신청 →</a>\n      <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:13px;color:rgba(245,240,232,0.45);\">4주 과정 · 평생 수강</span>\n    </div>\n    <div style=\"width:100%;max-width:640px;margin-top:24px;padding:28px 32px;background:rgba(46,37,24,0.8);border-radius:var(--radius-card,8px);border:1px solid rgba(196,135,58,0.2);display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;\">\n      <div style=\"text-align:center;padding:0 16px;\">\n        <div style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:28px;font-weight:800;color:#E8C97A;\">3배</div>\n        <div style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:12px;color:rgba(245,240,232,0.55);margin-top:4px;line-height:1.5;\">평균 전환율<br>개선 목표</div>\n      </div>\n      <div style=\"text-align:center;padding:0 16px;border-left:1px solid rgba(196,135,58,0.2);border-right:1px solid rgba(196,135,58,0.2);\">\n        <div style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:28px;font-weight:800;color:#E8C97A;\">12강</div>\n        <div style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:12px;color:rgba(245,240,232,0.55);margin-top:4px;line-height:1.5;\">실전 레슨<br>즉시 적용</div>\n      </div>\n      <div style=\"text-align:center;padding:0 16px;\">\n        <div style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:28px;font-weight:800;color:#E8C97A;\">Claude</div>\n        <div style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:12px;color:rgba(245,240,232,0.55);margin-top:4px;line-height:1.5;\">AI 기반<br>실습 설계</div>\n      </div>\n    </div>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#1E1710",
+          "color_fg": "#F5F0E8",
+          "color_muted": "#8A7A65",
+          "color_line": "#3A2E20",
+          "color_brand": "#C4873A",
+          "color_brand_2": "#A06828",
+          "color_accent": "#E8C97A",
+          "color_soft": "#2E2518",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "8px"
+        },
+        "image_prompts": [
+          "딥 브라운-블랙 배경에 골드 머스타드 빛이 중앙에서 퍼져나오는 추상 라이트 블룸, 고급스러운 글로벌 아카데믹 톤",
+          "어두운 카페 테이블 위 오픈된 노트와 따뜻한 조명, 미니멀 탑뷰 스타일, 배경 없이 텍스처만, 브라운 팔레트",
+          "금색 선으로 그려진 상승 곡선과 체크포인트 아이콘, 다크 배경, 절제된 인포그래픽 스타일, 한국적 정서"
+        ],
+        "reasoning": "전환이 막힌 1인 사업가는 이미 무언가 잘못됐다는 것을 안다. 이 변형은 그 감각을 정면으로 건드리는 선언형 카피를 대형 타이포로 즉각 제시한다. 어두운 배경은 고급감과 집중도를 동시에 높이며, 중앙 정렬 풀블리드 구성은 8초 안에 헤드라인 하나만 읽히도록 시선 경로를 단순화한다."
+      },
+      {
+        "id": "v3",
+        "name": "서사형 분할",
+        "vibe": "고객의 현재 고통에서 출발해 해결로 이어지는 이야기 구조. 비대칭 레이아웃이 여정을 암시한다.",
+        "color_palette": {
+          "bg": "#F6F2EC",
+          "fg": "#252018",
+          "brand": "#6B4C2A",
+          "accent": "#C07840",
+          "soft": "#E8DFD0"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:1040px;margin:0 auto;padding:64px 32px 72px;\">\n  <div style=\"display:grid;grid-template-columns:5fr 4fr;gap:56px;align-items:start;\">\n    <div style=\"display:flex;flex-direction:column;gap:20px;\">\n      <div style=\"display:flex;align-items:center;gap:8px;\">\n        <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:12px;font-weight:600;color:var(--brand,#6B4C2A);letter-spacing:0.08em;\">CORE CAMPUS</span>\n        <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:12px;color:#A0907A;\">/ Claude 실전 코스</span>\n      </div>\n      <div style=\"display:flex;flex-direction:column;gap:0;\">\n        <div style=\"padding:18px 20px;background:var(--soft,#E8DFD0);border-radius:var(--radius-card,8px) var(--radius-card,8px) 0 0;border-bottom:1px solid #D5C9B8;\">\n          <p style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:14px;font-weight:500;color:#8A7A68;margin:0;line-height:1.6;\">&ldquo;가격 페이지를 여러 번 고쳤는데<br>결제까지 이어지질 않습니다.&rdquo;</p>\n        </div>\n        <div style=\"padding:6px 20px;background:var(--soft,#E8DFD0);display:flex;align-items:center;gap:8px;border-bottom:1px solid #D5C9B8;\">\n          <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:12px;color:#A0907A;\">↓ 이 과정이 바꿉니다</span>\n        </div>\n        <div style=\"padding:28px 20px;background:var(--bg,#F6F2EC);border:1px solid var(--soft,#E8DFD0);border-top:none;border-radius:0 0 var(--radius-card,8px) var(--radius-card,8px);\">\n          <h1 style=\"font-family:'Georgia','Batang',serif;font-size:clamp(28px,3.8vw,46px);font-weight:700;line-height:1.22;color:var(--fg,#252018);margin:0;letter-spacing:-0.01em;\">\n            Claude로 만드는<br>\n            <strong style=\"font-style:normal;color:var(--accent,#C07840);\">전환 가격 페이지</strong>\n          </h1>\n          <p style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:16px;line-height:1.75;color:#6A5C4E;margin:18px 0 0;max-width:380px;\">고객이 가격을 보고 &lsquo;납득&rsquo;하게 만드는 구조·카피·심리 트리거를 Claude와 함께 직접 설계하는 실전 코스.</p>\n        </div>\n      </div>\n      <div style=\"display:flex;align-items:center;gap:14px;margin-top:8px;\">\n        <a href=\"#enroll\" style=\"display:inline-block;padding:14px 26px;background:var(--brand,#6B4C2A);color:#F6F2EC;font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:15px;font-weight:600;text-decoration:none;border-radius:var(--radius-card,8px);\">수강 신청하기</a>\n        <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:13px;color:#9A8A78;\">4주 · 12강 · 평생 수강</span>\n      </div>\n    </div>\n    <div style=\"display:flex;flex-direction:column;gap:16px;padding-top:40px;\">\n      <figure style=\"margin:0;\">\n        <div style=\"border-radius:var(--radius-card,8px);overflow:hidden;background:var(--soft,#E8DFD0);aspect-ratio:3/4;\">\n          <img src=\"/assets/placeholder/hero-narrative.svg\" alt=\"전환 가격 페이지 설계 과정 일러스트\" style=\"width:100%;height:100%;object-fit:cover;\" />\n        </div>\n      </figure>\n      <ul style=\"list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;\">\n        <li style=\"display:flex;align-items:flex-start;gap:10px;\">\n          <span style=\"flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--accent,#C07840);display:flex;align-items:center;justify-content:center;margin-top:1px;\">\n            <span style=\"font-size:11px;color:#F6F2EC;font-weight:700;\">✓</span>\n          </span>\n          <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:14px;color:#5A4C3E;line-height:1.6;\">가격 근거를 설득력 있게 제시하는 구조 설계</span>\n        </li>\n        <li style=\"display:flex;align-items:flex-start;gap:10px;\">\n          <span style=\"flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--accent,#C07840);display:flex;align-items:center;justify-content:center;margin-top:1px;\">\n            <span style=\"font-size:11px;color:#F6F2EC;font-weight:700;\">✓</span>\n          </span>\n          <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:14px;color:#5A4C3E;line-height:1.6;\">Claude 프롬프트로 카피 초안 즉시 완성</span>\n        </li>\n        <li style=\"display:flex;align-items:flex-start;gap:10px;\">\n          <span style=\"flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--accent,#C07840);display:flex;align-items:center;justify-content:center;margin-top:1px;\">\n            <span style=\"font-size:11px;color:#F6F2EC;font-weight:700;\">✓</span>\n          </span>\n          <span style=\"font-family:var(--font-family-sans,'Pretendard',system-ui,sans-serif);font-size:14px;color:#5A4C3E;line-height:1.6;\">심리 트리거 적용으로 망설임 줄이기</span>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#F6F2EC",
+          "color_fg": "#252018",
+          "color_muted": "#9A8A78",
+          "color_line": "#D5C9B8",
+          "color_brand": "#6B4C2A",
+          "color_brand_2": "#8A6040",
+          "color_accent": "#C07840",
+          "color_soft": "#E8DFD0",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "8px"
+        },
+        "image_prompts": [
+          "크림 베이지 배경 위에 종이 서류와 체크리스트를 미니멀하게 표현한 플랫 일러스트, 딥브라운과 테라코타 팔레트, 한국적 정서",
+          "따뜻한 갈색 계열 수채화 텍스처 배경에 열린 노트와 펜 아이콘, 아카데믹하고 사색적인 분위기, 글로벌 아카데믹 톤",
+          "오프화이트 위에 브론즈 선으로 그린 미니멀 UI 와이어프레임, 가격 카드 형태, 편집 디자인 스타일",
+          "옅은 크림과 딥 앰버 색감의 추상 종이 콜라주, 기하학적 면 분할, 한국적 정서"
+        ],
+        "reasoning": "전환이 막힌 1인 사업가는 이미 여러 번 시도했지만 안 됐다는 좌절을 갖고 있다. 이 변형은 그 실제 목소리를 인용구로 시작해 공감을 먼저 얻은 다음 해결책으로 자연스럽게 진입하는 서사 구조를 취한다. 비대칭 5:4 그리드와 세리프 헤드라인은 에디토리얼 신뢰감을 유지하면서도, 우측 체크리스트가 구체적 결과물을 눈에 띄게 나열해 구매 결정을 돕는다."
+      }
+    ],
+    "brief_echo": {
+      "purpose": "Claude로 만드는 전환 가격 페이지 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+      "audience": "강의·코칭·서비스 가격 페이지에서 전환이 막히는 1인 사업가",
+      "style_keywords": [
+        "editorial",
+        "warm beige",
+        "trustworthy",
+        "academic"
+      ],
+      "color_mood": "warm",
+      "reference_urls": []
+    },
+    "chosen_variant_id": "v1"
+  },
+  "course_id": "",
+  "created_at": "2026-05-07T21:26:12+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}

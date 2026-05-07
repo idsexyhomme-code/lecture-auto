@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-pricing-page",
+    "course_title": "Claude로 만드는 전환 가격 페이지",
+    "lesson_no": 2,
+    "lesson_title": "Claude로 가치 문장·헤드라인 초안 생성",
+    "objective": "Claude에게 오퍼 정보를 입력해 전환 가격 페이지용 헤드라인 3개와 가치 문장 1개를 생성한 뒤 결과물을 비교·선택한다",
+    "key_concepts": [
+      "오퍼 브리핑 프롬프트 구조(고객·문제·결과·증거)",
+      "헤드라인 유형(숫자형·질문형·결과형) 비교",
+      "가치 문장의 Before-After-Bridge 공식"
+    ],
+    "exercise": "Claude 대화 스크린샷과 선택한 헤드라인 1개·가치 문장 1개가 담긴 '카피 선택 근거 문서'",
+    "duration_min": 15
+  }
+}
