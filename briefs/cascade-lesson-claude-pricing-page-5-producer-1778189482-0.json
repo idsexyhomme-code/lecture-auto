@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-pricing-page",
+    "course_title": "Claude로 만드는 전환 가격 페이지",
+    "lesson_no": 5,
+    "lesson_title": "완성형 가격 페이지 카피 조립·영상 발표",
+    "objective": "2~4차시 산출물을 통합해 헤드라인·가치 문장·패키지 설명·FAQ·CTA가 포함된 완성형 가격 페이지 카피를 완성하고 90초 영상으로 설명한다",
+    "key_concepts": [
+      "가격 페이지 섹션 배열 원칙(주의→욕구→신뢰→행동)",
+      "CTA 문구 설계 공식(동사+결과+긴급성)",
+      "카피 완성도 자가 점검 루틴"
+    ],
+    "exercise": "헤드라인부터 CTA까지 전체 섹션이 포함된 '완성형 가격 페이지 카피 문서'와 핵심 설계 의도를 설명하는 90초 영상",
+    "duration_min": 15
+  }
+}
