@@ -27,7 +27,7 @@
     {
       "course_id": "claude-meeting-notes",
       "title": "Claude로 미팅 후 5분 안에 정리노트 만들기",
-      "status": "planned",
+      "status": "proposed",
       "priority": 2,
       "topic": "녹음·메모를 Claude가 회의록·다음 액션으로 즉시 정리하는 워크플로우",
       "audience": "회의 끝나고도 정리가 미뤄지는 1인 사업가·소규모 팀 리더",
@@ -38,7 +38,8 @@
         "미팅 후 5분 안에 회의록 발송",
         "다음 액션·담당자가 자동으로 추출",
         "한 달치 회의록을 검색 가능한 자산으로"
-      ]
+      ],
+      "proposed_at": "2026-05-07T23:16:43.680300+09:00"
     },
     {
       "course_id": "claude-pricing-page",
@@ -111,6 +112,12 @@
       "action": "auto_pump",
       "at": "2026-05-06T22:36:57.442700+09:00",
       "brief_file": "1778074617-roadmap-claude-mail-writing.json"
+    },
+    {
+      "course_id": "claude-meeting-notes",
+      "action": "auto_pump",
+      "at": "2026-05-07T23:16:43.680300+09:00",
+      "brief_file": "1778163403-roadmap-claude-meeting-notes.json"
     }
   ]
 }
