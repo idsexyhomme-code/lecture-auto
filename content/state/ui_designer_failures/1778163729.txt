@@ -1,0 +1,108 @@
+reason: JSON 파싱 실패: Expecting ',' delimiter: line 81 column 1080 (char 11116)
+
+```json
+{
+  "target": "hero",
+  "summary": "코어 캠퍼스 'Claude로 회의록 즉시 자동화' 히어로 3변형 — 에디토리얼/임팩트/서사",
+  "variants": [
+    {
+      "id": "v1",
+      "name": "에디토리얼 모던",
+      "vibe": "차분한 학술 매거진 같은 진중함 — 텍스트가 주인공, 이미지는 보조",
+      "color_palette": {
+        "bg": "#FBF8F3",
+        "fg": "#1A1814",
+        "brand": "#3D2F1E",
+        "accent": "#B8860B",
+        "soft": "#F0E9DC"
+      },
+      "html": "<div class=\"wrap\" style=\"max-width:1120px;margin:0 auto;padding:72px 40px 80px;display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:center;background:var(--bg,#FBF8F3)\">\n  <div class=\"hero-copy\">\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent,#B8860B);margin:0 0 20px\">Claude 자동화 코스 · 코어 캠퍼스</p>\n    <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(36px,4.5vw,58px);font-weight:800;line-height:1.13;color:var(--fg,#1A1814);margin:0 0 24px;letter-spacing:-0.02em\">회의가 끝나는 순간,<br><span style=\"color:var(--brand,#3D2F1E)\">회의록도 완성됩니다.</span></h1>\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:17px;font-weight:400;line-height:1.75;color:#4A4440;margin:0 0 36px;max-width:520px\">매번 미루던 회의 정리, 이제 Claude가 대신합니다. 실무에 바로 쓰는 자동화 워크플로를 단계별로 배웁니다.</p>\n    <div style=\"display:flex;align-items:center;gap:20px;flex-wrap:wrap\">\n      <a href=\"#enroll\" style=\"display:inline-block;background:var(--brand,#3D2F1E);color:#FBF8F3;font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:700;padding:16px 36px;border-radius:6px;text-decoration:none;letter-spacing:0.01em\">코스 살펴보기</a>\n      <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#7A706A\">평균 수강 완료 시간 · <strong style=\"color:var(--fg,#1A1814)\">3시간 20분</strong></span>\n    </div>\n    <div style=\"margin-top:48px;padding-top:32px;border-top:1px solid #E4DDD3;display:flex;gap:40px\">\n      <div>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:28px;font-weight:800;color:var(--brand,#3D2F1E);margin:0 0 4px\">92%</p>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#7A706A;margin:0\">수강생 업무 시간 단축</p>\n      </div>\n      <div>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:28px;font-weight:800;color:var(--brand,#3D2F1E);margin:0 0 4px\">8분</p>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#7A706A;margin:0\">회의록 1건 처리 시간</p>\n      </div>\n      <div>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:28px;font-weight:800;color:var(--brand,#3D2F1E);margin:0 0 4px\">1,200+</p>\n        <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#7A706A;margin:0\">수강생</p>\n      </div>\n    </div>\n  </div>\n  <figure style=\"margin:0;border-radius:10px;overflow:hidden;background:var(--soft,#F0E9DC);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center\">\n    <img src=\"/assets/placeholder/hero-editorial.svg\" alt=\"회의록 자동화 워크플로 일러스트\" style=\"width:100%;height:100%;object-fit:cover;display:block\" />\n  </figure>\n</div>",
+      "design_tokens": {
+        "color_bg": "#FBF8F3",
+        "color_fg": "#1A1814",
+        "color_brand": "#3D2F1E",
+        "color_accent": "#B8860B",
+        "color_soft": "#F0E9DC",
+        "color_muted": "#7A706A",
+        "color_line": "#E4DDD3",
+        "font_family_sans": "'Pretendard', system-ui, sans-serif",
+        "radius_card": "10px"
+      },
+      "image_prompts": [
+        "베이지와 딥브라운 톤의 추상 기하 일러스트, 종이 노트와 흐르는 선이 연결되는 미니멀 구도, 학술 매거진 표지 풍, 따뜻한 웜톤",
+        "머스타드 골드 포인트가 강조된 열린 노트북과 체크리스트 아이콘 플랫 일러스트, 깔끔한 그리드 레이아웃, 크림 배경",
+        "손으로 그린 듯한 워크플로 다이어그램, 화살표와 박스가 연결된 추상 도식, 웜베이지·브라운·머스타드 3색, 미니멀",
+        "빛이 스며드는 빈 회의실 책상 위 노트패드와 펜, 공기 원근법, 수채화 텍스처, 한국적 정서의 고요함",
+        "추상적인 텍스트 흐름을 표현한 타이포그래픽 일러스트, 문장이 정돈된 단락으로 모이는 모션감, 웜 모노크롬"
+      ],
+      "reasoning": "에디토리얼 레이아웃은 좌측 텍스트 블록이 8초 안에 핵심 메시지를 순서대로 전달하며, 우측 이미지가 신뢰감을 보강합니다. 머스타드 액센트와 딥브라운 브랜드 컬러가 '진지하게 일하는 전문가'의 인상을 주어, 1인 사업가와 소규모 팀 리더가 스스로를 투영하기 쉽습니다. 하단 지표 3개가 결과 약속을 숫자로 뒷받침하여 과장 없이 신뢰를 형성합니다."
+    },
+    {
+      "id": "v2",
+      "name": "임팩트 풀블리드",
+      "vibe": "어두운 브라운 풀블리드 배경에 대형 타이포가 압도하는 강한 첫인상",
+      "color_palette": {
+        "bg": "#1E1610",
+        "fg": "#F5EFE6",
+        "brand": "#C8922A",
+        "accent": "#E8B84B",
+        "soft": "#2C2018"
+      },
+      "html": "<div class=\"wrap\" style=\"max-width:100%;padding:0;background:var(--bg,#1E1610);position:relative;overflow:hidden\">\n  <div style=\"position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 50%, #2C2018 0%, #1E1610 100%);z-index:0\"></div>\n  <div style=\"position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:80px 40px 88px;display:grid;grid-template-columns:1fr;gap:0\">\n    <div style=\"display:flex;align-items:center;gap:12px;margin-bottom:32px\">\n      <span style=\"display:inline-block;width:32px;height:2px;background:var(--brand,#C8922A)\"></span>\n      <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--brand,#C8922A);margin:0\">코어 캠퍼스 · Claude 자동화 코스</p>\n    </div>\n    <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(48px,7vw,96px);font-weight:900;line-height:1.0;color:var(--fg,#F5EFE6);margin:0 0 0;letter-spacing:-0.03em;max-width:900px\">\n      <span style=\"display:block\">회의록,</span>\n      <span style=\"display:block;color:var(--accent,#E8B84B)\">더 이상</span>\n      <span style=\"display:block\">미루지 마세요.</span>\n    </h1>\n    <div style=\"margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:900px\">\n      <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:18px;font-weight:400;line-height:1.7;color:#C4B8A8;margin:0;padding-right:48px;border-right:1px solid #3A3028\">Claude가 음성·텍스트 기록을 받아 즉시 구조화된 회의록으로 만듭니다. 1인 사업가와 소규모 팀을 위한 실전 자동화.</p>\n      <div style=\"padding-left:48px;display:flex;flex-direction:column;gap:16px;justify-content:center\">\n        <div style=\"display:flex;align-items:flex-start;gap:12px\">\n          <span style=\"flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--brand,#C8922A);display:flex;align-items:center;justify-content:center;margin-top:2px\">\n            <span style=\"width:6px;height:6px;border-radius:50%;background:#1E1610;display:block\"></span>\n          </span>\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#C4B8A8;margin:0;line-height:1.6\">회의 직후 <strong style=\"color:var(--fg,#F5EFE6)\">8분 이내</strong> 완성</p>\n        </div>\n        <div style=\"display:flex;align-items:flex-start;gap:12px\">\n          <span style=\"flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--brand,#C8922A);display:flex;align-items:center;justify-content:center;margin-top:2px\">\n            <span style=\"width:6px;height:6px;border-radius:50%;background:#1E1610;display:block\"></span>\n          </span>\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#C4B8A8;margin:0;line-height:1.6\">별도 앱 없이 <strong style=\"color:var(--fg,#F5EFE6)\">Claude 하나</strong>로 완결</p>\n        </div>\n        <div style=\"display:flex;align-items:flex-start;gap:12px\">\n          <span style=\"flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--brand,#C8922A);display:flex;align-items:center;justify-content:center;margin-top:2px\">\n            <span style=\"width:6px;height:6px;border-radius:50%;background:#1E1610;display:block\"></span>\n          </span>\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#C4B8A8;margin:0;line-height:1.6\">실무 템플릿 <strong style=\"color:var(--fg,#F5EFE6)\">즉시 적용</strong> 가능</p>\n        </div>\n      </div>\n    </div>\n    <div style=\"margin-top:56px;display:flex;align-items:center;gap:24px;flex-wrap:wrap\">\n      <a href=\"#enroll\" style=\"display:inline-block;background:var(--accent,#E8B84B);color:#1E1610;font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:800;padding:18px 44px;border-radius:4px;text-decoration:none;letter-spacing:0.02em\">지금 시작하기</a>\n      <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#7A6E62;margin:0\">수강생 1,200명이 이미 시작했습니다</p>\n    </div>\n  </div>\n  <div style=\"position:absolute;right:0;top:0;bottom:0;width:38%;z-index:0;opacity:0.18\">\n    <img src=\"/assets/placeholder/hero-impact-texture.svg\" alt=\"\" role=\"presentation\" style=\"width:100%;height:100%;object-fit:cover\" />\n  </div>\n</div>",
+      "design_tokens": {
+        "color_bg": "#1E1610",
+        "color_fg": "#F5EFE6",
+        "color_brand": "#C8922A",
+        "color_brand_2": "#3A3028",
+        "color_accent": "#E8B84B",
+        "color_soft": "#2C2018",
+        "color_muted": "#C4B8A8",
+        "color_line": "#3A3028",
+        "font_family_sans": "'Pretendard', system-ui, sans-serif",
+        "radius_card": "4px"
+      },
+      "image_prompts": [
+        "어두운 딥브라운 배경에 금빛 기하 패턴 텍스처, 빛이 스며드는 추상 그라디언트, 고급 인쇄물 질감, 글로벌 아카데믹 톤",
+        "머스타드 골드와 다크브라운의 추상 노이즈 텍스처, 세밀한 입자감, 미니멀 디테일, 배경 장식용 저채도",
+        "어두운 공간에 떠 있는 빛나는 텍스트 단락 형태의 추상 일러스트, 골드 포인트 강조, 지식과 정보를 상징하는 구도",
+        "야간 조명 아래 미니멀한 작업 공간의 분위기 추상화, 따뜻한 램프빛, 노트와 화면의 실루엣, 웜 모노크롬",
+        "다크 딥브라운 바탕에 얇은 골드 선으로 그린 플로우차트 다이어그램 아이콘, 간결하고 추상적"
+      ],
+      "reasoning": "풀블리드 다크 배경과 96px급 대형 타이포그래피는 8초 이내에 '미루던 회의록 정리'라는 고통 포인트를 강하게 각인시킵니다. 어두운 웜브라운은 v1과 다른 온도감을 유지하면서도 골드 액센트로 프리미엄·신뢰 무드를 지킵니다. 명령형 카피와 좌측 정렬 풀폭 레이아웃은 시선이 상단에서 하단 CTA로 자연스럽게 흐르도록 설계되었습니다."
+    },
+    {
+      "id": "v3",
+      "name": "서사 스플릿",
+      "vibe": "따뜻한 크림 배경에 비대칭 좌우 분할, 개인의 이야기를 담은 친근하고 설득적인 서사 구조",
+      "color_palette": {
+        "bg": "#FDFAF5",
+        "fg": "#252118",
+        "brand": "#5C4A2A",
+        "accent": "#D4920F",
+        "soft": "#EDE5D4"
+      },
+      "html": "<div class=\"wrap\" style=\"max-width:1120px;margin:0 auto;padding:60px 40px 72px;background:var(--bg,#FDFAF5)\">\n  <div style=\"display:grid;grid-template-columns:520px 1fr;gap:80px;align-items:start\">\n    <div>\n      <figure style=\"margin:0 0 40px;border-radius:12px;overflow:hidden;background:var(--soft,#EDE5D4);aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;position:relative\">\n        <img src=\"/assets/placeholder/hero-narrative-scene.svg\" alt=\"회의 직후 Claude로 회의록을 정리하는 장면 일러스트\" style=\"width:100%;height:100%;object-fit:cover;display:block\" />\n        <div style=\"position:absolute;bottom:16px;left:16px;right:16px;background:rgba(253,250,245,0.92);border-radius:8px;padding:12px 16px;backdrop-filter:blur(4px)\">\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;font-weight:600;color:var(--brand,#5C4A2A);margin:0 0 2px;letter-spacing:0.05em\">실제 수강생 후기</p>\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#4A4236;margin:0;line-height:1.5\">"첫 주부터 회의 후 정리 시간이 사라졌어요."</p>\n        </div>\n      </figure>\n      <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:16px\">\n        <div style=\"background:var(--soft,#EDE5D4);border-radius:10px;padding:20px\">\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:26px;font-weight:800;color:var(--brand,#5C4A2A);margin:0 0 4px\">8분</p>\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#7A6E5E;margin:0;line-height:1.5\">회의록 1건<br>완성까지</p>\n        </div>\n        <div style=\"background:var(--soft,#EDE5D4);border-radius:10px;padding:20px\">\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:26px;font-weight:800;color:var(--brand,#5C4A2A);margin:0 0 4px\">92%</p>\n          <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#7A6E5E;margin:0;line-height:1.5\">수강생<br>업무 시간 단축</p>\n        </div>\n      </div>\n    </div>\n    <div style=\"padding-top:8px\">\n      <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent,#D4920F);margin:0 0 18px\">Claude 자동화 코스</p>\n      <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(30px,3.8vw,48px);font-weight:800;line-height:1.2;color:var(--fg,#252118);margin:0 0 20px;letter-spacing:-0.02em\">"오늘도 회의록을<br>내일로 미뤘나요?"</h1>\n      <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:500;line-height:1.8;color:#5A5248;margin:0 0 28px\">1인 사업가, 소규모 팀 리더라면 알고 있습니다. 회의 직후가 가장 바쁘고, 회의록은 결국 기억이 흐릿해진 다음날로 밀립니다.</p>\n      <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:15px;line-height:1.8;color:#5A5248;margin:0 0 36px\">이 코스는 Claude를 활용해 <strong style=\"color:var(--fg,#252118)\">회의가 끝나는 순간 자동으로 회의록이 만들어지는 워크플로</strong>를 설계합니다. 별도 도구 없이, 지금 당장 적용할 수 있습니다.</p>\n      <ul style=\"list-style:none;padding:0;margin:0 0 36px;display:flex;flex-direction:column;gap:10px\">\n        <li style=\"display:flex;align-items:center;gap:10px;font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#4A4236\">\n          <span style=\"flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--accent,#D4920F);display:inline-flex;align-items:center;justify-content:center\">\n            <span style=\"width:5px;height:8px;border-right:2px solid #FFF;border-bottom:2px solid #FFF;transform:rotate(45deg) translate(-1px,-1px);display:block\"></span>\n          </span>\n          실전 프롬프트 템플릿 즉시 제공\n        </li>\n        <li style=\"display:flex;align-items:center;gap:10px;font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#4A4236\">\n          <span style=\"flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--accent,#D4920F);display:inline-flex;align-items:center;justify-content:center\">\n            <span style=\"width:5px;height:8px;border-right:2px solid #FFF;border-bottom:2px solid #FFF;transform:rotate(45deg) translate(-1px,-1px);display:block\"></span>\n          </span>\n          Claude 무료 플랜으로도 시작 가능\n        </li>\n        <li style=\"display:flex;align-items:center;gap:10px;font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#4A4236\">\n          <span style=\"flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--accent,#D4920F);display:inline-flex;align-items:center;justify-content:center\">\n            <span style=\"width:5px;height:8px;border-right:2px solid #FFF;border-bottom:2px solid #FFF;transform:rotate(45deg) translate(-1px,-1px);display:block\"></span>\n          </span>\n          총 수강 시간 3시간 20분 — 주말 하루면 충분\n        </li>\n      </ul>\n      <a href=\"#enroll\" style=\"display:inline-block;background:var(--brand,#5C4A2A);color:#FDFAF5;font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:700;padding:17px 40px;border-radius:8px;text-decoration:none;letter-spacing:0.01em\">코스 시작하기</a>\n      <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#9A8E82;margin:12px 0 0\">수강생 1,200명 · 만족도 4.8 / 5.0</p>\n    </div>\n  </div>\n</div>",
+      "design_tokens": {
+        "color_bg": "#FDFAF5",
+        "color_fg": "#252118",
+        "color_brand": "#5C4A2A",
+        "color_brand_2": "#7A6040",
+        "color_accent": "#D4920F",
+        "color_soft": "#EDE5D4",
+        "color_muted": "#7A6E5E",
+        "color_line": "#DDD5C4",
+        "font_family_sans": "'Pretendard', system-ui, sans-serif",
+        "radius_card": "12px"
+      },
+      "image_prompts": [
+        "따뜻한 크림 톤의 작은 홈오피스 책상 일러스트, 노트패드·커피잔·노트북 배치, 정돈된 아늑함, 한국적 정서의 소규모 업무 공간",
+        "미니멀 플랫 일러스트, 체크 완료된 할일 목록이 빛나는 구도, 웜베이지·골드·브라운 팔레트, 달성감과 안도감 표현",
+        "손그림 느낌의 회의 메모에서 구조화된 문서로 변환되는 과정 추상 일러스트, 화살표 전환, 크림과 딥브라운 배색",
+        "빛이 스며드는 창가 테이블 위 열린 노트북 실루엣, 수채화 워시 텍스처, 따뜻한 오후 햇살, 한국 소도시 카페 감성",
+        "추상적인 텍스트 블록이 깔끔하게 정렬되는 과정을 시각화한 일러스트, 혼돈에서 질서로, 골드 액센트, 글로벌 아카데믹 톤"
+      ],
+      "reasoning": "인용문 형식의 질문형 헤드라인('오늘도 미뤘나요?')은 타깃의 구체적 고통을 직접 건드려 8초 내 공감을 이끌어냅니다. 이미지-우선 좌측과 텍스트-우선 우측의 비대칭 분할은 v1의 균형형, v2의 전폭형과 구조적으로 명확히 다릅니다. 친근한 서사 카피와 체크리스트는 1인 사업가가 '내 이야기'로 읽도록 설계되어, 신뢰보다 공감을 첫 번째 접점으로 삼습니다."
+    }
+  ]
+}
+```
