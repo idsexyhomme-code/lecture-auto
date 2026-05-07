@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 회의록에서 담당자·마감일이 포함된 액션 리스트를 추출한다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 회의록에서 담당자·마감일이 포함된 액션 리스트를 추출한다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-meeting-notes · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>회의가 끝나고 나서, 분명히 누가 뭘 하기로 했는데 아무도 기억 못 하는 상황, 경험해 보셨죠?</p>
+<p>"그거 제가 맡기로 했었나요?" 이런 말이 나오는 순간, 그 회의는 절반이 날아간 겁니다.</p>
+<p>오늘 이 영상 하나로 그 문제를 끊어냅니다.</p>
+<p>Claude에게 회의록을 주면, 담당자·액션·마감일이 정리된 표가 자동으로 나옵니다.</p>
+<p>더 이상 회의 후 수작업으로 정리하지 않아도 됩니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 어떤 회의록이든 Claude에 붙여넣기 한 번으로 '담당자 / 액션 / 마감일' 3열 Markdown 표를 뽑아낼 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 체인 프롬프팅: '공장 라인' 이미지로 기억하세요</h3>
+<p><strong>설명</strong></p>
+<p>하나의 프롬프트로 모든 걸 처리하려 하면 Claude가 혼란스러워합니다.</p>
+<p>대신 작업을 두 단계로 나눕니다.</p>
+<p>1단계: 회의록을 이해시킨다.
+2단계: 액션만 추출하게 한다.</p>
+<p>이게 체인 프롬프팅입니다.</p>
+<p>공장 라인을 떠올리세요. 원자재가 첫 번째 기계를 통과한 뒤, 두 번째 기계가 완성품을 만듭니다.</p>
+<p>한 기계에 다 맡기면 제품이 망가지는 것처럼, 프롬프트도 역할을 나눠야 품질이 올라갑니다.</p>
+<p><strong>예시</strong></p>
+<p>잘못된 방식: "회의록 읽고 요약도 하고 액션도 뽑고 표도 만들어줘."</p>
+<p>올바른 방식:
+- 1단계 프롬프트: "아래는 오늘 회의록입니다. 내용을 파악해 주세요. [회의록 붙여넣기]"
+- 2단계 프롬프트: "방금 파악한 내용에서 담당자, 액션, 마감일을 추출해 Markdown 표로 만들어 주세요."</p>
+<p><strong>반례</strong></p>
+<p>"그냥 한 번에 해도 잘 나오던데요?"</p>
+<p>짧고 단순한 회의록은 그럴 수 있습니다.</p>
+<p>그런데 30분 이상의 회의록, 참석자가 5명 이상이면 누락률이 눈에 띄게 올라갑니다.</p>
+<p>제 경험상 체인 방식이 대부분의 경우 더 정확한 결과를 냅니다.</p>
+<p><strong>정리</strong></p>
+<p>체인 프롬프팅 = 이해 단계 + 추출 단계, 총 2번 나눠 입력.</p>
+<hr />
+<h3>핵심 개념 2 — Markdown 표 형식 지정: '3칸 서랍장' 이미지로 기억하세요</h3>
+<p><strong>설명</strong></p>
+<p>Claude는 출력 형식을 명시하지 않으면 자기 방식대로 씁니다.</p>
+<p>줄글로 쓸 수도 있고, 번호 목록으로 쓸 수도 있습니다.</p>
+<p>우리가 원하는 건 도구에 바로 붙여넣을 수 있는 표입니다.</p>
+<p>서랍장 3칸을 상상하세요. 왼쪽 칸에 담당자, 가운데 칸에 액션, 오른쪽 칸에 마감일.</p>
+<p>이 구조를 프롬프트에 직접 명시합니다.</p>
+<p><strong>예시</strong></p>
+<p>프롬프트에 이렇게 씁니다.</p>
+<blockquote>
+<p>"결과는 반드시 Markdown 표 형식으로 출력해 주세요. 열은 '담당자 | 액션 | 마감일' 순서로 구성합니다."</p>
+</blockquote>
+<p>그러면 Claude가 아래처럼 출력합니다.</p>
+<table>
+<thead>
+<tr>
+<th>담당자</th>
+<th>액션</th>
+<th>마감일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>김민준</td>
+<td>기획안 초안 작성</td>
+<td>5월 23일</td>
+</tr>
+<tr>
+<td>이수연</td>
+<td>디자인 시안 검토</td>
+<td>5월 25일</td>
+</tr>
+</tbody>
+</table>
+<p><strong>반례</strong></p>
+<p>"Markdown 표를 쓰라고 했는데 그냥 텍스트로 나와요."</p>
+<p>이건 Claude가 대화 맥락을 리셋했거나, 형식 지시가 프롬프트 끝부분에 묻혔을 때 발생합니다.</p>
+<p>형식 지시는 항상 프롬프트 첫 문장 또는 마지막 문장, 둘 중 하나에 위치시키세요.</p>
+<p>중간에 묻히면 무시될 가능성이 올라갑니다.</p>
+<p><strong>정리</strong></p>
+<p>Markdown 표 지정 = 열 이름까지 명시 + 프롬프트 맨 앞 또는 맨 뒤에 배치.</p>
+<hr />
+<h3>핵심 개념 3 — 누락 항목 재질의 패턴: '체크리스트 감사관' 이미지로 기억하세요</h3>
+<p><strong>설명</strong></p>
+<p>Claude가 뽑은 표를 원본 회의록과 비교하면, 빠진 항목이 나오는 경우가 있습니다.</p>
+<p>이때 처음부터 다시 하지 않아도 됩니다.</p>
+<p>누락 항목만 짚어서 추가 질의하면 됩니다.</p>
+<p>감사관이 서류를 검토하고 빠진 항목만 되돌려 보내는 방식입니다.</p>
+<p><strong>예시</strong></p>
+<p>원본 회의록에 "박지호가 다음 주 금요일까지 서버 점검하기로 했다"는 내용이 있는데 표에 없다면, 이렇게 추가 프롬프트를 씁니다.</p>
+<blockquote>
+<p>"방금 생성한 표에 '박지호 / 서버 점검 / 다음 주 금요일' 항목이 누락되어 있습니다. 해당 행을 추가한 전체 표를 다시 출력해 주세요."</p>
+</blockquote>
+<p>Claude는 전체 표를 새로 출력하면서 해당 행을 포함시킵니다.</p>
+<p><strong>반례</strong></p>
+<p>"누락 항목을 말해줬는데 Claude가 이상한 행을 추가했어요."</p>
+<p>이건 '다음 주 금요일'처럼 상대적 날짜 표현이 원인인 경우가 많습니다.</p>
+<p>재질의 시에는 "5월 30일"처럼 절대 날짜로 바꿔 입력하세요.</p>
+<p>모호한 표현을 주면 Claude도 추측으로 채웁니다.</p>
+<p><strong>정리</strong></p>
+<p>누락 재질의 = 빠진 행만 명시 + 절대 날짜 사용 + 전체 표 재출력 요청.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 따라해 주세요.</p>
+<p>준비물은 지난 차시에서 정리한 회의록 텍스트 파일 1개입니다.</p>
+<p>없으면 아래 샘플 회의록을 사용해도 됩니다.</p>
+<blockquote>
+<p>"5월 20일 마케팅팀 주간 회의. 참석자: 김민준, 이수연, 박지호. 김민준은 5월 23일까지 SNS 콘텐츠 기획안을 작성하기로 했다. 이수연은 5월 25일까지 디자인 시안을 검토한다. 박지호는 5월 27일까지 광고 예산안을 팀장에게 전달한다."</p>
+</blockquote>
+<p><strong>Step 1 — 1단계 프롬프트 입력 (1분)</strong></p>
+<p>Claude 대화창을 열고 아래처럼 입력합니다.</p>
+<blockquote>
+<p>"아래는 오늘 진행된 회의의 회의록입니다. 내용을 파악해 주세요. [회의록 텍스트 붙여넣기]"</p>
+</blockquote>
+<p>Claude가 "파악했습니다" 또는 내용 요약으로 응답하면 다음 단계로 넘어갑니다.</p>
+<p><strong>Step 2 — 2단계 프롬프트 입력 (1분)</strong></p>
+<p>같은 대화창에서 바로 이어서 입력합니다.</p>
+<blockquote>
+<p>"방금 파악한 회의록에서 담당자, 액션, 마감일을 추출해 주세요. 결과는 Markdown 표 형식으로, 열은 '담당자 | 액션 | 마감일' 순서로 출력해 주세요."</p>
+</blockquote>
+<p>표가 출력되면 캡처하거나 텍스트를 복사해 둡니다.</p>
+<p><strong>Step 3 — 원본과 비교 검증 (1분)</strong></p>
+<p>원본 회의록을 옆에 열어두고, 표의 행을 하나씩 대조합니다.</p>
+<p>빠진 항목이 있으면 체크해 두세요.</p>
+<p><strong>Step 4 — 누락 항목 재질의 (1분)</strong></p>
+<p>빠진 항목이 있다면 이렇게 입력합니다.</p>
+<blockquote>
+<p>"[담당자 이름] / [액션 내용] / [마감일] 항목이 표에 누락되어 있습니다. 해당 행을 포함한 전체 표를 다시 출력해 주세요."</p>
+</blockquote>
+<p>완성된 Markdown 표를 <code>.md</code> 파일 또는 메모장에 저장합니다.</p>
+<p>이게 오늘의 산출물입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 오늘 만든 액션 리스트를 Notion이나 Google Sheets에 바로 붙여넣는 방법을 다룹니다.</p>
+<p>복사·붙여넣기 한 번으로 팀 전체가 공유할 수 있는 구조를 만드는 겁니다.</p>
+<p>오늘 실습에서 막히거나 신기한 결과가 나왔다면, 그 내용을 댓글로 남겨 주세요.</p>
+<p>다음 영상에서 뵙겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>

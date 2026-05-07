@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-meeting-notes",
+    "course_title": "Claude로 회의록 즉시 자동화",
+    "lesson_no": 4,
+    "lesson_title": "반복 사용 가능한 나만의 회의 정리 프롬프트 템플릿을 제작한다",
+    "objective": "앞 3차시에서 사용한 프롬프트들을 결합하여 회의 유형(영업·기획·팀 스탠드업)별로 교체 가능한 변수를 포함한 재사용 프롬프트 템플릿을 설계하고 문서화한다",
+    "key_concepts": [
+      "프롬프트 변수화({{회의유형}}·{{참석자}})",
+      "Claude Projects 또는 System Prompt 저장법",
+      "템플릿 버전 관리 방법"
+    ],
+    "exercise": "회의 유형 3가지에 적용 가능한 변수 포함 프롬프트 템플릿 문서(Notion·Google Docs 1페이지)와 실제 적용 결과 스크린샷",
+    "duration_min": 15
+  }
+}
