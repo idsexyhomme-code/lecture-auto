@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Claude로 부캐 서비스 7일 런칭 — 강의 홈페이지</title>
+  <title>Claude로 부캐 서비스 7일 런칭 — 코어 캠퍼스</title>
   <link rel="stylesheet" href="../styles.css" />
   <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
   <script>
-    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
     (function () {
       try {
         var p = new URLSearchParams(location.search);
@@ -23,29 +22,122 @@
   </script>
 </head>
 <body>
-  <header class="site">
+
+  
+  <div class="promo-bar">
     <div class="wrap">
-      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
-      <nav class="site">
-        <a href="../index.html">홈</a>
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 코스 무료 미리보기</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 신규 코스 알림 받기</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 카테고리
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">⚡</span>
+            <span class="cat-name">Claude 자동화</span>
+            <span class="cat-count">6개</span>
+          </a>
+          
+          <a href="../index.html#cat-sop" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">1인 사업 SOP</span>
+            <span class="cat-count">7개</span>
+          </a>
+          
+          <a href="../index.html#cat-productivity" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">딥워크·생산성</span>
+            <span class="cat-count">2개</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="🔍 코스 제목·키워드로 검색..." />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>마이</span>
+        </a>
       </nav>
     </div>
   </header>
 
   
-<section class="hero">
-  <div class="wrap">
-    <span class="badge">코스</span>
-    <h1 data-edit-field="site_config:course_overrides.claude-launchpad.title_override">Claude로 부캐 서비스 7일 런칭</h1>
-    <p class="lead" data-edit-field="site_config:course_overrides.claude-launchpad.tagline_override">아이디어에서 첫 유료 고객까지, 1주일 안에 직접 완성하는 실전 과정</p>
+
+
+<section class="course-hero">
+  <div class="wrap course-hero-inner">
+    <div class="course-hero-main">
+      <div class="course-breadcrumb">
+        <a href="../index.html">홈</a> · <a href="../index.html#courses">코스</a> · <span>claude-launchpad</span>
+      </div>
+      <span class="badge">코스</span>
+      <h1 data-edit-field="site_config:course_overrides.claude-launchpad.title_override">Claude로 부캐 서비스 7일 런칭</h1>
+      <p class="lead" data-edit-field="site_config:course_overrides.claude-launchpad.tagline_override">아이디어에서 첫 유료 고객까지, 1주일 안에 직접 완성하는 실전 과정</p>
+
+      <div class="course-meta-row">
+        <span class="meta-chip">📚 8차시</span>
+        <span class="meta-chip">⏱ 차시당 15분</span>
+        <span class="meta-chip">🎯 실습 산출물 1개</span>
+        <span class="meta-chip">♾ 평생 소장</span>
+      </div>
+    </div>
+
+    
+    <aside class="course-sidebar">
+      <div class="sidebar-card">
+        <div class="price-block">
+          <div class="price-label">수강료</div>
+          <div class="price-value">무료 미리보기</div>
+          <div class="price-note">전체 코스는 곧 오픈</div>
+        </div>
+        <a href="#scripts" class="cta cta-primary cta-full">📖 차시 미리보기</a>
+        <a href="../me/" class="cta cta-secondary cta-full">💾 마이페이지에 담기</a>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-includes">
+          <div class="includes-title">코스에 포함된 것</div>
+          <ul>
+            <li>✓ 차시별 핵심 강의 (8개)</li>
+            <li>✓ 실습 가이드 + 체크리스트</li>
+            <li>✓ FAQ + 자주 막히는 곳 안내</li>
+            <li>✓ 코어 캠퍼스 업데이트 평생 적용</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section">
+  <div class="wrap course-content">
     <h2>이 코스는요</h2>
-    <h1>Claude로 7일 만에 부캐 서비스 런칭</h1>
+    <div class="course-text"><h1>Claude로 7일 만에 부캐 서비스 런칭</h1>
 <blockquote>
 <p>아이디어만 있으면 됩니다. 시장조사부터 첫 유료 고객까지, Claude와 함께 단 7일에 완성합니다.</p>
 </blockquote>
@@ -91,16 +183,16 @@ Claude.ai 무료 플랜으로도 수강 가능합니다. 다만 Pro 플랜(월 �
 결제 후 7일 이내, 2차시 미만 수강 시 전액 환불 신청이 가능합니다. 이후에는 디지털 콘텐츠 특성상 환불이 어렵습니다.</p>
 <h2>가격</h2>
 <p>얼리버드 가격: ₩390,000 (얼리버드 — 정가 ₩590,000, 2025년 2월 28일까지)
-<strong>CTA:</strong> 지금 결제</p>
+<strong>CTA:</strong> 지금 결제</p></div>
   </div>
 </article>
 
 
 
-<article class="body" style="background: var(--soft);">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>커리큘럼</h2>
-    <h1>Claude로 부캐 서비스 1주일 런칭</h1>
+    <div class="course-text"><h1>Claude로 부캐 서비스 1주일 런칭</h1>
 <blockquote>
 <p>아이디어에서 첫 유료 고객까지, 단 7일 완성</p>
 </blockquote>
@@ -183,64 +275,112 @@ Claude.ai 무료 플랜으로도 수강 가능합니다. 다만 Pro 플랜(월 �
 </tbody>
 </table>
 <h2>평가</h2>
-<p>8개 차시 산출물(워크시트·패키지 문서·비교표·카피·영상 2편·SNS 콘텐츠·스크립트)을 모두 제출하고, 실제 SNS에 런칭 게시물 1개 이상 공개 업로드 인증 시 수료 뱃지 발급</p>
+<p>8개 차시 산출물(워크시트·패키지 문서·비교표·카피·영상 2편·SNS 콘텐츠·스크립트)을 모두 제출하고, 실제 SNS에 런칭 게시물 1개 이상 공개 업로드 인증 시 수료 뱃지 발급</p></div>
   </div>
 </article>
 
 
 
-<section>
+<section id="scripts" class="course-section">
   <div class="wrap">
-    <h2>차시별 콘텐츠 (8)</h2>
-    <div class="grid">
+    <h2>차시별 콘텐츠 <span class="muted-count">8개</span></h2>
+    <div class="lesson-list">
       
-      <div class="card">
-        <h3>#1 부캐 콘셉트 발굴: 나만의 틈새시장 찾기</h3>
-        <p class="muted">Claude 프롬프트를 활용해 자신의 경험·스킬 목록에서 수익화 가능한 틈새 포지션 3개를 문서로 도출한다</p>
-        <a class="cta" href="../posts/1777960095-bc43a9.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777960095-bc43a9.html" class="lesson-row">
+        <div class="lesson-no">1</div>
+        <div class="lesson-body">
+          <h4>#1 부캐 콘셉트 발굴: 나만의 틈새시장 찾기</h4>
+          <p>Claude 프롬프트를 활용해 자신의 경험·스킬 목록에서 수익화 가능한 틈새 포지션 3개를 문서로 도출한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#2 검증된 오퍼 설계: 팔리는 서비스 패키지 만들기</h3>
-        <p class="muted">Claude와 대화해 선택한 포지션을 기반으로 가격·범위·결과물이 명시된 서비스 패키지 1개를 작성한다</p>
-        <a class="cta" href="../posts/1777964154-0383eb.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777964154-0383eb.html" class="lesson-row">
+        <div class="lesson-no">2</div>
+        <div class="lesson-body">
+          <h4>#2 검증된 오퍼 설계: 팔리는 서비스 패키지 만들기</h4>
+          <p>Claude와 대화해 선택한 포지션을 기반으로 가격·범위·결과물이 명시된 서비스 패키지 1개를 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 시장 검증: 경쟁자 분석 &amp; 차별화 포인트 정리</h3>
-        <p class="muted">Claude를 이용해 유사 서비스 5개를 비교 분석한 표를 만들고 자신만의 차별화 문장 1개를 완성한다</p>
-        <a class="cta" href="../posts/1777964277-9d6d7c.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777964277-9d6d7c.html" class="lesson-row">
+        <div class="lesson-no">3</div>
+        <div class="lesson-body">
+          <h4>#3 시장 검증: 경쟁자 분석 &amp; 차별화 포인트 정리</h4>
+          <p>Claude를 이용해 유사 서비스 5개를 비교 분석한 표를 만들고 자신만의 차별화 문장 1개를 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#4 랜딩페이지 카피 작성: 방문자를 고객으로 전환하는 글쓰기</h3>
-        <p class="muted">Claude 프롬프트 체인을 사용해 헤드라인·문제-해결-증거-CTA 구조의 랜딩페이지 카피 초안을 완성한다</p>
-        <a class="cta" href="../posts/1777964388-c31582.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777964388-c31582.html" class="lesson-row">
+        <div class="lesson-no">4</div>
+        <div class="lesson-body">
+          <h4>#4 랜딩페이지 카피 작성: 방문자를 고객으로 전환하는 글쓰기</h4>
+          <p>Claude 프롬프트 체인을 사용해 헤드라인·문제-해결-증거-CTA 구조의 랜딩페이지 카피 초안을 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#5 런칭 영상 제작: 60초 서비스 소개 영상 스크립트 &amp; 촬영</h3>
-        <p class="muted">Claude로 생성한 스크립트를 바탕으로 서비스 핵심 가치를 전달하는 60초 세로형 소개 영상 1편을 촬영·편집한다</p>
-        <a class="cta" href="../posts/1777964504-158008.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777964504-158008.html" class="lesson-row">
+        <div class="lesson-no">5</div>
+        <div class="lesson-body">
+          <h4>#5 런칭 영상 제작: 60초 서비스 소개 영상 스크립트 &amp; 촬영</h4>
+          <p>Claude로 생성한 스크립트를 바탕으로 서비스 핵심 가치를 전달하는 60초 세로형 소개 영상 1편을 촬영·편집한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#6 SNS 런칭 콘텐츠 5종 세트 제작</h3>
-        <p class="muted">Claude를 활용해 인스타그램·스레드·링크드인용 런칭 게시물 5개를 플랫폼별 톤에 맞게 작성한다</p>
-        <a class="cta" href="../posts/1777964628-a83954.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777964628-a83954.html" class="lesson-row">
+        <div class="lesson-no">6</div>
+        <div class="lesson-body">
+          <h4>#6 SNS 런칭 콘텐츠 5종 세트 제작</h4>
+          <p>Claude를 활용해 인스타그램·스레드·링크드인용 런칭 게시물 5개를 플랫폼별 톤에 맞게 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#7 첫 고객 유치: DM &amp; 이메일 세일즈 스크립트 작성</h3>
-        <p class="muted">Claude로 잠재 고객 유형 2가지에 대응하는 DM 스크립트와 콜드 이메일 템플릿을 각 1개씩 완성한다</p>
-        <a class="cta" href="../posts/1777964700-824849.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777964700-824849.html" class="lesson-row">
+        <div class="lesson-no">7</div>
+        <div class="lesson-body">
+          <h4>#7 첫 고객 유치: DM &amp; 이메일 세일즈 스크립트 작성</h4>
+          <p>Claude로 잠재 고객 유형 2가지에 대응하는 DM 스크립트와 콜드 이메일 템플릿을 각 1개씩 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#8 7일 런칭 플랜 실행 &amp; 회고 영상 제작</h3>
-        <p class="muted">1~7차시 산출물을 통합해 실제 런칭 후 배운 점·수정할 점·다음 액션을 담은 3분 회고 영상을 제작한다</p>
-        <a class="cta" href="../posts/1778031984-2de646.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778031984-2de646.html" class="lesson-row">
+        <div class="lesson-no">8</div>
+        <div class="lesson-body">
+          <h4>#8 7일 런칭 플랜 실행 &amp; 회고 영상 제작</h4>
+          <p>1~7차시 산출물을 통합해 실제 런칭 후 배운 점·수정할 점·다음 액션을 담은 3분 회고 영상을 제작한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
     </div>
   </div>
@@ -248,11 +388,11 @@ Claude.ai 무료 플랜으로도 수강 가능합니다. 다만 Pro 플랜(월 �
 
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>자주 묻는 질문</h2>
     
-      <p><strong>Q. Claude를 전혀 몰라도 수강할 수 있나요?</strong>
+      <div class="faq-block"><p><strong>Q. Claude를 전혀 몰라도 수강할 수 있나요?</strong>
 걱정되시죠! 이 강의는 Claude 완전 초보자 기준으로 설계되어 있어요. 강의 첫날 기초 세팅부터 함께 시작해 보세요.</p>
 <p><strong>Q. 직장 다니면서 7일 안에 정말 완성할 수 있나요?</strong>
 바쁜 일상에서 도전하시는 거 충분히 이해해요. 하루 1~2시간 투자로 완성되는 커리큘럼이에요. 오늘 수강 일정부터 잡아보세요.</p>
@@ -265,22 +405,70 @@ Claude.ai 무료 플랜으로도 수강 가능합니다. 다만 Pro 플랜(월 �
 <p><strong>Q. 강의 수강 기간(열람 기간)은 얼마나 되나요?</strong>
 충분히 복습하고 싶으신 거 이해해요. 열람 기간은 강사 확인이 필요한 사항이라, 제가 직접 확인 후 안내드릴게요.</p>
 <p><strong>Q. 부캐 서비스를 만들 때 별도로 필요한 유료 툴이 있나요?</strong>
-추가 비용이 걱정되시는 거 공감해요. 기본 과정은 무료 툴 중심으로 구성되어 있어요. 세부 툴 목록은 커리큘럼 페이지에서 확인해 보세요.</p>
+추가 비용이 걱정되시는 거 공감해요. 기본 과정은 무료 툴 중심으로 구성되어 있어요. 세부 툴 목록은 커리큘럼 페이지에서 확인해 보세요.</p></div>
     
   </div>
 </article>
 
 
+<section class="course-cta-bottom">
+  <div class="wrap">
+    <h3>지금 시작하기</h3>
+    <p>차시 1개부터 가볍게 시작하세요. 평생 소장 + 업데이트 자동 적용.</p>
+    <div class="cta-row">
+      <a href="#scripts" class="cta cta-primary">📖 첫 차시 보기</a>
+      <a href="../index.html#courses" class="cta cta-secondary">← 다른 코스</a>
+    </div>
+  </div>
+</section>
 
-  <footer class="site">
+
+
+  <footer class="site-footer">
     <div class="wrap">
       
-        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
-  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
-  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
+    <strong style="font-size:14px;color:var(--fg);">코어 캠퍼스</strong>
+    <span style="font-size:13px;color:var(--muted);">핵심을 다지는 AI 실무 강의</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+    <a href="mailto:hello@corecampus.kr" style="font-size:13px;color:var(--accent);text-decoration:none;">hello@corecampus.kr</a>
+    <span style="font-size:13px;color:var(--muted);">·</span>
+    <span style="font-size:13px;color:var(--muted);">운영: 코어 캠퍼스 팀</span>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin:0;opacity:0.7;">&copy; 2025 코어 캠퍼스. 강의 콘텐츠의 무단 복제 및 배포를 금합니다.</p>
 </div>
       
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
 </body>
 </html>

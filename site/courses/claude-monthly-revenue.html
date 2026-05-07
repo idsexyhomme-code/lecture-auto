@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Claude로 매출 자동 분석·보고서 완성 — 강의 홈페이지</title>
+  <title>Claude로 매출 자동 분석·보고서 완성 — 코어 캠퍼스</title>
   <link rel="stylesheet" href="../styles.css" />
   <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
   <script>
-    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
     (function () {
       try {
         var p = new URLSearchParams(location.search);
@@ -23,29 +22,122 @@
   </script>
 </head>
 <body>
-  <header class="site">
+
+  
+  <div class="promo-bar">
     <div class="wrap">
-      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
-      <nav class="site">
-        <a href="../index.html">홈</a>
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 코스 무료 미리보기</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 신규 코스 알림 받기</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 카테고리
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">⚡</span>
+            <span class="cat-name">Claude 자동화</span>
+            <span class="cat-count">6개</span>
+          </a>
+          
+          <a href="../index.html#cat-sop" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">1인 사업 SOP</span>
+            <span class="cat-count">7개</span>
+          </a>
+          
+          <a href="../index.html#cat-productivity" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">딥워크·생산성</span>
+            <span class="cat-count">2개</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="🔍 코스 제목·키워드로 검색..." />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>마이</span>
+        </a>
       </nav>
     </div>
   </header>
 
   
-<section class="hero">
-  <div class="wrap">
-    <span class="badge">코스</span>
-    <h1 data-edit-field="site_config:course_overrides.claude-monthly-revenue.title_override">Claude로 매출 자동 분석·보고서 완성</h1>
-    <p class="lead" data-edit-field="site_config:course_overrides.claude-monthly-revenue.tagline_override">월 매출 분석을 30분에서 5분으로 줄인다</p>
+
+
+<section class="course-hero">
+  <div class="wrap course-hero-inner">
+    <div class="course-hero-main">
+      <div class="course-breadcrumb">
+        <a href="../index.html">홈</a> · <a href="../index.html#courses">코스</a> · <span>claude-monthly-revenue</span>
+      </div>
+      <span class="badge">코스</span>
+      <h1 data-edit-field="site_config:course_overrides.claude-monthly-revenue.title_override">Claude로 매출 자동 분석·보고서 완성</h1>
+      <p class="lead" data-edit-field="site_config:course_overrides.claude-monthly-revenue.tagline_override">월 매출 분석을 30분에서 5분으로 줄인다</p>
+
+      <div class="course-meta-row">
+        <span class="meta-chip">📚 8차시</span>
+        <span class="meta-chip">⏱ 차시당 15분</span>
+        <span class="meta-chip">🎯 실습 산출물 1개</span>
+        <span class="meta-chip">♾ 평생 소장</span>
+      </div>
+    </div>
+
+    
+    <aside class="course-sidebar">
+      <div class="sidebar-card">
+        <div class="price-block">
+          <div class="price-label">수강료</div>
+          <div class="price-value">무료 미리보기</div>
+          <div class="price-note">전체 코스는 곧 오픈</div>
+        </div>
+        <a href="#scripts" class="cta cta-primary cta-full">📖 차시 미리보기</a>
+        <a href="../me/" class="cta cta-secondary cta-full">💾 마이페이지에 담기</a>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-includes">
+          <div class="includes-title">코스에 포함된 것</div>
+          <ul>
+            <li>✓ 차시별 핵심 강의 (8개)</li>
+            <li>✓ 실습 가이드 + 체크리스트</li>
+            <li>✓ FAQ + 자주 막히는 곳 안내</li>
+            <li>✓ 코어 캠퍼스 업데이트 평생 적용</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section">
+  <div class="wrap course-content">
     <h2>이 코스는요</h2>
-    <h1>매출 분석 30분 → 5분, Claude가 한다</h1>
+    <div class="course-text"><h1>매출 분석 30분 → 5분, Claude가 한다</h1>
 <blockquote>
 <p>데이터 붙여넣기 한 번으로 핵심 인사이트 즉시 완성. 8강으로 나만의 매출 자동 분석 루틴을 만든다.</p>
 </blockquote>
@@ -91,16 +183,16 @@
 결제일로부터 7일 이내, 1강 미시청 상태라면 전액 환불 신청이 가능합니다. 이후에는 콘텐츠 특성상 환불이 어렵습니다.</p>
 <h2>가격</h2>
 <p>얼리버드 가격: ₩390,000 (얼리버드 — 모집 마감 전 선착순 30명)
-<strong>CTA:</strong> 지금 결제</p>
+<strong>CTA:</strong> 지금 결제</p></div>
   </div>
 </article>
 
 
 
-<article class="body" style="background: var(--soft);">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>커리큘럼</h2>
-    <h1>Claude로 매출 자동 분석·보고서 완성</h1>
+    <div class="course-text"><h1>Claude로 매출 자동 분석·보고서 완성</h1>
 <blockquote>
 <p>월 매출 분석을 30분에서 5분으로 줄인다</p>
 </blockquote>
@@ -183,64 +275,112 @@
 </tbody>
 </table>
 <h2>평가</h2>
-<p>8차시 산출물(텍스트 파일·시트·문서·영상)을 모두 제출하면 최종 완주 인증을 부여하며, 핵심 평가 기준은 8차시 화면 녹화 영상이 실제 데이터를 활용해 10분 이내에 보고서를 완성하는 전 과정을 담고 있는지 여부로 판정한다</p>
+<p>8차시 산출물(텍스트 파일·시트·문서·영상)을 모두 제출하면 최종 완주 인증을 부여하며, 핵심 평가 기준은 8차시 화면 녹화 영상이 실제 데이터를 활용해 10분 이내에 보고서를 완성하는 전 과정을 담고 있는지 여부로 판정한다</p></div>
   </div>
 </article>
 
 
 
-<section>
+<section id="scripts" class="course-section">
   <div class="wrap">
-    <h2>차시별 콘텐츠 (8)</h2>
-    <div class="grid">
+    <h2>차시별 콘텐츠 <span class="muted-count">8개</span></h2>
+    <div class="lesson-list">
       
-      <div class="card">
-        <h3>#1 내 매출 데이터, 어디서 뭘 꺼낼까</h3>
-        <p class="muted">자신의 매출 데이터 소스(POS·쇼핑몰·은행 내역 등)를 나열하고 Claude에 입력 가능한 형태(텍스트·CSV)로 1개월치를 변환한다</p>
-        <a class="cta" href="../posts/1777956542-349185.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777956542-349185.html" class="lesson-row">
+        <div class="lesson-no">1</div>
+        <div class="lesson-body">
+          <h4>#1 내 매출 데이터, 어디서 뭘 꺼낼까</h4>
+          <p>자신의 매출 데이터 소스(POS·쇼핑몰·은행 내역 등)를 나열하고 Claude에 입력 가능한 형태(텍스트·CSV)로 1개월치를 변환한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#2 Claude에게 숫자 읽히기: 첫 분석 프롬프트</h3>
-        <p class="muted">기본 분석 프롬프트 구조(역할·데이터·지시·출력형식)를 활용해 총매출·평균·최고·최저 4가지 지표를 한 번에 추출하는 프롬프트를 작성한다</p>
-        <a class="cta" href="../posts/1777960313-13ba29.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777960313-13ba29.html" class="lesson-row">
+        <div class="lesson-no">2</div>
+        <div class="lesson-body">
+          <h4>#2 Claude에게 숫자 읽히기: 첫 분석 프롬프트</h4>
+          <p>기본 분석 프롬프트 구조(역할·데이터·지시·출력형식)를 활용해 총매출·평균·최고·최저 4가지 지표를 한 번에 추출하는 프롬프트를 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 트렌드 발견: 주차별·채널별 비교 분석</h3>
-        <p class="muted">주차별 또는 판매 채널별 매출을 비교하는 프롬프트를 작성하고 Claude가 생성한 비교 표를 시트에 붙여넣어 완성한다</p>
-        <a class="cta" href="../posts/1777960606-34daf2.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777960606-34daf2.html" class="lesson-row">
+        <div class="lesson-no">3</div>
+        <div class="lesson-body">
+          <h4>#3 트렌드 발견: 주차별·채널별 비교 분석</h4>
+          <p>주차별 또는 판매 채널별 매출을 비교하는 프롬프트를 작성하고 Claude가 생성한 비교 표를 시트에 붙여넣어 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#4 왜 올랐고 왜 떨어졌나: 원인 추론 프롬프트</h3>
-        <p class="muted">매출 증감 구간을 지정하고 가능한 원인 3가지와 근거를 함께 설명하도록 Claude에 지시하는 원인 추론 프롬프트를 작성한다</p>
-        <a class="cta" href="../posts/1777964000-2f024c.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777964000-2f024c.html" class="lesson-row">
+        <div class="lesson-no">4</div>
+        <div class="lesson-body">
+          <h4>#4 왜 올랐고 왜 떨어졌나: 원인 추론 프롬프트</h4>
+          <p>매출 증감 구간을 지정하고 가능한 원인 3가지와 근거를 함께 설명하도록 Claude에 지시하는 원인 추론 프롬프트를 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#5 나만의 분석 템플릿 만들기</h3>
-        <p class="muted">1~4차시에서 사용한 프롬프트를 하나의 재사용 가능한 마스터 프롬프트 템플릿으로 통합하고 변수([월], [채널명] 등) 자리표시자를 삽입한다</p>
-        <a class="cta" href="../posts/1777964203-9d615a.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777964203-9d615a.html" class="lesson-row">
+        <div class="lesson-no">5</div>
+        <div class="lesson-body">
+          <h4>#5 나만의 분석 템플릿 만들기</h4>
+          <p>1~4차시에서 사용한 프롬프트를 하나의 재사용 가능한 마스터 프롬프트 템플릿으로 통합하고 변수([월], [채널명] 등) 자리표시자를 삽입한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#6 보고서 초안 자동 생성</h3>
-        <p class="muted">분석 결과를 입력값으로 삼아 경영자 요약·핵심 지표·원인·다음 달 제언 4개 섹션으로 구성된 월간 보고서 초안을 Claude로 생성한다</p>
-        <a class="cta" href="../posts/1777964320-09924e.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777964320-09924e.html" class="lesson-row">
+        <div class="lesson-no">6</div>
+        <div class="lesson-body">
+          <h4>#6 보고서 초안 자동 생성</h4>
+          <p>분석 결과를 입력값으로 삼아 경영자 요약·핵심 지표·원인·다음 달 제언 4개 섹션으로 구성된 월간 보고서 초안을 Claude로 생성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#7 보고서 톤·스타일 내 브랜드에 맞게 교정</h3>
-        <p class="muted">생성된 보고서 초안에 자신의 브랜드 톤(격식체·친근체 등)과 로고·색상 규칙을 반영하도록 Claude에 교정 지시를 내려 최종 버전을 완성한다</p>
-        <a class="cta" href="../posts/1777964440-f6e2d4.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777964440-f6e2d4.html" class="lesson-row">
+        <div class="lesson-no">7</div>
+        <div class="lesson-body">
+          <h4>#7 보고서 톤·스타일 내 브랜드에 맞게 교정</h4>
+          <p>생성된 보고서 초안에 자신의 브랜드 톤(격식체·친근체 등)과 로고·색상 규칙을 반영하도록 Claude에 교정 지시를 내려 최종 버전을 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#8 매달 10분 루틴: 자동화 SOP 영상으로 완성</h3>
-        <p class="muted">데이터 수집부터 보고서 완성까지 전 과정을 단계별로 정리한 SOP 문서를 작성하고 본인이 직접 수행하는 과정을 화면 녹화 영상으로 제작한다</p>
-        <a class="cta" href="../posts/1777964551-64c985.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777964551-64c985.html" class="lesson-row">
+        <div class="lesson-no">8</div>
+        <div class="lesson-body">
+          <h4>#8 매달 10분 루틴: 자동화 SOP 영상으로 완성</h4>
+          <p>데이터 수집부터 보고서 완성까지 전 과정을 단계별로 정리한 SOP 문서를 작성하고 본인이 직접 수행하는 과정을 화면 녹화 영상으로 제작한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
     </div>
   </div>
@@ -248,11 +388,11 @@
 
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>자주 묻는 질문</h2>
     
-      <p><strong>Q. Claude가 뭔지 몰라도 들을 수 있나요?</strong>
+      <div class="faq-block"><p><strong>Q. Claude가 뭔지 몰라도 들을 수 있나요?</strong>
 처음이셔도 괜찮아요 😊 Claude 기초부터 함께 시작하니 수강 전 별도 준비는 없습니다. 맛보기 영상부터 확인해 보세요!</p>
 <p><strong>Q. 엑셀을 잘 못 써도 괜찮나요?</strong>
 엑셀 울렁증 있으셔도 걱정 마세요! 강의에서 Claude가 분석을 대신하므로 기본 복사·붙여넣기만 가능하면 충분합니다.</p>
@@ -265,22 +405,70 @@
 <p><strong>Q. 환불은 어떻게 되나요?</strong>
 환불 정책이 궁금하신 거 당연해요. 해당 사항은 강사 확인이 필요하니, 정확한 안내를 받아보실 수 있도록 연결해 드릴게요.</p>
 <p><strong>Q. 강의 자료는 얼마나 오래 볼 수 있나요?</strong>
-수강 기간이 짧을까 봐 걱정되시는군요! 정확한 제공 기간은 제가 강사에게 직접 확인 후 답변드릴게요.</p>
+수강 기간이 짧을까 봐 걱정되시는군요! 정확한 제공 기간은 제가 강사에게 직접 확인 후 답변드릴게요.</p></div>
     
   </div>
 </article>
 
 
+<section class="course-cta-bottom">
+  <div class="wrap">
+    <h3>지금 시작하기</h3>
+    <p>차시 1개부터 가볍게 시작하세요. 평생 소장 + 업데이트 자동 적용.</p>
+    <div class="cta-row">
+      <a href="#scripts" class="cta cta-primary">📖 첫 차시 보기</a>
+      <a href="../index.html#courses" class="cta cta-secondary">← 다른 코스</a>
+    </div>
+  </div>
+</section>
 
-  <footer class="site">
+
+
+  <footer class="site-footer">
     <div class="wrap">
       
-        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
-  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
-  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
+    <strong style="font-size:14px;color:var(--fg);">코어 캠퍼스</strong>
+    <span style="font-size:13px;color:var(--muted);">핵심을 다지는 AI 실무 강의</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+    <a href="mailto:hello@corecampus.kr" style="font-size:13px;color:var(--accent);text-decoration:none;">hello@corecampus.kr</a>
+    <span style="font-size:13px;color:var(--muted);">·</span>
+    <span style="font-size:13px;color:var(--muted);">운영: 코어 캠퍼스 팀</span>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin:0;opacity:0.7;">&copy; 2025 코어 캠퍼스. 강의 콘텐츠의 무단 복제 및 배포를 금합니다.</p>
 </div>
       
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
 </body>
 </html>

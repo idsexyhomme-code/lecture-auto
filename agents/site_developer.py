@@ -302,6 +302,9 @@ class SiteDeveloper(BaseAgent):
         "pricing_html",         # 가격 비교
         # ★ Tier 5 — 별도 페이지 생성
         "extra_pages",          # [{slug, title, body_html}] 배열 → site/{slug}/index.html 자동 생성
+        # ★ Tier 6 — 강의 플랫폼 구조
+        "categories",           # [{id, name, courses: [...]}] — 카테고리별 코스 매핑
+        "promo_banners",        # [{label, color, link}] — 상단 프로모션 영역
     }
     HTML_SLOT_KEYS = {
         "hero_html", "home_intro_html", "footer_html",

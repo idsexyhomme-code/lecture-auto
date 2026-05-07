@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>1인 사업가 세금 기초 완전정복 — 강의 홈페이지</title>
+  <title>1인 사업가 세금 기초 완전정복 — 코어 캠퍼스</title>
   <link rel="stylesheet" href="../styles.css" />
   <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
   <script>
-    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
     (function () {
       try {
         var p = new URLSearchParams(location.search);
@@ -23,29 +22,122 @@
   </script>
 </head>
 <body>
-  <header class="site">
+
+  
+  <div class="promo-bar">
     <div class="wrap">
-      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
-      <nav class="site">
-        <a href="../index.html">홈</a>
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 코스 무료 미리보기</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 신규 코스 알림 받기</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 카테고리
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">⚡</span>
+            <span class="cat-name">Claude 자동화</span>
+            <span class="cat-count">6개</span>
+          </a>
+          
+          <a href="../index.html#cat-sop" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">1인 사업 SOP</span>
+            <span class="cat-count">7개</span>
+          </a>
+          
+          <a href="../index.html#cat-productivity" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">딥워크·생산성</span>
+            <span class="cat-count">2개</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="🔍 코스 제목·키워드로 검색..." />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>마이</span>
+        </a>
       </nav>
     </div>
   </header>
 
   
-<section class="hero">
-  <div class="wrap">
-    <span class="badge">코스</span>
-    <h1 data-edit-field="site_config:course_overrides.tax-basics-solopreneur.title_override">1인 사업가 세금 기초 완전정복</h1>
-    <p class="lead" data-edit-field="site_config:course_overrides.tax-basics-solopreneur.tagline_override">8차시로 끝내는 절세 루틴 — 신고부터 환급까지</p>
+
+
+<section class="course-hero">
+  <div class="wrap course-hero-inner">
+    <div class="course-hero-main">
+      <div class="course-breadcrumb">
+        <a href="../index.html">홈</a> · <a href="../index.html#courses">코스</a> · <span>tax-basics-solopreneur</span>
+      </div>
+      <span class="badge">코스</span>
+      <h1 data-edit-field="site_config:course_overrides.tax-basics-solopreneur.title_override">1인 사업가 세금 기초 완전정복</h1>
+      <p class="lead" data-edit-field="site_config:course_overrides.tax-basics-solopreneur.tagline_override">8차시로 끝내는 절세 루틴 — 신고부터 환급까지</p>
+
+      <div class="course-meta-row">
+        <span class="meta-chip">📚 8차시</span>
+        <span class="meta-chip">⏱ 차시당 15분</span>
+        <span class="meta-chip">🎯 실습 산출물 1개</span>
+        <span class="meta-chip">♾ 평생 소장</span>
+      </div>
+    </div>
+
+    
+    <aside class="course-sidebar">
+      <div class="sidebar-card">
+        <div class="price-block">
+          <div class="price-label">수강료</div>
+          <div class="price-value">무료 미리보기</div>
+          <div class="price-note">전체 코스는 곧 오픈</div>
+        </div>
+        <a href="#scripts" class="cta cta-primary cta-full">📖 차시 미리보기</a>
+        <a href="../me/" class="cta cta-secondary cta-full">💾 마이페이지에 담기</a>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-includes">
+          <div class="includes-title">코스에 포함된 것</div>
+          <ul>
+            <li>✓ 차시별 핵심 강의 (8개)</li>
+            <li>✓ 실습 가이드 + 체크리스트</li>
+            <li>✓ FAQ + 자주 막히는 곳 안내</li>
+            <li>✓ 코어 캠퍼스 업데이트 평생 적용</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section">
+  <div class="wrap course-content">
     <h2>이 코스는요</h2>
-    <h1>세금 몰라서 손해 본 1인 사업가, 8차시로 끝냅니다</h1>
+    <div class="course-text"><h1>세금 몰라서 손해 본 1인 사업가, 8차시로 끝냅니다</h1>
 <blockquote>
 <p>종합소득세·부가세 신고부터 합법 절세까지. 세무사 없이도 스스로 신고 일정표를 완성하는 루틴을 만듭니다.</p>
 </blockquote>
@@ -91,16 +183,16 @@
 결제 후 7일 이내, 그리고 전체 강의의 1/3 미만 시청 시 전액 환불이 가능합니다. 해당 조건 이후에는 환불이 어려울 수 있으니 사전등록 페이지에서 상세 정책을 반드시 확인해 주세요.</p>
 <h2>가격</h2>
 <p>얼리버드 가격: ₩390,000 (얼리버드 — 정가 ₩590,000, 7월 31일까지)
-<strong>CTA:</strong> 지금 결제</p>
+<strong>CTA:</strong> 지금 결제</p></div>
   </div>
 </article>
 
 
 
-<article class="body" style="background: var(--soft);">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>커리큘럼</h2>
-    <h1>1인 사업가 세금 기초 완전정복</h1>
+    <div class="course-text"><h1>1인 사업가 세금 기초 완전정복</h1>
 <blockquote>
 <p>8차시로 끝내는 절세 루틴 — 신고부터 환급까지</p>
 </blockquote>
@@ -183,64 +275,112 @@
 </tbody>
 </table>
 <h2>평가</h2>
-<p>최종 PDF 제출 후 3가지 기준(①세금 지도 정확성 ②경비 분류 적절성 ③캘린더 완성도)으로 자가 체크리스트 평가를 완료하면 수료 인증 — 각 항목 70점 이상 시 '1인 사업가 세금 기초 수료' 배지 발급</p>
+<p>최종 PDF 제출 후 3가지 기준(①세금 지도 정확성 ②경비 분류 적절성 ③캘린더 완성도)으로 자가 체크리스트 평가를 완료하면 수료 인증 — 각 항목 70점 이상 시 '1인 사업가 세금 기초 수료' 배지 발급</p></div>
   </div>
 </article>
 
 
 
-<section>
+<section id="scripts" class="course-section">
   <div class="wrap">
-    <h2>차시별 콘텐츠 (8)</h2>
-    <div class="grid">
+    <h2>차시별 콘텐츠 <span class="muted-count">8개</span></h2>
+    <div class="lesson-list">
       
-      <div class="card">
-        <h3>#1 1인 사업가가 내야 할 세금 지도 그리기</h3>
-        <p class="muted">종합소득세·부가가치세·지방소득세 3가지 세목을 구분하여 각 세금의 납부 주체·시기·계산 기준을 1장짜리 세금 지도 표로 작성한다</p>
-        <a class="cta" href="../posts/1778039837-b2e12e.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778039837-b2e12e.html" class="lesson-row">
+        <div class="lesson-no">1</div>
+        <div class="lesson-body">
+          <h4>#1 1인 사업가가 내야 할 세금 지도 그리기</h4>
+          <p>종합소득세·부가가치세·지방소득세 3가지 세목을 구분하여 각 세금의 납부 주체·시기·계산 기준을 1장짜리 세금 지도 표로 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#2 수입과 매출, 무엇이 과세 대상인가</h3>
-        <p class="muted">실제 입금액과 과세 매출액의 차이를 비교하여 본인 사업의 월별 과세 매출 샘플을 계산식으로 작성한다</p>
-        <a class="cta" href="../posts/1778039980-bd012d.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778039980-bd012d.html" class="lesson-row">
+        <div class="lesson-no">2</div>
+        <div class="lesson-body">
+          <h4>#2 수입과 매출, 무엇이 과세 대상인가</h4>
+          <p>실제 입금액과 과세 매출액의 차이를 비교하여 본인 사업의 월별 과세 매출 샘플을 계산식으로 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 경비 처리로 세금 줄이기 — 인정되는 비용 vs 안 되는 비용</h3>
-        <p class="muted">사업 관련 지출 20개 항목을 필요경비 인정·불인정·조건부로 분류하여 경비 판단 체크리스트를 완성한다</p>
-        <a class="cta" href="../posts/1778040052-e01d5a.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778040052-e01d5a.html" class="lesson-row">
+        <div class="lesson-no">3</div>
+        <div class="lesson-body">
+          <h4>#3 경비 처리로 세금 줄이기 — 인정되는 비용 vs 안 되는 비용</h4>
+          <p>사업 관련 지출 20개 항목을 필요경비 인정·불인정·조건부로 분류하여 경비 판단 체크리스트를 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#4 부가가치세 신고 흐름 따라하기</h3>
-        <p class="muted">매출세액과 매입세액을 계산하여 납부 또는 환급 세액을 산출하는 부가세 계산 시뮬레이션을 완성한다</p>
-        <a class="cta" href="../posts/1778040115-c7ee16.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778040115-c7ee16.html" class="lesson-row">
+        <div class="lesson-no">4</div>
+        <div class="lesson-body">
+          <h4>#4 부가가치세 신고 흐름 따라하기</h4>
+          <p>매출세액과 매입세액을 계산하여 납부 또는 환급 세액을 산출하는 부가세 계산 시뮬레이션을 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#5 종합소득세 구조 분해 — 과세표준부터 세율까지</h3>
-        <p class="muted">총수입금액에서 필요경비·소득공제를 단계별로 차감하여 본인의 예상 과세표준과 예상 세율 구간을 계산한다</p>
-        <a class="cta" href="../posts/1778040187-3e2b88.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778040187-3e2b88.html" class="lesson-row">
+        <div class="lesson-no">5</div>
+        <div class="lesson-body">
+          <h4>#5 종합소득세 구조 분해 — 과세표준부터 세율까지</h4>
+          <p>총수입금액에서 필요경비·소득공제를 단계별로 차감하여 본인의 예상 과세표준과 예상 세율 구간을 계산한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#6 절세 전략 비교 — 단순경비율 vs 기장 신고</h3>
-        <p class="muted">단순경비율 추계신고와 장부 기장 신고의 세부담 차이를 수치로 비교하여 본인에게 유리한 신고 방식을 선택 근거와 함께 서술한다</p>
-        <a class="cta" href="../posts/1778040273-75feb5.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778040273-75feb5.html" class="lesson-row">
+        <div class="lesson-no">6</div>
+        <div class="lesson-body">
+          <h4>#6 절세 전략 비교 — 단순경비율 vs 기장 신고</h4>
+          <p>단순경비율 추계신고와 장부 기장 신고의 세부담 차이를 수치로 비교하여 본인에게 유리한 신고 방식을 선택 근거와 함께 서술한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#7 Claude로 세금 캘린더 초안 만들기</h3>
-        <p class="muted">Claude에게 본인의 업종·매출 규모·사업자 유형을 입력하여 연간 세금 신고 일정과 준비 체크리스트가 담긴 캘린더 초안을 생성한다</p>
-        <a class="cta" href="../posts/1778040348-474034.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778040348-474034.html" class="lesson-row">
+        <div class="lesson-no">7</div>
+        <div class="lesson-body">
+          <h4>#7 Claude로 세금 캘린더 초안 만들기</h4>
+          <p>Claude에게 본인의 업종·매출 규모·사업자 유형을 입력하여 연간 세금 신고 일정과 준비 체크리스트가 담긴 캘린더 초안을 생성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#8 나만의 절세 루틴 PDF 완성 및 실행 계획 수립</h3>
-        <p class="muted">1~7차시 산출물을 통합하여 세금 지도·경비 체크리스트·연간 캘린더가 포함된 나만의 절세 루틴 PDF를 완성하고 향후 3개월 실행 계획을 작성한다</p>
-        <a class="cta" href="../posts/1778040413-bbdc5e.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778040413-bbdc5e.html" class="lesson-row">
+        <div class="lesson-no">8</div>
+        <div class="lesson-body">
+          <h4>#8 나만의 절세 루틴 PDF 완성 및 실행 계획 수립</h4>
+          <p>1~7차시 산출물을 통합하여 세금 지도·경비 체크리스트·연간 캘린더가 포함된 나만의 절세 루틴 PDF를 완성하고 향후 3개월 실행 계획을 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
     </div>
   </div>
@@ -248,11 +388,11 @@
 
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>자주 묻는 질문</h2>
     
-      <p><strong>Q. 세금 지식이 전혀 없어도 들을 수 있나요?</strong>
+      <div class="faq-block"><p><strong>Q. 세금 지식이 전혀 없어도 들을 수 있나요?</strong>
 걱정되시는 마음 당연해요 😊 세금 용어부터 차근차근 설명하니 완전 초보도 OK! 커리큘럼 미리보기를 확인해 보세요.</p>
 <p><strong>Q. 프리랜서인데 1인 법인 내용도 해당되나요?</strong>
 두 유형 모두 고민이시군요! 프리랜서·1인 법인 양쪽 케이스를 모두 다루니 걱정 마세요. 수강 페이지에서 차시별 내용을 확인해 보세요.</p>
@@ -265,22 +405,70 @@
 <p><strong>Q. 강의 수강 후 세금 신고를 혼자 할 수 있게 되나요?</strong>
 가장 궁금한 부분이죠! 신고 절차와 절세 루틴을 실습 중심으로 다루니, 수강 후 스스로 적용할 수 있도록 설계되어 있어요.</p>
 <p><strong>Q. 질문이 생기면 어떻게 하나요?</strong>
-궁금한 게 생기면 바로 해결하고 싶으시죠! Q&amp;A 지원 방식은 강사에게 직접 확인 후 정확히 안내드릴게요.</p>
+궁금한 게 생기면 바로 해결하고 싶으시죠! Q&amp;A 지원 방식은 강사에게 직접 확인 후 정확히 안내드릴게요.</p></div>
     
   </div>
 </article>
 
 
+<section class="course-cta-bottom">
+  <div class="wrap">
+    <h3>지금 시작하기</h3>
+    <p>차시 1개부터 가볍게 시작하세요. 평생 소장 + 업데이트 자동 적용.</p>
+    <div class="cta-row">
+      <a href="#scripts" class="cta cta-primary">📖 첫 차시 보기</a>
+      <a href="../index.html#courses" class="cta cta-secondary">← 다른 코스</a>
+    </div>
+  </div>
+</section>
 
-  <footer class="site">
+
+
+  <footer class="site-footer">
     <div class="wrap">
       
-        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
-  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
-  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
+    <strong style="font-size:14px;color:var(--fg);">코어 캠퍼스</strong>
+    <span style="font-size:13px;color:var(--muted);">핵심을 다지는 AI 실무 강의</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+    <a href="mailto:hello@corecampus.kr" style="font-size:13px;color:var(--accent);text-decoration:none;">hello@corecampus.kr</a>
+    <span style="font-size:13px;color:var(--muted);">·</span>
+    <span style="font-size:13px;color:var(--muted);">운영: 코어 캠퍼스 팀</span>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin:0;opacity:0.7;">&copy; 2025 코어 캠퍼스. 강의 콘텐츠의 무단 복제 및 배포를 금합니다.</p>
 </div>
       
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
 </body>
 </html>

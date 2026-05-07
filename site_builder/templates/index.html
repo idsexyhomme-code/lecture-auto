@@ -1,11 +1,10 @@
 {% extends "_layout.html" %}
 {% block title %}{{ site_config.site_name }}{% endblock %}
 {% block content %}
+
 {% if site_config.hero_html %}
 <section class="hero hero-custom">
-  <div class="wrap">
-    {{ site_config.hero_html | safe }}
-  </div>
+  <div class="wrap">{{ site_config.hero_html | safe }}</div>
 </section>
 {% else %}
 <section class="hero">
@@ -13,93 +12,113 @@
     <span class="badge" data-edit-field="site_config:site_tagline_top">{{ site_config.site_tagline_top }}</span>
     <h1 data-edit-field="site_config:site_headline">{{ site_config.site_headline }}</h1>
     <p class="lead" data-edit-field="site_config:site_subtagline">{{ site_config.site_subtagline }}</p>
+    <div class="hero-actions">
+      <a class="cta cta-primary" href="#courses">코스 둘러보기 →</a>
+      <a class="cta cta-secondary" href="/me/">마이페이지</a>
+    </div>
   </div>
 </section>
 {% endif %}
 
-{# Tier 4 — Hero 아래 CTA 영역 #}
 {% if site_config.cta_html %}
-<section class="cta-custom">
-  <div class="wrap">
-    {{ site_config.cta_html | safe }}
-  </div>
-</section>
+<section class="cta-custom"><div class="wrap">{{ site_config.cta_html | safe }}</div></section>
 {% endif %}
 
-{# Tier 4 — 카테고리 nav (메인 위쪽) #}
 {% if site_config.categories_html %}
-<section class="categories-custom">
-  <div class="wrap">
-    {{ site_config.categories_html | safe }}
-  </div>
-</section>
+<section class="categories-custom"><div class="wrap">{{ site_config.categories_html | safe }}</div></section>
 {% endif %}
 
 {% if site_config.home_intro_html %}
-<section class="intro-custom">
-  <div class="wrap">
-    {{ site_config.home_intro_html | safe }}
-  </div>
-</section>
+<section class="intro-custom"><div class="wrap">{{ site_config.home_intro_html | safe }}</div></section>
 {% endif %}
 
-<section>
+{# === 카테고리별 코스 그리드 (메인 컨텐츠) === #}
+<section id="courses" class="section-courses">
   <div class="wrap">
-    <h2>코스 ({{ courses|length }})</h2>
-    {% if courses %}
-    <div class="grid">
-      {% for c in courses %}
-      <div class="card">
-        <h3 data-edit-field="site_config:course_overrides.{{ c.id }}.title_override">{{ c.title }}</h3>
-        <p data-edit-field="site_config:course_overrides.{{ c.id }}.tagline_override">{{ c.tagline }}</p>
-        <a class="cta" href="{{ c.url }}">자세히 보기 →</a>
+    <h2 class="section-title">전체 코스 <span class="muted-count">{{ courses|length }}개</span></h2>
+
+    {% if categorized %}
+      {% for cat in categorized %}
+      <div class="cat-block" id="cat-{{ cat.id }}">
+        <div class="cat-header">
+          <h3 class="cat-title"><span class="cat-emoji-large">{{ cat.icon }}</span> {{ cat.name }}</h3>
+          <span class="cat-badge">{{ cat.courses|length }}개 강의</span>
+        </div>
+        <div class="course-grid">
+          {% for c in cat.courses %}
+          <a href="{{ c.url }}" class="course-card" data-course-id="{{ c.id }}" id="course-{{ c.id }}">
+            <div class="course-card-inner">
+              <div class="course-thumb">
+                <div class="course-thumb-bg">{{ cat.icon }}</div>
+              </div>
+              <div class="course-body">
+                <h4 data-edit-field="site_config:course_overrides.{{ c.id }}.title_override">{{ c.title }}</h4>
+                <p class="course-tag" data-edit-field="site_config:course_overrides.{{ c.id }}.tagline_override">{{ c.tagline }}</p>
+                <div class="course-meta">
+                  <span class="meta-chip">📚 강의</span>
+                  <span class="meta-chip">⏱ 15분/차시</span>
+                </div>
+                <span class="course-cta">자세히 보기 →</span>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
       </div>
       {% endfor %}
-    </div>
+    {% elif courses %}
+      <div class="course-grid">
+        {% for c in courses %}
+        <a href="{{ c.url }}" class="course-card" data-course-id="{{ c.id }}" id="course-{{ c.id }}">
+          <div class="course-card-inner">
+            <div class="course-thumb"><div class="course-thumb-bg">📚</div></div>
+            <div class="course-body">
+              <h4 data-edit-field="site_config:course_overrides.{{ c.id }}.title_override">{{ c.title }}</h4>
+              <p class="course-tag" data-edit-field="site_config:course_overrides.{{ c.id }}.tagline_override">{{ c.tagline }}</p>
+              <span class="course-cta">자세히 보기 →</span>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
     {% else %}
-    <div class="empty">아직 승인된 코스가 없습니다. 텔레그램에서 ✅을 누르면 여기에 등록돼요.</div>
+      <div class="empty">아직 승인된 코스가 없습니다. 텔레그램에서 ✅을 누르면 여기에 등록돼요.</div>
     {% endif %}
   </div>
 </section>
 
-{# Tier 4 — 추천사·리뷰 #}
 {% if site_config.testimonials_html %}
-<section class="testimonials-custom">
-  <div class="wrap">
-    {{ site_config.testimonials_html | safe }}
-  </div>
-</section>
+<section class="testimonials-custom"><div class="wrap">{{ site_config.testimonials_html | safe }}</div></section>
 {% endif %}
 
-{# Tier 4 — 가격 비교 #}
 {% if site_config.pricing_html %}
-<section class="pricing-custom">
-  <div class="wrap">
-    {{ site_config.pricing_html | safe }}
-  </div>
-</section>
+<section class="pricing-custom"><div class="wrap">{{ site_config.pricing_html | safe }}</div></section>
 {% endif %}
 
 {% if posts %}
-<section>
+<section class="section-recent">
   <div class="wrap">
-    <h2>최근 산출물</h2>
-    <div class="grid">
+    <h2 class="section-title">최근 산출물</h2>
+    <div class="recent-grid">
       {% for p in posts %}
-      <div class="card">
-        <h3>{{ p.title }}<span class="kind-tag">{{ p.kind }}</span></h3>
-        <p class="muted">코스: {{ p.course_id or '미분류' }}</p>
-        <a class="cta" href="{{ p.url }}">읽기 →</a>
-      </div>
+      <a href="{{ p.url }}" class="recent-item">
+        <span class="recent-kind">{{ p.kind }}</span>
+        <h5>{{ p.title }}</h5>
+        <span class="muted">{{ p.course_id or '미분류' }}</span>
+      </a>
       {% endfor %}
     </div>
   </div>
 </section>
 {% endif %}
 
-<section>
-  <div class="wrap muted">
-    총 승인된 콘텐츠: {{ total_count }}개 · 마지막 빌드 자동
+<section class="stats-bar">
+  <div class="wrap">
+    <span class="stat-item"><b>{{ total_count }}</b>개 콘텐츠</span>
+    <span class="stat-item"><b>{{ courses|length }}</b>개 코스</span>
+    <span class="stat-item"><b>매일</b> 자동 신규</span>
+    <span class="stat-item"><b>AI 8</b>명 + 사람</span>
   </div>
 </section>
+
 {% endblock %}

@@ -1,43 +1,88 @@
 {% extends "_layout.html" %}
-{% block title %}{{ course.title }} — 강의 홈페이지{% endblock %}
+{% block title %}{{ course.title }} — {{ site_config.site_name }}{% endblock %}
 {% block content %}
-<section class="hero">
-  <div class="wrap">
-    <span class="badge">코스</span>
-    <h1 data-edit-field="site_config:course_overrides.{{ course.id }}.title_override">{{ course.title }}</h1>
-    <p class="lead" data-edit-field="site_config:course_overrides.{{ course.id }}.tagline_override">{{ course.tagline }}</p>
+
+{# === Course Hero === #}
+<section class="course-hero">
+  <div class="wrap course-hero-inner">
+    <div class="course-hero-main">
+      <div class="course-breadcrumb">
+        <a href="../index.html">홈</a> · <a href="../index.html#courses">코스</a> · <span>{{ course.id }}</span>
+      </div>
+      <span class="badge">코스</span>
+      <h1 data-edit-field="site_config:course_overrides.{{ course.id }}.title_override">{{ course.title }}</h1>
+      <p class="lead" data-edit-field="site_config:course_overrides.{{ course.id }}.tagline_override">{{ course.tagline }}</p>
+
+      <div class="course-meta-row">
+        {% if course.scripts %}<span class="meta-chip">📚 {{ course.scripts|length }}차시</span>{% endif %}
+        <span class="meta-chip">⏱ 차시당 15분</span>
+        <span class="meta-chip">🎯 실습 산출물 1개</span>
+        <span class="meta-chip">♾ 평생 소장</span>
+      </div>
+    </div>
+
+    {# === 사이드바 CTA (강의 신청) === #}
+    <aside class="course-sidebar">
+      <div class="sidebar-card">
+        <div class="price-block">
+          <div class="price-label">수강료</div>
+          <div class="price-value">무료 미리보기</div>
+          <div class="price-note">전체 코스는 곧 오픈</div>
+        </div>
+        <a href="#scripts" class="cta cta-primary cta-full">📖 차시 미리보기</a>
+        <a href="../me/" class="cta cta-secondary cta-full">💾 마이페이지에 담기</a>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-includes">
+          <div class="includes-title">코스에 포함된 것</div>
+          <ul>
+            <li>✓ 차시별 핵심 강의 ({{ course.scripts|length if course.scripts else 0 }}개)</li>
+            <li>✓ 실습 가이드 + 체크리스트</li>
+            <li>✓ FAQ + 자주 막히는 곳 안내</li>
+            <li>✓ 코어 캠퍼스 업데이트 평생 적용</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
 
 {% if course.landing %}
-<article class="body">
-  <div class="wrap">
+<article class="course-section">
+  <div class="wrap course-content">
     <h2>이 코스는요</h2>
-    {{ md_to_html(course.landing.body_md) | safe }}
+    <div class="course-text">{{ md_to_html(course.landing.body_md) | safe }}</div>
   </div>
 </article>
 {% endif %}
 
 {% if course.curriculum %}
-<article class="body" style="background: var(--soft);">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>커리큘럼</h2>
-    {{ md_to_html(course.curriculum.body_md) | safe }}
+    <div class="course-text">{{ md_to_html(course.curriculum.body_md) | safe }}</div>
   </div>
 </article>
 {% endif %}
 
 {% if course.scripts %}
-<section>
+<section id="scripts" class="course-section">
   <div class="wrap">
-    <h2>차시별 콘텐츠 ({{ course.scripts|length }})</h2>
-    <div class="grid">
+    <h2>차시별 콘텐츠 <span class="muted-count">{{ course.scripts|length }}개</span></h2>
+    <div class="lesson-list">
       {% for s in course.scripts %}
-      <div class="card">
-        <h3>{{ s.title }}</h3>
-        <p class="muted">{{ s.summary }}</p>
-        <a class="cta" href="../posts/{{ s.id }}.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/{{ s.id }}.html" class="lesson-row">
+        <div class="lesson-no">{{ loop.index }}</div>
+        <div class="lesson-body">
+          <h4>{{ s.title }}</h4>
+          <p>{{ s.summary }}</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       {% endfor %}
     </div>
   </div>
@@ -45,13 +90,25 @@
 {% endif %}
 
 {% if course.faqs %}
-<article class="body">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>자주 묻는 질문</h2>
     {% for f in course.faqs %}
-      {{ md_to_html(f.body_md) | safe }}
+      <div class="faq-block">{{ md_to_html(f.body_md) | safe }}</div>
     {% endfor %}
   </div>
 </article>
 {% endif %}
+
+<section class="course-cta-bottom">
+  <div class="wrap">
+    <h3>지금 시작하기</h3>
+    <p>차시 1개부터 가볍게 시작하세요. 평생 소장 + 업데이트 자동 적용.</p>
+    <div class="cta-row">
+      <a href="#scripts" class="cta cta-primary">📖 첫 차시 보기</a>
+      <a href="../index.html#courses" class="cta cta-secondary">← 다른 코스</a>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

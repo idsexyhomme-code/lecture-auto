@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>딥워크 1시간 진입법 — 강의 홈페이지</title>
+  <title>딥워크 1시간 진입법 — 코어 캠퍼스</title>
   <link rel="stylesheet" href="../styles.css" />
   <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
   <script>
-    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
     (function () {
       try {
         var p = new URLSearchParams(location.search);
@@ -23,29 +22,122 @@
   </script>
 </head>
 <body>
-  <header class="site">
+
+  
+  <div class="promo-bar">
     <div class="wrap">
-      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
-      <nav class="site">
-        <a href="../index.html">홈</a>
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 코스 무료 미리보기</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 신규 코스 알림 받기</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 카테고리
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">⚡</span>
+            <span class="cat-name">Claude 자동화</span>
+            <span class="cat-count">6개</span>
+          </a>
+          
+          <a href="../index.html#cat-sop" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">1인 사업 SOP</span>
+            <span class="cat-count">7개</span>
+          </a>
+          
+          <a href="../index.html#cat-productivity" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">딥워크·생산성</span>
+            <span class="cat-count">2개</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="🔍 코스 제목·키워드로 검색..." />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>마이</span>
+        </a>
       </nav>
     </div>
   </header>
 
   
-<section class="hero">
-  <div class="wrap">
-    <span class="badge">코스</span>
-    <h1 data-edit-field="site_config:course_overrides.deepwork-1hr.title_override">딥워크 1시간 진입법</h1>
-    <p class="lead" data-edit-field="site_config:course_overrides.deepwork-1hr.tagline_override">1인 사업가를 위한 집중력 설계 3단계 시스템</p>
+
+
+<section class="course-hero">
+  <div class="wrap course-hero-inner">
+    <div class="course-hero-main">
+      <div class="course-breadcrumb">
+        <a href="../index.html">홈</a> · <a href="../index.html#courses">코스</a> · <span>deepwork-1hr</span>
+      </div>
+      <span class="badge">코스</span>
+      <h1 data-edit-field="site_config:course_overrides.deepwork-1hr.title_override">딥워크 1시간 진입법</h1>
+      <p class="lead" data-edit-field="site_config:course_overrides.deepwork-1hr.tagline_override">1인 사업가를 위한 집중력 설계 3단계 시스템</p>
+
+      <div class="course-meta-row">
+        <span class="meta-chip">📚 7차시</span>
+        <span class="meta-chip">⏱ 차시당 15분</span>
+        <span class="meta-chip">🎯 실습 산출물 1개</span>
+        <span class="meta-chip">♾ 평생 소장</span>
+      </div>
+    </div>
+
+    
+    <aside class="course-sidebar">
+      <div class="sidebar-card">
+        <div class="price-block">
+          <div class="price-label">수강료</div>
+          <div class="price-value">무료 미리보기</div>
+          <div class="price-note">전체 코스는 곧 오픈</div>
+        </div>
+        <a href="#scripts" class="cta cta-primary cta-full">📖 차시 미리보기</a>
+        <a href="../me/" class="cta cta-secondary cta-full">💾 마이페이지에 담기</a>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-includes">
+          <div class="includes-title">코스에 포함된 것</div>
+          <ul>
+            <li>✓ 차시별 핵심 강의 (7개)</li>
+            <li>✓ 실습 가이드 + 체크리스트</li>
+            <li>✓ FAQ + 자주 막히는 곳 안내</li>
+            <li>✓ 코어 캠퍼스 업데이트 평생 적용</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section">
+  <div class="wrap course-content">
     <h2>이 코스는요</h2>
-    <h1>집중 못 해서 콘텐츠 못 만드는 1인 사업가에게</h1>
+    <div class="course-text"><h1>집중 못 해서 콘텐츠 못 만드는 1인 사업가에게</h1>
 <blockquote>
 <p>3단계 시스템으로 15분 안에 딥워크 진입. 1시간 완주까지 설계합니다.</p>
 </blockquote>
@@ -91,16 +183,16 @@
 결제일로부터 7일 이내, 1차시 영상 시청 전이라면 전액 환불이 가능합니다. 1차시 시청 이후에는 환불이 어렵습니다. 자세한 사항은 운영 정책 페이지를 확인해 주세요.</p>
 <h2>가격</h2>
 <p>얼리버드 가격: ₩390,000 (얼리버드 — 1월 31일까지)
-<strong>CTA:</strong> 지금 결제</p>
+<strong>CTA:</strong> 지금 결제</p></div>
   </div>
 </article>
 
 
 
-<article class="body" style="background: var(--soft);">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>커리큘럼</h2>
-    <h1>딥워크 1시간 진입법</h1>
+    <div class="course-text"><h1>딥워크 1시간 진입법</h1>
 <blockquote>
 <p>1인 사업가를 위한 집중력 설계 3단계 시스템</p>
 </blockquote>
@@ -148,58 +240,100 @@
 </tbody>
 </table>
 <h2>평가</h2>
-<p>3차시 회고 영상을 제출하면 완주 인증 발급. 영상 내 세션 시작 선언·방해 차단 증거(알림 OFF 화면)·완성 산출물 3가지가 모두 포함되어야 인증 통과</p>
+<p>3차시 회고 영상을 제출하면 완주 인증 발급. 영상 내 세션 시작 선언·방해 차단 증거(알림 OFF 화면)·완성 산출물 3가지가 모두 포함되어야 인증 통과</p></div>
   </div>
 </article>
 
 
 
-<section>
+<section id="scripts" class="course-section">
   <div class="wrap">
-    <h2>차시별 콘텐츠 (7)</h2>
-    <div class="grid">
+    <h2>차시별 콘텐츠 <span class="muted-count">7개</span></h2>
+    <div class="lesson-list">
       
-      <div class="card">
-        <h3>#1 딥워크 환경 설계하기</h3>
-        <p class="muted">나의 방해 요소 Top 5를 목록으로 작성하고, 각각에 대응하는 차단 규칙을 1개씩 정의한다</p>
-        <a class="cta" href="../posts/1777938625-05a876.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777938625-05a876.html" class="lesson-row">
+        <div class="lesson-no">1</div>
+        <div class="lesson-body">
+          <h4>#1 딥워크 환경 설계하기</h4>
+          <p>나의 방해 요소 Top 5를 목록으로 작성하고, 각각에 대응하는 차단 규칙을 1개씩 정의한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#1 딥워크 환경 설계하기</h3>
-        <p class="muted">나의 방해 요소 Top 5를 목록으로 작성하고, 각각에 대응하는 차단 규칙을 1개씩 정의한다</p>
-        <a class="cta" href="../posts/1777938689-17fa09.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777938689-17fa09.html" class="lesson-row">
+        <div class="lesson-no">2</div>
+        <div class="lesson-body">
+          <h4>#1 딥워크 환경 설계하기</h4>
+          <p>나의 방해 요소 Top 5를 목록으로 작성하고, 각각에 대응하는 차단 규칙을 1개씩 정의한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#2 몰입 진입 루틴 설계하기</h3>
-        <p class="muted">딥워크 시작 전 15분 안에 실행 가능한 나만의 준비 루틴 3단계를 순서대로 기술한다</p>
-        <a class="cta" href="../posts/1777939529-2cb32c.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777939529-2cb32c.html" class="lesson-row">
+        <div class="lesson-no">3</div>
+        <div class="lesson-body">
+          <h4>#2 몰입 진입 루틴 설계하기</h4>
+          <p>딥워크 시작 전 15분 안에 실행 가능한 나만의 준비 루틴 3단계를 순서대로 기술한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 1시간 딥워크 세션 완주하기</h3>
-        <p class="muted">설계한 환경 프로토콜과 루틴을 적용하여 1시간 딥워크 세션을 실행하고, 세션 전·후 집중도와 산출물을 비교 설명하는 영상을 제작한다</p>
-        <a class="cta" href="../posts/1777942357-0a9b65.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777942357-0a9b65.html" class="lesson-row">
+        <div class="lesson-no">4</div>
+        <div class="lesson-body">
+          <h4>#3 1시간 딥워크 세션 완주하기</h4>
+          <p>설계한 환경 프로토콜과 루틴을 적용하여 1시간 딥워크 세션을 실행하고, 세션 전·후 집중도와 산출물을 비교 설명하는 영상을 제작한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#2 몰입 진입 루틴 설계하기</h3>
-        <p class="muted">딥워크 시작 전 15분 안에 실행 가능한 나만의 준비 루틴 3단계를 순서대로 기술한다</p>
-        <a class="cta" href="../posts/1777943304-11b9ae.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777943304-11b9ae.html" class="lesson-row">
+        <div class="lesson-no">5</div>
+        <div class="lesson-body">
+          <h4>#2 몰입 진입 루틴 설계하기</h4>
+          <p>딥워크 시작 전 15분 안에 실행 가능한 나만의 준비 루틴 3단계를 순서대로 기술한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 1시간 딥워크 세션 완주하기</h3>
-        <p class="muted">설계한 환경 프로토콜과 루틴을 적용하여 1시간 딥워크 세션을 실행하고, 세션 전·후 집중도와 산출물을 비교 설명하는 영상을 제작한다</p>
-        <a class="cta" href="../posts/1777943637-c6dbd0.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777943637-c6dbd0.html" class="lesson-row">
+        <div class="lesson-no">6</div>
+        <div class="lesson-body">
+          <h4>#3 1시간 딥워크 세션 완주하기</h4>
+          <p>설계한 환경 프로토콜과 루틴을 적용하여 1시간 딥워크 세션을 실행하고, 세션 전·후 집중도와 산출물을 비교 설명하는 영상을 제작한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 1시간 딥워크 세션 완주하기</h3>
-        <p class="muted">설계한 환경 프로토콜과 루틴을 적용하여 1시간 딥워크 세션을 실행하고, 세션 전·후 집중도와 산출물을 비교 설명하는 영상을 제작한다</p>
-        <a class="cta" href="../posts/1777943653-7f8c19.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777943653-7f8c19.html" class="lesson-row">
+        <div class="lesson-no">7</div>
+        <div class="lesson-body">
+          <h4>#3 1시간 딥워크 세션 완주하기</h4>
+          <p>설계한 환경 프로토콜과 루틴을 적용하여 1시간 딥워크 세션을 실행하고, 세션 전·후 집중도와 산출물을 비교 설명하는 영상을 제작한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
     </div>
   </div>
@@ -207,11 +341,11 @@
 
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>자주 묻는 질문</h2>
     
-      <p><strong>Q. 저는 집중력이 원래 부족한데 효과가 있을까요?</strong>
+      <div class="faq-block"><p><strong>Q. 저는 집중력이 원래 부족한데 효과가 있을까요?</strong>
 타고난 게 아니라 설계의 문제예요 😊 3단계 시스템으로 누구나 1시간 딥워크 진입이 가능합니다. 먼저 1강만 들어보세요!</p>
 <p><strong>Q. 1인 사업가가 아니어도 들을 수 있나요?</strong>
 집중력 고민은 다들 비슷하죠! 콘텐츠 생산이 필요한 분이라면 누구든 적용 가능합니다. 수강 페이지에서 커리큘럼을 먼저 확인해 보세요.</p>
@@ -224,9 +358,9 @@
 <p><strong>Q. 환불은 어떻게 되나요?</strong>
 중요한 부분이라 신중하게 확인해 드려야 해요! 환불 정책은 강사 확인이 필요한 사안입니다. 별도로 문의 남겨 주시면 전달드릴게요.</p>
 <p><strong>Q. 강의 수료 후 효과를 못 느끼면 어떻게 하나요?</strong>
-결과가 날지 걱정되는 마음 충분히 공감해요! 이 부분은 강사에게 직접 확인 후 정확히 답변드릴게요. 문의 남겨 주세요.</p>
+결과가 날지 걱정되는 마음 충분히 공감해요! 이 부분은 강사에게 직접 확인 후 정확히 답변드릴게요. 문의 남겨 주세요.</p></div>
     
-      <p><strong>Q. 저는 집중력이 원래 없는 편인데 효과가 있을까요?</strong>
+      <div class="faq-block"><p><strong>Q. 저는 집중력이 원래 없는 편인데 효과가 있을까요?</strong>
 그 고민, 정말 많은 분들이 하세요 😊 이 강의는 의지력이 아닌 '환경 설계'로 집중하는 방법을 다룹니다. 커리큘럼 미리보기로 방향을 먼저 확인해 보세요!</p>
 <p><strong>Q. 콘텐츠 제작 경험이 없어도 들을 수 있나요?</strong>
 걱정하지 않으셔도 돼요! 콘텐츠 제작 스킬이 아닌 '집중력 시스템' 구축이 핵심이라 경험과 무관하게 바로 적용하실 수 있습니다. 수강 후기도 함께 참고해 보세요!</p>
@@ -239,22 +373,70 @@
 <p><strong>Q. 수강 기간이 따로 정해져 있나요? 무기한 시청 가능한가요?</strong>
 수강 기간은 중요한 부분이죠! 제가 강사에게 직접 확인 후 정확히 안내드릴게요.</p>
 <p><strong>Q. 환불은 어떻게 되나요?</strong>
-환불 정책은 꼭 정확하게 안내받으셔야 해요. 강사 확인이 필요한 사안이라 직접 확인 후 안내드리겠습니다.</p>
+환불 정책은 꼭 정확하게 안내받으셔야 해요. 강사 확인이 필요한 사안이라 직접 확인 후 안내드리겠습니다.</p></div>
     
   </div>
 </article>
 
 
+<section class="course-cta-bottom">
+  <div class="wrap">
+    <h3>지금 시작하기</h3>
+    <p>차시 1개부터 가볍게 시작하세요. 평생 소장 + 업데이트 자동 적용.</p>
+    <div class="cta-row">
+      <a href="#scripts" class="cta cta-primary">📖 첫 차시 보기</a>
+      <a href="../index.html#courses" class="cta cta-secondary">← 다른 코스</a>
+    </div>
+  </div>
+</section>
 
-  <footer class="site">
+
+
+  <footer class="site-footer">
     <div class="wrap">
       
-        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
-  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
-  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
+    <strong style="font-size:14px;color:var(--fg);">코어 캠퍼스</strong>
+    <span style="font-size:13px;color:var(--muted);">핵심을 다지는 AI 실무 강의</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+    <a href="mailto:hello@corecampus.kr" style="font-size:13px;color:var(--accent);text-decoration:none;">hello@corecampus.kr</a>
+    <span style="font-size:13px;color:var(--muted);">·</span>
+    <span style="font-size:13px;color:var(--muted);">운영: 코어 캠퍼스 팀</span>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin:0;opacity:0.7;">&copy; 2025 코어 캠퍼스. 강의 콘텐츠의 무단 복제 및 배포를 금합니다.</p>
 </div>
       
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
 </body>
 </html>

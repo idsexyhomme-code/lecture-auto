@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Claude로 완성하는 한 페이지 인사메일 — 강의 홈페이지</title>
+  <title>Claude로 완성하는 한 페이지 인사메일 — 코어 캠퍼스</title>
   <link rel="stylesheet" href="../styles.css" />
   <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
   <script>
-    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
     (function () {
       try {
         var p = new URLSearchParams(location.search);
@@ -23,29 +22,122 @@
   </script>
 </head>
 <body>
-  <header class="site">
+
+  
+  <div class="promo-bar">
     <div class="wrap">
-      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
-      <nav class="site">
-        <a href="../index.html">홈</a>
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 코스 무료 미리보기</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 신규 코스 알림 받기</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 카테고리
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">⚡</span>
+            <span class="cat-name">Claude 자동화</span>
+            <span class="cat-count">6개</span>
+          </a>
+          
+          <a href="../index.html#cat-sop" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">1인 사업 SOP</span>
+            <span class="cat-count">7개</span>
+          </a>
+          
+          <a href="../index.html#cat-productivity" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">딥워크·생산성</span>
+            <span class="cat-count">2개</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="🔍 코스 제목·키워드로 검색..." />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>마이</span>
+        </a>
       </nav>
     </div>
   </header>
 
   
-<section class="hero">
-  <div class="wrap">
-    <span class="badge">코스</span>
-    <h1 data-edit-field="site_config:course_overrides.claude-intro-email.title_override">Claude로 완성하는 한 페이지 인사메일</h1>
-    <p class="lead" data-edit-field="site_config:course_overrides.claude-intro-email.tagline_override">1인 사업가를 위한 AI 메일 작성 실전 3단계</p>
+
+
+<section class="course-hero">
+  <div class="wrap course-hero-inner">
+    <div class="course-hero-main">
+      <div class="course-breadcrumb">
+        <a href="../index.html">홈</a> · <a href="../index.html#courses">코스</a> · <span>claude-intro-email</span>
+      </div>
+      <span class="badge">코스</span>
+      <h1 data-edit-field="site_config:course_overrides.claude-intro-email.title_override">Claude로 완성하는 한 페이지 인사메일</h1>
+      <p class="lead" data-edit-field="site_config:course_overrides.claude-intro-email.tagline_override">1인 사업가를 위한 AI 메일 작성 실전 3단계</p>
+
+      <div class="course-meta-row">
+        <span class="meta-chip">📚 7차시</span>
+        <span class="meta-chip">⏱ 차시당 15분</span>
+        <span class="meta-chip">🎯 실습 산출물 1개</span>
+        <span class="meta-chip">♾ 평생 소장</span>
+      </div>
+    </div>
+
+    
+    <aside class="course-sidebar">
+      <div class="sidebar-card">
+        <div class="price-block">
+          <div class="price-label">수강료</div>
+          <div class="price-value">무료 미리보기</div>
+          <div class="price-note">전체 코스는 곧 오픈</div>
+        </div>
+        <a href="#scripts" class="cta cta-primary cta-full">📖 차시 미리보기</a>
+        <a href="../me/" class="cta cta-secondary cta-full">💾 마이페이지에 담기</a>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-includes">
+          <div class="includes-title">코스에 포함된 것</div>
+          <ul>
+            <li>✓ 차시별 핵심 강의 (7개)</li>
+            <li>✓ 실습 가이드 + 체크리스트</li>
+            <li>✓ FAQ + 자주 막히는 곳 안내</li>
+            <li>✓ 코어 캠퍼스 업데이트 평생 적용</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section">
+  <div class="wrap course-content">
     <h2>이 코스는요</h2>
-    <h1>인사메일 5분 초안, Claude로 끝낸다</h1>
+    <div class="course-text"><h1>인사메일 5분 초안, Claude로 끝낸다</h1>
 <blockquote>
 <p>1인 사업가가 직접 쓰느라 낭비하던 시간을 줄이고,
 수신자 맥락에 맞는 메일을 Claude 프롬프트 하나로 뽑아내는 실전 3단계.</p>
@@ -92,16 +184,16 @@ Claude를 일상 업무에 이미 사용하는 분을 대상으로 설계했습�
 결제 후 7일 이내, 1차시 미수강 상태라면 전액 환불이 가능합니다. 1차시 수강 이후에는 환불이 어려우니 사전등록 기간 중 커리큘럼을 충분히 확인하신 후 결제해 주세요.</p>
 <h2>가격</h2>
 <p>얼리버드 가격: ₩390,000 (얼리버드 — 정가 ₩590,000, 마감 일자 추후 공지)
-<strong>CTA:</strong> 지금 결제</p>
+<strong>CTA:</strong> 지금 결제</p></div>
   </div>
 </article>
 
 
 
-<article class="body" style="background: var(--soft);">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>커리큘럼</h2>
-    <h1>Claude로 완성하는 한 페이지 인사메일</h1>
+    <div class="course-text"><h1>Claude로 완성하는 한 페이지 인사메일</h1>
 <blockquote>
 <p>1인 사업가를 위한 AI 메일 작성 실전 3단계</p>
 </blockquote>
@@ -149,58 +241,100 @@ Claude를 일상 업무에 이미 사용하는 분을 대상으로 설계했습�
 </tbody>
 </table>
 <h2>평가</h2>
-<p>3차시 완료 후 실제 발송 대상자를 설정하여 템플릿 중 1건을 최종 커스터마이징한 메일을 제출하고, 4블록 구조·명확한 CTA 포함 여부 체크리스트 기준으로 자기 평가 완주 인증</p>
+<p>3차시 완료 후 실제 발송 대상자를 설정하여 템플릿 중 1건을 최종 커스터마이징한 메일을 제출하고, 4블록 구조·명확한 CTA 포함 여부 체크리스트 기준으로 자기 평가 완주 인증</p></div>
   </div>
 </article>
 
 
 
-<section>
+<section id="scripts" class="course-section">
   <div class="wrap">
-    <h2>차시별 콘텐츠 (7)</h2>
-    <div class="grid">
+    <h2>차시별 콘텐츠 <span class="muted-count">7개</span></h2>
+    <div class="lesson-list">
       
-      <div class="card">
-        <h3>#1 한 페이지 인사메일의 구조를 분해한다</h3>
-        <p class="muted">효과적인 인사메일의 4개 구성 요소(후크·자기소개·가치제안·CTA)를 나열하고, 기존 메일 샘플 1건을 해당 요소로 분류한다</p>
-        <a class="cta" href="../posts/1777938547-9106a2.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777938547-9106a2.html" class="lesson-row">
+        <div class="lesson-no">1</div>
+        <div class="lesson-body">
+          <h4>#1 한 페이지 인사메일의 구조를 분해한다</h4>
+          <p>효과적인 인사메일의 4개 구성 요소(후크·자기소개·가치제안·CTA)를 나열하고, 기존 메일 샘플 1건을 해당 요소로 분류한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#1 한 페이지 인사메일의 구조를 분해한다</h3>
-        <p class="muted">효과적인 인사메일의 4개 구성 요소(후크·자기소개·가치제안·CTA)를 나열하고, 기존 메일 샘플 1건을 해당 요소로 분류한다</p>
-        <a class="cta" href="../posts/1777938590-c60d9c.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777938590-c60d9c.html" class="lesson-row">
+        <div class="lesson-no">2</div>
+        <div class="lesson-body">
+          <h4>#1 한 페이지 인사메일의 구조를 분해한다</h4>
+          <p>효과적인 인사메일의 4개 구성 요소(후크·자기소개·가치제안·CTA)를 나열하고, 기존 메일 샘플 1건을 해당 요소로 분류한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#2 Claude에게 인사메일 초안을 생성시킨다</h3>
-        <p class="muted">수신자 정보·목적·톤 3가지 변수를 포함한 프롬프트를 작성하여 Claude로부터 한 페이지 인사메일 초안 1건을 생성한다</p>
-        <a class="cta" href="../posts/1777939477-a2e98a.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777939477-a2e98a.html" class="lesson-row">
+        <div class="lesson-no">3</div>
+        <div class="lesson-body">
+          <h4>#2 Claude에게 인사메일 초안을 생성시킨다</h4>
+          <p>수신자 정보·목적·톤 3가지 변수를 포함한 프롬프트를 작성하여 Claude로부터 한 페이지 인사메일 초안 1건을 생성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 목적별 인사메일 템플릿 3종을 완성한다</h3>
-        <p class="muted">영업·협업 제안·네트워킹 소개 3가지 목적에 맞게 Claude 초안을 수정하여 즉시 사용 가능한 템플릿 3종을 완성한다</p>
-        <a class="cta" href="../posts/1777942314-73bcc1.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777942314-73bcc1.html" class="lesson-row">
+        <div class="lesson-no">4</div>
+        <div class="lesson-body">
+          <h4>#3 목적별 인사메일 템플릿 3종을 완성한다</h4>
+          <p>영업·협업 제안·네트워킹 소개 3가지 목적에 맞게 Claude 초안을 수정하여 즉시 사용 가능한 템플릿 3종을 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#2 Claude에게 인사메일 초안을 생성시킨다</h3>
-        <p class="muted">수신자 정보·목적·톤 3가지 변수를 포함한 프롬프트를 작성하여 Claude로부터 한 페이지 인사메일 초안 1건을 생성한다</p>
-        <a class="cta" href="../posts/1777943252-2318fc.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777943252-2318fc.html" class="lesson-row">
+        <div class="lesson-no">5</div>
+        <div class="lesson-body">
+          <h4>#2 Claude에게 인사메일 초안을 생성시킨다</h4>
+          <p>수신자 정보·목적·톤 3가지 변수를 포함한 프롬프트를 작성하여 Claude로부터 한 페이지 인사메일 초안 1건을 생성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 목적별 인사메일 템플릿 3종을 완성한다</h3>
-        <p class="muted">영업·협업 제안·네트워킹 소개 3가지 목적에 맞게 Claude 초안을 수정하여 즉시 사용 가능한 템플릿 3종을 완성한다</p>
-        <a class="cta" href="../posts/1777943589-e45d37.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777943589-e45d37.html" class="lesson-row">
+        <div class="lesson-no">6</div>
+        <div class="lesson-body">
+          <h4>#3 목적별 인사메일 템플릿 3종을 완성한다</h4>
+          <p>영업·협업 제안·네트워킹 소개 3가지 목적에 맞게 Claude 초안을 수정하여 즉시 사용 가능한 템플릿 3종을 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 목적별 인사메일 템플릿 3종을 완성한다</h3>
-        <p class="muted">영업·협업 제안·네트워킹 소개 3가지 목적에 맞게 Claude 초안을 수정하여 즉시 사용 가능한 템플릿 3종을 완성한다</p>
-        <a class="cta" href="../posts/1777943610-df2636.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777943610-df2636.html" class="lesson-row">
+        <div class="lesson-no">7</div>
+        <div class="lesson-body">
+          <h4>#3 목적별 인사메일 템플릿 3종을 완성한다</h4>
+          <p>영업·협업 제안·네트워킹 소개 3가지 목적에 맞게 Claude 초안을 수정하여 즉시 사용 가능한 템플릿 3종을 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
     </div>
   </div>
@@ -208,11 +342,11 @@ Claude를 일상 업무에 이미 사용하는 분을 대상으로 설계했습�
 
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>자주 묻는 질문</h2>
     
-      <p><strong>Q. Claude 유료 플랜이 있어야 수강할 수 있나요?</strong>
+      <div class="faq-block"><p><strong>Q. Claude 유료 플랜이 있어야 수강할 수 있나요?</strong>
 걱정되셨겠어요. 무료 플랜으로도 수강 가능합니다. 수강 전 Claude 계정 하나만 준비해 주세요.</p>
 <p><strong>Q. 메일 작성 경험이 전혀 없어도 따라갈 수 있나요?</strong>
 부담 느끼셨겠어요. 메일 초보도 가능한 3단계 실습 구성입니다. 수강 전 샘플 메일 1개만 준비해 오세요.</p>
@@ -225,9 +359,9 @@ Claude를 일상 업무에 이미 사용하는 분을 대상으로 설계했습�
 <p><strong>Q. 수강 기간이나 다시보기 제공 여부가 궁금해요.</strong>
 일정이 바쁘셔서 걱정되셨겠어요. 수강 기간 및 다시보기 정책은 강사 확인이 필요합니다.</p>
 <p><strong>Q. 환불은 어떻게 되나요?</strong>
-신중하게 결정하고 싶으신 거 당연해요. 환불 정책은 강사 확인이 필요하니 문의 남겨 주세요.</p>
+신중하게 결정하고 싶으신 거 당연해요. 환불 정책은 강사 확인이 필요하니 문의 남겨 주세요.</p></div>
     
-      <p><strong>Q. Claude를 처음 써보는데도 수강 가능한가요?</strong>
+      <div class="faq-block"><p><strong>Q. Claude를 처음 써보는데도 수강 가능한가요?</strong>
 걱정되시는 마음 충분히 이해해요. 이 강의는 Claude를 이미 사용 중인 분을 대상으로 해요. 먼저 Claude 기본 사용 경험을 쌓고 오시길 추천드려요.</p>
 <p><strong>Q. 어떤 버전의 Claude를 사용해야 하나요?</strong>
 버전 걱정이 되시죠. 강의에서 사용하는 정확한 버전은 제가 강사에게 직접 확인 후 답변드릴게요. 강사님께 문의 남겨드릴까요?</p>
@@ -240,22 +374,70 @@ Claude를 일상 업무에 이미 사용하는 분을 대상으로 설계했습�
 <p><strong>Q. 환불은 어떻게 되나요?</strong>
 환불 기준이 걱정되시는 거 이해해요. 환불 관련 사항은 강사 확인이 필요한 정책 사안이에요. 강사님께 직접 문의 남겨드릴까요?</p>
 <p><strong>Q. 1인 사업가가 아니어도 수강할 수 있나요?</strong>
-해당되는지 고민되시죠. 강의는 1인 사업가 업무 맥락에 최적화되어 있어요. 본인 업무와 맞는지 강의 소개 페이지에서 먼저 확인해 보세요.</p>
+해당되는지 고민되시죠. 강의는 1인 사업가 업무 맥락에 최적화되어 있어요. 본인 업무와 맞는지 강의 소개 페이지에서 먼저 확인해 보세요.</p></div>
     
   </div>
 </article>
 
 
+<section class="course-cta-bottom">
+  <div class="wrap">
+    <h3>지금 시작하기</h3>
+    <p>차시 1개부터 가볍게 시작하세요. 평생 소장 + 업데이트 자동 적용.</p>
+    <div class="cta-row">
+      <a href="#scripts" class="cta cta-primary">📖 첫 차시 보기</a>
+      <a href="../index.html#courses" class="cta cta-secondary">← 다른 코스</a>
+    </div>
+  </div>
+</section>
 
-  <footer class="site">
+
+
+  <footer class="site-footer">
     <div class="wrap">
       
-        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
-  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
-  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
+    <strong style="font-size:14px;color:var(--fg);">코어 캠퍼스</strong>
+    <span style="font-size:13px;color:var(--muted);">핵심을 다지는 AI 실무 강의</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+    <a href="mailto:hello@corecampus.kr" style="font-size:13px;color:var(--accent);text-decoration:none;">hello@corecampus.kr</a>
+    <span style="font-size:13px;color:var(--muted);">·</span>
+    <span style="font-size:13px;color:var(--muted);">운영: 코어 캠퍼스 팀</span>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin:0;opacity:0.7;">&copy; 2025 코어 캠퍼스. 강의 콘텐츠의 무단 복제 및 배포를 금합니다.</p>
 </div>
       
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
 </body>
 </html>

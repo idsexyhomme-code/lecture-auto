@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Claude로 완성하는 유튜브 채널 기획 — 강의 홈페이지</title>
+  <title>Claude로 완성하는 유튜브 채널 기획 — 코어 캠퍼스</title>
   <link rel="stylesheet" href="../styles.css" />
   <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
   <script>
-    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
     (function () {
       try {
         var p = new URLSearchParams(location.search);
@@ -23,29 +22,122 @@
   </script>
 </head>
 <body>
-  <header class="site">
+
+  
+  <div class="promo-bar">
     <div class="wrap">
-      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
-      <nav class="site">
-        <a href="../index.html">홈</a>
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 코스 무료 미리보기</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 신규 코스 알림 받기</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 카테고리
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">⚡</span>
+            <span class="cat-name">Claude 자동화</span>
+            <span class="cat-count">6개</span>
+          </a>
+          
+          <a href="../index.html#cat-sop" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">1인 사업 SOP</span>
+            <span class="cat-count">7개</span>
+          </a>
+          
+          <a href="../index.html#cat-productivity" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">딥워크·생산성</span>
+            <span class="cat-count">2개</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="🔍 코스 제목·키워드로 검색..." />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>마이</span>
+        </a>
       </nav>
     </div>
   </header>
 
   
-<section class="hero">
-  <div class="wrap">
-    <span class="badge">코스</span>
-    <h1 data-edit-field="site_config:course_overrides.claude-youtube-plan.title_override">Claude로 완성하는 유튜브 채널 기획</h1>
-    <p class="lead" data-edit-field="site_config:course_overrides.claude-youtube-plan.tagline_override">채널 콘셉트부터 스크립트까지, 4주 단계별 실습 과정</p>
+
+
+<section class="course-hero">
+  <div class="wrap course-hero-inner">
+    <div class="course-hero-main">
+      <div class="course-breadcrumb">
+        <a href="../index.html">홈</a> · <a href="../index.html#courses">코스</a> · <span>claude-youtube-plan</span>
+      </div>
+      <span class="badge">코스</span>
+      <h1 data-edit-field="site_config:course_overrides.claude-youtube-plan.title_override">Claude로 완성하는 유튜브 채널 기획</h1>
+      <p class="lead" data-edit-field="site_config:course_overrides.claude-youtube-plan.tagline_override">채널 콘셉트부터 스크립트까지, 4주 단계별 실습 과정</p>
+
+      <div class="course-meta-row">
+        <span class="meta-chip">📚 8차시</span>
+        <span class="meta-chip">⏱ 차시당 15분</span>
+        <span class="meta-chip">🎯 실습 산출물 1개</span>
+        <span class="meta-chip">♾ 평생 소장</span>
+      </div>
+    </div>
+
+    
+    <aside class="course-sidebar">
+      <div class="sidebar-card">
+        <div class="price-block">
+          <div class="price-label">수강료</div>
+          <div class="price-value">무료 미리보기</div>
+          <div class="price-note">전체 코스는 곧 오픈</div>
+        </div>
+        <a href="#scripts" class="cta cta-primary cta-full">📖 차시 미리보기</a>
+        <a href="../me/" class="cta cta-secondary cta-full">💾 마이페이지에 담기</a>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-includes">
+          <div class="includes-title">코스에 포함된 것</div>
+          <ul>
+            <li>✓ 차시별 핵심 강의 (8개)</li>
+            <li>✓ 실습 가이드 + 체크리스트</li>
+            <li>✓ FAQ + 자주 막히는 곳 안내</li>
+            <li>✓ 코어 캠퍼스 업데이트 평생 적용</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section">
+  <div class="wrap course-content">
     <h2>이 코스는요</h2>
-    <h1>유튜브 채널 전략, Claude로 4주 완성</h1>
+    <div class="course-text"><h1>유튜브 채널 전략, Claude로 4주 완성</h1>
 <blockquote>
 <p>기획서·콘텐츠 캘린더·스크립트까지. 1인 사업가가 직접 만드는 AI 유튜브 시스템.</p>
 </blockquote>
@@ -91,16 +183,16 @@ Claude.ai 무료 플랜으로도 실습 가능하지만, Pro 플랜 사용 시 �
 결제일로부터 7일 이내, 1차시 이하 수강 시 전액 환불이 가능합니다. 이후에는 전자상거래법 기준 잔여 콘텐츠 비율에 따라 부분 환불됩니다. 자세한 내용은 수강 전 약관 페이지에서 확인하세요.</p>
 <h2>가격</h2>
 <p>얼리버드 가격: ₩390,000 (얼리버드 — 모집 마감 전 N일까지)
-<strong>CTA:</strong> 지금 결제</p>
+<strong>CTA:</strong> 지금 결제</p></div>
   </div>
 </article>
 
 
 
-<article class="body" style="background: var(--soft);">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>커리큘럼</h2>
-    <h1>Claude로 완성하는 1인 사업가 유튜브 기획</h1>
+    <div class="course-text"><h1>Claude로 완성하는 1인 사업가 유튜브 기획</h1>
 <blockquote>
 <p>AI로 채널 기획부터 스크립트까지 4주 완성</p>
 </blockquote>
@@ -183,64 +275,112 @@ Claude.ai 무료 플랜으로도 실습 가능하지만, Pro 플랜 사용 시 �
 </tbody>
 </table>
 <h2>평가</h2>
-<p>최종 과제: 완성된 스크립트(7차시)를 바탕으로 촬영한 영상 1편을 제출하고, 채널 전략서·콘텐츠 캘린더·SOP 문서 3종을 함께 업로드하면 수료 인증 발급</p>
+<p>최종 과제: 완성된 스크립트(7차시)를 바탕으로 촬영한 영상 1편을 제출하고, 채널 전략서·콘텐츠 캘린더·SOP 문서 3종을 함께 업로드하면 수료 인증 발급</p></div>
   </div>
 </article>
 
 
 
-<section>
+<section id="scripts" class="course-section">
   <div class="wrap">
-    <h2>차시별 콘텐츠 (8)</h2>
-    <div class="grid">
+    <h2>차시별 콘텐츠 <span class="muted-count">8개</span></h2>
+    <div class="lesson-list">
       
-      <div class="card">
-        <h3>#1 내 사업을 유튜브 콘셉트로 번역하기</h3>
-        <p class="muted">Claude에게 내 사업 정보를 입력해 채널 방향성 후보 3개를 도출하고 항목별로 비교한다</p>
-        <a class="cta" href="../posts/1778036673-942613.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778036673-942613.html" class="lesson-row">
+        <div class="lesson-no">1</div>
+        <div class="lesson-body">
+          <h4>#1 내 사업을 유튜브 콘셉트로 번역하기</h4>
+          <p>Claude에게 내 사업 정보를 입력해 채널 방향성 후보 3개를 도출하고 항목별로 비교한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#2 경쟁 채널 분석표 만들기</h3>
-        <p class="muted">Claude를 활용해 동일 분야 유튜브 채널 5개를 분석하고 콘텐츠 유형·업로드 패턴·썸네일 전략을 분류한 비교표를 완성한다</p>
-        <a class="cta" href="../posts/1778037008-4da023.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778037008-4da023.html" class="lesson-row">
+        <div class="lesson-no">2</div>
+        <div class="lesson-body">
+          <h4>#2 경쟁 채널 분석표 만들기</h4>
+          <p>Claude를 활용해 동일 분야 유튜브 채널 5개를 분석하고 콘텐츠 유형·업로드 패턴·썸네일 전략을 분류한 비교표를 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 채널 전략서 한 장으로 정리하기</h3>
-        <p class="muted">1·2차시 결과물을 Claude에 입력해 채널명·슬로건·타깃 페르소나·핵심 메시지를 포함한 채널 전략서 초안을 작성한다</p>
-        <a class="cta" href="../posts/1778037066-cbed5b.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778037066-cbed5b.html" class="lesson-row">
+        <div class="lesson-no">3</div>
+        <div class="lesson-body">
+          <h4>#3 채널 전략서 한 장으로 정리하기</h4>
+          <p>1·2차시 결과물을 Claude에 입력해 채널명·슬로건·타깃 페르소나·핵심 메시지를 포함한 채널 전략서 초안을 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#4 30일 콘텐츠 캘린더 자동 생성하기</h3>
-        <p class="muted">채널 전략서를 프롬프트로 변환해 Claude가 생성한 30일 콘텐츠 아이디어 목록을 업로드 빈도·카테고리별로 배치한 캘린더를 완성한다</p>
-        <a class="cta" href="../posts/1778037126-0bcf47.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778037126-0bcf47.html" class="lesson-row">
+        <div class="lesson-no">4</div>
+        <div class="lesson-body">
+          <h4>#4 30일 콘텐츠 캘린더 자동 생성하기</h4>
+          <p>채널 전략서를 프롬프트로 변환해 Claude가 생성한 30일 콘텐츠 아이디어 목록을 업로드 빈도·카테고리별로 배치한 캘린더를 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#5 후킹 제목과 썸네일 문구 양산하기</h3>
-        <p class="muted">Claude에게 클릭률을 높이는 제목 공식을 학습시켜 캘린더 영상 10편의 제목 후보 3개씩과 썸네일 문구를 생성하고 A/B 비교안을 작성한다</p>
-        <a class="cta" href="../posts/1778037192-c1ee4d.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778037192-c1ee4d.html" class="lesson-row">
+        <div class="lesson-no">5</div>
+        <div class="lesson-body">
+          <h4>#5 후킹 제목과 썸네일 문구 양산하기</h4>
+          <p>Claude에게 클릭률을 높이는 제목 공식을 학습시켜 캘린더 영상 10편의 제목 후보 3개씩과 썸네일 문구를 생성하고 A/B 비교안을 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#6 영상 스크립트 구조 설계하기</h3>
-        <p class="muted">후킹-문제제기-해결-CTA 4단계 스크립트 프레임을 Claude와 함께 정의하고 선택한 영상 1편의 단락별 키포인트 아웃라인을 작성한다</p>
-        <a class="cta" href="../posts/1778037255-b4cb6b.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778037255-b4cb6b.html" class="lesson-row">
+        <div class="lesson-no">6</div>
+        <div class="lesson-body">
+          <h4>#6 영상 스크립트 구조 설계하기</h4>
+          <p>후킹-문제제기-해결-CTA 4단계 스크립트 프레임을 Claude와 함께 정의하고 선택한 영상 1편의 단락별 키포인트 아웃라인을 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#7 완성형 스크립트 초안 완성하기</h3>
-        <p class="muted">6차시 아웃라인을 Claude에 입력해 구어체 스크립트 전문을 생성하고 자신의 말투와 사업 사례로 3곳 이상 수정·교체한 최종 스크립트를 완성한다</p>
-        <a class="cta" href="../posts/1778037323-9e92b1.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778037323-9e92b1.html" class="lesson-row">
+        <div class="lesson-no">7</div>
+        <div class="lesson-body">
+          <h4>#7 완성형 스크립트 초안 완성하기</h4>
+          <p>6차시 아웃라인을 Claude에 입력해 구어체 스크립트 전문을 생성하고 자신의 말투와 사업 사례로 3곳 이상 수정·교체한 최종 스크립트를 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#8 나만의 유튜브 기획 SOP 만들기</h3>
-        <p class="muted">1~7차시 전 과정을 돌아보며 내 채널에 최적화된 영상 1편 제작 표준 프로세스(SOP)를 단계별 체크리스트로 작성하고 재사용 프롬프트 세트를 정리한다</p>
-        <a class="cta" href="../posts/1778037393-92fd08.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1778037393-92fd08.html" class="lesson-row">
+        <div class="lesson-no">8</div>
+        <div class="lesson-body">
+          <h4>#8 나만의 유튜브 기획 SOP 만들기</h4>
+          <p>1~7차시 전 과정을 돌아보며 내 채널에 최적화된 영상 1편 제작 표준 프로세스(SOP)를 단계별 체크리스트로 작성하고 재사용 프롬프트 세트를 정리한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
     </div>
   </div>
@@ -248,11 +388,11 @@ Claude.ai 무료 플랜으로도 실습 가능하지만, Pro 플랜 사용 시 �
 
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>자주 묻는 질문</h2>
     
-      <p><strong>Q. Claude를 써본 적은 있는데 유튜브는 완전 처음이에요. 따라갈 수 있을까요?</strong>
+      <div class="faq-block"><p><strong>Q. Claude를 써본 적은 있는데 유튜브는 완전 처음이에요. 따라갈 수 있을까요?</strong>
 걱정되시는 마음 충분히 이해해요 😊 유튜브 0경험자도 따라올 수 있게 기초부터 단계별로 설계했어요. 먼저 커리큘럼 상세 페이지를 확인해 보세요!</p>
 <p><strong>Q. 4주 안에 실제로 채널 개설까지 완료할 수 있나요?</strong>
 목표가 분명하시군요! 4주 내 기획·스크립트 완성까지 커버하며, 채널 개설도 실습으로 진행해요. 주차별 커리큘럼을 꼭 확인해 보세요!</p>
@@ -265,22 +405,70 @@ Claude.ai 무료 플랜으로도 실습 가능하지만, Pro 플랜 사용 시 �
 <p><strong>Q. 사업 분야가 다양한데, 제 업종에도 맞게 활용할 수 있나요?</strong>
 업종별 적용이 걱정되시는군요! Claude 프롬프트를 내 업종에 맞게 커스터마이징하는 법을 직접 실습하니 대부분의 1인 사업에 적용 가능해요.</p>
 <p><strong>Q. 강의는 영상인가요, 라이브인가요? 일정이 맞지 않으면 어떻게 하나요?</strong>
-일정 걱정이 되시는 거 이해해요! 정확한 운영 방식(영상/라이브 여부)은 제가 강사에게 직접 확인 후 안내드릴게요.</p>
+일정 걱정이 되시는 거 이해해요! 정확한 운영 방식(영상/라이브 여부)은 제가 강사에게 직접 확인 후 안내드릴게요.</p></div>
     
   </div>
 </article>
 
 
+<section class="course-cta-bottom">
+  <div class="wrap">
+    <h3>지금 시작하기</h3>
+    <p>차시 1개부터 가볍게 시작하세요. 평생 소장 + 업데이트 자동 적용.</p>
+    <div class="cta-row">
+      <a href="#scripts" class="cta cta-primary">📖 첫 차시 보기</a>
+      <a href="../index.html#courses" class="cta cta-secondary">← 다른 코스</a>
+    </div>
+  </div>
+</section>
 
-  <footer class="site">
+
+
+  <footer class="site-footer">
     <div class="wrap">
       
-        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
-  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
-  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
+    <strong style="font-size:14px;color:var(--fg);">코어 캠퍼스</strong>
+    <span style="font-size:13px;color:var(--muted);">핵심을 다지는 AI 실무 강의</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+    <a href="mailto:hello@corecampus.kr" style="font-size:13px;color:var(--accent);text-decoration:none;">hello@corecampus.kr</a>
+    <span style="font-size:13px;color:var(--muted);">·</span>
+    <span style="font-size:13px;color:var(--muted);">운영: 코어 캠퍼스 팀</span>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin:0;opacity:0.7;">&copy; 2025 코어 캠퍼스. 강의 콘텐츠의 무단 복제 및 배포를 금합니다.</p>
 </div>
       
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
 </body>
 </html>

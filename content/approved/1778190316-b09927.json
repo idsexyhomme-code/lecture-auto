@@ -1,0 +1,141 @@
+{
+  "id": "1778190316-b09927",
+  "agent": "site_developer",
+  "kind": "site_config_change",
+  "title": "사이트 메타데이터·디자인 토큰 변경 제안 (Tier 2)",
+  "body_md": "## 변경 요약 (Tier 2: 메타데이터 + 디자인 토큰)\n\n_(변경 없음)_\n\n## 변경 이유\n히어로를 단일 컬럼 중앙 집중형으로 재설계해 8초 안에 타깃(반복 업무에 치인 1인 사업가)과 가치(당일 실습 가능한 Claude 실무 강의)를 읽히도록 했다. 통계 수치 3개(코스 수·학습 단위·첫 실습 시점)를 히어로 하단에 배치해 신뢰를 과장 없이 전달하는 방식을 택했고, CTA 영역은 따뜻한 베이지 배경 위에 다크브라운 주버튼과 화이트 보조버튼을 나란히 두어 선택지 부담을 줄였다. 카테고리 칩은 기존 색상 시스템 안에서 테두리를 더해 선택 가능한 요소임을 명확히 했고, 푸터에는 이메일·저작권·운영자 정보를 간결하게 3줄로 정리해 브랜드 신뢰도를 높였다.",
+  "summary": "히어로를 단일 컬럼 중앙 집중형으로 재설계해 8초 안에 타깃(반복 업무에 치인 1인 사업가)과 가치(당일 실습 가능한 Claude 실무 강의)를 읽히도록 했다. 통계 수치 3개(코스 수·학습 단위·첫 실습 시점)를",
+  "meta": {
+    "new_config": {
+      "course_order": [
+        "claude-bizflow",
+        "claude-sop",
+        "claude-launchpad",
+        "claude-youtube-plan",
+        "tax-basics-solopreneur",
+        "claude-daily-recap",
+        "claude-mail-writing",
+        "claude-meeting-notes",
+        "claude-pricing-page"
+      ],
+      "design_tokens": {
+        "color_bg": "#FBF8F3",
+        "color_fg": "#1C1814",
+        "color_brand": "#3D2F1E",
+        "color_accent": "#A0722A",
+        "color_soft": "#EDE4D6",
+        "font_family_sans": "'Pretendard', system-ui, sans-serif",
+        "radius_card": "8px",
+        "color_muted": "#5A4E42",
+        "color_line": "#DDD5C8",
+        "color_brand_2": "#6B4E2E"
+      },
+      "footer_html": "<div style=\"display:flex;flex-direction:column;gap:12px;\">\n  <div style=\"display:flex;flex-wrap:wrap;align-items:center;gap:16px;\">\n    <strong style=\"font-size:14px;color:var(--fg);\">코어 캠퍼스</strong>\n    <span style=\"font-size:13px;color:var(--muted);\">핵심을 다지는 AI 실무 강의</span>\n  </div>\n  <div style=\"display:flex;flex-wrap:wrap;gap:16px;align-items:center;\">\n    <a href=\"mailto:hello@corecampus.kr\" style=\"font-size:13px;color:var(--accent);text-decoration:none;\">hello@corecampus.kr</a>\n    <span style=\"font-size:13px;color:var(--muted);\">·</span>\n    <span style=\"font-size:13px;color:var(--muted);\">운영: 코어 캠퍼스 팀</span>\n  </div>\n  <p style=\"font-size:12px;color:var(--muted);margin:0;opacity:0.7;\">&copy; 2025 코어 캠퍼스. 강의 콘텐츠의 무단 복제 및 배포를 금합니다.</p>\n</div>",
+      "hero_html": "<div class=\"wrap\" style=\"max-width:1100px;margin:0 auto;padding:80px 32px 88px;\">\n  <div style=\"max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:32px;align-items:flex-start;\">\n    <div style=\"display:flex;align-items:center;gap:10px;\">\n      <span style=\"display:inline-block;width:28px;height:2px;background:var(--accent);\"></span>\n      <span style=\"font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);\">1인 사업가를 위한 AI 실습</span>\n    </div>\n    <h1 style=\"font-size:clamp(34px,5vw,54px);font-weight:800;line-height:1.2;color:var(--fg);letter-spacing:-0.025em;margin:0;\">반복 업무에 치여<br>본업을 못 하고 있다면</h1>\n    <p style=\"font-size:17px;line-height:1.8;color:var(--muted);margin:0;max-width:540px;\">Claude를 실무 도구로 쓰는 방법, 단계별 실습으로 익힙니다. 이론 없이 바로 쓸 수 있는 것만 모았습니다.</p>\n    <a href=\"#courses\" style=\"display:inline-block;padding:18px 40px;background:var(--brand);color:#FBF8F3;font-size:16px;font-weight:700;text-decoration:none;border-radius:6px;letter-spacing:0.01em;\">코스 둘러보기</a>\n    <div style=\"display:flex;align-items:center;gap:24px;padding-top:4px;border-top:1px solid var(--line);width:100%;\">\n      <div style=\"display:flex;flex-direction:column;gap:2px;\">\n        <span style=\"font-size:20px;font-weight:800;color:var(--fg);\">16개</span>\n        <span style=\"font-size:12px;color:var(--muted);\">개설 코스</span>\n      </div>\n      <div style=\"width:1px;height:36px;background:var(--line);\"></div>\n      <div style=\"display:flex;flex-direction:column;gap:2px;\">\n        <span style=\"font-size:20px;font-weight:800;color:var(--fg);\">15분</span>\n        <span style=\"font-size:12px;color:var(--muted);\">단위 설계</span>\n      </div>\n      <div style=\"width:1px;height:36px;background:var(--line);\"></div>\n      <div style=\"display:flex;flex-direction:column;gap:2px;\">\n        <span style=\"font-size:20px;font-weight:800;color:var(--fg);\">당일</span>\n        <span style=\"font-size:12px;color:var(--muted);\">첫 실습 가능</span>\n      </div>\n    </div>\n  </div>\n</div>",
+      "extra_pages": [],
+      "home_intro_html": "<div class=\"wrap\" style=\"max-width:1100px;margin:0 auto;padding:56px 32px 16px;\">\n  <div style=\"max-width:600px;display:flex;flex-direction:column;gap:12px;\">\n    <span style=\"font-size:12px;font-weight:600;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;\">왜 코어 캠퍼스인가</span>\n    <h2 style=\"font-size:clamp(20px,2.6vw,26px);font-weight:700;color:var(--fg);margin:0;letter-spacing:-0.015em;line-height:1.35;\">핵심만 남긴 강의, 쓸 수 있는 것만 담았습니다</h2>\n    <p style=\"font-size:14px;color:var(--muted);margin:0;line-height:1.75;\">15분 단위로 설계해 바쁜 일정에도 진도를 낼 수 있고, 별도 도구 없이 Claude 하나로 당일 실습이 가능합니다. 각 코스는 독립적으로 완결되며, 시리즈로 이어가면 더 탄탄해집니다.</p>\n  </div>\n</div>",
+      "site_subtagline": "Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의.",
+      "cta_html": "<div style=\"background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);\">\n  <div class=\"wrap\" style=\"max-width:1100px;margin:0 auto;padding:48px 32px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;\">\n    <p style=\"font-size:15px;font-weight:600;color:var(--fg);margin:0;\">지금 어느 코스부터 시작할지 고민된다면</p>\n    <div style=\"display:flex;flex-wrap:wrap;gap:12px;justify-content:center;\">\n      <a href=\"/claude-bizflow\" style=\"display:inline-block;padding:15px 32px;background:var(--brand);color:#FBF8F3;font-size:15px;font-weight:700;text-decoration:none;border-radius:6px;\">첫 코스 무료 체험</a>\n      <a href=\"#courses\" style=\"display:inline-block;padding:15px 32px;background:#FFFFFF;color:var(--brand);font-size:15px;font-weight:600;text-decoration:none;border-radius:6px;border:1px solid var(--line);\">전체 코스 둘러보기</a>\n    </div>\n    <p style=\"font-size:13px;color:var(--muted);margin:0;\">별도 구독 없이 코스별로 개별 수강할 수 있습니다.</p>\n  </div>\n</div>",
+      "pricing_html": "",
+      "site_name": "코어 캠퍼스",
+      "categories_html": "<div style=\"background:var(--bg);border-bottom:1px solid var(--line);\">\n  <div class=\"wrap\" style=\"max-width:1100px;margin:0 auto;padding:20px 32px;\">\n    <nav aria-label=\"코스 카테고리\" style=\"display:flex;flex-wrap:wrap;align-items:center;gap:8px;\">\n      <span style=\"font-size:12px;color:var(--muted);font-weight:600;margin-right:4px;\">카테고리</span>\n      <a href=\"#course-claude-bizflow\" style=\"display:inline-block;padding:6px 16px;background:var(--soft);color:var(--fg);border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:13px;font-weight:500;\">Claude 자동화</a>\n      <a href=\"#course-claude-sop\" style=\"display:inline-block;padding:6px 16px;background:var(--soft);color:var(--fg);border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:13px;font-weight:500;\">1인 사업 SOP</a>\n      <a href=\"#course-claude-content-engine\" style=\"display:inline-block;padding:6px 16px;background:var(--soft);color:var(--fg);border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:13px;font-weight:500;\">콘텐츠 생산</a>\n      <a href=\"#course-deepwork-1hr\" style=\"display:inline-block;padding:6px 16px;background:var(--soft);color:var(--fg);border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:13px;font-weight:500;\">딥워크</a>\n    </nav>\n  </div>\n</div>",
+      "site_headline": "핵심만 파는 AI 실습 강의",
+      "course_overrides": {
+        "claude-bizflow": {
+          "title_override": "Claude로 만드는 1인 사업 자동화",
+          "tagline_override": "반복 업무를 AI 워크플로우로 대체하는 8차시 실습"
+        },
+        "claude-sop": {
+          "title_override": "Claude 워크플로우 SOP 만들기",
+          "tagline_override": "인수인계·외주에 바로 쓰는 재사용 프롬프트 문서"
+        },
+        "claude-customer-script": {
+          "title_override": "Claude로 CS 응대 자동화하기",
+          "tagline_override": "하루 1~3시간 CS 응대를 Claude 스크립트로 줄이는 실전 과정"
+        },
+        "claude-launchpad": {
+          "title_override": "Claude로 부캐 서비스 7일 런칭",
+          "tagline_override": "아이디어에서 첫 유료 고객까지, 1주일 안에 직접 완성하는 실전 과정"
+        },
+        "claude-youtube-plan": {
+          "title_override": "Claude로 완성하는 유튜브 채널 기획",
+          "tagline_override": "채널 콘셉트부터 스크립트까지, 4주 단계별 실습 과정"
+        },
+        "claude-daily-recap": {
+          "title_override": "하루 5분 회고, Claude로 자동 완성",
+          "tagline_override": "부담 없이 매일 쌓이는 회고 루틴을 Claude와 함께 만드는 실습 과정"
+        }
+      },
+      "testimonials_html": "<div style=\"background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);\">\n  <div class=\"wrap\" style=\"max-width:1100px;margin:0 auto;padding:48px 32px;text-align:center;\">\n    <p style=\"font-size:14px;color:var(--muted);margin:0;\">✦ 실 사용 후기가 곧 도착합니다</p>\n  </div>\n</div>",
+      "site_tagline_top": "AI × 1인 사업가를 위한 실습 강의"
+    },
+    "old_config": {
+      "course_order": [
+        "claude-bizflow",
+        "claude-sop",
+        "claude-launchpad",
+        "claude-youtube-plan",
+        "tax-basics-solopreneur",
+        "claude-daily-recap",
+        "claude-mail-writing",
+        "claude-meeting-notes",
+        "claude-pricing-page"
+      ],
+      "site_tagline_top": "AI × 1인 사업가를 위한 실습 강의",
+      "site_subtagline": "Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의.",
+      "site_name": "코어 캠퍼스",
+      "site_headline": "핵심만 파는 AI 실습 강의",
+      "design_tokens": {
+        "color_bg": "#FBF8F3",
+        "color_fg": "#1C1814",
+        "color_brand": "#3D2F1E",
+        "color_accent": "#A0722A",
+        "color_soft": "#EDE4D6",
+        "font_family_sans": "'Pretendard', system-ui, sans-serif",
+        "radius_card": "8px",
+        "color_muted": "#5A4E42",
+        "color_line": "#DDD5C8",
+        "color_brand_2": "#6B4E2E"
+      },
+      "course_overrides": {
+        "claude-bizflow": {
+          "title_override": "Claude로 만드는 1인 사업 자동화",
+          "tagline_override": "반복 업무를 AI 워크플로우로 대체하는 8차시 실습"
+        },
+        "claude-sop": {
+          "title_override": "Claude 워크플로우 SOP 만들기",
+          "tagline_override": "인수인계·외주에 바로 쓰는 재사용 프롬프트 문서"
+        },
+        "claude-customer-script": {
+          "title_override": "Claude로 CS 응대 자동화하기",
+          "tagline_override": "하루 1~3시간 CS 응대를 Claude 스크립트로 줄이는 실전 과정"
+        },
+        "claude-launchpad": {
+          "title_override": "Claude로 부캐 서비스 7일 런칭",
+          "tagline_override": "아이디어에서 첫 유료 고객까지, 1주일 안에 직접 완성하는 실전 과정"
+        },
+        "claude-youtube-plan": {
+          "title_override": "Claude로 완성하는 유튜브 채널 기획",
+          "tagline_override": "채널 콘셉트부터 스크립트까지, 4주 단계별 실습 과정"
+        },
+        "claude-daily-recap": {
+          "title_override": "하루 5분 회고, Claude로 자동 완성",
+          "tagline_override": "부담 없이 매일 쌓이는 회고 루틴을 Claude와 함께 만드는 실습 과정"
+        }
+      },
+      "hero_html": "<div class=\"wrap\" style=\"max-width:1100px;margin:0 auto;padding:72px 32px 80px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;\">\n  <div style=\"display:flex;flex-direction:column;gap:28px;\">\n    <div style=\"display:flex;align-items:center;gap:12px;\">\n      <span style=\"display:inline-block;width:32px;height:2px;background:var(--accent,#A0722A);\"></span>\n      <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent,#A0722A);\">코어 캠퍼스 코스</span>\n    </div>\n    <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(36px,4vw,56px);font-weight:800;line-height:1.18;color:var(--fg,#1C1814);letter-spacing:-0.02em;margin:0;\">가격 페이지에서<br><em style=\"font-style:normal;color:var(--accent,#A0722A);\">전환이 막히는</em> 이유,<br>Claude가 풀어드립니다</h1>\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:17px;line-height:1.75;color:#5A4E42;margin:0;max-width:420px;\">강의·코칭·서비스를 팔고 싶은데 가격 페이지만 열면 망설임이 생긴다면 — 설득 구조가 없는 게 아니라, 구조를 설계할 도구가 없었던 겁니다.</p>\n    <div style=\"display:flex;flex-direction:column;gap:12px;\">\n      <div style=\"display:flex;align-items:flex-start;gap:12px;\">\n        <span style=\"flex-shrink:0;margin-top:4px;width:20px;height:20px;border-radius:50%;background:var(--soft,#EDE4D6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--accent,#A0722A);\">✓</span>\n        <span style=\"font-size:15px;color:#5A4E42;line-height:1.6;\">Claude 프롬프트로 전환 구조를 체계적으로 설계</span>\n      </div>\n      <div style=\"display:flex;align-items:flex-start;gap:12px;\">\n        <span style=\"flex-shrink:0;margin-top:4px;width:20px;height:20px;border-radius:50%;background:var(--soft,#EDE4D6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--accent,#A0722A);\">✓</span>\n        <span style=\"font-size:15px;color:#5A4E42;line-height:1.6;\">1인 사업가 맞춤 — 복잡한 마케팅 지식 불필요</span>\n      </div>\n      <div style=\"display:flex;align-items:flex-start;gap:12px;\">\n        <span style=\"flex-shrink:0;margin-top:4px;width:20px;height:20px;border-radius:50%;background:var(--soft,#EDE4D6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--accent,#A0722A);\">✓</span>\n        <span style=\"font-size:15px;color:#5A4E42;line-height:1.6;\">실습 중심 — 수강 당일 초안 완성</span>\n      </div>\n    </div>\n    <div style=\"display:flex;align-items:center;gap:16px;padding-top:8px;\">\n      <a href=\"#enroll\" style=\"display:inline-block;padding:16px 32px;background:var(--brand,#3D2F1E);color:#FBF8F3;font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:700;text-decoration:none;border-radius:6px;letter-spacing:0.02em;\">지금 수강 시작하기</a>\n      <a href=\"#curriculum\" style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;font-weight:600;color:var(--accent,#A0722A);text-decoration:none;border-bottom:1px solid var(--accent,#A0722A);padding-bottom:2px;\">커리큘럼 보기 →</a>\n    </div>\n  </div>\n  <figure style=\"margin:0;position:relative;\">\n    <div style=\"background:var(--soft,#EDE4D6);border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;\">\n      <img src=\"/assets/placeholder/hero-editorial.svg\" alt=\"가격 페이지 전환 구조 일러스트\" style=\"width:100%;height:100%;object-fit:cover;\" />\n    </div>\n    <blockquote style=\"margin:20px 0 0 0;padding:20px 24px;background:#fff;border-left:3px solid var(--accent,#A0722A);border-radius:0 8px 8px 0;\">\n      <p style=\"font-size:14px;line-height:1.7;color:#5A4E42;margin:0 0 8px 0;font-style:italic;\">&ldquo;가격표를 올렸는데 아무도 묻지 않았어요. 이 코스 후에 첫 주 만에 문의가 들어왔습니다.&rdquo;</p>\n      <small style=\"font-size:12px;color:#9A8E82;font-weight:600;\">— 코칭 서비스 운영 수강생</small>\n    </blockquote>\n  </figure>\n</div>",
+      "testimonials_html": "",
+      "categories_html": "",
+      "pricing_html": "",
+      "extra_pages": [],
+      "cta_html": "",
+      "home_intro_html": "<nav class=\"category-nav\" aria-label=\"코스 카테고리\" style=\"margin: 24px 0; padding: 20px; background: var(--surface, #fffdfa); border-radius: 12px; border: 1px solid var(--border, #e8ddc9);\">\n  <h3 style=\"font-size: 14px; color: var(--brand, #1a3558); margin: 0 0 12px; letter-spacing: 0.02em;\">📚 카테고리별 보기</h3>\n  <ul style=\"list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px;\">\n    <li><a href=\"#course-claude-autowork\" style=\"display:inline-block; padding:6px 14px; background:#f5efe0; color:#1a3558; border-radius:999px; text-decoration:none; font-size:13px; font-weight:500;\">Claude 자동화</a></li>\n    <li><a href=\"#course-claude-content-engine\" style=\"display:inline-block; padding:6px 14px; background:#f5efe0; color:#1a3558; border-radius:999px; text-decoration:none; font-size:13px; font-weight:500;\">콘텐츠 엔진</a></li>\n    <li><a href=\"#course-claude-sop\" style=\"display:inline-block; padding:6px 14px; background:#f5efe0; color:#1a3558; border-radius:999px; text-decoration:none; font-size:13px; font-weight:500;\">1인 사업가 SOP</a></li>\n    <li><a href=\"#course-claude-intro-email\" style=\"display:inline-block; padding:6px 14px; background:#f5efe0; color:#1a3558; border-radius:999px; text-decoration:none; font-size:13px; font-weight:500;\">이메일 자동화</a></li>\n    <li><a href=\"#course-claude-monthly-revenue\" style=\"display:inline-block; padding:6px 14px; background:#f5efe0; color:#1a3558; border-radius:999px; text-decoration:none; font-size:13px; font-weight:500;\">매출 분석</a></li>\n    <li><a href=\"#course-claude-customer-script\" style=\"display:inline-block; padding:6px 14px; background:#f5efe0; color:#1a3558; border-radius:999px; text-decoration:none; font-size:13px; font-weight:500;\">고객 응대</a></li>\n    <li><a href=\"#course-claude-launchpad\" style=\"display:inline-block; padding:6px 14px; background:#f5efe0; color:#1a3558; border-radius:999px; text-decoration:none; font-size:13px; font-weight:500;\">서비스 런칭</a></li>\n    <li><a href=\"#course-deepwork-1hr\" style=\"display:inline-block; padding:6px 14px; background:#f5efe0; color:#1a3558; border-radius:999px; text-decoration:none; font-size:13px; font-weight:500;\">딥워크·생산성</a></li>\n  </ul>\n</nav>\n<div style=\"background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 0;\">\n  <div class=\"wrap\" id=\"courses\" style=\"padding: 56px 0 48px; display: flex; flex-direction: column; gap: 40px;\">\n\n    <div style=\"display: flex; flex-direction: column; gap: 8px;\">\n      <span style=\"font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;\">Courses</span>\n      <h2 style=\"font-size: clamp(20px, 2.8vw, 26px); font-weight: 700; color: var(--fg); margin: 0; letter-spacing: -0.015em;\">지금 열린 코스</h2>\n      <p style=\"font-size: 14px; color: var(--muted); margin: 0; line-height: 1.65;\">각 코스는 독립적으로 수강할 수 있으며, 순서대로 따라가면 더 탄탄히 쌓입니다.</p>\n    </div>\n\n    <div style=\"display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;\">\n\n      <a href=\"/claude-bizflow\" style=\"text-decoration: none; display: flex; flex-direction: column; gap: 0; background: #FFFFFF; border: 1px solid var(--line); border-radius: var(--radius-card); overflow: hidden; transition: box-shadow 0.18s;\" title=\"Claude로 만드는 1인 사업 자동화\">\n        <div style=\"background: var(--soft); padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid var(--line);\">\n          <span style=\"display: inline-block; background: var(--brand); color: #FFFFFF; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; width: fit-content; letter-spacing: 0.04em;\">시리즈 1</span>\n          <h3 style=\"font-size: 17px; font-weight: 700; color: var(--fg); margin: 0; line-height: 1.35; letter-spacing: -0.01em;\">Claude로 만드는<br>1인 사업 자동화</h3>\n        </div>\n        <div style=\"padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 16px; flex: 1;\">\n          <p style=\"font-size: 13px; color: var(--muted); margin: 0; line-height: 1.65;\">반복 업무를 AI 워크플로우로 대체하는 8차시 실습 과정. 도구 없이 Claude 하나로 시작합니다.</p>\n          <div style=\"display: flex; flex-wrap: wrap; gap: 6px;\">\n            <span style=\"font-size: 11px; color: var(--muted); background: var(--soft); padding: 3px 9px; border-radius: 99px;\">8차시</span>\n            <span style=\"font-size: 11px; color: var(--muted); background: var(--soft); padding: 3px 9px; border-radius: 99px;\">자동화</span>\n            <span style=\"font-size: 11px; color: var(--muted); background: var(--soft); padding: 3px 9px; border-radius: 99px;\">워크플로우</span>\n          </div>\n          <span style=\"font-size: 13px; font-weight: 600; color: var(--brand); margin-top: auto;\">수강하기 →</span>\n        </div>\n      </a>\n\n      <a href=\"/claude-sop\" style=\"text-decoration: none; display: flex; flex-direction: column; gap: 0; background: #FFFFFF; border: 1px solid var(--line); border-radius: var(--radius-card); overflow: hidden; transition: box-shadow 0.18s;\" title=\"Claude 워크플로우 SOP 만들기\">\n        <div style=\"background: var(--soft); padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid var(--line);\">\n          <span style=\"display: inline-block; background: var(--brand-2); color: #FFFFFF; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; width: fit-content; letter-spacing: 0.04em;\">시리즈 2</span>\n          <h3 style=\"font-size: 17px; font-weight: 700; color: var(--fg); margin: 0; line-height: 1.35; letter-spacing: -0.01em;\">Claude 워크플로우<br>SOP 만들기</h3>\n        </div>\n        <div style=\"padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 16px; flex: 1;\">\n          <p style=\"font-size: 13px; color: var(--muted); margin: 0; line-height: 1.65;\">인수인계·외주에 바로 쓸 수 있는 재사용 프롬프트 문서를 직접 만들어보는 실습 과정.</p>\n          <div style=\"display: flex; flex-wrap: wrap; gap: 6px;\">\n            <span style=\"font-size: 11px; color: var(--muted); background: var(--soft); padding: 3px 9px; border-radius: 99px;\">SOP</span>\n            <span style=\"font-size: 11px; color: var(--muted); background: var(--soft); padding: 3px 9px; border-radius: 99px;\">프롬프트 문서</span>\n            <span style=\"font-size: 11px; color: var(--muted); background: var(--soft); padding: 3px 9px; border-radius: 99px;\">재사용</span>\n          </div>\n          <span style=\"font-size: 13px; font-weight: 600; color: var(--brand); margin-top: auto;\">수강하기 →</span>\n        </div>\n      </a>\n\n    </div>\n\n    <div style=\"background: var(--soft); border: 1px solid var(--line); border-radius: var(--radius-card); padding: 32px 36px; display: flex; flex-direction: column; gap: 20px;\">\n      <div style=\"display: flex; flex-direction: column; gap: 6px;\">\n        <h2 style=\"font-size: clamp(17px, 2.2vw, 20px); font-weight: 700; color: var(--fg); margin: 0; letter-spacing: -0.015em;\">코어 캠퍼스는 이런 곳입니다</h2>\n        <p style=\"font-size: 14px; color: var(--muted); margin: 0; line-height: 1.7; max-width: 560px;\">화려한 커리큘럼보다 실제로 쓸 수 있는 것을 먼저 생각합니다. 1인 사업가가 혼자서 반복 업무를 줄이고, 구조 있는 일 방식을 만들어가도록 설계했습니다.</p>\n      </div>\n      <ul style=\"list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px;\">\n        <li style=\"display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--fg); line-height: 1.55;\">\n          <span style=\"color: var(--brand); font-weight: 700; flex-shrink: 0; margin-top: 1px;\">·</span>\n          <span>15분 단위로 설계해 바쁜 일정에도 진도를 낼 수 있습니다.</span>\n        </li>\n        <li style=\"display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--fg); line-height: 1.55;\">\n          <span style=\"color: var(--brand); font-weight: 700; flex-shrink: 0; margin-top: 1px;\">·</span>\n          <span>별도 개발 지식 없이, Claude 하나만으로 실습할 수 있습니다.</span>\n        </li>\n        <li style=\"display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--fg); line-height: 1.55;\">\n          <span style=\"color: var(--brand); font-weight: 700; flex-shrink: 0; margin-top: 1px;\">·</span>\n          <span>각 코스는 독립적으로 완결되며, 시리즈로 이어지면 더 탄탄해집니다.</span>\n        </li>\n      </ul>\n    </div>\n\n  </div>\n</div>",
+      "footer_html": "<div style=\"padding: 8px 0; display: flex; flex-direction: column; gap: 4px;\">\n  <p style=\"font-size: 13px; color: var(--muted); margin: 0;\">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>\n  <p style=\"font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;\">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>\n</div>"
+    },
+    "notes": "히어로를 단일 컬럼 중앙 집중형으로 재설계해 8초 안에 타깃(반복 업무에 치인 1인 사업가)과 가치(당일 실습 가능한 Claude 실무 강의)를 읽히도록 했다. 통계 수치 3개(코스 수·학습 단위·첫 실습 시점)를 히어로 하단에 배치해 신뢰를 과장 없이 전달하는 방식을 택했고, CTA 영역은 따뜻한 베이지 배경 위에 다크브라운 주버튼과 화이트 보조버튼을 나란히 두어 선택지 부담을 줄였다. 카테고리 칩은 기존 색상 시스템 안에서 테두리를 더해 선택 가능한 요소임을 명확히 했고, 푸터에는 이메일·저작권·운영자 정보를 간결하게 3줄로 정리해 브랜드 신뢰도를 높였다."
+  },
+  "course_id": "",
+  "created_at": "2026-05-07T21:45:16+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}

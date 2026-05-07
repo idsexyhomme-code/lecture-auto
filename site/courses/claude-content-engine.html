@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Claude로 만드는 1인 사업 콘텐츠 엔진 — 강의 홈페이지</title>
+  <title>Claude로 만드는 1인 사업 콘텐츠 엔진 — 코어 캠퍼스</title>
   <link rel="stylesheet" href="../styles.css" />
   <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
   <script>
-    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
     (function () {
       try {
         var p = new URLSearchParams(location.search);
@@ -23,29 +22,122 @@
   </script>
 </head>
 <body>
-  <header class="site">
+
+  
+  <div class="promo-bar">
     <div class="wrap">
-      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
-      <nav class="site">
-        <a href="../index.html">홈</a>
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 코스 무료 미리보기</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 신규 코스 알림 받기</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 카테고리
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">⚡</span>
+            <span class="cat-name">Claude 자동화</span>
+            <span class="cat-count">6개</span>
+          </a>
+          
+          <a href="../index.html#cat-sop" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">1인 사업 SOP</span>
+            <span class="cat-count">7개</span>
+          </a>
+          
+          <a href="../index.html#cat-productivity" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">딥워크·생산성</span>
+            <span class="cat-count">2개</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="🔍 코스 제목·키워드로 검색..." />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>마이</span>
+        </a>
       </nav>
     </div>
   </header>
 
   
-<section class="hero">
-  <div class="wrap">
-    <span class="badge">코스</span>
-    <h1 data-edit-field="site_config:course_overrides.claude-content-engine.title_override">Claude로 만드는 1인 사업 콘텐츠 엔진</h1>
-    <p class="lead" data-edit-field="site_config:course_overrides.claude-content-engine.tagline_override">블로그·뉴스레터·SNS를 Claude로 반자동화하는 4주 실전</p>
+
+
+<section class="course-hero">
+  <div class="wrap course-hero-inner">
+    <div class="course-hero-main">
+      <div class="course-breadcrumb">
+        <a href="../index.html">홈</a> · <a href="../index.html#courses">코스</a> · <span>claude-content-engine</span>
+      </div>
+      <span class="badge">코스</span>
+      <h1 data-edit-field="site_config:course_overrides.claude-content-engine.title_override">Claude로 만드는 1인 사업 콘텐츠 엔진</h1>
+      <p class="lead" data-edit-field="site_config:course_overrides.claude-content-engine.tagline_override">블로그·뉴스레터·SNS를 Claude로 반자동화하는 4주 실전</p>
+
+      <div class="course-meta-row">
+        <span class="meta-chip">📚 19차시</span>
+        <span class="meta-chip">⏱ 차시당 15분</span>
+        <span class="meta-chip">🎯 실습 산출물 1개</span>
+        <span class="meta-chip">♾ 평생 소장</span>
+      </div>
+    </div>
+
+    
+    <aside class="course-sidebar">
+      <div class="sidebar-card">
+        <div class="price-block">
+          <div class="price-label">수강료</div>
+          <div class="price-value">무료 미리보기</div>
+          <div class="price-note">전체 코스는 곧 오픈</div>
+        </div>
+        <a href="#scripts" class="cta cta-primary cta-full">📖 차시 미리보기</a>
+        <a href="../me/" class="cta cta-secondary cta-full">💾 마이페이지에 담기</a>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-includes">
+          <div class="includes-title">코스에 포함된 것</div>
+          <ul>
+            <li>✓ 차시별 핵심 강의 (19개)</li>
+            <li>✓ 실습 가이드 + 체크리스트</li>
+            <li>✓ FAQ + 자주 막히는 곳 안내</li>
+            <li>✓ 코어 캠퍼스 업데이트 평생 적용</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section">
+  <div class="wrap course-content">
     <h2>이 코스는요</h2>
-    <h1>콘텐츠 시간 주당 3시간으로 줄이기</h1>
+    <div class="course-text"><h1>콘텐츠 시간 주당 3시간으로 줄이기</h1>
 <blockquote>
 <p>블로그·뉴스레터·SNS, 아이디어 하나로 한 번에 뽑아낸다. Claude 전용 마스터 프롬프트와 원소스 멀티유즈 워크플로우를 4주 만에 직접 구축하는 실전 코스.</p>
 </blockquote>
@@ -91,16 +183,16 @@ Claude.ai 무료 플랜으로도 실습 가능하나, 긴 문서 작업이 많�
 결제 후 7일 이내, 2차시 미만 수강 시 전액 환불 가능합니다. 이후에는 환불이 어려우니 사전등록 단계에서 커리큘럼을 충분히 확인해 주세요.</p>
 <h2>가격</h2>
 <p>얼리버드 가격: ₩398,000 (얼리버드 — 오픈 후 72시간 한정)
-<strong>CTA:</strong> 지금 결제</p>
+<strong>CTA:</strong> 지금 결제</p></div>
   </div>
 </article>
 
 
 
-<article class="body" style="background: var(--soft);">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>커리큘럼</h2>
-    <h1>Claude로 만드는 1인 사업 콘텐츠 엔진</h1>
+    <div class="course-text"><h1>Claude로 만드는 1인 사업 콘텐츠 엔진</h1>
 <blockquote>
 <p>블로그·뉴스레터·SNS를 Claude로 반자동화하는 4주 실전</p>
 </blockquote>
@@ -183,130 +275,244 @@ Claude.ai 무료 플랜으로도 실습 가능하나, 긴 문서 작업이 많�
 </tbody>
 </table>
 <h2>평가</h2>
-<p>8차시 산출물(파이프라인 다이어그램·마스터 프롬프트·블로그·뉴스레터·SNS 세트·캘린더·SOP)을 모두 제출하고, 실제 운영 채널에 발행한 콘텐츠 1건의 URL 또는 캡처를 첨부하면 완주 인증 수료증을 발급한다</p>
+<p>8차시 산출물(파이프라인 다이어그램·마스터 프롬프트·블로그·뉴스레터·SNS 세트·캘린더·SOP)을 모두 제출하고, 실제 운영 채널에 발행한 콘텐츠 1건의 URL 또는 캡처를 첨부하면 완주 인증 수료증을 발급한다</p></div>
   </div>
 </article>
 
 
 
-<section>
+<section id="scripts" class="course-section">
   <div class="wrap">
-    <h2>차시별 콘텐츠 (19)</h2>
-    <div class="grid">
+    <h2>차시별 콘텐츠 <span class="muted-count">19개</span></h2>
+    <div class="lesson-list">
       
-      <div class="card">
-        <h3>#1 콘텐츠 엔진 전체 구조 파악하기</h3>
-        <p class="muted">원소스 멀티유즈 콘텐츠 파이프라인의 4단계(아이디어→핵심글→파생글→배포)를 자신의 사업에 맞게 도식으로 그린다</p>
-        <a class="cta" href="../posts/1777938466-af3eaa.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777938466-af3eaa.html" class="lesson-row">
+        <div class="lesson-no">1</div>
+        <div class="lesson-body">
+          <h4>#1 콘텐츠 엔진 전체 구조 파악하기</h4>
+          <p>원소스 멀티유즈 콘텐츠 파이프라인의 4단계(아이디어→핵심글→파생글→배포)를 자신의 사업에 맞게 도식으로 그린다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#1 콘텐츠 엔진 전체 구조 파악하기</h3>
-        <p class="muted">원소스 멀티유즈 콘텐츠 파이프라인의 4단계(아이디어→핵심글→파생글→배포)를 자신의 사업에 맞게 도식으로 그린다</p>
-        <a class="cta" href="../posts/1777938498-063354.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777938498-063354.html" class="lesson-row">
+        <div class="lesson-no">2</div>
+        <div class="lesson-body">
+          <h4>#1 콘텐츠 엔진 전체 구조 파악하기</h4>
+          <p>원소스 멀티유즈 콘텐츠 파이프라인의 4단계(아이디어→핵심글→파생글→배포)를 자신의 사업에 맞게 도식으로 그린다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#2 브랜드 보이스 프롬프트 만들기</h3>
-        <p class="muted">내 글쓰기 샘플 3개를 Claude에 분석시켜 톤·어투·금지표현을 포함한 브랜드 보이스 정의서를 작성한다</p>
-        <a class="cta" href="../posts/1777939426-93dc71.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777939426-93dc71.html" class="lesson-row">
+        <div class="lesson-no">3</div>
+        <div class="lesson-body">
+          <h4>#2 브랜드 보이스 프롬프트 만들기</h4>
+          <p>내 글쓰기 샘플 3개를 Claude에 분석시켜 톤·어투·금지표현을 포함한 브랜드 보이스 정의서를 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 마스터 프롬프트 설계하기</h3>
-        <p class="muted">브랜드 보이스 정의서를 내장한 재사용 가능한 마스터 프롬프트 템플릿을 완성하고 출력 품질을 이전 대비 비교한다</p>
-        <a class="cta" href="../posts/1777942263-4353a8.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777942263-4353a8.html" class="lesson-row">
+        <div class="lesson-no">4</div>
+        <div class="lesson-body">
+          <h4>#3 마스터 프롬프트 설계하기</h4>
+          <p>브랜드 보이스 정의서를 내장한 재사용 가능한 마스터 프롬프트 템플릿을 완성하고 출력 품질을 이전 대비 비교한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#2 브랜드 보이스 프롬프트 만들기</h3>
-        <p class="muted">내 글쓰기 샘플 3개를 Claude에 분석시켜 톤·어투·금지표현을 포함한 브랜드 보이스 정의서를 작성한다</p>
-        <a class="cta" href="../posts/1777943146-7470f9.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777943146-7470f9.html" class="lesson-row">
+        <div class="lesson-no">5</div>
+        <div class="lesson-body">
+          <h4>#2 브랜드 보이스 프롬프트 만들기</h4>
+          <p>내 글쓰기 샘플 3개를 Claude에 분석시켜 톤·어투·금지표현을 포함한 브랜드 보이스 정의서를 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#4 블로그 초안 자동 생성하기</h3>
-        <p class="muted">마스터 프롬프트로 SEO 구조(제목·소제목·CTA 포함)를 갖춘 800자 이상 블로그 초안을 15분 안에 생성하고 편집 포인트를 표시한다</p>
-        <a class="cta" href="../posts/1777943201-d408e9.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777943201-d408e9.html" class="lesson-row">
+        <div class="lesson-no">6</div>
+        <div class="lesson-body">
+          <h4>#4 블로그 초안 자동 생성하기</h4>
+          <p>마스터 프롬프트로 SEO 구조(제목·소제목·CTA 포함)를 갖춘 800자 이상 블로그 초안을 15분 안에 생성하고 편집 포인트를 표시한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 마스터 프롬프트 설계하기</h3>
-        <p class="muted">브랜드 보이스 정의서를 내장한 재사용 가능한 마스터 프롬프트 템플릿을 완성하고 출력 품질을 이전 대비 비교한다</p>
-        <a class="cta" href="../posts/1777943487-a61e2c.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777943487-a61e2c.html" class="lesson-row">
+        <div class="lesson-no">7</div>
+        <div class="lesson-body">
+          <h4>#3 마스터 프롬프트 설계하기</h4>
+          <p>브랜드 보이스 정의서를 내장한 재사용 가능한 마스터 프롬프트 템플릿을 완성하고 출력 품질을 이전 대비 비교한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#3 마스터 프롬프트 설계하기</h3>
-        <p class="muted">브랜드 보이스 정의서를 내장한 재사용 가능한 마스터 프롬프트 템플릿을 완성하고 출력 품질을 이전 대비 비교한다</p>
-        <a class="cta" href="../posts/1777943503-451735.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777943503-451735.html" class="lesson-row">
+        <div class="lesson-no">8</div>
+        <div class="lesson-body">
+          <h4>#3 마스터 프롬프트 설계하기</h4>
+          <p>브랜드 보이스 정의서를 내장한 재사용 가능한 마스터 프롬프트 템플릿을 완성하고 출력 품질을 이전 대비 비교한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#5 뉴스레터 포맷으로 파생 콘텐츠 만들기</h3>
-        <p class="muted">4차시 블로그 초안을 입력해 뉴스레터 전용 3섹션 구조(훅·본문·CTA)로 변환하는 파생 프롬프트를 작성하고 결과물을 완성한다</p>
-        <a class="cta" href="../posts/1777943534-0240e5.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777943534-0240e5.html" class="lesson-row">
+        <div class="lesson-no">9</div>
+        <div class="lesson-body">
+          <h4>#5 뉴스레터 포맷으로 파생 콘텐츠 만들기</h4>
+          <p>4차시 블로그 초안을 입력해 뉴스레터 전용 3섹션 구조(훅·본문·CTA)로 변환하는 파생 프롬프트를 작성하고 결과물을 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#5 뉴스레터 포맷으로 파생 콘텐츠 만들기</h3>
-        <p class="muted">4차시 블로그 초안을 입력해 뉴스레터 전용 3섹션 구조(훅·본문·CTA)로 변환하는 파생 프롬프트를 작성하고 결과물을 완성한다</p>
-        <a class="cta" href="../posts/1777943560-d459ed.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777943560-d459ed.html" class="lesson-row">
+        <div class="lesson-no">10</div>
+        <div class="lesson-body">
+          <h4>#5 뉴스레터 포맷으로 파생 콘텐츠 만들기</h4>
+          <p>4차시 블로그 초안을 입력해 뉴스레터 전용 3섹션 구조(훅·본문·CTA)로 변환하는 파생 프롬프트를 작성하고 결과물을 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#4 블로그 초안 자동 생성하기</h3>
-        <p class="muted">마스터 프롬프트로 SEO 구조(제목·소제목·CTA 포함)를 갖춘 800자 이상 블로그 초안을 15분 안에 생성하고 편집 포인트를 표시한다</p>
-        <a class="cta" href="../posts/1777944185-f2be8e.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777944185-f2be8e.html" class="lesson-row">
+        <div class="lesson-no">11</div>
+        <div class="lesson-body">
+          <h4>#4 블로그 초안 자동 생성하기</h4>
+          <p>마스터 프롬프트로 SEO 구조(제목·소제목·CTA 포함)를 갖춘 800자 이상 블로그 초안을 15분 안에 생성하고 편집 포인트를 표시한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#4 블로그 초안 자동 생성하기</h3>
-        <p class="muted">마스터 프롬프트로 SEO 구조(제목·소제목·CTA 포함)를 갖춘 800자 이상 블로그 초안을 15분 안에 생성하고 편집 포인트를 표시한다</p>
-        <a class="cta" href="../posts/1777944236-71b6c6.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777944236-71b6c6.html" class="lesson-row">
+        <div class="lesson-no">12</div>
+        <div class="lesson-body">
+          <h4>#4 블로그 초안 자동 생성하기</h4>
+          <p>마스터 프롬프트로 SEO 구조(제목·소제목·CTA 포함)를 갖춘 800자 이상 블로그 초안을 15분 안에 생성하고 편집 포인트를 표시한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#6 SNS 카드뉴스·숏폼 문구 일괄 생성하기</h3>
-        <p class="muted">블로그 초안 1개를 입력해 인스타그램·링크드인·X(트위터) 각각의 형식에 맞는 SNS 문구 세트를 단일 프롬프트로 동시에 출력한다</p>
-        <a class="cta" href="../posts/1777944285-a7cd7f.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777944285-a7cd7f.html" class="lesson-row">
+        <div class="lesson-no">13</div>
+        <div class="lesson-body">
+          <h4>#6 SNS 카드뉴스·숏폼 문구 일괄 생성하기</h4>
+          <p>블로그 초안 1개를 입력해 인스타그램·링크드인·X(트위터) 각각의 형식에 맞는 SNS 문구 세트를 단일 프롬프트로 동시에 출력한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#6 SNS 카드뉴스·숏폼 문구 일괄 생성하기</h3>
-        <p class="muted">블로그 초안 1개를 입력해 인스타그램·링크드인·X(트위터) 각각의 형식에 맞는 SNS 문구 세트를 단일 프롬프트로 동시에 출력한다</p>
-        <a class="cta" href="../posts/1777944338-eb4099.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777944338-eb4099.html" class="lesson-row">
+        <div class="lesson-no">14</div>
+        <div class="lesson-body">
+          <h4>#6 SNS 카드뉴스·숏폼 문구 일괄 생성하기</h4>
+          <p>블로그 초안 1개를 입력해 인스타그램·링크드인·X(트위터) 각각의 형식에 맞는 SNS 문구 세트를 단일 프롬프트로 동시에 출력한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#5 뉴스레터 포맷으로 파생 콘텐츠 만들기</h3>
-        <p class="muted">4차시 블로그 초안을 입력해 뉴스레터 전용 3섹션 구조(훅·본문·CTA)로 변환하는 파생 프롬프트를 작성하고 결과물을 완성한다</p>
-        <a class="cta" href="../posts/1777945129-f3b056.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777945129-f3b056.html" class="lesson-row">
+        <div class="lesson-no">15</div>
+        <div class="lesson-body">
+          <h4>#5 뉴스레터 포맷으로 파생 콘텐츠 만들기</h4>
+          <p>4차시 블로그 초안을 입력해 뉴스레터 전용 3섹션 구조(훅·본문·CTA)로 변환하는 파생 프롬프트를 작성하고 결과물을 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#5 뉴스레터 포맷으로 파생 콘텐츠 만들기</h3>
-        <p class="muted">4차시 블로그 초안을 입력해 뉴스레터 전용 3섹션 구조(훅·본문·CTA)로 변환하는 파생 프롬프트를 작성하고 결과물을 완성한다</p>
-        <a class="cta" href="../posts/1777945185-abc8f0.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777945185-abc8f0.html" class="lesson-row">
+        <div class="lesson-no">16</div>
+        <div class="lesson-body">
+          <h4>#5 뉴스레터 포맷으로 파생 콘텐츠 만들기</h4>
+          <p>4차시 블로그 초안을 입력해 뉴스레터 전용 3섹션 구조(훅·본문·CTA)로 변환하는 파생 프롬프트를 작성하고 결과물을 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#7 주간 콘텐츠 캘린더 자동 기획하기</h3>
-        <p class="muted">핵심 키워드 5개를 입력해 4주치 콘텐츠 캘린더(주제·채널·발행일·프롬프트 키)를 Claude로 생성하고 실제 일정에 맞게 수정한다</p>
-        <a class="cta" href="../posts/1777945229-ffd6ea.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777945229-ffd6ea.html" class="lesson-row">
+        <div class="lesson-no">17</div>
+        <div class="lesson-body">
+          <h4>#7 주간 콘텐츠 캘린더 자동 기획하기</h4>
+          <p>핵심 키워드 5개를 입력해 4주치 콘텐츠 캘린더(주제·채널·발행일·프롬프트 키)를 Claude로 생성하고 실제 일정에 맞게 수정한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#7 주간 콘텐츠 캘린더 자동 기획하기</h3>
-        <p class="muted">핵심 키워드 5개를 입력해 4주치 콘텐츠 캘린더(주제·채널·발행일·프롬프트 키)를 Claude로 생성하고 실제 일정에 맞게 수정한다</p>
-        <a class="cta" href="../posts/1777945274-22c9ba.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777945274-22c9ba.html" class="lesson-row">
+        <div class="lesson-no">18</div>
+        <div class="lesson-body">
+          <h4>#7 주간 콘텐츠 캘린더 자동 기획하기</h4>
+          <p>핵심 키워드 5개를 입력해 4주치 콘텐츠 캘린더(주제·채널·발행일·프롬프트 키)를 Claude로 생성하고 실제 일정에 맞게 수정한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
-      <div class="card">
-        <h3>#8 나만의 콘텐츠 엔진 완성 및 운영 SOP 작성</h3>
-        <p class="muted">1~7차시에서 만든 프롬프트·템플릿·캘린더를 통합해 매주 반복 가능한 콘텐츠 제작 SOP 문서를 작성하고 예상 절감 시간을 수치로 제시한다</p>
-        <a class="cta" href="../posts/1777945553-2382f3.html">스크립트 읽기 →</a>
-      </div>
+      <a href="../posts/1777945553-2382f3.html" class="lesson-row">
+        <div class="lesson-no">19</div>
+        <div class="lesson-body">
+          <h4>#8 나만의 콘텐츠 엔진 완성 및 운영 SOP 작성</h4>
+          <p>1~7차시에서 만든 프롬프트·템플릿·캘린더를 통합해 매주 반복 가능한 콘텐츠 제작 SOP 문서를 작성하고 예상 절감 시간을 수치로 제시한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">⏱ 15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
       
     </div>
   </div>
@@ -314,11 +520,11 @@ Claude.ai 무료 플랜으로도 실습 가능하나, 긴 문서 작업이 많�
 
 
 
-<article class="body">
-  <div class="wrap">
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
     <h2>자주 묻는 질문</h2>
     
-      <p><strong>Q. Claude를 거의 써본 적 없어도 들을 수 있나요?</strong>
+      <div class="faq-block"><p><strong>Q. Claude를 거의 써본 적 없어도 들을 수 있나요?</strong>
 걱정되시는 마음 충분히 이해해요. 이 강의는 '기초 경험자' 대상이라 완전 입문자분께는 다소 어려울 수 있어요. 먼저 Claude 무료 플랜으로 하루 3번 써보신 후 수강을 결정해 보세요.</p>
 <p><strong>Q. Claude 유료 플랜이 꼭 있어야 하나요?</strong>
 실습 환경이 걱정되시군요. 강의 실습은 Claude.ai 무료 플랜으로도 따라올 수 있지만, 원활한 실습을 위해 유료 플랜을 권장해요. 정확한 권장 플랜은 강사에게 확인 후 안내드릴게요.</p>
@@ -331,9 +537,9 @@ Claude.ai 무료 플랜으로도 실습 가능하나, 긴 문서 작업이 많�
 <p><strong>Q. 수강 후 환불이 가능한가요?</strong>
 혹시 몰라 미리 확인하고 싶으신 마음, 당연해요. 환불 정책은 강사 확인이 필요한 사안이라 제가 직접 확인 후 정확히 안내드릴게요.</p>
 <p><strong>Q. 수강생 커뮤니티나 질문 채널이 있나요?</strong>
-혼자 따라가다 막힐까 봐 걱정되시는 거죠? 커뮤니티·질의응답 채널 운영 여부는 강사에게 확인 후 정확히 안내드릴게요.</p>
+혼자 따라가다 막힐까 봐 걱정되시는 거죠? 커뮤니티·질의응답 채널 운영 여부는 강사에게 확인 후 정확히 안내드릴게요.</p></div>
     
-      <p><strong>Q. Claude를 거의 써본 적 없는데 수강 가능한가요?</strong>
+      <div class="faq-block"><p><strong>Q. Claude를 거의 써본 적 없는데 수강 가능한가요?</strong>
 걱정되시는 마음 이해해요! 이 강의는 기초 경험자 대상이라, 완전 입문자분께는 기초 강의를 먼저 추천드려요.</p>
 <p><strong>Q. 어떤 SNS 플랫폼을 다루나요?</strong>
 궁금하시죠! 블로그·뉴스레터·인스타·링크드인을 다루며, 상세 커리큘럼은 강의 소개 페이지에서 확인해 보세요.</p>
@@ -346,22 +552,70 @@ Claude.ai 무료 플랜으로도 실습 가능하나, 긴 문서 작업이 많�
 <p><strong>Q. Claude 유료 플랜이 있어야 하나요?</strong>
 실용적인 질문이에요! 실습 효과를 위해 유료 플랜을 권장하며, 구체적 요건은 강사에게 확인 후 답변드릴게요.</p>
 <p><strong>Q. 1인 사업 경험이 없어도 들을 수 있나요?</strong>
-충분히 드는 고민이에요! 콘텐츠 제작 의지가 있다면 수강 가능하며, 확신이 필요하시면 강사에게 직접 문의해 보세요.</p>
+충분히 드는 고민이에요! 콘텐츠 제작 의지가 있다면 수강 가능하며, 확신이 필요하시면 강사에게 직접 문의해 보세요.</p></div>
     
   </div>
 </article>
 
 
+<section class="course-cta-bottom">
+  <div class="wrap">
+    <h3>지금 시작하기</h3>
+    <p>차시 1개부터 가볍게 시작하세요. 평생 소장 + 업데이트 자동 적용.</p>
+    <div class="cta-row">
+      <a href="#scripts" class="cta cta-primary">📖 첫 차시 보기</a>
+      <a href="../index.html#courses" class="cta cta-secondary">← 다른 코스</a>
+    </div>
+  </div>
+</section>
 
-  <footer class="site">
+
+
+  <footer class="site-footer">
     <div class="wrap">
       
-        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
-  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
-  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
+    <strong style="font-size:14px;color:var(--fg);">코어 캠퍼스</strong>
+    <span style="font-size:13px;color:var(--muted);">핵심을 다지는 AI 실무 강의</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+    <a href="mailto:hello@corecampus.kr" style="font-size:13px;color:var(--accent);text-decoration:none;">hello@corecampus.kr</a>
+    <span style="font-size:13px;color:var(--muted);">·</span>
+    <span style="font-size:13px;color:var(--muted);">운영: 코어 캠퍼스 팀</span>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin:0;opacity:0.7;">&copy; 2025 코어 캠퍼스. 강의 콘텐츠의 무단 복제 및 배포를 금합니다.</p>
 </div>
       
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
 </body>
 </html>

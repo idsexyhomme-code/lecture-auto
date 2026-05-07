@@ -27,7 +27,7 @@ SITE_CONFIG_PATH = ROOT / "site_config.json"
 DESIGN_PREVIEWS_DIR = SITE_DIR / "_design_previews"
 
 DEFAULT_CONFIG = {
-    "site_name": "강의 홈페이지",
+    "site_name": "코어 캠퍼스",
     "site_tagline_top": "AI Agent × Human-in-the-Loop",
     "site_headline": "학습이 짧을수록, 결과는 또렷해집니다",
     "site_subtagline": "15분 안에 끝나는 단일 학습목표 · 실습 산출물 1개. AI 에이전트와 강사가 함께 설계한 강의들.",
@@ -45,6 +45,22 @@ DEFAULT_CONFIG = {
     "pricing_html": "",
     # Tier 5
     "extra_pages": [],
+    # Tier 6 — 강의 플랫폼 구조
+    "categories": [
+        {"id": "automation", "name": "Claude 자동화", "icon": "⚡",
+         "courses": ["claude-autowork", "claude-content-engine", "claude-monthly-revenue",
+                     "claude-customer-script", "claude-launchpad", "claude-pricing-page"]},
+        {"id": "sop", "name": "1인 사업 SOP", "icon": "📋",
+         "courses": ["claude-sop", "claude-bizflow", "claude-intro-email",
+                     "claude-mail-writing", "claude-meeting-notes", "claude-sop-onboarding",
+                     "claude-customer-support"]},
+        {"id": "productivity", "name": "딥워크·생산성", "icon": "🎯",
+         "courses": ["deepwork-1hr", "claude-daily-recap"]},
+    ],
+    "promo_banners": [
+        {"label": "🎓 코스 무료 미리보기", "color": "primary", "link": "#courses"},
+        {"label": "📩 신규 코스 알림 받기", "color": "secondary", "link": "#newsletter"},
+    ],
 }
 
 # Tier 3 — HTML 슬롯 sanitize 화이트리스트 (이중 방어 — build 단 2차)
@@ -283,15 +299,82 @@ def build():
                 base_path="..",
             )
 
+    # ★ Tier 6 — 카테고리별 코스 그룹핑 (강의 플랫폼 형태)
+    course_by_id = {c["id"]: c for c in courses}
+    categorized = []
+    used_ids = set()
+    for cat in (config.get("categories") or []):
+        cat_courses = [course_by_id[cid] for cid in cat.get("courses", [])
+                       if cid in course_by_id]
+        if cat_courses:
+            categorized.append({
+                "id": cat.get("id", ""),
+                "name": cat.get("name", ""),
+                "icon": cat.get("icon", "📚"),
+                "courses": cat_courses,
+            })
+            used_ids.update(c["id"] for c in cat_courses)
+    # 미분류 코스
+    other_courses = [c for c in courses if c["id"] not in used_ids]
+    if other_courses:
+        categorized.append({
+            "id": "other", "name": "기타 코스", "icon": "📂",
+            "courses": other_courses,
+        })
+
     # 인덱스
     _render(
         "index.html",
         SITE_DIR / "index.html",
         courses=courses,
+        categorized=categorized,
         posts=posts[:10],
         total_count=len(items),
         base_path=".",
     )
+
+    # ★ 마이페이지 (Coming Soon)
+    me_dir = SITE_DIR / "me"
+    me_dir.mkdir(parents=True, exist_ok=True)
+    me_html = """{% extends "_layout.html" %}
+{% block title %}마이페이지 — {{ site_config.site_name }}{% endblock %}
+{% block content %}
+<section class="hero" style="background:linear-gradient(135deg, #1A3558 0%, #2C5282 100%); color:white;">
+  <div class="wrap">
+    <span class="badge" style="background:rgba(255,255,255,0.2); color:white;">마이페이지</span>
+    <h1 style="color:white;">곧 만나요</h1>
+    <p class="lead" style="color:rgba(255,255,255,0.9);">수강 현황 · 진도율 · 학습 노트가 한곳에 정리되는 마이페이지가 준비 중입니다.</p>
+  </div>
+</section>
+<section><div class="wrap" style="max-width:680px; margin:40px auto;">
+  <h2>오픈 시 가장 먼저 알림 받기</h2>
+  <p style="margin:12px 0 24px;">아래 무료 코스 미리보기에 등록하시면 마이페이지 오픈 시 가장 먼저 알려드립니다.</p>
+  <div class="card" style="text-align:center;">
+    <h3>📩 신규 코스 + 마이페이지 오픈 알림</h3>
+    <p class="muted">이메일을 받아 보고 싶으시면 운영자에게 직접 문의해 주세요.</p>
+    <a class="cta" href="../index.html">← 메인으로</a>
+  </div>
+</div></section>
+{% endblock %}"""
+    # 임시 me 템플릿을 templates에 저장 후 render
+    me_tmpl_path = TEMPLATE_DIR / "_me.html"
+    me_tmpl_path.write_text(me_html, encoding="utf-8")
+    try:
+        _render("_me.html", me_dir / "index.html", base_path="..")
+    except Exception:
+        # fallback: 직접 작성
+        (me_dir / "index.html").write_text(
+            '<!doctype html><html lang="ko"><head><meta charset="utf-8">'
+            '<title>마이페이지 — 코어 캠퍼스</title>'
+            '<link rel="stylesheet" href="../styles.css">'
+            '</head><body><header class="site"><div class="wrap">'
+            '<a href="../index.html" class="brand">코어 캠퍼스</a></div></header>'
+            '<section class="hero"><div class="wrap"><h1>마이페이지 — 곧 오픈</h1>'
+            '<p class="lead">수강 현황 · 진도율 · 학습 노트가 곧 도착합니다.</p>'
+            '<a class="cta" href="../index.html">← 메인으로</a>'
+            '</div></section></body></html>',
+            encoding="utf-8",
+        )
 
     # ★ Tier 5 — extra_pages 자동 생성 (about/contact/landing 등)
     for p in (config.get("extra_pages") or []):

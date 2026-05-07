@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="{{ base_path }}/styles.css" />
   <meta name="description" content="{% block desc %}{{ site_config.site_subtagline }}{% endblock %}" />
   <script>
-    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
     (function () {
       try {
         var p = new URLSearchParams(location.search);
@@ -23,25 +22,115 @@
   </script>
 </head>
 <body>
-  <header class="site">
+
+  {% if site_config.promo_banners %}
+  <div class="promo-bar">
     <div class="wrap">
-      <a href="{{ base_path }}/index.html" class="brand" data-edit-field="site_config:site_name">{{ site_config.site_name }}</a>
-      <nav class="site">
-        <a href="{{ base_path }}/index.html">홈</a>
+      {% for p in site_config.promo_banners %}
+      <a href="{{ p.link or '#' }}" class="promo-chip promo-{{ p.color or 'primary' }}">{{ p.label }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="{{ base_path }}/index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">{{ site_config.site_name }}</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 카테고리
+        </button>
+        {% if site_config.categories %}
+        <div class="nav-cat-menu">
+          {% for cat in site_config.categories %}
+          <a href="{{ base_path }}/index.html#cat-{{ cat.id }}" class="cat-item">
+            <span class="cat-emoji">{{ cat.icon or '📚' }}</span>
+            <span class="cat-name">{{ cat.name }}</span>
+            <span class="cat-count">{{ cat.courses|length }}개</span>
+          </a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="🔍 코스 제목·키워드로 검색..." />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="{{ base_path }}/index.html#courses">코스</a>
+        <a href="{{ base_path }}/me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>마이</span>
+        </a>
       </nav>
     </div>
   </header>
 
   {% block content %}{% endblock %}
 
-  <footer class="site">
+  <footer class="site-footer">
     <div class="wrap">
       {% if site_config.footer_html %}
         {{ site_config.footer_html | safe }}
       {% else %}
-        <div>© 2026 — AI 에이전트와 함께 만든 페이지 · 자동 빌드</div>
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-brand">{{ site_config.site_name }}</div>
+            <div class="footer-tag">{{ site_config.site_tagline_top }}</div>
+          </div>
+          <div class="footer-col">
+            <h4>코어 캠퍼스</h4>
+            <ul>
+              <li><a href="{{ base_path }}/index.html">홈</a></li>
+              <li><a href="{{ base_path }}/index.html#courses">전체 코스</a></li>
+              <li><a href="{{ base_path }}/me/">마이페이지</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>운영</h4>
+            <ul>
+              <li>AI 에이전트 8명 + 사람 1명</li>
+              <li>매일 자동 신규 코스</li>
+              <li>티스토리 자동 발행</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">© 2026 코어 캠퍼스 — AI Agent × Human-in-the-Loop</div>
       {% endif %}
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
 </body>
 </html>
