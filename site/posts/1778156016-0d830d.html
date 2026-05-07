@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#16 나만의 AI 업무 자동화 시스템 완성하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#16 나만의 AI 업무 자동화 시스템 완성하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-autowork · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>12주를 달렸는데, 막상 정리하려니 프롬프트는 폴더마다 흩어져 있고, 워크플로우는 어디다 저장했는지도 모르겠고, SOP는 반쯤 완성된 채 방치되어 있죠.</p>
+<p>열심히 배웠는데 내 손에 남은 게 없는 것 같은 그 불안감, 오늘 이 차시에서 완전히 끝냅니다.</p>
+<p>지금까지 만든 모든 조각을 하나의 운영 매뉴얼로 묶어, 누가 봐도 이해할 수 있는 나만의 AI 시스템을 완성합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 최소 5개 업무 영역을 커버하는 개인 AI 운영 매뉴얼을 완성하고, 5분짜리 시연 영상으로 직접 증명할 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 시스템 통합 설계: '허브 앤 스포크' 모델</h3>
+<p><strong>설명</strong></p>
+<p>자전거 바퀴를 떠올려 보세요.</p>
+<p>가운데 허브가 있고, 살대(스포크)가 뻗어 나갑니다.</p>
+<p>허브는 여러분의 <strong>마스터 프롬프트 라이브러리</strong>입니다.</p>
+<p>스포크 하나하나는 이메일, 보고서, 회의록, 데이터 분석, 고객 응대 같은 개별 업무 영역이고요.</p>
+<p>핵심은 간단합니다. 모든 워크플로우가 허브 하나를 바라보게 설계하면, 나중에 수정할 때 허브만 고치면 됩니다.</p>
+<p><strong>예시</strong></p>
+<p>이메일 초안 워크플로우가 있다고 합시다.</p>
+<p>허브에는 '나의 문체 규칙 + 자주 쓰는 페르소나 설정'이 저장되어 있습니다.</p>
+<p>이메일 스포크는 그 허브를 참조해서 실행됩니다.</p>
+<p>보고서 스포크도 마찬가지로 같은 허브를 참조하죠.</p>
+<p>문체를 바꾸고 싶을 때? 허브 하나만 업데이트하면 모든 워크플로우에 반영됩니다.</p>
+<p><strong>반례</strong></p>
+<p>반대로 각 워크플로우마다 문체 규칙을 따로 적어두면 어떻게 될까요?</p>
+<p>이메일엔 '친근한 어투', 보고서엔 '격식체'라고 각각 적어뒀다가, 나중에 회사 톤앤매너가 바뀌면 다섯 군데를 전부 손봐야 합니다.</p>
+<p>이게 바로 대부분의 사람들이 시스템이 '자꾸 무너진다'고 느끼는 이유입니다.</p>
+<p><strong>정리</strong></p>
+<p>기억 페그는 <strong>'자전거 바퀴 1개'</strong> 입니다.</p>
+<p>허브 1개, 스포크는 최소 5개. 허브를 먼저 만들고 스포크를 연결하세요.</p>
+<hr />
+<h3>핵심 개념 2 — 운영 매뉴얼 구성: '3층 건물' 구조</h3>
+<p><strong>설명</strong></p>
+<p>운영 매뉴얼은 3층짜리 건물로 짓습니다.</p>
+<p><strong>1층은 목록(Index)</strong> — 어떤 업무 영역이 있는지 한눈에 보이는 지도입니다.</p>
+<p><strong>2층은 SOP(Standard Operating Procedure)</strong> — 각 업무를 어떤 순서로, 어떤 프롬프트로 처리하는지 단계별 절차서입니다.</p>
+<p><strong>3층은 아카이브(Archive)</strong> — 실제로 Claude와 주고받은 결과물 중 재사용 가능한 것들을 저장하는 창고입니다.</p>
+<p><strong>예시</strong></p>
+<p>제 경험상 Notion을 쓰는 분들은 이렇게 구성합니다.</p>
+<p>1층 페이지에 업무 영역 5개를 표로 나열하고, 각 행에서 2층 SOP 페이지로 링크합니다.</p>
+<p>2층 SOP 페이지엔 '언제 쓰는지 → 입력값 → 프롬프트 → 기대 출력 → 검토 기준' 순서로 적어두죠.</p>
+<p>3층 아카이브는 날짜별 폴더로 결과물을 모아둡니다.</p>
+<p><strong>반례</strong></p>
+<p>매뉴얼을 한 페이지에 다 몰아 넣으면 처음엔 깔끔해 보입니다.</p>
+<p>그런데 3개월 뒤엔 스크롤이 끝도 없이 길어지고, 원하는 프롬프트를 찾는 데만 2~3분이 걸립니다.</p>
+<p>층을 나누는 이유가 바로 검색 시간을 줄이기 위해서입니다.</p>
+<p><strong>정리</strong></p>
+<p>기억 페그는 <strong>'1·2·3층 건물'</strong> 입니다.</p>
+<p>1층 목록, 2층 절차, 3층 결과물. 층별로 역할이 다릅니다.</p>
+<hr />
+<h3>핵심 개념 3 — 지속적 개선 계획: '4주 점검 사이클'</h3>
+<p><strong>설명</strong></p>
+<p>시스템은 만들고 나서 방치하면 6개월 안에 쓸모없어집니다.</p>
+<p>Claude의 모델이 업데이트되고, 업무 환경이 바뀌고, 여러분의 숙련도도 달라지니까요.</p>
+<p>그래서 <strong>4주에 한 번, 딱 30분짜리 점검 루틴</strong>을 설계해야 합니다.</p>
+<p>점검 항목은 세 가지입니다.</p>
+<p>첫째, 가장 많이 쓴 워크플로우 3개를 확인합니다. 여전히 잘 작동하나요?</p>
+<p>둘째, 지난 4주 동안 불편했던 순간을 떠올립니다. 그 순간을 해결할 새 프롬프트가 필요한가요?</p>
+<p>셋째, 쓰지 않은 워크플로우는 과감히 보관함으로 이동합니다. 시스템을 가볍게 유지하세요.</p>
+<p><strong>예시</strong></p>
+<p>저는 매달 마지막 금요일 오전에 30분을 캘린더에 블로킹해 둡니다.</p>
+<p>이름은 '시스템 헬스 체크'입니다.</p>
+<p>이 루틴 덕분에 6개월째 매뉴얼이 살아있는 문서로 유지되고 있습니다.</p>
+<p><strong>반례</strong></p>
+<p>'나중에 한꺼번에 정리해야지'라고 생각하면, 그 날은 오지 않습니다.</p>
+<p>3개월치 수정 사항이 쌓이면 정리하는 데만 반나절이 걸리고, 결국 새로 만드는 게 빠르다는 결론에 이르게 됩니다.</p>
+<p><strong>정리</strong></p>
+<p>기억 페그는 <strong>'4주 달력에 동그라미 1개'</strong> 입니다.</p>
+<p>한 달에 30분만 투자하면 시스템 수명이 수년으로 늘어납니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 직접 만들어 봅시다.</p>
+<p>산출물 두 가지입니다. <strong>운영 매뉴얼 문서</strong> 하나, <strong>5분 시연 영상</strong> 하나.</p>
+<p><strong>Step 1 — 업무 영역 5개 선정 (5분)</strong></p>
+<p>지금 바로 종이나 메모앱을 여세요.</p>
+<p>지난 12주 동안 Claude로 처리했던 업무 중 가장 자주 썼던 것 5가지를 적습니다.</p>
+<p>예시: 이메일 초안, 주간 보고서, 회의록 요약, SNS 콘텐츠, 데이터 해석 코멘트.</p>
+<p>5개가 안 떠오르면 3개부터 시작해도 괜찮습니다.</p>
+<p><strong>Step 2 — 1층 목록 페이지 만들기 (10분)</strong></p>
+<p>Notion, 구글 독스, 어떤 도구든 괜찮습니다.</p>
+<p>표를 하나 만들고 열은 세 개입니다.</p>
+<p>'업무 영역 이름 / 주요 프롬프트 링크 / 마지막 업데이트 날짜'</p>
+<p>5개 행을 채우고, 프롬프트 링크 칸은 일단 빈칸으로 둬도 됩니다.</p>
+<p><strong>Step 3 — SOP 1개 완성하기 (15분)</strong></p>
+<p>5개 영역 중 가장 자신 있는 업무 하나를 골라 2층 SOP를 작성합니다.</p>
+<p>'언제 쓰는지 → 입력값 → 프롬프트 전문 → 기대 출력 예시 → 품질 검토 기준' 순서로요.</p>
+<p>이 하나만 완성해도 나머지 4개의 템플릿이 됩니다.</p>
+<p><strong>Step 4 — 시연 영상 녹화 (5분 이상)</strong></p>
+<p>Loom, OBS, 또는 스마트폰 화면 녹화를 켜세요.</p>
+<p>영상 구조는 단순합니다.</p>
+<p>"안녕하세요, 제 AI 운영 매뉴얼을 소개합니다." → 1층 목록 보여주기 → SOP 1개 실제 실행 → "이렇게 결과가 나옵니다." → 마무리.</p>
+<p>완벽하지 않아도 됩니다. 5분 넘기는 것만 목표로 하세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>오늘 만든 매뉴얼과 시연 영상, 댓글에 인증해 주세요.</p>
+<p>어떤 업무 영역 5개를 골랐는지 한 줄만 써주셔도 됩니다.</p>
+<p>다음 차시에선 이 매뉴얼을 팀에 공유하고 협업으로 확장하는 방법을 다룹니다. 혼자 쓰는 시스템을 팀 전체의 자산으로 만드는 마지막 단계입니다. 놓치지 마세요.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
