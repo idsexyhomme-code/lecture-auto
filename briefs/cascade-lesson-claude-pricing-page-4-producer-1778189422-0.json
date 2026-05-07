@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-pricing-page",
+    "course_title": "Claude로 만드는 전환 가격 페이지",
+    "lesson_no": 4,
+    "lesson_title": "가격 페이지 카피 검증 체크리스트 적용",
+    "objective": "8개 항목 검증 체크리스트를 사용해 자신의 가격 페이지 초안을 평가하고 수정이 필요한 항목 3개 이상을 특정한다",
+    "key_concepts": [
+      "전환 카피 8대 검증 기준(명확성·긴급성·신뢰·CTA 등)",
+      "Claude를 검토자로 설정하는 크리틱 프롬프트 기법",
+      "A/B 테스트 없이 사전 검증하는 자기 반론법"
+    ],
+    "exercise": "8개 체크리스트 항목별 Pass/Fail 표기와 수정 액션 3개 이상이 기록된 '카피 검증 체크리스트 시트'",
+    "duration_min": 15
+  }
+}
