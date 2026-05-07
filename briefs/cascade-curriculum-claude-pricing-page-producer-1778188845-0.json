@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-pricing-page",
+    "course_title": "Claude로 만드는 전환 가격 페이지",
+    "lesson_no": 1,
+    "lesson_title": "전환을 막는 가격 저항 5가지 분류",
+    "objective": "자신의 가격 페이지에 존재하는 고객 저항 유형을 5가지 프레임으로 분류하고 우선순위 목록을 작성한다",
+    "key_concepts": [
+      "가격 저항 vs 가치 인식 부족의 차이",
+      "5가지 저항 유형(비용·신뢰·타이밍·비교·필요성)",
+      "전환 누수 지점 진단법"
+    ],
+    "exercise": "내 서비스 고객이 실제로 보내온 반응·DM·댓글을 5가지 저항 유형 표에 분류한 '저항 맵 워크시트'",
+    "duration_min": 15
+  }
+}

@@ -44,7 +44,7 @@
     {
       "course_id": "claude-pricing-page",
       "title": "Claude로 가격 페이지·세일즈 카피 다듬는 법",
-      "status": "planned",
+      "status": "proposed",
       "priority": 3,
       "topic": "결제 전환을 만드는 가격 페이지 카피·반박 처리 FAQ를 Claude로 설계·검증",
       "audience": "강의·서비스 가격 페이지에서 막히는 1인 사업가",
@@ -55,7 +55,8 @@
         "가격 anchoring 3가지 패턴 적용",
         "흔한 5가지 반박을 사전에 무력화",
         "결제 전환율 측정 지표 셋업"
-      ]
+      ],
+      "proposed_at": "2026-05-08T06:20:09.125030+09:00"
     },
     {
       "course_id": "claude-sop-onboarding",
@@ -118,6 +119,12 @@
       "action": "auto_pump",
       "at": "2026-05-07T23:16:43.680300+09:00",
       "brief_file": "1778163403-roadmap-claude-meeting-notes.json"
+    },
+    {
+      "course_id": "claude-pricing-page",
+      "action": "auto_pump",
+      "at": "2026-05-08T06:20:09.125030+09:00",
+      "brief_file": "1778188809-roadmap-claude-pricing-page.json"
     }
   ]
 }

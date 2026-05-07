@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-pricing-page",
+    "topic": "결제 전환을 만드는 가격 페이지 카피·반박 처리 FAQ를 Claude로 설계·검증",
+    "audience": "강의·서비스 가격 페이지에서 막히는 1인 사업가",
+    "duration_weeks": 3,
+    "lesson_count": 5,
+    "format": "video",
+    "promises_hint": [
+      "가격 anchoring 3가지 패턴 적용",
+      "흔한 5가지 반박을 사전에 무력화",
+      "결제 전환율 측정 지표 셋업"
+    ]
+  }
+}

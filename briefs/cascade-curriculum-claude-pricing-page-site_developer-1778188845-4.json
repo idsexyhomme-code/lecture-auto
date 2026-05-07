@@ -1,0 +1,9 @@
+{
+  "agent": "site_developer",
+  "brief": {
+    "instruction": "새 코스 'Claude로 만드는 전환 가격 페이지' (course_id: claude-pricing-page)가 추가됐습니다. site_config.json의 course_overrides에 이 코스의 *title_override*와 *tagline_override*를 다듬어 주세요. 다른 필드는 절대 만지지 않습니다. 코스 톤 힌트: 망설이던 고객을 결제로 이끄는 카피·FAQ 설계법",
+    "brand_tone": "차분하고 단단한 한국어, 과장 표현 금지",
+    "target_audience": "강의·코칭·서비스 가격 페이지에서 전환이 막히는 1인 사업가",
+    "restrictions": "course_overrides 외 다른 필드 변경 금지, WCAG AA 유지"
+  }
+}
