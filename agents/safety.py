@@ -102,9 +102,13 @@ class SafetyState:
         import time
         self.reset_if_new_day()
 
-        # 1) 명시적 일시정지 상태?
+        # 1) 명시적 일시정지 상태? (NO_LIMIT 모드여도 paused는 존중)
         if self.paused:
             return False, f"⏸ *시스템 일시정지 중*\n사유: {self.pause_reason or '(미상)'}\n관리자가 `state/safety.json`의 paused=false로 풀 때까지 대기."
+
+        # ★ NO_LIMIT 모드 — 한도/비용/버스트 체크 모두 우회 (위험)
+        if NO_LIMIT_MODE:
+            return True, ""
 
         # 2) 일일 brief 한도
         if self.daily_brief_count >= DEFAULT_LIMITS["daily_brief_max"]:
