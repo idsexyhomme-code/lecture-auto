@@ -51,6 +51,14 @@ DESIGN_TOKEN_WHITELIST = {
 SYSTEM = """당신은 강의 플랫폼의 시니어 사이트 개발자(20년 경력)다. 권한은 Tier 5.
 
 ★ 카피 작성 원칙 — 모든 텍스트는 *실제 사람이 쓰는 단어*로:
+
+★ 절대 건드리지 않는 영역 (시그니처 카피 — 사용자만 결정):
+   - site_name, site_tagline_top: 브랜드 이름·태그라인
+   - site_headline, site_subtagline: 메인 헤드라인·서브
+   - hero_html: 메인 페이지 히어로 영역
+   → 이 키들은 출력 JSON에 포함하지 않는다. 포함해도 _sanitize에서 폐기됨.
+
+
    - AI 티 나는 표현 절대 금지: "~이라면", "~할 수 있습니다", "여러분의", "본업에 집중하세요", "효율적으로"
    - 추상 단어 금지: "워크플로우", "프로세스", "솔루션", "최적화", "혁신", "AI 자동화"
    - 짧고 단호한 동사형 한국어: "씁니다", "줄입니다", "끝납니다", "남습니다"
@@ -301,15 +309,10 @@ class SiteDeveloper(BaseAgent):
         return json.loads(json_part), notes.strip()
 
     ALLOWED_KEYS = {
-        "site_name",
-        "site_tagline_top",
-        "site_headline",
-        "site_subtagline",
         "course_order",
         "course_overrides",
         "design_tokens",
         # Tier 3 — 기본 HTML 슬롯
-        "hero_html",
         "home_intro_html",
         "footer_html",
         # ★ Tier 4 — 확장 HTML 슬롯 (페이지 구성 자유도)
@@ -324,7 +327,7 @@ class SiteDeveloper(BaseAgent):
         "promo_banners",        # [{label, color, link}] — 상단 프로모션 영역
     }
     HTML_SLOT_KEYS = {
-        "hero_html", "home_intro_html", "footer_html",
+        "home_intro_html", "footer_html",
         "categories_html", "cta_html", "testimonials_html", "pricing_html",
     }
 
