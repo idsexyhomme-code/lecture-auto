@@ -3,8 +3,8 @@
   "description": "사전 등록된 코스 큐. Orchestrator가 매일 9시(KST)에 다음 안건을 제안합니다. AUTO 모드 ON이면 ✅ 없이 자동 시작.",
   "schedule": {
     "interval_hours": 1,
-    "max_per_day": 20,
-    "comment": "1시간마다 1개 코스 자동 발주 (일일 20개 한도). 비용 ~$20/일, 한도 $30 안전 마진."
+    "max_per_day": 15,
+    "comment": "1시간마다 trigger, 일일 15개 한도(티스토리 발행 한도와 동일). 15개 채우면 자동 멈춤."
   },
   "courses": [
     {
