@@ -1,83 +1,42 @@
 name: Agent Loop
 
+# 데몬이 모든 brief 처리·빌드·push를 담당.
+# 이 workflow는 *Pages deploy*만 담당 — push 시 자동 deploy.
 on:
-  workflow_dispatch:        # 수동 실행 — 데몬이 변경사항 push 후 dispatch 트리거 (빌드+배포만 담당)
-  # schedule:               # 데몬이 모든 일 처리하므로 cron 비활성화 (3분마다 실패하는 노이즈 제거)
-  #   - cron: "*/3 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'site_config.json'
+      - '.github/workflows/agent-loop.yml'
 
 concurrency:
   group: agent-loop
-  cancel-in-progress: true   # 최신 push만 살아남도록 — 기존 hang된 run 자동 cancel
+  cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
 jobs:
-  loop:
+  deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    env:
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-      GH_PAT: ${{ secrets.GH_PAT }}    # Step 4 — ✅ 후 즉시 새 사이클 트리거 (선택, 없으면 cron 대기)
-      GITHUB_REPOSITORY: ${{ github.repository }}
-      LOG_LEVEL: INFO
-      PYTHONIOENCODING: utf-8
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: pip
-
-      - name: Install deps
-        run: pip install -r requirements.txt
-
-      # 1) briefs/*.json → pending/ 결과물 생성
-      - name: Run agents on pending briefs
-        run: python -m agents.conductor
-
-      # 2) pending 새 항목을 텔레그램으로 발송
-      - name: Send approval cards
-        run: python -m telegram_bot.notify
-
-      # 3) 텔레그램 콜백 폴링 → approved/rejected 이동
-      - name: Poll Telegram callbacks
-        run: python -m telegram_bot.poll
-
-      # 4) approved/ 기준으로 사이트 빌드
-      - name: Build static site
-        run: python -m site_builder.build
-
-      # 5) 변경사항 커밋·푸시 (있을 때만)
-      - name: Commit state changes
-        run: |
-          git config user.name "agent-bot"
-          git config user.email "agent-bot@users.noreply.github.com"
-          # site_config.json도 포함되도록 -A로 모든 변경 스테이지
-          git add -A
-          if ! git diff --cached --quiet; then
-            git commit -m "agent-loop: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-            git push
-          else
-            echo "no changes to commit"
-          fi
-
-      # 6) GitHub Pages 배포
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
-      - name: Deploy to Pages
+
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
