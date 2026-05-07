@@ -169,14 +169,66 @@ def _has_new_brief_in_dir() -> bool:
     return False
 
 
+def _send_hourly_report():
+    """매시간 텔레그램에 활동 리포트 — 체감 자동화 강화.
+
+    내용:
+      • 지난 1시간 git 커밋 수 (= 데몬 활동 횟수)
+      • 오늘 brief 처리량 / 한도
+      • 오늘 추정 비용 / 한도
+      • roadmap 큐 상태 (planned 남은 개수)
+    """
+    import json as _json
+    import subprocess
+    from datetime import datetime, timedelta, timezone
+    KST = timezone(timedelta(hours=9))
+    one_hour_ago = (datetime.now(KST) - timedelta(hours=1)).isoformat()
+
+    try:
+        result = subprocess.run(
+            ["git", "log", f"--since={one_hour_ago}", "--oneline"],
+            capture_output=True, text=True, cwd=str(REPO_ROOT), timeout=10,
+        )
+        commits = [l for l in result.stdout.strip().split("\n") if l]
+    except Exception:
+        commits = []
+
+    try:
+        sf = _json.loads((REPO_ROOT / "content/state/safety.json").read_text(encoding="utf-8"))
+        brief_count = sf.get("daily_brief_count", 0)
+        cost = sf.get("daily_estimated_cost_usd", 0.0)
+    except Exception:
+        brief_count, cost = 0, 0.0
+
+    try:
+        rm = _json.loads((REPO_ROOT / "roadmap.json").read_text(encoding="utf-8"))
+        planned = sum(1 for c in (rm.get("courses") or []) if c.get("status") == "planned")
+        proposed = sum(1 for c in (rm.get("courses") or []) if c.get("status") == "proposed")
+    except Exception:
+        planned, proposed = 0, 0
+
+    msg = (
+        f"📊 *시간별 자동화 리포트* ({datetime.now(KST).strftime('%H:%M')} KST)\n\n"
+        f"⚡ 지난 1시간 커밋: *{len(commits)}개*\n"
+        f"📋 오늘 brief: *{brief_count}/500*\n"
+        f"💰 오늘 비용: *${cost:.2f}/$35*\n"
+        f"🗺 로드맵 큐: planned *{planned}* / proposed *{proposed}*\n\n"
+        f"_데몬 24/7 가동 중 — 1시간마다 새 코스 자동 발주_"
+    )
+    try:
+        tg.send_text(msg)
+        log.info("[long_poll] 📊 hourly report 발송")
+    except Exception as e:
+        log.warning("[long_poll] hourly report 발송 실패: %s", e)
+
+
 def _run_local_pipeline():
     """로컬에서 conductor → notify → build 풀 파이프라인 실행.
 
     cron이 작동 안 해도 데몬이 24시간 돌면 이 함수가 모든 brief을 처리한다.
     각 단계 실패해도 다음 단계는 계속 시도.
     """
-    # ★ Roadmap 자동 펌프 — N시간마다 신규 코스 brief 자동 발주
-    # should_pump_now() 내부에서 interval(6h) + 일일 한도 체크하므로 매 사이클 호출 무해
+    # ★ Roadmap 자동 펌프 — 1시간마다 신규 코스 brief 자동 발주
     try:
         from agents.roadmap_pump import pump_next
         new_brief = pump_next()
@@ -257,7 +309,9 @@ def run_loop():
 
     backoff = RETRY_BACKOFF_BASE
     last_pipeline_check = 0
-    PIPELINE_INTERVAL = 5   # 5초마다 큐 점검 — 새 brief 즉시 잡음
+    last_hourly_report = 0
+    PIPELINE_INTERVAL = 5      # 5초마다 큐 점검 — 새 brief 즉시 잡음
+    HOURLY_REPORT_INTERVAL = 3600  # 시간 활동 리포트 텔레그램 (체감 자동화)
 
     while not _should_stop:
         try:

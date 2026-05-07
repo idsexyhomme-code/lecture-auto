@@ -35,10 +35,12 @@ SAFETY_FILE = STATE_DIR / "safety.json"
 #   roadmap_pump 6시간마다 4코스 = 일일 ~56 brief / ~$4 사용 → 충분히 여유
 #   .env로 더 키우거나 SAFETY_NO_LIMIT=1로 완전 우회 가능
 DEFAULT_LIMITS = {
-    "daily_brief_max":         int(os.environ.get("SAFETY_DAILY_BRIEF_MAX", "300")),
-    "daily_cost_usd_max":      float(os.environ.get("SAFETY_DAILY_COST_USD_MAX", "20.0")),
+    # 시간당 1코스 페이스 — 일일 ~20코스 × ~14 brief/코스 = ~280 brief/일
+    "daily_brief_max":         int(os.environ.get("SAFETY_DAILY_BRIEF_MAX", "500")),
+    # 비용: 20코스 × ~$1.5 = ~$30/일 (한도 $35 — 5달러 마진)
+    "daily_cost_usd_max":      float(os.environ.get("SAFETY_DAILY_COST_USD_MAX", "35.0")),
     "burst_window_minutes":    int(os.environ.get("SAFETY_BURST_WINDOW_MINUTES", "5")),
-    "burst_max_per_agent":     int(os.environ.get("SAFETY_BURST_MAX_PER_AGENT", "30")),
+    "burst_max_per_agent":     int(os.environ.get("SAFETY_BURST_MAX_PER_AGENT", "50")),
 }
 
 # ★ 완전 무제한 모드 — 위험 인지 후 사용 (.env에 SAFETY_NO_LIMIT=1)
