@@ -202,6 +202,9 @@ def _group_by_course(items: list[AgentResult]) -> dict[str, list[AgentResult]]:
 def build():
     # 빌드마다 최신 site_config 다시 읽기 (이전 빌드 이후 승인된 변경 반영)
     config = _load_site_config()
+    # ★ build_time — CSS/JS 캐시 무효화 (link tag에 ?v={{ _build_time }})
+    import time as _t
+    config["_build_time"] = int(_t.time())
     # Tier 3 + Tier 4 — HTML 슬롯 2차 sanitize (defense in depth)
     for slot in (
         "hero_html", "home_intro_html", "footer_html",
