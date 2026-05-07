@@ -1,0 +1,19 @@
+{
+  "id": "1778115152-7071151003",
+  "chat_id": 7071151003,
+  "status": "active",
+  "history": [
+    {
+      "role": "user",
+      "content": "몇시에 리셋되나요 일일 brief"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"action\": \"ASK\", \"message\": \"일일 brief 리셋 시간은 제가 답변할 수 있는 범위 밖이에요. 코어 캠퍼스 운영팀에 직접 문의하시면 정확히 안내받으실 수 있을 거예요.\\n\\n혹시 오늘 작업하고 싶으신 아이디어가 있으시면 말씀해 주세요 — 바로 도와드릴게요! 😊\", \"brief\": null}"
+    }
+  ],
+  "draft_brief": null,
+  "last_telegram_message_id": 1263,
+  "created_at": "2026-05-07T00:52:32+00:00",
+  "updated_at": "2026-05-07T00:52:37+00:00"
+}
