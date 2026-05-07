@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#4 반복 사용 가능한 나만의 회의 정리 프롬프트 템플릿을 제작한다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Claude를 실무에 쓰는 1인 사업가를 위해, 단계별로 설계한 시리즈 강의." />
+  <script>
+    // 어드민 모드 — ?admin=1일 때만 admin.css/js를 로드
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">코어 캠퍼스</a>
+      <nav class="site">
+        <a href="../index.html">홈</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#4 반복 사용 가능한 나만의 회의 정리 프롬프트 템플릿을 제작한다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-meeting-notes · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>회의가 끝날 때마다 Claude 창을 새로 열고,
+지난번에 썼던 프롬프트를 처음부터 다시 입력하고 계시지 않나요?</p>
+<p>"어떻게 썼더라... 아, 맞다 이거였지..."
+그렇게 5분을 날리고, 결과물은 또 들쭉날쭉합니다.</p>
+<p>이번 차시에서 그 반복을 완전히 끊어드립니다.
+한 번 만들어두면 영업 회의든 기획 회의든,
+변수 하나만 바꿔서 바로 쓸 수 있는 나만의 프롬프트 템플릿,
+지금 바로 설계합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면,
+영업·기획·팀 스탠드업 세 가지 회의 유형에
+즉시 적용 가능한 변수 포함 프롬프트 템플릿을
+Notion 또는 Google Docs 한 페이지에 완성해서 저장할 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 프롬프트 변수화: '빈칸 뚫린 계약서'</h3>
+<p><strong>설명</strong></p>
+<p>프롬프트 변수화는 매번 바뀌는 정보를
+이중 중괄호로 표시해 두는 방식입니다.
+<code>{{회의유형}}</code>, <code>{{참석자}}</code>, <code>{{날짜}}</code>처럼요.</p>
+<p>계약서 양식을 떠올려 보세요.
+계약서는 한 번 만들어두고,
+이름·날짜·금액만 채워 넣으면 됩니다.
+프롬프트도 똑같이 설계할 수 있습니다.</p>
+<p><strong>예시</strong></p>
+<p>변수화 전 프롬프트입니다.</p>
+<blockquote>
+<p>"오늘 오후 2시 영업팀 김민수·이지영 참석 회의록을 정리해줘."</p>
+</blockquote>
+<p>변수화 후 템플릿입니다.</p>
+<blockquote>
+<p>"다음 회의록을 정리해줘.
+회의 유형: {{회의유형}}
+날짜·시간: {{날짜시간}}
+참석자: {{참석자}}
+출력 형식: 결정사항 / 액션아이템 / 담당자 / 기한"</p>
+</blockquote>
+<p>이제 <code>{{회의유형}}</code>에 '기획'을 넣으면 기획 회의록,
+'스탠드업'을 넣으면 스탠드업 회의록이 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>변수를 너무 많이 만들면 역효과가 납니다.
+<code>{{톤앤매너}}</code>, <code>{{요약깊이}}</code>, <code>{{언어스타일}}</code>까지 변수로 만들면
+채워야 할 칸이 너무 많아져서 오히려 더 오래 걸립니다.
+제 경험상 변수는 5개 이하로 제한하는 게 실용적입니다.</p>
+<p><strong>정리</strong></p>
+<p>변수화의 핵심은 '바뀌는 것만 변수로, 안 바뀌는 것은 고정'입니다.
+메모리 페그: <strong>빈칸 뚫린 계약서</strong>, 변수는 최대 5개.</p>
+<hr />
+<h3>핵심 개념 2 — Claude Projects &amp; System Prompt 저장법: '비서에게 업무 매뉴얼 주기'</h3>
+<p><strong>설명</strong></p>
+<p>변수화된 템플릿을 만들었으면,
+매번 붙여넣지 않아도 되는 저장 공간이 필요합니다.
+Claude에는 두 가지 방법이 있습니다.</p>
+<p>첫째, <strong>Claude Projects</strong>입니다.
+claude.ai에서 'Projects'를 만들면
+프로젝트 안에 System Prompt를 고정할 수 있습니다.
+'회의록 정리 봇'이라는 프로젝트를 하나 만들고,
+템플릿을 System Prompt에 붙여넣으면 됩니다.
+이후 대화창에서는 변수 값만 입력하면 끝입니다.</p>
+<p>둘째, API를 사용하는 경우엔
+System Prompt 파라미터에 직접 저장합니다.
+하지만 이 코스에서는 Claude.ai UI 기준으로 진행합니다.</p>
+<p><strong>예시</strong></p>
+<p>Claude Projects System Prompt에 이렇게 저장합니다.</p>
+<blockquote>
+<p>"당신은 회의록 정리 전문가입니다.
+사용자가 입력하는 텍스트를 아래 형식으로 정리해주세요.
+회의 유형: {{회의유형}}
+참석자: {{참석자}}
+출력: 결정사항·액션아이템·담당자·기한"</p>
+</blockquote>
+<p>이후 대화창에는 이것만 입력합니다.</p>
+<blockquote>
+<p>"회의유형=영업, 참석자=김민수·이지영
+[회의록 원문 붙여넣기]"</p>
+</blockquote>
+<p><strong>반례</strong></p>
+<p>System Prompt에 너무 긴 예시를 넣으면
+토큰을 낭비하고 응답 품질이 오히려 떨어질 수 있습니다.
+System Prompt는 '역할 정의 + 출력 형식'만 담고,
+실제 회의록 원문은 대화창에 입력하세요.</p>
+<p><strong>정리</strong></p>
+<p>비서에게 업무 매뉴얼을 한 번 주면,
+이후엔 "오늘 건 이거야"라고만 해도 됩니다.
+Claude Projects가 바로 그 매뉴얼함입니다.
+메모리 페그: <strong>비서의 서랍</strong>, System Prompt는 역할+형식만.</p>
+<hr />
+<h3>핵심 개념 3 — 템플릿 버전 관리: '레시피 노트의 날짜 표시'</h3>
+<p><strong>설명</strong></p>
+<p>프롬프트 템플릿도 시간이 지나면 수정이 필요합니다.
+회의 구조가 바뀌거나, 출력 형식을 바꾸고 싶을 때
+이전 버전이 없으면 무엇을 고쳤는지 알 수 없습니다.</p>
+<p>요리사가 레시피 노트에 날짜와 변경 내용을 적어두는 것처럼,
+프롬프트에도 버전 표시를 붙이세요.</p>
+<p><strong>예시</strong></p>
+<p>Notion 문서 상단에 이렇게 기록합니다.</p>
+<table>
+<thead>
+<tr>
+<th>버전</th>
+<th>날짜</th>
+<th>변경 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1.0</td>
+<td>2025-01-10</td>
+<td>최초 작성, 3개 회의 유형</td>
+</tr>
+<tr>
+<td>v1.1</td>
+<td>2025-02-03</td>
+<td>스탠드업 출력 형식 간소화</td>
+</tr>
+<tr>
+<td>v1.2</td>
+<td>2025-03-15</td>
+<td>참석자 변수에 직급 추가</td>
+</tr>
+</tbody>
+</table>
+<p>버전명은 복잡하게 만들 필요 없습니다.
+기능 추가는 v1.0 → v2.0,
+세부 수정은 v1.0 → v1.1로 구분하면 충분합니다.</p>
+<p><strong>반례</strong></p>
+<p>버전 관리 없이 그냥 덮어쓰면,
+"2주 전에 쓰던 게 더 잘 됐는데..."라고 느껴도
+되돌아갈 방법이 없습니다.
+Notion의 페이지 히스토리 기능이 있긴 하지만,
+한눈에 비교하려면 버전 테이블이 훨씬 편합니다.</p>
+<p><strong>정리</strong></p>
+<p>템플릿은 살아있는 문서입니다.
+작은 변경도 날짜와 함께 기록하는 습관이
+나중에 큰 시간을 절약해줍니다.
+메모리 페그: <strong>레시피 노트</strong>, 버전·날짜·변경 내용 3칸.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 아래 단계를 순서대로 따라해 보세요.</p>
+<p><strong>준비물:</strong> Notion 또는 Google Docs 새 페이지 1개, Claude.ai 창</p>
+<hr />
+<p><strong>Step 1 — 템플릿 문서 뼈대 만들기 (1분)</strong></p>
+<p>Notion 또는 Google Docs에 새 페이지를 만드세요.
+제목: <code>회의록 자동화 프롬프트 템플릿 v1.0</code></p>
+<p>상단에 버전 테이블을 추가합니다.</p>
+<table>
+<thead>
+<tr>
+<th>버전</th>
+<th>날짜</th>
+<th>변경 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1.0</td>
+<td>오늘 날짜</td>
+<td>최초 작성</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Step 2 — 회의 유형별 변수 정의하기 (1분)</strong></p>
+<p>아래 세 가지 회의 유형 각각에 대해
+<code>{{회의유형}}</code>, <code>{{참석자}}</code>, <code>{{날짜시간}}</code> 값을 적어보세요.</p>
+<ul>
+<li>영업 회의: 회의유형=영업 클로징, 참석자=담당 AE·고객사 담당자</li>
+<li>기획 회의: 회의유형=신규 기능 기획, 참석자=PM·디자이너·개발자</li>
+<li>스탠드업: 회의유형=팀 스탠드업, 참석자=팀 전원</li>
+</ul>
+<hr />
+<p><strong>Step 3 — 공통 프롬프트 템플릿 작성하기 (1분)</strong></p>
+<p>문서에 아래 템플릿을 붙여넣고,
+<code>{{}}</code> 안을 Step 2에서 정의한 값으로 채워 세 가지 버전을 만드세요.</p>
+<blockquote>
+<p>당신은 회의록 정리 전문가입니다.
+회의 유형: {{회의유형}}
+날짜·시간: {{날짜시간}}
+참석자: {{참석자}}
+아래 회의록을 다음 형식으로 정리해주세요.
+1. 주요 결정사항
+2. 액션아이템 (담당자 / 기한 포함)
+3. 다음 회의 안건 (있는 경우만)</p>
+</blockquote>
+<hr />
+<p><strong>Step 4 — Claude에 적용하고 스크린샷 찍기 (1분)</strong></p>
+<p>Claude.ai에서 세 가지 버전 중 하나를 선택해 실제 회의록에 적용해보세요.
+결과 화면을 스크린샷으로 캡처해서 Notion 문서 하단에 첨부합니다.</p>
+<p>문서 완성 후 Claude Projects System Prompt에도 공통 템플릿을 저장해두세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 템플릿을 자동화의 다음 단계로 가져갑니다.
+Zapier 또는 Make와 연결해서,
+회의 종료 즉시 Slack이나 이메일로 회의록이 자동 발송되는
+파이프라인을 직접 만들어봅니다.</p>
+<p>오늘 만든 템플릿 문서 스크린샷을 댓글에 올려주세요.
+다른 수강생의 템플릿을 보면서 아이디어를 얻는 경우가 많습니다.
+다음 영상에서 바로 뵙겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site">
+    <div class="wrap">
+      
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 4px;">
+  <p style="font-size: 13px; color: var(--muted); margin: 0;">코어 캠퍼스 · 핵심을 다지는 AI 실무 강의</p>
+  <p style="font-size: 12px; color: var(--muted); margin: 0; opacity: 0.7;">질문이나 피드백은 각 코스 페이지 하단을 이용해 주세요.</p>
+</div>
+      
+    </div>
+  </footer>
+</body>
+</html>
