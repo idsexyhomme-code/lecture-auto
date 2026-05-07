@@ -38,11 +38,24 @@ class BlogPublisher(BaseAgent):
     name = "blog_publisher"
     display_name = "블로그 발행자"
     system_prompt = (
-        "당신은 한국어 블로그 글 작가다. 주어진 랜딩 카피·커리큘럼을 받아 "
-        "티스토리 블로그 글 형식으로 재구성한다. "
-        "톤은 '1인 사업가에게 SOP 알려주는 친구'. 과장 금지. "
-        "구조: 도입(공감) → 핵심 약속 3개 → 차시별 미리보기 → 결정 한 줄 → "
-        "사이트 링크 안내. 1500-3000자."
+        "당신은 20년 경력의 시니어 블로그 마케터다. 한국 1인 사업가·실무자가 매일 검색하는 키워드로 "
+        "티스토리에 글을 쓴다.\n\n"
+        "★ 카피 원칙 — 실제 사람이 읽고 검색하는 단어로:\n"
+        "  - 추상 단어·전문 용어 금지: 워크플로우, 프로세스, 솔루션, 효율적, 체계적, 최적화, 자동화 시스템, "
+        "    AI 활용, 단계별 학습, 성장, 실현, 구현, 활용\n"
+        "  - 짧고 단호한 동사형 한국어: '씁니다', '줄입니다', '끝납니다', '됩니다', '남습니다', '바뀝니다'\n"
+        "  - 사람이 검색창에 치는 단어: '메일 잘 쓰는 법', '회의록 정리', '고객 응대 자동', '매출 정리'\n"
+        "  - 과장 금지: '반드시', '100%', '완벽한', '획기적', '단숨에', '모든'\n"
+        "  - 친구한테 말하듯 — 솔직하고 구체적: '솔직히', '사실', '그냥', '바로', '한 번에'\n"
+        "  - 숫자·구체 사례로 시작: '메일 30통, 5분', '월간 보고서 1시간 → 5분'\n"
+        "  - AI 티 표현 금지: '여러분', '고민이 있으신가요', '~로 자동화하세요', '한 차원 높은', "
+        "    '~할 수 있는 분이라면', '바쁜 일상 속에서도'\n\n"
+        "★ 글 구조 (1500-2500자, 길이 욕심 X):\n"
+        "  - 도입: 회원님 일상의 구체적 장면 1개 (예: '월요일 오전 9시, 받은편지함에 87통.')\n"
+        "  - 본론 1: 왜 이게 어려운지 (보통 사람의 진짜 이유)\n"
+        "  - 본론 2: Claude를 어떻게 쓰는지 (구체적 5단계 + 예시)\n"
+        "  - 본론 3: 첫 시도가 작동하는 이유 1-2가지\n"
+        "  - 마무리: 첫 차시 1개부터 보라는 한 줄 + 사이트 링크\n"
     )
 
     def run(self, brief: dict) -> list[AgentResult]:
@@ -60,28 +73,39 @@ class BlogPublisher(BaseAgent):
         curriculum = brief.get("curriculum") or {}
 
         # Claude로 블로그 글 작성
-        prompt = f"""아래 코스의 *티스토리 블로그 글*을 작성하세요.
+        prompt = f"""티스토리 블로그 글 1편을 작성하세요. 시스템 프롬프트의 카피 원칙 *반드시* 따르세요.
 
 코스: {course_title}
 타깃: {curriculum.get('target_audience', '')}
 약속: {json.dumps(curriculum.get('promises', []), ensure_ascii=False)}
 차시: {json.dumps([l.get('title') for l in (curriculum.get('lessons') or [])], ensure_ascii=False)}
-랜딩 카피 헤드라인: {(landing.get('hero') or {}).get('headline', '')}
-서브카피: {(landing.get('hero') or {}).get('subhead', '')}
 
-구조 (HTML로 작성, 1500-3000자):
-  <h2>도입 (공감)</h2>
-  <p>...</p>
-  <h2>이 코스가 약속하는 것</h2>
-  <ul><li>...</li></ul>
-  <h2>차시별 미리보기</h2>
-  <p>...</p>
-  <h2>누구를 위한 것인가</h2>
-  <p>...</p>
+⚠️ 절대 쓰지 않을 단어:
+  - 워크플로우, 프로세스, 솔루션, 효율적, 체계적, 최적화, 자동화 시스템
+  - 여러분, 고민이 있으신가요, 한 차원 높은, 바쁜 일상 속에서도
+  - 반드시, 100%, 완벽한, 단숨에, 획기적
+
+구조 (HTML, 1500-2500자):
+  <h2>(도입 — 구체적 장면 한 줄로 시작)</h2>
+  <p>회원님 일상에서 실제 일어나는 장면 묘사. 시간·숫자·구체 사례.</p>
+
+  <h2>왜 이게 어려운지</h2>
+  <p>2-3 문단. 보통 사람의 진짜 이유를 솔직하게.</p>
+
+  <h2>Claude로 어떻게 하는지</h2>
+  <p>구체적 5단계. 각 단계는 한 줄 + 짧은 설명. 예시 포함.</p>
+  <ul>
+    <li><strong>1단계 — ...</strong> 구체적 행동</li>
+    <li><strong>2단계 — ...</strong> ...</li>
+  </ul>
+
+  <h2>이게 작동하는 이유</h2>
+  <p>왜 첫 시도부터 결과가 나오는지 1-2가지.</p>
+
   <h2>지금 시작하기</h2>
-  <p>사이트 링크: <a href="https://idsexyhomme-code.github.io/lecture-auto/courses/{course_id}.html">{course_title}</a></p>
+  <p>첫 차시 1개부터 보라는 한 줄. 사이트 링크: <a href="https://idsexyhomme-code.github.io/lecture-auto/courses/{course_id}.html">{course_title}</a></p>
 
-HTML로만 답하세요. 코드펜스 금지."""
+HTML로만 답하세요. 코드펜스 금지. AI 티 나는 단어 *0개*."""
 
         body_html = self.call(prompt, max_tokens=6000)
         body_html = body_html.strip()
@@ -95,15 +119,18 @@ HTML로만 답하세요. 코드펜스 금지."""
         title = (landing.get("hero") or {}).get("headline") or ""
         if not title or title == course_id or len(title) < 10:
             title_prompt = (
-                f"다음 코스의 *블로그 글 제목* 한 줄을 작성하세요.\n"
+                f"티스토리 블로그 글 *제목* 한 줄을 작성하세요.\n"
                 f"코스: {course_title} ({course_id})\n"
                 f"타깃: {curriculum.get('target_audience', '1인 사업가')}\n"
                 f"약속: {json.dumps(curriculum.get('promises', [])[:2], ensure_ascii=False)}\n\n"
                 f"규칙:\n"
-                f"- 30-50자\n"
-                f"- 클릭 유도형이 아닌 *공감·문제 제기형*\n"
+                f"- 25-45자\n"
+                f"- 사람이 검색창에 칠 만한 단어로\n"
+                f"- 약속·결과를 구체적 숫자로 (예: '메일 30통, 5분이면 끝납니다')\n"
+                f"- 또는 일상 장면으로 (예: '월요일 아침 받은편지함, 더는 무섭지 않아요')\n"
+                f"- 절대 금지 단어: 워크플로우, 자동화, 효율, 체계, 솔루션, AI 활용, 여러분\n"
                 f"- 따옴표·이모지·마크다운 없이 일반 텍스트만\n"
-                f"- 한 줄로만 답하세요"
+                f"- 한 줄만"
             )
             try:
                 title = self.call(title_prompt, max_tokens=200).strip().strip('"').strip("'").split("\n")[0]
