@@ -1,36 +1,68 @@
 {
   "course_overrides": {
     "claude-bizflow": {
-      "title_override": "Claude로 만드는 1인 사업 자동화",
-      "tagline_override": "반복 업무를 Claude 쓰는 방법로 대체하는 8차시 실습"
+      "title_override": "혼자 일하면서 시간 늘리기 — 1인 사업 자동화",
+      "tagline_override": "반복 업무를 줄여 본업에 시간을 쏟는 8차시 실습"
     },
     "claude-sop": {
-      "title_override": "Claude 방법 SOP 만들기",
-      "tagline_override": "인수인계·외주에 바로 쓰는 재사용 프롬프트 문서"
+      "title_override": "외주·인수인계 바로 쓰는 SOP 만들기",
+      "tagline_override": "한 번 만들면 재사용 가능한 업무 문서 실습 과정"
     },
     "claude-customer-script": {
-      "title_override": "Claude로 CS 응대 자동화하기",
-      "tagline_override": "하루 1~3시간 CS 응대를 Claude 스크립트로 줄이는 실전 과정"
+      "title_override": "고객 응대 하루 30분으로 줄이기",
+      "tagline_override": "CS 답변 시간을 줄이는 실전 스크립트 8차시"
     },
     "claude-launchpad": {
-      "title_override": "Claude로 부캐 서비스 7일 런칭",
-      "tagline_override": "아이디어에서 첫 유료 고객까지, 1주일 안에 직접 완성하는 실전 과정"
+      "title_override": "부캐 서비스 7일 런칭 — 첫 유료 고객까지",
+      "tagline_override": "아이디어에서 결제까지, 1주일 실전 과정"
     },
     "claude-youtube-plan": {
-      "title_override": "Claude로 완성하는 유튜브 채널 기획",
-      "tagline_override": "채널 콘셉트부터 스크립트까지, 4주 단계별 실습 과정"
+      "title_override": "유튜브 채널 기획 4주 완성",
+      "tagline_override": "채널 콘셉트부터 스크립트까지, 4주 단계별 실습"
     },
     "claude-daily-recap": {
-      "title_override": "하루 5분 회고, Claude로 자동 완성",
-      "tagline_override": "부담 없이 매일 쌓이는 회고 루틴을 Claude와 함께 만드는 실습 과정"
+      "title_override": "하루 5분 회고, 매일 쌓이는 루틴",
+      "tagline_override": "부담 없이 5분으로 끝내는 회고 실습 과정"
     },
     "claude-customer-support": {
-      "title_override": "문의 응답, Claude가 내 말투로 대신 씁니다",
-      "tagline_override": "하루 1~2시간 문의 답변을 Claude에 넘기는 실전 설정법"
+      "title_override": "내 말투로 대신 답하는 문의 응답",
+      "tagline_override": "하루 1~2시간 문의 답변 시간을 줄이는 설정법"
     },
     "claude-content-engine": {
       "title_override": "콘텐츠, 3주째 끊기지 않게 씁니다",
-      "tagline_override": "블로그·뉴스레터·SNS를 Claude로 주 1회 꾸준히 내는 실전 루틴"
+      "tagline_override": "블로그·뉴스레터·SNS를 주 1회 꾸준히 쓰는 루틴"
+    },
+    "claude-autowork": {
+      "title_override": "반복 업무 시간 줄이기 실전",
+      "tagline_override": "하루 2시간 걸리던 일을 30분 안에 끝내는 8차시"
+    },
+    "claude-monthly-revenue": {
+      "title_override": "매출 정리·보고서, 5분으로 끝내기",
+      "tagline_override": "월간 보고서 1시간을 5분으로 줄이는 실습"
+    },
+    "claude-pricing-page": {
+      "title_override": "전환 잘 되는 가격 페이지 만들기",
+      "tagline_override": "헤드라인부터 FAQ까지, 4주 가격 페이지 실전"
+    },
+    "claude-intro-email": {
+      "title_override": "한 페이지 인사메일 — 답장이 오는 메일",
+      "tagline_override": "신규 고객·파트너에게 한 번에 닿는 메일 작성법"
+    },
+    "claude-mail-writing": {
+      "title_override": "1페이지 비즈니스 메일 잘 쓰는 법",
+      "tagline_override": "거절·요청·제안 메일 30분 → 5분으로 줄이는 실습"
+    },
+    "claude-meeting-notes": {
+      "title_override": "회의 끝나고 5분, 회의록 정리법",
+      "tagline_override": "1시간 회의를 5분 회의록으로 정리하는 실전 4차시"
+    },
+    "claude-sop-onboarding": {
+      "title_override": "팀 온보딩 SOP 6주 완성",
+      "tagline_override": "신규 팀원이 혼자 따라가는 Day 1·Week 1·Month 1"
+    },
+    "core-campus-general": {
+      "title_override": "코어 캠퍼스 안내",
+      "tagline_override": "사이트 전반 안내"
     }
   },
   "site_subtagline": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
