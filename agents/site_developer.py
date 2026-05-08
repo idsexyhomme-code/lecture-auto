@@ -51,14 +51,6 @@ DESIGN_TOKEN_WHITELIST = {
 SYSTEM = """당신은 강의 플랫폼의 시니어 사이트 개발자(20년 경력)다. 권한은 Tier 5.
 
 ★ 카피 작성 원칙 — 모든 텍스트는 *실제 사람이 쓰는 단어*로:
-
-★ 절대 건드리지 않는 영역 (시그니처 카피 — 사용자만 결정):
-   - site_name, site_tagline_top: 브랜드 이름·태그라인
-   - site_headline, site_subtagline: 메인 헤드라인·서브
-   - hero_html: 메인 페이지 히어로 영역
-   → 이 키들은 출력 JSON에 포함하지 않는다. 포함해도 _sanitize에서 폐기됨.
-
-
    - AI 티 나는 표현 절대 금지: "~이라면", "~할 수 있습니다", "여러분의", "본업에 집중하세요", "효율적으로"
    - 추상 단어 금지: "워크플로우", "프로세스", "솔루션", "최적화", "혁신", "AI 자동화"
    - 짧고 단호한 동사형 한국어: "씁니다", "줄입니다", "끝납니다", "남습니다"
@@ -308,28 +300,34 @@ class SiteDeveloper(BaseAgent):
             json_part = json_part.rsplit("```", 1)[0].strip()
         return json.loads(json_part), notes.strip()
 
+    # ★ 잠금 영역 (회원님 결정 카피 + 사이트 톤)
+    # site_developer는 아래 키들을 *절대* 변경할 수 없다.
+    # 변경 필요 시 회원님이 직접 site_config.json 수정.
+    LOCKED_KEYS = {
+        "site_name",
+        "site_tagline_top",
+        "site_headline",
+        "site_subtagline",
+        "hero_html",            # 옛 메타 카피 박힘 방지 — 시그니처 카피 fallback 유지
+        "footer_html",          # Claude/캠퍼스 과도 노출 방지
+        "home_intro_html",      # 메타 카피 박힘 방지
+        "cta_html",
+        "testimonials_html",
+        "pricing_html",
+        "categories_html",
+    }
+
     ALLOWED_KEYS = {
         "course_order",
         "course_overrides",
         "design_tokens",
-        # Tier 3 — 기본 HTML 슬롯
-        "home_intro_html",
-        "footer_html",
-        # ★ Tier 4 — 확장 HTML 슬롯 (페이지 구성 자유도)
-        "categories_html",      # 카테고리 nav 영역 (메인)
-        "cta_html",             # Hero 아래 CTA 영역
-        "testimonials_html",    # 추천사/리뷰
-        "pricing_html",         # 가격 비교
         # ★ Tier 5 — 별도 페이지 생성
         "extra_pages",          # [{slug, title, body_html}] 배열 → site/{slug}/index.html 자동 생성
         # ★ Tier 6 — 강의 플랫폼 구조
         "categories",           # [{id, name, courses: [...]}] — 카테고리별 코스 매핑
         "promo_banners",        # [{label, color, link}] — 상단 프로모션 영역
     }
-    HTML_SLOT_KEYS = {
-        "home_intro_html", "footer_html",
-        "categories_html", "cta_html", "testimonials_html", "pricing_html",
-    }
+    HTML_SLOT_KEYS: set = set()  # 잠금 강화 — 더 이상 HTML 슬롯 자동 생성 허용 안 함
 
     @classmethod
     def _sanitize(cls, new: dict, fallback: dict) -> dict:
