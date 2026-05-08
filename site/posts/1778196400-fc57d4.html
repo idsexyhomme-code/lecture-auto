@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 RAG 지식베이스 구축하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 RAG 지식베이스 구축하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-customer-support · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>고객 문의가 들어올 때마다 같은 내용을 복붙하고 계신가요?</p>
+<p>"환불은 며칠이나 걸리나요?"
+"이 서비스에 포함된 게 뭔가요?"</p>
+<p>매일 반복되는 그 질문들, 직접 답하는 시간이 하루에 얼마나 될지 한번 세어보셨나요?</p>
+<p>오늘 이 차시를 끝내면 그 반복을 Claude가 대신합니다.
+단, Claude가 제대로 답하려면 '먹을 것'이 있어야 합니다.
+그게 바로 지식베이스입니다.
+오늘 그걸 직접 만들어 드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면 회원님은 FAQ 10개, 환불정책 1문서, 서비스 안내 1문서를 청킹 규칙에 맞게 분할하고 메타데이터까지 붙인 지식베이스 파일 세트를 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>중요 개념 1 — RAG 작동 원리: "도서관 사서 모델"</h3>
+<p><strong>설명</strong></p>
+<p>RAG는 세 단계로 움직입니다.
+첫째, 검색(Retrieve).
+둘째, 컨텍스트 주입(Augment).
+셋째, 생성(Generate).</p>
+<p>Claude를 도서관 사서라고 상상하세요.
+사서는 책을 다 외우지 않습니다.
+질문이 들어오면 관련 책을 꺼내 읽고, 그걸 바탕으로 답합니다.</p>
+<p>RAG도 똑같습니다.
+고객이 "환불 얼마나 걸려요?"라고 물으면, 시스템이 지식베이스에서 환불정책 청크를 꺼냅니다.
+그 청크를 Claude의 프롬프트에 끼워 넣습니다.
+Claude는 그걸 읽고 답합니다.</p>
+<p><strong>예시</strong></p>
+<p>입력: "배송 취소하면 환불 언제 돼요?"
+→ 검색: 환불정책 청크 2개 추출
+→ 주입: 프롬프트에 해당 청크 삽입
+→ 생성: "영업일 기준 3~5일 소요됩니다"</p>
+<p><strong>반례</strong></p>
+<p>지식베이스가 없거나 청크가 너무 크면 어떻게 될까요?
+관련 내용을 못 찾거나, 엉뚱한 청크가 검색됩니다.
+Claude가 아무리 뛰어나도 잘못된 재료로는 정확한 답을 못 냅니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그: <strong>도서관 사서 — 꺼내고, 끼우고, 답한다.</strong>
+RAG는 Claude에게 '읽을 자료'를 실시간으로 건네주는 구조입니다.</p>
+<hr />
+<h3>중요 개념 2 — 청킹 단위 설계: "300~500 황금 구간"</h3>
+<p><strong>설명</strong></p>
+<p>청킹은 문서를 잘게 쪼개는 작업입니다.
+너무 작으면 맥락이 끊깁니다.
+너무 크면 검색 정확도가 떨어집니다.</p>
+<p>제 경험상 300~500 토큰이 가장 균형 잡힌 구간입니다.
+한국어 기준으로 대략 200~350자 내외입니다.
+하나의 청크 = 하나의 주제, 이 원칙을 지키세요.</p>
+<p><strong>예시</strong></p>
+<p>환불정책 문서가 있다고 가정하겠습니다.</p>
+<p>원본 문장:
+"당사의 환불 정책은 구매 후 7일 이내 신청 가능하며, 단순 변심의 경우 배송비 고객 부담, 제품 결함의 경우 당사 부담입니다. 환불 처리는 영업일 기준 3~5일 소요됩니다."</p>
+<p>이 문단은 독립된 하나의 주제입니다.
+토큰 수는 약 120토큰 수준으로 짧지만 의미 단위가 완결됩니다.
+이처럼 의미 완결성이 기준입니다.</p>
+<p>반면 서비스 소개 문서 전체를 하나의 청크로 묶으면 어떻게 될까요?</p>
+<p><strong>반례</strong></p>
+<p>2,000토큰짜리 서비스 소개 문서를 통째로 청크 하나로 만들면, 검색 시 전혀 다른 질문에도 이 청크가 걸립니다.
+노이즈가 생기고 답변 품질이 낮아집니다.</p>
+<p>반대로 한 문장씩 쪼개면, "환불은"이라는 청크만 추출돼 맥락이 사라집니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그: <strong>300~500, 하나의 청크 = 하나의 주제.</strong>
+문서를 자를 때마다 이 기준을 적용하세요.</p>
+<hr />
+<h3>중요 개념 3 — 메타데이터 태깅: "도서관 라벨 스티커"</h3>
+<p><strong>설명</strong></p>
+<p>청크를 만들었으면 라벨을 붙여야 합니다.
+그게 메타데이터입니다.</p>
+<p>최소 3가지 필드를 권장합니다.</p>
+<p>첫째, <strong>유형(type)</strong>: FAQ, 환불정책, 서비스안내 등
+둘째, <strong>날짜(date)</strong>: 마지막 업데이트 기준
+셋째, <strong>우선순위(priority)</strong>: 높음/중간/낮음</p>
+<p><strong>예시</strong></p>
+<p>아까의 환불정책 청크에 메타데이터를 붙이면 이렇게 됩니다.</p>
+<pre><code>type: 환불정책
+date: 2025-01-15
+priority: 높음
+content: &quot;구매 후 7일 이내 신청 가능하며...&quot;
+</code></pre>
+<p>검색 시 "type=환불정책"으로 필터링하면 관련 청크만 빠르게 불러올 수 있습니다.</p>
+<p><strong>반례</strong></p>
+<p>메타데이터 없이 청크만 있으면 어떻게 될까요?
+전체 지식베이스를 다 뒤져야 합니다.
+검색 속도가 느려지고, 엉뚱한 유형의 청크가 섞여 들어옵니다.</p>
+<p>또한 날짜가 없으면 오래된 정책이 그대로 살아남습니다.
+고객에게 만료된 프로모션 정보를 답하는 상황이 생깁니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그: <strong>유형·날짜·우선순위 — 3개 라벨 스티커.</strong>
+청크를 만드는 순간, 이 세 가지를 바로 붙이는 습관을 들이세요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 따라오세요.
+산출물 목표는 하나입니다.
+<strong>청킹 완료된 지식베이스 파일 세트.</strong></p>
+<h3>Step 1 — 원본 문서 준비 (1분)</h3>
+<p>텍스트 파일 또는 Notion 페이지를 3개 여세요.
+파일명은 아래처럼 지정합니다.</p>
+<ul>
+<li><code>faq.txt</code></li>
+<li><code>refund_policy.txt</code></li>
+<li><code>service_guide.txt</code></li>
+</ul>
+<p>각 파일에 회원님 비즈니스의 실제 내용을 붙여넣으세요.
+없으면 지금은 샘플로 진행하셔도 됩니다.</p>
+<h3>Step 2 — FAQ 청킹 (1분)</h3>
+<p><code>faq.txt</code>를 열고 각 질문·답변 쌍을 독립된 블록으로 분리하세요.
+형식은 아래처럼 통일합니다.</p>
+<pre><code>[CHUNK-FAQ-001]
+type: FAQ
+date: 2025-01-15
+priority: 중간
+Q: 배송은 얼마나 걸리나요?
+A: 주문 후 영업일 기준 1~3일 소요됩니다.
+</code></pre>
+<p>이 형식으로 최소 10개를 작성하세요.
+하나의 Q&amp;A = 하나의 청크입니다.</p>
+<h3>Step 3 — 정책 문서 청킹 (1분)</h3>
+<p><code>refund_policy.txt</code>와 <code>service_guide.txt</code>를 여세요.
+각 문단을 의미 단위로 나눕니다.
+300~500토큰 기준을 떠올리며 "이 문단이 하나의 주제인가?"를 확인하세요.
+각 청크 위에 메타데이터 3개를 동일한 형식으로 붙입니다.</p>
+<h3>Step 4 — 검토 (30초)</h3>
+<p>완성된 파일을 스크롤로 훑으며 확인합니다.
+체크 항목은 세 가지입니다.</p>
+<ul>
+<li>각 청크에 메타데이터 3개가 다 붙어 있는가?</li>
+<li>FAQ는 최소 10개인가?</li>
+<li>하나의 청크에 두 가지 이상의 주제가 섞이지 않았는가?</li>
+</ul>
+<p>완성됐으면 파일 저장하고 영상을 다시 재생하세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>수고하셨습니다.
+지식베이스 파일 세트가 완성됐다면 절반은 온 겁니다.</p>
+<p>다음 차시 #4에서는 이 파일을 실제 벡터 검색 엔진에 올리고, Claude와 연결하는 작업을 합니다.
+오늘 만든 파일 없이는 진행이 안 되니 꼭 완성해 두세요.</p>
+<p>완성하신 분들은 댓글에 "청킹 완료"라고 남겨주세요.
+회원님이 완성했다는 걸 확인하고 다음 차시에서 같이 이어가겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

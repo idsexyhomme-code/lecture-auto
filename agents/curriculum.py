@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 from .base import BaseAgent, AgentResult
+from ._copy_principles import HUMAN_TONE_GUIDE
 
 
 SYSTEM = """당신은 성인 학습자 대상 마이크로러닝 설계 전문가다.
@@ -34,7 +35,7 @@ SYSTEM = """당신은 성인 학습자 대상 마이크로러닝 설계 전문�
   ],
   "assessment": "최종 평가/완주 인증 방식"
 }
-"""
+""" + HUMAN_TONE_GUIDE
 
 
 class CurriculumArchitect(BaseAgent):

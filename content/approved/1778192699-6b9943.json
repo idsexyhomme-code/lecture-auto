@@ -1,0 +1,127 @@
+{
+  "id": "1778192699-6b9943",
+  "agent": "ui_designer",
+  "kind": "design_variants",
+  "title": "[디자인 시안] hero — 3개 변형",
+  "body_md": "## hero — 변형 3개\n\n코어 캠퍼스 'Claude로 팀 온보딩 SOP 완전 자동화' 히어로 3변형 — 에디토리얼/임팩트/서사\n\n### V1 · 에디토리얼 모던\n_학술 매거진 표지처럼 진중하고 차분한 신뢰감, 텍스트 우선 구조_\n\n**팔레트**: bg=#FBF8F3, fg=#1C1917, brand=#3D2B1F, accent=#A0732A, soft=#EDE5D8\n\n**이유**: 1인 운영자는 이미 '직접 설명 반복'의 피로를 체감 중이므로 첫 질문형 헤드라인으로 공감을 즉각 촉발한다. 에디토리얼 레이아웃과 텍스트 우선 구조는 '이 코스는 가볍지 않다'는 신뢰 신호를 주고, 수치 3개는 추상적 약속을 구체적 결과로 전환해 이탈을 줄인다.\n\n**이미지 프롬프트** (4개):\n- 베이지와 딥브라운 팔레트로 이루어진 추상 기하 패턴, 격자와 선분이 조용하게 정렬된 미니멀 구성, 학술 매거진 표지 질감\n- 낡은 크래프트 종이 위에 정갈하게 배열된 펜선 일러스트, 체크리스트·화살표·흐름도 요소, 따뜻한 아이보리 톤\n- 머스타드와 브라운 잉크로 그린 얇은 선의 문서 스택 아이콘, 흰 여백 중심의 플랫 일러스트, 아카데믹 정서\n- 창문으로 들어오는 오후 햇살이 닿은 깔끔한 책상 위 노트북과 프린트된 문서, 사람 없이 공간만, 따뜻한 자연광 분위기\n\n### V2 · 임팩트 스플릿\n_좌우 비대칭 분할로 강한 첫인상, 명령형 카피와 이미지 우선 에너지_\n\n**팔레트**: bg=#F5EFE6, fg=#0F0D0B, brand=#2C1A0E, accent=#C17F3B, soft=#E8DCCB\n\n**이유**: 명령형 헤드라인('지금 당장 맡기세요')은 이미 문제를 인식한 운영자의 결정 피로를 제거해 즉각 행동을 유도한다. 좌우 분할 레이아웃은 왼쪽에서 논리·신뢰를, 오른쪽에서 시각·사회적 증거를 동시에 전달해 8초 내 핵심 메시지 파악을 돕는다.\n\n**이미지 프롬프트** (4개):\n- 플로우차트와 문서 카드가 나란히 정렬된 아이소메트릭 일러스트, 따뜻한 카라멜·크림 팔레트, 사람 없이 오브젝트만, 글로벌 아카데믹 톤\n- 황금빛 오후 빛이 비치는 반투명 유리 위에 체크리스트가 투영된 장면, 추상적이고 미니멀, 따뜻한 앰버 톤\n- 갈색과 크림 계열 지그재그 화살표가 흐르는 추상 다이어그램 패턴, 플랫 벡터, 정보 구조를 암시하는 한국적 정서\n- 낡은 크래프트 종이 질감 위에 인쇄된 체크리스트 문서 클로즈업, 펜 표시와 메모가 덧붙여진 따뜻한 오피스 미장센, 사람 손 제외\n\n### V3 · 서사 풀블리드\n_느린 호흡의 스토리텔링, 독자를 문제 상황 속으로 데려간 뒤 해결자로 안내하는 친근하고 인간적인 톤_\n\n**팔레트**: bg=#FFFCF7, fg=#221A12, brand=#5C3A1E, accent=#8B5E2A, soft=#F2E8D9\n\n**이유**: 서사형 오프닝(문제 상황 묘사 → 해결 제시)은 '나 이야기구나' 하는 즉각적 공감을 유발해 이탈률을 낮춘다. 중앙 정렬 풀블리드 레이아웃과 둥근 CTA 버튼은 위협적이지 않은 친근함을 주면서도 코어 캠퍼스의 차분·신뢰 톤을 유지하고, 하단 소형 스펙 블록이 감성적 설득을 이성적 근거로 마무리한다.\n\n**이미지 프롬프트** (5개):\n- 크림과 따뜻한 갈색 팔레트 안에서 간결한 선으로 그려진 플로우 다이어그램, 인터뷰 버블에서 문서 아이콘으로 이어지는 서사적 흐름, 한국적 정서의 플랫 일러스트\n- 아이보리 배경 위에 황금빛 원형 광원이 부드럽게 퍼지는 추상 배경, 고요하고 따뜻한 미니멀 분위기, 글로벌 아카데믹 톤\n- 손글씨 메모와 깔끔하게 타이핑된 문서가 나란히 놓인 추상 콜라주, 따뜻한 세피아와 크림 팔레트, 사람 신체 부위 제외\n- 책상 위 정렬된 문서 카드들이 위에서 내려다보이는 플랫레이 구성, 브라운·베이지·머스타드 색지 질감, 미니멀하고 정돈된 느낌\n- 흐릿한 격자 무늬 위에 떠 있는 체크리스트 UI 카드 2–3장, 따뜻한 화이트와 카라멜 그림자, 소프트 데이터 시각화 미감",
+  "summary": "코어 캠퍼스 'Claude로 팀 온보딩 SOP 완전 자동화' 히어로 3변형 — 에디토리얼/임팩트/서사",
+  "meta": {
+    "target": "hero",
+    "variants": [
+      {
+        "id": "v1",
+        "name": "에디토리얼 모던",
+        "vibe": "학술 매거진 표지처럼 진중하고 차분한 신뢰감, 텍스트 우선 구조",
+        "color_palette": {
+          "bg": "#FBF8F3",
+          "fg": "#1C1917",
+          "brand": "#3D2B1F",
+          "accent": "#A0732A",
+          "soft": "#EDE5D8"
+        },
+        "html": "<div class=\"wrap\" style=\"display:flex;flex-direction:column;align-items:flex-start;max-width:900px;margin:0 auto;padding:72px 40px 80px;gap:0;\">\n  <div style=\"display:flex;align-items:center;gap:10px;margin-bottom:28px;\">\n    <span style=\"display:inline-block;width:32px;height:2px;background:#A0732A;\"></span>\n    <small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:0.18em;color:#A0732A;text-transform:uppercase;\">Core Campus · SOP Automation</small>\n  </div>\n  <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(36px,5.5vw,64px);font-weight:800;line-height:1.12;color:#1C1917;margin:0 0 24px;max-width:720px;\">\n    팀원이 생겼는데,<br>\n    <em style=\"font-style:normal;color:#A0732A;\">설명은 왜 매번<br>당신 몫인가요?</em>\n  </h1>\n  <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(16px,1.8vw,20px);line-height:1.75;color:#4A3F35;max-width:560px;margin:0 0 40px;\">\n    Claude가 당신의 말투·절차·기준을 그대로 읽고,\n    <strong style=\"font-weight:700;color:#1C1917;\">팀 온보딩 SOP 문서 전체를 자동으로 완성</strong>합니다.\n    반복 설명 없이, 오해 없이, 처음부터 제대로.\n  </p>\n  <div style=\"display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:56px;\">\n    <a href=\"#enroll\" style=\"display:inline-block;background:#3D2B1F;color:#FBF8F3;font-family:'Pretendard',system-ui,sans-serif;font-size:16px;font-weight:700;padding:16px 36px;border-radius:6px;text-decoration:none;letter-spacing:0.02em;\">코스 시작하기</a>\n    <a href=\"#preview\" style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:15px;font-weight:500;color:#A0732A;text-decoration:none;border-bottom:1px solid #A0732A;padding-bottom:2px;\">커리큘럼 미리보기 →</a>\n  </div>\n  <hr style=\"width:100%;border:none;border-top:1px solid #EDE5D8;margin:0 0 40px;\">\n  <div style=\"display:flex;gap:40px;flex-wrap:wrap;\">\n    <figure style=\"margin:0;display:flex;flex-direction:column;gap:4px;\">\n      <strong style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:28px;font-weight:800;color:#1C1917;\">6시간</strong>\n      <figcaption style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#7A6A5A;\">SOP 초안 완성까지</figcaption>\n    </figure>\n    <div style=\"width:1px;background:#EDE5D8;\"></div>\n    <figure style=\"margin:0;display:flex;flex-direction:column;gap:4px;\">\n      <strong style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:28px;font-weight:800;color:#1C1917;\">Zero</strong>\n      <figcaption style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#7A6A5A;\">반복 구두 설명 횟수</figcaption>\n    </figure>\n    <div style=\"width:1px;background:#EDE5D8;\"></div>\n    <figure style=\"margin:0;display:flex;flex-direction:column;gap:4px;\">\n      <strong style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:28px;font-weight:800;color:#1C1917;\">100%</strong>\n      <figcaption style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;color:#7A6A5A;\">내 말투로 작성된 문서</figcaption>\n    </figure>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#FBF8F3",
+          "color_fg": "#1C1917",
+          "color_muted": "#7A6A5A",
+          "color_line": "#EDE5D8",
+          "color_brand": "#3D2B1F",
+          "color_brand_2": "#5C3D22",
+          "color_accent": "#A0732A",
+          "color_soft": "#EDE5D8",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "6px"
+        },
+        "image_prompts": [
+          "베이지와 딥브라운 팔레트로 이루어진 추상 기하 패턴, 격자와 선분이 조용하게 정렬된 미니멀 구성, 학술 매거진 표지 질감",
+          "낡은 크래프트 종이 위에 정갈하게 배열된 펜선 일러스트, 체크리스트·화살표·흐름도 요소, 따뜻한 아이보리 톤",
+          "머스타드와 브라운 잉크로 그린 얇은 선의 문서 스택 아이콘, 흰 여백 중심의 플랫 일러스트, 아카데믹 정서",
+          "창문으로 들어오는 오후 햇살이 닿은 깔끔한 책상 위 노트북과 프린트된 문서, 사람 없이 공간만, 따뜻한 자연광 분위기"
+        ],
+        "reasoning": "1인 운영자는 이미 '직접 설명 반복'의 피로를 체감 중이므로 첫 질문형 헤드라인으로 공감을 즉각 촉발한다. 에디토리얼 레이아웃과 텍스트 우선 구조는 '이 코스는 가볍지 않다'는 신뢰 신호를 주고, 수치 3개는 추상적 약속을 구체적 결과로 전환해 이탈을 줄인다."
+      },
+      {
+        "id": "v2",
+        "name": "임팩트 스플릿",
+        "vibe": "좌우 비대칭 분할로 강한 첫인상, 명령형 카피와 이미지 우선 에너지",
+        "color_palette": {
+          "bg": "#F5EFE6",
+          "fg": "#0F0D0B",
+          "brand": "#2C1A0E",
+          "accent": "#C17F3B",
+          "soft": "#E8DCCB"
+        },
+        "html": "<div class=\"wrap\" style=\"display:grid;grid-template-columns:1fr 1fr;min-height:560px;max-width:1200px;margin:0 auto;padding:0 40px;gap:0;align-items:stretch;\">\n  <div style=\"display:flex;flex-direction:column;justify-content:center;padding:72px 48px 72px 0;border-right:1px solid #E8DCCB;\">\n    <div style=\"display:inline-flex;align-items:center;gap:8px;background:#2C1A0E;padding:6px 14px;border-radius:3px;margin-bottom:32px;align-self:flex-start;\">\n      <span style=\"width:6px;height:6px;border-radius:50%;background:#C17F3B;display:inline-block;\"></span>\n      <small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.16em;color:#F5EFE6;text-transform:uppercase;\">신규 코스 오픈</small>\n    </div>\n    <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(32px,4.5vw,56px);font-weight:900;line-height:1.08;color:#0F0D0B;margin:0 0 20px;\">\n      지금 당장<br>\n      온보딩 문서를<br>\n      <span style=\"color:#C17F3B;\">Claude에게<br>맡기세요.</span>\n    </h1>\n    <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:15px;line-height:1.8;color:#3D2D1E;max-width:420px;margin:0 0 36px;\">\n      채용 후 첫날부터 팀원이 스스로 읽고 실행할 수 있는\n      SOP를 — 당신의 언어로, AI가 대신 씁니다.\n    </p>\n    <div style=\"display:flex;flex-direction:column;gap:12px;margin-bottom:44px;\">\n      <div style=\"display:flex;align-items:center;gap:12px;\">\n        <span style=\"width:20px;height:20px;border-radius:50%;background:#C17F3B;display:flex;align-items:center;justify-content:center;flex-shrink:0;\">\n          <span style=\"font-size:11px;color:#fff;font-weight:800;\">✓</span>\n        </span>\n        <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#2C1A0E;\">구두 설명 반복 제거</span>\n      </div>\n      <div style=\"display:flex;align-items:center;gap:12px;\">\n        <span style=\"width:20px;height:20px;border-radius:50%;background:#C17F3B;display:flex;align-items:center;justify-content:center;flex-shrink:0;\">\n          <span style=\"font-size:11px;color:#fff;font-weight:800;\">✓</span>\n        </span>\n        <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#2C1A0E;\">내 말투·기준이 그대로 반영된 문서</span>\n      </div>\n      <div style=\"display:flex;align-items:center;gap:12px;\">\n        <span style=\"width:20px;height:20px;border-radius:50%;background:#C17F3B;display:flex;align-items:center;justify-content:center;flex-shrink:0;\">\n          <span style=\"font-size:11px;color:#fff;font-weight:800;\">✓</span>\n        </span>\n        <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;color:#2C1A0E;\">당일 완성 가능한 실전 워크플로우</span>\n      </div>\n    </div>\n    <a href=\"#enroll\" style=\"display:inline-block;background:#C17F3B;color:#0F0D0B;font-family:'Pretendard',system-ui,sans-serif;font-size:16px;font-weight:800;padding:18px 40px;border-radius:4px;text-decoration:none;letter-spacing:0.01em;align-self:flex-start;\">지금 바로 시작하기 →</a>\n  </div>\n  <div style=\"display:flex;flex-direction:column;justify-content:center;align-items:center;padding:72px 0 72px 48px;gap:24px;\">\n    <figure style=\"margin:0;width:100%;max-width:400px;\">\n      <img src=\"/assets/placeholder/hero-sop-visual.svg\" alt=\"SOP 자동화 흐름 일러스트\" style=\"width:100%;height:320px;object-fit:contain;border-radius:8px;background:#E8DCCB;\" />\n      <figcaption style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#7A6252;margin-top:12px;text-align:center;\">Claude가 인터뷰 → 구조화 → 문서 완성까지 처리</figcaption>\n    </figure>\n    <blockquote style=\"margin:0;background:#fff8f0;border-left:3px solid #C17F3B;padding:16px 20px;border-radius:0 6px 6px 0;max-width:400px;width:100%;\">\n      <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:14px;line-height:1.7;color:#2C1A0E;margin:0 0 8px;\">&ldquo;처음 팀원 뽑고 나서 2주를 설명만 하다 날렸어요.\n      이젠 문서 링크 하나 보내면 끝입니다.&rdquo;</p>\n      <small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#8C6A4A;font-weight:600;\">— 콘텐츠 사업 운영자, 수강생 후기</small>\n    </blockquote>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#F5EFE6",
+          "color_fg": "#0F0D0B",
+          "color_muted": "#7A6252",
+          "color_line": "#E8DCCB",
+          "color_brand": "#2C1A0E",
+          "color_brand_2": "#4A2E14",
+          "color_accent": "#C17F3B",
+          "color_soft": "#E8DCCB",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "4px"
+        },
+        "image_prompts": [
+          "플로우차트와 문서 카드가 나란히 정렬된 아이소메트릭 일러스트, 따뜻한 카라멜·크림 팔레트, 사람 없이 오브젝트만, 글로벌 아카데믹 톤",
+          "황금빛 오후 빛이 비치는 반투명 유리 위에 체크리스트가 투영된 장면, 추상적이고 미니멀, 따뜻한 앰버 톤",
+          "갈색과 크림 계열 지그재그 화살표가 흐르는 추상 다이어그램 패턴, 플랫 벡터, 정보 구조를 암시하는 한국적 정서",
+          "낡은 크래프트 종이 질감 위에 인쇄된 체크리스트 문서 클로즈업, 펜 표시와 메모가 덧붙여진 따뜻한 오피스 미장센, 사람 손 제외"
+        ],
+        "reasoning": "명령형 헤드라인('지금 당장 맡기세요')은 이미 문제를 인식한 운영자의 결정 피로를 제거해 즉각 행동을 유도한다. 좌우 분할 레이아웃은 왼쪽에서 논리·신뢰를, 오른쪽에서 시각·사회적 증거를 동시에 전달해 8초 내 핵심 메시지 파악을 돕는다."
+      },
+      {
+        "id": "v3",
+        "name": "서사 풀블리드",
+        "vibe": "느린 호흡의 스토리텔링, 독자를 문제 상황 속으로 데려간 뒤 해결자로 안내하는 친근하고 인간적인 톤",
+        "color_palette": {
+          "bg": "#FFFCF7",
+          "fg": "#221A12",
+          "brand": "#5C3A1E",
+          "accent": "#8B5E2A",
+          "soft": "#F2E8D9"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:780px;margin:0 auto;padding:80px 40px 88px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;\">\n  <div style=\"display:flex;align-items:center;gap:16px;margin-bottom:40px;\">\n    <span style=\"flex:1;height:1px;background:linear-gradient(to right, transparent, #D4BC9A);\"></span>\n    <small style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;color:#8B5E2A;text-transform:uppercase;white-space:nowrap;\">Claude × 코어 캠퍼스</small>\n    <span style=\"flex:1;height:1px;background:linear-gradient(to left, transparent, #D4BC9A);\"></span>\n  </div>\n  <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(14px,1.5vw,17px);line-height:1.9;color:#6B5039;max-width:600px;margin:0 0 28px;\">\n    팀원을 뽑은 첫날, 당신은 또 같은 말을 반복했습니다.<br>\n    업무 방식, 보고 기준, 파일 규칙, 소통 예절…\n  </p>\n  <h1 style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(34px,5vw,60px);font-weight:800;line-height:1.13;color:#221A12;margin:0 0 28px;\">\n    이제 그 설명을<br>\n    <span style=\"position:relative;display:inline-block;\">\n      <span style=\"position:relative;z-index:1;color:#5C3A1E;\">Claude가 문서로</span>\n      <span style=\"position:absolute;left:0;bottom:4px;width:100%;height:10px;background:#F2E8D9;z-index:0;border-radius:2px;\"></span>\n    </span>\n    <br>만들어 드립니다.\n  </h1>\n  <p style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:clamp(16px,1.8vw,19px);line-height:1.8;color:#4A3322;max-width:560px;margin:0 0 48px;\">\n    코어 캠퍼스의 이 코스를 마치면\n    <strong style=\"font-weight:700;\">팀 온보딩 SOP 전 문서가 당신의 언어로 완성</strong>되어 있습니다.\n    입사 첫날부터 팀원이 스스로 읽고 실행합니다.\n  </p>\n  <div style=\"display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:56px;\">\n    <a href=\"#enroll\" style=\"display:inline-block;background:#5C3A1E;color:#FFFCF7;font-family:'Pretendard',system-ui,sans-serif;font-size:16px;font-weight:700;padding:17px 40px;border-radius:50px;text-decoration:none;\">무료 맛보기 강의 보기</a>\n    <a href=\"#curriculum\" style=\"display:inline-block;background:transparent;border:1.5px solid #C4A06A;color:#5C3A1E;font-family:'Pretendard',system-ui,sans-serif;font-size:16px;font-weight:600;padding:17px 36px;border-radius:50px;text-decoration:none;\">전체 커리큘럼 확인</a>\n  </div>\n  <figure style=\"margin:0;width:100%;max-width:680px;\">\n    <img src=\"/assets/placeholder/hero-narrative-scene.svg\" alt=\"온보딩 자동화 흐름 시각화\" style=\"width:100%;height:280px;object-fit:contain;background:#F2E8D9;border-radius:12px;\" />\n    <figcaption style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#9A7A58;margin-top:14px;\">\n      인터뷰 → Claude 프롬프트 → SOP 초안 → 팀 공유까지, 하루 안에 완성\n    </figcaption>\n  </figure>\n  <div style=\"display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:48px;padding-top:40px;border-top:1px solid #EAD9C3;\">\n    <div style=\"display:flex;flex-direction:column;align-items:center;gap:4px;\">\n      <strong style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;font-weight:700;color:#221A12;\">문서 작성 경험</strong>\n      <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#9A7A58;\">불필요 — Claude가 합니다</span>\n    </div>\n    <div style=\"width:1px;background:#EAD9C3;\"></div>\n    <div style=\"display:flex;flex-direction:column;align-items:center;gap:4px;\">\n      <strong style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;font-weight:700;color:#221A12;\">소요 시간</strong>\n      <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#9A7A58;\">첫 SOP 초안 완성 6시간</span>\n    </div>\n    <div style=\"width:1px;background:#EAD9C3;\"></div>\n    <div style=\"display:flex;flex-direction:column;align-items:center;gap:4px;\">\n      <strong style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:13px;font-weight:700;color:#221A12;\">대상</strong>\n      <span style=\"font-family:'Pretendard',system-ui,sans-serif;font-size:12px;color:#9A7A58;\">1인·소규모 팀 운영자 누구나</span>\n    </div>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#FFFCF7",
+          "color_fg": "#221A12",
+          "color_muted": "#9A7A58",
+          "color_line": "#EAD9C3",
+          "color_brand": "#5C3A1E",
+          "color_brand_2": "#7A4E28",
+          "color_accent": "#8B5E2A",
+          "color_soft": "#F2E8D9",
+          "font_family_sans": "'Pretendard', system-ui, sans-serif",
+          "radius_card": "12px"
+        },
+        "image_prompts": [
+          "크림과 따뜻한 갈색 팔레트 안에서 간결한 선으로 그려진 플로우 다이어그램, 인터뷰 버블에서 문서 아이콘으로 이어지는 서사적 흐름, 한국적 정서의 플랫 일러스트",
+          "아이보리 배경 위에 황금빛 원형 광원이 부드럽게 퍼지는 추상 배경, 고요하고 따뜻한 미니멀 분위기, 글로벌 아카데믹 톤",
+          "손글씨 메모와 깔끔하게 타이핑된 문서가 나란히 놓인 추상 콜라주, 따뜻한 세피아와 크림 팔레트, 사람 신체 부위 제외",
+          "책상 위 정렬된 문서 카드들이 위에서 내려다보이는 플랫레이 구성, 브라운·베이지·머스타드 색지 질감, 미니멀하고 정돈된 느낌",
+          "흐릿한 격자 무늬 위에 떠 있는 체크리스트 UI 카드 2–3장, 따뜻한 화이트와 카라멜 그림자, 소프트 데이터 시각화 미감"
+        ],
+        "reasoning": "서사형 오프닝(문제 상황 묘사 → 해결 제시)은 '나 이야기구나' 하는 즉각적 공감을 유발해 이탈률을 낮춘다. 중앙 정렬 풀블리드 레이아웃과 둥근 CTA 버튼은 위협적이지 않은 친근함을 주면서도 코어 캠퍼스의 차분·신뢰 톤을 유지하고, 하단 소형 스펙 블록이 감성적 설득을 이성적 근거로 마무리한다."
+      }
+    ],
+    "brief_echo": {
+      "purpose": "Claude로 팀 온보딩 SOP 완전 자동화 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+      "audience": "처음 팀원을 채용했지만 온보딩 문서 없이 매번 직접 설명을 반복하는 1인·소규모 팀 운영자",
+      "style_keywords": [
+        "editorial",
+        "warm beige",
+        "trustworthy",
+        "academic"
+      ],
+      "color_mood": "warm",
+      "reference_urls": []
+    },
+    "chosen_variant_id": "v1"
+  },
+  "course_id": "",
+  "created_at": "2026-05-07T22:24:59+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}

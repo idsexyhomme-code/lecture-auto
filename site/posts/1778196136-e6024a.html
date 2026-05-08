@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 내 문의 지옥 진단하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 내 문의 지옥 진단하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-customer-support · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>강의 하나 팔릴 때마다 문의가 쏟아지죠.</p>
+<p>"이거 환불 되나요?"</p>
+<p>"언제까지 수강 가능해요?"</p>
+<p>"영상이 안 열려요."</p>
+<p>이 메시지들, 하루에 몇 개씩 답하고 계세요?</p>
+<p>제 경험상 1인 강사는 하루 평균 40분을 문의 답변에 씁니다.</p>
+<p>한 달이면 20시간, 신규 강의 하나 만들 시간입니다.</p>
+<p>오늘 그 시간이 얼마나 새고 있는지, 숫자로 정확히 들여다봅니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 지난 30일 문의를 3가지 유형으로 분류하고 내가 잃은 시간을 단 하나의 숫자로 뽑아낼 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>중요 개념 1 — 문의 유형 분류 기준</h3>
+<p><strong>설명</strong></p>
+<p>모든 문의는 딱 3개 서랍에 들어갑니다.</p>
+<p>첫 번째, <strong>FAQ</strong> — 답이 이미 존재하는 질문입니다.</p>
+<p>수강 기간, 접속 방법, 커리큘럼 문의가 여기 해당합니다.</p>
+<p>두 번째, <strong>환불·취소</strong> — 금액이 움직이는 질문입니다.</p>
+<p>정책 확인과 처리 절차가 필요한 유형입니다.</p>
+<p>세 번째, <strong>기타 민원</strong> — 위 두 개에 속하지 않는 모든 것입니다.</p>
+<p>기술 오류, 콘텐츠 불만, 특수 요청이 여기 들어갑니다.</p>
+<p><strong>예시</strong></p>
+<p>"강의 링크가 안 열려요" → 기타 민원.</p>
+<p>"수강 기간이 얼마예요?" → FAQ.</p>
+<p>"결제했는데 취소하고 싶어요" → 환불·취소.</p>
+<p><strong>반례</strong></p>
+<p>"강의 내용 중 3강이 이해가 안 가요" — 이건 FAQ처럼 보이지만 기타 민원입니다.</p>
+<p>답이 정해져 있지 않고, 개별 대응이 필요하기 때문입니다.</p>
+<p>분류 기준은 하나입니다. <strong>"이 답변이 이미 어딘가에 적혀 있는가?"</strong></p>
+<p>적혀 있으면 FAQ, 돈이 관련되면 환불·취소, 나머지는 기타 민원.</p>
+<p><strong>메모리 페그 — '3서랍 캐비닛'</strong></p>
+<p>머릿속에 서랍 3개짜리 캐비닛을 그리세요.</p>
+<p>위 서랍엔 📄 FAQ, 가운데 서랍엔 💳 환불·취소, 아래 서랍엔 🔧 기타 민원.</p>
+<p>문의가 들어오면 이 캐비닛 어느 서랍인지만 판단합니다.</p>
+<hr />
+<h3>중요 개념 2 — 시간 손실 가시화 (시간 × 건수 매트릭스)</h3>
+<p><strong>설명</strong></p>
+<p>감각으로 알던 '문의가 많다'를 숫자로 바꾸는 단계입니다.</p>
+<p>공식은 간단합니다.</p>
+<p><strong>유형별 월 손실 시간 = 평균 응답 시간(분) × 월 건수</strong></p>
+<p>이걸 표로 펼치면 어디서 시간이 가장 많이 새는지 한눈에 보입니다.</p>
+<p><strong>예시</strong></p>
+<p>FAQ 문의 60건, 건당 평균 3분 → 월 180분.</p>
+<p>환불·취소 20건, 건당 평균 8분 → 월 160분.</p>
+<p>기타 민원 15건, 건당 평균 15분 → 월 225분.</p>
+<p>합계 565분, 약 9.4시간입니다.</p>
+<p><strong>반례</strong></p>
+<p>"나는 문의가 별로 없어서 괜찮아"라고 생각하는 분들이 있습니다.</p>
+<p>월 10건이라도 건당 20분이면 월 200분, 3시간 20분입니다.</p>
+<p>건수가 아니라 <strong>건수 × 시간</strong>이 진짜 지표입니다.</p>
+<p>건수만 보면 문제를 절반만 보는 겁니다.</p>
+<p><strong>메모리 페그 — '구멍 크기 = 넓이'</strong></p>
+<p>양동이에 구멍이 뚫렸다고 상상하세요.</p>
+<p>구멍 개수(건수)만큼 중요한 게 구멍 크기(응답 시간)입니다.</p>
+<p>넓이 = 가로 × 세로, 손실 시간 = 건수 × 분.</p>
+<p>이 공식 하나만 기억하면 됩니다.</p>
+<hr />
+<h3>중요 개념 3 — 자동화 우선순위 설정 원칙</h3>
+<p><strong>설명</strong></p>
+<p>모든 문의를 동시에 자동화할 수 없습니다.</p>
+<p>우선순위 기준은 두 가지입니다.</p>
+<p><strong>① 월 손실 시간이 큰 유형부터.</strong></p>
+<p><strong>② 답변 패턴이 반복되는 유형부터.</strong></p>
+<p>이 두 조건을 동시에 충족하는 게 자동화 1번 타깃입니다.</p>
+<p><strong>예시</strong></p>
+<p>앞선 예시에서 기타 민원이 225분으로 1위였습니다.</p>
+<p>하지만 내용이 매번 달라 패턴화가 어렵습니다.</p>
+<p>반면 FAQ는 180분이지만 답변이 거의 동일합니다.</p>
+<p>이 경우 <strong>FAQ를 먼저 자동화</strong>하는 게 현실적입니다.</p>
+<p><strong>반례</strong></p>
+<p>"손실 시간이 제일 큰 걸 먼저 해야 하지 않나요?"</p>
+<p>손실 시간 1위가 기타 민원이어도, 자동화 난이도가 3배라면 ROI가 낮습니다.</p>
+<p>대부분의 경우 FAQ → 환불·취소 → 기타 민원 순서가 통하는입니다.</p>
+<p><strong>메모리 페그 — '2×2 사분면의 오른쪽 위 칸'</strong></p>
+<p>가로축은 반복성, 세로축은 시간 손실입니다.</p>
+<p>오른쪽 위 칸, 즉 <strong>반복성 높고 시간 손실 큰 유형</strong>이 1번 타깃입니다.</p>
+<p>이 칸을 공략하는 것이 이 코스 전체의 방법입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하세요.</p>
+<p>구글 스프레드시트를 열고, 아래 순서대로 진행합니다.</p>
+<p><strong>1단계 — 시트 준비 (1분)</strong></p>
+<p>열 제목을 왼쪽부터 순서대로 입력합니다.</p>
+<p>A열: 날짜 / B열: 문의 내용 요약 / C열: 유형(FAQ·환불취소·기타) / D열: 응답 소요 시간(분)</p>
+<p><strong>2단계 — 데이터 입력 (1분 30초)</strong></p>
+<p>지난 30일 수신 문의를 이메일·DM·플랫폼 메시지함에서 꺼냅니다.</p>
+<p>기억나는 것만으로 시작해도 됩니다. 최소 10건을 목표로 입력합니다.</p>
+<p>응답 시간이 정확하지 않으면 평균값으로 추정합니다.</p>
+<p><strong>3단계 — 유형별 집계 (1분)</strong></p>
+<p>새 시트를 열고, 유형별 건수와 시간을 집계합니다.</p>
+<p>E2 셀에 =COUNTIF(C:C,"FAQ") 입력.</p>
+<p>F2 셀에 =SUMIF(C:C,"FAQ",D:D) 입력.</p>
+<p>환불·취소와 기타 민원도 동일하게 적용합니다.</p>
+<p><strong>4단계 — 확인 (30초)</strong></p>
+<p>세 유형의 월 손실 시간 합계를 확인합니다.</p>
+<p>이 숫자가 오늘 강의의 출발점입니다. 스크린샷 찍어두세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 오늘 만든 이 집계표를 Claude에 입력하고, 자동화 초안을 뽑는 프롬프트를 작성합니다.</p>
+<p>오늘 완성한 스프레드시트 스크린샷을 댓글에 올려주세요.</p>
+<p>월 손실 시간 숫자 하나만 써도 됩니다.</p>
+<p>숫자를 공유하면 그게 변화의 시작입니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

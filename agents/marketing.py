@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 from .base import BaseAgent, AgentResult
+from ._copy_principles import HUMAN_TONE_GUIDE
 
 
 SYSTEM = """당신은 한국 시장에 강한 1인 강사 전문 카피라이터다.
@@ -35,7 +36,7 @@ SYSTEM = """당신은 한국 시장에 강한 1인 강사 전문 카피라이터
   "faq": [{"q": "질문", "a": "답변"}],
   "pricing": {"label": "얼리버드 가격", "price_text": "₩가격 (얼리버드 N월 N일까지)", "cta_label": "지금 결제"}
 }
-"""
+""" + HUMAN_TONE_GUIDE
 
 
 class MarketingSpecialist(BaseAgent):

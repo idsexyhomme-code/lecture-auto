@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 from .base import BaseAgent, AgentResult
+from ._copy_principles import HUMAN_TONE_GUIDE
 
 
 SYSTEM = """당신은 한국어 1인 강사를 위한 영상 강의 스크립트 작가다.
@@ -25,7 +26,7 @@ SYSTEM = """당신은 한국어 1인 강사를 위한 영상 강의 스크립트
 - 과장·확정형(‘반드시’, ‘100%’) 금지. 대신 ‘대부분의 경우’, ‘제 경험상’.
 - 마크다운으로 각 섹션은 ## 헤더로 명시.
 - 끝에 ‘예상 분량: N분’ 한 줄 추가.
-"""
+""" + HUMAN_TONE_GUIDE
 
 
 class ContentProducer(BaseAgent):

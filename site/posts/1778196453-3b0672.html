@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#4 Claude 시스템 프롬프트 작성하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#4 Claude 시스템 프롬프트 작성하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-customer-support · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>시스템 프롬프트를 그냥 "너는 친절한 상담사야"라고 썼다가, Claude가 엉뚱한 말을 지어냈던 경험, 있으시죠?</p>
+<p>고객이 환불 정책을 물었는데 존재하지도 않는 조건을 자신 있게 답하는 상황. 그게 바로 시스템 프롬프트 설계 실수에서 시작됩니다.</p>
+<p>오늘 이 차시에서, 역할·제약·출력 형식을 한 문서에 정확히 녹여내는 방법을 알려드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 톤 프로필과 지식베이스를 결합한 시스템 프롬프트를 직접 완성하고, 3가지 테스트 질문으로 응답 품질을 스스로 검증할 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>중요 개념 1 — 시스템 프롬프트의 3층 구조</h3>
+<p><strong>설명</strong></p>
+<p>시스템 프롬프트는 크게 세 층으로 나뉩니다.</p>
+<p>첫 번째 층, <strong>역할 정의</strong>. Claude에게 "누구인지"를 알려주는 층입니다.
+두 번째 층, <strong>컨텍스트 삽입</strong>. 지식베이스에서 가져온 실제 데이터가 들어오는 층입니다.
+세 번째 층, <strong>출력 규칙</strong>. 답변 형식, 길이, 언어 스타일을 지정하는 층입니다.</p>
+<p><strong>예시</strong></p>
+<pre><code>[역할] 너는 '스튜디오 온'의 예약 전담 상담사 '온이'야.
+[컨텍스트] {retrieved_chunks} ← RAG 결과가 여기 주입됨
+[출력 규칙] 답변은 3문장 이내, 존댓말, 글머리 기호 없이 작성해.
+</code></pre>
+<p><strong>메모리 페그 — '샌드위치 이미지'</strong></p>
+<p>빵(역할) → 속재료(컨텍스트) → 빵(출력 규칙). 속재료 없이 빵만 있으면 맛이 없고, 빵 없이 속재료만 있으면 흘러내립니다.</p>
+<p><strong>반례</strong></p>
+<p>출력 규칙을 생략하면 Claude는 대부분의 경우 마크다운 헤더, 불릿, 장문을 자유롭게 씁니다. 고객 채팅창에 <code>##</code>이 그대로 노출되는 상황이 발생하죠.</p>
+<p><strong>정리</strong></p>
+<p>역할→컨텍스트→출력 규칙, 이 순서를 지키세요. 순서가 바뀌면 Claude가 컨텍스트를 역할로 오해하는 경우가 생깁니다.</p>
+<hr />
+<h3>중요 개념 2 — 할루시네이션 방지 제약 문구</h3>
+<p><strong>설명</strong></p>
+<p>Claude는 검색된 컨텍스트에 없는 정보를 "그럴듯하게" 채우려는 경향이 있습니다. 이걸 막는 제약 문구가 시스템 프롬프트 안에 반드시 들어가야 합니다.</p>
+<p><strong>메모리 페그 — '레드 라인 3개'</strong></p>
+<p>제 경험상, 다음 세 문장이 중요한입니다.</p>
+<blockquote>
+<ol>
+<li>"제공된 컨텍스트에 없는 내용은 답하지 마세요."</li>
+<li>"모르는 경우 '확인이 필요합니다'라고만 답하세요."</li>
+<li>"외부 링크나 정책을 임의로 생성하지 마세요."</li>
+</ol>
+</blockquote>
+<p><strong>예시</strong></p>
+<p>환불 정책이 컨텍스트에 없을 때, 제약 문구가 있으면 Claude는 "해당 내용은 제가 확인 후 안내드리겠습니다"라고 답합니다. 제약이 없으면 "14일 이내 환불 가능합니다"처럼 없는 정책을 지어냅니다.</p>
+<p><strong>반례</strong></p>
+<p>제약 문구만 길게 쓰고 컨텍스트를 넣지 않으면, Claude가 모든 질문에 "확인이 필요합니다"만 반복합니다. 제약과 컨텍스트는 항상 함께 작동합니다.</p>
+<p><strong>정리</strong></p>
+<p>레드 라인 3개를 출력 규칙 바로 위에 배치하세요. 위치가 아래로 내려갈수록 Claude가 덜 강조해서 인식하는 경향이 있습니다.</p>
+<hr />
+<h3>중요 개념 3 — Few-shot 예시 삽입 위치와 개수</h3>
+<p><strong>설명</strong></p>
+<p>Few-shot은 Claude에게 "이런 식으로 답하면 된다"는 시범 케이스를 보여주는 기법입니다. 문제는 <strong>어디에, 몇 개</strong>를 넣느냐입니다.</p>
+<p><strong>메모리 페그 — '2-5 법칙'</strong></p>
+<p>예시는 최소 2개, 최대 5개. 위치는 출력 규칙 바로 아래, 컨텍스트 주입 블록 바로 위입니다.</p>
+<pre><code>[역할]
+[할루시네이션 제약]
+[출력 규칙]
+[Few-shot 예시: 2–5개]  ← 여기
+[컨텍스트: {retrieved_chunks}]
+</code></pre>
+<p><strong>예시</strong></p>
+<pre><code>예시 Q: 영업시간이 어떻게 되나요?
+예시 A: 평일 오전 10시부터 오후 7시까지 운영합니다. 주말은 오전 11시부터 오후 5시까지입니다.
+</code></pre>
+<p>이 예시 하나만 있어도, Claude는 불필요한 인사말 없이 정보만 짧게 전달하는 패턴을 학습합니다.</p>
+<p><strong>반례</strong></p>
+<p>예시를 6개 이상 넣으면 프롬프트 토큰이 길어지고, 컨텍스트 창에서 실제 지식베이스 데이터가 밀려나는 상황이 생깁니다. 2–5개를 지키는 이유가 여기 있습니다.</p>
+<p><strong>정리</strong></p>
+<p>Few-shot은 2–5개, 컨텍스트 블록 바로 위. 이 위치에서 예시가 출력 규칙과 실제 데이터 사이의 다리 역할을 합니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>영상을 지금 일시정지하세요.</p>
+<p>아래 단계를 따라 시스템 프롬프트 문서를 직접 만들어 보세요.</p>
+<p><strong>Step 1 — 역할 정의 작성 (1분)</strong></p>
+<p>3차시에서 만든 톤 프로필을 꺼내세요. 다음 형식을 채웁니다.</p>
+<blockquote>
+<p>"너는 [비즈니스 이름]의 [역할 이름]이야. 고객 문의에 [톤 키워드 2개] 방식으로 응답해."</p>
+</blockquote>
+<p><strong>Step 2 — 레드 라인 3개 붙여넣기 (30초)</strong></p>
+<p>방금 배운 할루시네이션 제약 문구 3개를 그대로 복사해 역할 정의 아래에 붙입니다.</p>
+<p><strong>Step 3 — 출력 규칙 + Few-shot 2개 작성 (1분 30초)</strong></p>
+<p>자신의 서비스에서 자주 오는 질문 2개를 골라, Q/A 쌍으로 작성합니다. 답변은 실제 원하는 형식과 길이로 쓰세요.</p>
+<p><strong>Step 4 — 테스트 Q&amp;A 3쌍 비교 (1분)</strong></p>
+<p>Claude에 완성된 프롬프트를 넣고, 다음 3가지 유형의 질문을 차례로 입력하세요.</p>
+<blockquote>
+<ol>
+<li>컨텍스트에 있는 질문</li>
+<li>컨텍스트에 없는 질문</li>
+<li>톤이 무너질 법한 무례한 질문</li>
+</ol>
+</blockquote>
+<p>각 응답을 스크린샷으로 저장하세요. 이것이 오늘의 최종 산출물입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #5에서는, 오늘 만든 시스템 프롬프트를 실제 RAG 파이프라인에 연결하고 자동으로 컨텍스트가 주입되는 구조를 완성합니다.</p>
+<p>오늘 만든 테스트 Q&amp;A 3쌍 스크린샷을 댓글에 공유해 주세요. 제가 직접 피드백 드립니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

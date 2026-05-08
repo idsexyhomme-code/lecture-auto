@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#4 Week 1·Month 1 SOP 연속 생성 및 연결 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#4 Week 1·Month 1 SOP 연속 생성 및 연결<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-sop-onboarding · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>Day 1 SOP는 만들었는데, 막상 신입이 둘째 날부터 뭘 해야 할지 아무도 모릅니다.</p>
+<p>첫날 잘 보낸 뒤 일주일을 방치하면, 온보딩의 70%는 그냥 날아갑니다.</p>
+<p>오늘 이 영상 하나로 Day 1에서 시작해 Week 1, Month 1까지 세 단계가 딱 이어지는 SOP를 완성합니다.</p>
+<p>지난 차시에서 만든 Day 1 문서가 있다면 지금 바로 꺼내세요.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, Claude 프롬프트 세 개만으로 Day 1·Week 1·Month 1이 논리적으로 연결된 온보딩 통합 SOP 문서를 직접 완성할 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>중요 개념 1 — 체이닝: 이전 출력을 다음 프롬프트의 맥락으로 재사용하기</h3>
+<p><strong>설명</strong></p>
+<p>프롬프트 체이닝은 앞 단계의 결과물을 그대로 다음 프롬프트 안에 붙여 넣는 방식입니다.</p>
+<p>Claude는 새로운 대화를 시작할 때 앞 내용을 기억하지 못합니다.</p>
+<p>그래서 직접 붙여 넣는 것이 중요한입니다.</p>
+<p>메모리 페그 → <strong>'기차 연결고리'</strong> 를 떠올리세요.</p>
+<p>각 객차가 연결되지 않으면 기차는 움직이지 않습니다.</p>
+<p><strong>예시</strong></p>
+<p>Day 1 SOP를 생성한 뒤, Week 1 프롬프트를 이렇게 시작합니다.</p>
+<blockquote>
+<p>"아래는 우리 팀 신입의 Day 1 SOP입니다. [Day 1 문서 전체 붙여넣기] 이 내용을 기반으로 Week 1 SOP를 작성해 주세요."</p>
+</blockquote>
+<p>Claude는 Day 1의 맥락을 읽고 자연스럽게 이어지는 Week 1을 생성합니다.</p>
+<p><strong>반례</strong></p>
+<p>Day 1 문서 없이 "Week 1 SOP 써줘"라고만 하면 어떻게 될까요?</p>
+<p>일반적인 템플릿 수준의 결과물이 나옵니다.</p>
+<p>우리 팀 고유의 업무 흐름이나 도구명이 반영되지 않습니다.</p>
+<p><strong>정리</strong></p>
+<p>체이닝의 공식은 단순합니다.</p>
+<p><strong>[이전 출력] + [다음 지시]</strong> = 맥락이 살아 있는 결과물.</p>
+<hr />
+<h3>중요 개념 2 — Week 1 목표: 독립 업무 수행 기준 설정</h3>
+<p><strong>설명</strong></p>
+<p>Week 1 SOP의 중요한 질문은 딱 하나입니다.</p>
+<p>"신입이 혼자서 처음으로 처리할 수 있는 업무 범위는 어디까지인가?"</p>
+<p>이 기준이 없으면 매니저는 매번 개입해야 하고, 신입은 매번 물어봐야 합니다.</p>
+<p>메모리 페그 → <strong>'수영 레인'</strong> 을 생각하세요.</p>
+<p>레인이 없으면 수영장은 혼돈입니다.</p>
+<p>Week 1은 신입의 첫 번째 레인을 그어주는 단계입니다.</p>
+<p><strong>예시</strong></p>
+<p>좋은 Week 1 SOP에는 이런 항목이 들어갑니다.</p>
+<ul>
+<li>혼자 처리 가능한 업무 목록 (예: 일일 보고서 작성, Slack 채널 응대)</li>
+<li>반드시 확인을 받아야 하는 업무 목록 (예: 외부 발송 이메일, 예산 관련 요청)</li>
+<li>각 업무의 완료 기준 (Definition of Done)</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>"이번 주 안에 업무 파악 완료"처럼 모호한 목표는 Week 1 기준이 될 수 없습니다.</p>
+<p>측정할 수 없는 목표는 달성 여부를 아무도 확인하지 못합니다.</p>
+<p><strong>정리</strong></p>
+<p>Week 1 SOP = <strong>독립 수행 가능 업무 + 에스컬레이션 기준 + 완료 정의</strong>.</p>
+<p>이 세 가지가 있어야 매니저도, 신입도 편안합니다.</p>
+<hr />
+<h3>중요 개념 3 — Month 1 목표: 성과 체크포인트와 피드백 루프</h3>
+<p><strong>설명</strong></p>
+<p>Month 1은 온보딩의 마무리 단계이자, 정식 업무로 넘어가는 전환점입니다.</p>
+<p>이 단계에서 중요한 것은 두 가지입니다.</p>
+<p>첫째, 신입이 무엇을 달성했는지 확인하는 체크포인트.</p>
+<p>둘째, 온보딩 과정 자체를 개선할 피드백 루프.</p>
+<p>메모리 페그 → <strong>'30일 점검 스탬프'</strong> 를 상상하세요.</p>
+<p>한 달 뒤 도장을 찍어야 비로소 온보딩이 공식 완료됩니다.</p>
+<p><strong>예시</strong></p>
+<p>Month 1 SOP에 포함되는 중요한 항목은 이렇습니다.</p>
+<ul>
+<li>2주차·4주차 체크인 미팅 아젠다 템플릿</li>
+<li>성과 측정 지표 3가지 (예: 독립 처리 업무 건수, 오류 발생률, 팀 순서 숙지도)</li>
+<li>신입이 작성하는 온보딩 피드백 양식 (이 양식이 SOP를 계속 개선합니다)</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>피드백 루프가 없는 Month 1 SOP는 한 번 쓰고 버려집니다.</p>
+<p>신입이 퇴직하거나 다음 신입이 들어올 때 똑같은 문제가 반복됩니다.</p>
+<p><strong>정리</strong></p>
+<p>Month 1 SOP = <strong>체크포인트 + 성과 지표 + 피드백 양식</strong>.</p>
+<p>이 구조가 있어야 SOP가 살아있는 문서가 됩니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>자, 지금부터 영상을 일시정지하고 직접 만들어 보세요.</p>
+<p>총 4단계입니다.</p>
+<p><strong>Step 1 — Day 1 문서 준비 (1분)</strong></p>
+<p>지난 차시에서 만든 Day 1 SOP를 복사해 두세요.</p>
+<p>아직 없다면, 회원님 팀의 실제 첫날 순서를 5줄 이상으로 정리해 주세요.</p>
+<p><strong>Step 2 — Week 1 프롬프트 실행 (1분)</strong></p>
+<p>Claude에 아래 형식으로 입력하세요.</p>
+<blockquote>
+<p>"아래는 [팀명] 신입 온보딩 Day 1 SOP입니다.
+[Day 1 SOP 전체 붙여넣기]
+이 내용을 기반으로 Week 1 SOP를 작성해 주세요.
+중요한 항목: 독립 수행 가능 업무 목록, 에스컬레이션 기준, 각 업무의 완료 정의."</p>
+</blockquote>
+<p>생성된 결과물을 복사해 두세요.</p>
+<p><strong>Step 3 — Month 1 프롬프트 실행 (1분)</strong></p>
+<p>이번엔 Day 1과 Week 1을 모두 붙여 넣고 입력합니다.</p>
+<blockquote>
+<p>"아래는 Day 1과 Week 1 SOP입니다.
+[Day 1 + Week 1 붙여넣기]
+이 흐름에 이어지는 Month 1 SOP를 작성해 주세요.
+포함 항목: 2주·4주 체크인 아젠다, 성과 측정 지표 3가지, 피드백 양식."</p>
+</blockquote>
+<p><strong>Step 4 — 통합 문서 완성 (1분)</strong></p>
+<p>Day 1 · Week 1 · Month 1을 하나의 문서에 순서대로 붙여 넣으세요.</p>
+<p>각 단계 사이에 "→ 다음 단계로 넘어가는 조건"을 한 줄씩 추가하면 완성입니다.</p>
+<p>예: "Day 1 완료 조건: 필수 툴 접근 권한 취득 및 팀장 확인 서명."</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>완성한 통합 SOP 문서가 있다면, 댓글에 "3단계 완성"이라고 남겨 주세요.</p>
+<p>다음 차시 #5에서는 이 통합 문서를 역할별·부서별로 자동 분기하는 방법을 다룹니다.</p>
+<p>하나의 SOP로 영업팀, 개발팀, 운영팀 버전을 동시에 뽑아내는 프롬프트 구조를 공개합니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

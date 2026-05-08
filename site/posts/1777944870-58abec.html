@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>#5 이메일 자동 초안 생성 워크플로우 만들기 — 강의 홈페이지</title>
-  <link rel="stylesheet" href="../styles.css?v=1778193103" />
+  <title>#5 이메일 자동 초안 생성 방법 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
   <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
   <script>
     (function () {
@@ -89,19 +89,19 @@
 <article class="body">
   <div class="wrap">
     <a href="../index.html" class="muted">← 홈으로</a>
-    <h1>#5 이메일 자동 초안 생성 워크플로우 만들기<span class="kind-tag">lecture_script</span></h1>
+    <h1>#5 이메일 자동 초안 생성 방법 만들기<span class="kind-tag">lecture_script</span></h1>
     <p class="muted">코스: claude-autowork · 에이전트: producer</p>
     <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
     <h2>HOOK (45초)</h2>
 <p>고객 문의가 쌓일 때마다 이메일 한 통 쓰는 데 15분씩 날리고 계신가요?</p>
 <p>내용은 매번 비슷한데, 매번 새로 쓰고 있다면 오늘 강의가 그 시간을 돌려드립니다.</p>
-<p>이번 차시에서는 Claude에게 딱 한 번만 잘 가르쳐두면, 클릭 몇 번으로 이메일 초안이 완성되는 워크플로우를 함께 만들 겁니다.</p>
+<p>이번 차시에서는 Claude에게 딱 한 번만 잘 가르쳐두면, 클릭 몇 번으로 이메일 초안이 완성되는 방법를 함께 만들 겁니다.</p>
 <hr />
 <h2>PROMISE (30초)</h2>
 <p>이 차시가 끝나면, 고객 문의 유형 3가지에 즉시 대응하는 프롬프트 템플릿 세트를 완성해서 실무에 바로 쓸 수 있습니다.</p>
 <hr />
 <h2>CORE (8–10분)</h2>
-<h3>핵심 개념 1 — 템플릿 변수 설계: '빈칸 계약서'</h3>
+<h3>중요 개념 1 — 템플릿 변수 설계: '빈칸 계약서'</h3>
 <p><strong>설명</strong></p>
 <p>프롬프트를 매번 새로 쓰는 건 계약서를 매번 처음부터 치는 것과 같습니다.</p>
 <p>변수 설계는 계약서의 빈칸을 미리 만들어두는 작업입니다.</p>
@@ -117,11 +117,11 @@
 <p><strong>정리 — 메모리 페그: '빈칸 3개 계약서'</strong></p>
 <p>프롬프트에는 최소 3개의 변수가 있어야 재사용 가능한 템플릿이 됩니다.</p>
 <hr />
-<h3>핵심 개념 2 — 어조(Tone) 제어: '볼륨 다이얼'</h3>
+<h3>중요 개념 2 — 어조(Tone) 제어: '볼륨 다이얼'</h3>
 <p><strong>설명</strong></p>
 <p>같은 내용이라도 클레임 고객에게는 차분하고 공감하는 어조가, VIP 고객에게는 정중하고 격식 있는 어조가 필요합니다.</p>
 <p>Claude는 어조를 숫자가 아닌 언어로 조정합니다.</p>
-<p>어조 제어 문장을 프롬프트 첫 줄에 심는 것이 핵심입니다.</p>
+<p>어조 제어 문장을 프롬프트 첫 줄에 심는 것이 중요한입니다.</p>
 <p><strong>예시</strong></p>
 <ul>
 <li>공감형: <code>"공감하는 어조로, 고객의 불편을 먼저 인정한 뒤 해결책을 제시하세요."</code></li>
@@ -134,7 +134,7 @@
 <p><strong>정리 — 메모리 페그: '볼륨 다이얼 3단계'</strong></p>
 <p>공감 / 격식 / 친근, 이 세 단어를 프롬프트에 직접 쓰면 어조가 즉시 잡힙니다.</p>
 <hr />
-<h3>핵심 개념 3 — 맥락 주입 기법: '배경 브리핑'</h3>
+<h3>중요 개념 3 — 맥락 주입 기법: '배경 브리핑'</h3>
 <p><strong>설명</strong></p>
 <p>기자가 기사를 쓰기 전에 브리핑을 받듯, Claude도 배경 정보를 받아야 정확한 초안을 씁니다.</p>
 <p>맥락 주입이란 제품명, 정책, 이전 대화 이력처럼 Claude가 알아야 할 정보를 프롬프트에 함께 넣는 기법입니다.</p>

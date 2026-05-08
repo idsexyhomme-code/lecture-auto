@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 소재 은행 만들기 — Claude로 4주치 아이디어 뽑기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 소재 은행 만들기 — Claude로 4주치 아이디어 뽑기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-content-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>매주 월요일 아침, 이번 주 뭘 찍어야 하나 멍하니 앉아 있은 적 있으시죠?</p>
+<p>소재가 없는 게 아닙니다. 소재를 꺼내는 구조가 없는 겁니다.</p>
+<p>오늘 이 차시 하나로, 다음 4주치 아이디어를 한 번에 뽑아냅니다.</p>
+<p>월요일 공황은 오늘 끝냅니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, Claude에 회원님의 채널 정보를 입력해 4주치 영상 소재 20개를 뽑고, 그중 우선순위 4개를 골라 스프레드시트에 정리할 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>중요 개념 1 — 소재 생성 마스터 프롬프트 구조</h3>
+<p><strong>설명</strong></p>
+<p>Claude에 "유튜브 주제 알려줘"라고 치면 쓸모없는 답이 옵니다.</p>
+<p>Claude는 맥락이 많을수록 날카로워집니다.</p>
+<p>마스터 프롬프트는 세 칸짜리 서류 양식이라고 생각하세요.</p>
+<p>칸 하나, <strong>나는 누구인가</strong> — 전문 분야와 채널 포맷.</p>
+<p>칸 둘, <strong>누구에게 말하는가</strong> — 타깃의 직업·고민·수준.</p>
+<p>칸 셋, <strong>무엇을 원하는가</strong> — 소재 개수, 형식, 제약 조건.</p>
+<p>이 세 칸을 채우면 Claude는 편집장이 됩니다.</p>
+<p><strong>예시</strong></p>
+<p>실제로 써보면 이렇게 됩니다.</p>
+<blockquote>
+<p>"나는 프리랜서 디자이너를 대상으로 비즈니스 운영을 가르치는 1인 강사입니다. 유튜브 10분 내외 튜토리얼을 주 1회 발행합니다. 타깃은 수입이 불안정한 경력 3년 차 이하 프리랜서입니다. 이 타깃이 가장 자주 겪는 고통점 기반으로 영상 소재 20개를 제목 형태로 뽑아주세요."</p>
+</blockquote>
+<p>이 한 덩어리가 마스터 프롬프트입니다.</p>
+<p><strong>반례</strong></p>
+<p>"좋은 소재 없어?" 같은 열린 질문은 방향이 없습니다.</p>
+<p>Claude가 자기 판단으로 채워버리면 회원님 채널과 맞지 않는 답이 옵니다.</p>
+<p>맥락 없는 질문은 맥락 없는 답을 낳습니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>마스터 프롬프트 = <strong>'3칸 서류 양식'</strong>.</p>
+<p>나 → 타깃 → 요청, 이 순서로 채우세요.</p>
+<hr />
+<h3>중요 개념 2 — 청중 고통점 기반 소재 필터링</h3>
+<p><strong>설명</strong></p>
+<p>Claude가 소재 20개를 뱉었습니다.</p>
+<p>근데 20개 다 만들 수는 없습니다.</p>
+<p>필터가 필요합니다.</p>
+<p>가장 강력한 필터는 단 하나, <strong>"이 소재는 타깃의 어떤 고통을 덜어주는가?"</strong> 입니다.</p>
+<p>고통이 클수록 클릭률이 높습니다.</p>
+<p>고통이 구체적일수록 구독으로 이어집니다.</p>
+<p><strong>예시</strong></p>
+<p>Claude가 뽑아준 소재 중 두 개를 비교해봅니다.</p>
+<p>소재 A: "프리랜서를 위한 시간 관리법"</p>
+<p>소재 B: "견적서 보내고 2주째 답장 없을 때 하는 말"</p>
+<p>소재 B가 훨씬 구체적인 고통을 짚습니다.</p>
+<p>제 경험상, 고통이 구체적인 제목일수록 초반 조회수 반응이 빠릅니다.</p>
+<p><strong>반례</strong></p>
+<p>"프리랜서 입문 가이드" 같은 소재는 고통이 없습니다.</p>
+<p>도움이 되는 정보이지만, 누가 지금 당장 검색할 이유가 없습니다.</p>
+<p>고통 없는 소재는 조용히 묻힙니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>필터 기준은 <strong>'지금 당장 검색창에 치고 싶은 고통'</strong>.</p>
+<p>소재를 볼 때마다 "이게 아프면 클릭한다"를 자문하세요.</p>
+<hr />
+<h3>중요 개념 3 — 상록수 소재 vs 시의성 소재 구분</h3>
+<p><strong>설명</strong></p>
+<p>소재에는 두 종류가 있습니다.</p>
+<p><strong>상록수 소재</strong>는 1년 후에도 검색됩니다.</p>
+<p>"세금계산서 발행하는 법"은 올해도 내년도 검색됩니다.</p>
+<p><strong>시의성 소재</strong>는 지금 이 순간 터집니다.</p>
+<p>"2025년 프리랜서 세법 개정 중요한 요약"은 지금 올려야 효과가 있습니다.</p>
+<p>4주 소재 뱅크는 이 둘을 섞어야 합니다.</p>
+<p>제 경험상, 상록수 3 대 시의성 1 비율이 운영하기 안정적입니다.</p>
+<p><strong>예시</strong></p>
+<p>Claude에 이렇게 추가 프롬프트를 날립니다.</p>
+<blockquote>
+<p>"방금 뽑은 20개 소재를 상록수 소재와 시의성 소재로 분류해줘. 각 항목 옆에 [상록수] 또는 [시의성] 태그를 붙여줘."</p>
+</blockquote>
+<p>10초면 분류가 완성됩니다.</p>
+<p><strong>반례</strong></p>
+<p>시의성 소재만 4개 선택하면 특정 시기가 지난 후 채널 유입이 뚝 끊깁니다.</p>
+<p>반대로 상록수만 고르면 채널이 '오래된 느낌'을 줍니다.</p>
+<p>둘의 균형이 채널의 수명을 늘립니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>상록수 소재 = <strong>사계절 내내 자라는 나무</strong>.</p>
+<p>시의성 소재 = <strong>제철에만 피는 꽃</strong>.</p>
+<p>둘 다 정원에 있어야 아름답습니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하세요.</p>
+<p>다음 4단계를 순서대로 따라오세요.</p>
+<p><strong>1단계 — 마스터 프롬프트 작성 (5분)</strong></p>
+<p>Claude 새 대화창을 엽니다.</p>
+<p>아래 빈칸을 채워서 붙여넣으세요.</p>
+<blockquote>
+<p>"나는 [전문 분야]를 주제로 [타깃]을 대상으로 하는 1인 강사입니다. [채널 포맷]을 주 1회 발행합니다. 타깃의 가장 큰 고통점 기반으로 영상 소재 20개를 제목 형태로 뽑아주세요."</p>
+</blockquote>
+<p><strong>2단계 — 상록수·시의성 분류 요청 (2분)</strong></p>
+<p>Claude 답변이 나오면 바로 이어서 입력합니다.</p>
+<blockquote>
+<p>"위 20개를 [상록수] 또는 [시의성]으로 분류해줘."</p>
+</blockquote>
+<p><strong>3단계 — 우선순위 4개 선택 (3분)</strong></p>
+<p>분류된 목록에서 고통이 가장 구체적인 소재를 고릅니다.</p>
+<p>상록수 3개, 시의성 1개를 목표로 고르세요.</p>
+<p><strong>4단계 — 스프레드시트 정리 (5분)</strong></p>
+<p>구글 시트나 노션을 열고 아래 4개 열을 만드세요.</p>
+<p>| 제목 | 타깃 고통점 | 포맷 | 발행 예정일 |</p>
+<p>선택한 4개 소재를 한 줄씩 채워 넣으면 오늘 실습 완료입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>오늘 만든 소재 뱅크, 다음 차시에서 실제로 씁니다.</p>
+<p>차시 #3에서는 소재 하나를 골라 Claude와 함께 영상 전체 대본을 30분 안에 완성하는 방법을 다룹니다.</p>
+<p>오늘 만든 스프레드시트 가져오시면 바로 이어집니다.</p>
+<p>다음 영상, 지금 바로 재생해주세요.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 Day 1 SOP 생성 및 검증 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 Day 1 SOP 생성 및 검증<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-sop-onboarding · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>신규 팀원이 첫날 멍하니 앉아서
+"저 뭐 하면 되나요?" 라고 물어본 적 있으신가요?</p>
+<p>그 순간, 사실 잘못은 그 팀원이 아닙니다.
+준비된 게 없었던 거죠.</p>
+<p>접근 권한은 누가 주고, 노트북 설정은 어디서 하고,
+첫 미팅은 언제인지— 아무도 정리해 두지 않은 겁니다.</p>
+<p>오늘 이 차시가 끝나면, 그 혼란은 사라집니다.
+Claude로 Day 1 SOP를 생성하고, 빠진 항목까지 직접 채워 넣는
+완성된 문서를 손에 쥐게 됩니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, Claude에게 우리 팀 상황을 설명하는 것만으로
+신규 팀원의 첫날 체크리스트 초안을 생성하고,
+누락된 항목을 이어 쓰기 프롬프트로 직접 보완해서
+바로 쓸 수 있는 Day 1 SOP 문서를 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>중요 개념 1 — Day 1 필수 항목의 4가지 카테고리</h3>
+<p><strong>설명</strong></p>
+<p>Day 1 체크리스트에서 빠지면 반드시 문제가 생기는 영역이 있습니다.
+저는 이걸 <strong>'4개의 열쇠'</strong> 라고 부릅니다.</p>
+<p>첫 번째 열쇠, <strong>접근 권한(Access)</strong>.
+이메일, Slack, Notion, GitHub 등 계정 생성과 권한 부여입니다.</p>
+<p>두 번째 열쇠, <strong>툴 셋업(Setup)</strong>.
+노트북 환경, 필수 소프트웨어 설치, VPN 연결입니다.</p>
+<p>세 번째 열쇠, <strong>첫 미팅(Meeting)</strong>.
+팀장 1on1, 팀 전체 인사, 주요 협업자 소개입니다.</p>
+<p>네 번째 열쇠, <strong>문화 안내(Culture)</strong>.
+슬랙 에티켓, 회의 규칙, 의사결정 방식입니다.</p>
+<p><strong>예시</strong></p>
+<p>개발팀 신규 팀원이라면 이렇게 됩니다.
+- Access: GitHub 초대, AWS 콘솔 권한
+- Setup: VS Code + 로컬 개발 환경 세팅
+- Meeting: 오전 11시 팀 전체 인사 미팅
+- Culture: PR 리뷰 컨벤션 문서 공유</p>
+<p><strong>반례</strong></p>
+<p>반례를 하나 봐요.
+"우리 팀은 다들 알아서 해요." 라고 말하는 팀에서
+Culture 항목을 생략하는 경우가 많습니다.</p>
+<p>그러면 어떻게 될까요?
+신규 팀원이 잘못된 채널에 업무 요청을 올리거나,
+미팅 없이 메시지만 보내다가 관계가 어색해지는 경우가 생깁니다.
+문화 안내는 선택이 아닙니다.</p>
+<p><strong>정리</strong></p>
+<p>4개의 열쇠— Access, Setup, Meeting, Culture.
+이 네 카테고리가 Day 1 체크리스트의 뼈대입니다.
+Claude에게 이 네 가지를 기준으로 요청하면
+구조 잡힌 초안이 나옵니다.</p>
+<hr />
+<h3>중요 개념 2 — Claude 출력 검증 기준: 완결성·실행 가능성·순서 논리</h3>
+<p><strong>설명</strong></p>
+<p>Claude가 초안을 주면, 그냥 쓰면 안 됩니다.
+3가지 렌즈로 검증해야 합니다.</p>
+<p>저는 이걸 <strong>'CSO 체크'</strong> 라고 부릅니다.
+<strong>C</strong>ompleteness(완결성), <strong>S</strong>tep-ability(실행 가능성), <strong>O</strong>rder(순서 논리).</p>
+<p><strong>완결성</strong>: 4개의 열쇠가 모두 들어가 있는가?
+<strong>실행 가능성</strong>: 각 항목이 구체적인 행동으로 적혀 있는가?
+<strong>순서 논리</strong>: 앞 항목이 완료되지 않으면 다음 항목이 막히지는 않는가?</p>
+<p><strong>예시</strong></p>
+<p>실행 가능성을 예로 들게요.</p>
+<p>Claude가 이렇게 쓸 수 있습니다:
+"툴 셋업을 완료한다."</p>
+<p>이건 실행 불가입니다.
+어떤 툴인지, 누가 안내하는지, 어디서 하는지 없으니까요.</p>
+<p>반면 이렇게 바뀌면 실행 가능합니다:
+"IT팀 담당자(홍길동)에게 연락해 VS Code, Slack, Notion을 설치하고 로그인을 확인한다."</p>
+<p><strong>반례</strong></p>
+<p>순서 논리 실패 사례입니다.
+어떤 초안에 이런 순서가 있었습니다:
+1. 팀 전체 미팅 참석
+2. 이메일 계정 생성</p>
+<p>이메일 계정이 없는데 미팅 초대를 어떻게 받죠?
+순서가 뒤집히면 첫날 전체 일정이 무너집니다.</p>
+<p><strong>정리</strong></p>
+<p>Claude 출력은 C-S-O 세 개의 렌즈로 검증합니다.
+완결성, 실행 가능성, 순서 논리.
+이 중 하나라도 실패하면 다음 개념에서 배울 방법으로 보완합니다.</p>
+<hr />
+<h3>중요 개념 3 — 반복 프롬프트(이어 쓰기)로 초안 보완하는 방법</h3>
+<p><strong>설명</strong></p>
+<p>Claude가 준 초안이 아쉬울 때,
+처음부터 다시 요청하는 분들이 많습니다.</p>
+<p>그러지 않아도 됩니다.
+<strong>이어 쓰기 프롬프트</strong> 를 사용하면 됩니다.</p>
+<p>이어 쓰기 프롬프트는 세 가지 패턴이 있습니다.</p>
+<p><strong>패턴 1 — 누락 보완</strong>:
+"위 체크리스트에서 [문화 안내] 항목이 빠져 있어.
+우리 팀은 슬랙 에티켓과 주간 회의 규칙이 중요해.
+해당 항목을 추가해서 전체 리스트를 다시 보여줘."</p>
+<p><strong>패턴 2 — 항목 구체화</strong>:
+"3번 항목 '툴 셋업'을 더 구체적으로 써줘.
+설치 담당자, 확인 방법, 예상 소요 시간을 포함해."</p>
+<p><strong>패턴 3 — 순서 재조정</strong>:
+"이메일 계정 생성이 미팅보다 먼저 와야 해.
+논리적 순서에 맞게 전체 리스트를 재정렬해줘."</p>
+<p><strong>예시</strong></p>
+<p>실제로 제가 써본 이어 쓰기 흐름입니다.</p>
+<p>1차 프롬프트로 기본 초안 요청 →
+C-S-O 검증으로 '문화 안내 누락, 순서 오류' 발견 →
+패턴 1로 문화 안내 추가 →
+패턴 3으로 순서 재정렬 →
+완성.</p>
+<p>대부분의 경우, 2~3번의 이어 쓰기면 쓸 수 있는 수준이 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>이어 쓰기를 잘못 쓰는 경우가 있습니다.
+"더 자세히 써줘." 처럼 막연하게 요청하는 거죠.</p>
+<p>Claude는 '어디를', '어떻게', '왜' 자세히 써야 하는지 모릅니다.
+항상 <strong>구체적인 대상과 이유</strong> 를 명시해야 합니다.</p>
+<p><strong>정리</strong></p>
+<p>이어 쓰기는 세 패턴으로 사용합니다.
+누락 보완, 항목 구체화, 순서 재조정.
+막연한 요청 대신, 대상과 이유를 명확히 써서 보내세요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>자, 이제 영상을 일시정지하고 직접 해보겠습니다.
+결과물은 <strong>우리 팀의 최종 Day 1 SOP 문서</strong> 입니다.</p>
+<p><strong>Step 1 — 1차 프롬프트 작성 (1분)</strong></p>
+<p>Claude에게 이 형식으로 요청합니다:</p>
+<blockquote>
+<p>"우리 팀은 [팀 규모, 예: 5인 스타트업 마케팅팀]이고,
+신규 팀원의 Day 1 체크리스트가 필요해.
+항목은 접근 권한, 툴 셋업, 첫 미팅, 문화 안내 순서로 구성하고,
+각 항목은 누가 무엇을 하는지 행동 중심으로 작성해줘."</p>
+</blockquote>
+<p>여기서 괄호 안을 우리 팀 상황으로 바꿔서 입력합니다.</p>
+<p><strong>Step 2 — C-S-O 검증 (1분)</strong></p>
+<p>Claude가 준 결과를 보면서 체크합니다.</p>
+<ul>
+<li>4개 카테고리가 모두 있는가? (완결성)</li>
+<li>각 항목이 행동으로 적혔는가? (실행 가능성)</li>
+<li>앞 항목이 완료돼야 다음이 가능한 순서인가? (순서 논리)</li>
+</ul>
+<p>빠진 것, 모호한 것, 순서가 이상한 것을 메모해 둡니다.</p>
+<p><strong>Step 3 — 이어 쓰기 프롬프트 실행 (1분)</strong></p>
+<p>Step 2에서 메모한 문제를 하나씩 이어 쓰기로 보완합니다.
+누락이면 패턴 1, 모호함이면 패턴 2, 순서면 패턴 3.</p>
+<p><strong>Step 4 — 최종 문서 저장 (30초)</strong></p>
+<p>완성된 체크리스트를 Notion 또는 Google Docs에 붙여 넣습니다.
+제목은 <strong>[팀명] Day 1 SOP — v1.0 (날짜)</strong> 로 저장합니다.</p>
+<p>일시정지 해제하고, 완료되셨으면 계속 봐주세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>수고하셨습니다.
+이제 회원님 팀의 Day 1 SOP 초안이 생겼습니다.</p>
+<p>다음 차시에서는 이 문서를 <strong>반복 입사자 유형별로 커스터마이징</strong> 하는 방법을 다룹니다.
+개발자, 마케터, 영업직— 직군마다 다른 SOP를 Claude로 한 번에 만드는 방법입니다.</p>
+<p>오늘 완성한 Day 1 SOP 문서, 댓글에 캡처 한 장 남겨주세요.
+다른 분들에게 좋은 참고가 됩니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

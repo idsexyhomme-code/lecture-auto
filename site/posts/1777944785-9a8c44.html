@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>#5 이메일 자동 초안 생성 워크플로우 만들기 — 강의 홈페이지</title>
-  <link rel="stylesheet" href="../styles.css?v=1778193103" />
+  <title>#5 이메일 자동 초안 생성 방법 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
   <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
   <script>
     (function () {
@@ -89,7 +89,7 @@
 <article class="body">
   <div class="wrap">
     <a href="../index.html" class="muted">← 홈으로</a>
-    <h1>#5 이메일 자동 초안 생성 워크플로우 만들기<span class="kind-tag">lecture_script</span></h1>
+    <h1>#5 이메일 자동 초안 생성 방법 만들기<span class="kind-tag">lecture_script</span></h1>
     <p class="muted">코스: claude-autowork · 에이전트: producer</p>
     <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
     <h2>HOOK (45초)</h2>
@@ -109,7 +109,7 @@
 이메일 초안 생성 프롬프트 템플릿을 직접 완성할 수 있습니다.</p>
 <hr />
 <h2>CORE (8–10분)</h2>
-<h3>핵심 개념 1 — 템플릿 변수 설계</h3>
+<h3>중요 개념 1 — 템플릿 변수 설계</h3>
 <p><strong>설명</strong></p>
 <p>프롬프트를 매번 새로 쓰면 자동화가 아닙니다.
 변수를 심어야 재사용이 가능합니다.</p>
@@ -131,7 +131,7 @@
 그 이상은 양식이 아니라 설문지입니다.</p>
 </blockquote>
 <hr />
-<h3>핵심 개념 2 — 어조(Tone) 제어</h3>
+<h3>중요 개념 2 — 어조(Tone) 제어</h3>
 <p><strong>설명</strong></p>
 <p>같은 내용도 어조에 따라 고객의 감정 반응이 달라집니다.
 환불 요청에는 공감 어조,
@@ -155,13 +155,13 @@
 어조도 구체적인 행동 지침으로 줘야 합니다.</p>
 </blockquote>
 <hr />
-<h3>핵심 개념 3 — 맥락 주입 기법</h3>
+<h3>중요 개념 3 — 맥락 주입 기법</h3>
 <p><strong>설명</strong></p>
 <p>Claude는 우리 회사를 모릅니다.
 브랜드 정책, 보상 기준, 금지 표현을 모릅니다.</p>
 <p>맥락 주입이란, 프롬프트 상단에
 Claude가 알아야 할 배경 정보를 미리 심는 기법입니다.
-역할 정의 + 회사 정책 + 제약 조건, 이 세 줄이 핵심입니다.</p>
+역할 정의 + 회사 정책 + 제약 조건, 이 세 줄이 중요한입니다.</p>
 <p><strong>예시</strong></p>
 <blockquote>
 <p>"너는 [브랜드명]의 고객 응대 전문가야.
@@ -185,7 +185,7 @@ Claude에게도 똑같이 주면 됩니다.</p>
 <p>지금 영상을 일시정지하고 따라해 보세요.
 메모장이나 Notion 빈 페이지를 하나 엽니다.</p>
 <p><strong>Step 1 — 유형 3가지 정하기</strong></p>
-<p>여러분의 업무에서 가장 자주 받는 이메일 문의 3가지를 씁니다.
+<p>회원님의 업무에서 가장 자주 받는 이메일 문의 3가지를 씁니다.
 예: 환불 요청 / 배송 지연 문의 / 제품 불량 신고</p>
 <p><strong>Step 2 — 각 유형별 변수 5개 이하 정의하기</strong></p>
 <p>각 유형마다 <code>{{변수명}}</code> 형태로 비워둘 정보를 나열합니다.
@@ -194,7 +194,7 @@ Claude에게도 똑같이 주면 됩니다.</p>
 <p>각 유형에 맞는 어조를 행동 중심 문장으로 적습니다.
 예: "먼저 불편함을 인정하고, 해결 일정을 명확히 전달하는 톤"</p>
 <p><strong>Step 4 — 맥락 3줄 작성하기</strong></p>
-<p>역할, 우리 회사 핵심 정책 1개, 금지 표현 1개를 씁니다.</p>
+<p>역할, 우리 회사 중요한 정책 1개, 금지 표현 1개를 씁니다.</p>
 <p><strong>Step 5 — 3종 템플릿 완성 후 Claude에 붙여넣기</strong></p>
 <p>실제로 테스트해 보세요.
 결과물을 보고 변수나 어조 묘사를 한 번 수정합니다.
@@ -203,7 +203,7 @@ Claude에게도 똑같이 주면 됩니다.</p>
 <h2>CTA (30초)</h2>
 <p>다음 차시 #6에서는 오늘 만든 템플릿을
 Zapier와 연결해서 이메일이 오면 자동으로 초안이 생성되는
-실전 워크플로우를 완성합니다.</p>
+실전 방법를 완성합니다.</p>
 <p>오늘 만든 템플릿 3종을 댓글에 공유해 주세요.
 다른 수강생의 사례를 보는 것만으로도 내 템플릿이 개선됩니다.</p>
 <hr />

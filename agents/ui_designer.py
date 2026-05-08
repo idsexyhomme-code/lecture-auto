@@ -56,6 +56,7 @@ import requests
 
 from .base import BaseAgent, AgentResult, REPO_ROOT
 from .site_developer import is_html_safe, DESIGN_TOKEN_WHITELIST
+from ._copy_principles import HUMAN_TONE_GUIDE
 
 log = logging.getLogger("ui_designer")
 
@@ -170,7 +171,7 @@ G. 3개 변형 사이의 차별화는 다음 축 중 *최소 2개*가 의미 있
    - 이미지 비중 (텍스트 우선 vs 이미지 우선 vs 균형)
 
 오로지 위 JSON만 출력. 설명·인사·"여기 결과입니다" 같은 머리말 금지.
-"""
+""" + HUMAN_TONE_GUIDE
 
 
 # ─────────────────────────────────────────────────────────────────────────

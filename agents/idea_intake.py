@@ -22,6 +22,7 @@ from pathlib import Path
 from typing import Optional
 
 from .base import BaseAgent, REPO_ROOT, list_approved
+from ._copy_principles import HUMAN_TONE_GUIDE
 
 log = logging.getLogger("idea_intake")
 
@@ -153,7 +154,7 @@ ui_designer:
 - 복합 요청("커리큘럼 + 1차시 스크립트 + 랜딩카피 한 번에")이면 첫 작업(curriculum)으로 좁혀
   brief을 만들고, READY message에 "이게 끝나면 다음 작업도 이어서 진행할까요?"로 안내
 - 회원님의 톤 — 차분하고 단단한 한국어. 과장 금지.
-"""
+""" + HUMAN_TONE_GUIDE
 
 
 class IdeaIntake(BaseAgent):

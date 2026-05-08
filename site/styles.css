@@ -300,13 +300,10 @@ a:hover { text-decoration: underline; }
 /* design_tokens — site_developer Tier 2 (overrides above) */
 :root {
   --bg: #FBF8F3;
-  --fg: #1C1917;
-  --brand: #3D2B1F;
-  --accent: #A0732A;
+  --fg: #1C1814;
+  --brand: #3D2F1E;
+  --accent: #A07840;
   --soft: #EDE5D8;
-  --font-family-sans: 'Pretendard', system-ui, sans-serif;
-  --radius-card: 6px;
-  --muted: #7A6A5A;
-  --line: #EDE5D8;
-  --brand-2: #5C3D22;
+  --font-family-sans: 'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif;
+  --radius-card: 4px;
 }

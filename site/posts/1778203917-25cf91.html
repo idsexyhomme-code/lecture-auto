@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#6 발행 루틴 설계 — 재개 트리거 SOP 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#6 발행 루틴 설계 — 재개 트리거 SOP 만들기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-content-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>콘텐츠 발행, 한 번 끊기면 다시 시작하기가 너무 힘드시죠?</p>
+<p>"이번 주는 바빠서", "다음 주부터 다시"라고 말한 게 벌써 3주째.</p>
+<p>그 공백이 길어질수록 재개 장벽은 높아집니다.</p>
+<p>오늘은 그 악순환을 구조로 끊어냅니다.</p>
+<p>Claude와 함께 만드는 재개 트리거 SOP, 즉 발행이 끊긴 순간 자동으로 작동하는 복귀 절차서를 직접 만들어 보겠습니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 발행이 끊겼을 때 72시간 안에 다시 글을 올릴 수 있는 나만의 재개 트리거 SOP 1페이지 문서를 손에 쥐게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>중요 개념 1 — SOP 구성 요소: "비행 체크리스트"</h3>
+<p><strong>설명</strong></p>
+<p>SOP는 Standard Operating Procedure, 표준운영절차입니다.</p>
+<p>복잡한 상황에서도 판단 없이 실행할 수 있도록 만든 단계별 절차서입니다.</p>
+<p>조종사는 비상 상황에서 즉흥적으로 판단하지 않습니다.</p>
+<p>미리 만들어 둔 체크리스트를 그대로 따릅니다.</p>
+<p>우리의 발행 루틴도 똑같이 설계할 수 있습니다.</p>
+<p><strong>예시</strong></p>
+<p>재개 트리거 SOP의 기본 구성 요소는 세 가지입니다.</p>
+<p>첫째, 발동 조건. "언제 이 SOP를 꺼낼 것인가."</p>
+<p>둘째, 실행 액션. "순서대로 무엇을 할 것인가."</p>
+<p>셋째, 완료 기준. "무엇을 해야 이 절차가 끝나는가."</p>
+<p>Claude에게 이 세 가지를 입력하면 초안을 즉시 뽑아낼 수 있습니다.</p>
+<p><strong>반례</strong></p>
+<p>"마음이 내키면 다시 써야지"는 SOP가 아닙니다.</p>
+<p>조건이 모호하고 액션도 없으면 절차서가 아니라 막연한 다짐일 뿐입니다.</p>
+<p>다짐은 감정에 따라 무너지고, SOP는 구조가 받쳐줍니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 <strong>"비행 체크리스트 3칸"</strong> 입니다.</p>
+<p>발동 조건 · 실행 액션 · 완료 기준, 이 세 칸을 채우면 SOP가 됩니다.</p>
+<hr />
+<h3>중요 개념 2 — 최소 발행 기준(MVP): "비상구 크기의 문"</h3>
+<p><strong>설명</strong></p>
+<p>Minimum Viable Post, 줄여서 MVP입니다.</p>
+<p>발행이 끊겼을 때 복귀 첫 글에 요구할 최소 기준입니다.</p>
+<p>평소 기준을 그대로 적용하면 복귀 장벽이 너무 높아집니다.</p>
+<p>비상구는 평상시 정문보다 작아도 됩니다. 일단 나가는 게 목적이니까요.</p>
+<p><strong>예시</strong></p>
+<p>제 경험상 MVP를 이렇게 설정하면 복귀율이 올라갑니다.</p>
+<p>글자 수 300자 이상, 소제목 1개 이상, 이미지 없어도 무방.</p>
+<p>이 세 조건만 충족하면 발행으로 인정합니다.</p>
+<p>Claude에게 "내 평소 글의 30% 분량으로 중요한 1개만 담은 초안 써줘"라고 요청하면 5분 안에 초안이 나옵니다.</p>
+<p><strong>반례</strong></p>
+<p>"복귀 첫 글이니까 더 잘 써야 해"라는 생각은 오히려 독입니다.</p>
+<p>완성도 기준을 높게 잡으면 초안을 시작하기도 전에 포기하게 됩니다.</p>
+<p>MVP의 중요한은 퀄리티가 아니라 리듬을 되찾는 것입니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 <strong>"비상구 크기의 문"</strong> 입니다.</p>
+<p>평소보다 작아도 됩니다. 일단 통과하는 것이 먼저입니다.</p>
+<hr />
+<h3>중요 개념 3 — 중단 감지 신호와 자동 복귀 루프: "연기 감지기"</h3>
+<p><strong>설명</strong></p>
+<p>화재는 불꽃이 보이기 전에 연기가 먼저 납니다.</p>
+<p>발행 중단도 마찬가지입니다.</p>
+<p>갑자기 멈추는 게 아니라 신호가 먼저 옵니다.</p>
+<p>그 신호를 미리 정의해 두면, 중단되기 전에 개입할 수 있습니다.</p>
+<p><strong>예시</strong></p>
+<p>중단 감지 신호의 대표적인 예시는 세 가지입니다.</p>
+<p>신호 1: 발행 예정일 기준 72시간이 지났는데 초안이 없는 상태.</p>
+<p>신호 2: 한 주를 넘겨서 Claude를 한 번도 열지 않은 상태.</p>
+<p>신호 3: 캘린더에 발행 일정을 지웠거나 비워 둔 상태.</p>
+<p>이 신호 중 하나라도 감지되면 SOP가 자동 발동됩니다.</p>
+<p>자동 복귀 루프는 이렇게 작동합니다.</p>
+<p>신호 감지 → MVP 기준 확인 → Claude에게 최소 초안 요청 → 72시간 안에 발행.</p>
+<p><strong>반례</strong></p>
+<p>"느낌이 안 좋다"는 감지 신호로 쓸 수 없습니다.</p>
+<p>신호는 반드시 측정 가능하고 날짜나 횟수로 표현될 수 있어야 합니다.</p>
+<p>모호한 신호는 감지해도 행동으로 이어지지 않습니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 <strong>"연기 감지기"</strong> 입니다.</p>
+<p>불이 나기 전에 울립니다. 신호를 수치로 정의해야 감지기가 작동합니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 빈 문서를 하나 엽니다.</p>
+<p>Claude 채팅창도 함께 준비합니다.</p>
+<p><strong>1단계 — 중단 감지 조건 작성 (1분)</strong></p>
+<p>내가 정한 발행 주기를 기준으로 중단 감지 기준을 숫자로 씁니다.</p>
+<p>예시: "발행 예정일 이후 72시간이 지나도 초안이 없으면 중단으로 간주한다."</p>
+<p>이 문장을 그대로 문서에 붙여 넣습니다.</p>
+<p><strong>2단계 — 복귀 액션 3단계 작성 (2분)</strong></p>
+<p>Claude에게 다음 프롬프트를 입력합니다.</p>
+<p>"나는 1인 콘텐츠 크리에이터야. 발행이 72시간 이상 끊겼을 때 실행할 복귀 액션 3단계를 만들어 줘. 각 단계는 10분 이내로 완료 가능해야 해."</p>
+<p>Claude가 제시한 3단계를 내 상황에 맞게 수정해서 문서에 붙여 넣습니다.</p>
+<p><strong>3단계 — MVP 기준 선언 (1분)</strong></p>
+<p>내 평소 발행 기준의 30% 수준으로 MVP를 정의합니다.</p>
+<p>글자 수, 소제목 개수, 이미지 포함 여부 등 항목별로 최솟값을 씁니다.</p>
+<p>이 세 블록을 합치면 재개 트리거 SOP 1페이지가 완성됩니다.</p>
+<p>문서 상단에 제목을 붙입니다: <strong>"[내 이름] 발행 재개 트리거 SOP v1"</strong></p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #7에서는 이 SOP를 실제로 한 번 발동시켜 봅니다.</p>
+<p>중단 상황을 가정하고 Claude와 함께 72시간 안에 발행을 완료하는 전 과정을 실시간으로 보여드릴 예정입니다.</p>
+<p>오늘 만든 SOP 문서, 댓글에 MVP 기준 한 줄만 공유해 주세요.</p>
+<p>회원님의 기준이 다른 수강생에게 좋은 참고가 됩니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

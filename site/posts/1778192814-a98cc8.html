@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 Claude에게 내 업무 맥락 전달하는 법 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 Claude에게 내 업무 맥락 전달하는 법<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-sop-onboarding · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>Claude한테 "우리 팀 온보딩 SOP 만들어줘"라고 입력했는데, 돌아온 결과물이 우리 팀과 전혀 상관없는 일반적인 문서였던 적 있으신가요?</p>
+<p>그건 Claude가 나쁜 게 아닙니다. Claude가 회원님의 팀을 모르는 게 당연하거든요.</p>
+<p>오늘 이 영상을 보고 나면, Claude가 마치 우리 팀 내부 사정을 아는 것처럼 답하게 만드는 방법을 갖게 됩니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면, 역할·배경·출력 형식을 담은 컨텍스트 프롬프트를 직접 작성해서 Claude로부터 우리 팀 전용 SOP 초안을 뽑아낼 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>중요 개념 1 — 컨텍스트 프롬프트 3요소: 역할 지정·업무 배경·출력 형식 지시</h3>
+<p><strong>설명</strong></p>
+<p>컨텍스트 프롬프트는 세 개의 칸으로 이루어진 명함이라고 생각하세요.</p>
+<p>첫 번째 칸은 <strong>역할 지정</strong>입니다. Claude에게 "너는 지금 어떤 전문가야"라고 알려주는 겁니다.</p>
+<p>두 번째 칸은 <strong>업무 배경</strong>입니다. 팀 규모, 업종, 현재 상황처럼 Claude가 판단 근거로 삼을 정보를 넣습니다.</p>
+<p>세 번째 칸은 <strong>출력 형식 지시</strong>입니다. 결과물의 구조, 길이, 언어 톤을 명시합니다.</p>
+<p>이 세 칸이 채워져야 Claude는 범용 답변이 아닌 맞춤 답변을 생성합니다.</p>
+<p><strong>예시</strong></p>
+<blockquote>
+<p>"너는 SaaS 스타트업의 시니어 온보딩 매니저야. 우리 팀은 15명 규모이고 신규 입사자가 매달 2명씩 들어와. 결과물은 번호 목록 형식으로, 각 항목은 2문장 이내로 작성해줘."</p>
+</blockquote>
+<p>이 한 단락이 세 칸을 모두 채웁니다.</p>
+<p><strong>반례</strong></p>
+<blockquote>
+<p>"온보딩 SOP 만들어줘."</p>
+</blockquote>
+<p>역할도 없고, 배경도 없고, 형식도 없습니다. Claude는 추측으로 채울 수밖에 없어서 결과물이 우리 팀과 멀어집니다.</p>
+<p><strong>정리 — 메모리 페그: '명함 3칸'</strong></p>
+<p>역할·배경·형식. 이 세 칸이 비어 있으면 Claude는 낯선 사람에게 답하는 겁니다.</p>
+<hr />
+<h3>중요 개념 2 — 모호한 지시 vs. 구체적 지시 비교</h3>
+<p><strong>설명</strong></p>
+<p>프롬프트의 품질은 단어 수가 아니라 <strong>모호함의 양</strong>으로 결정됩니다.</p>
+<p>모호한 지시는 Claude가 빈칸을 스스로 채우게 만듭니다. 그 빈칸이 우리 팀 현실과 다르면, 결과물 전체가 어긋납니다.</p>
+<p>구체적 지시는 빈칸을 우리가 먼저 채워둡니다.</p>
+<p><strong>예시 비교</strong></p>
+<table>
+<thead>
+<tr>
+<th>모호한 지시</th>
+<th>구체적 지시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"쉽게 써줘"</td>
+<td>"중학교 2학년도 이해하는 수준으로, 전문 용어는 괄호 안에 한국어 설명 추가"</td>
+</tr>
+<tr>
+<td>"중요한 내용 포함해줘"</td>
+<td>"첫 주 업무 체크리스트, IT 계정 설정, 팀 문화 규칙 3가지를 반드시 포함"</td>
+</tr>
+<tr>
+<td>"적당한 길이로"</td>
+<td>"전체 500자 이내, 항목당 1줄"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>반례</strong></p>
+<p>구체적으로 쓴다고 해서 프롬프트가 무조건 길어야 하는 건 아닙니다. 짧아도 세 칸이 채워지면 충분합니다. 구체성은 분량이 아니라 <strong>명확함</strong>의 문제입니다.</p>
+<p><strong>정리 — 메모리 페그: '빈칸 채우기 시험'</strong></p>
+<p>빈칸이 많은 시험지를 학생에게 주면 제각각 답을 씁니다. 프롬프트도 마찬가지입니다. 빈칸은 우리가 먼저 채워야 합니다.</p>
+<hr />
+<h3>중요 개념 3 — 팀 규모·업종별 맞춤 변수 설정</h3>
+<p><strong>설명</strong></p>
+<p>같은 '온보딩 SOP'라도 5인 스타트업과 200인 제조기업의 내용은 완전히 다릅니다.</p>
+<p>이 차이를 만드는 것이 <strong>맞춤 변수</strong>입니다.</p>
+<p>변수는 크게 세 가지 축으로 나눌 수 있습니다.</p>
+<ul>
+<li><strong>팀 규모 변수</strong>: 인원 수, 직급 체계, 결재 단계</li>
+<li><strong>업종 변수</strong>: 업무 도구 스택, 규제 환경, 고객 접점 유무</li>
+<li><strong>온보딩 특성 변수</strong>: 리모트·오피스 여부, 온보딩 기간, 버디 제도 유무</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>리모트 5인 핀테크 팀이라면 변수는 이렇게 됩니다.</p>
+<blockquote>
+<p>"팀 규모: 5명, 전원 리모트. 업종: 핀테크(금융 규제 문서 숙지 필수). 온보딩 기간: 2주. 버디 제도: 없음."</p>
+</blockquote>
+<p>이 네 줄을 프롬프트에 붙이면, Claude는 규제 관련 체크리스트를 자동으로 포함시킵니다.</p>
+<p><strong>반례</strong></p>
+<p>변수를 너무 많이 넣으면 Claude가 우선순위를 잡지 못합니다. 제 경험상 변수는 한 번에 5개 이하로 유지할 때 결과물이 더 정돈됩니다.</p>
+<p><strong>정리 — 메모리 페그: '요리 레시피의 재료 칸'</strong></p>
+<p>레시피에 재료 양이 안 적혀 있으면 요리사마다 다른 음식이 나옵니다. 변수가 바로 우리 팀의 재료 칸입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 다음 단계를 따라 <strong>컨텍스트 프롬프트 초안 1페이지</strong>를 작성해 보세요.</p>
+<p><strong>Step 1 — 역할 지정 문장 1개 쓰기 (1분)</strong></p>
+<p>"너는 [직무 또는 전문가 유형]야." 형식으로 한 문장을 작성하세요.</p>
+<p>예: "너는 B2B SaaS 스타트업의 온보딩 담당 HR 매니저야."</p>
+<p><strong>Step 2 — 업무 배경 블록 채우기 (1분)</strong></p>
+<p>아래 항목을 한 줄씩 작성하세요.</p>
+<ul>
+<li>팀 규모:</li>
+<li>업종 및 주요 업무:</li>
+<li>현재 온보딩의 가장 큰 문제:</li>
+<li>신규 입사자가 첫 주에 반드시 알아야 할 것 3가지:</li>
+</ul>
+<p><strong>Step 3 — 출력 형식 지시 2줄 쓰기 (30초)</strong></p>
+<p>결과물의 구조와 길이를 지정하세요.</p>
+<p>예: "번호 목록 형식, 각 항목 2문장 이내, 전체 A4 1페이지 분량."</p>
+<p><strong>Step 4 — 세 블록 합치기 (30초)</strong></p>
+<p>Step 1, 2, 3을 하나의 문단으로 붙여서 Claude에 입력해 보세요. 결과물이 이전과 얼마나 달라지는지 직접 확인하세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 Claude가 생성한 SOP 초안을 팀 피드백 없이 빠르게 검증하는 방법을 다룹니다.</p>
+<p>오늘 작성한 컨텍스트 프롬프트 초안, 댓글에 붙여넣어 주세요. 어떤 팀인지, 어떤 변수를 넣었는지 보면 서로에게 좋은 참고가 됩니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

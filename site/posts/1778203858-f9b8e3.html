@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#5 편집 전 준비 — 썸네일·제목·설명을 Claude로 배치 생성 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#5 편집 전 준비 — 썸네일·제목·설명을 Claude로 배치 생성<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-content-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>영상은 다 만들었는데, 제목 하나 못 정해서 발행을 못 하고 있다면.</p>
+<p>썸네일 카피가 마음에 안 들어 덮어두고, 설명란은 아예 비워둔 채로 며칠이 지납니다.</p>
+<p>그러다 결국 대충 올리거나, 아예 안 올립니다.</p>
+<p>오늘 이 차시 하나로 그 병목을 끊어냅니다.</p>
+<p>스크립트 하나 넣으면 제목 5개, 썸네일 카피 3개, 설명란 초안까지 한 번에 뽑아냅니다.</p>
+<p>선택만 하면 끝입니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 완성된 스크립트를 Claude에 붙여넣는 것만으로 유튜브 발행에 필요한 메타데이터 전체를 10분 안에 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>중요 개념 1 — 배치 생성 프롬프트: "한 번 입력, 여러 출력"</h3>
+<p><strong>설명</strong></p>
+<p>배치 생성 프롬프트는 Single Input, Multi Output입니다.</p>
+<p>하나의 맥락을 Claude에 한 번만 전달하고, 서로 다른 형식의 결과물을 동시에 받는 구조입니다.</p>
+<p>프롬프트 안에서 출력 항목을 명시적으로 선언하는 것이 중요한입니다.</p>
+<p>메모리 페그로 기억하세요. <strong>"SIMO — 하나 넣고 여럿 꺼낸다."</strong></p>
+<p><strong>예시</strong></p>
+<p>프롬프트 마지막 줄에 이렇게 씁니다.</p>
+<blockquote>
+<p>"아래 스크립트를 기반으로 다음을 각각 생성해 주세요.
+1) 썸네일 카피 3안 (15자 이내)
+2) 유튜브 영상 제목 5안
+3) 유튜브 설명란 초안 (300자 내외)
+4) 관련 태그 10개"</p>
+</blockquote>
+<p>Claude는 스크립트 맥락을 공유한 상태로 네 항목을 한 응답에 돌려줍니다.</p>
+<p><strong>반례</strong></p>
+<p>항목을 따로따로 4번 대화하면 어떻게 될까요?</p>
+<p>Claude는 매번 맥락을 새로 해석합니다.</p>
+<p>제목과 설명란의 톤이 달라지고, 썸네일 카피와 제목이 충돌하는 경우가 생깁니다.</p>
+<p>배치로 한 번에 요청해야 일관성이 유지됩니다.</p>
+<p><strong>정리</strong></p>
+<p>배치 생성 = 출력 항목을 번호 목록으로 명시 + 스크립트는 프롬프트 맨 앞에 한 번만.</p>
+<hr />
+<h3>중요 개념 2 — 클릭률 높은 제목의 3가지 패턴</h3>
+<p><strong>설명</strong></p>
+<p>유튜브 제목은 크게 3가지 패턴으로 나뉩니다.</p>
+<p>숫자로 기억하세요. <strong>3P: Pain(고통), Promise(약속), Proof(증거).</strong></p>
+<p><strong>Pain 패턴</strong>: 시청자의 불편을 제목에 넣습니다.</p>
+<blockquote>
+<p>"제목 못 정해서 발행 못 하는 분들께"</p>
+</blockquote>
+<p><strong>Promise 패턴</strong>: 결과를 제목에 선언합니다.</p>
+<blockquote>
+<p>"스크립트 넣으면 제목이 5개 나옵니다"</p>
+</blockquote>
+<p><strong>Proof 패턴</strong>: 숫자나 기간으로 신뢰를 더합니다.</p>
+<blockquote>
+<p>"6개월 동안 주 1회 발행한 실제 방법"</p>
+</blockquote>
+<p><strong>예시</strong></p>
+<p>Claude에게 5안을 요청할 때 이렇게 명시합니다.</p>
+<blockquote>
+<p>"Pain 패턴 2안, Promise 패턴 2안, Proof 패턴 1안으로 각각 만들어 주세요."</p>
+</blockquote>
+<p>패턴을 지정하면 제목 5개가 무작위로 나오는 것이 아니라, 맞춰으로 분산됩니다.</p>
+<p><strong>반례</strong></p>
+<p>패턴 지정 없이 "제목 5개 만들어줘"라고만 하면 어떻게 될까요?</p>
+<p>대부분의 경우 Promise 패턴으로 비슷한 문장이 몰립니다.</p>
+<p>선택지가 넓어 보여도 실제로는 하나의 접근이 반복되는 상황입니다.</p>
+<p><strong>정리</strong></p>
+<p>제목 5안 = Pain 2 / Promise 2 / Proof 1. 패턴을 프롬프트에 직접 지시합니다.</p>
+<hr />
+<h3>중요 개념 3 — SEO 설명란의 4가지 구성 요소</h3>
+<p><strong>설명</strong></p>
+<p>유튜브 설명란은 검색 노출과 클릭 후 이탈 방지를 동시에 담당합니다.</p>
+<p>메모리 페그는 <strong>"HKLT"</strong> — Hook, Keyword, Link, Tag.</p>
+<p><strong>Hook (첫 2줄)</strong>: 유튜브는 설명란을 2줄만 미리 보여줍니다.</p>
+<p>첫 2줄 안에 중요한 문장이 들어가야 합니다.</p>
+<p><strong>Keyword (본문)</strong>: 영상에서 다루는 중요한 단어를 자연스럽게 녹입니다.</p>
+<p>키워드 나열이 아니라 문장 안에 배치합니다.</p>
+<p><strong>Link (중간)</strong>: 관련 영상, 이전 차시, 무료 자료 링크를 배치합니다.</p>
+<p><strong>Tag (하단)</strong>: 해시태그 3~5개를 설명란 맨 아래에 둡니다.</p>
+<p>유튜브 공식 권고 기준입니다.</p>
+<p><strong>예시</strong></p>
+<p>Claude에게 이렇게 요청합니다.</p>
+<blockquote>
+<p>"설명란은 HKLT 구조로 작성해 주세요.
+Hook: 첫 2줄에 중요한 요약.
+Keyword: 본문에 자연스럽게 삽입.
+Link: [링크 삽입 위치] 표시로 비워두기.
+Tag: 하단에 해시태그 5개."</p>
+</blockquote>
+<p>Link 위치는 Claude가 채울 수 없으니, 플레이스홀더로 받는 것이 빠른입니다.</p>
+<p><strong>반례</strong></p>
+<p>설명란을 단순히 "영상 요약해줘"로 요청하면 어떻게 될까요?</p>
+<p>키워드 밀도가 낮고, 첫 2줄이 인트로 인사로 시작되는 경우가 많습니다.</p>
+<p>검색 노출에서 불리하고, 시청자가 설명란을 더 펼쳐 볼 이유도 없어집니다.</p>
+<p><strong>정리</strong></p>
+<p>SEO 설명란 = HKLT 구조를 프롬프트에 명시. Link는 플레이스홀더로 받습니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하세요.</p>
+<p>오늘 실습의 최종 산출물은 <strong>발행 메타데이터 패키지 문서</strong> 1개입니다.</p>
+<p><strong>Step 1 — 스크립트 준비 (1분)</strong></p>
+<p>4차시에서 완성한 스크립트를 엽니다.</p>
+<p>없다면, 최근에 완성한 영상 스크립트 아무거나 사용합니다.</p>
+<p><strong>Step 2 — 배치 프롬프트 작성 (2분)</strong></p>
+<p>아래 틀을 복사해서 Claude에 붙여넣습니다.</p>
+<hr />
+<p>[스크립트 전문을 여기에 붙여넣으세요]</p>
+<p>위 스크립트를 기반으로 아래 항목을 각각 생성해 주세요.</p>
+<p>1) 썸네일 카피 3안 — 각 15자 이내, 강렬한 동사 포함
+2) 유튜브 제목 5안 — Pain 2안, Promise 2안, Proof 1안 패턴으로
+3) 유튜브 설명란 초안 — HKLT 구조, Link 위치는 [링크]로 표시
+4) 관련 태그 10개 — 쉼표로 구분</p>
+<hr />
+<p><strong>Step 3 — 채택 및 수정 (1분)</strong></p>
+<p>Claude 결과물을 받으면 각 항목에서 1개씩만 고릅니다.</p>
+<p>고른 이유를 한 줄씩 옆에 메모합니다.</p>
+<p>선택한 제목은 30자를 넘으면 줄입니다.</p>
+<p>설명란 첫 2줄은 직접 읽어보고, 중요한이 빠졌으면 수정합니다.</p>
+<p><strong>Step 4 — 문서 저장</strong></p>
+<p>노션, 구글 독스, 어디든 좋습니다.</p>
+<p>파일명은 <strong>"YYYYMMDD_채널명_메타데이터"</strong> 형식으로 저장합니다.</p>
+<p>이 문서가 오늘의 발행 메타데이터 패키지입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시는 드디어 <strong>실제 발행 단계</strong>입니다.</p>
+<p>메타데이터 패키지를 들고 유튜브 스튜디오에 들어가서, 예약 발행까지 세팅하는 전체 흐름을 다룹니다.</p>
+<p>오늘 만든 문서, 다음 영상에서 바로 씁니다.</p>
+<p>지금 바로 다음 영상으로 넘어가세요.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

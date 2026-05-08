@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>#6 회의록·요약 자동화 워크플로우 만들기 — 강의 홈페이지</title>
-  <link rel="stylesheet" href="../styles.css?v=1778193103" />
+  <title>#6 회의록·요약 자동 처리 방법 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
   <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
   <script>
     (function () {
@@ -89,7 +89,7 @@
 <article class="body">
   <div class="wrap">
     <a href="../index.html" class="muted">← 홈으로</a>
-    <h1>#6 회의록·요약 자동화 워크플로우 만들기<span class="kind-tag">lecture_script</span></h1>
+    <h1>#6 회의록·요약 자동 처리 방법 만들기<span class="kind-tag">lecture_script</span></h1>
     <p class="muted">코스: claude-autowork · 에이전트: producer</p>
     <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
     <h2>HOOK (45초)</h2>
@@ -101,7 +101,7 @@
 <p>이 차시가 끝나면, 어떤 회의록 원문이든 Claude에 넣어 3섹션 구조화 요약을 5초 안에 뽑아내는 프롬프트를 직접 완성할 수 있습니다.</p>
 <hr />
 <h2>CORE (8–10분)</h2>
-<h3>핵심 개념 1 — 구조화 출력 설계: '레이아웃 먼저, 내용 나중'</h3>
+<h3>중요 개념 1 — 구조화 출력 설계: '레이아웃 먼저, 내용 나중'</h3>
 <p><strong>설명</strong></p>
 <p>Claude에게 무엇을 써달라고 하기 전에, 먼저 출력물의 틀을 못 박아야 합니다.</p>
 <p>이걸 '레이아웃 우선 설계'라고 부를게요.</p>
@@ -119,7 +119,7 @@
 <p>집 지을 때 도면 없이 벽돌 쌓지 않죠.</p>
 <p>프롬프트도 도면(출력 형식)을 먼저 그립니다.</p>
 <hr />
-<h3>핵심 개념 2 — 정보 추출 프롬프트: '3개의 체'</h3>
+<h3>중요 개념 2 — 정보 추출 프롬프트: '3개의 체'</h3>
 <p><strong>설명</strong></p>
 <p>회의 텍스트 안에는 세 가지 정보가 섞여 있습니다.</p>
 <p>첫째, 앞으로 누군가 해야 할 일 — 액션아이템.</p>
@@ -138,10 +138,10 @@
 <p>액션아이템 체, 결정사항 체, 요약 체.</p>
 <p>세 기준을 프롬프트에 박아두세요.</p>
 <hr />
-<h3>핵심 개념 3 — 마크다운 포맷 활용: '복붙 즉시 배포'</h3>
+<h3>중요 개념 3 — 마크다운 포맷 사용: '복붙 즉시 배포'</h3>
 <p><strong>설명</strong></p>
 <p>출력이 아무리 정확해도 Notion, Slack, 이메일에 붙여넣었을 때 깨지면 소용없습니다.</p>
-<p>마크다운을 활용하면 Claude 출력이 곧바로 배포 가능한 문서가 됩니다.</p>
+<p>마크다운을 사용하면 Claude 출력이 곧바로 배포 가능한 문서가 됩니다.</p>
 <p><code>##</code>은 섹션 헤더, <code>-</code>는 불릿, <code>**</code>는 강조, 코드블록은 코드.</p>
 <p>이 4가지만 알면 충분합니다.</p>
 <p><strong>예시</strong></p>
@@ -162,7 +162,7 @@
 <p><strong>Step 1 — 샘플 회의록 준비 (30초)</strong></p>
 <p>아래 텍스트를 복사하세요.</p>
 <blockquote>
-<p>"오늘 마케팅팀 회의에서 SNS 광고 예산을 200만 원으로 확정했다. 김민준 대리가 다음 주 금요일까지 소재 3종을 제작하기로 했다. 이지수 팀장은 월요일까지 승인 프로세스를 정리해서 공유한다. 전체 캠페인 런칭은 이번 달 말로 결정됐다."</p>
+<p>"오늘 마케팅팀 회의에서 SNS 광고 예산을 200만 원으로 확정했다. 김민준 대리가 다음 주 금요일까지 소재 3종을 제작하기로 했다. 이지수 팀장은 월요일까지 승인 순서를 정리해서 공유한다. 전체 캠페인 런칭은 이번 달 말로 결정됐다."</p>
 </blockquote>
 <p><strong>Step 2 — 프롬프트 뼈대 작성 (1분)</strong></p>
 <p>Claude 입력창에 아래 구조를 먼저 씁니다.</p>

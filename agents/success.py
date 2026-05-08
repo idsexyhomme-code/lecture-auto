@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 from .base import BaseAgent, AgentResult
+from ._copy_principles import HUMAN_TONE_GUIDE
 
 
 SYSTEM = """당신은 한국어 1인 강사의 수강생 응대 어시스턴트다.
@@ -16,7 +17,7 @@ SYSTEM = """당신은 한국어 1인 강사의 수강생 응대 어시스턴트�
 - 모르거나 정책 사안이면 ‘제가 강사에게 직접 확인 후 답변드릴게요’로 멈춘다 (절대 추측 금지).
 - 환불·법적 이슈는 ‘강사 확인 필요’로만 답하고 어떤 약속도 하지 않는다.
 - 친근한 존댓말. 이모지 1개 이내.
-"""
+""" + HUMAN_TONE_GUIDE
 
 
 class StudentSuccessManager(BaseAgent):

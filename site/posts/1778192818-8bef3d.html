@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 Claude에게 내 업무 맥락 전달하는 법 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 Claude에게 내 업무 맥락 전달하는 법<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-sop-onboarding · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>Claude한테 "우리 팀 온보딩 SOP 만들어줘" 라고 입력했는데, 돌아온 건 인터넷 어디서나 볼 법한 교과서 같은 문서였죠.</p>
+<p>내 팀 이름도, 우리만의 용어도, 실제 업무 흐름도 하나 없는 그 문서.</p>
+<p>결국 처음부터 다시 쓰게 됩니다.</p>
+<p>문제는 Claude가 아닙니다. 맥락을 전달하지 않은 거죠.</p>
+<p>오늘 이 차시에서 Claude가 처음부터 '우리 팀 SOP'를 뽑아내도록, 정확한 맥락 전달 방법을 알려드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 역할·배경·출력 형식을 담은 컨텍스트 프롬프트를 직접 작성해서 Claude로부터 우리 팀 전용 SOP 초안을 바로 뽑아낼 수 있게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>중요 개념 1 — 컨텍스트 프롬프트 3요소: "역할 · 배경 · 형식"</h3>
+<p><strong>설명</strong></p>
+<p>Claude는 빈 화면에서 시작합니다.
+회원님의 팀이 어떤 팀인지, 어떤 말투를 쓰는지, 출력물이 어떤 모양이어야 하는지, 아무것도 모릅니다.
+그래서 컨텍스트 프롬프트에 딱 3가지를 심어야 합니다.</p>
+<p>첫째, <strong>역할 지정(Role)</strong> — Claude가 누구로서 답해야 하는가.
+둘째, <strong>업무 배경(Background)</strong> — 팀·업종·순서 현황.
+셋째, <strong>출력 형식 지시(Format)</strong> — 문서 구조, 길이, 언어 톤.</p>
+<p>메모리 페그로 기억하세요. <strong>'R·B·F 삼각대'</strong> 입니다.
+삼각대 다리 하나가 빠지면 카메라가 쓰러지듯, 셋 중 하나만 빠져도 결과물이 흔들립니다.</p>
+<p><strong>예시</strong></p>
+<blockquote>
+<p>"당신은 5년 경력의 HR 매니저입니다.(역할)
+우리 팀은 20명 규모의 SaaS 스타트업 고객성공팀이며, 신규 입사자가 30일 안에 고객 응대를 독립적으로 하도록 돕는 SOP가 필요합니다.(배경)
+마크다운 형식, 단계별 번호 목록, 각 단계에 예상 소요 시간 포함, 전체 500자 이내로 작성해 주세요.(형식)"</p>
+</blockquote>
+<p>이렇게 쓰면 Claude는 HR 전문가의 시각으로, 우리 팀 상황에 맞게, 바로 쓸 수 있는 형태로 답합니다.</p>
+<p><strong>반례</strong></p>
+<p>역할만 지정하고 배경과 형식이 없으면 어떻게 될까요.
+"HR 전문가로서 온보딩 SOP 작성해줘"라고만 하면, Claude는 가장 일반적인 HR 교과서 내용을 씁니다.
+형식도 매번 달라지기 때문에 팀에 붙여 넣을 수가 없습니다.</p>
+<p><strong>정리</strong></p>
+<p>컨텍스트 프롬프트는 R·B·F 삼각대.
+역할 → 배경 → 형식, 이 순서로 한 문단씩 채웁니다.</p>
+<hr />
+<h3>중요 개념 2 — 모호한 지시 vs 구체적 지시</h3>
+<p><strong>설명</strong></p>
+<p>같은 요청이라도 단어 선택 하나로 결과물 품질이 크게 달라집니다.
+모호한 지시는 Claude에게 해석의 여지를 너무 많이 줍니다.
+구체적 지시는 해석의 범위를 좁혀서 원하는 방향으로 유도합니다.</p>
+<p>메모리 페그는 <strong>'레이저 vs 손전등'</strong> 입니다.
+손전등은 넓게 퍼져서 어디도 밝히지 못하고, 레이저는 한 점을 정확히 찍습니다.</p>
+<p><strong>예시 — 모호한 지시</strong></p>
+<blockquote>
+<p>"신입사원 교육 문서 만들어줘."</p>
+</blockquote>
+<p>이 문장에는 누가, 어떤 팀, 어떤 업무, 어떤 기간, 어떤 형식인지가 전혀 없습니다.</p>
+<p><strong>예시 — 구체적 지시</strong></p>
+<blockquote>
+<p>"마케팅팀 신입 콘텐츠 에디터가 입사 첫 주에 따라야 할 콘텐츠 발행 SOP를 작성해 주세요.
+단계는 최대 7개, 각 단계마다 담당자와 사용 툴(Notion, Slack, WordPress)을 명시하고, 체크리스트 형식으로 마무리해 주세요."</p>
+</blockquote>
+<p>같은 요청이지만 레이저처럼 좁혀진 지시가 훨씬 쓸 수 있는 문서를 만들어냅니다.</p>
+<p><strong>반례</strong></p>
+<p>지나치게 구체적이면 Claude의 창의적 보완 능력을 막기도 합니다.
+예를 들어 단어 하나하나까지 지시하면 정작 누락된 논리적 흐름을 Claude가 채울 여지가 없어집니다.
+구체적이되, 판단이 필요한 부분은 Claude에게 열어두는 균형이 필요합니다.</p>
+<p><strong>정리</strong></p>
+<p>모호한 지시는 손전등, 구체적 지시는 레이저.
+'누가·무엇을·어떤 형태로' 세 가지만 명확히 해도 결과물이 확 달라집니다.</p>
+<hr />
+<h3>중요 개념 3 — 팀 규모·업종별 맞춤 변수 설정</h3>
+<p><strong>설명</strong></p>
+<p>컨텍스트 프롬프트에 변수를 넣으면 같은 템플릿으로 다양한 팀에 재사용할 수 있습니다.
+변수란 괄호나 대괄호로 표시한 교체 가능한 정보 조각입니다.</p>
+<p>메모리 페그는 <strong>'레고 블록'</strong> 입니다.
+기본 틀(컨텍스트 템플릿)은 그대로 두고, 팀마다 해당하는 블록만 갈아 끼웁니다.</p>
+<p>중요한 변수는 4가지입니다.</p>
+<ul>
+<li><strong>[팀 규모]</strong> — 3인 스타트업과 300인 기업의 SOP 복잡도는 다릅니다.</li>
+<li><strong>[업종]</strong> — 제조업 SOP와 IT 서비스업 SOP는 용어부터 다릅니다.</li>
+<li><strong>[온보딩 기간]</strong> — 1주, 30일, 90일 플랜은 깊이가 달라집니다.</li>
+<li><strong>[사용 툴]</strong> — Notion, Jira, Google Workspace 등 실제 쓰는 도구를 명시합니다.</li>
+</ul>
+<p><strong>예시</strong></p>
+<blockquote>
+<p>"우리 팀은 [팀 규모: 12명]의 [업종: 이커머스] 운영팀입니다.
+[온보딩 기간: 2주] 안에 독립 업무가 가능하도록 SOP를 작성하고, 사용 툴은 [사용 툴: Shopify, Slack, Notion]을 기준으로 해주세요."</p>
+</blockquote>
+<p>대괄호 안의 값만 바꾸면 다른 팀에도 즉시 적용됩니다.</p>
+<p><strong>반례</strong></p>
+<p>변수를 너무 많이 설정하면 프롬프트가 길어지고 오히려 중요한이 묻힙니다.
+제 경험상 변수는 4–6개 이내가 다루기 좋습니다.
+그 이상은 별도 문서로 분리하는 게 낫습니다.</p>
+<p><strong>정리</strong></p>
+<p>팀마다 다른 정보는 변수로 처리합니다.
+레고 블록처럼 기본 틀에 4개 변수(규모·업종·기간·툴)를 꽂으면 재사용 가능한 프롬프트 자산이 됩니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>영상을 지금 일시정지해 주세요.
+아래 단계를 따라 회원님만의 '컨텍스트 프롬프트 초안' 1페이지를 작성합니다.</p>
+<p><strong>준비물:</strong> 노션 페이지, 구글 문서, 메모장 중 편한 것 하나.</p>
+<hr />
+<p><strong>Step 1 — 역할(Role) 한 문장 쓰기 (1분)</strong></p>
+<p>Claude가 어떤 전문가로서 답해야 하는지 씁니다.</p>
+<p>예시: "당신은 [업종] 분야에서 [N]년 경력을 가진 [직무] 전문가입니다."</p>
+<p>회원님의 팀 맥락에 맞게 괄호 안을 채워 보세요.</p>
+<hr />
+<p><strong>Step 2 — 배경(Background) 세 줄 쓰기 (1분)</strong></p>
+<p>아래 세 가지를 각각 한 문장씩 씁니다.</p>
+<ol>
+<li>팀 규모와 업종</li>
+<li>신규 입사자가 겪는 가장 큰 어려움 한 가지</li>
+<li>SOP가 커버해야 할 업무 범위</li>
+</ol>
+<hr />
+<p><strong>Step 3 — 형식(Format) 지시 두 줄 쓰기 (1분)</strong></p>
+<p>출력물의 구조와 조건을 명시합니다.</p>
+<p>예시: "마크다운 형식, 단계별 번호 목록, 각 단계에 예상 소요 시간 포함, 전체 700자 이내."</p>
+<hr />
+<p><strong>Step 4 — 변수 4개 괄호로 표시하기 (30초)</strong></p>
+<p>작성한 프롬프트에서 팀마다 달라질 수 있는 정보를 대괄호로 감쌉니다.
+규모·업종·기간·툴, 최소 이 4개를 찾아보세요.</p>
+<hr />
+<p>작성이 끝났으면 영상을 다시 재생해 주세요.
+완성된 초안은 다음 차시에서 Claude에 직접 넣고 SOP를 생성하는 데 바로 씁니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 오늘 만든 컨텍스트 프롬프트를 Claude에 붙여 넣고 실제 SOP 초안을 생성합니다.
+그리고 한 번에 안 나왔을 때 어떻게 수정 프롬프트로 다듬는지도 다룹니다.</p>
+<p>오늘 만든 컨텍스트 프롬프트 초안, 댓글에 올려주세요.
+다른 분들 사례를 보는 것만으로도 프롬프트 감각이 빠르게 올라갑니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

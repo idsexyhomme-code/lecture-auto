@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>#5 이메일 자동 초안 생성 워크플로우 만들기 — 강의 홈페이지</title>
-  <link rel="stylesheet" href="../styles.css?v=1778193103" />
+  <title>#5 이메일 자동 초안 생성 방법 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
   <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
   <script>
     (function () {
@@ -89,7 +89,7 @@
 <article class="body">
   <div class="wrap">
     <a href="../index.html" class="muted">← 홈으로</a>
-    <h1>#5 이메일 자동 초안 생성 워크플로우 만들기<span class="kind-tag">lecture_script</span></h1>
+    <h1>#5 이메일 자동 초안 생성 방법 만들기<span class="kind-tag">lecture_script</span></h1>
     <p class="muted">코스: claude-autowork · 에이전트: producer</p>
     <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
     <h2>HOOK (45초)</h2>
@@ -102,7 +102,7 @@
 <p>이번 차시를 마치면, 고객 문의 유형 3가지에 대응하는 이메일 초안을 Claude로 30초 안에 뽑아내는 프롬프트 템플릿을 직접 완성할 수 있습니다.</p>
 <hr />
 <h2>CORE (8–10분)</h2>
-<h3>핵심 개념 1 — 템플릿 변수 설계: '빈칸 계약서'</h3>
+<h3>중요 개념 1 — 템플릿 변수 설계: '빈칸 계약서'</h3>
 <p><strong>설명</strong>
 프롬프트를 매번 새로 쓰는 건 매번 계약서를 처음부터 타이핑하는 것과 같습니다.
 변수는 그 계약서의 빈칸입니다.
@@ -122,7 +122,7 @@
 메모리 페그: '빈칸 계약서'. 고정값은 인쇄, 변수는 손으로 채운다.
 규칙은 하나입니다. 바뀌는 것만 변수로, 나머지는 고정하세요.</p>
 <hr />
-<h3>핵심 개념 2 — 어조(Tone) 제어: '다이얼 세 칸'</h3>
+<h3>중요 개념 2 — 어조(Tone) 제어: '다이얼 세 칸'</h3>
 <p><strong>설명</strong>
 같은 내용이라도 어조가 틀리면 고객 반응이 완전히 달라집니다.
 어조를 Claude에게 맡기면 매번 다른 결과가 나옵니다.
@@ -146,14 +146,14 @@
 메모리 페그: '다이얼 세 칸'. 공감·정보·안심.
 어조 지시는 추상어 대신 행동어로 쓰세요.</p>
 <hr />
-<h3>핵심 개념 3 — 맥락 주입 기법: '배경 브리핑'</h3>
+<h3>중요 개념 3 — 맥락 주입 기법: '배경 브리핑'</h3>
 <p><strong>설명</strong>
 Claude는 내 회사, 내 고객, 내 정책을 모릅니다.
 맥락을 주지 않으면 일반적인 이메일이 나옵니다.
 맥락을 주면 우리 브랜드 목소리가 나옵니다.</p>
 <p>맥락 주입은 세 층으로 구성합니다.</p>
 <ul>
-<li><strong>1층 — 브랜드 맥락</strong>: 회사명, 업종, 핵심 가치 1–2줄</li>
+<li><strong>1층 — 브랜드 맥락</strong>: 회사명, 업종, 중요한 가치 1–2줄</li>
 <li><strong>2층 — 고객 맥락</strong>: 이 고객의 상황 요약</li>
 <li><strong>3층 — 정책 맥락</strong>: 이 유형에 적용되는 처리 규정</li>
 </ul>
@@ -166,7 +166,7 @@ Claude는 내 회사, 내 고객, 내 정책을 모릅니다.
 </blockquote>
 <p>이 세 층이 갖춰지면 Claude가 브랜드 담당자처럼 씁니다.</p>
 <p><strong>반례</strong>
-맥락이 너무 길면 Claude가 핵심 지시를 놓칩니다.
+맥락이 너무 길면 Claude가 중요한 지시를 놓칩니다.
 각 층은 3문장 이내로 압축하세요.
 배경 소설을 쓰는 게 아니라 브리핑을 하는 겁니다.</p>
 <p><strong>정리</strong>
@@ -179,7 +179,7 @@ Claude는 내 회사, 내 고객, 내 정책을 모릅니다.
 <p><strong>준비물</strong>: 텍스트 편집기(노션, 메모장 무엇이든 OK)</p>
 <hr />
 <p><strong>Step 1 — 유형 정하기 (1분)</strong>
-여러분의 비즈니스에서 가장 자주 오는 고객 문의 유형 3가지를 적으세요.
+회원님의 비즈니스에서 가장 자주 오는 고객 문의 유형 3가지를 적으세요.
 예시가 필요하면 이걸 써도 됩니다.
 - 유형 A: 환불·교환 요청
 - 유형 B: 배송 지연 문의

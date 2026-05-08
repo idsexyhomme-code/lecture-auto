@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#5 SOP를 영상 스크립트로 구조화하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1778212199" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#5 SOP를 영상 스크립트로 구조화하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-sop-onboarding · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>SOP 문서 완성하고 나서, 이걸 영상으로 어떻게 만들지 막막했던 적 있으시죠?</p>
+<p>텍스트는 다 있는데, 어디서 장면을 끊어야 할지. 자막에 뭘 넣어야 할지. 내레이션은 어떤 톤으로 읽어야 할지.</p>
+<p>결국 영상 편집자한테 넘겼더니 "스크립트가 없어서 못 하겠다"는 말 돌아오고.</p>
+<p>오늘 이 문제를 Claude로 단번에 끝냅니다. SOP 문서를 붙여넣으면, 장면·자막·내레이션이 3열로 딱 나뉜 대본이 나옵니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 완성된 SOP 문서 하나를 Claude에 입력해서 영상 편집자가 바로 쓸 수 있는 3열 스크립트 문서를 직접 뽑아낼 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>중요 개념 1 — '번역 프롬프트' 구조: 문서를 대본으로 바꾸는 프레임</h3>
+<p><strong>설명</strong></p>
+<p>SOP는 정보 전달용 문서입니다. 영상 대본은 시청 경험 설계용 문서입니다. 이 둘은 목적이 다릅니다.</p>
+<p>Claude에게 단순히 "이걸 스크립트로 바꿔줘"라고 하면, 그냥 텍스트를 읽어주는 수준의 내레이션만 나옵니다.</p>
+<p>제대로 된 번역 프롬프트에는 세 가지가 들어가야 합니다.</p>
+<p>첫째, <strong>역할 지정</strong> — "너는 온보딩 영상 기획자야."
+둘째, <strong>산출물 형식 지정</strong> — "장면 번호·자막 포인트·내레이션 3열 표로 줘."
+셋째, <strong>시청자 맥락 지정</strong> — "시청자는 입사 첫날 신규 팀원이야."</p>
+<p><strong>예시</strong></p>
+<p>프롬프트를 이렇게 씁니다.</p>
+<blockquote>
+<p>"너는 신규 팀원 온보딩 영상 기획자야. 아래 SOP를 보고, 장면 번호 / 자막 포인트 / 내레이션 3열 표로 변환해줘. 시청자는 입사 첫날 팀원이고, 내레이션 톤은 친근하고 명확하게."</p>
+</blockquote>
+<p>그러면 Claude는 SOP의 각 단계를 장면 단위로 쪼개고, 중요한 키워드를 자막에 배치하고, 내레이션을 시청자 눈높이로 다시 씁니다.</p>
+<p><strong>반례</strong></p>
+<p>역할과 형식만 주고 시청자 맥락을 빼면 어떻게 될까요?</p>
+<p>내레이션이 SOP 원문을 그대로 읽는 수준이 됩니다. "시스템에 로그인합니다. 대시보드를 확인합니다." 이런 식으로요. 신규 팀원이 왜 이걸 해야 하는지, 뭘 조심해야 하는지 빠집니다.</p>
+<p><strong>정리</strong></p>
+<p>번역 프롬프트의 중요한은 <strong>역할 + 형식 + 시청자</strong>, 이 세 가지입니다.</p>
+<p>메모리 페그로 기억하세요. <strong>'역·형·시' = 역할, 형식, 시청자.</strong></p>
+<hr />
+<h3>중요 개념 2 — 장면 구분·자막 포인트·내레이션 톤 지정 방법</h3>
+<p><strong>설명</strong></p>
+<p>3열 구조를 Claude가 만들어줘도, 각 열의 품질을 올리려면 세부 지시가 필요합니다.</p>
+<p><strong>장면 구분</strong>은 SOP의 단계 번호를 기준으로 잡되, 한 장면은 30초~1분 안에 끝나는 분량으로 제한하도록 명시합니다.</p>
+<p><strong>자막 포인트</strong>는 행동 동사 중심으로 뽑도록 지시합니다. "확인한다"가 아니라 "클릭 → 저장 → 닫기"처럼 동작 단위로요.</p>
+<p><strong>내레이션 톤</strong>은 형용사 2~3개로 지정합니다. "친근하고, 명확하고, 짧게"처럼요. 모호한 지시보다 형용사 조합이 훨씬 정확합니다.</p>
+<p><strong>예시</strong></p>
+<p>프롬프트에 이렇게 추가합니다.</p>
+<blockquote>
+<p>"장면 하나는 최대 60초 분량으로 끊어줘. 자막은 동작 동사 중심 3단어 이내로. 내레이션은 친근하고 명확하게, 문장은 2줄 이내로."</p>
+</blockquote>
+<p>결과물이 편집자가 바로 쓸 수 있는 수준으로 바뀝니다.</p>
+<p><strong>반례</strong></p>
+<p>톤을 지정하지 않으면 Claude는 문어체 장문 내레이션을 씁니다. "해당 시스템에 접속하여 사용자 계정 정보를 입력하고 로그인 버튼을 클릭하시기 바랍니다." 이런 문장은 영상에서 읽기 불편합니다.</p>
+<p><strong>정리</strong></p>
+<p>3열 품질은 <strong>분량 제한 + 동사 중심 자막 + 톤 형용사</strong>, 이 세 가지로 올립니다.</p>
+<p>메모리 페그는 <strong>'60·동·형'</strong> — 60초, 동사, 형용사.</p>
+<hr />
+<h3>중요 개념 3 — 시청자 관점의 영상 흐름 설계</h3>
+<p><strong>설명</strong></p>
+<p>좋은 온보딩 영상은 정보를 나열하지 않습니다. 신규 팀원의 불안을 단계적으로 낮추는 흐름을 만듭니다.</p>
+<p>영상 흐름은 세 구간으로 설계합니다.</p>
+<p><strong>오프닝 (10~15%)</strong> — "이 영상이 끝나면 뭘 할 수 있는지" 먼저 보여줍니다.
+<strong>바디 (70~75%)</strong> — SOP 단계를 장면으로 변환합니다.
+<strong>클로징 (10~15%)</strong> — "오늘 배운 것 요약 + 다음 단계 안내"로 마무리합니다.</p>
+<p>Claude에게 이 흐름을 먼저 잡으라고 지시하면, 3열 표를 짜기 전에 목차 구조를 먼저 제안합니다. 이 목차를 확인하고 수정한 뒤에 3열 표 작업으로 넘어가는 것이 제 경험상 더 빠른입니다.</p>
+<p><strong>예시</strong></p>
+<p>프롬프트에 이렇게 씁니다.</p>
+<blockquote>
+<p>"3열 표 작성 전에, 먼저 오프닝-바디-클로징 구조로 영상 흐름 목차를 잡아줘. 내가 확인하면 그 다음에 3열 표를 작성해줘."</p>
+</blockquote>
+<p>이 한 줄로 Claude가 두 단계로 나눠서 작업합니다. 목차 단계에서 흐름을 잡을 수 있어서 이후 수정이 줄어듭니다.</p>
+<p><strong>반례</strong></p>
+<p>흐름 설계 없이 SOP를 바로 3열 표로 변환하면, 영상이 설명서 낭독이 됩니다. 오프닝도 없고, 신규 팀원이 "왜 이걸 보는지"를 알 수가 없습니다.</p>
+<p><strong>정리</strong></p>
+<p>영상 흐름은 <strong>오프닝·바디·클로징</strong> 3구간으로 먼저 잡고, 그 다음에 3열 표를 채웁니다.</p>
+<p>메모리 페그는 <strong>'OBC' — Opening, Body, Closing.</strong></p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>영상을 여기서 일시정지 해주세요.</p>
+<p>지금부터 Day 1 SOP를 기반으로 온보딩 영상 스크립트를 직접 만들어볼 겁니다. 산출물은 <strong>장면·자막·내레이션 3열 표</strong> 하나입니다.</p>
+<p><strong>Step 1 — 흐름 목차 먼저 요청하기 (1분)</strong></p>
+<p>Claude 새 대화를 열고 아래 프롬프트를 입력합니다.</p>
+<blockquote>
+<p>"너는 신규 팀원 온보딩 영상 기획자야. 아래 Day 1 SOP를 보고, 오프닝-바디-클로징 구조로 영상 흐름 목차를 먼저 잡아줘. 시청자는 입사 첫날 팀원이야."</p>
+</blockquote>
+<p>SOP를 붙여넣고 전송합니다. Claude가 목차를 제안하면 빠르게 검토합니다. 장면 수가 5~8개 사이면 적당합니다.</p>
+<p><strong>Step 2 — 3열 표 작성 요청하기 (1분)</strong></p>
+<p>목차가 OK이면 이어서 입력합니다.</p>
+<blockquote>
+<p>"이 목차 기준으로, 장면 번호 / 자막 포인트 / 내레이션 3열 표로 만들어줘. 장면 하나는 최대 60초 분량으로. 자막은 동작 동사 중심 3단어 이내. 내레이션은 친근하고 명확하게, 문장 2줄 이내."</p>
+</blockquote>
+<p>전송하고 결과물을 확인합니다.</p>
+<p><strong>Step 3 — 내레이션 톤 조정하기 (1분)</strong></p>
+<p>결과물에서 내레이션이 너무 딱딱하거나 너무 길면 이렇게 추가 요청합니다.</p>
+<blockquote>
+<p>"Scene 3 내레이션이 너무 길어. 두 문장으로 줄이고, 더 대화하듯이 바꿔줘."</p>
+</blockquote>
+<p>한 장면씩 조정하는 것이 전체를 한 번에 바꾸는 것보다 제 경험상 결과가 깔끔합니다.</p>
+<p><strong>Step 4 — 문서로 저장하기 (30초)</strong></p>
+<p>완성된 3열 표를 구글 독스나 노션에 붙여넣고, 파일명을 <strong>"Day1_온보딩_영상스크립트_v1"</strong> 으로 저장합니다.</p>
+<p>일시정지를 풀고 계속 진행하셔도 됩니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 스크립트를 실제 영상 제작 도구와 연결하는 방법을 다룹니다. Loom과 슬라이드 도구에서 이 3열 대본을 어떻게 사용하는지 구체적으로 보여드릴게요.</p>
+<p>오늘 만든 3열 스크립트 문서, 아래 댓글에 장면 수랑 소감 한 줄만 남겨주세요. 대부분의 경우, 다른 분들 사례 보면 내 작업 개선에 힌트가 됩니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:800;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 운영자를 위한 Claude 실습 · 매일 새 코스 도착</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>
