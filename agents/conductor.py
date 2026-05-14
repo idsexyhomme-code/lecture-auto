@@ -29,6 +29,7 @@ from .success import StudentSuccessManager
 from .site_developer import SiteDeveloper
 from .ui_designer import UIDesigner
 from .blog_publisher import BlogPublisher
+from .ceo import CEOAgent
 from . import safety
 
 log = logging.getLogger("conductor")
@@ -42,6 +43,7 @@ FAILED_DIR.mkdir(exist_ok=True)
 
 
 AGENTS = {
+    "ceo": CEOAgent,
     "curriculum": CurriculumArchitect,
     "producer": ContentProducer,
     "marketing": MarketingSpecialist,
@@ -52,6 +54,7 @@ AGENTS = {
 }
 
 AGENT_LABEL = {
+    "ceo": "🎩 CEO",
     "curriculum": "📚 강의 기획",
     "producer": "🎬 콘텐츠 제작",
     "marketing": "📣 홍보·마케팅",
