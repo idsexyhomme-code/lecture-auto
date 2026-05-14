@@ -56,6 +56,11 @@ def _auto_approve(r: AgentResult, path: Path) -> bool:
     import json as _json
     SITE_CONFIG_PATH = REPO_ROOT / "site_config.json"
 
+    # ★ CEO 산출물은 *절대* 자동 승인 안 함 (헌법 §6 회원 승인 필수)
+    if r.kind.startswith("ceo_"):
+        log.info("[auto] CEO 산출물 %s — HITL fallback (헌법 §6 보호)", r.id)
+        return False
+
     label = LABEL.get(r.agent, r.agent)
 
     # site_config 변경 — new_config 그대로 적용
@@ -185,6 +190,24 @@ def notify_new_pending() -> int:
                     target=target,
                     variants=variants,
                     preview_base_url=pages_base,
+                )
+            elif r.kind.startswith("ceo_"):
+                # ★ CEO 산출물 — '🎩 CEO 의견 / ✅ 회원 최종 결정' 카드
+                # CEO 결정은 회원님이 ✅로 확정해야 사이트/운영에 적용됨 (헌법 §6 보호)
+                mode_label = {
+                    "ceo_first_setup": "첫 임명 작업",
+                    "ceo_daily_report": "일일 보고",
+                    "ceo_review": "산출물 검토",
+                    "ceo_quarterly": "분기 리뷰",
+                }.get(r.kind, "CEO 결정")
+                ceo_summary = (r.summary or "") + f"\n\n📌 CEO 헌법 §6에 따라 회원님 최종 ✅ 확정 필요"
+                res = tg.send_approval_card(
+                    result_id=r.id,
+                    title=f"🎩 CEO — {mode_label}",
+                    summary=ceo_summary,
+                    agent_label="🎩 CEO",
+                    kind=r.kind,
+                    body_preview=r.body_md,
                 )
             else:
                 res = tg.send_approval_card(

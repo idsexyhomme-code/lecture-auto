@@ -222,12 +222,73 @@ def _send_hourly_report():
         log.warning("[long_poll] hourly report 발송 실패: %s", e)
 
 
+def _maybe_run_ceo_daily():
+    """매일 09:00 KST 통과 시 CEO 일일 보고 brief 자동 큐잉.
+
+    상태: content/state/ceo_last_report.json — 마지막 보고 날짜 (YYYY-MM-DD KST)
+    """
+    from datetime import datetime, timezone, timedelta
+    import json as _json
+    KST = timezone(timedelta(hours=9))
+    now_kst = datetime.now(KST)
+    today = now_kst.strftime("%Y-%m-%d")
+
+    # 09:00 KST 이후만
+    if now_kst.hour < 9:
+        return
+
+    state_file = REPO_ROOT / "content" / "state" / "ceo_last_report.json"
+    state_file.parent.mkdir(parents=True, exist_ok=True)
+    last = ""
+    if state_file.exists():
+        try:
+            last = _json.loads(state_file.read_text()).get("date_kst", "")
+        except Exception:
+            last = ""
+    if last == today:
+        return  # 오늘 이미 했음
+
+    # KPI 스냅샷 수집
+    try:
+        sys.path.insert(0, str(REPO_ROOT))
+        from scripts.collect_kpi import collect, update_history
+        snap = collect()
+        update_history(snap)
+    except Exception as e:
+        log.warning("[ceo-daily] KPI 수집 실패 (무해): %s", e)
+        snap = {}
+
+    # CEO daily_report brief 큐잉
+    import time as _time
+    ts = int(_time.time())
+    brief = {
+        "agent": "ceo",
+        "brief": {
+            "mode": "daily_report",
+            "today_kst": today,
+            "site_state": snap,
+            "recent_kpi": snap,
+        },
+    }
+    path = REPO_ROOT / "briefs" / f"ceo-daily-{today}-{ts}.json"
+    path.write_text(_json.dumps(brief, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    state_file.write_text(_json.dumps({"date_kst": today, "ts": ts}, ensure_ascii=False), encoding="utf-8")
+    log.info("[ceo-daily] ✓ CEO 일일 보고 brief 큐잉 — %s", path.name)
+
+
 def _run_local_pipeline():
     """로컬에서 conductor → notify → build 풀 파이프라인 실행.
 
     cron이 작동 안 해도 데몬이 24시간 돌면 이 함수가 모든 brief을 처리한다.
     각 단계 실패해도 다음 단계는 계속 시도.
     """
+    # ★ CEO 일일 보고 — 매일 09:00 KST 자동 트리거
+    try:
+        _maybe_run_ceo_daily()
+    except Exception as e:
+        log.warning("[long_poll] CEO 일일 트리거 실패 (무해): %s", e)
+
     # ★ Roadmap 자동 펌프 — 1시간마다 신규 코스 brief 자동 발주
     try:
         from agents.roadmap_pump import pump_next

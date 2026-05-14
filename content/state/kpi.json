@@ -1,0 +1,34 @@
+{
+  "latest": {
+    "date_kst": "2026-05-15",
+    "captured_at": "2026-05-15T08:53:45.372206+09:00",
+    "courses_total": 20,
+    "posts_total": 171,
+    "categories_total": 3,
+    "approved_count": 342,
+    "pending_count": 0,
+    "rejected_count": 0,
+    "last_brief_processed": "2026-05-15T08:47:28.207789+09:00",
+    "blog_published_today": 0,
+    "blog_failed_today": 0,
+    "blog_scheduled_total": 8,
+    "last_blog_publish": "2026-05-05T12:20:49.697245+09:00"
+  },
+  "history": {
+    "2026-05-15": {
+      "date_kst": "2026-05-15",
+      "captured_at": "2026-05-15T08:53:45.372206+09:00",
+      "courses_total": 20,
+      "posts_total": 171,
+      "categories_total": 3,
+      "approved_count": 342,
+      "pending_count": 0,
+      "rejected_count": 0,
+      "last_brief_processed": "2026-05-15T08:47:28.207789+09:00",
+      "blog_published_today": 0,
+      "blog_failed_today": 0,
+      "blog_scheduled_total": 8,
+      "last_blog_publish": "2026-05-05T12:20:49.697245+09:00"
+    }
+  }
+}
