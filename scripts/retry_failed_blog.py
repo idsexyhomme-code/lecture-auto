@@ -126,10 +126,11 @@ def main():
                 if schedule_at:
                     print(f"    예약 시각: {schedule_at.strftime('%Y-%m-%d %H:%M (KST)')}")
 
+            blog_name = os.environ.get("TISTORY_BLOG_NAME", "jejumomdad")
             published_url = publish_post(
+                blog=blog_name,
                 title=p["title"],
                 body_html=p["body_html"],
-                category=None,
                 tags=None,
                 schedule_at=schedule_at,
             )
