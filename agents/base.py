@@ -140,6 +140,66 @@ class BaseAgent:
         )
         return "".join(b.text for b in msg.content if getattr(b, "type", None) == "text")
 
+    # ── 자기 검수 (F1 — 룰 기반, LLM 호출 X — 빠름) ────────────────
+    # 헌법 §4 hard ban — 1개라도 들어가면 fail
+    HARD_BANNED = [
+        "월 1000만 원 자동 수익", "월 천만 원 자동", "하루 10분으로 자동화 완성",
+        "100% 보장", "100% 환불 보장", "획기적인 자동 수익",
+        "누구나 쉽게 돈 버는", "클릭 몇 번으로 사업 자동화",
+        "투자 없이 월 수익", "원금 보장",
+    ]
+    # 헌법 §8 soft ban — 들어가면 경고 (재생성 시도 후보)
+    SOFT_BANNED = [
+        "워크플로우", "워크플로", "솔루션", "효율적", "체계적", "최적화",
+        "자동화 시스템", "AI 활용", "혁신적", "획기적", "패러다임",
+        "여러분", "한 차원 높은", "바쁜 일상 속에서도", "고민이 있으신가요",
+        "산출물",
+    ]
+
+    @classmethod
+    def self_review(cls, text: str, *, kind: str = "", min_len: int = 80) -> dict:
+        """결과 텍스트를 룰 기반으로 1차 검사. LLM 호출 없음 — 즉시.
+
+        Returns dict:
+            ok: bool — 통과 여부 (hard 위반 X, empty X)
+            severity: "pass" | "warn" | "fail"
+            hard_violations: list[str] — §4 금기 매치
+            soft_violations: list[str] — §8 금기 매치 (최대 10개)
+            len: int
+            checks: dict (각 항목 OK/FAIL)
+        """
+        text = text or ""
+        text_strip = text.strip()
+
+        hard_hits = [w for w in cls.HARD_BANNED if w in text]
+        soft_hits = [w for w in cls.SOFT_BANNED if w in text]
+        empty = not text_strip
+        too_short = len(text_strip) < min_len
+
+        # 결과
+        if empty or hard_hits:
+            severity = "fail"
+        elif too_short or len(soft_hits) >= 3:
+            severity = "warn"
+        elif soft_hits:
+            severity = "warn"
+        else:
+            severity = "pass"
+
+        return {
+            "ok": severity != "fail",
+            "severity": severity,
+            "hard_violations": hard_hits,
+            "soft_violations": soft_hits[:10],
+            "len": len(text_strip),
+            "checks": {
+                "no_hard_ban": not hard_hits,
+                "no_empty": not empty,
+                "min_length": not too_short,
+                "soft_ban_count": len(soft_hits),
+            },
+        }
+
     # ── 산출물 빌드 (서브클래스에서 구현) ─────────────────────────
     def run(self, brief: dict) -> list[AgentResult]:
         raise NotImplementedError

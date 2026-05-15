@@ -90,6 +90,13 @@ def _run_async_batch(brief_paths: list[str]) -> list[dict]:
             results = await agent.arun(brief_data)
             saved = []
             for r in results:
+                # F1: 자기 검수 (worker_pool 경로) — conductor와 동일
+                try:
+                    review = agent.self_review(r.body_md or "", kind=r.kind)
+                    if isinstance(r.meta, dict):
+                        r.meta["self_review"] = review
+                except Exception:
+                    pass
                 p = r.save(PENDING_DIR)
                 saved.append(str(p))
 

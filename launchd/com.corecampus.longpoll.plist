@@ -56,6 +56,14 @@
         <string>ko_KR.UTF-8</string>
         <key>PYTHONIOENCODING</key>
         <string>utf-8</string>
+        <!-- P5 병렬 모드 활성 (회원 결정 2026-05-15) — 16 동시 brief 처리 -->
+        <key>CC_PARALLEL</key>
+        <string>1</string>
+        <!-- 워커 수·동시 처리 수 (기본값과 동일 — 명시) -->
+        <key>CC_WORKER_POOL_WORKERS</key>
+        <string>4</string>
+        <key>CC_WORKER_POOL_CONCURRENCY</key>
+        <string>4</string>
     </dict>
 
     <!-- 로그 파일 경로 -->

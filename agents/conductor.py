@@ -113,6 +113,23 @@ def run_brief(brief_path: Path) -> list[Path]:
 
     saved = []
     for r in results:
+        # F1: 자기 검수 — 룰 기반 1차 검사 (LLM 호출 X)
+        try:
+            review = agent.self_review(r.body_md or "", kind=r.kind)
+            if isinstance(r.meta, dict):
+                r.meta["self_review"] = review
+            if review["severity"] == "fail":
+                log.warning(
+                    "[self_review] FAIL %s (kind=%s): hard=%s",
+                    r.id, r.kind, review.get("hard_violations"),
+                )
+            elif review["severity"] == "warn":
+                log.info(
+                    "[self_review] warn %s (kind=%s): %d soft hits",
+                    r.id, r.kind, len(review.get("soft_violations", [])),
+                )
+        except Exception as e:
+            log.warning("[self_review] 예외 (무해): %s", e)
         p = r.save(PENDING_DIR)
         log.info("  → pending/%s", p.name)
         saved.append(p)
