@@ -6,3 +6,4 @@ markdown>=3.5
 pyyaml>=6.0
 requests>=2.31
 bleach[css]>=6.1
+tenacity>=9.0

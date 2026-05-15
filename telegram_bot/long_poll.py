@@ -242,6 +242,76 @@ def _send_hourly_report():
         log.warning("[long_poll] hourly report 발송 실패: %s", e)
 
 
+def _update_checkpoint():
+    """체크포인트 — 데몬 살아있다는 시그널 + 마지막 처리 정보."""
+    import json as _json
+    from datetime import datetime, timezone, timedelta
+    KST = timezone(timedelta(hours=9))
+    ckpt = REPO_ROOT / "content" / "state" / "checkpoint.json"
+    ckpt.parent.mkdir(parents=True, exist_ok=True)
+    ckpt.write_text(_json.dumps({
+        "last_heartbeat": datetime.now(KST).isoformat(),
+        "pid": os.getpid(),
+        "parallel_mode": os.environ.get("CC_PARALLEL", "").lower() in ("1", "true", "yes"),
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _maybe_run_validation_report():
+    """매일 23:55 KST 통과 시 1회만 validation_report 생성."""
+    import json as _json
+    from datetime import datetime, timezone, timedelta
+    KST = timezone(timedelta(hours=9))
+    now = datetime.now(KST)
+    if not (now.hour == 23 and now.minute >= 55):
+        return
+    state = REPO_ROOT / "content" / "state" / "validation_last_run.json"
+    today = now.strftime("%Y-%m-%d")
+    if state.exists():
+        try:
+            d = _json.loads(state.read_text())
+            if d.get("date_kst") == today:
+                return
+        except Exception:
+            pass
+    try:
+        sys.path.insert(0, str(REPO_ROOT))
+        from scripts.validation_report import generate
+        p = generate()
+        state.parent.mkdir(parents=True, exist_ok=True)
+        state.write_text(_json.dumps({"date_kst": today, "report": str(p)}, ensure_ascii=False), encoding="utf-8")
+        log.info("[validation] %s 생성", p.name)
+    except Exception as e:
+        log.warning("[validation] 실패: %s", e)
+
+
+def _maybe_run_learning_cycle():
+    """매일 00:00~00:05 KST 통과 시 1회 — 학습 통계 갱신·패턴 승격."""
+    import json as _json
+    from datetime import datetime, timezone, timedelta
+    KST = timezone(timedelta(hours=9))
+    now = datetime.now(KST)
+    if not (now.hour == 0 and now.minute < 5):
+        return
+    state = REPO_ROOT / "content" / "state" / "learning_last_run.json"
+    today = now.strftime("%Y-%m-%d")
+    if state.exists():
+        try:
+            d = _json.loads(state.read_text())
+            if d.get("date_kst") == today:
+                return
+        except Exception:
+            pass
+    try:
+        sys.path.insert(0, str(REPO_ROOT))
+        from agents.memory import update_and_promote
+        result = update_and_promote(days=1)
+        state.parent.mkdir(parents=True, exist_ok=True)
+        state.write_text(_json.dumps({"date_kst": today, "result": result}, ensure_ascii=False, indent=2), encoding="utf-8")
+        log.info("[learning] 갱신 완료: learned=%d", result["promotion"]["total_learned"])
+    except Exception as e:
+        log.warning("[learning] 실패: %s", e)
+
+
 def _maybe_run_ceo_daily():
     """매일 09:00 KST 통과 시 CEO 일일 보고 brief 자동 큐잉.
 
@@ -339,6 +409,24 @@ def _run_local_pipeline():
         _maybe_run_ceo_daily()
     except Exception as e:
         log.warning("[long_poll] CEO 일일 트리거 실패 (무해): %s", e)
+
+    # ★ Validation report — 매일 23:55 KST 자동 트리거 (Step 30)
+    try:
+        _maybe_run_validation_report()
+    except Exception as e:
+        log.warning("[long_poll] validation report 실패 (무해): %s", e)
+
+    # ★ 자가 학습 갱신 — 매일 00:00 KST 자동 트리거 (F3+F5)
+    try:
+        _maybe_run_learning_cycle()
+    except Exception as e:
+        log.warning("[long_poll] learning cycle 실패 (무해): %s", e)
+
+    # ★ 체크포인트 — 데몬 살아있다는 시그널
+    try:
+        _update_checkpoint()
+    except Exception:
+        pass
 
     # ★ Roadmap 자동 펌프 — 1시간마다 신규 코스 brief 자동 발주
     try:

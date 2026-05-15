@@ -102,6 +102,18 @@ class BaseAgent:
     # ── 동기 호출 (기존 직렬 워크플로우 그대로) ─────────────────────
     def call(self, user_prompt: str, *, max_tokens: int = 4000,
              extra_system: str = "") -> str:
+        # 비용 가드 (Step 27) — 한도 초과 시 즉시 차단
+        try:
+            from .budget_guard import check_budget, record_usage
+            ok, current, cap = check_budget(agent=self.name)
+            if not ok:
+                raise RuntimeError(
+                    f"DAILY_BUDGET_USD 한도 초과: {current:.4f}/{cap:.2f} USD — "
+                    f"agent={self.name} 호출 거부. 한도 상향 또는 다음날까지 대기."
+                )
+        except ImportError:
+            pass
+
         sys = self.system_prompt
         if extra_system:
             sys = sys + "\n\n" + extra_system
@@ -112,6 +124,21 @@ class BaseAgent:
             system=sys,
             messages=[{"role": "user", "content": user_prompt}],
         )
+
+        # 비용 기록 (Step 18)
+        try:
+            from .budget_guard import record_usage
+            usage = getattr(msg, "usage", None)
+            if usage:
+                record_usage(
+                    agent=self.name,
+                    model=self.model,
+                    input_tokens=usage.input_tokens,
+                    output_tokens=usage.output_tokens,
+                )
+        except Exception:
+            pass
+
         # 텍스트 블록만 모아서 반환
         return "".join(b.text for b in msg.content if getattr(b, "type", None) == "text")
 
@@ -131,6 +158,18 @@ class BaseAgent:
         sys = self.system_prompt
         if extra_system:
             sys = sys + "\n\n" + extra_system
+        # 비용 가드
+        try:
+            from .budget_guard import check_budget
+            ok, current, cap = check_budget(agent=self.name)
+            if not ok:
+                raise RuntimeError(
+                    f"DAILY_BUDGET_USD 한도 초과: {current:.4f}/{cap:.2f} USD — "
+                    f"agent={self.name} async 호출 거부."
+                )
+        except ImportError:
+            pass
+
         log.info("[%s] async calling model=%s", self.name, self.model)
         msg = await self.async_client.messages.create(
             model=self.model,
@@ -138,6 +177,18 @@ class BaseAgent:
             system=sys,
             messages=[{"role": "user", "content": user_prompt}],
         )
+
+        try:
+            from .budget_guard import record_usage
+            usage = getattr(msg, "usage", None)
+            if usage:
+                record_usage(
+                    agent=self.name, model=self.model,
+                    input_tokens=usage.input_tokens, output_tokens=usage.output_tokens,
+                )
+        except Exception:
+            pass
+
         return "".join(b.text for b in msg.content if getattr(b, "type", None) == "text")
 
     # ── 자기 검수 (F1 — 룰 기반, LLM 호출 X — 빠름) ────────────────

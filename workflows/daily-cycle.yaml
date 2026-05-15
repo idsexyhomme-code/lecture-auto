@@ -1,0 +1,96 @@
+# Core Campus 일일 사이클 워크플로
+# long_poll.py가 5초마다 briefs/ 폴링하면서 이 흐름을 따른다.
+
+version: 1
+description: |
+  매일 09:00 KST CEO 일일 보고 → roadmap_pump가 1시간마다 새 코스 brief 발주
+  → 16 동시 처리 → self_review → CEO 게이트 → pending → 회원 ✅ → approved
+  → site_builder → 블로그 발행
+
+stages:
+  - id: ceo_daily_report
+    agent: ceo
+    mode: daily_report
+    trigger: time:09:00 KST
+    timeout_sec: 300
+    max_retries: 1
+    required_outputs: [ceo_daily_report]
+
+  - id: roadmap_pump
+    module: agents.roadmap_pump
+    trigger: interval:3600s
+    timeout_sec: 60
+    max_retries: 2
+    required_outputs: [briefs/*.json]
+
+  - id: brief_processing
+    module: agents.conductor  # 직렬
+    parallel: agents.worker_pool  # CC_PARALLEL=1일 때 (workers=4 × concurrency=4 = 16 동시)
+    trigger: queue:briefs/
+    timeout_sec: 600
+    max_retries: 3
+    backoff: exponential
+    required_outputs: [content/pending/*.json]
+
+  - id: self_review
+    function: agents.base.BaseAgent.self_review
+    auto: true  # F1 — conductor·worker_pool 안에서 자동 호출
+    timeout_sec: 5
+    max_retries: 0
+
+  - id: ceo_gate
+    function: telegram_bot.notify._get_ceo_comment
+    triggers_on:
+      kinds: [site_config_change, design_variants, curriculum_outline, landing_copy, lecture_script, blog_post, faq]
+    fallback: self_review_fail → forced gate
+    timeout_sec: 30
+
+  - id: telegram_notify
+    function: telegram_bot.notify.notify_new_pending
+    trigger: queue:content/pending/
+    timeout_sec: 60
+    max_retries: 3
+
+  - id: user_approval
+    type: manual
+    via: telegram_callback
+    timeout_sec: ∞  # 회원이 ✅/❌ 누를 때까지 대기
+    locked_kinds: [ceo_*, site_config_change]
+
+  - id: site_build
+    module: site_builder.build
+    trigger: change:site_config.json | change:content/approved/
+    timeout_sec: 180
+    max_retries: 2
+    required_outputs: [site/index.html, site/courses/*.html, site/posts/*.html]
+
+  - id: git_push
+    function: telegram_bot.long_poll._git_sync_changes
+    lock: agents.locks.git_lock
+    timeout_sec: 60
+    max_retries: 3
+
+  - id: blog_publish
+    module: tistory_helpers.publisher
+    lock: agents.locks.tistory_lock
+    rate_limit: 15/day
+    timeout_sec: 600
+    max_retries: 1  # 세션 만료 시 재시도 무의미
+
+  - id: budget_check
+    function: agents.budget_guard.check_budget
+    triggers_on: each_agent_call
+    behavior: hard_block_if_exceeded
+    cap: DAILY_BUDGET_USD
+
+  - id: validation_report
+    function: scripts.validation_report.generate
+    trigger: time:23:55 KST
+    output: logs/validation-report-{date}.md
+
+# 자가 학습 사이클 (F3·F5 — 매일 자정 자동)
+learning_cycle:
+  trigger: time:00:00 KST
+  steps:
+    - agents.memory.update_and_promote
+    - agents.learning.update_from_recent

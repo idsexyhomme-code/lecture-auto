@@ -169,6 +169,24 @@ def worker_pool_status() -> dict:
     }
 
 
+def budget_status() -> dict:
+    """비용 가드레일 상태."""
+    try:
+        sys.path.insert(0, str(REPO))
+        from agents.budget_guard import get_status
+        return get_status()
+    except Exception:
+        return {"current_usd": 0, "cap_usd": 50, "pct": 0}
+
+
+def dry_run_status() -> dict:
+    return {
+        "dry_run": os.environ.get("DRY_RUN", "").lower() in ("1", "true", "yes"),
+        "instagram_skip": os.environ.get("INSTAGRAM_SKIP", "").lower() in ("1", "true", "yes"),
+        "tistory_skip": os.environ.get("TISTORY_SKIP", "").lower() in ("1", "true", "yes"),
+    }
+
+
 def snapshot() -> dict:
     kpi = load_kpi()
     latest = kpi.get("latest") or {}
@@ -186,6 +204,9 @@ def snapshot() -> dict:
         "self_review": self_review_stats(),
         "learning": learning_status(),
         "ab_test": ab_status(),
+        # Phase 5·6 — 비용·DRY_RUN
+        "budget": budget_status(),
+        "dry_run": dry_run_status(),
     }
 
 
