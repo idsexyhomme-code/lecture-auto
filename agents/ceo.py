@@ -278,8 +278,9 @@ v1과 같은 톤. 옵션 제시.
             log.exception(f"[w1_step{step_no}] 생성 실패: {e}")
             raise
 
-        # 파일 저장
-        docs_dir = REPO_ROOT / "data" / "w1"
+        # 파일 저장 — brief의 target_dir 우선 (없으면 data/w1/)
+        target_dir = brief.get("target_dir", "data/w1")
+        docs_dir = REPO_ROOT / target_dir
         docs_dir.mkdir(parents=True, exist_ok=True)
         doc_path = docs_dir / step['filename']
         doc_path.write_text(md, encoding="utf-8")
