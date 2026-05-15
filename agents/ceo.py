@@ -193,14 +193,26 @@ v1과 같은 톤. 옵션 제시.
     }
 
     def _w1_step(self, brief: dict) -> list[AgentResult]:
-        """W1 단계별 작업 — *한 step당 문서 1개*. 회원 승인 대기 패턴."""
+        """W1 단계별 작업 — *한 step당 문서 1개*. 회원 승인 대기 패턴.
+
+        brief에서 filename/title/sections/next_step_msg/tone_guide 우선 받음.
+        회원이 step마다 다른 요구해도 동적 대응 가능.
+        """
         import logging
         log = logging.getLogger("ceo._w1_step")
 
         step_no = int(brief.get("step", 1))
-        if step_no not in self.W1_STEPS:
-            raise ValueError(f"잘못된 step: {step_no}. 1~5 중 선택.")
-        step = self.W1_STEPS[step_no]
+        default = self.W1_STEPS.get(step_no, {})
+
+        # brief 우선 → W1_STEPS fallback
+        step = {
+            "filename": brief.get("filename") or default.get("filename") or f"W1_STEP{step_no}.md",
+            "title": brief.get("title") or default.get("title") or f"Step {step_no}",
+            "sections": brief.get("sections") or default.get("sections") or "",
+            "next_step_msg": brief.get("next_step_msg") or default.get("next_step_msg") or f"Step {step_no} 완료. Step {step_no+1} 진행 승인이 필요합니다.",
+        }
+        tone_guide = brief.get("tone_guide", "")
+        forbidden = brief.get("forbidden_in_this_step", "")
 
         # 회원 확정 조건 (brief에서 받음 — 모든 step 공통)
         topic = brief.get("topic", "1인 사업가를 위한 AI 업무 자동화 입문")
@@ -241,8 +253,16 @@ v1과 같은 톤. 옵션 제시.
 - §8 톤 (잡스+베이조스+한국 실전 코치). 자극·과장 X. 숫자·구체 O.
 - §10 외주 정책 준수.
 - 마크다운으로 작성. 코드펜스(```) 사용 금지.
-- 다른 step 산출물 (커리큘럼·메시지·스코어카드·체크리스트) 절대 작성 X — 오직 이 문서만.
+- 다른 step 산출물 절대 작성 X — 오직 이 문서만.
 - 문서 끝 라인은 절대 추가 X (마무리 멘트도 X — 깔끔하게 끝낸다).
+{tone_guide and f'''
+[이번 단계 추가 톤 가이드 (회원 명시)]
+{tone_guide}
+'''}
+{forbidden and f'''
+[이번 단계에서 절대 작성하지 말 것 (회원 명시)]
+{forbidden}
+'''}
 
 이 문서 본문 *마크다운만* 출력하라."""
 
@@ -265,8 +285,21 @@ v1과 같은 톤. 옵션 제시.
         doc_path.write_text(md, encoding="utf-8")
         log.info(f"[w1_step{step_no}] ✓ {doc_path} ({len(md):,}자)")
 
-        # 7항목 보고서
-        report_prompt = f"""W1 Step {step_no} 작업 완료. 회원께 7항목 보고서를 작성하라.
+        # 보고서 형식 — brief에서 override 가능 (회원이 step별 다른 형식 원할 때)
+        report_override = brief.get("_report_format_override", "")
+        if report_override:
+            report_prompt = f"""W1 Step {step_no} 작업 완료. 회원이 *명시한* 보고 형식 그대로 작성하라.
+
+[작성한 문서]
+- data/w1/{step['filename']}
+- 제목: {step['title']}
+- 분량: {len(md):,}자
+
+{report_override}
+
+§8 톤. 자극 X. 숫자 O. 마크다운 본문만 출력 (코드펜스 X)."""
+        else:
+            report_prompt = f"""W1 Step {step_no} 작업 완료. 회원께 7항목 보고서를 작성하라.
 
 [작성한 문서]
 - data/w1/{step['filename']}
