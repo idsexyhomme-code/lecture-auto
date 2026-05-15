@@ -21,3 +21,6 @@ node_modules/
 
 # Build artifacts (we DO commit site/ — that's what GH Pages serves)
 *.log
+
+# Cross-process locks (P3 — fcntl.flock 기반, 런타임 전용)
+content/state/locks/
