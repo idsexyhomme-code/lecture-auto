@@ -187,6 +187,17 @@ def dry_run_status() -> dict:
     }
 
 
+def tasks_queue_status() -> dict:
+    """§11 디스패치 큐 상태."""
+    try:
+        sys.path.insert(0, str(REPO))
+        from agents.sub_agents import get_queue_status
+        return get_queue_status()
+    except Exception:
+        return {"pending": 0, "in_progress": 0, "completed": 0,
+                "review_required": 0, "approved": 0, "rejected": 0}
+
+
 def snapshot() -> dict:
     kpi = load_kpi()
     latest = kpi.get("latest") or {}
@@ -207,6 +218,8 @@ def snapshot() -> dict:
         # Phase 5·6 — 비용·DRY_RUN
         "budget": budget_status(),
         "dry_run": dry_run_status(),
+        # §11 디스패치 큐
+        "tasks_queue": tasks_queue_status(),
     }
 
 

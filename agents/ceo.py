@@ -70,7 +70,180 @@ class CEOAgent(BaseAgent):
             return self._w1_plan(brief)
         if mode == "w1_step":
             return self._w1_step(brief)
+        if mode == "dispatch_workflow":
+            return self._dispatch_workflow(brief)
         return self._daily_report(brief)
+
+    # ── §11 디스패치 — 작업 티켓 일괄 발행 ─────────────────────────
+    def _dispatch_workflow(self, brief: dict) -> list[AgentResult]:
+        """CEO가 워크플로 ID를 받아 *작업 티켓 5~10개*를 content/tasks/pending/ 에 일괄 발행.
+
+        brief = {
+            "mode": "dispatch_workflow",
+            "workflow": "pilot_01" | "custom",
+            "date_kst": "2026-05-16",  # 옵션. 티켓 ID 접두사.
+            "tickets": [...],          # custom일 때만. 명시 티켓 배열.
+        }
+        """
+        import logging
+        log = logging.getLogger("ceo._dispatch_workflow")
+
+        from datetime import datetime, timezone, timedelta
+        KST = timezone(timedelta(hours=9))
+
+        workflow = brief.get("workflow", "pilot_01")
+        date_kst = brief.get("date_kst") or datetime.now(KST).strftime("%Y-%m-%d")
+        date_compact = date_kst.replace("-", "")
+
+        # 워크플로별 티켓 템플릿
+        tickets = []
+        if workflow == "pilot_01":
+            # §11 §8의 W1 5개 티켓 그대로
+            tickets = self._pilot_01_tickets(date_compact)
+        elif workflow == "custom":
+            tickets = brief.get("tickets") or []
+        else:
+            raise ValueError(f"unknown workflow: {workflow}")
+
+        # 큐에 발행
+        from .sub_agents import dispatch_ticket
+        dispatched_paths = []
+        for t in tickets:
+            p = dispatch_ticket(t)
+            dispatched_paths.append(str(p.relative_to(REPO_ROOT)))
+
+        # 보고서 (회원께)
+        report = f"""# CEO 디스패치 — {workflow} ({date_kst})
+
+## 발행된 작업 티켓 {len(tickets)}개
+
+"""
+        for t in tickets:
+            approval = "★ 회원 ✅" if t.get("approval_required") else "자율"
+            report += f"- **{t['task_id']}** → `{t['assigned_agent']}` ({approval})\n"
+            report += f"  - {t['objective'].split(chr(10))[0][:100]}\n"
+
+        report += f"""
+
+## 다음 단계
+
+데몬·worker_pool이 content/tasks/pending/ 에서 *순차적으로* 티켓을 픽업해 처리합니다.
+완료된 결과는 content/tasks/completed/ 에 저장되고, CEO가 다시 검수해 라벨링합니다.
+
+## 헌법 §11 준수
+
+- 회원 ✅ 필요 티켓: {sum(1 for t in tickets if t.get('approval_required'))}개 (텔레그램 카드로 도착)
+- 자율 실행 가능: {sum(1 for t in tickets if not t.get('approval_required'))}개
+- 자동 실행 금지 조건(§11 §7) 7개 모두 자가 검수 완료
+"""
+        return [AgentResult.new(
+            agent=self.name,
+            kind="ceo_dispatch",
+            title=f"🎩 CEO 디스패치 — {workflow} {len(tickets)}개 티켓",
+            body_md=report,
+            summary=f"{workflow} 워크플로 {len(tickets)}개 티켓 발행",
+            course_id="core-campus-meta",
+            meta={
+                "brief": brief,
+                "mode": "dispatch_workflow",
+                "workflow": workflow,
+                "ticket_count": len(tickets),
+                "dispatched_paths": dispatched_paths,
+            },
+        )]
+
+    def _pilot_01_tickets(self, date_compact: str) -> list[dict]:
+        """파일럿 #1 (외주 강의) W1 5개 티켓 — §11 §8 그대로."""
+        from datetime import datetime, timezone, timedelta
+        deadline_base = datetime.now(timezone(timedelta(hours=9)))
+
+        def _deadline(days_after: int, hour: int = 18) -> str:
+            d = deadline_base + timedelta(days=days_after)
+            d = d.replace(hour=hour, minute=0, second=0, microsecond=0)
+            return d.isoformat()
+
+        return [
+            {
+                "task_id": f"TASK-{date_compact}-001",
+                "assigned_agent": "market_research_agent",
+                "objective": "Core Campus 첫 외주 강의 파일럿(주제: 1인 사업가를 위한 AI 업무 자동화)의 시장 수요·경쟁 현황을 수치 기반으로 정리한다. 진입 권고 또는 비권고를 명확한 근거와 함께 결론 내린다.",
+                "input_files": ["data/ceo_charter.md", "data/PILOT_01_DESIGN.md"],
+                "output_file": f"content/tasks/completed/TASK-{date_compact}-001-market-research.md",
+                "scope": {
+                    "포함": ["검색 키워드 5개 + 월간 검색량 추정", "경쟁 강의 3~5개 분석", "타깃 페르소나 1명 9항목", "수요 점수 0~10 + 근거"],
+                    "제외": ["SEO 도구 무단 사용", "경쟁사 비방"],
+                },
+                "do_not": ["가격 제안", "§4 금기 단어"],
+                "acceptance_criteria": ["키워드 5개·근거 명시", "경쟁 분석 ≥3", "페르소나 9항목", "수요 점수 + 결론"],
+                "approval_required": False,
+                "deadline": _deadline(1),
+                "next_step": f"TASK-{date_compact}-002 expert_sourcing_agent",
+            },
+            {
+                "task_id": f"TASK-{date_compact}-002",
+                "assigned_agent": "expert_sourcing_agent",
+                "objective": "현재 CRM의 김그린dev(34/40)를 재평가하고, 추가 후보 2명 수집용 검색 키워드 5개 + 평가 기준 체크리스트를 정리한다.",
+                "input_files": ["content/state/experts_crm.json", "data/EXTERNAL_EXPERT_SOURCING_POLICY.md"],
+                "output_file": f"content/tasks/completed/TASK-{date_compact}-002-sourcing.md",
+                "scope": {
+                    "포함": ["김그린dev 재평가", "추가 키워드 5개", "빈 평가 시트 3행"],
+                    "제외": ["자동 크롤링", "메시지 발송"],
+                },
+                "do_not": ["자동 메시지 발송", "플랫폼 외부 직거래 유도"],
+                "acceptance_criteria": ["김그린dev 재평가 한 단락", "키워드 5개", "평가 시트 표"],
+                "approval_required": False,
+                "deadline": _deadline(2),
+                "next_step": f"TASK-{date_compact}-003 curriculum_agent",
+            },
+            {
+                "task_id": f"TASK-{date_compact}-003",
+                "assigned_agent": "curriculum_agent",
+                "objective": "외주 파일럿 강의 '1인 사업가를 위한 AI 업무 자동화' 6강 커리큘럼 초안. 각 강 12~15분, 측정 가능한 학습목표, 실습 결과물 1개씩.",
+                "input_files": [f"content/tasks/approved/TASK-{date_compact}-001.json"],
+                "output_file": f"content/tasks/completed/TASK-{date_compact}-003-curriculum.md",
+                "scope": {
+                    "포함": ["코스 제목·가치제안·약속 3개", "6강 학습목표·중요 개념 3·실습·도구"],
+                    "제외": ["영상 본문", "가격 책정"],
+                },
+                "do_not": ["산출물·워크플로우·솔루션·효율적 같은 §8 금기", "과장 약속"],
+                "acceptance_criteria": ["6강 구조 완성", "각 15분 단일 학습목표", "§4·§8 금기어 0"],
+                "approval_required": False,
+                "deadline": _deadline(3),
+                "next_step": f"TASK-{date_compact}-004 outreach_draft_agent",
+            },
+            {
+                "task_id": f"TASK-{date_compact}-004",
+                "assigned_agent": "outreach_draft_agent",
+                "objective": "김그린dev(kmong/gig/546955)에게 보낼 섭외 메시지 v1·v2 초안. §10.5 6단 구조 엄격. 가격은 질문만. 발송은 회원 직접.",
+                "input_files": ["content/state/experts_crm.json", "data/EXTERNAL_EXPERT_SOURCING_POLICY.md", f"content/tasks/approved/TASK-{date_compact}-003.json"],
+                "output_file": f"content/tasks/completed/TASK-{date_compact}-004-outreach.md",
+                "scope": {
+                    "포함": ["v1 파일럿 협업 350~450자", "v2 자문+촬영 변형 350~450자", "후속 메시지 200자", "발송 전 체크리스트"],
+                    "제외": ["실제 발송", "가격 제안", "외부 직거래 유도"],
+                },
+                "do_not": ["'크몽 밖에서 직거래' 등 약관 위반", "100% 보장·월 N만 원 자동 등 §4 금기"],
+                "acceptance_criteria": ["v1·v2 각 350~450자", "§10.5 6단 구조", "자가 검수 통과"],
+                "approval_required": True,
+                "deadline": _deadline(4),
+                "next_step": f"TASK-{date_compact}-005 rights_checklist_agent",
+            },
+            {
+                "task_id": f"TASK-{date_compact}-005",
+                "assigned_agent": "rights_checklist_agent",
+                "objective": "외주 전문가 계약 표준 조항 10개 체크리스트. 회원이 견적 받은 후 전문가에 발송할 양식.",
+                "input_files": ["data/EXTERNAL_EXPERT_SOURCING_POLICY.md"],
+                "output_file": f"content/tasks/completed/TASK-{date_compact}-005-rights-checklist.md",
+                "scope": {
+                    "포함": ["§10.6 10조항", "회원 ✅ 안내 1줄"],
+                    "제외": ["법무 자문", "실제 PDF 서명"],
+                },
+                "do_not": ["사용권을 '양도'로 표현", "3년 기간 누락"],
+                "acceptance_criteria": ["10조항 모두 명시", "회원 ✅ 안내"],
+                "approval_required": True,
+                "deadline": _deadline(5),
+                "next_step": f"TASK-{date_compact}-006 production_planning_agent (W2)",
+            },
+        ]
 
     # ── W1 단계별 작업 (한 step당 1개 문서) ────────────────────────
     # 회원 원칙: 한 번에 하나만, 승인 후 다음 단계로
