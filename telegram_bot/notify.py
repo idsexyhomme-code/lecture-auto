@@ -31,9 +31,55 @@ LABEL = {
     "success": "🎓 수강생 관리",
     "site_developer": "🛠 사이트 개발자",
     "ui_designer": "🎨 UI/UX 디자이너",
+    "ceo": "🎩 CEO",
 }
 
 log = logging.getLogger("notify")
+
+# CEO 리뷰 게이트 대상 — 메인 페이지·코스·디자인에 영향을 주는 산출물
+CEO_GATED_KINDS = {
+    "site_config_change",
+    "design_variants",
+    "curriculum_outline",
+    "landing_copy",
+}
+
+
+def _get_ceo_comment(r: AgentResult) -> str:
+    """가드 대상 산출물에 대한 CEO 한 줄 의견. 실패해도 워크플로우 막지 않음."""
+    try:
+        from agents.ceo import CEOAgent
+        ceo = CEOAgent()
+        # 본문이 길면 앞 1500자만 컨텍스트로
+        body_preview = (r.body_md or "")[:1500]
+        meta_preview = ""
+        try:
+            import json as _json
+            if r.meta:
+                meta_preview = _json.dumps(r.meta, ensure_ascii=False)[:800]
+        except Exception:
+            pass
+        prompt = f"""다음 산출물에 대해 CEO로서 *한 줄 의견*을 작성하라.
+
+[산출물]
+agent: {r.agent}
+kind: {r.kind}
+title: {r.title}
+summary: {r.summary or ''}
+body 앞부분: {body_preview}
+meta 요약: {meta_preview}
+
+[작성 규칙]
+- 정확히 한 문장 (60자 이내).
+- 헌법 §4 금기 위반 여부, §8 톤 부합 여부, KPI 기여도 중 *가장 중요한 1개*만 짚는다.
+- 회원님이 ✅/❌ 결정에 도움이 되게.
+- 자극·과장 톤 없이 사실 기반.
+- 줄바꿈·따옴표·마크다운 금지. 일반 텍스트 한 줄."""
+        comment = ceo.call(prompt, max_tokens=200).strip().replace("\n", " ")[:120]
+        return comment
+    except Exception as e:
+        log.warning("[ceo-gate] CEO 코멘트 실패 (무시): %s", e)
+        return ""
 
 
 def _pages_base_url() -> str | None:
@@ -59,6 +105,11 @@ def _auto_approve(r: AgentResult, path: Path) -> bool:
     # ★ CEO 산출물은 *절대* 자동 승인 안 함 (헌법 §6 회원 승인 필수)
     if r.kind.startswith("ceo_"):
         log.info("[auto] CEO 산출물 %s — HITL fallback (헌법 §6 보호)", r.id)
+        return False
+
+    # ★ 메인 페이지 변경(site_config_change)은 회원 승인 필수 (헌법 §6 + 회원 명시 결정 2026-05-15)
+    if r.kind == "site_config_change":
+        log.info("[auto] site_config_change %s — HITL fallback (메인 페이지 변경 잠금)", r.id)
         return False
 
     label = LABEL.get(r.agent, r.agent)
@@ -210,10 +261,20 @@ def notify_new_pending() -> int:
                     body_preview=r.body_md,
                 )
             else:
+                # ★ CEO 리뷰 게이트 — 가드 대상 산출물엔 CEO 의견 한 줄 자동 첨부
+                summary = r.summary or "(요약 없음)"
+                if r.kind in CEO_GATED_KINDS:
+                    ceo_line = _get_ceo_comment(r)
+                    if ceo_line:
+                        summary = f"{summary}\n\n🎩 CEO: {ceo_line}"
+                        # CEO 코멘트를 meta에도 보관 (감사 추적)
+                        if isinstance(r.meta, dict):
+                            r.meta["ceo_comment"] = ceo_line
+                            r.save(PENDING_DIR)
                 res = tg.send_approval_card(
                     result_id=r.id,
                     title=r.title,
-                    summary=r.summary or "(요약 없음)",
+                    summary=summary,
                     agent_label=LABEL.get(r.agent, r.agent),
                     kind=r.kind,
                     body_preview=r.body_md,
