@@ -68,7 +68,264 @@ class CEOAgent(BaseAgent):
             return self._quarterly_review(brief)
         if mode == "w1_plan":
             return self._w1_plan(brief)
+        if mode == "w1_step":
+            return self._w1_step(brief)
         return self._daily_report(brief)
+
+    # ── W1 단계별 작업 (한 step당 1개 문서) ────────────────────────
+    # 회원 원칙: 한 번에 하나만, 승인 후 다음 단계로
+    W1_STEPS = {
+        1: {
+            "filename": "W1_STEP1_PROJECT_BRIEF.md",
+            "title": "프로젝트 1페이지 방향 정리",
+            "sections": """## 1. 프로젝트 목적
+한 단락 (3~5문장).
+
+## 2. 왜 이 강의가 Core Campus에 필요한지
+한 단락. KPI·미션·타깃 관점에서 *왜 지금* *왜 이 주제* 인지.
+
+## 3. 핵심 타깃
+회원 확정 타깃 그대로. 단 *한 줄 페르소나*로 압축 (40자 이내).
+
+## 4. 첫 강의 주제 방향
+- 주제 한 줄 (회원 확정안 그대로)
+- 사용 도구 (ChatGPT·Claude·Notion·Make/Zapier 중 *우선순위 매겨*)
+- 강의 톤 (실전·실습 중심 / 이론 X)
+
+## 5. 4주 안에 만들 *최소* 결과물
+구체 3~4개. 욕심 X. 예: 영상 6편 / 상세페이지 1장 / 결제 페이지 연결(승인 후) / 첫 결제 3건.
+
+## 6. 이번 프로젝트에서 하지 않을 것
+헌법 §10 금지 + 회원 명시 금지 모두 포함. 6~8개.
+
+## 7. 다음 Step 2에서 결정해야 할 것
+짧게 3~5개. 예: 커리큘럼 6강 확정 / 도구 우선순위 / 강의 결과물 정의 등.""",
+            "next_step_msg": "Step 1 완료. Step 2 진행 승인이 필요합니다.",
+        },
+        2: {
+            "filename": "W1_STEP2_COURSE_CURRICULUM_DRAFT.md",
+            "title": "커리큘럼 초안 (6강)",
+            "sections": """## 코스 개요
+- 코스 제목 (한 줄, 25~40자)
+- 한 줄 가치제안
+- 수강 후 약속 3개
+- 선수지식
+- 결과물
+
+## 차시별 상세 (1~6강 모두)
+각 차시:
+### {N}강. {제목}
+- 학습목표 (측정 가능한 동사로)
+- 중요 개념 3개
+- 실습 결과물
+- 추천 분량 (분)
+- 사용 도구
+
+## 검증 체크
+- §4 금기 위반 없음
+- 각 차시가 *수강 후 손에 결과물 1개*를 남기는가
+- 6편 모두 *15분 안에 끝나는 단일 학습목표*인가""",
+            "next_step_msg": "Step 2 완료. Step 3 진행 승인이 필요합니다.",
+        },
+        3: {
+            "filename": "W1_STEP3_EXPERT_SCORECARD.md",
+            "title": "전문가 평가 스코어카드",
+            "sections": """## 1. 평가 항목 8개
+각 항목: 점수 0~5 / 0·3·5점 기준 / 검증 방법.
+
+1. 실무 경험
+2. 설명력
+3. 포트폴리오 신뢰도
+4. 1인 사업가 타깃 적합성
+5. 화면녹화·강의 가능성
+6. 협업 가능성
+7. 예산 적합성
+8. Core Campus 브랜드 적합성
+
+## 2. 최종 합격 임계값
+총점 / 항목별 최소 / 자동 탈락 조건.
+
+## 3. 평가 시트 템플릿 (마크다운 표 + 빈 행 3개)
+
+## 4. 빨간 깃발 5개 (자동 탈락)
+
+## 5. CEO 검수 한 줄 패턴 (예시 3개)""",
+            "next_step_msg": "Step 3 완료. Step 4 진행 승인이 필요합니다.",
+        },
+        4: {
+            "filename": "W1_STEP4_OUTREACH_MESSAGE_DRAFT.md",
+            "title": "섭외 메시지 초안 (발송 X — 초안만)",
+            "sections": """⚠️ **이 문서는 초안일 뿐. 실제 발송은 회원 ✅ 후 *플랫폼 내부에서 회원이 직접*.**
+
+## 1. 메시지 v1 — 파일럿 협업 제안 (부담 낮은 톤)
+헌법 §10.5 6단 구조. 300~450자.
+
+## 2. 메시지 v2 — 자문 1회 + 촬영 협업 변형
+v1과 같은 톤. 옵션 제시.
+
+## 3. 절대 포함하지 말 단어
+- 헌법 §4 금기
+- §8 금기
+- 플랫폼 약관 위반 ("크몽 밖에서 직거래" / "직접 입금" 등)
+
+## 4. 답신 후 후속 메시지 초안 (200자)
+
+## 5. 발송 전 회원 체크리스트""",
+            "next_step_msg": "Step 4 완료. Step 5 진행 승인이 필요합니다.",
+        },
+        5: {
+            "filename": "W1_STEP5_PRODUCTION_CHECKLIST.md",
+            "title": "제작 체크리스트 (30일)",
+            "sections": """## W1~W4 마일스톤 체크박스
+헌법 §10.8의 30일 25단계를 체크박스로.
+각 단계: 담당(회원/CEO) / 완료 조건 / 막혔을 때 다음 액션.
+
+## 회원 ✅ 필요 항목 (별도 표)
+
+## 촬영 방식 결정 가이드
+화면녹화 / 줌 인터뷰 / 대면 — 장단점 + B등급 추천.
+
+## 판매 페이지 전 마지막 검토 5가지
+
+## 30일 회고 KPI 5개""",
+            "next_step_msg": "Step 5 완료. W1 종합 보고서를 작성하시겠습니까? (옵션)",
+        },
+    }
+
+    def _w1_step(self, brief: dict) -> list[AgentResult]:
+        """W1 단계별 작업 — *한 step당 문서 1개*. 회원 승인 대기 패턴."""
+        import logging
+        log = logging.getLogger("ceo._w1_step")
+
+        step_no = int(brief.get("step", 1))
+        if step_no not in self.W1_STEPS:
+            raise ValueError(f"잘못된 step: {step_no}. 1~5 중 선택.")
+        step = self.W1_STEPS[step_no]
+
+        # 회원 확정 조건 (brief에서 받음 — 모든 step 공통)
+        topic = brief.get("topic", "1인 사업가를 위한 AI 업무 자동화 입문")
+        audience = brief.get("audience", "1인 사업가·프리랜서·크리에이터")
+        tools = brief.get("tools", "ChatGPT·Claude·Notion·Make/Zapier")
+        lessons = brief.get("lessons", "6편 × 12~15분")
+        budget_tier = brief.get("budget_tier", "B등급")
+        deadline = brief.get("deadline", "4주")
+        platform = brief.get("platform", "1순위 크몽 / 백업 숨고")
+
+        prompt = f"""W1 외부 전문가 강의 파일럿 — Step {step_no} 작업.
+
+[회원 확정 조건]
+- 주제 방향: {topic}
+- 활용 도구 후보: {tools}
+- 타깃: {audience}
+- 차시: {lessons}
+- 예산 등급: {budget_tier}
+- 납기: {deadline}
+- 플랫폼: {platform}
+
+[회원 금지 사항 — 절대 위반 X]
+- 실제 전문가에게 메시지 발송 X (이번 작업은 *초안만*)
+- 결제·예산 지출 X
+- 가격 제안 X (스코어카드의 가격 적합성은 *평가 기준*일 뿐, 실제 제안 X)
+- 계약 조건 확정 X
+- 사이트 공개 반영 X
+- *한 번에 모든 문서 생성 금지* — 이번엔 Step {step_no} 1개 문서만
+
+[Step {step_no} 산출물]
+파일명: {step['filename']}
+제목: {step['title']}
+
+[필수 섹션]
+{step['sections']}
+
+[톤·규칙]
+- §8 톤 (잡스+베이조스+한국 실전 코치). 자극·과장 X. 숫자·구체 O.
+- §10 외주 정책 준수.
+- 마크다운으로 작성. 코드펜스(```) 사용 금지.
+- 다른 step 산출물 (커리큘럼·메시지·스코어카드·체크리스트) 절대 작성 X — 오직 이 문서만.
+- 문서 끝 라인은 절대 추가 X (마무리 멘트도 X — 깔끔하게 끝낸다).
+
+이 문서 본문 *마크다운만* 출력하라."""
+
+        try:
+            md = self.call(prompt, max_tokens=4500).strip()
+            # 코드펜스 제거 (안전망)
+            if md.startswith("```"):
+                md = md.split("```", 2)[1]
+                if md.startswith(("markdown", "md")):
+                    md = md.split("\n", 1)[1]
+                md = md.rsplit("```", 1)[0].strip()
+        except Exception as e:
+            log.exception(f"[w1_step{step_no}] 생성 실패: {e}")
+            raise
+
+        # 파일 저장
+        docs_dir = REPO_ROOT / "data" / "w1"
+        docs_dir.mkdir(parents=True, exist_ok=True)
+        doc_path = docs_dir / step['filename']
+        doc_path.write_text(md, encoding="utf-8")
+        log.info(f"[w1_step{step_no}] ✓ {doc_path} ({len(md):,}자)")
+
+        # 7항목 보고서
+        report_prompt = f"""W1 Step {step_no} 작업 완료. 회원께 7항목 보고서를 작성하라.
+
+[작성한 문서]
+- data/w1/{step['filename']}
+- 제목: {step['title']}
+- 분량: {len(md):,}자
+
+[보고 형식 — 정확히 따를 것]
+
+## 1. 이번 단계 목표
+한 줄. Step {step_no} 무엇을 했는지.
+
+## 2. 생성한 문서
+파일 경로 1개 — data/w1/{step['filename']}
+무엇을 담고 있는지 한 문단 요약.
+
+## 3. 핵심 결정 사항 3~5개
+이 문서에서 *명시한* 핵심 결정 사항 짧게.
+
+## 4. 헌법 준수 체크
+§4 금기 / §10 외주 정책 / 회원 금지 6개 위반 없음 확인.
+
+## 5. 회원께 보여드리고 싶은 *한 단락 발췌*
+이 문서에서 회원이 *가장 먼저 확인하면 좋은* 부분 한 단락 그대로 인용.
+
+## 6. 승인 필요한 사항
+이번 step에서 회원 ✅ 받아야 할 항목 — 없으면 "Step {step_no} 자체 승인 필요" 한 줄.
+
+## 7. 다음 액션
+Step {step_no+1 if step_no < 5 else 5} 미리보기 — *무엇을 할지* 짧게.
+
+마지막 라인은 *반드시* 다음 정확한 문장:
+
+> {step['next_step_msg']}
+
+§8 톤. 자극 X. 숫자 O. 마크다운 본문만 출력 (코드펜스 X)."""
+
+        report = self.call(report_prompt, max_tokens=2500).strip()
+        if report.startswith("```"):
+            report = report.split("```", 2)[1]
+            if report.startswith(("markdown", "md")):
+                report = report.split("\n", 1)[1]
+            report = report.rsplit("```", 1)[0].strip()
+
+        return [AgentResult.new(
+            agent=self.name,
+            kind="ceo_w1_step",
+            title=f"🎩 CEO W1 Step {step_no} — {step['title']}",
+            body_md=report,
+            summary=f"Step {step_no}/{len(self.W1_STEPS)} 완료. 회원 ✅ 후 Step {min(step_no+1, 5)} 진행.",
+            course_id="core-campus-meta",
+            meta={
+                "brief": brief,
+                "mode": "w1_step",
+                "step": step_no,
+                "filename": step['filename'],
+                "doc_path": f"data/w1/{step['filename']}",
+                "doc_len": len(md),
+            },
+        )]
 
     # ── W1 외주 소싱 플랜 (5개 문서 + 보고서) ───────────────────
     def _w1_plan(self, brief: dict) -> list[AgentResult]:

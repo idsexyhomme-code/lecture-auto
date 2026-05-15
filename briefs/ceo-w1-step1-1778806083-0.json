@@ -1,0 +1,14 @@
+{
+  "agent": "ceo",
+  "brief": {
+    "mode": "w1_step",
+    "step": 1,
+    "topic": "1인 사업가를 위한 AI 업무 자동화 입문",
+    "tools": "ChatGPT, Claude, Notion, Make/Zapier",
+    "audience": "AI를 활용해 자기 사업·강의·콘텐츠·자동화 시스템을 만들고 싶은 1인 사업가·프리랜서·크리에이터",
+    "lessons": "6편 × 12~15분",
+    "budget_tier": "B등급",
+    "deadline": "4주",
+    "platform": "1순위 크몽 / 백업 숨고"
+  }
+}
