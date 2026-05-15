@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from anthropic import Anthropic
+from anthropic import Anthropic, AsyncAnthropic
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PENDING_DIR = REPO_ROOT / "content" / "pending"
@@ -71,17 +71,35 @@ class AgentResult:
 
 
 class BaseAgent:
-    """모든 도메인 에이전트가 상속하는 공용 베이스."""
+    """모든 도메인 에이전트가 상속하는 공용 베이스.
+
+    동기 .call() 과 비동기 .acall() 둘 다 지원.
+    - 직렬 처리(기존): 그대로 .call() 사용 (변경 없음)
+    - 병렬 처리(Phase 1 P2 worker_pool): .acall() + asyncio.gather()
+    """
 
     name: str = "base"           # 영문 키
     display_name: str = "Base"   # 한글 표시명
     system_prompt: str = ""
 
-    def __init__(self, client: Anthropic | None = None, model: str | None = None):
+    # async client는 lazy init — 동기 워크플로우에서는 만들지 않음
+    _async_client: AsyncAnthropic | None = None
+
+    def __init__(self, client: Anthropic | None = None, model: str | None = None,
+                 async_client: AsyncAnthropic | None = None):
         self.client = client or Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
         self.model = model or os.environ.get("WORKER_MODEL", "claude-sonnet-4-6")
+        if async_client is not None:
+            self._async_client = async_client
 
-    # ── 호출 ─────────────────────────────────────────────────────
+    @property
+    def async_client(self) -> AsyncAnthropic:
+        """비동기 클라이언트 — 처음 .acall() 호출 시 lazy 생성."""
+        if self._async_client is None:
+            self._async_client = AsyncAnthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+        return self._async_client
+
+    # ── 동기 호출 (기존 직렬 워크플로우 그대로) ─────────────────────
     def call(self, user_prompt: str, *, max_tokens: int = 4000,
              extra_system: str = "") -> str:
         sys = self.system_prompt
@@ -97,9 +115,45 @@ class BaseAgent:
         # 텍스트 블록만 모아서 반환
         return "".join(b.text for b in msg.content if getattr(b, "type", None) == "text")
 
+    # ── 비동기 호출 (Phase 1·2 병렬 처리용) ─────────────────────────
+    async def acall(self, user_prompt: str, *, max_tokens: int = 4000,
+                    extra_system: str = "") -> str:
+        """동일한 의미·시그니처. asyncio.gather()로 N개 동시 호출 가능.
+
+        Anthropic API는 IO 작업이므로 asyncio가 효율적이다 (CPU bound 아님).
+        예시:
+            results = await asyncio.gather(
+                agent_a.acall("prompt 1"),
+                agent_b.acall("prompt 2"),
+                agent_c.acall("prompt 3"),
+            )
+        """
+        sys = self.system_prompt
+        if extra_system:
+            sys = sys + "\n\n" + extra_system
+        log.info("[%s] async calling model=%s", self.name, self.model)
+        msg = await self.async_client.messages.create(
+            model=self.model,
+            max_tokens=max_tokens,
+            system=sys,
+            messages=[{"role": "user", "content": user_prompt}],
+        )
+        return "".join(b.text for b in msg.content if getattr(b, "type", None) == "text")
+
     # ── 산출물 빌드 (서브클래스에서 구현) ─────────────────────────
     def run(self, brief: dict) -> list[AgentResult]:
         raise NotImplementedError
+
+    async def arun(self, brief: dict) -> list[AgentResult]:
+        """비동기 버전 run(). 기본은 동기 run()을 thread pool에서 실행.
+
+        에이전트가 *.acall()*을 본격적으로 쓰려면 이 메서드를 override해서
+        내부 호출을 .acall()로 바꿔야 진짜 비동기 효과 (CPU 점유 해제).
+        그렇지 않으면 *동기 run()을 별도 스레드에서 실행*하는 fallback.
+        """
+        import asyncio
+        loop = asyncio.get_running_loop()
+        return await loop.run_in_executor(None, self.run, brief)
 
 
 def list_pending() -> list[AgentResult]:
