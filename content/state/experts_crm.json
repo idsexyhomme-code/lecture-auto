@@ -29,5 +29,81 @@
     "approval_log": "[{step, approved_at, by}]",
     "blacklist_reason": "string?"
   },
-  "experts": []
+  "experts": [
+    {
+      "expert_id": "exp-kim-green-dev-546955",
+      "name": "김그린dev",
+      "channel": "kmong",
+      "external_url": "https://kmong.com/gig/546955",
+      "specialty": [
+        "Notion 자동화",
+        "1인 운영자 시스템 구축",
+        "예약·정산·알림 자동화",
+        "노션 신규 제작"
+      ],
+      "rating": 4.9,
+      "reviews_count": 47,
+      "response_rate_pct": 95,
+      "response_time_label": "2시간 이내 (9시~23시)",
+      "active_months": null,
+      "sample_video_url": null,
+      "portfolio_count": 5,
+      "portfolio_titles": [
+        "노션 기반 강연·클래스 모집 운영 시스템 구축",
+        "매출현황 대시보드",
+        "면접 및 채용 / 직원 리스트 템플릿",
+        "휴가연차계산 템플릿",
+        "업무관리 템플릿 네비바 구성"
+      ],
+      "quoted_price_min": 350000,
+      "quoted_price_max": 550000,
+      "package_summary": {
+        "STANDARD": "350,000원 / 1~3인 맞춤 설계 / 자동화 없이 수동 운영",
+        "DELUXE": "550,000원 / 폼 제출 + 노션 자동 입력 / 워크플로우 자동 연동 / 15페이지 / 14일",
+        "PREMIUM": "미확인 / 스타트업 팀 협업 + 카카오 알림톡"
+      },
+      "tax_invoice": "발행 불가",
+      "tier": "B",
+      "status": "candidate",
+      "discovered_at": "2026-05-15T10:41:19.516120+09:00",
+      "first_contacted_at": null,
+      "last_contact_at": null,
+      "messages_log": [],
+      "contract_id": null,
+      "payment_status": "none",
+      "delivered_video_url": null,
+      "course_id": "pilot-01",
+      "internal_notes": "DELUXE 550k는 B등급(30~80만) 상한 근접. 6편 패키지 협상 시 STANDARD(350k) 또는 별도 협의 단위 필요. 세금계산서 불가는 정산 시 회원 직접 확인 사항.",
+      "scorecard": {
+        "1_실무_경험": 5,
+        "2_후기_신뢰자료": 5,
+        "3_평점_신뢰도": 5,
+        "4_응답_커뮤니케이션": 5,
+        "5_영상_샘플": 2,
+        "6_1인사업가_설명력": 5,
+        "7_B등급_예산": 3,
+        "8_Notion_AI_실무": 4,
+        "총점": "34/40",
+        "가산점": {
+          "초보자_강의_경험": "미확인",
+          "템플릿_시스템_구축_사례": "확인 ★",
+          "판매용_강의_협업_의사": "미확인 — 직접 문의 필요",
+          "6편_패키지_협업_가능": "미확인 — 직접 문의 필요"
+        },
+        "빨간_깃발": 0
+      },
+      "ceo_evaluation": "정책 §2 필수 7개 중 6개 명확 통과. 영상 샘플·강의 협업 의사 직접 확인 필요. 1인 사업가 타깃 정확 매치 — 1순위 후보.",
+      "approval_log": [],
+      "blacklist_reason": null,
+      "next_action": "회원이 영상 샘플 여부·6편 패키지 협업 가능성을 *플랫폼 메시지로 직접* 문의. 메시지 초안은 정책 §10.5 따라 별도 step에서 작성.",
+      "reviews_sample": [
+        "빠른 응답과 친절한 상담으로 초기 방향성을 함께 잡아주고, 요구사항을 정확히 반영해 완성도를 높였습니다. 어려운 내용도 쉬운 설명으로 이해를 돕고, 추후 수정 대응까지 약속해 더욱 믿음이 갔어요. (요약)",
+        "제가 어떻게 설명을 드려야 할지 몰라 우물쭈물 하였는데도 방향성을 함께 잡아 주셔서 덕분에 업무 활용도가 뛰어난 템플릿을 보유하게 되었습니다 (그의*****)",
+        "응답도 빠르시고 요구내용 잘 이해하여 반영해주셨어요 (인더*****)",
+        "친절한 상담 빠른 피드백 좋아요! 추천합니다! (믿음*****)",
+        "노션에 대한 기본지식이 없어서 내용 만들기 힘들었을텐데.. 잘 작업해주셨어요 (당찬*****)"
+      ]
+    }
+  ],
+  "_last_updated": "2026-05-15T10:41:19.516120+09:00"
 }
