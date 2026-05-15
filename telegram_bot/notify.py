@@ -36,30 +36,66 @@ LABEL = {
 
 log = logging.getLogger("notify")
 
-# CEO 리뷰 게이트 대상 — 메인 페이지·코스·디자인에 영향을 주는 산출물
+# CEO 리뷰 게이트 대상 — 메인 페이지·코스·디자인·콘텐츠에 영향을 주는 산출물
+# F2 확대: lecture_script·blog_post·faq 추가 (자가 학습 루프 핵심 데이터)
 CEO_GATED_KINDS = {
     "site_config_change",
     "design_variants",
     "curriculum_outline",
     "landing_copy",
+    "lecture_script",      # F2 추가 — 차시 본문 (블로그·강의의 핵심)
+    "blog_post",           # F2 추가 — 외부 발행 직전 마지막 검수
+    "faq",                 # F2 추가 — 회원 대화 톤
 }
 
 
+def _format_self_review(r: AgentResult) -> str:
+    """F1 self_review 결과를 CEO prompt에 주입할 한 줄 요약."""
+    sr = (r.meta or {}).get("self_review") if isinstance(r.meta, dict) else None
+    if not sr:
+        return "(self_review 결과 없음)"
+    sev = sr.get("severity", "?")
+    hard = sr.get("hard_violations") or []
+    soft = sr.get("soft_violations") or []
+    parts = [f"severity={sev}"]
+    if hard:
+        parts.append(f"hard={hard}")
+    if soft:
+        parts.append(f"soft={soft[:5]}")
+    parts.append(f"len={sr.get('len','?')}")
+    return " / ".join(parts)
+
+
 def _get_ceo_comment(r: AgentResult) -> str:
-    """가드 대상 산출물에 대한 CEO 한 줄 의견. 실패해도 워크플로우 막지 않음."""
+    """가드 대상 산출물에 대한 CEO 한 줄 의견.
+
+    [F2 강화]
+    - self_review (F1) 결과를 CEO prompt에 주입 — CEO가 룰 기반 검사 보고 종합 판단
+    - severity=fail이면 CEO가 *반려 권고* 한 줄
+    - severity=pass면 CEO가 *추가 관찰 포인트* 한 줄
+
+    실패해도 워크플로우 막지 않음.
+    """
     try:
         from agents.ceo import CEOAgent
         ceo = CEOAgent()
-        # 본문이 길면 앞 1500자만 컨텍스트로
         body_preview = (r.body_md or "")[:1500]
+
+        # F1 self_review 결과 — CEO 종합 판단 근거
+        sr_summary = _format_self_review(r)
+
         meta_preview = ""
         try:
             import json as _json
             if r.meta:
-                meta_preview = _json.dumps(r.meta, ensure_ascii=False)[:800]
+                # self_review 빼고 나머지만 (중복 방지)
+                meta_copy = {k: v for k, v in r.meta.items() if k != "self_review"}
+                if meta_copy:
+                    meta_preview = _json.dumps(meta_copy, ensure_ascii=False)[:600]
         except Exception:
             pass
-        prompt = f"""다음 산출물에 대해 CEO로서 *한 줄 의견*을 작성하라.
+
+        prompt = f"""다음 산출물에 대해 CEO로서 *한 줄 종합 의견*을 작성하라.
 
 [산출물]
 agent: {r.agent}
@@ -69,17 +105,37 @@ summary: {r.summary or ''}
 body 앞부분: {body_preview}
 meta 요약: {meta_preview}
 
-[작성 규칙]
-- 정확히 한 문장 (60자 이내).
-- 헌법 §4 금기 위반 여부, §8 톤 부합 여부, KPI 기여도 중 *가장 중요한 1개*만 짚는다.
-- 회원님이 ✅/❌ 결정에 도움이 되게.
+[F1 자기 검수 결과]
+{sr_summary}
+
+[CEO 판단 규칙]
+- self_review severity=fail이면 → "반려 권고" 시작으로 *어떤 부분 다시 써야 하는지* 한 줄
+- self_review severity=warn이면 → "주의" 시작으로 *어느 부분 잘 보고 결정할지* 한 줄
+- self_review severity=pass이면 → "통과 권고" 시작으로 *회원님이 한 번 더 확인할 포인트* 한 줄
+- 정확히 한 문장 (80자 이내).
+- 헌법 §4 금기·§8 톤·KPI 기여도 중 *가장 중요한 1개*만 짚는다.
 - 자극·과장 톤 없이 사실 기반.
 - 줄바꿈·따옴표·마크다운 금지. 일반 텍스트 한 줄."""
-        comment = ceo.call(prompt, max_tokens=200).strip().replace("\n", " ")[:120]
+
+        comment = ceo.call(prompt, max_tokens=250).strip().replace("\n", " ")[:160]
         return comment
     except Exception as e:
         log.warning("[ceo-gate] CEO 코멘트 실패 (무시): %s", e)
         return ""
+
+
+def _should_gate(r: AgentResult) -> bool:
+    """F2: CEO 게이트 적용 여부 판단.
+
+    1) kind가 CEO_GATED_KINDS면 → 항상 게이트
+    2) kind 무관 — self_review severity=fail이면 *강제 게이트* (안전망)
+    """
+    if r.kind in CEO_GATED_KINDS:
+        return True
+    sr = (r.meta or {}).get("self_review") if isinstance(r.meta, dict) else None
+    if sr and sr.get("severity") == "fail":
+        return True
+    return False
 
 
 def _pages_base_url() -> str | None:
@@ -261,9 +317,21 @@ def notify_new_pending() -> int:
                     body_preview=r.body_md,
                 )
             else:
-                # ★ CEO 리뷰 게이트 — 가드 대상 산출물엔 CEO 의견 한 줄 자동 첨부
+                # ★ CEO 리뷰 게이트 — F2 강화: gated kind + self_review fail 강제 게이트
                 summary = r.summary or "(요약 없음)"
-                if r.kind in CEO_GATED_KINDS:
+
+                # F1 self_review 결과 짧게 표시 (회원 판단 도움)
+                sr = (r.meta or {}).get("self_review") if isinstance(r.meta, dict) else None
+                if sr:
+                    sev = sr.get("severity")
+                    if sev == "fail":
+                        hard = sr.get("hard_violations") or []
+                        summary = f"{summary}\n\n🚫 자가 검수 FAIL: {hard[:3]}"
+                    elif sev == "warn":
+                        soft_n = len(sr.get("soft_violations") or [])
+                        summary = f"{summary}\n\n⚠️ 자가 검수 warn (soft 위반 {soft_n}개)"
+
+                if _should_gate(r):
                     ceo_line = _get_ceo_comment(r)
                     if ceo_line:
                         summary = f"{summary}\n\n🎩 CEO: {ceo_line}"
