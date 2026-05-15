@@ -115,7 +115,27 @@ def _ensure_on_main() -> bool:
 
 
 def _git_sync_changes() -> bool:
-    """변경 사항이 있으면 commit + push. 성공 여부 반환."""
+    """변경 사항이 있으면 commit + push. 성공 여부 반환.
+
+    [P5 락 통합]
+    git_lock() 으로 감싸서 *다른 워커 프로세스의 동시 push 충돌* 방지.
+    workers=4면 4개 워커가 동시에 push 시도할 수 있으므로 필수.
+    """
+    # P5: git 작업 전체를 lock으로 감싸기 (P3 cross-process safe)
+    try:
+        from agents.locks import git_lock
+        _git_ctx = git_lock(timeout=120.0)
+    except Exception:
+        # 락 모듈 import 실패 시 — 직렬 모드라 어차피 충돌 없음
+        import contextlib
+        _git_ctx = contextlib.nullcontext()
+
+    with _git_ctx:
+        return _git_sync_changes_inner()
+
+
+def _git_sync_changes_inner() -> bool:
+    """git_sync_changes의 실제 로직 (락 안에서 실행)."""
     # ★ detached HEAD 자동 복구
     _ensure_on_main()
 
@@ -277,11 +297,42 @@ def _maybe_run_ceo_daily():
     log.info("[ceo-daily] ✓ CEO 일일 보고 brief 큐잉 — %s", path.name)
 
 
+def _run_parallel_conductor(brief_paths: list) -> bool:
+    """P5 병렬 모드 — scheduler + worker_pool로 16 동시 처리.
+
+    Returns:
+        True if 성공적으로 dispatch (실패 brief 있어도 흐름은 OK)
+        False if worker_pool import 실패 등 시스템 에러
+    """
+    try:
+        from agents.worker_pool import run_briefs_grouped, DEFAULT_WORKERS, DEFAULT_CONCURRENCY
+        if not brief_paths:
+            return True
+        log.info(
+            "[parallel] ⚡ %d briefs → workers=%d × concurrency=%d 동시 처리",
+            len(brief_paths), DEFAULT_WORKERS, DEFAULT_CONCURRENCY,
+        )
+        results = run_briefs_grouped(brief_paths)
+        ok = sum(1 for r in results if r.get("ok"))
+        log.info("[parallel] ✓ %d/%d 성공", ok, len(results))
+        for r in results:
+            if not r.get("ok"):
+                log.warning("[parallel] ✗ %s: %s", Path(r["path"]).name, r.get("error",""))
+        return True
+    except Exception as e:
+        log.exception("[parallel] 시스템 에러 — 직렬 fallback: %s", e)
+        return False
+
+
 def _run_local_pipeline():
     """로컬에서 conductor → notify → build 풀 파이프라인 실행.
 
     cron이 작동 안 해도 데몬이 24시간 돌면 이 함수가 모든 brief을 처리한다.
     각 단계 실패해도 다음 단계는 계속 시도.
+
+    [P5 병렬 모드]
+    CC_PARALLEL=1 환경변수 설정 시 → worker_pool로 16 동시 처리.
+    기본은 *직렬* (기존 conductor) — 회원이 명시 활성 시에만 병렬.
     """
     # ★ CEO 일일 보고 — 매일 09:00 KST 자동 트리거
     try:
@@ -341,8 +392,17 @@ def _run_local_pipeline():
             log.exception("[local-pipeline] %s 예외: %s", module, e)
 
     # 1) Conductor — briefs/ 처리 → pending/ 생성
+    # P5 병렬 모드: CC_PARALLEL=1 환경변수 설정 시 worker_pool 사용
+    parallel_enabled = os.environ.get("CC_PARALLEL", "").lower() in ("1", "true", "yes")
     if queued_briefs:
-        _run_module("agents.conductor")
+        if parallel_enabled:
+            ok = _run_parallel_conductor(queued_briefs)
+            if not ok:
+                # 병렬 실패 → 직렬 fallback
+                log.warning("[long_poll] 병렬 실패 — 직렬 conductor로 fallback")
+                _run_module("agents.conductor")
+        else:
+            _run_module("agents.conductor")
 
     # 2) Notify — pending/ 항목 발송 (AUTO 모드면 자동 승인 + 캐스케이드)
     _run_module("telegram_bot.notify", timeout=180)

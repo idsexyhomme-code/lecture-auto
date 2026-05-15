@@ -204,6 +204,64 @@ def run_briefs_parallel(
     return all_results
 
 
+# ── 그룹 기반 안전 병렬 실행 (P4 scheduler 통합) ─────────────
+
+def run_briefs_grouped(
+    brief_paths: list[Path] | list[str],
+    *,
+    workers: int = DEFAULT_WORKERS,
+    concurrency: int = DEFAULT_CONCURRENCY,
+    timeout_per_chunk: int = 900,
+) -> list[dict]:
+    """scheduler가 분류한 *그룹 기반*으로 안전 병렬 처리.
+
+    각 그룹 = 한 워커에서 직렬 실행 (course 단위 race 방지).
+    그룹 간 = 워커 간 병렬.
+
+    같은 course_id의 brief들은 *반드시 같은 워커*에서 직렬로 처리됨.
+    """
+    from .scheduler import schedule_briefs
+
+    paths = [Path(p) if isinstance(p, str) else p for p in brief_paths]
+    if not paths:
+        return []
+
+    groups = schedule_briefs(paths)
+    log.info(
+        "[worker_pool/grouped] %d brief → %d groups (max %d workers)",
+        len(paths), len(groups), workers,
+    )
+
+    all_results: list[dict] = []
+    ctx = get_context("spawn")
+    t0 = time.time()
+
+    with ProcessPoolExecutor(max_workers=workers, mp_context=ctx) as ex:
+        # 각 그룹을 워커에 dispatch — 그룹 *전체*가 한 워커에서 순서대로 실행
+        # asyncio.gather가 그룹 안 모든 brief을 *동시* 처리 (asyncio 안에서 OK — 다른 파일이라)
+        # 단 같은 그룹이라도 race 위험 있으면 추후 sequential 모드 도입
+        futures = {ex.submit(_run_async_batch, [str(p) for p in grp]): grp for grp in groups}
+        for f in as_completed(futures):
+            try:
+                results = f.result(timeout=timeout_per_chunk)
+                all_results.extend(results)
+            except Exception as e:
+                log.exception("[worker_pool/grouped] group 실패: %s", e)
+                grp = futures[f]
+                for p in grp:
+                    all_results.append({
+                        "path": str(p),
+                        "ok": False,
+                        "error": f"group failure: {type(e).__name__}: {e}",
+                        "elapsed": -1,
+                    })
+
+    elapsed = time.time() - t0
+    ok = sum(1 for r in all_results if r.get("ok"))
+    log.info("[worker_pool/grouped] 완료 %d/%d · %.1fs", ok, len(all_results), elapsed)
+    return all_results
+
+
 # ── CLI / 디버그용 ────────────────────────────────────────────
 
 def main():
