@@ -119,6 +119,56 @@ def blog_status() -> dict:
     }
 
 
+def self_review_stats() -> dict:
+    """F1 self_review 결과 통계 — approved 메타에서 집계."""
+    sev_counter = {"pass": 0, "warn": 0, "fail": 0, "unknown": 0}
+    for f in glob.glob(str(REPO / "content" / "approved" / "*.json")):
+        try:
+            d = json.load(open(f))
+        except Exception:
+            continue
+        sr = (d.get("meta") or {}).get("self_review") or {}
+        sev = sr.get("severity", "unknown")
+        sev_counter[sev if sev in sev_counter else "unknown"] += 1
+    total = sum(sev_counter.values())
+    return {
+        "total": total,
+        **sev_counter,
+        "pass_pct": round(100 * sev_counter["pass"] / total, 1) if total else 0,
+    }
+
+
+def learning_status() -> dict:
+    """F3·F5 학습 상태."""
+    try:
+        sys.path.insert(0, str(REPO))
+        from agents.memory import get_status
+        return get_status()
+    except Exception:
+        return {"total_learned_words": 0, "learned_words": [], "stats": {}}
+
+
+def ab_status() -> dict:
+    """F4 A/B 테스트 결과 통계."""
+    try:
+        sys.path.insert(0, str(REPO))
+        from agents.ab_test import get_recent_ab_stats, is_ab_enabled
+        return {**get_recent_ab_stats(days=7), "enabled": is_ab_enabled()}
+    except Exception:
+        return {"enabled": False, "total": 0}
+
+
+def worker_pool_status() -> dict:
+    """P2 워커 풀 상태."""
+    return {
+        "parallel_enabled": os.environ.get("CC_PARALLEL", "").lower() in ("1", "true", "yes"),
+        "workers": int(os.environ.get("CC_WORKER_POOL_WORKERS", "4")),
+        "concurrency": int(os.environ.get("CC_WORKER_POOL_CONCURRENCY", "4")),
+        "total_capacity": int(os.environ.get("CC_WORKER_POOL_WORKERS", "4"))
+                          * int(os.environ.get("CC_WORKER_POOL_CONCURRENCY", "4")),
+    }
+
+
 def snapshot() -> dict:
     kpi = load_kpi()
     latest = kpi.get("latest") or {}
@@ -131,6 +181,11 @@ def snapshot() -> dict:
         "recent_pending": recent_files("content/pending/*.json", 5),
         "recent_approved": recent_files("content/approved/*.json", 5),
         "queued_briefs": recent_files("briefs/*.json", 8),
+        # 신규 — Phase 1·2 모니터링
+        "worker_pool": worker_pool_status(),
+        "self_review": self_review_stats(),
+        "learning": learning_status(),
+        "ab_test": ab_status(),
     }
 
 
@@ -211,6 +266,28 @@ HTML = """<!doctype html>
 
   <div class="grid" style="margin-top:20px">
     <div class="card">
+      <h2>⚙️ 워커 풀 (P2)</h2>
+      <div id="worker_pool"></div>
+    </div>
+    <div class="card">
+      <h2>🔍 자가 검수 통계 (F1)</h2>
+      <div class="stat-row" id="self_review"></div>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:20px">
+    <div class="card">
+      <h2>🧠 학습된 패턴 (F3+F5)</h2>
+      <div id="learning"></div>
+    </div>
+    <div class="card">
+      <h2>🆎 A/B 테스트 결과 (F4)</h2>
+      <div id="ab_test"></div>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:20px">
+    <div class="card">
       <h2>🔗 빠른 링크</h2>
       <div class="links">
         <a href="https://idsexyhomme-code.github.io/lecture-auto/" target="_blank">🌐 라이브 사이트</a>
@@ -280,6 +357,49 @@ async function refresh() {
     document.getElementById('processed').innerHTML = renderRows(d.recent_processed);
     document.getElementById('pending').innerHTML = renderRows(d.recent_pending);
     document.getElementById('approved').innerHTML = renderRows(d.recent_approved);
+
+    // Worker pool
+    const wp = d.worker_pool || {};
+    document.getElementById('worker_pool').innerHTML = `
+      <span class="status-pill ${wp.parallel_enabled ? 'status-alive' : 'status-dead'}">${wp.parallel_enabled ? '● 병렬 활성' : '● 직렬 모드'}</span>
+      <div class="meta" style="margin-top:10px">
+        <div>workers × concurrency = <strong>${wp.workers} × ${wp.concurrency} = ${wp.total_capacity} 동시</strong></div>
+        <div style="font-size:11px;margin-top:4px;color:var(--muted)">CC_PARALLEL=1 환경변수로 활성</div>
+      </div>
+    `;
+
+    // Self-review stats
+    const sr = d.self_review || {};
+    document.getElementById('self_review').innerHTML = `
+      <div class="stat"><div class="stat-val" style="color:var(--green)">${fmt(sr.pass)}</div><div class="stat-lbl">pass</div></div>
+      <div class="stat"><div class="stat-val" style="color:var(--yellow)">${fmt(sr.warn)}</div><div class="stat-lbl">warn</div></div>
+      <div class="stat"><div class="stat-val" style="color:var(--red)">${fmt(sr.fail)}</div><div class="stat-lbl">fail</div></div>
+      <div class="stat"><div class="stat-val">${fmt(sr.pass_pct)}%</div><div class="stat-lbl">통과율</div></div>
+    `;
+
+    // Learning
+    const lr = d.learning || {};
+    const learned = (lr.learned_words || []).slice(0, 8);
+    const topFail = Object.entries(lr.top_fail_patterns || {}).slice(0, 5);
+    document.getElementById('learning').innerHTML = `
+      <div class="meta" style="margin-bottom:8px">
+        학습된 금기어 <strong>${fmt(lr.total_learned_words)}</strong>개 / 누적 검수 <strong>${fmt((lr.stats||{}).total_reviews)}</strong>건
+      </div>
+      ${learned.length ? '<div class="meta" style="margin-top:6px"><strong>학습된 단어:</strong> ' + learned.map(w=>`<code>${w}</code>`).join(' · ') + '</div>' : '<div class="sub" style="font-size:12px">아직 학습된 단어 없음</div>'}
+      ${topFail.length ? '<div class="meta" style="margin-top:8px;font-size:11px"><strong>fail 패턴:</strong> ' + topFail.map(([w,c])=>`${w}(${c})`).join(' / ') + '</div>' : ''}
+    `;
+
+    // A/B test
+    const ab = d.ab_test || {};
+    document.getElementById('ab_test').innerHTML = `
+      <span class="status-pill ${ab.enabled ? 'status-alive' : 'status-dead'}">${ab.enabled ? '● 활성' : '● 비활성'}</span>
+      <div class="meta" style="margin-top:10px">
+        최근 7일 테스트 <strong>${fmt(ab.total)}</strong>건<br>
+        v1 우승 ${fmt(ab.v1_wins)} · v2 우승 ${fmt(ab.v2_wins)}<br>
+        평균 차이 (v2-v1): <strong>${(ab.avg_diff||0).toFixed(2)}</strong>
+      </div>
+      <div style="font-size:11px;margin-top:6px;color:var(--muted)">CC_AB_TEST=1로 활성</div>
+    `;
   } catch (e) {
     document.getElementById('now').textContent = '⚠️ 갱신 실패: ' + e.message;
   }

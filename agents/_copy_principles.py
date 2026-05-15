@@ -77,3 +77,20 @@ AI가 만든 티가 *조금이라도* 나면 안 된다.
   - 일상에서 친구한테 그대로 말할 수 있는 문장인가? → 아니면 다시 쓴다.
   - 숫자·구체 사례·일상 장면이 들어갔는가? → 없으면 추가한다.
 """
+
+
+# ─────────────────────────────────────────────────────────────
+# F3: 학습된 가이드 자동 inject
+# 시간이 지나면서 누적된 금기어·패턴을 system_prompt에 자동 추가
+# 회원이 직접 수정도 가능: data/learning/copy_principles_v2.json
+# ─────────────────────────────────────────────────────────────
+def _try_load_learned() -> str:
+    try:
+        from .learning import get_learned_addendum
+        return get_learned_addendum() or ""
+    except Exception:
+        return ""
+
+
+# 모듈 import 시점에 학습된 가이드 합치기 (성능 부담 없음 — 짧은 파일)
+HUMAN_TONE_GUIDE = HUMAN_TONE_GUIDE + _try_load_learned()
