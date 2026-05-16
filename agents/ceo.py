@@ -891,6 +891,13 @@ W1_OUTREACH_MESSAGE_DRAFT.md 의 v1 *전체 문구* (300~450자) 그대로 포�
         site_state = brief.get("site_state") or {}
         recent_kpi = brief.get("recent_kpi") or {}
 
+        # §11 디스패치 큐 상태 자동 첨부 (수동 brief에 없어도)
+        try:
+            from .sub_agents import get_queue_status
+            site_state["dispatch_queue"] = get_queue_status()
+        except Exception:
+            pass
+
         prompt = f"""오늘은 {today} (KST). Core Campus의 일일 보고를 헌법 §9 형식에 따라 작성하라.
 
 [참고 컨텍스트]
@@ -919,6 +926,19 @@ CEO 자율 범위 안의 작업 리스트.
 
 ## 7. 리스크와 방지책
 오늘 1~2개 리스크 + 각각의 방지책.
+
+## 8. 오늘 발행한 작업 티켓 (§11)
+site_state.dispatch_queue 의 카운트 그대로 짧게.
+포맷: pending: N · in_progress: N · completed: N · review_required: N · approved: N · rejected: N
+
+## 9. 각 에이전트별 진행 상태
+지금 확인 가능한 정보로. 데이터 없으면 "(아직 데이터 없음)"
+
+## 10. 검토 대기 결과물 + 회원 ✅ 필요 결과물
+completed/N건 + review_required/N건 + 회원 승인 필요 산출물 짧게.
+
+## 11. 다음 실행 에이전트 + 병목 지점
+다음 step 또는 가장 오래 정체된 항목.
 
 §8 톤 — 숫자로, 자극 톤 없이, 단호하게."""
 

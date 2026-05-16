@@ -242,6 +242,49 @@ def _send_hourly_report():
         log.warning("[long_poll] hourly report 발송 실패: %s", e)
 
 
+def _process_one_dispatch_task():
+    """§11 디스패치 큐에서 1 티켓 픽업·실행. 매 데몬 사이클 1번.
+
+    pending/ → in_progress/ → 에이전트 실행 → completed/
+    완료 후 텔레그램 카드 발송 (CEO 검수 필요 시) — 향후 통합.
+
+    [안전 장치]
+    - 비용 가드 통과해야 호출
+    - pending 비어있으면 즉시 return
+    - 1 사이클당 *최대 1개* — 데몬이 다른 작업 못 하는 거 방지
+    """
+    import json as _json
+    pending_dir = REPO_ROOT / "content" / "tasks" / "pending"
+    if not pending_dir.exists():
+        return
+    pending_count = len(list(pending_dir.glob("TASK-*.json")))
+    if pending_count == 0:
+        return
+
+    # 비용 가드
+    try:
+        sys.path.insert(0, str(REPO_ROOT))
+        from agents.budget_guard import check_budget
+        ok, current, cap = check_budget(agent="dispatch_task")
+        if not ok:
+            log.warning("[dispatch] 비용 한도 초과 — 작업 보류")
+            return
+    except Exception:
+        pass
+
+    try:
+        from agents.sub_agents import process_one_pending
+        result = process_one_pending()
+        if result and result.get("ok"):
+            log.info("[dispatch] ✓ %s (%s) → %s",
+                     result.get("task_id"), result.get("agent"),
+                     result.get("output_path"))
+        elif result:
+            log.warning("[dispatch] ✗ %s", result.get("error", "unknown"))
+    except Exception as e:
+        log.exception("[dispatch] 처리 예외: %s", e)
+
+
 def _update_checkpoint():
     """체크포인트 — 데몬 살아있다는 시그널 + 마지막 처리 정보."""
     import json as _json
@@ -427,6 +470,12 @@ def _run_local_pipeline():
         _update_checkpoint()
     except Exception:
         pass
+
+    # ★ §11 디스패치 큐 처리 — 매 사이클 1 티켓 픽업·실행
+    try:
+        _process_one_dispatch_task()
+    except Exception as e:
+        log.warning("[long_poll] dispatch task 처리 실패 (무해): %s", e)
 
     # ★ Roadmap 자동 펌프 — 1시간마다 신규 코스 brief 자동 발주
     try:

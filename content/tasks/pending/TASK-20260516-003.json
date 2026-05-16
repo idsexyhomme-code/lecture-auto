@@ -1,0 +1,33 @@
+{
+  "task_id": "TASK-20260516-003",
+  "assigned_agent": "curriculum_agent",
+  "objective": "외주 파일럿 강의 '1인 사업가를 위한 AI 업무 자동화' 6강 커리큘럼 초안. 각 강 12~15분, 측정 가능한 학습목표, 실습 결과물 1개씩.",
+  "input_files": [
+    "content/tasks/approved/TASK-20260516-001.json"
+  ],
+  "output_file": "content/tasks/completed/TASK-20260516-003-curriculum.md",
+  "scope": {
+    "포함": [
+      "코스 제목·가치제안·약속 3개",
+      "6강 학습목표·중요 개념 3·실습·도구"
+    ],
+    "제외": [
+      "영상 본문",
+      "가격 책정"
+    ]
+  },
+  "do_not": [
+    "산출물·워크플로우·솔루션·효율적 같은 §8 금기",
+    "과장 약속"
+  ],
+  "acceptance_criteria": [
+    "6강 구조 완성",
+    "각 15분 단일 학습목표",
+    "§4·§8 금기어 0"
+  ],
+  "approval_required": false,
+  "deadline": "2026-05-19T18:00:00+09:00",
+  "next_step": "TASK-20260516-004 outreach_draft_agent",
+  "created_at": "2026-05-16T11:15:44.516279+09:00",
+  "status": "pending"
+}
