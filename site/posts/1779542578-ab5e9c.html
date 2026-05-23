@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 내 목소리로 쓴 것처럼 초안을 만듭니다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779542636" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 내 목소리로 쓴 것처럼 초안을 만듭니다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-blog-research-flow · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>블로그 글 써달라고 했더니 초안이 나왔습니다.</p>
+<p>근데 읽다 보면 뭔가 이상합니다.</p>
+<p>"이 글에서는 다음과 같이 알아보겠습니다."</p>
+<p>"~을 통해 더 나은 결과를 기대할 수 있습니다."</p>
+<p>내가 절대 이렇게 말 안 하는 거 압니다.</p>
+<p>손님한테도, 친구한테도, 블로그에도.</p>
+<p>근데 AI는 매번 이런 문장을 집어넣습니다.</p>
+<p>오늘은 그 문장들을 골라내고, 내 말투로 교체하는 법만 합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, Claude가 쓴 초안에서 어색한 문장 3곳을 찾아 내 말투로 바꾼 블로그 초안 1편이 손에 남습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1. 글 톤앤매너를 프롬프트에 박아 넣는 법</h3>
+<p><strong>설명</strong></p>
+<p>Claude한테 "블로그 글 써줘"만 치면 됩니다.</p>
+<p>근데 그러면 Claude는 누구한테나 통하는 중간 톤으로 씁니다.</p>
+<p>거기서 나오는 게 그 어색한 문장들입니다.</p>
+<p>프롬프트에 '말투 샘플'을 직접 넣어야 합니다.</p>
+<p>방법은 간단합니다.</p>
+<p>내가 예전에 쓴 블로그 글, 카카오톡 공지, SNS 게시물 중 하나를 골라서 프롬프트 맨 앞에 붙입니다.</p>
+<p>그리고 이렇게 씁니다.</p>
+<p>"아래는 내가 실제로 쓴 글입니다. 이 말투와 문장 길이를 그대로 따라 써주세요."</p>
+<p><strong>예시</strong></p>
+<p>네일샵 원장이 이렇게 썼다고 합니다.</p>
+<p>"오늘 연장 손님이 세 분이었는데, 그 중 한 분이 '이거 두 달 됐어요' 하시는 거예요. 솔직히 놀랐습니다."</p>
+<p>이 문장을 샘플로 넣으면 Claude는 짧고 구어적인 문장을 씁니다.</p>
+<p><strong>반례</strong></p>
+<p>샘플을 넣었어도 프롬프트가 길고 조건이 많으면 Claude가 중간에 톤을 잃습니다.</p>
+<p>특히 소제목 3개 이상 요청하면 소제목 밑에서 다시 AI체로 돌아오는 경우가 많습니다.</p>
+<p>이럴 땐 소제목별로 나눠서 따로 요청하는 게 낫습니다.</p>
+<p><strong>정리 — 메모리 페그: '샘플 = 사진'</strong></p>
+<p>Claude한테 "이런 분위기로 써줘"는 통하지 않습니다.</p>
+<p>사진 찍어 보여주듯, 내 글 샘플을 그대로 붙여넣어야 합니다.</p>
+<hr />
+<h3>개념 2. AI 초안에서 자주 나오는 어색한 패턴 5가지</h3>
+<p><strong>설명</strong></p>
+<p>제 경험상 Claude 초안에는 5개 패턴이 반복됩니다.</p>
+<p>숫자로 기억하세요. <strong>5총사</strong>입니다.</p>
+<ol>
+<li><strong>목차형 예고</strong> — "이 글에서는 세 가지를 살펴보겠습니다."</li>
+<li><strong>수동 마무리</strong> — "~을 통해 도움이 되길 바랍니다."</li>
+<li><strong>형용사 뭉치</strong> — "효율적이고 간편한 방법으로"</li>
+<li><strong>이중 표현</strong> — "먼저 우선적으로"</li>
+<li><strong>설명 훈계</strong> — "잊지 마시고", "주의하셔야 합니다"</li>
+</ol>
+<p><strong>예시</strong></p>
+<p>실제로 나온 초안 문장입니다.</p>
+<p>"먼저 우선적으로 고객과의 신뢰를 쌓는 것이 효율적이고 간편한 방법임을 잊지 마세요."</p>
+<p>한 문장에 5총사가 3개 들어갔습니다.</p>
+<p><strong>반례</strong></p>
+<p>5총사가 없어도 어색한 문장이 있습니다.</p>
+<p>"해당 내용을 참고하시어 적용하시기 바랍니다."</p>
+<p>이건 공문서 말투입니다.</p>
+<p>블로그에 쓰면 독자가 뒤로가기 누릅니다.</p>
+<p><strong>정리 — 메모리 페그: '5총사 = 빨간 줄'</strong></p>
+<p>초안 읽을 때 이 5개 패턴 보이면 바로 빨간 줄 긋습니다.</p>
+<p>고치기 전까지 다음 문단으로 넘어가지 않습니다.</p>
+<hr />
+<h3>개념 3. 1인 사업가 블로그에 맞는 첫 문장 공식</h3>
+<p><strong>설명</strong></p>
+<p>블로그 이탈률 데이터를 보면 첫 3문장 안에 절반이 나갑니다.</p>
+<p>Claude가 쓰는 첫 문장은 거의 이렇습니다.</p>
+<p>"오늘은 ~에 대해 알아보겠습니다."</p>
+<p>이 문장이 나오면 독자는 바로 뒤로갑니다.</p>
+<p>1인 사업가 블로그 첫 문장은 공식이 따로 있습니다.</p>
+<p><strong>공식: 날짜·숫자 + 장면 + 반전</strong></p>
+<ul>
+<li>날짜·숫자: "지난 화요일", "메일 12통", "3개월"</li>
+<li>장면: 그 순간 뭘 하고 있었는지</li>
+<li>반전: 예상과 달랐던 결과나 감정</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>나쁜 첫 문장:
+"오늘은 고객 응대 잘하는 법에 대해 알아보겠습니다."</p>
+<p>좋은 첫 문장:
+"지난주 금요일 오후, 환불 요청 메일이 4통 한꺼번에 왔습니다. 그 중 3통은 제 답장 하나로 취소됐습니다."</p>
+<p><strong>반례</strong></p>
+<p>숫자를 넣어도 과장되면 역효과입니다.</p>
+<p>"하루 만에 매출 300% 올린 메일 한 통"</p>
+<p>이런 첫 문장은 광고로 읽혀서 신뢰를 잃습니다.</p>
+<p>실제 내 숫자여야 합니다.</p>
+<p><strong>정리 — 메모리 페그: '첫 문장 = 현관문'</strong></p>
+<p>현관문이 허름하면 집 안을 안 봅니다.</p>
+<p>첫 문장은 내가 실제로 겪은 장면을 씁니다.</p>
+<p>숫자 하나, 요일 하나면 충분합니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지하세요.</p>
+<p>순서대로 따라 하면 됩니다.</p>
+<p><strong>Step 1 — 내 말투 샘플 1개 꺼내기 (2분)</strong></p>
+<p>카카오톡 단체 공지, SNS 게시물, 이전 블로그 글 중 하나를 고릅니다.</p>
+<p>3~5문장이면 충분합니다.</p>
+<p>없으면 지금 바로 씁니다.</p>
+<p>"저는 ~을 하고 있습니다. 요즘 ~한 일이 있었습니다." 이 정도면 됩니다.</p>
+<p><strong>Step 2 — Claude에 프롬프트 넣고 초안 받기 (3분)</strong></p>
+<p>프롬프트 구조는 이렇습니다.</p>
+<p>"아래는 내가 실제로 쓴 글 샘플입니다. [샘플 붙여넣기] 이 말투로, 지난 차시에서 만든 아웃라인을 바탕으로 블로그 초안을 써주세요."</p>
+<p>초안이 나오면 같은 문서에 그대로 붙여넣습니다.</p>
+<p><strong>Step 3 — AI 냄새 나는 문장 3곳 찾아 고치기 (5분)</strong></p>
+<p>방금 배운 5총사 패턴과 첫 문장 공식을 기준으로 읽습니다.</p>
+<p>어색한 문장 찾으면 같은 문서 아래 섹션에 표 하나 만듭니다.</p>
+<table>
+<thead>
+<tr>
+<th>수정 전</th>
+<th>수정 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI가 쓴 원문</td>
+<td>내 말투로 바꾼 문장</td>
+</tr>
+</tbody>
+</table>
+<p>3행 이상 채웁니다.</p>
+<p>수정 후 문장은 30자 이내로 씁니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 초안을 검색에 걸리게 다듬는 법을 합니다.</p>
+<p>제목 하나, 소제목 3개, 메타 설명 1줄.</p>
+<p>이 세 곳만 바꿔도 유입이 달라집니다.</p>
+<p>오늘 만든 수정 전·후 비교 메모, 댓글에 올려주세요.</p>
+<p>한 줄이어도 됩니다.</p>
+<p>다른 사람 보고 힌트 얻을 수 있습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

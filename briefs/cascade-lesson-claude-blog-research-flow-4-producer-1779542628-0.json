@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-blog-research-flow",
+    "course_title": "Claude로 블로그 글 1시간 완성",
+    "lesson_no": 4,
+    "lesson_title": "초안에서 발행본까지 한 번에 마무리합니다",
+    "objective": "완성된 초안을 SEO 체크리스트 7항목과 비교해 빠진 항목을 직접 채워 넣습니다",
+    "key_concepts": [
+      "발행 전 SEO 체크리스트 7항목",
+      "메타 디스크립션·제목 태그 Claude로 뽑는 법",
+      "내부 링크·CTA 문장 삽입 위치 기준"
+    ],
+    "exercise": "SEO 체크리스트 7항목 채운 발행 준비 완료본 1편 (PDF 또는 블로그 임시저장 링크 캡처)",
+    "duration_min": 15
+  }
+}

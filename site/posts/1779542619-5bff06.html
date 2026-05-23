@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 매주 30초 만에 꺼내 쓰는 보고 틀 완성 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779542636" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 매주 30초 만에 꺼내 쓰는 보고 틀 완성<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-weekly-report · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>월요일 오전, 지난주 보고서 쓰려고 파일 열었더니
+지난 차시에 만들었던 프롬프트가 이번 주 숫자랑 안 맞아요.
+날짜 바꾸고, 수치 고치고, 문장 다듬다 보면 30분이 훌쩍 넘어갑니다.
+"이걸 매주 해야 하나?" 싶을 때 있죠.</p>
+<p>오늘은 그 반복 작업을 끝냅니다.
+데이터만 바꿔 넣으면 보고서가 바로 나오는 틀 1개를 완성합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 이번 주 업무 숫자를 복붙하는 것만으로
+5문단짜리 보고서가 30초 안에 완성됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 변수 자리 만들기: "빈 칸 계약서" 법칙</h3>
+<p><strong>설명</strong>
+프롬프트 안에 매주 바뀌는 정보는 전부 중괄호로 묶습니다.
+<code>{날짜}</code>, <code>{주요 수치}</code>, <code>{이슈}</code> 이렇게요.
+중괄호는 계약서의 서명란이라고 생각하세요.
+매주 그 칸만 채우면 계약서 전체가 완성됩니다.</p>
+<p><strong>예시</strong></p>
+<pre><code>이번 주({날짜}) 매출은 {주요 수치}원이었습니다.
+주요 이슈는 {이슈}였고, 다음 주 대응 방향은 {대응}입니다.
+</code></pre>
+<p>여기서 <code>{날짜}</code>에 "5월 3주차", <code>{주요 수치}</code>에 "3,200만"을 넣으면 문장이 바로 완성됩니다.</p>
+<p><strong>반례</strong>
+중괄호 없이 그냥 "지난주 숫자 넣어줘"라고 쓰면 AI가 매번 다른 형식으로 뱉어냅니다.
+어떤 주는 표, 어떤 주는 단락, 어떤 주는 목록.
+형식이 흔들리면 보고서가 쓸 때마다 새로 만드는 것과 다를 바가 없습니다.</p>
+<p><strong>정리</strong>
+변수는 반드시 중괄호로 묶는다.
+바뀌는 건 <code>{변수}</code>, 안 바뀌는 건 그냥 문장에 고정.
+이게 "빈 칸 계약서" 법칙입니다.</p>
+<hr />
+<h3>개념 2 — 읽는 사람에 따라 문체 바꾸기: "채널 다이얼" 법칙</h3>
+<p><strong>설명</strong>
+같은 데이터라도 팀장에게 쓸 때와 고객에게 쓸 때, 본인 기록용으로 쓸 때 문체가 달라야 합니다.
+이걸 프롬프트 안에 딱 한 줄로 박아 놓으면 됩니다.
+라디오 채널 돌리듯 숫자만 바꾸면 바로 전환됩니다.</p>
+<p><strong>예시</strong></p>
+<ul>
+<li>팀장 보고용: <code>문체: 간결한 보고 문체, 결론을 첫 문장에</code></li>
+<li>고객 발송용: <code>문체: 정중한 안내 문체, 수치는 긍정적 맥락으로 제시</code></li>
+<li>본인 기록용: <code>문체: 메모 형식, 생략 허용</code></li>
+</ul>
+<p>세 줄짜리 프롬프트 모음 파일 하나만 만들어 두면 됩니다.
+해당 줄만 복붙해서 넣으면 끝입니다.</p>
+<p><strong>반례</strong>
+문체 지시 없이 그냥 "보고서 써줘"라고 하면 AI가 중간 어딘가 모호한 문체로 씁니다.
+팀장한테 고객 문체로 보냈다가 "왜 이렇게 친절하게 써왔어요?" 들은 적 한 번쯤 있지 않으세요?</p>
+<p><strong>정리</strong>
+프롬프트 맨 위에 <code>대상: 팀장 / 고객 / 본인</code> 한 줄 추가.
+채널 다이얼을 고정해 두면 문체 걱정은 사라집니다.</p>
+<hr />
+<h3>개념 3 — 틀이 망가지는 경우 3가지: "3개의 균열" 법칙</h3>
+<p><strong>설명</strong>
+제 경험상, 재사용 틀이 망가지는 이유는 딱 3가지입니다.
+균열이 어디서 생기는지 알면 고치는 시간이 3분 안에 끝납니다.</p>
+<p><strong>균열 1 — 데이터가 빠졌을 때</strong>
+<code>{주요 수치}</code> 자리에 숫자를 안 채우고 그냥 돌리면 AI가 임의로 숫자를 만들어 냅니다.
+고치는 법: 프롬프트 상단에 "빈 변수가 있으면 보고서 생성 전에 알려달라"고 한 줄 추가.</p>
+<p><strong>균열 2 — 이슈가 너무 길 때</strong>
+<code>{이슈}</code> 자리에 500자짜리 상황 설명을 통째로 넣으면 보고서 전체 구조가 이슈 쪽으로 쏠립니다.
+고치는 법: 이슈 설명은 3줄 이내로 자른 뒤 넣습니다. AI한테 요약 맡기지 말고 본인이 먼저 자릅니다.</p>
+<p><strong>균열 3 — 문단 수 지시가 없을 때</strong>
+매주 문단 개수가 달라지면 팀장이 "지난 주랑 형식이 다르네요"라고 합니다.
+고치는 법: <code>출력 형식: 5문단, 각 문단 3문장 이내</code> 한 줄 고정.</p>
+<p><strong>정리</strong>
+3개의 균열 — 빠진 데이터, 긴 이슈, 빠진 형식 지시.
+이 셋만 막으면 틀은 거의 안 망가집니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>자, 여기서 영상을 일시정지하세요.</p>
+<p>지금부터 완성 보고 틀 1개를 직접 만듭니다.
+아래 순서대로 따라오세요.</p>
+<p><strong>Step 1 — 변수 자리 확인 (1분)</strong>
+차시 2에서 만든 프롬프트를 열어서 매주 바뀌는 정보를 전부 찾습니다.
+날짜, 수치, 이슈, 담당자 이름 등.
+그 자리를 전부 <code>{변수명}</code> 형태로 바꿉니다.</p>
+<p><strong>Step 2 — 대상 한 줄 추가 (30초)</strong>
+프롬프트 맨 위에 이렇게 씁니다.
+<code>대상: [팀장 / 고객 / 본인 중 하나]</code>
+지금 당장 가장 자주 쓰는 대상 하나만 골라 고정합니다.</p>
+<p><strong>Step 3 — 형식 한 줄 추가 (30초)</strong>
+바로 아래 줄에 씁니다.
+<code>출력 형식: 5문단, 각 문단 3문장 이내</code></p>
+<p><strong>Step 4 — 이번 주 실제 데이터 넣기 (1분)</strong>
+<code>{변수명}</code> 자리에 이번 주 실제 숫자와 이슈를 채워 넣습니다.
+이슈가 길면 3줄로 자르고 넣습니다.</p>
+<p><strong>Step 5 — 돌려보기 (30초)</strong>
+완성된 프롬프트를 AI에 붙여 넣고 보고서를 받아봅니다.
+5문단이 나왔는지, 문체가 맞는지 확인합니다.</p>
+<p>이 화면을 1분 이내로 녹화해서 제출하면 이번 실습은 끝입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 틀로 만든 보고서를
+팀장 피드백 없이 한 번에 통과시키는 법을 다룹니다.
+제 경험상 보고서가 반려되는 이유는 딱 2가지인데, 그것만 짚습니다.</p>
+<p>지금 바로 다음 영상 눌러서 이어 보세요.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

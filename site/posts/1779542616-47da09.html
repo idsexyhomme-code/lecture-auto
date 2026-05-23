@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 스크립트 읽고 바로 촬영 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779542636" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 스크립트 읽고 바로 촬영<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-youtube-script · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>스크립트 다 썼는데, 아직도 못 올렸죠?</p>
+<p>"조금 더 다듬고 올려야지" 하다가 일주일이 지나 있습니다.</p>
+<p>사실 스크립트는 이미 충분해요.</p>
+<p>문제는 읽어본 적이 없다는 겁니다.</p>
+<p>소리 내서 한 번만 읽으면, 뭘 고쳐야 하는지 바로 보입니다.</p>
+<p>오늘 이 영상 끝나면, 쇼츠 1편이 실제로 올라가 있을 겁니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면, 스크립트를 소리 내어 읽고 60초 안에 맞게 다듬어서 쇼츠 1편을 직접 업로드할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 60초 안에 읽히는 글자 수</h3>
+<p><strong>설명</strong></p>
+<p>소리 내어 읽을 때 자연스러운 속도는 분당 300자 안팎입니다.</p>
+<p>쇼츠 60초 기준으로 스크립트는 270자에서 320자 사이가 딱 맞습니다.</p>
+<p><strong>예시</strong></p>
+<p>지금 이 문장을 소리 내 읽어보세요.</p>
+<p>"월요일 아침에 메일 30통 열었더니 머리가 멍했습니다."</p>
+<p>이 한 문장이 약 25자입니다.</p>
+<p>320자짜리 스크립트는 이런 문장이 12~13개면 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>블로그 글 붙여넣기 하면 800자가 넘습니다.</p>
+<p>소리 내 읽으면 2분 30초가 넘어요.</p>
+<p>쇼츠 아니라 유튜브 영상이 됩니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 숫자 300입니다.</p>
+<p>분당 300자, 60초에 300자.</p>
+<p>스크립트 쓰고 나면 글자 수부터 셉니다.</p>
+<hr />
+<h3>개념 2 — 말이 걸리는 부분만 골라 고치는 법</h3>
+<p><strong>설명</strong></p>
+<p>스크립트를 처음부터 끝까지 다 고치려 하면 영원히 못 올립니다.</p>
+<p>소리 내어 읽다가 입이 멈추는 곳, 딱 그 부분만 고칩니다.</p>
+<p><strong>예시</strong></p>
+<p>"본 제품은 사용자 경험을 기반으로 한 인터페이스를 제공합니다."</p>
+<p>읽다 보면 여기서 한 번 걸립니다.</p>
+<p>이걸 "쓰다 보면 익숙해집니다"로 바꾸면 바로 넘어갑니다.</p>
+<p><strong>반례</strong></p>
+<p>"문장이 이상한 것 같은데 처음부터 다시 써야겠다."</p>
+<p>이렇게 하면 촬영은 오늘도 없습니다.</p>
+<p>걸리는 곳만 고치고, 나머지는 그냥 둡니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 '빨간불'입니다.</p>
+<p>읽다가 멈춘 곳만 빨간불이에요.</p>
+<p>빨간불만 바꿉니다. 나머지는 손대지 않습니다.</p>
+<hr />
+<h3>개념 3 — 첫 업로드는 완성도보다 업로드 자체가 먼저</h3>
+<p><strong>설명</strong></p>
+<p>제 경험상 첫 영상을 가장 오래 붙잡고 있습니다.</p>
+<p>근데 첫 영상은 어차피 많이 안 봅니다.</p>
+<p>알고리즘이 계정을 모르기 때문입니다.</p>
+<p><strong>예시</strong></p>
+<p>쇼츠 100편을 올린 사람들 얘기를 들어보면, 대부분 1편은 조회수 50 이하입니다.</p>
+<p>그냥 올렸기 때문에 50편, 100편이 된 겁니다.</p>
+<p>자막 없어도, 배경 허접해도, 첫 영상은 올리는 게 맞습니다.</p>
+<p><strong>반례</strong></p>
+<p>"자막 넣고, 썸네일 예쁘게 만들고, 조명도 다시 세팅하고, 그다음에 올려야지."</p>
+<p>2주 뒤에 다시 얘기해봅시다.</p>
+<p>아직 올렸나요?</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 '영수증'입니다.</p>
+<p>올린 영상만 증거가 됩니다.</p>
+<p>머릿속에서 완성된 영상은 아무 소용없습니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>영상 일시정지하고 따라 해보세요.</p>
+<p><strong>1단계 — 글자 수 확인 (1분)</strong></p>
+<p>완성된 스크립트를 메모장이나 노션에 붙여넣습니다.</p>
+<p>글자 수를 확인합니다.</p>
+<p>270자에서 320자 사이면 그대로 갑니다.</p>
+<p>그보다 많으면 가운데 덜 중요한 문장 1~2개를 지웁니다.</p>
+<p><strong>2단계 — 소리 내어 1번 읽기 (1분)</strong></p>
+<p>타이머 켜고 스크립트를 소리 내어 읽습니다.</p>
+<p>읽다가 입이 걸린 곳에 줄을 긋습니다.</p>
+<p>그 문장만 짧게 고칩니다.</p>
+<p><strong>3단계 — 촬영 (1분)</strong></p>
+<p>배경 정리, 조명 완벽하게 안 해도 됩니다.</p>
+<p>세로로 핸드폰 세우고, 타이머 3초 맞추고, 스크립트 보면서 읽습니다.</p>
+<p>NG 나도 한 번 더 찍으면 됩니다. 3번 안에 끝냅니다.</p>
+<p><strong>4단계 — 업로드 (1분)</strong></p>
+<p>편집 없이 바로 올려도 됩니다.</p>
+<p>유튜브 쇼츠나 인스타그램 릴스 어디든 상관없습니다.</p>
+<p>올리고 나서 URL 복사해 둡니다.</p>
+<p>이게 오늘 실습 결과물입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 올린 영상의 댓글과 조회수를 보고 다음 스크립트 주제를 잡는 법을 다룹니다.</p>
+<p>데이터 없이 감으로 주제 잡는 거, 다음 차시 보고 나면 안 해도 됩니다.</p>
+<p>지금 촬영한 쇼츠 URL을 댓글에 남겨주세요.</p>
+<p>직접 확인하겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 답변 30개를 한 번에 완성한다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779542636" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 답변 30개를 한 번에 완성한다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-faq-builder · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>FAQ 페이지 만들어야 한다는 거, 6개월째 알고 있죠.</p>
+<p>근데 막상 앉으면 뭐가 문제냐면—
+질문 30개에 대고 글을 30번 쓰는 게 너무 막막한 거예요.</p>
+<p>"이거 하루 종일 써도 끝날까?" 싶어서 탭 닫고 다른 일 합니다.</p>
+<p>오늘 이 영상 끝나면 그 30개, 앉은 자리에서 뽑습니다.
+쓰는 게 아니라 고르는 거거든요.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면, 질문 30개에 답변까지 붙은 FAQ 문서 1개를 노션·구글독스·워드 중 하나에 바로 복붙 가능한 형태로 갖게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1. 답변 길이 기준 — "2문장·4문장·숫자 1개"</h3>
+<p><strong>설명</strong></p>
+<p>FAQ 답변은 2~4문장이 딱입니다.
+더 짧으면 신뢰가 안 생기고, 더 길면 아무도 안 읽어요.
+그리고 문장 안에 숫자나 링크가 1개 이상 있으면 읽는 사람이 멈춥니다.</p>
+<p><strong>예시</strong></p>
+<p>"환불은 며칠 걸려요?" 라는 질문에 이렇게 씁니다.</p>
+<blockquote>
+<p>결제 취소 요청 후 영업일 기준 3일 이내에 카드사로 반환됩니다.
+계좌이체로 결제하신 경우 최대 5영업일 소요됩니다.
+환불 정책 전체 내용은 [환불 안내 페이지]에서 확인하세요.</p>
+</blockquote>
+<p>3문장, 숫자 2개, 링크 1개. 끝입니다.</p>
+<p><strong>반례</strong></p>
+<p>"환불은 빠르게 처리됩니다. 문의 주시면 안내드릴게요."</p>
+<p>이건 2문장이지만 숫자도 없고 링크도 없어요.
+읽는 사람은 "그래서 며칠?" 하고 이탈합니다.</p>
+<p><strong>정리 — 페그: 2·4·1 법칙</strong></p>
+<p>문장은 2~4개, 숫자나 링크는 최소 1개.
+이 세 숫자 기억하면 답변 길이 고민 끝납니다.</p>
+<hr />
+<h3>개념 2. 내 말투를 프롬프트에 넣는 법 — "거울 3문장"</h3>
+<p><strong>설명</strong></p>
+<p>AI가 뽑아주는 답변은 어딘가 딱딱하거나 너무 정중합니다.
+이유는 하나예요. 내 말투 예시를 안 줬기 때문입니다.</p>
+<p>프롬프트 맨 앞에 이 형식을 붙이세요.</p>
+<blockquote>
+<p>"내 글 말투 예시 3문장: [직접 쓴 문장 3개 붙이기]. 이 말투로 아래 질문에 답해줘."</p>
+</blockquote>
+<p><strong>예시</strong></p>
+<p>제가 평소에 이렇게 씁니다.</p>
+<blockquote>
+<p>"솔직히 말씀드리면, 이 강의 들어도 당장 매출이 뛰진 않아요.
+대신 다음 달부터 고객 응대 시간이 눈에 띄게 줄어들 거예요.
+궁금한 거 있으면 바로 메일 주세요."</p>
+</blockquote>
+<p>이 3문장을 프롬프트 앞에 붙이면, AI가 비슷한 톤으로 답변을 뽑아줍니다.</p>
+<p><strong>반례</strong></p>
+<p>말투 예시 없이 그냥 "친근한 말투로 써줘"라고 하면 어떻게 될까요.
+제 기준 친근한 것과 AI 기준 친근한 게 다릅니다.
+결국 나중에 30개 전부 다시 고쳐야 해요.</p>
+<p><strong>정리 — 페그: 거울 3문장</strong></p>
+<p>내 글 3문장을 프롬프트에 붙이면 AI가 나를 따라 씁니다.
+거울에 나를 비춰주는 것처럼요.</p>
+<hr />
+<h3>개념 3. 페이지에 바로 붙이기 좋은 형식 — "Q/A 블록 구조"</h3>
+<p><strong>설명</strong></p>
+<p>답변을 다 뽑았는데 형식이 제각각이면 나중에 페이지에 붙일 때 또 시간이 걸립니다.
+처음부터 이 형식으로 요청하세요.</p>
+<pre><code>Q. 질문 문장
+A. 답변 2~4문장
+(한 줄 공백)
+</code></pre>
+<p>이 구조를 프롬프트 마지막에 "위 형식대로 출력해줘"라고 명시하면 됩니다.</p>
+<p><strong>예시</strong></p>
+<p>프롬프트 끝에 이렇게 씁니다.</p>
+<blockquote>
+<p>"출력 형식: 'Q. 질문 / A. 답변' 순서로, 각 항목 사이에 한 줄 띄어줘."</p>
+</blockquote>
+<p>그러면 30개가 노션·구글독스에 그대로 붙여 넣을 수 있는 상태로 나옵니다.</p>
+<p><strong>반례</strong></p>
+<p>형식 지정 없이 출력하면 AI가 번호를 붙이기도 하고, 소제목을 달기도 하고, 표로 만들기도 해요.
+매번 다릅니다. 나중에 정리하다가 시간을 더 씁니다.</p>
+<p><strong>정리 — 페그: Q/A 블록</strong></p>
+<p>Q와 A, 공백 한 줄. 이 세 줄짜리 형식을 프롬프트에 명시하면 복붙으로 끝납니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지하고 따라 해보세요. 총 3단계입니다.</p>
+<p><strong>1단계 — 말투 예시 3문장 뽑기 (1분)</strong></p>
+<p>내가 쓴 글, 인스타 캡션, 블로그 본문, 카카오 채널 메시지 아무거나 열고
+나다운 문장 3개를 복사해서 메모장에 붙여 넣으세요.</p>
+<p><strong>2단계 — 프롬프트 조립 (1분)</strong></p>
+<p>아래 틀에 채워 넣으세요.</p>
+<blockquote>
+<p>"내 글 말투 예시 3문장: [1단계에서 고른 3문장].
+아래 질문 30개에 각각 2~4문장으로 답해줘.
+각 답변에 숫자나 링크를 1개 이상 넣어줘.
+출력 형식: 'Q. 질문 / A. 답변', 각 항목 사이 한 줄 공백."
+[지난 차시에서 만든 질문 30개 붙이기]</p>
+</blockquote>
+<p><strong>3단계 — 내 말투로 3곳 고치기 (2분)</strong></p>
+<p>AI가 출력한 30개 답변 중 어색한 문장 3곳을 찾아서 직접 고쳐 쓰세요.
+고친 문장 옆에 별표(*) 하나 붙여두면 나중에 내 패턴 파악할 때 씁니다.</p>
+<p>다 됐으면 노션·구글독스·워드 중 하나에 붙여 넣고 저장하세요.
+이게 오늘 만들 FAQ 완성 문서입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 FAQ 문서를 실제 페이지에 올리는 법을 다룹니다.
+어디에 두면 고객이 스스로 찾아 읽는지, 딱 그 위치 얘기할 거예요.</p>
+<p>오늘 만든 FAQ 문서, 완성됐으면 댓글에 "완료" 한 글자만 남겨주세요.
+몇 명이 끝냈는지 보고 다음 차시 올리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>
