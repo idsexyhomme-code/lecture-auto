@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-youtube-script",
+    "course_title": "쇼츠 스크립트 5분 완성",
+    "lesson_no": 2,
+    "lesson_title": "본문 3줄 + CTA 1줄 틀",
+    "objective": "후킹 뒤 본문을 문제-이유-해법 3줄로 나누고, 구독·저장·댓글 중 하나를 유도하는 CTA 문장 1개를 붙인 스크립트 초안을 완성합니다",
+    "key_concepts": [
+      "문제-이유-해법 3줄 구조",
+      "CTA는 한 가지만 넣는 이유",
+      "말투 통일이 편집 시간을 줄이는 이유"
+    ],
+    "exercise": "후킹 1개 + 본문 3줄 + CTA 1줄로 구성된 60초 스크립트 초안 문서",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 고객은 어떤 질문을 검색하는가 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779542304" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 고객은 어떤 질문을 검색하는가<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-faq-builder · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>고객한테 DM 왔을 때, 이런 거 한 번쯤 받아봤을 거예요.</p>
+<p>"혹시 환불 되나요?"
+"배송 며칠 걸려요?"
+"다른 제품이랑 뭐가 달라요?"</p>
+<p>근데 이 질문들, 지금 쇼핑몰이나 인스타 어디에도 적혀 있지 않죠.
+그러니까 고객은 사기 직전에 멈춥니다.
+답 못 찾으면 그냥 창 닫아요.</p>
+<p>이 차시에서는 그 멈추는 지점을 정확히 찾아서,
+고객 말투 그대로 10개 문장으로 뽑는 법을 보여드릴게요.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 영상 끝나면, 내 상품을 처음 보는 고객이 사기 전에 막히는 지점 10개를 고객 말투 문장으로 직접 써놓을 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 고객이 막히는 지점 5가지</h3>
+<p><strong>설명</strong></p>
+<p>고객이 살까 말까 망설이는 순간은 딱 5군데에 몰려 있습니다.
+가격, 배송, 환불, 사용법, 비교.
+이걸 저는 <strong>'구매 장벽 5칸'</strong> 이라고 부릅니다.
+책장 5칸에 질문이 쌓여 있다고 생각하면 됩니다.</p>
+<p><strong>예시</strong></p>
+<ul>
+<li>가격 칸: "이게 왜 이 가격이에요?"</li>
+<li>배송 칸: "제주도도 배송돼요?"</li>
+<li>환불 칸: "열어보고 마음에 안 들면요?"</li>
+<li>사용법 칸: "처음 쓰는 사람도 괜찮아요?"</li>
+<li>비교 칸: "A 제품이랑 뭐가 달라요?"</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>이 5칸 밖에도 질문이 오긴 합니다.
+"선물 포장 되나요?", "세금계산서 끊어줘요?" 같은 것들이요.
+근데 그건 업종마다 다른 특수 질문입니다.
+5칸 먼저 채우고, 나머지는 나중에 붙이면 됩니다.</p>
+<p><strong>정리</strong></p>
+<p>구매 장벽 5칸 — 가격·배송·환불·사용법·비교.
+이 5칸이 비어 있으면 고객은 DM 보내거나 그냥 떠납니다.</p>
+<hr />
+<h3>핵심 개념 2 — 내 말투 vs 고객 말투</h3>
+<p><strong>설명</strong></p>
+<p>같은 내용인데 말투가 다릅니다.
+내가 쓰는 말투 vs 고객이 검색하는 말투, 이게 다릅니다.
+이걸 '수첩 vs 카카오톡' 으로 기억하세요.
+수첩은 정리된 내 언어, 카카오톡은 고객이 날것으로 보내는 문장입니다.</p>
+<p><strong>예시</strong></p>
+<table>
+<thead>
+<tr>
+<th>내 말투 (수첩)</th>
+<th>고객 말투 (카카오톡)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>교환·환불 정책 안내</td>
+<td>환불 되나요? 며칠 안에요?</td>
+</tr>
+<tr>
+<td>상온 보관 가능</td>
+<td>냉장 안 해도 돼요?</td>
+</tr>
+<tr>
+<td>국내 전 지역 배송</td>
+<td>제주도도 와요? 추가비용 있어요?</td>
+</tr>
+<tr>
+<td>입문자도 사용 가능</td>
+<td>저 진짜 처음인데 따라갈 수 있어요?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>반례</strong></p>
+<p>고객 말투라고 해서 오탈자까지 그대로 쓸 필요는 없습니다.
+"ㅎㅎ 환불되나용?" 이렇게까지 적지는 말고,
+뉘앙스와 단어 선택만 고객 쪽으로 당기면 됩니다.</p>
+<p><strong>정리</strong></p>
+<p>FAQ에 적을 때는 카카오톡 말투로 씁니다.
+내가 설명하고 싶은 말 말고, 고객이 물어보는 말 그대로요.</p>
+<hr />
+<h3>핵심 개념 3 — 실제 DM·문의를 재료로 쓰는 법</h3>
+<p><strong>설명</strong></p>
+<p>질문 만들 때 머리 쥐어짜지 않아도 됩니다.
+이미 재료가 있어요. 받은 DM, 문의 메시지, 후기 댓글.
+저는 이걸 <strong>'이미 온 편지'</strong> 라고 부릅니다.
+고객이 먼저 손으로 써준 질문 목록입니다.</p>
+<p><strong>예시</strong></p>
+<p>실제 DM 한 줄: "혹시 알레르기 있는 사람도 써도 돼요?"</p>
+<p>이걸 FAQ 질문으로 바꾸면:
+"피부 트러블 있는 사람도 쓸 수 있나요?"
+또는: "민감성 피부인데 괜찮아요?"</p>
+<p>고객이 보낸 문장 한 줄에서 질문 2개가 나옵니다.</p>
+<p><strong>반례</strong></p>
+<p>DM이 3개밖에 없을 수도 있습니다.
+그럼 네이버 스마트스토어 리뷰, 상세페이지 문의 탭, 오픈채팅 내역 꺼내면 됩니다.
+없으면 경쟁 제품 리뷰 댓글에서 패턴 봐도 됩니다.
+단, 그 내용은 내 제품 기준으로 다시 씁니다.</p>
+<p><strong>정리</strong></p>
+<p>DM 3개만 있어도 시작할 수 있습니다.
+이미 온 편지를 먼저 펼쳐보세요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>영상 지금 일시정지하세요.</p>
+<p><strong>준비물:</strong> 받은 DM, 문의 메시지, 댓글. 3개 이상.</p>
+<p><strong>1단계 — 붙여 넣기</strong>
+메모장이나 노션 새 페이지 열고,
+실제로 받은 문의 메시지를 그대로 3개 이상 복붙합니다.
+날것 그대로요. 오탈자 있어도 됩니다.</p>
+<p><strong>2단계 — 패턴 찾기</strong>
+붙여 넣은 문장 읽으면서, 구매 장벽 5칸 중 어디에 해당하는지 옆에 적습니다.
+가격·배송·환불·사용법·비교.</p>
+<p><strong>3단계 — 고객 말투로 바꾸기</strong>
+각 문의 메시지를 "~나요?", "~돼요?", "~인가요?" 형태 질문으로 바꿉니다.
+한 문의 메시지에서 1~2개 질문이 나오면 충분합니다.</p>
+<p><strong>4단계 — 10개 맞추기</strong>
+3개 문의에서 나온 질문이 7개라면,
+구매 장벽 5칸 중 빠진 칸을 보고 3개 채웁니다.
+예: 비교 질문이 하나도 없으면 "다른 제품이랑 어떻게 달라요?" 직접 추가.</p>
+<p><strong>산출물 확인:</strong>
+텍스트 파일 하나에 고객 말투 질문 10개가 있으면 됩니다.
+옳고 그름 없습니다. 실제 고객이 보낸 말투와 가까울수록 잘 된 겁니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 10개 질문에 답을 붙입니다.
+단, 내가 직접 쓰지 않고요.</p>
+<p>오늘 만든 질문 10개 텍스트 파일, 캡처해서 댓글에 올려보세요.
+"이런 질문 뽑았어요" 한 줄이면 됩니다.
+다른 분 거 보면 내가 빠뜨린 게 보이거든요.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 보고서가 오래 걸리는 진짜 이유 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779542304" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 보고서가 오래 걸리는 진짜 이유<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-weekly-report · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>월요일 오전, 지난주 보고서 아직 못 썼죠.</p>
+<p>받은 메일 훑고, 슬랙 올라간 거 다시 보고, 엑셀 열고 닫고.</p>
+<p>한 시간 지났는데 화면엔 제목 한 줄.</p>
+<p>이거 글쓰기 실력 문제가 아닙니다.</p>
+<p>시간이 어디서 새는지 몰라서 그래요.</p>
+<p>오늘 그 구간 셋을 딱 짚어드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 영상 끝나면, 내 보고서에서 시간이 제일 많이 빠져나가는 구간 하나를 분 단위로 지목할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 시간은 3곳에서 샌다: 수집·정리·문장화</h3>
+<p>보고서 쓰는 시간을 쪼개보면 딱 세 덩어리입니다.</p>
+<p><strong>수집</strong> — 지난주에 뭘 했는지 찾는 시간.
+메일, 슬랙, 캘린더, 회의록 각각 따로 열어보는 거요.</p>
+<p><strong>정리</strong> — 찾은 내용을 하나로 모으는 시간.
+복붙하고, 중복 지우고, 순서 맞추는 거요.</p>
+<p><strong>문장화</strong> — 정리된 내용을 보고서 문장으로 바꾸는 시간.
+"OO 작업 완료" 한 줄 쓰는 데 2분 걸리는 바로 그거요.</p>
+<p>여기서 은유 하나 드릴게요.</p>
+<p>요리로 치면, 수집은 냉장고에서 재료 꺼내기, 정리는 손질하기, 문장화는 실제 볶기입니다.</p>
+<p>대부분 냉장고 앞에서 제일 오래 서 있어요.</p>
+<p>반례 — "나는 정리가 제일 오래 걸리던데요?"</p>
+<p>맞아요. 사람마다 달라요.</p>
+<p>어떤 분은 메일 100통 중에 보고할 거 골라내는 게 막히고, 어떤 분은 골라냈는데 어떻게 배치할지 몰라서 막혀요.</p>
+<p>그래서 오늘 직접 재봐야 합니다.</p>
+<p><strong>정리</strong> — 세 구간 중 내가 막히는 곳이 어디인지, 오늘 찾습니다.</p>
+<hr />
+<h3>개념 2 — 5문단 구조: 현황·진행·이슈·조치·다음 주</h3>
+<p>보고서 문장화가 오래 걸리는 이유 하나는, 무엇을 써야 하는지 틀이 없어서입니다.</p>
+<p>5문단만 기억하세요.</p>
+<ol>
+<li><strong>현황</strong> — 이번 주 숫자 또는 상태 한 줄</li>
+<li><strong>진행</strong> — 실제 한 일 2~3줄</li>
+<li><strong>이슈</strong> — 막힌 것 또는 예상과 달랐던 것</li>
+<li><strong>조치</strong> — 이슈에 대해 내가 한 것 또는 할 것</li>
+<li><strong>다음 주</strong> — 다음에 할 일 2~3줄</li>
+</ol>
+<p>메모리 페그는 숫자입니다. <strong>5문단, 현진이조다.</strong></p>
+<p>현황·진행·이슈·조치·다음 주. 앞 글자만 따면 '현진이조다'예요.</p>
+<p>예시 — 영업 담당자 주간 보고라면:</p>
+<ul>
+<li>현황: 이번 주 신규 견적 7건, 계약 2건</li>
+<li>진행: A사 2차 미팅 완료, B사 견적서 발송</li>
+<li>이슈: C사 담당자 교체로 일정 미정</li>
+<li>조치: C사 신규 담당자 연락처 확보, 다음 주 초 컨택 예정</li>
+<li>다음 주: D사 최종 제안서 제출, E사 첫 미팅</li>
+</ul>
+<p>이 틀만 있으면 문장화 시간이 줄어듭니다.</p>
+<p>반례 — "우리 회사 보고 양식이 다 달라요."</p>
+<p>맞아요. 양식이 다른 건 맞는데, 들어가는 내용은 결국 비슷해요.</p>
+<p>현황·진행·이슈·조치·다음 주, 이 다섯 가지 중 없는 회사가 없습니다.</p>
+<p>양식에 맞게 문단 이름만 바꾸면 됩니다.</p>
+<p><strong>정리</strong> — 틀이 없으면 문장 앞에서 멈춥니다. 5문단 틀부터 깔아두세요.</p>
+<hr />
+<h3>개념 3 — 프롬프트가 할 수 있는 것, 사람만 할 수 있는 것</h3>
+<p>요즘 보고서 쓸 때 AI 쓰는 분 늘었죠.</p>
+<p>그런데 어디에 써야 하는지 모르면, 오히려 더 오래 걸려요.</p>
+<p>딱 잘라드릴게요.</p>
+<p><strong>프롬프트가 대신하는 구간 — 문장화.</strong></p>
+<p>"이 내용을 보고서 문장 3줄로 바꿔줘"
+이건 맡길 수 있어요.</p>
+<p><strong>사람이 해야 하는 구간 — 수집과 정리.</strong></p>
+<p>지난주에 실제로 뭘 했는지, 어떤 이슈가 있었는지는 내가 알아야 해요.</p>
+<p>AI는 내 슬랙을 못 읽고, 내 미팅 내용을 모릅니다.</p>
+<p>메모리 페그는 이미지입니다.</p>
+<p>요리사가 재료를 손질해서 내놓으면, 음식점 서버가 플레이팅해서 손님 앞에 가져다주는 그림.</p>
+<p>수집·정리는 내가 재료 손질하는 것, 문장화는 서버한테 맡기는 것.</p>
+<p>반례 — "수집도 AI가 할 수 있지 않나요?"</p>
+<p>도구 붙이면 일부 됩니다. 캘린더 연동, 슬랙 요약 등.</p>
+<p>그런데 그 도구 세팅 자체에 시간이 들어요.</p>
+<p>지금 당장 내일부터 쓸 수 있는 건, 내가 수집·정리 하고 문장화만 넘기는 방식입니다.</p>
+<p><strong>정리</strong> — 수집·정리는 내가, 문장화는 넘기세요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>영상 잠깐 멈추세요.</p>
+<p>A4 반 장, 또는 노트 한 쪽 꺼내세요.</p>
+<hr />
+<p><strong>1단계 — 표 그리기</strong></p>
+<p>세 칸짜리 표를 그립니다.</p>
+<p>| 구간 | 하는 일 | 소요 시간(분) |</p>
+<p>수집 / 정리 / 문장화 각 한 줄씩.</p>
+<hr />
+<p><strong>2단계 — 지난주 보고서 떠올리기</strong></p>
+<p>가장 최근에 쓴 주간 보고서 생각해보세요.</p>
+<p>각 구간마다 실제로 얼마나 걸렸는지 분 단위로 적어요.</p>
+<p>정확하지 않아도 됩니다. 감으로 적어도 돼요.</p>
+<p>예: 수집 25분 / 정리 15분 / 문장화 30분</p>
+<hr />
+<p><strong>3단계 — 동그라미 치기</strong></p>
+<p>셋 중에 제일 오래 걸린 구간에 동그라미 하나 치세요.</p>
+<p>그게 오늘부터 건드릴 곳입니다.</p>
+<hr />
+<p>다 됐으면 영상 다시 시작하세요.</p>
+<p>이 종이, 버리지 마세요. 다음 차시에서 바로 씁니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 수집 구간부터 시간을 줄이는 법 바로 씁니다.</p>
+<p>지금 동그라미 친 구간이 수집이라면, 다음 영상이 딱 맞습니다.</p>
+<p>오늘 만든 시간 표, 댓글에 숫자만 올려주세요.</p>
+<p>"수집 20분, 정리 10분, 문장화 40분" 이런 식으로요.</p>
+<p>비슷한 패턴 보이면 제가 직접 답글 달게요.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

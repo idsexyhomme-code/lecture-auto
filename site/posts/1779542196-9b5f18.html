@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#1 이번 주 자료, 딱 3개만 고릅니다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779542304" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#1 이번 주 자료, 딱 3개만 고릅니다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-newsletter-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>월요일 저녁, 이번 주 뉴스레터 써야 하는데
+메모장엔 링크 23개, 캡처 이미지 11장, 브런치 스크랩 7개.</p>
+<p>뭐부터 써야 할지 몰라서
+결국 아무것도 못 보내고 또 한 주가 지납니다.</p>
+<p>소재가 없어서 못 쓰는 게 아닙니다.
+너무 많아서 못 쓰는 거예요.</p>
+<p>이번 차시에서 그 뭉텅이를 딱 3개로 줄입니다.
+기준표 하나면 됩니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 영상이 끝나면
+이번 주 모아둔 링크·메모 더미에서
+뉴스레터 1통에 쓸 소재 3개를
+A4 1장짜리 분류표에 바로 채울 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 소재 과부하: 많이 모을수록 오래 걸리는 이유</h3>
+<p><strong>설명</strong></p>
+<p>메모 30개를 앞에 놓으면
+뇌는 고르는 게 아니라 읽기 시작합니다.
+링크 1개 클릭, 또 1개 클릭.
+30분이 지나도 첫 줄을 못 씁니다.</p>
+<p>이걸 저는 '뷔페 마비'라고 부릅니다.
+접시에 뭘 담을지 못 고르고
+계속 줄만 서 있는 상태입니다.</p>
+<p><strong>예시</strong></p>
+<p>제 수강생 박 씨는 매주 링크를 40개씩 모았습니다.
+정작 뉴스레터 발행까지 걸린 시간은 4시간.
+소재 고르는 데만 90분이 날아갔습니다.</p>
+<p>소재 5개로 제한했더니
+발행까지 70분으로 줄었습니다.</p>
+<p><strong>반례</strong></p>
+<p>"소재가 많아야 고를 게 많지 않나요?"</p>
+<p>틀린 말은 아닙니다.
+하지만 뉴스레터 1통은 소재 1개면 충분합니다.
+40개 중 1개를 고르는 것과
+5개 중 1개를 고르는 것,
+시간이 같을 리 없습니다.</p>
+<p><strong>정리</strong></p>
+<blockquote>
+<p>🧠 메모리 페그: <strong>"뷔페 마비"</strong>
+재료는 3개면 밥상이 차려집니다.
+30개는 식당을 차려야 합니다.</p>
+</blockquote>
+<hr />
+<h3>개념 2 — 독자 1명 테스트: '내 구독자 김씨가 읽을까?'</h3>
+<p><strong>설명</strong></p>
+<p>소재를 고를 때 흔히 하는 생각이 있습니다.
+"이거 재밌는데? 써야겠다."</p>
+<p>그런데 내가 재밌는 것과
+구독자가 읽고 싶은 것은 다릅니다.</p>
+<p>여기서 쓰는 도구가 '독자 1명 테스트'입니다.
+구독자 중 딱 1명을 이름 붙여 떠올립니다.
+"내 구독자 김씨, 이거 읽을까?"</p>
+<p><strong>예시</strong></p>
+<p>제 뉴스레터 구독자 중 실제로 있는 '이 대리'.
+30대 중반, 마케팅 담당자, 점심에 폰으로 뉴스레터 봅니다.</p>
+<p>제가 소재 후보 2개를 놓고 물었습니다.
+A: ChatGPT 프롬프트 100가지 모음
+B: 고객 메일에 답장 빨리 쓰는 법 3가지</p>
+<p>이 대리한테 물어보면 답은 바로 나옵니다.
+점심시간 5분 안에 쓸 수 있는 B입니다.</p>
+<p><strong>반례</strong></p>
+<p>"독자가 다 다른데 1명 기준으로 괜찮나요?"</p>
+<p>맞습니다, 독자는 다 다릅니다.
+하지만 '평균적인 독자'를 상상하면
+결국 아무도 아닌 사람한테 쓰게 됩니다.
+1명을 정확히 그릴수록 글이 선명해집니다.</p>
+<p><strong>정리</strong></p>
+<blockquote>
+<p>🧠 메모리 페그: <strong>"김씨 필터"</strong>
+소재 앞에 항상 김씨를 세워두세요.
+김씨가 스크롤을 멈추면 씁니다.
+그냥 지나치면 버립니다.</p>
+</blockquote>
+<hr />
+<h3>개념 3 — 3-1-1 선별법: 본문 소재 1개, 참고 1개, 버릴 것 1개</h3>
+<p><strong>설명</strong></p>
+<p>이제 실제로 고르는 방법입니다.
+이번 주 모은 소재 전체를 딱 3칸에 나눕니다.</p>
+<ul>
+<li><strong>본문 소재 1개</strong>: 이번 뉴스레터의 중심이 되는 것</li>
+<li><strong>참고 1개</strong>: 본문을 받쳐주는 링크·데이터·사례</li>
+<li><strong>버릴 것 1개</strong>: 좋아 보이지만 지금은 아닌 것</li>
+</ul>
+<p>"버릴 것 1개"가 이상하게 보일 수 있습니다.
+버리는 연습을 해야 다음 주에 안 쌓입니다.</p>
+<p><strong>예시</strong></p>
+<p>이번 주 소재 후보 8개가 있다고 합니다.</p>
+<ol>
+<li>뉴스레터 제목 잘 쓰는 법 (링크)</li>
+<li>오픈율 통계 데이터 (PDF)</li>
+<li>내가 직접 겪은 제목 A/B 테스트 경험</li>
+<li>뉴스레터 플랫폼 비교표</li>
+<li>이메일 마케팅 책 밑줄 친 구절</li>
+<li>경쟁사 뉴스레터 스크랩 3개</li>
+<li>인스타에서 본 카드뉴스</li>
+<li>지난달 내 뉴스레터 오픈율 수치</li>
+</ol>
+<p>3-1-1로 나눕니다.</p>
+<ul>
+<li><strong>본문</strong>: 3번 (내 직접 경험 — 김씨가 가장 읽고 싶어 함)</li>
+<li><strong>참고</strong>: 2번 (오픈율 통계 — 본문을 뒷받침)</li>
+<li><strong>버릴 것</strong>: 4번 (플랫폼 비교는 지금 뉴스레터 주제와 무관)</li>
+<li>나머지 5개는 다음 주 후보함으로 이동</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>"버린 게 아깝지 않나요?"</p>
+<p>버리는 게 아닙니다.
+'다음 주 후보함'으로 옮기는 겁니다.
+지금 쓰지 않는 것뿐입니다.</p>
+<p><strong>정리</strong></p>
+<blockquote>
+<p>🧠 메모리 페그: <strong>"3-1-1 = 주연·조연·대기"</strong>
+영화 한 편에 주연은 1명입니다.
+조연 1명이 받쳐주고,
+나머지는 다음 편을 기다립니다.</p>
+</blockquote>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지하고 따라 하세요.</p>
+<p><strong>준비물</strong>: 이번 주 모은 메모·링크 목록, A4 1장, 펜</p>
+<hr />
+<p><strong>Step 1 — 꺼내기 (1분)</strong></p>
+<p>이번 주 메모장, 노션, 카카오톡 저장, 브라우저 북마크.
+지금 갖고 있는 소재를 다 꺼냅니다.
+목록 형태로 쭉 씁니다.
+판단 없이 그냥 씁니다.</p>
+<hr />
+<p><strong>Step 2 — 김씨 필터 (1분)</strong></p>
+<p>목록 옆에 내 구독자 1명의 이름을 씁니다.
+실제 구독자가 있으면 그 사람,
+아직 없으면 내가 쓰고 싶은 독자 1명을 가상으로 만듭니다.</p>
+<p>각 소재 옆에 O / X를 붙입니다.
+"이 사람, 이거 읽을까?"
+O는 남기고 X는 선 긋습니다.</p>
+<hr />
+<p><strong>Step 3 — 3-1-1 분류 (2분)</strong></p>
+<p>A4 1장을 3칸으로 나눕니다.</p>
+<table>
+<thead>
+<tr>
+<th>본문 소재 1개</th>
+<th>참고 1개</th>
+<th>버릴 것 1개</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(여기 씁니다)</td>
+<td>(여기 씁니다)</td>
+<td>(여기 씁니다)</td>
+</tr>
+</tbody>
+</table>
+<p>O를 받은 소재 중에서
+본문, 참고, 버릴 것 칸을 채웁니다.</p>
+<p>다 채웠으면 영상 다시 재생하세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>분류표 채우셨나요?</p>
+<p>다음 차시에서는
+그 본문 소재 1개로
+뉴스레터 첫 문장을 씁니다.</p>
+<p>빈 화면 앞에서 멈추지 않고
+딱 5분 안에 첫 줄 쓰는 법입니다.</p>
+<p>이번 차시 소재 분류표 채운 거,
+댓글에 "완료"라고 남겨주세요.
+다음 차시에서 봅니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>
