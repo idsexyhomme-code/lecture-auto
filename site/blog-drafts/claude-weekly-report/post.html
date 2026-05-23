@@ -1,0 +1,26 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>주간 보고서, 2시간 → 20분</title><style>body{max-width:720px;margin:24px auto;padding:0 20px;font-family:'Pretendard Variable',Pretendard,-apple-system,'Apple SD Gothic Neo',sans-serif;line-height:1.65;letter-spacing:-0.012em;color:#1F1F1F;word-break:keep-all}h1{font-weight:800;letter-spacing:-0.025em;line-height:1.3;color:#1F1F1F}h2{font-weight:700;letter-spacing:-0.02em;color:#1F1F1F;margin-top:32px}a{color:#D85A30}</style></head><body><h1>주간 보고서, 2시간 → 20분</h1><p style="text-align:center;margin:20px 0"><img src="https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-weekly-report-hero.png" alt="주간 보고서, 2시간 → 20분" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)"></p>
+
+<h2>금요일 오후 4시, 보고서 아직 한 줄도 못 썼다</h2>
+<p>이번 주도 그랬다. 클라이언트 미팅 3건, 견적서 2장, 수정 요청 4번. 한 주 내내 뛰어다녔는데 막상 보고서 열면 머릿속이 하얗다. 어디서 시작해야 할지 모르겠고, 메모 앱 뒤지고, 카카오톡 대화 찾고, 엑셀 숫자 끌어다 놓다 보면 어느새 두 시간이 사라진다. 매주 이 짓을 반복하고 있다.</p>
+
+<h2>왜 이게 오래 걸리는지</h2>
+<p>보고서가 어려운 게 아니다. 흩어진 걸 모으는 게 오래 걸린다. 슬랙에 있는 말, 메모 앱에 적은 숫자, 이메일에 박힌 피드백. 이걸 한 문서에 끌어다 놓는 것만으로도 30분이 간다.</p>
+<p>그다음이 더 문제다. 뭘 쓰고 뭘 빼야 할지 모른다. 다 중요한 것 같고, 다 넣으면 너무 길고. 결국 문장 한 줄 쓰고 지우고, 또 쓰고 지우다가 시간이 간다. 글쓰기가 느린 게 아니라, 무엇을 어떤 순서로 쓸지 결정하는 데 시간이 다 빠진다.</p>
+<p>솔직히 말하면 틀이 없어서 그렇다. 매주 처음부터 다시 만드니까 매주 두 시간이 걸린다.</p>
+
+<h2>Claude로 어떻게 하는지</h2>
+<p>아래 5단계가 전부다. 처음 해보는 사람도 이번 주 금요일 바로 쓸 수 있다.</p>
+<ul>
+  <li><strong>1단계 — 메모 그냥 던지기</strong> 이번 주 있었던 일을 순서 없이 붙여넣는다. "미팅 3건, 견적 2장, B사 수정 요청 2번, 매출 380만 원, 다음 주 납품 일정 조율 필요" — 이 정도면 충분하다. 문장 안 만들어도 된다.</li>
+  <li><strong>2단계 — 프롬프트 한 줄 붙이기</strong> "아래 메모를 이 순서로 정리해줘: ① 이번 주 한 일 ② 수치 결과 ③ 문제·이슈 ④ 다음 주 할 일 ⑤ 요청 사항. 각 항목 2-3줄로 끊어줘." 이 한 줄을 앞에 붙이고 전송한다.</li>
+  <li><strong>3단계 — 초안 받기</strong> Claude가 5문단 초안을 내놓는다. 처음 나온 결과가 80% 쓸 만하다. 지금 당장 고칠 필요 없다.</li>
+  <li><strong>4단계 — 톤 한 번 다듬기</strong> "좀 더 짧게, 숫자 앞으로 빼줘" 한 줄만 추가로 보내면 된다. 문장 길이나 말투만 잡으면 끝이다. 여기까지 10분이면 된다.</li>
+  <li><strong>5단계 — 나만의 틀로 저장하기</strong> 완성된 프롬프트를 메모 앱 하나에 저장해 둔다. 다음 주 금요일엔 메모 던지고 이 프롬프트만 꺼내면 된다. 매주 30초로 줄어든다.</li>
+</ul>
+
+<h2>이게 첫 시도에 작동하는 이유</h2>
+<p>글쓰기를 시키는 게 아니라 정렬을 시키기 때문이다. "이 순서대로 묶어줘"는 Claude가 가장 잘하는 일이다. 내가 뭘 잘 쓰느냐와 상관없이, 메모만 있으면 결과가 나온다.</p>
+<p>그리고 틀이 생기면 판단할 게 없어진다. 매주 "이걸 어떻게 써야 하나" 고민하는 시간이 사라진다. 프롬프트 꺼내고, 메모 붙이고, 초안 받고, 한 번 훑으면 끝이다. 시간이 줄어드는 게 아니라 결정 자체가 없어진다.</p>
+
+<h2>지금 시작하기</h2>
+<p>1차시 "보고서가 오래 걸리는 진짜 이유"부터 보면 된다. 이번 주 금요일 전에 쓸 수 있다. → <a href="https://idsexyhomme-code.github.io/lecture-auto/courses/claude-weekly-report.html">주간 보고서, 이제 20분에 끝냅니다</a></p></body></html>

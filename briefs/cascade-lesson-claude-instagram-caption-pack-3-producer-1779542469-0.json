@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-instagram-caption-pack",
+    "course_title": "인스타 캡션 7개, 30분 컷",
+    "lesson_no": 3,
+    "lesson_title": "30분 캡션 생산 루틴, 영상으로 증명하기",
+    "objective": "톤 가이드와 캡션 시트를 써서 캡션 7개를 30분 안에 채우는 과정을 화면 녹화 영상으로 기록한다",
+    "key_concepts": [
+      "타이머 쪼개기 (주제 정리 5분·초안 15분·퇴고 10분)",
+      "막히는 날 쓰는 비상용 문장 뱅크 만들기",
+      "완성본 예약 발행 등록까지 한 번에 끝내는 순서"
+    ],
+    "exercise": "실제 다음 주 캡션 7개를 30분 타이머 켜고 채운 화면 녹화 영상 1편 (5분 내외)",
+    "duration_min": 15
+  }
+}

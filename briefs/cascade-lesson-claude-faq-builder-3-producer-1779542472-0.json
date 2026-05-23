@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-faq-builder",
+    "course_title": "FAQ 30개, 내가 쓰지 않고 채운다",
+    "lesson_no": 3,
+    "lesson_title": "답변 30개를 한 번에 완성한다",
+    "objective": "질문 30개에 대한 답변 초안을 AI로 뽑고, 내 브랜드 말투에 맞게 3곳 이상 직접 고쳐 FAQ 문서 1개로 만든다",
+    "key_concepts": [
+      "답변 길이 기준 (2~4문장, 링크·숫자 포함)",
+      "내 말투 예시를 프롬프트에 넣는 법",
+      "FAQ 문서를 페이지에 붙이기 좋은 형식 (질문/답변 구분 표기)"
+    ],
+    "exercise": "질문 30개 + 답변 30개가 들어간 FAQ 완성 문서 (노션·구글독스·워드 중 택1, 바로 복붙 가능한 형태)",
+    "duration_min": 15
+  }
+}

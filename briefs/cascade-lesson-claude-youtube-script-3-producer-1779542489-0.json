@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-youtube-script",
+    "course_title": "쇼츠 스크립트 5분 완성",
+    "lesson_no": 3,
+    "lesson_title": "스크립트 읽고 바로 촬영",
+    "objective": "완성된 스크립트를 소리 내어 읽어 60초 안에 끝나는지 확인하고, 수정 후 실제 촬영한 쇼츠 영상 1편을 업로드합니다",
+    "key_concepts": [
+      "읽기 속도 기준 60초 분량 글자 수",
+      "말이 걸리는 부분만 골라 고치는 법",
+      "첫 업로드는 완성도보다 업로드 자체가 먼저"
+    ],
+    "exercise": "스크립트 기반으로 촬영·편집해 업로드한 쇼츠 영상 1편 URL",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 질문 10개를 30개로 늘린다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779542491" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 질문 10개를 30개로 늘린다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-faq-builder · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>월요일 오전, 받은편지함에 고객 문의 11통이 쌓여 있습니다.
+배송은 얼마나 걸려요? 사이즈는 어떻게 돼요? 환불 되나요?
+매번 똑같은 질문에, 매번 손으로 답장을 씁니다.</p>
+<p>근데 솔직히 이 질문들, 미리 다 예측할 수 있잖아요.
+문제는 그 목록을 만드는 게 귀찮다는 거죠.
+오늘은 그 귀찮음을 AI한테 넘깁니다.
+프롬프트 하나로 고객 질문 30개짜리 목록을 뽑는 방법,
+지금 바로 보여드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 영상이 끝나면, 내 상품 정보를 넣은 프롬프트 원문 하나로
+고객 질문 30개를 뽑고, 그중 실제로 쓸 20개를 직접 골라낼 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 프롬프트에 상품 정보를 넣는 구조 (역할 · 상황 · 출력 형식)</h3>
+<p><strong>설명</strong></p>
+<p>AI한테 "질문 30개 만들어줘" 라고 치면 어떻게 될까요?
+뻔한 말만 나옵니다. "이 제품은 어디서 구매하나요?" 수준의 쓸모없는 것들요.</p>
+<p>이유는 하나입니다. AI가 내 상품을 모르기 때문이에요.</p>
+<p>그래서 프롬프트를 짤 때 딱 세 덩어리를 넣어야 합니다.
+저는 이걸 <strong>역할 · 상황 · 출력 형식</strong>, 줄여서 <strong>'역상출'</strong> 이라고 기억합니다.</p>
+<ul>
+<li><strong>역할</strong>: AI에게 어떤 사람처럼 행동하라고 지정</li>
+<li><strong>상황</strong>: 내 상품이 뭔지, 누가 사는지 설명</li>
+<li><strong>출력 형식</strong>: 번호 목록으로, 30개, 카테고리 구분해서 등 형태 지정</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>핸드메이드 천연 비누를 파는 1인 쇼핑몰이라면 이렇게 씁니다.</p>
+<blockquote>
+<p>너는 10년 경력의 온라인 쇼핑몰 고객 상담 전문가야.
+내 상품은 핸드메이드 천연 비누로, 20–40대 여성이 주로 구매해.
+가격은 개당 12,000원, 배송은 제주 포함 3–5일.
+이 상품을 처음 보는 고객이 구매 전·중·후에 물어볼 법한 질문을
+번호를 붙여 30개, 카테고리별로 나눠서 써줘.</p>
+</blockquote>
+<p>이 세 덩어리만 채우면 AI가 내 쇼핑몰 상담사처럼 답변합니다.</p>
+<p><strong>반례</strong></p>
+<p>상황 정보 없이 역할만 넣으면 어떻게 될까요.
+"너는 고객 상담 전문가야. 질문 30개 써줘."
+실제로 이렇게 치면 '제품 색상은 어떻게 되나요?' 같은
+어느 쇼핑몰에나 붙여도 되는 문장만 나옵니다.
+내 상품에 맞는 답변이 하나도 없어요.</p>
+<p><strong>정리</strong></p>
+<p>역할만 넣으면 일반론, 상황까지 넣으면 내 상품 맞춤.
+역할 · 상황 · 출력 형식, '역상출' 세 덩어리가 모두 들어가야 씁니다.</p>
+<hr />
+<h3>개념 2 — 질문 카테고리 나누기 (구매 전 · 구매 중 · 구매 후)</h3>
+<p><strong>설명</strong></p>
+<p>AI가 질문 30개를 뽑아줬다고 가정해보죠.
+순서 없이 뒤섞여 있으면 FAQ 페이지에 그대로 쓰기가 애매합니다.
+읽는 고객도 헷갈리고요.</p>
+<p>그래서 처음부터 카테고리를 세 개로 잘라서 요청합니다.
+저는 이걸 <strong>신호등 3색</strong>으로 기억합니다.</p>
+<ul>
+<li>🔴 <strong>구매 전</strong>: 아직 망설이는 고객의 질문 (재료는요? 알레르기요?)</li>
+<li>🟡 <strong>구매 중</strong>: 결제하려는 고객의 질문 (할인코드는요? 묶음배송 되나요?)</li>
+<li>🟢 <strong>구매 후</strong>: 이미 산 고객의 질문 (교환은요? 재구매 혜택 있나요?)</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>프롬프트 마지막 줄에 이렇게 추가합니다.</p>
+<blockquote>
+<p>구매 전 10개, 구매 중 10개, 구매 후 10개로 나눠서 써줘.</p>
+</blockquote>
+<p>그러면 AI가 신호등 3색으로 딱 나눠서 출력해줍니다.
+나중에 FAQ 페이지 만들 때 복사·붙여넣기만 하면 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>카테고리 없이 30개를 받으면 구매 전 질문이 22개, 구매 후가 2개처럼
+한쪽으로 쏠리는 경우가 많습니다.
+제 경험상 AI는 구매 전 질문을 훨씬 많이 뽑는 경향이 있어요.
+명시적으로 숫자를 지정해야 균형이 맞습니다.</p>
+<p><strong>정리</strong></p>
+<p>구매 전 · 중 · 후, 각 10개씩.
+숫자까지 써줘야 균형 잡힌 목록이 나옵니다.</p>
+<hr />
+<h3>개념 3 — 30개 중 실제로 쓸 20개 추리는 기준</h3>
+<p><strong>설명</strong></p>
+<p>AI가 뽑아준 30개가 전부 좋을 수는 없습니다.
+솔직히 5–7개는 버려야 할 것들이 섞여 있어요.</p>
+<p>걸러내는 기준은 딱 셋입니다.
+저는 이걸 <strong>'겹·뻔·없'</strong> 으로 기억합니다.</p>
+<ul>
+<li><strong>겹</strong>: 다른 질문과 답이 90% 같다 → 하나만 남긴다</li>
+<li><strong>뻔</strong>: 내 상품 아니어도 어디든 붙이면 되는 질문 → 삭제</li>
+<li><strong>없</strong>: 실제로 내 고객이 절대 안 물어볼 질문 → 삭제</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>천연 비누 예시를 계속 쓰면,
+"이 제품은 국내산인가요?"는 겹칩니다.
+"원재료 원산지가 어디인가요?"랑 답이 거의 같거든요.
+둘 중 더 구체적인 쪽만 남깁니다.</p>
+<p>"이 제품의 브랜드 철학은 무엇인가요?"는 뻔합니다.
+고객이 구매 직전에 이 질문을 하진 않아요.
+브랜드 소개 페이지에나 어울리는 문장이죠. 삭제합니다.</p>
+<p>"법인 세금계산서 발행 되나요?"는 없습니다.
+20–40대 개인 고객이 주 구매층인 비누 쇼핑몰에선 나올 일이 드뭅니다.
+삭제합니다.</p>
+<p><strong>반례</strong></p>
+<p>30개가 아깝다고 전부 살리려다 보면 FAQ가 너무 길어집니다.
+고객이 읽다가 중간에 포기해요.
+20개 이하로 추리는 게 오히려 전환에 낫다는 걸, 제 경험상 여러 번 확인했습니다.</p>
+<p><strong>정리</strong></p>
+<p>겹치면 하나, 뻔하면 삭제, 내 고객이 안 물으면 삭제.
+이 세 기준으로 30개에서 20개 이하로 줄입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지하고, 아래 순서대로 직접 해보세요.
+종이 한 장이나 메모장이면 충분합니다.</p>
+<p><strong>1단계 — 내 상품 정보 정리 (1분)</strong></p>
+<p>빈 메모장을 열고 아래 네 줄을 채우세요.</p>
+<blockquote>
+<ul>
+<li>상품명:</li>
+<li>주요 구매 고객 (나이대, 성별):</li>
+<li>가격:</li>
+<li>배송 조건 (기간, 지역 특이사항):</li>
+</ul>
+</blockquote>
+<p><strong>2단계 — '역상출' 프롬프트 완성 (1분)</strong></p>
+<p>아래 틀에 위에서 정리한 내용을 붙여 넣으세요.</p>
+<blockquote>
+<p>너는 10년 경력의 온라인 쇼핑몰 고객 상담 전문가야.
+내 상품은 [상품명]으로, [주요 구매 고객]이 주로 구매해.
+가격은 [가격], 배송은 [배송 조건].
+이 상품을 처음 보는 고객이 물어볼 법한 질문을
+구매 전 10개, 구매 중 10개, 구매 후 10개,
+번호 붙여 총 30개 써줘.</p>
+</blockquote>
+<p>이 프롬프트 원문을 ChatGPT 또는 Claude에 그대로 붙여 넣고 실행하세요.</p>
+<p><strong>3단계 — 30개 목록 검토 (1–2분)</strong></p>
+<p>AI가 출력한 목록을 보면서,
+겹치는 항목, 어디든 붙여도 되는 항목, 내 고객이 안 물어볼 항목에
+줄을 그어 표시하세요.</p>
+<p>줄 긋고 남은 항목이 20개 이하면 오늘 실습 완료입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 오늘 추린 20개 질문에
+실제로 쓸 수 있는 답변을 붙이는 방법을 다룹니다.
+AI가 뽑아준 답변을 그대로 쓰면 안 되는 이유도 같이 설명합니다.</p>
+<p>오늘 실습한 프롬프트 원문, 댓글에 공유해 주세요.
+다른 분들 사례 보는 것만으로도 아이디어가 생깁니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

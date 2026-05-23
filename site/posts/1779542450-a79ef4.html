@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 메모 던지면 5문단 나오는 프롬프트 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779542491" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 메모 던지면 5문단 나오는 프롬프트 만들기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-weekly-report · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>월요일 오전, 지난주 메모 파일 열었을 때 그 느낌 아시죠.</p>
+<p>"이거 어떻게 보고서로 만들지?"</p>
+<p>숫자 5개, 메모 6줄, 근데 머릿속은 백지.</p>
+<p>결국 한 시간 붙잡고 써도 "이게 맞나?" 싶은 초안 하나.</p>
+<p>오늘은 그 메모를 그냥 붙여넣으면 5문단짜리 초안이 나오는 프롬프트를 만듭니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 지난주 메모·숫자 5개를 넣었을 때 바로 쓸 수 있는 5문단 보고서 초안을 뽑는 프롬프트를 직접 갖게 됩니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 역할 지정 + 출력 형식 고정</h3>
+<p><strong>설명</strong></p>
+<p>프롬프트에서 제일 먼저 해야 할 건 딱 두 가지입니다.</p>
+<p>"너는 누구야"와 "뭘 줘."</p>
+<p>역할을 먼저 주면 AI가 말투와 관점을 맞춥니다.</p>
+<p>출력 형식을 고정하면 매번 다른 구조가 나오는 걸 막습니다.</p>
+<p><strong>예시</strong></p>
+<blockquote>
+<p>"너는 B2B 영업팀 주간 보고서 작성 담당자야.
+아래 내용을 받으면 반드시 이 5개 문단으로 써줘.
+1문단: 이번 주 요약 / 2문단: 수치 결과 / 3문단: 이슈 / 4문단: 다음 주 계획 / 5문단: 요청 사항"</p>
+</blockquote>
+<p>이렇게 쓰면 10번 돌려도 같은 구조로 나옵니다.</p>
+<p><strong>반례</strong></p>
+<p>"보고서 써줘"라고만 하면요?</p>
+<p>AI가 어떤 역할인지, 문단이 몇 개여야 하는지 모릅니다.</p>
+<p>어떤 날은 3문단, 어떤 날은 글머리 목록으로 나옵니다.</p>
+<p>매번 다시 손봐야 합니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>🪝 "역할 + 형식 = 닻"</p>
+<p>닻을 던져야 배가 흔들리지 않습니다.</p>
+<p>프롬프트도 마찬가지입니다.</p>
+<hr />
+<h3>개념 2 — 날짜·숫자·맥락을 프롬프트에 넣는 방식</h3>
+<p><strong>설명</strong></p>
+<p>좋은 초안과 그저 그런 초안의 차이는 숫자와 날짜입니다.</p>
+<p>"잘 됐어요"가 아니라 "3월 4주차, 신규 계약 3건, 목표 대비 120%"가 들어가야 합니다.</p>
+<p>프롬프트에 맥락 블록을 만들어 두는 겁니다.</p>
+<p><strong>예시</strong></p>
+<p>프롬프트 아래쪽에 이런 칸을 만들어 둡니다.</p>
+<blockquote>
+<p>[기간]: 3월 4주차 (3/24~3/28)
+[수치 1]: 신규 계약 3건
+[수치 2]: 미팅 7건
+[이슈]: 거래처 A 납기 지연
+[다음 주 계획]: 거래처 B 2차 미팅</p>
+</blockquote>
+<p>이 5줄을 채워 넣기만 하면 됩니다.</p>
+<p>AI는 이걸 받아서 문단별로 알아서 배분합니다.</p>
+<p><strong>반례</strong></p>
+<p>"지난주에 계약 좀 했고 이슈도 있었어"처럼 뭉뚱그려 넣으면요?</p>
+<p>AI가 숫자를 만들어 냅니다.</p>
+<p>실제로 없는 수치가 초안에 들어가서 나중에 직접 다 찾아야 합니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>🧱 "5줄 블록 = 재료 상자"</p>
+<p>요리사한테 재료를 줘야 요리가 나옵니다.</p>
+<p>뭉뚱그린 설명은 재료가 아닙니다.</p>
+<hr />
+<h3>개념 3 — 초안 품질 높이는 재질문 패턴 2가지</h3>
+<p><strong>설명</strong></p>
+<p>첫 초안이 80점이라면, 재질문 한 번으로 90점까지 올릴 수 있습니다.</p>
+<p>제 경험상 자주 쓰는 패턴은 딱 두 가지입니다.</p>
+<p><strong>패턴 A — 톤 교정</strong></p>
+<blockquote>
+<p>"지금 초안에서 2문단 수치 결과 부분만, 임원이 읽는다고 생각하고 문어체로 다시 써줘."</p>
+</blockquote>
+<p>문단 하나만 골라서 다시 요청합니다.</p>
+<p>전체를 다시 쓰라고 하면 나머지까지 바뀌어서 오히려 손이 더 갑니다.</p>
+<p><strong>패턴 B — 빠진 내용 추가</strong></p>
+<blockquote>
+<p>"3문단 이슈 부분에 원인 한 줄이랑 조치 계획 한 줄 추가해줘."</p>
+</blockquote>
+<p>"더 자세히 써줘"는 두루뭉술합니다.</p>
+<p>"어느 문단에 무엇을 추가해줘"가 훨씬 정확하게 먹힙니다.</p>
+<p><strong>반례</strong></p>
+<p>"좀 더 좋게 고쳐줘"라고 하면요?</p>
+<p>AI가 전체를 다시 씁니다.</p>
+<p>괜찮았던 문단까지 바뀌고, 다시 비교해야 합니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>✂️ "외과 수술 = 원하는 곳만 자른다"</p>
+<p>전체 마취 말고, 부위별로 고칩니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지하고 직접 만들어 보세요.</p>
+<hr />
+<p><strong>[STEP 1 — 프롬프트 뼈대 만들기]</strong> (약 60초)</p>
+<p>텍스트 파일 하나 새로 열고 아래 틀을 그대로 붙여넣으세요.</p>
+<hr />
+<p>너는 [팀/직무]의 주간 보고서 작성 담당자야.</p>
+<p>아래 [메모 블록]을 받으면 이 5개 문단으로 써줘.</p>
+<p>1문단: 이번 주 한 줄 요약</p>
+<p>2문단: 수치 결과 (숫자 중심)</p>
+<p>3문단: 이슈 및 원인</p>
+<p>4문단: 다음 주 계획</p>
+<p>5문단: 요청 사항 또는 공유 사항</p>
+<p>말투는 업무 메일 수준으로.</p>
+<hr />
+<p>괄호 안에 내 팀명이나 직무를 바로 채워 넣으세요.</p>
+<hr />
+<p><strong>[STEP 2 — 메모 블록 채우기]</strong> (약 60초)</p>
+<p>프롬프트 아래에 이어서 씁니다.</p>
+<hr />
+<p>[기간]:</p>
+<p>[수치 1]:</p>
+<p>[수치 2]:</p>
+<p>[이슈]:</p>
+<p>[다음 주 계획]:</p>
+<hr />
+<p>실제 지난주 메모에서 숫자 2개, 이슈 1개, 계획 1개 골라서 채웁니다.</p>
+<p>없으면 기억나는 거 아무거나 써도 됩니다. 연습이니까요.</p>
+<hr />
+<p><strong>[STEP 3 — 돌리고 재질문 한 번]</strong> (약 60초)</p>
+<p>완성된 프롬프트 전체를 AI에 붙여넣고 실행합니다.</p>
+<p>나온 초안에서 어색한 문단 하나만 골라서 패턴 A 또는 패턴 B로 재질문합니다.</p>
+<p>수정된 문단을 원래 초안에 붙여넣습니다.</p>
+<hr />
+<p><strong>[STEP 4 — 파일 저장]</strong> (약 30초)</p>
+<p>프롬프트 원문과 나온 초안을 같은 파일에 나란히 붙여넣고 저장합니다.</p>
+<p>파일 이름은 "주간보고_프롬프트_250328" 같은 식으로.</p>
+<p>다음 주에 그냥 메모 블록만 고쳐서 다시 쓰면 됩니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 초안을 팀장한테 보내기 전, 30초 안에 훑는 셀프 검수 루틴을 다룹니다.</p>
+<p>숫자 틀린 거 잡는 법, 빠진 문단 보는 법, 딱 세 가지만 씁니다.</p>
+<p>오늘 만든 프롬프트 파일, 댓글에 첫 줄만 붙여넣어 보세요.</p>
+<p>어떻게 쓰셨는지 보고 싶습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

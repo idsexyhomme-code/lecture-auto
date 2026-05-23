@@ -1,0 +1,33 @@
+{
+  "id": "1779542451-9c9542",
+  "agent": "blog_publisher",
+  "kind": "blog_post",
+  "title": "[블로그 임시저장] 스크립트 막혀서 또 미뤘나요?",
+  "body_md": "# 스크립트 막혀서 또 미뤘나요?\n\n**티스토리 URL**: (게시 실패 — 로그 확인)\n\n**예약 시각**: 2026-05-24 09:00 (KST)\n\n**블로그 본문**:\n\n<p style=\"text-align:center;margin:20px 0\"><img src=\"https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-youtube-script-hero.png\" alt=\"스크립트 막혀서 또 미뤘나요?\" style=\"max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)\"></p>\n\n<h2>아이디어는 있는데, 촬영 날짜는 또 밀렸다</h2>\n<p>오늘도 \"이 주제로 쇼츠 찍어야지\" 했는데 스크립트를 못 써서 그냥 넘어갔습니다. 어제도 그랬고, 지난주에도 그랬습니다. 메모장엔 주제가 12개 쌓여 있는데 올린 영상은 2주 전이 마지막입니다.</p>\n\n<h2>왜 이게 어려운지</h2>\n<p>솔직히 60초짜리 스크립트가 뭐가 어렵냐 싶은데, 막상 앉으면 첫 문장에서 30분이 날아갑니다. \"어떻게 시작해야 사람들이 넘기지 않을까\"를 붙들고 있다가 결국 \"오늘은 그냥 내일 쓰자\"로 끝납니다.</p>\n<p>쓰다가 막히는 이유는 따로 있습니다. 첫 3초 문장, 본문 흐름, 마지막 CTA 한 줄을 매번 처음부터 새로 짜려고 하기 때문입니다. 구조 없이 빈 화면 앞에 앉으면 뭐든 어렵습니다. 쇼츠 스크립트는 짧을수록 한 문장 한 문장의 무게가 느껴져서 더 막힙니다.</p>\n<p>그래서 \"나는 글 재능이 없나\"로 결론이 가는데, 재능 문제가 아닙니다. 틀이 없는 겁니다.</p>\n\n<h2>Claude로 어떻게 하는지</h2>\n<p>주제 하나를 들고 Claude에 앉으면 5분 안에 스크립트가 나옵니다. 순서는 이렇습니다.</p>\n<ul>\n  <li><strong>1단계 — 주제를 한 줄로 던집니다</strong> \"직장인이 점심시간에 쇼츠 찍는 법\"처럼 한 줄이면 됩니다. 길게 설명할 필요 없습니다.</li>\n  <li><strong>2단계 — 3초 후킹 문장을 뽑습니다</strong> Claude에게 \"이 주제로 시청자가 넘기지 않을 첫 문장 3개만 써줘\"라고 합니다. 나온 3개 중에 하나를 고릅니다. 예: \"점심 30분으로 쇼츠 찍는 사람이 실제 있습니다.\"</li>\n  <li><strong>3단계 — 본문 3줄 틀에 내용을 채웁니다</strong> 문제 1줄, 해결 1줄, 증거 1줄입니다. Claude에 \"이 후킹 다음에 이어지는 본문 3줄 써줘\"라고 하면 바로 나옵니다.</li>\n  <li><strong>4단계 — CTA 1줄을 붙입니다</strong> \"팔로우\", \"저장\", \"댓글\" 중 하나를 골라달라고 합니다. Claude가 앞 내용에 맞는 문장으로 연결해 줍니다.</li>\n  <li><strong>5단계 — 소리 내서 한 번 읽어봅니다</strong> 60초 안에 읽히면 그대로 촬영합니다. 어색한 단어만 바꾸면 됩니다. 여기서 10분 이상 쓰지 않습니다.</li>\n</ul>\n\n<h2>이게 작동하는 이유</h2>\n<p>빈 화면이 없기 때문입니다. Claude가 초안을 내놓으면 내가 할 일은 \"이거 맞나, 아니면 저거 맞나\" 고르는 것뿐입니다. 처음부터 짜는 것과 고르는 것은 머릿속에서 쓰는 에너지가 다릅니다. 막히는 이유 자체가 사라집니다.</p>\n<p>그리고 틀이 한 번 손에 잡히면 다음 주제부터는 더 빠릅니다. 후킹-본문3줄-CTA 구조를 한 번 써보고 나면, 다음번엔 Claude 없이 머릿속에서 바로 그립니다. 영상 5편 올리고 나면 스크립트 쓰는 게 더 이상 미루는 이유가 아닙니다.</p>\n\n<h2>지금 시작하기</h2>\n<p>첫 차시 \"3초 후킹 문장 공식\"만 먼저 보세요. 오늘 주제 하나 들고 따라 하면 스크립트 한 편이 나옵니다. → <a href=\"https://idsexyhomme-code.github.io/lecture-auto/courses/claude-youtube-script.html\">쇼츠 스크립트 5분 완성</a></p>",
+  "summary": "쇼츠 스크립트 5분 완성 티스토리 임시저장 (실패)",
+  "meta": {
+    "title": "스크립트 막혀서 또 미뤘나요?",
+    "body_html": "<p style=\"text-align:center;margin:20px 0\"><img src=\"https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-youtube-script-hero.png\" alt=\"스크립트 막혀서 또 미뤘나요?\" style=\"max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)\"></p>\n\n<h2>아이디어는 있는데, 촬영 날짜는 또 밀렸다</h2>\n<p>오늘도 \"이 주제로 쇼츠 찍어야지\" 했는데 스크립트를 못 써서 그냥 넘어갔습니다. 어제도 그랬고, 지난주에도 그랬습니다. 메모장엔 주제가 12개 쌓여 있는데 올린 영상은 2주 전이 마지막입니다.</p>\n\n<h2>왜 이게 어려운지</h2>\n<p>솔직히 60초짜리 스크립트가 뭐가 어렵냐 싶은데, 막상 앉으면 첫 문장에서 30분이 날아갑니다. \"어떻게 시작해야 사람들이 넘기지 않을까\"를 붙들고 있다가 결국 \"오늘은 그냥 내일 쓰자\"로 끝납니다.</p>\n<p>쓰다가 막히는 이유는 따로 있습니다. 첫 3초 문장, 본문 흐름, 마지막 CTA 한 줄을 매번 처음부터 새로 짜려고 하기 때문입니다. 구조 없이 빈 화면 앞에 앉으면 뭐든 어렵습니다. 쇼츠 스크립트는 짧을수록 한 문장 한 문장의 무게가 느껴져서 더 막힙니다.</p>\n<p>그래서 \"나는 글 재능이 없나\"로 결론이 가는데, 재능 문제가 아닙니다. 틀이 없는 겁니다.</p>\n\n<h2>Claude로 어떻게 하는지</h2>\n<p>주제 하나를 들고 Claude에 앉으면 5분 안에 스크립트가 나옵니다. 순서는 이렇습니다.</p>\n<ul>\n  <li><strong>1단계 — 주제를 한 줄로 던집니다</strong> \"직장인이 점심시간에 쇼츠 찍는 법\"처럼 한 줄이면 됩니다. 길게 설명할 필요 없습니다.</li>\n  <li><strong>2단계 — 3초 후킹 문장을 뽑습니다</strong> Claude에게 \"이 주제로 시청자가 넘기지 않을 첫 문장 3개만 써줘\"라고 합니다. 나온 3개 중에 하나를 고릅니다. 예: \"점심 30분으로 쇼츠 찍는 사람이 실제 있습니다.\"</li>\n  <li><strong>3단계 — 본문 3줄 틀에 내용을 채웁니다</strong> 문제 1줄, 해결 1줄, 증거 1줄입니다. Claude에 \"이 후킹 다음에 이어지는 본문 3줄 써줘\"라고 하면 바로 나옵니다.</li>\n  <li><strong>4단계 — CTA 1줄을 붙입니다</strong> \"팔로우\", \"저장\", \"댓글\" 중 하나를 골라달라고 합니다. Claude가 앞 내용에 맞는 문장으로 연결해 줍니다.</li>\n  <li><strong>5단계 — 소리 내서 한 번 읽어봅니다</strong> 60초 안에 읽히면 그대로 촬영합니다. 어색한 단어만 바꾸면 됩니다. 여기서 10분 이상 쓰지 않습니다.</li>\n</ul>\n\n<h2>이게 작동하는 이유</h2>\n<p>빈 화면이 없기 때문입니다. Claude가 초안을 내놓으면 내가 할 일은 \"이거 맞나, 아니면 저거 맞나\" 고르는 것뿐입니다. 처음부터 짜는 것과 고르는 것은 머릿속에서 쓰는 에너지가 다릅니다. 막히는 이유 자체가 사라집니다.</p>\n<p>그리고 틀이 한 번 손에 잡히면 다음 주제부터는 더 빠릅니다. 후킹-본문3줄-CTA 구조를 한 번 써보고 나면, 다음번엔 Claude 없이 머릿속에서 바로 그립니다. 영상 5편 올리고 나면 스크립트 쓰는 게 더 이상 미루는 이유가 아닙니다.</p>\n\n<h2>지금 시작하기</h2>\n<p>첫 차시 \"3초 후킹 문장 공식\"만 먼저 보세요. 오늘 주제 하나 들고 따라 하면 스크립트 한 편이 나옵니다. → <a href=\"https://idsexyhomme-code.github.io/lecture-auto/courses/claude-youtube-script.html\">쇼츠 스크립트 5분 완성</a></p>",
+    "hero_image_url": "https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-youtube-script-hero.png",
+    "tistory_url": null,
+    "tistory_status": "failed",
+    "scheduled_at": "2026-05-24T09:00:00+09:00",
+    "self_review": {
+      "ok": true,
+      "severity": "pass",
+      "hard_violations": [],
+      "soft_violations": [],
+      "len": 2073,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 0
+      }
+    }
+  },
+  "course_id": "claude-youtube-script",
+  "created_at": "2026-05-23T13:20:51+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}
