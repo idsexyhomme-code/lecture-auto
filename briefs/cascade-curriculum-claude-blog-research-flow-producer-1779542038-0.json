@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-blog-research-flow",
+    "course_title": "Claude로 블로그 글 1시간 완성",
+    "lesson_no": 1,
+    "lesson_title": "독자가 검색하는 키워드, 30분 안에 추립니다",
+    "objective": "내 블로그 주제에서 독자가 실제로 치는 키워드 10개를 리스트로 정리합니다",
+    "key_concepts": [
+      "검색 의도 (정보형 vs 구매형)",
+      "롱테일 키워드 vs 단발 키워드",
+      "Claude에게 키워드 후보 뽑는 프롬프트 구조"
+    ],
+    "exercise": "내 블로그 주제 기반 키워드 10개 + 각 키워드의 검색 의도 메모 (A4 1장 분량 텍스트 파일)",
+    "duration_min": 15
+  }
+}

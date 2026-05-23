@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-youtube-script",
+    "course_title": "쇼츠 스크립트 5분 완성",
+    "lesson_no": 1,
+    "lesson_title": "3초 후킹 문장 공식",
+    "objective": "시청자가 스크롤을 멈추는 후킹 문장 5가지 유형을 분류하고, 내 주제에 맞는 후킹 문장 3개를 직접 씁니다",
+    "key_concepts": [
+      "3초 안에 이탈 결정이 난다",
+      "숫자·공포·반전 세 가지 후킹 트리거",
+      "내 주제에 트리거 붙이는 법"
+    ],
+    "exercise": "내 채널 주제로 후킹 문장 3개를 적은 A4 반쪽 메모지 (유형 표기 포함)",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-instagram-caption-pack",
+    "course_title": "인스타 캡션 7개, 30분 컷",
+    "lesson_no": 1,
+    "lesson_title": "내 말투, 문서 한 장으로 못 박기",
+    "objective": "내 브랜드 고유 말투를 정의하는 톤 가이드 1장을 직접 작성한다",
+    "key_concepts": [
+      "쓰는 단어 vs 절대 안 쓰는 단어 목록",
+      "문장 끝 말투 패턴 (합니다체·해요체·반말)",
+      "팔로워가 실제로 댓글에 쓴 단어 수집법"
+    ],
+    "exercise": "내 계정 최근 게시물 10개를 보고 공통 단어·말투를 추려 A4 반 장짜리 톤 가이드 완성",
+    "duration_min": 15
+  }
+}

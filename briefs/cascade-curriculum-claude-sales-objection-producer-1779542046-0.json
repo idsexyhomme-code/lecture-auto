@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-sales-objection",
+    "course_title": "반론 3개, 내 말로 끝내기",
+    "lesson_no": 1,
+    "lesson_title": "반론 해부 — 고객이 진짜 하고 싶은 말 찾기",
+    "objective": "가격·시간·신뢰 반론 각각에서 고객이 실제로 원하는 것을 1문장으로 구분해 적는다",
+    "key_concepts": [
+      "반론 뒤에 숨은 진짜 질문",
+      "가격 반론 vs 예산 문제 차이",
+      "신뢰 반론이 나오는 타이밍"
+    ],
+    "exercise": "내가 최근 6개월 안에 받은 반론 3건을 적고, 각각 가격·시간·신뢰 중 어디에 속하는지 분류한 A4 1장짜리 반론 분류표",
+    "duration_min": 15
+  }
+}

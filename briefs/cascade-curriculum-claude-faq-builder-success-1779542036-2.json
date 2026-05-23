@@ -1,0 +1,10 @@
+{
+  "agent": "success",
+  "brief": {
+    "mode": "faq",
+    "course_id": "claude-faq-builder",
+    "course_title": "FAQ 30개, 내가 쓰지 않고 채운다",
+    "topic": "매번 똑같은 질문, 이제 고객이 알아서 읽습니다",
+    "audience": "FAQ 페이지가 비어 있어서 매번 같은 DM·문의 전화 받는 1인 사업가"
+  }
+}

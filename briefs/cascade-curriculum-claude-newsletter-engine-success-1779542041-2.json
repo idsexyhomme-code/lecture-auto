@@ -1,0 +1,10 @@
+{
+  "agent": "success",
+  "brief": {
+    "mode": "faq",
+    "course_id": "claude-newsletter-engine",
+    "course_title": "뉴스레터 1통, 1시간에 끝내기",
+    "topic": "매주 3시간 쓰던 뉴스레터, 이번 주부터 1시간에 씁니다",
+    "audience": "뉴스레터를 이미 보내고 있지만 매주 3~4시간이 들어 지친 1인 사업가"
+  }
+}

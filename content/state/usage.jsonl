@@ -202,3 +202,12 @@
 {"ts": "2026-05-23T22:09:25.415800+09:00", "agent": "ceo", "model": "claude-sonnet-4-6", "input_tokens": 9382, "output_tokens": 4500, "cost_usd": 0.095646, "kind": "", "brief": ""}
 {"ts": "2026-05-23T22:10:37.916090+09:00", "agent": "ceo", "model": "claude-sonnet-4-6", "input_tokens": 9466, "output_tokens": 4500, "cost_usd": 0.095898, "kind": "", "brief": ""}
 {"ts": "2026-05-23T22:11:40.153331+09:00", "agent": "ceo", "model": "claude-sonnet-4-6", "input_tokens": 9407, "output_tokens": 3303, "cost_usd": 0.077766, "kind": "", "brief": ""}
+{"ts": "2026-05-23T22:13:00.049827+09:00", "agent": "expert_sourcing_agent", "model": "claude-sonnet-4-6", "input_tokens": 11708, "output_tokens": 1342, "cost_usd": 0.055254, "kind": "", "brief": ""}
+{"ts": "2026-05-23T22:13:21.688380+09:00", "agent": "curriculum", "model": "claude-sonnet-4-6", "input_tokens": 1958, "output_tokens": 1131, "cost_usd": 0.022839, "kind": "", "brief": ""}
+{"ts": "2026-05-23T22:13:22.713027+09:00", "agent": "curriculum", "model": "claude-sonnet-4-6", "input_tokens": 1958, "output_tokens": 1223, "cost_usd": 0.024219, "kind": "", "brief": ""}
+{"ts": "2026-05-23T22:13:25.003270+09:00", "agent": "curriculum", "model": "claude-sonnet-4-6", "input_tokens": 1965, "output_tokens": 1413, "cost_usd": 0.02709, "kind": "", "brief": ""}
+{"ts": "2026-05-23T22:13:30.087639+09:00", "agent": "curriculum", "model": "claude-sonnet-4-6", "input_tokens": 1968, "output_tokens": 1643, "cost_usd": 0.030549, "kind": "", "brief": ""}
+{"ts": "2026-05-23T22:13:47.051880+09:00", "agent": "curriculum", "model": "claude-sonnet-4-6", "input_tokens": 1964, "output_tokens": 1324, "cost_usd": 0.025752, "kind": "", "brief": ""}
+{"ts": "2026-05-23T22:13:47.943621+09:00", "agent": "curriculum", "model": "claude-sonnet-4-6", "input_tokens": 1967, "output_tokens": 1268, "cost_usd": 0.024921, "kind": "", "brief": ""}
+{"ts": "2026-05-23T22:13:48.381603+09:00", "agent": "curriculum", "model": "claude-sonnet-4-6", "input_tokens": 1961, "output_tokens": 1286, "cost_usd": 0.025173, "kind": "", "brief": ""}
+{"ts": "2026-05-23T22:13:51.966212+09:00", "agent": "curriculum", "model": "claude-sonnet-4-6", "input_tokens": 1962, "output_tokens": 1190, "cost_usd": 0.023736, "kind": "", "brief": ""}

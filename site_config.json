@@ -84,7 +84,15 @@
     "claude-pricing-page",
     "claude-sop-onboarding",
     "claude-customer-support",
-    "claude-content-engine"
+    "claude-content-engine",
+    "claude-instagram-caption-pack",
+    "claude-faq-builder",
+    "claude-blog-research-flow",
+    "claude-newsletter-engine",
+    "claude-proposal-1pager",
+    "claude-sales-objection",
+    "claude-weekly-report",
+    "claude-youtube-script"
   ],
   "categories": [
     {

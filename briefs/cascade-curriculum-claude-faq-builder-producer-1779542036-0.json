@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-faq-builder",
+    "course_title": "FAQ 30개, 내가 쓰지 않고 채운다",
+    "lesson_no": 1,
+    "lesson_title": "고객은 어떤 질문을 검색하는가",
+    "objective": "내 상품·서비스를 처음 보는 고객이 살 때 막히는 지점 10가지를 고객 말투 문장으로 나열한다",
+    "key_concepts": [
+      "고객의 구매 망설임 지점 (가격·배송·환불·사용법·비교)",
+      "내 입장 vs 고객 입장 말투 차이",
+      "실제 DM·문의 내용을 재료로 쓰는 법"
+    ],
+    "exercise": "실제로 받은 문의 메시지 3개 이상을 붙여 넣고, 고객 말투 질문 10개로 바꿔 정리한 텍스트 파일",
+    "duration_min": 15
+  }
+}
