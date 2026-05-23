@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-faq-builder",
+    "topic": "내 상품·서비스의 FAQ 30개를 고객 입장에서 자동 생성하고 답변까지 작성",
+    "audience": "FAQ 페이지가 비어있어서 매번 같은 질문 답하느라 지친 1인 사업가",
+    "duration_weeks": 2,
+    "lesson_count": 3,
+    "format": "video",
+    "promises_hint": [
+      "30문항 자동 생성 프롬프트",
+      "구매 전·중·후 카테고리 자동 분류",
+      "사이트 즉시 붙여넣기 가능한 HTML"
+    ]
+  }
+}

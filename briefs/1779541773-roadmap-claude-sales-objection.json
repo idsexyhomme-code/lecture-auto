@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-sales-objection",
+    "topic": "가격·시간·신뢰 3대 반론에 대한 응대 스크립트를 내 톤에 맞춰 자동 생성",
+    "audience": "고객 반론에 매번 즉답 못하고 놓치는 1인 사업가·세일즈 담당",
+    "duration_weeks": 2,
+    "lesson_count": 3,
+    "format": "video",
+    "promises_hint": [
+      "비싸요·시간없어요·믿어도되요 응대 패턴",
+      "내 사례 자동 끼워넣는 프롬프트",
+      "DM·전화·이메일 채널별 버전"
+    ]
+  }
+}

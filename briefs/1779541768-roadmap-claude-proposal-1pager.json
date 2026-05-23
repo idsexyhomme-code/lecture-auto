@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-proposal-1pager",
+    "topic": "프리랜서·1인 사업가가 클라이언트에게 보낼 1페이지 제안서를 구조화해 빠르게 작성",
+    "audience": "제안서 작성에 매번 반나절 쓰는 프리랜서·컨설턴트",
+    "duration_weeks": 2,
+    "lesson_count": 3,
+    "format": "video",
+    "promises_hint": [
+      "고객 문제 → 해결 → 가격 1페이지 구조",
+      "복붙 가능한 5가지 제안서 템플릿",
+      "수주율 높이는 마지막 문장 패턴"
+    ]
+  }
+}

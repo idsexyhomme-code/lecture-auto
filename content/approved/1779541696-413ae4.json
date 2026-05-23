@@ -1,0 +1,33 @@
+{
+  "id": "1779541696-413ae4",
+  "agent": "blog_publisher",
+  "kind": "blog_post",
+  "title": "[블로그 임시저장] 반복 업무 30분, Claude에게 맡기고 나는 다른 일 합니다",
+  "body_md": "# 반복 업무 30분, Claude에게 맡기고 나는 다른 일 합니다\n\n**티스토리 URL**: (게시 실패 — 로그 확인)\n\n**예약 시각**: 2026-05-24 09:00 (KST)\n\n**블로그 본문**:\n\n<p style=\"text-align:center;margin:20px 0\"><img src=\"https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-sop-onboarding-hero.png\" alt=\"반복 업무 30분, Claude에게 맡기고 나는 다른 일 합니다\" style=\"max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)\"></p>\n\n<h2>월요일 아침, 같은 메일을 또 씁니다</h2>\n<p>월요일 오전 9시. 받은 편지함에 새 문의 메일 3통. 지난주에도, 그 전 주에도 똑같은 질문입니다. 견적 요청, 납기 확인, 환불 절차. 그때마다 새 창 열고, 처음부터 다시 씁니다. 문장 다듬고, 맞춤법 확인하고, 보내고 나서도 '이게 맞나?' 싶습니다. 메일 한 통에 15분. 하루 세 통이면 45분이 그냥 사라집니다.</p>\n\n<h2>왜 이게 어려운지</h2>\n<p>솔직히 말하면, 메일 잘 쓰는 법을 몰라서가 아닙니다. 매번 상황이 조금씩 다르니까 '그냥 새로 쓰는 게 낫겠다'고 생각하게 됩니다. 그리고 기존에 쓴 메일을 찾아 복붙하면 빠를 것 같지만, 어느 파일에 저장했는지 기억이 안 나고, 찾는 데 또 5분이 걸립니다.</p>\n<p>회의록도 마찬가지입니다. 회의 끝나고 30분 안에 정리해야 한다는 걸 알면서도, 다음 미팅이 밀려오면 그냥 넘어갑니다. 나중에 정리하려고 하면 뭘 결정했는지, 누가 뭘 맡기로 했는지 흐릿합니다. 결국 팀원한테 다시 물어봅니다.</p>\n<p>문제는 '시간'이 아니라 '틀'이 없다는 겁니다. 매번 처음부터 생각해야 하니까 피곤합니다. Claude에 고정된 틀을 만들어 두면, 그 틀에 상황만 바꿔 넣으면 됩니다.</p>\n\n<h2>Claude로 어떻게 하는지</h2>\n<p>아래 5단계로 한 번 해보면 감이 옵니다.</p>\n<ul>\n  <li><strong>1단계 — 자주 쓰는 문서 1개 고릅니다</strong> 고객 응대 메일, 견적서 안내, 회의록 중에서 이번 주에 가장 많이 쓴 것 하나만 고릅니다. 전부 다 하려 하면 아무것도 안 됩니다.</li>\n  <li><strong>2단계 — 기존에 쓴 예시를 Claude에 붙여넣습니다</strong> \"내가 지난주에 보낸 메일인데, 이걸 기준으로 틀 만들어줘\"라고 하면 됩니다. 없으면 \"환불 요청에 답하는 메일 틀 만들어줘\"라고 그냥 말합니다.</li>\n  <li><strong>3단계 — Claude가 준 틀에 빈칸을 확인합니다</strong> [고객명], [날짜], [금액] 같은 자리를 직접 채울 수 있게 돼 있는지 봅니다. 너무 딱딱하거나 말투가 이상하면 \"좀 더 자연스럽게 바꿔줘\"라고 바로 요청합니다.</li>\n  <li><strong>4단계 — 실제 상황 하나에 적용해 봅니다</strong> 오늘 받은 문의 메일에 그 틀을 써봅니다. 빈칸만 채워서 보내면 됩니다. 처음엔 어색해도 괜찮습니다. 한 번 써봐야 뭘 고칠지 보입니다.</li>\n  <li><strong>5단계 — 메모장이나 노션에 저장합니다</strong> '고객 환불 메일 틀', '회의록 틀' 이런 식으로 이름 붙여서 저장합니다. 다음 주에 같은 상황 오면, 그냥 꺼내서 씁니다.</li>\n</ul>\n\n<h2>이게 작동하는 이유</h2>\n<p>Claude는 맥락을 그대로 기억하면서 답합니다. \"조금 더 짧게\", \"덜 딱딱하게\", \"이 부분 빼줘\" 같은 말을 계속 이어서 할 수 있으니, 한 문서를 여러 번 왔다 갔다 하면서 다듬을 수 있습니다. 따로 정리 안 해도 대화 창 안에서 완성됩니다.</p>\n<p>그리고 이 방법은 첫날부터 쓸 수 있습니다. AI 잘 모르는 사람도, 그냥 하던 말 입력하면 됩니다. 틀을 잘 만들어야 한다는 부담이 없습니다. 일단 대충 만들고, 실제로 쓰면서 고치면 됩니다.</p>\n\n<h2>지금 시작하기</h2>\n<p>1차시부터 보면 됩니다. 오늘 쓴 메일 하나 들고 들어가서, 그대로 해보면 됩니다. → <a href=\"https://idsexyhomme-code.github.io/lecture-auto/courses/claude-sop-onboarding.html\">claude-sop-onboarding 바로가기</a></p>",
+  "summary": "claude-sop-onboarding 티스토리 임시저장 (실패)",
+  "meta": {
+    "title": "반복 업무 30분, Claude에게 맡기고 나는 다른 일 합니다",
+    "body_html": "<p style=\"text-align:center;margin:20px 0\"><img src=\"https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-sop-onboarding-hero.png\" alt=\"반복 업무 30분, Claude에게 맡기고 나는 다른 일 합니다\" style=\"max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)\"></p>\n\n<h2>월요일 아침, 같은 메일을 또 씁니다</h2>\n<p>월요일 오전 9시. 받은 편지함에 새 문의 메일 3통. 지난주에도, 그 전 주에도 똑같은 질문입니다. 견적 요청, 납기 확인, 환불 절차. 그때마다 새 창 열고, 처음부터 다시 씁니다. 문장 다듬고, 맞춤법 확인하고, 보내고 나서도 '이게 맞나?' 싶습니다. 메일 한 통에 15분. 하루 세 통이면 45분이 그냥 사라집니다.</p>\n\n<h2>왜 이게 어려운지</h2>\n<p>솔직히 말하면, 메일 잘 쓰는 법을 몰라서가 아닙니다. 매번 상황이 조금씩 다르니까 '그냥 새로 쓰는 게 낫겠다'고 생각하게 됩니다. 그리고 기존에 쓴 메일을 찾아 복붙하면 빠를 것 같지만, 어느 파일에 저장했는지 기억이 안 나고, 찾는 데 또 5분이 걸립니다.</p>\n<p>회의록도 마찬가지입니다. 회의 끝나고 30분 안에 정리해야 한다는 걸 알면서도, 다음 미팅이 밀려오면 그냥 넘어갑니다. 나중에 정리하려고 하면 뭘 결정했는지, 누가 뭘 맡기로 했는지 흐릿합니다. 결국 팀원한테 다시 물어봅니다.</p>\n<p>문제는 '시간'이 아니라 '틀'이 없다는 겁니다. 매번 처음부터 생각해야 하니까 피곤합니다. Claude에 고정된 틀을 만들어 두면, 그 틀에 상황만 바꿔 넣으면 됩니다.</p>\n\n<h2>Claude로 어떻게 하는지</h2>\n<p>아래 5단계로 한 번 해보면 감이 옵니다.</p>\n<ul>\n  <li><strong>1단계 — 자주 쓰는 문서 1개 고릅니다</strong> 고객 응대 메일, 견적서 안내, 회의록 중에서 이번 주에 가장 많이 쓴 것 하나만 고릅니다. 전부 다 하려 하면 아무것도 안 됩니다.</li>\n  <li><strong>2단계 — 기존에 쓴 예시를 Claude에 붙여넣습니다</strong> \"내가 지난주에 보낸 메일인데, 이걸 기준으로 틀 만들어줘\"라고 하면 됩니다. 없으면 \"환불 요청에 답하는 메일 틀 만들어줘\"라고 그냥 말합니다.</li>\n  <li><strong>3단계 — Claude가 준 틀에 빈칸을 확인합니다</strong> [고객명], [날짜], [금액] 같은 자리를 직접 채울 수 있게 돼 있는지 봅니다. 너무 딱딱하거나 말투가 이상하면 \"좀 더 자연스럽게 바꿔줘\"라고 바로 요청합니다.</li>\n  <li><strong>4단계 — 실제 상황 하나에 적용해 봅니다</strong> 오늘 받은 문의 메일에 그 틀을 써봅니다. 빈칸만 채워서 보내면 됩니다. 처음엔 어색해도 괜찮습니다. 한 번 써봐야 뭘 고칠지 보입니다.</li>\n  <li><strong>5단계 — 메모장이나 노션에 저장합니다</strong> '고객 환불 메일 틀', '회의록 틀' 이런 식으로 이름 붙여서 저장합니다. 다음 주에 같은 상황 오면, 그냥 꺼내서 씁니다.</li>\n</ul>\n\n<h2>이게 작동하는 이유</h2>\n<p>Claude는 맥락을 그대로 기억하면서 답합니다. \"조금 더 짧게\", \"덜 딱딱하게\", \"이 부분 빼줘\" 같은 말을 계속 이어서 할 수 있으니, 한 문서를 여러 번 왔다 갔다 하면서 다듬을 수 있습니다. 따로 정리 안 해도 대화 창 안에서 완성됩니다.</p>\n<p>그리고 이 방법은 첫날부터 쓸 수 있습니다. AI 잘 모르는 사람도, 그냥 하던 말 입력하면 됩니다. 틀을 잘 만들어야 한다는 부담이 없습니다. 일단 대충 만들고, 실제로 쓰면서 고치면 됩니다.</p>\n\n<h2>지금 시작하기</h2>\n<p>1차시부터 보면 됩니다. 오늘 쓴 메일 하나 들고 들어가서, 그대로 해보면 됩니다. → <a href=\"https://idsexyhomme-code.github.io/lecture-auto/courses/claude-sop-onboarding.html\">claude-sop-onboarding 바로가기</a></p>",
+    "hero_image_url": "https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-sop-onboarding-hero.png",
+    "tistory_url": null,
+    "tistory_status": "failed",
+    "scheduled_at": "2026-05-24T09:00:00+09:00",
+    "self_review": {
+      "ok": true,
+      "severity": "pass",
+      "hard_violations": [],
+      "soft_violations": [],
+      "len": 2276,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 0
+      }
+    }
+  },
+  "course_id": "claude-sop-onboarding",
+  "created_at": "2026-05-23T13:08:16+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}

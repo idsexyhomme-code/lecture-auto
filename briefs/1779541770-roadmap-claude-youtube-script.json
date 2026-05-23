@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-youtube-script",
+    "topic": "60초 후킹 → 본문 → CTA 구조의 쇼츠 스크립트를 5분 안에 양산",
+    "audience": "쇼츠 시작했지만 스크립트 막혀서 업로드 못하는 1인 크리에이터",
+    "duration_weeks": 2,
+    "lesson_count": 3,
+    "format": "video",
+    "promises_hint": [
+      "조회수 부르는 후킹 10가지 패턴",
+      "주제 1개 → 변형 쇼츠 5개 생산",
+      "댓글 유도 CTA 공식"
+    ]
+  }
+}

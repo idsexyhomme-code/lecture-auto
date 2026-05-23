@@ -1,0 +1,33 @@
+{
+  "id": "1779541550-97f9ed",
+  "agent": "blog_publisher",
+  "kind": "blog_post",
+  "title": "[블로그 임시저장] 고객 응대 문자·메일, 매번 새로 쓰지 않아도 됩니다",
+  "body_md": "# 고객 응대 문자·메일, 매번 새로 쓰지 않아도 됩니다\n\n**티스토리 URL**: (게시 실패 — 로그 확인)\n\n**예약 시각**: 2026-05-24 09:00 (KST)\n\n**블로그 본문**:\n\n<p style=\"text-align:center;margin:20px 0\"><img src=\"https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-customer-script-hero.png\" alt=\"고객 응대 문자·메일, 매번 새로 쓰지 않아도 됩니다\" style=\"max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)\"></p>\n\n<h2>고객 문의 5통, 답장 쓰다가 오전이 끝났다</h2>\n<p>오전 10시, 카카오톡 채널에 문의 8건. 블로그 댓글 3건. 메일 4통. 다 비슷한 질문인데 매번 처음부터 씁니다. \"안녕하세요, 문의 주셔서 감사합니다\" 치는 순간 벌써 맥이 빠집니다. 한 통 쓰는 데 10분. 15건이면 2시간 반. 정작 해야 할 일은 오후로 밀립니다.</p>\n\n<h2>왜 이게 어려운지</h2>\n<p>솔직히 고객 문의가 어려운 건 내용 때문이 아닙니다. 같은 말을 매번 새로 쓰는 게 지치는 겁니다. '환불 가능한가요', '배송 얼마나 걸려요', '이거 저한테 맞나요' — 문의 유형은 10가지가 안 됩니다. 근데 매번 새 답장을 씁니다.</p>\n<p>그렇다고 복붙도 못 합니다. 그냥 붙여 넣으면 티가 납니다. '저 고객한테 보낸 거 그대로 보내는 거 아니야?' 싶은 느낌. 그래서 조금씩 고칩니다. 조금 고치는 게 또 시간 먹습니다.</p>\n<p>더 큰 문제는 말투입니다. 너무 딱딱하면 차갑고, 너무 친근하면 프로답지 않아 보이고. 어떤 톤으로 쓸지 매번 고민합니다. 그 고민 자체가 시간 낭비입니다.</p>\n\n<h2>Claude로 어떻게 하는지</h2>\n<p>방법은 단순합니다. 내 상황을 한 번만 설명하고, 문의 유형별 답장 초안을 뽑아 두는 겁니다. 그다음은 붙여 넣기만 합니다.</p>\n<ul>\n  <li><strong>1단계 — 내 상황 한 줄로 넣기</strong> Claude에게 \"나는 온라인으로 다이어트 식품을 파는 1인 사업자야. 고객 문의 답장을 써줘\"라고 시작합니다. 업종, 판매 방식, 고객층 딱 세 가지만.</li>\n  <li><strong>2단계 — 자주 오는 문의 5가지 적기</strong> \"환불 문의, 배송 지연, 제품 추천, 부작용 질문, 재구매 할인\" 이렇게 나열합니다. 내 채널에서 실제로 오는 것만 씁니다.</li>\n  <li><strong>3단계 — 말투 지정하기</strong> \"따뜻하지만 너무 가볍지 않게, 존댓말로\" 한 줄이면 됩니다. 이걸 넣으면 답장 느낌이 내 브랜드랑 맞게 나옵니다.</li>\n  <li><strong>4단계 — 초안 받고 한 군데만 고치기</strong> Claude가 초안 5개를 줍니다. 읽어보고 어색한 단어 한 곳만 바꿉니다. 전체를 새로 쓰는 게 아닙니다.</li>\n  <li><strong>5단계 — 메모장에 붙여 두기</strong> 수정한 답장 5개를 메모장이나 노션에 저장합니다. 다음 문의부터는 꺼내서 이름만 바꾸면 끝납니다. 10초.</li>\n</ul>\n\n<h2>이게 작동하는 이유</h2>\n<p>첫 시도부터 쓸 만한 초안이 나오는 건 Claude가 문맥을 그대로 반영하기 때문입니다. '식품 쇼핑몰, 환불 문의, 따뜻한 말투'라고 넣으면 거기에 맞는 답장이 나옵니다. 일반적인 답장 템플릿 사이트처럼 어느 업종에나 맞는 두루뭉술한 문장이 아닙니다.</p>\n<p>그리고 한 번 만들어 두면 계속 씁니다. 매번 새로 만드는 게 아니라, 처음 한 시간 투자해서 5개 만들어 두면 그다음 3개월은 그냥 씁니다. 문의 답장에 쓰는 시간이 하루 2시간에서 10분으로 줄었다는 사람도 있습니다.</p>\n\n<h2>지금 시작하기</h2>\n<p>첫 번째 답장 초안 하나만 만들어 보세요. 거기서 시작합니다. → <a href=\"https://idsexyhomme-code.github.io/lecture-auto/courses/claude-customer-script.html\">claude-customer-script 바로 가기</a></p>",
+  "summary": "claude-customer-script 티스토리 임시저장 (실패)",
+  "meta": {
+    "title": "고객 응대 문자·메일, 매번 새로 쓰지 않아도 됩니다",
+    "body_html": "<p style=\"text-align:center;margin:20px 0\"><img src=\"https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-customer-script-hero.png\" alt=\"고객 응대 문자·메일, 매번 새로 쓰지 않아도 됩니다\" style=\"max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)\"></p>\n\n<h2>고객 문의 5통, 답장 쓰다가 오전이 끝났다</h2>\n<p>오전 10시, 카카오톡 채널에 문의 8건. 블로그 댓글 3건. 메일 4통. 다 비슷한 질문인데 매번 처음부터 씁니다. \"안녕하세요, 문의 주셔서 감사합니다\" 치는 순간 벌써 맥이 빠집니다. 한 통 쓰는 데 10분. 15건이면 2시간 반. 정작 해야 할 일은 오후로 밀립니다.</p>\n\n<h2>왜 이게 어려운지</h2>\n<p>솔직히 고객 문의가 어려운 건 내용 때문이 아닙니다. 같은 말을 매번 새로 쓰는 게 지치는 겁니다. '환불 가능한가요', '배송 얼마나 걸려요', '이거 저한테 맞나요' — 문의 유형은 10가지가 안 됩니다. 근데 매번 새 답장을 씁니다.</p>\n<p>그렇다고 복붙도 못 합니다. 그냥 붙여 넣으면 티가 납니다. '저 고객한테 보낸 거 그대로 보내는 거 아니야?' 싶은 느낌. 그래서 조금씩 고칩니다. 조금 고치는 게 또 시간 먹습니다.</p>\n<p>더 큰 문제는 말투입니다. 너무 딱딱하면 차갑고, 너무 친근하면 프로답지 않아 보이고. 어떤 톤으로 쓸지 매번 고민합니다. 그 고민 자체가 시간 낭비입니다.</p>\n\n<h2>Claude로 어떻게 하는지</h2>\n<p>방법은 단순합니다. 내 상황을 한 번만 설명하고, 문의 유형별 답장 초안을 뽑아 두는 겁니다. 그다음은 붙여 넣기만 합니다.</p>\n<ul>\n  <li><strong>1단계 — 내 상황 한 줄로 넣기</strong> Claude에게 \"나는 온라인으로 다이어트 식품을 파는 1인 사업자야. 고객 문의 답장을 써줘\"라고 시작합니다. 업종, 판매 방식, 고객층 딱 세 가지만.</li>\n  <li><strong>2단계 — 자주 오는 문의 5가지 적기</strong> \"환불 문의, 배송 지연, 제품 추천, 부작용 질문, 재구매 할인\" 이렇게 나열합니다. 내 채널에서 실제로 오는 것만 씁니다.</li>\n  <li><strong>3단계 — 말투 지정하기</strong> \"따뜻하지만 너무 가볍지 않게, 존댓말로\" 한 줄이면 됩니다. 이걸 넣으면 답장 느낌이 내 브랜드랑 맞게 나옵니다.</li>\n  <li><strong>4단계 — 초안 받고 한 군데만 고치기</strong> Claude가 초안 5개를 줍니다. 읽어보고 어색한 단어 한 곳만 바꿉니다. 전체를 새로 쓰는 게 아닙니다.</li>\n  <li><strong>5단계 — 메모장에 붙여 두기</strong> 수정한 답장 5개를 메모장이나 노션에 저장합니다. 다음 문의부터는 꺼내서 이름만 바꾸면 끝납니다. 10초.</li>\n</ul>\n\n<h2>이게 작동하는 이유</h2>\n<p>첫 시도부터 쓸 만한 초안이 나오는 건 Claude가 문맥을 그대로 반영하기 때문입니다. '식품 쇼핑몰, 환불 문의, 따뜻한 말투'라고 넣으면 거기에 맞는 답장이 나옵니다. 일반적인 답장 템플릿 사이트처럼 어느 업종에나 맞는 두루뭉술한 문장이 아닙니다.</p>\n<p>그리고 한 번 만들어 두면 계속 씁니다. 매번 새로 만드는 게 아니라, 처음 한 시간 투자해서 5개 만들어 두면 그다음 3개월은 그냥 씁니다. 문의 답장에 쓰는 시간이 하루 2시간에서 10분으로 줄었다는 사람도 있습니다.</p>\n\n<h2>지금 시작하기</h2>\n<p>첫 번째 답장 초안 하나만 만들어 보세요. 거기서 시작합니다. → <a href=\"https://idsexyhomme-code.github.io/lecture-auto/courses/claude-customer-script.html\">claude-customer-script 바로 가기</a></p>",
+    "hero_image_url": "https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-customer-script-hero.png",
+    "tistory_url": null,
+    "tistory_status": "failed",
+    "scheduled_at": "2026-05-24T09:00:00+09:00",
+    "self_review": {
+      "ok": true,
+      "severity": "pass",
+      "hard_violations": [],
+      "soft_violations": [],
+      "len": 2161,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 0
+      }
+    }
+  },
+  "course_id": "claude-customer-script",
+  "created_at": "2026-05-23T13:05:50+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}

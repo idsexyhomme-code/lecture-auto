@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-instagram-caption-pack",
+    "topic": "1주일치 인스타 캡션 7개를 30분 안에 일관된 톤으로 생산하는 워크플로",
+    "audience": "콘텐츠 마감 압박에 매주 시달리는 1인 브랜드 운영자",
+    "duration_weeks": 2,
+    "lesson_count": 3,
+    "format": "video",
+    "promises_hint": [
+      "캡션 7개 30분 완성 템플릿",
+      "브랜드 톤 흐트러지지 않는 프롬프트",
+      "이미지 + 캡션 매칭 체크리스트"
+    ]
+  }
+}

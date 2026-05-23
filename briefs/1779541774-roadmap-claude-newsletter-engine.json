@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-newsletter-engine",
+    "topic": "이번 주 내가 본 자료·메모 → 구독자에게 가치 있는 뉴스레터 1통 1시간에 완성",
+    "audience": "뉴스레터 시작했지만 매주 3~4시간씩 들이고 지친 1인 사업가",
+    "duration_weeks": 3,
+    "lesson_count": 4,
+    "format": "video",
+    "promises_hint": [
+      "주간 자료 → 3개 핵심 메시지 자동 추출",
+      "오프닝·본문·CTA 1시간 컷 흐름",
+      "오픈율 끌어올리는 제목 5가지 패턴"
+    ]
+  }
+}

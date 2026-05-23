@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-weekly-report",
+    "topic": "주간 업무 데이터·메모 → 5문단 보고서/회고로 자동 정리하는 프롬프트 시스템",
+    "audience": "주간 보고에 매번 2시간씩 쓰는 1인 사업가·프리랜서",
+    "duration_weeks": 2,
+    "lesson_count": 3,
+    "format": "video",
+    "promises_hint": [
+      "메모 덩어리 → 5문단 보고서 15분 컷",
+      "지난 주 대비 변화 자동 추출",
+      "다음 주 우선순위 3개 자동 정렬"
+    ]
+  }
+}

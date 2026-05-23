@@ -1,0 +1,68 @@
+{
+  "id": "1779541549-594d3d",
+  "agent": "ceo",
+  "kind": "ceo_daily_report",
+  "title": "CEO 일일 보고 — 2026-05-16",
+  "body_md": "# Core Campus 일일 보고 — 2026-05-16 (KST)\n\n---\n\n## 1. 오늘의 성장 목표\n\n**목표 1.** 블로그 16건 대기 → 오늘 8건 이상 티스토리 발행 완료\n**목표 2.** 외주 전문가 섭외 메시지 초안 1건 완성 → 회원 ✅ 후 발송 대기 상태로 전환\n\n> 90일 KPI 기준: 월 방문자 3,000명 / 무료 회원 300명 목표 대비, 블로그 발행 속도가 오늘 병목이다.\n\n---\n\n## 2. 오늘 실행할 작업 3개\n\n### 작업 A — 섭외 메시지 초안 완성 (§10.5)\n- **담당:** CEO 자율\n- **내용:** 김그린dev (34/40점) 대상. §10.5 구조 6단계 그대로. 주제·타깃·분량·납기·예산 범위·권리 조항 포함.\n- **소요:** 20분 이내 초안 완성 → 회원 ✅ 후 회원이 크몽 내부에서 직접 발송\n- **산출물:** 섭외 메시지 텍스트 1건\n\n### 작업 B — 티스토리 재발행 세션 재개\n- **담당:** 회원 직접 (login-tistory.command 재실행)\n- **내용:** 현재 16건 대기 중. 회원이 세션 재연결 → 발행 재개. CEO는 발행 순서·제목 최종안 리스트 제공.\n- **소요:** 세션 재연결 5분 + 발행 8건 약 25분 (건당 3분 기준)\n- **산출물:** 발행 완료 블로그 글 8건\n\n### 작업 C — 16 concurrent workers 데몬 활성화\n- **담당:** 회원 직접 (install-daemon.command 재실행)\n- **내용:** CC_PARALLEL=1 plist 갱신 완료 상태. 회원이 재실행하면 병렬 처리 16개 활성. 이후 dispatch queue pending 4건 즉시 소화 가능.\n- **소요:** 5분\n- **산출물:** 데몬 활성 확인 로그\n\n---\n\n## 3. 예상 효과\n\n| 작업 | 움직이는 KPI | 예상 변화 |\n|---|---|---|\n| A. 섭외 메시지 ✅ | 외주 파이프라인 Step 8 완료 | 이번 주 안에 전문가 답신 수령 → W2 일정 유지 가능 |\n| B. 블로그 8건 발행 | 검색 유입 기반 URL 수 | 누적 공개 글 +8건. 구글·네이버 인덱싱 신청 → 2~3주 후 유입 시작 |\n| C. 데몬 활성 | dispatch queue | pending 4건 → 오늘 중 in_progress 전환. 처리 속도 약 4배 |\n\n---\n\n## 4. 필요한 승인 사항\n\n| # | 항목 | 이유 |\n|---|---|---|\n| ✅ 1 | 섭외 메시지 발송 (김그린dev) | §10.2 — 메시지 발송은 회원 직접. CEO 초안 확인 후 크몽 내부에서 회원이 직접 전송 |\n| ✅ 2 | 블로그 16건 발행 재개 | login-tistory.command 재실행 — 회원 세션 필요 |\n| ✅ 3 | install-daemon.command 재실행 | 회원 로컬 환경에서만 실행 가능 |\n\n---\n\n## 5. 승인 없이 진행 가능한 작업\n\n- 김그린dev 섭외 메시지 초안 작성 (§5 · §10.2 CEO 자율)\n- 블로그 16건 발행 순서 리스트 + 최종 제목안 정리\n- dispatch queue pending 4건 작업 내용 점검 + 우선순위 정렬\n- Instagram dry-run 어댑터 테스트 계획 문서 작성 (토큰 발급 전 사전 준비)\n- 30일 KPI 기준선 문서 초안 작성 (현재 데이터 없음 → 0 기준점으로 설정)\n- 김그린dev CRM 레코드 업데이트 (status: candidate → contacted 준비 상태)\n\n---\n\n## 6. 오늘 생성할 산출물\n\n1. **김그린dev 섭외 메시지 텍스트** — §10.5 구조 완성본\n2. **블로그 발행 순서 리스트** — 16건 제목 + 발행 우선순위 (검색량·주제 기준)\n3. **dispatch queue 우선순위 표** — pending 4건 작업 내용 + 예상 소요 시간\n4. **Instagram dry-run 준비 체크리스트** — 토큰 발급 전 확인 항목\n5. **KPI 0일차 기준선 문서** — 오늘 날짜 기준 방문자 0, 회원 0, 매출 0으로 기록 시작\n\n---\n\n## 7. 리스크와 방지책\n\n### 리스크 1 — 블로그 세션 재연결 실패 시 16건 발행 추가 지연\n- **방지책:** 세션 재연결 전에 login-tistory.command 실행 로그를 먼저 확인. 실패 시 회원이 수동으로 티스토리 로그인 후 발행 1건 테스트 → 정상 확인 후 나머지 진행.\n\n### 리스크 2 — 김그린dev 미답신 또는 조건 불일치\n- **방지책:** §10.5 메시지에 \"N일 안에 답신\" 기한 명시. 미답신 시 후보 2순위 검색어·기준 미리 준비. 현재 후보 1명 → 이번 주 안에 후보 3명으로 확장 권고 (회원 검색 추가 요청).\n\n---\n\n## 8. 오늘 발행한 작업 티켓 (§11)\n\n```\npending: 4 · in_progress: 1 · completed: 6 · review_required: 0 · approved: 1 · rejected: 0\n```\n\n---\n\n## 9. 각 에이전트별 진행 상태\n\n| 에이전트 | 상태 | 비고 |\n|---|---|---|\n| 블로그 발행 에이전트 | ⏸ 대기 | 세션 만료. 회원이 login-tistory.command 재실행 필요 |\n| 병렬 워커 (16개) | ⏸ 대기 | install-daemon.command 재실행 대기 |\n| 외주 소싱 에이전트 | 🟡 진행 중 | Step 8 — CEO 섭외 메시지 초안 작성 중 |\n| Instagram 어댑터 | ⏸ 준비 완료 | 토큰 미발급. dry-run 가능 상태 |\n| KPI 수집 에이전트 | ✅ 활성 | 데이터 수집 중. 오늘 기준선 0으로 기록 |\n| 자가 검토 에이전트 | ✅ 활성 | ab_test 비활성 상태에서 단일 버전 검토 중 |\n\n---\n\n## 10. 검토 대기 결과물 + 회원 ✅ 필요 결과물\n\n- **completed 6건** — 완료 처리됨. 별도 검토 불필요.\n- **review_required 0건** — 현재 없음.\n- **회원 ✅ 필요 산출물:**\n  - 섭외 메시지 초안 (오늘 생성) → 회원 확인 후 크몽 직접 발송\n  - 블로그 발행 재개 (세션 재연결)\n  - 데몬 재실행\n\n---\n\n## 11. 다음 실행 에이전트 + 병목 지점\n\n**다음 실행:** 외주 소싱 에이전트 — Step 8 섭외 메시지 초안 완성\n\n**병목 1위 (지금):** 블로그 발행 세션 만료\n→ 16건이 오늘부터 매일 미뤄지면 검색 인덱싱 일정 전체가 밀린다. 오늘 세션 재연결이 가장 먼저다.\n\n**병목 2위:** 외주 후보 1명 단일 파이프라인\n→ 김그린dev가 거절·미답신 시 대안 없음. 이번 주 중 후보 2~3명 추가 확보 권고.\n\n---\n\n*다음 보고: 2026-05-17 KST. 블로그 발행 건수 + 김그린dev 답신 여부 포함.*",
+  "summary": "2026-05-16 CEO 일일 보고",
+  "meta": {
+    "brief": {
+      "mode": "daily_report",
+      "today_kst": "2026-05-16",
+      "site_state": {
+        "phase_1_2_3_complete": true,
+        "kpi_collection_active": true,
+        "self_review_active": true,
+        "ab_test_active": false,
+        "parallel_mode_active": true,
+        "pilot_status": {
+          "candidate_count": 1,
+          "candidate_name": "김그린dev",
+          "scorecard_total": "34/40",
+          "next_step": "Step 8 섭외 메시지 초안 → 회원 ✅ → 회원 직접 발송"
+        },
+        "blog_status": {
+          "live_published": "회원 재발행 진행 중 (16건 대기)",
+          "publisher_session_status": "회원이 login-tistory.command 재실행 필요"
+        },
+        "infrastructure": {
+          "16_concurrent_workers": "CC_PARALLEL=1 plist 갱신 — 회원이 install-daemon.command 재실행 후 활성",
+          "budget_guard": "DAILY_BUDGET_USD=50 (기본)",
+          "instagram_dry_run": "어댑터 준비 완료 — 토큰 발급 대기"
+        },
+        "dispatch_queue": {
+          "pending": 4,
+          "in_progress": 1,
+          "completed": 6,
+          "review_required": 0,
+          "approved": 1,
+          "rejected": 0
+        }
+      },
+      "recent_kpi": {
+        "date_kst": "2026-05-16"
+      }
+    },
+    "mode": "daily_report",
+    "today_kst": "2026-05-16",
+    "self_review": {
+      "ok": true,
+      "severity": "warn",
+      "hard_violations": [],
+      "soft_violations": [
+        "산출물"
+      ],
+      "len": 3379,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 1
+      }
+    }
+  },
+  "course_id": "core-campus-meta",
+  "created_at": "2026-05-23T13:05:49+00:00",
+  "status": "pending",
+  "telegram_message_id": 2074
+}

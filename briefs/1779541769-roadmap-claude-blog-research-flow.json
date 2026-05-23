@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-blog-research-flow",
+    "topic": "키워드 리서치 → 아웃라인 → 초안까지 Claude로 1시간 안에 완성하는 단단한 흐름",
+    "audience": "블로그 운영하지만 매번 글 1편에 3~5시간 쓰는 1인 사업가",
+    "duration_weeks": 3,
+    "lesson_count": 4,
+    "format": "video",
+    "promises_hint": [
+      "키워드 → 아웃라인 30분 컷",
+      "본문 초안 30분 컷",
+      "SEO 메타·이미지 alt까지 일관"
+    ]
+  }
+}

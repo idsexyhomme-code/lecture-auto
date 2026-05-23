@@ -1,0 +1,33 @@
+{
+  "id": "1779541601-4310dc",
+  "agent": "blog_publisher",
+  "kind": "blog_post",
+  "title": "[블로그 임시저장] 1인 사업가가 Claude 쓰는 법, 지금 바로 배워도 늦지 않습니다",
+  "body_md": "# 1인 사업가가 Claude 쓰는 법, 지금 바로 배워도 늦지 않습니다\n\n**티스토리 URL**: (게시 실패 — 로그 확인)\n\n**예약 시각**: 2026-05-24 09:00 (KST)\n\n**블로그 본문**:\n\n<p style=\"text-align:center;margin:20px 0\"><img src=\"https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-launchpad-hero.png\" alt=\"1인 사업가가 Claude 쓰는 법, 지금 바로 배워도 늦지 않습니다\" style=\"max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)\"></p>\n\n<h2>월요일 오전 10시, 화면 앞에서 30분째 커서만 깜빡이고 있다</h2>\n<p>Claude 써보려고 창 열었는데 뭘 입력해야 할지 모르겠다. 그냥 \"메일 써줘\" 쳤다가 이상한 답 나오고, 다시 치고, 또 다시 치고. 결국 그냥 내가 쓴다. 오늘도 Claude 탭 닫았다.</p>\n<p>이게 딱 첫 달이다. AI 쓴다는 게 생각보다 쉽지 않다는 걸 이때 안다.</p>\n\n<h2>왜 이게 어려운지</h2>\n<p>솔직히 말하면, Claude가 어려운 게 아니다. 뭘 시켜야 하는지를 모르는 게 문제다. \"메일 써줘\"라고 치면 Claude는 뭔가 쓰긴 한다. 근데 내 상황이 하나도 안 들어가 있다. 고객 이름도 없고, 맥락도 없고, 내 말투도 없다. 당연히 쓸 수가 없다.</p>\n<p>그러면 또 이렇게 생각한다. \"아, 나는 글 쓰는 게 아직 부족한가 보다.\" 아니다. 글 쓰는 게 문제가 아니라, Claude한테 정보를 어떻게 넘겨야 하는지를 아직 모르는 것뿐이다. 그 방법을 배운 적이 없으니까.</p>\n<p>유튜브에서 Claude 활용법 봐도 다 거창하다. \"프롬프트 엔지니어링\", \"퓨샷 러닝\" 같은 단어가 나온다. 나는 그냥 고객 제안서 하나 빨리 쓰고 싶을 뿐인데.</p>\n\n<h2>Claude로 어떻게 하는지</h2>\n<p>실제로 쓰는 방법은 생각보다 단순하다. 순서대로 한 번만 해보면 다음 번엔 그냥 된다.</p>\n<ul>\n  <li><strong>1단계 — 상황 먼저 한 줄 쓰기</strong> \"나는 1인 디자인 스튜디오 운영하고, 지금 카페 브랜딩 제안서를 써야 해.\" 이것만 있어도 Claude 답변이 완전히 달라진다.</li>\n  <li><strong>2단계 — 원하는 결과물 딱 하나만 말하기</strong> \"제안서 전체\"가 아니라 \"첫 페이지 소개 문단 3줄\"처럼 좁게 잡는다. 한 번에 다 받으려고 하면 다 엉터리로 나온다.</li>\n  <li><strong>3단계 — 예시 하나 주기</strong> \"이런 느낌으로 써줘\"라고 하면서 내가 이전에 쓴 문장 2-3줄 붙여넣으면 된다. 그게 전부다. Claude가 말투를 따라온다.</li>\n  <li><strong>4단계 — 마음에 안 드는 부분만 고쳐달라고 하기</strong> 처음부터 다시 쓰라고 하지 말고 \"두 번째 문장이 너무 딱딱해. 좀 더 편하게 바꿔줘\"라고 한다. 그러면 나머지는 그대로 둔다.</li>\n  <li><strong>5단계 — 같은 형식 저장해두기</strong> 잘 나온 요청 방식을 메모장에 그냥 복사해둔다. 다음 주에 비슷한 일 있을 때 붙여넣고 내용만 바꾼다. 그게 다다.</li>\n</ul>\n\n<h2>이게 작동하는 이유</h2>\n<p>Claude는 맥락이 많을수록 답이 구체적으로 나온다. 사람한테 부탁할 때도 \"이거 해줘\"보다 \"이런 상황인데, 이런 걸 원하는데, 이런 느낌으로 해줘\"라고 하면 훨씬 잘 해주는 것과 같다. 첫 시도부터 쓸 만한 결과가 나오는 건, 그냥 정보를 조금 더 주기 때문이다. 특별한 기술이 없어도 된다.</p>\n<p>그리고 Claude는 대화가 이어진다. 한 번 컨텍스트를 잡아두면 그 다음 요청은 훨씬 빠르게 원하는 방향으로 간다. 처음 30초만 투자하면 그 뒤가 편해진다.</p>\n\n<h2>지금 시작하기</h2>\n<p>첫 번째 내용부터 한 번 보면 된다. 거기서 나오는 요청 방식 하나만 따라 해봐도 오늘 쓸 수 있다. → <a href=\"https://idsexyhomme-code.github.io/lecture-auto/courses/claude-launchpad.html\">claude-launchpad 바로 가기</a></p>",
+  "summary": "claude-launchpad 티스토리 임시저장 (실패)",
+  "meta": {
+    "title": "1인 사업가가 Claude 쓰는 법, 지금 바로 배워도 늦지 않습니다",
+    "body_html": "<p style=\"text-align:center;margin:20px 0\"><img src=\"https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-launchpad-hero.png\" alt=\"1인 사업가가 Claude 쓰는 법, 지금 바로 배워도 늦지 않습니다\" style=\"max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)\"></p>\n\n<h2>월요일 오전 10시, 화면 앞에서 30분째 커서만 깜빡이고 있다</h2>\n<p>Claude 써보려고 창 열었는데 뭘 입력해야 할지 모르겠다. 그냥 \"메일 써줘\" 쳤다가 이상한 답 나오고, 다시 치고, 또 다시 치고. 결국 그냥 내가 쓴다. 오늘도 Claude 탭 닫았다.</p>\n<p>이게 딱 첫 달이다. AI 쓴다는 게 생각보다 쉽지 않다는 걸 이때 안다.</p>\n\n<h2>왜 이게 어려운지</h2>\n<p>솔직히 말하면, Claude가 어려운 게 아니다. 뭘 시켜야 하는지를 모르는 게 문제다. \"메일 써줘\"라고 치면 Claude는 뭔가 쓰긴 한다. 근데 내 상황이 하나도 안 들어가 있다. 고객 이름도 없고, 맥락도 없고, 내 말투도 없다. 당연히 쓸 수가 없다.</p>\n<p>그러면 또 이렇게 생각한다. \"아, 나는 글 쓰는 게 아직 부족한가 보다.\" 아니다. 글 쓰는 게 문제가 아니라, Claude한테 정보를 어떻게 넘겨야 하는지를 아직 모르는 것뿐이다. 그 방법을 배운 적이 없으니까.</p>\n<p>유튜브에서 Claude 활용법 봐도 다 거창하다. \"프롬프트 엔지니어링\", \"퓨샷 러닝\" 같은 단어가 나온다. 나는 그냥 고객 제안서 하나 빨리 쓰고 싶을 뿐인데.</p>\n\n<h2>Claude로 어떻게 하는지</h2>\n<p>실제로 쓰는 방법은 생각보다 단순하다. 순서대로 한 번만 해보면 다음 번엔 그냥 된다.</p>\n<ul>\n  <li><strong>1단계 — 상황 먼저 한 줄 쓰기</strong> \"나는 1인 디자인 스튜디오 운영하고, 지금 카페 브랜딩 제안서를 써야 해.\" 이것만 있어도 Claude 답변이 완전히 달라진다.</li>\n  <li><strong>2단계 — 원하는 결과물 딱 하나만 말하기</strong> \"제안서 전체\"가 아니라 \"첫 페이지 소개 문단 3줄\"처럼 좁게 잡는다. 한 번에 다 받으려고 하면 다 엉터리로 나온다.</li>\n  <li><strong>3단계 — 예시 하나 주기</strong> \"이런 느낌으로 써줘\"라고 하면서 내가 이전에 쓴 문장 2-3줄 붙여넣으면 된다. 그게 전부다. Claude가 말투를 따라온다.</li>\n  <li><strong>4단계 — 마음에 안 드는 부분만 고쳐달라고 하기</strong> 처음부터 다시 쓰라고 하지 말고 \"두 번째 문장이 너무 딱딱해. 좀 더 편하게 바꿔줘\"라고 한다. 그러면 나머지는 그대로 둔다.</li>\n  <li><strong>5단계 — 같은 형식 저장해두기</strong> 잘 나온 요청 방식을 메모장에 그냥 복사해둔다. 다음 주에 비슷한 일 있을 때 붙여넣고 내용만 바꾼다. 그게 다다.</li>\n</ul>\n\n<h2>이게 작동하는 이유</h2>\n<p>Claude는 맥락이 많을수록 답이 구체적으로 나온다. 사람한테 부탁할 때도 \"이거 해줘\"보다 \"이런 상황인데, 이런 걸 원하는데, 이런 느낌으로 해줘\"라고 하면 훨씬 잘 해주는 것과 같다. 첫 시도부터 쓸 만한 결과가 나오는 건, 그냥 정보를 조금 더 주기 때문이다. 특별한 기술이 없어도 된다.</p>\n<p>그리고 Claude는 대화가 이어진다. 한 번 컨텍스트를 잡아두면 그 다음 요청은 훨씬 빠르게 원하는 방향으로 간다. 처음 30초만 투자하면 그 뒤가 편해진다.</p>\n\n<h2>지금 시작하기</h2>\n<p>첫 번째 내용부터 한 번 보면 된다. 거기서 나오는 요청 방식 하나만 따라 해봐도 오늘 쓸 수 있다. → <a href=\"https://idsexyhomme-code.github.io/lecture-auto/courses/claude-launchpad.html\">claude-launchpad 바로 가기</a></p>",
+    "hero_image_url": "https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-launchpad-hero.png",
+    "tistory_url": null,
+    "tistory_status": "failed",
+    "scheduled_at": "2026-05-24T09:00:00+09:00",
+    "self_review": {
+      "ok": true,
+      "severity": "pass",
+      "hard_violations": [],
+      "soft_violations": [],
+      "len": 2216,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 0
+      }
+    }
+  },
+  "course_id": "claude-launchpad",
+  "created_at": "2026-05-23T13:06:41+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}

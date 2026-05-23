@@ -1,0 +1,33 @@
+{
+  "id": "1779541705-152a81",
+  "agent": "blog_publisher",
+  "kind": "blog_post",
+  "title": "[블로그 임시저장] Claude 유료 플랜, 1인 사업가한테 돈값 하는지 솔직하게 따져봤습니다",
+  "body_md": "# Claude 유료 플랜, 1인 사업가한테 돈값 하는지 솔직하게 따져봤습니다\n\n**티스토리 URL**: https://jejumomdad.tistory.com/manage/posts/\n\n**예약 시각**: 2026-05-24 09:00 (KST)\n\n**블로그 본문**:\n\n<p style=\"text-align:center;margin:20px 0\"><img src=\"https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-pricing-page-hero.png\" alt=\"Claude 유료 플랜, 1인 사업가한테 돈값 하는지 솔직하게 따져봤습니다\" style=\"max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)\"></p>\n\n<h2>Claude 유료 요금제, 月 20달러 낼 가치 있는지 모르겠다면</h2>\n<p>Claude 써보고 싶은데 Pro가 월 20달러. 그냥 무료로도 되는 거 아닌가 싶어서 계속 미루고 있다. 근데 무료 버전 쓰다 보면 하루에 몇 번 안 써도 \"한도 초과\"가 뜬다. 유료 결제하기엔 뭘 얼마나 쓸 수 있는지도 모르겠고. 그냥 가격 페이지 가봐도 영어라 스크롤만 내리다 끈다.</p>\n\n<h2>왜 이게 어려운지</h2>\n<p>솔직히 Claude 요금제 페이지가 직관적이지 않다. Free, Pro, Team, API — 다 있는데 내가 혼자 쓰는 사람인지, 팀이랑 같이 쓰는 사람인지, 아니면 코드로 붙여야 하는 사람인지 모르면 뭘 골라야 할지 감이 안 온다.</p>\n<p>특히 1인 사업자나 프리랜서는 애매하다. 직원이 있는 것도 아니고, 개발자도 아닌데 API는 왜 있는지도 모른다. 그냥 \"혼자 쓰는 사람\" 항목이 없는 것처럼 보인다. 그러니까 결국 Pro가 맞는지, 그냥 무료로 버티는 게 맞는지 결정을 못 하고 넘어간다.</p>\n<p>게다가 Claude Opus, Sonnet, Haiku — 모델 이름도 세 개나 나온다. 이게 뭔지 모르면 Pro를 결제해도 어떤 모델 쓰는지도 모른 채 쓰게 된다. 돈 내고 쓰는 게 맞는 건지 여전히 불안하다.</p>\n\n<h2>Claude 요금제 페이지 보는 법</h2>\n<p>가격 페이지를 제대로 읽으면 5분 안에 내 상황에 맞는 플랜이 정해진다. 아래 순서대로 보면 된다.</p>\n<ul>\n  <li><strong>1단계 — 내가 혼자인지 팀인지 먼저 확인한다</strong> 혼자 쓴다면 Free 아니면 Pro 둘 중 하나다. Team이나 Enterprise는 보지 않아도 된다. 화면 절반이 줄어든다.</li>\n  <li><strong>2단계 — 무료 한도가 얼마나 빨리 차는지 본다</strong> 하루 3번 이상 Claude에 긴 질문을 넣는다면 무료 한도는 금방 찬다. 메일 초안 하나, 보고서 요약 하나, 아이디어 정리 하나 — 이 정도면 하루가 안 간다. 그 정도 쓴다면 Pro가 맞다.</li>\n  <li><strong>3단계 — Sonnet이 기본 모델임을 확인한다</strong> Pro 결제하면 Claude Sonnet 3.7을 쓴다. Opus는 더 무겁고 느리다. 일반 글쓰기·요약·번역·응대문 작성에는 Sonnet으로 충분하다. Opus는 코드 짜거나 복잡한 분석할 때 쓴다.</li>\n  <li><strong>4단계 — Projects 기능이 Pro에만 있다는 걸 확인한다</strong> Projects는 Claude한테 내 사업 맥락을 저장해두는 기능이다. 매번 \"나는 1인 쇼핑몰 운영자고, 고객 응대 톤은 이렇고...\" 설명 안 해도 된다. 이게 있고 없고가 실제 쓸 때 차이가 크다.</li>\n  <li><strong>5단계 — API는 일단 무시한다</strong> 개발자가 아니라면 API 항목은 안 봐도 된다. Claude.ai 사이트에서 직접 쓰는 것과 API는 완전히 다른 얘기다. 헷갈리면 API 탭은 닫아버린다.</li>\n</ul>\n\n<h2>이게 작동하는 이유</h2>\n<p>대부분 요금제 고민이 길어지는 건 \"더 싼 게 낫지 않을까\"가 아니라 \"내가 얼마나 쓸지 모르겠다\"는 이유다. 근데 순서대로 보면 내 사용 패턴이 먼저 나온다. 하루에 몇 번 쓰는지, 어떤 작업에 쓰는지 — 이게 정해지면 플랜은 자동으로 따라온다.</p>\n<p>그리고 Projects 기능 하나만 봐도 Pro 20달러가 남는 거냐 아니냐가 거의 결론 난다. 고객 응대 문구 쓸 때마다 배경 설명을 새로 안 해도 된다는 게 생각보다 시간을 많이 줄인다. 매번 1~2분이지만 하루 10번이면 20분이다. 한 달이면 없어진 시간이 꽤 된다.</p>\n\n<h2>지금 시작하기</h2>\n<p>요금제 페이지 한 번만 제대로 보면 고민이 끝난다. 아래 링크에서 바로 확인한다. <a href=\"https://idsexyhomme-code.github.io/lecture-auto/courses/claude-pricing-page.html\">claude-pricing-page</a></p>",
+  "summary": "claude-pricing-page 티스토리 임시저장 (https://jejumomdad.tistory.com/manage/posts/)",
+  "meta": {
+    "title": "Claude 유료 플랜, 1인 사업가한테 돈값 하는지 솔직하게 따져봤습니다",
+    "body_html": "<p style=\"text-align:center;margin:20px 0\"><img src=\"https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-pricing-page-hero.png\" alt=\"Claude 유료 플랜, 1인 사업가한테 돈값 하는지 솔직하게 따져봤습니다\" style=\"max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)\"></p>\n\n<h2>Claude 유료 요금제, 月 20달러 낼 가치 있는지 모르겠다면</h2>\n<p>Claude 써보고 싶은데 Pro가 월 20달러. 그냥 무료로도 되는 거 아닌가 싶어서 계속 미루고 있다. 근데 무료 버전 쓰다 보면 하루에 몇 번 안 써도 \"한도 초과\"가 뜬다. 유료 결제하기엔 뭘 얼마나 쓸 수 있는지도 모르겠고. 그냥 가격 페이지 가봐도 영어라 스크롤만 내리다 끈다.</p>\n\n<h2>왜 이게 어려운지</h2>\n<p>솔직히 Claude 요금제 페이지가 직관적이지 않다. Free, Pro, Team, API — 다 있는데 내가 혼자 쓰는 사람인지, 팀이랑 같이 쓰는 사람인지, 아니면 코드로 붙여야 하는 사람인지 모르면 뭘 골라야 할지 감이 안 온다.</p>\n<p>특히 1인 사업자나 프리랜서는 애매하다. 직원이 있는 것도 아니고, 개발자도 아닌데 API는 왜 있는지도 모른다. 그냥 \"혼자 쓰는 사람\" 항목이 없는 것처럼 보인다. 그러니까 결국 Pro가 맞는지, 그냥 무료로 버티는 게 맞는지 결정을 못 하고 넘어간다.</p>\n<p>게다가 Claude Opus, Sonnet, Haiku — 모델 이름도 세 개나 나온다. 이게 뭔지 모르면 Pro를 결제해도 어떤 모델 쓰는지도 모른 채 쓰게 된다. 돈 내고 쓰는 게 맞는 건지 여전히 불안하다.</p>\n\n<h2>Claude 요금제 페이지 보는 법</h2>\n<p>가격 페이지를 제대로 읽으면 5분 안에 내 상황에 맞는 플랜이 정해진다. 아래 순서대로 보면 된다.</p>\n<ul>\n  <li><strong>1단계 — 내가 혼자인지 팀인지 먼저 확인한다</strong> 혼자 쓴다면 Free 아니면 Pro 둘 중 하나다. Team이나 Enterprise는 보지 않아도 된다. 화면 절반이 줄어든다.</li>\n  <li><strong>2단계 — 무료 한도가 얼마나 빨리 차는지 본다</strong> 하루 3번 이상 Claude에 긴 질문을 넣는다면 무료 한도는 금방 찬다. 메일 초안 하나, 보고서 요약 하나, 아이디어 정리 하나 — 이 정도면 하루가 안 간다. 그 정도 쓴다면 Pro가 맞다.</li>\n  <li><strong>3단계 — Sonnet이 기본 모델임을 확인한다</strong> Pro 결제하면 Claude Sonnet 3.7을 쓴다. Opus는 더 무겁고 느리다. 일반 글쓰기·요약·번역·응대문 작성에는 Sonnet으로 충분하다. Opus는 코드 짜거나 복잡한 분석할 때 쓴다.</li>\n  <li><strong>4단계 — Projects 기능이 Pro에만 있다는 걸 확인한다</strong> Projects는 Claude한테 내 사업 맥락을 저장해두는 기능이다. 매번 \"나는 1인 쇼핑몰 운영자고, 고객 응대 톤은 이렇고...\" 설명 안 해도 된다. 이게 있고 없고가 실제 쓸 때 차이가 크다.</li>\n  <li><strong>5단계 — API는 일단 무시한다</strong> 개발자가 아니라면 API 항목은 안 봐도 된다. Claude.ai 사이트에서 직접 쓰는 것과 API는 완전히 다른 얘기다. 헷갈리면 API 탭은 닫아버린다.</li>\n</ul>\n\n<h2>이게 작동하는 이유</h2>\n<p>대부분 요금제 고민이 길어지는 건 \"더 싼 게 낫지 않을까\"가 아니라 \"내가 얼마나 쓸지 모르겠다\"는 이유다. 근데 순서대로 보면 내 사용 패턴이 먼저 나온다. 하루에 몇 번 쓰는지, 어떤 작업에 쓰는지 — 이게 정해지면 플랜은 자동으로 따라온다.</p>\n<p>그리고 Projects 기능 하나만 봐도 Pro 20달러가 남는 거냐 아니냐가 거의 결론 난다. 고객 응대 문구 쓸 때마다 배경 설명을 새로 안 해도 된다는 게 생각보다 시간을 많이 줄인다. 매번 1~2분이지만 하루 10번이면 20분이다. 한 달이면 없어진 시간이 꽤 된다.</p>\n\n<h2>지금 시작하기</h2>\n<p>요금제 페이지 한 번만 제대로 보면 고민이 끝난다. 아래 링크에서 바로 확인한다. <a href=\"https://idsexyhomme-code.github.io/lecture-auto/courses/claude-pricing-page.html\">claude-pricing-page</a></p>",
+    "hero_image_url": "https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-pricing-page-hero.png",
+    "tistory_url": "https://jejumomdad.tistory.com/manage/posts/",
+    "tistory_status": "scheduled",
+    "scheduled_at": "2026-05-24T09:00:00+09:00",
+    "self_review": {
+      "ok": true,
+      "severity": "pass",
+      "hard_violations": [],
+      "soft_violations": [],
+      "len": 2508,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 0
+      }
+    }
+  },
+  "course_id": "claude-pricing-page",
+  "created_at": "2026-05-23T13:08:25+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}
