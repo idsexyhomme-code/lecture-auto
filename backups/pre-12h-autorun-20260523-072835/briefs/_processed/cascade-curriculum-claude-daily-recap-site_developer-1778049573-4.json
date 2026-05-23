@@ -1,0 +1,9 @@
+{
+  "agent": "site_developer",
+  "brief": {
+    "instruction": "새 코스 'Claude로 5분 하루 회고 자동화' (course_id: claude-daily-recap)가 추가됐습니다. site_config.json의 course_overrides에 이 코스의 *title_override*와 *tagline_override*를 다듬어 주세요. 다른 필드는 절대 만지지 않습니다. 코스 톤 힌트: 매일 5분으로 1인 사업가의 회고를 자동 완성한다",
+    "brand_tone": "차분하고 단단한 한국어, 과장 표현 금지",
+    "target_audience": "매일 일기·회고 작성에 부담을 느끼는 1인 사업가",
+    "restrictions": "course_overrides 외 다른 필드 변경 금지, WCAG AA 유지"
+  }
+}

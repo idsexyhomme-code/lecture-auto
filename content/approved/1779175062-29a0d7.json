@@ -1,0 +1,141 @@
+{
+  "id": "1779175062-29a0d7",
+  "agent": "ui_designer",
+  "kind": "design_variants",
+  "title": "[디자인 시안] hero — 3개 변형",
+  "body_md": "## hero — 변형 3개\n\n코어 캠퍼스 'AI 콘텐츠로 월 500 버는 1인 사업' 히어로 3변형 — 에디토리얼/임팩트/서사\n\n### V1 · 에디토리얼 아카데믹\n_차분한 학술 매거진처럼 — 읽고 싶게 만드는 진중함_\n\n**팔레트**: bg=#F5EFE0, fg=#1F1F1F, brand=#2C4E6B, accent=#D85A30, soft=#EDE6D6\n\n**이유**: 30~45세 직장인·프리랜서는 '과장된 약속'에 먼저 의심을 품는다. 매거진 레이아웃의 차분한 에디토리얼 톤과 수치(1,240명·4.8점·90일)가 신뢰 근거를 눈에 띄게 제시해 8초 안에 '진지한 곳이다'를 각인시킨다. 텍스트 우선 구도로 헤드라인만 읽어도 핵심 메시지가 완결된다.\n\n**이미지 프롬프트** (5개):\n- 베이지 크림 톤 바탕에 열린 노트북과 손글씨 메모지, 커피잔 실루엣이 놓인 책상 클로즈업, 따뜻한 자연광, 미니멀 플랫레이, 한국적 정서\n- 옅은 황갈색 종이 질감 배경에 가는 격자선과 타이포그래피 레이아웃 보조선, 에디토리얼 매거진 느낌, 추상 기하\n- 따뜻한 베이지-딥블루 팔레트, 책 페이지를 넘기는 순간을 추상화한 파동 곡선 패턴, 학술 잡지 표지 스타일\n- 크림 배경 위 코랄 컬러 포인트 원과 딥블루 사각형이 균형 잡힌 추상 컴포지션, 미니멀리즘, 글로벌 아카데믹 톤\n- 노트에 펜으로 쓴 '월 500' 숫자가 클로즈업된 장면, 따뜻한 사이드 조명, 질감 있는 종이 재질, 한국적 정서\n\n### V2 · 임팩트 스플릿\n_좌우 분할로 숫자가 먼저 눈에 꽂히는 강렬한 첫인상_\n\n**팔레트**: bg=#1F1F1F, fg=#F5EFE0, brand=#D85A30, accent=#F5EFE0, soft=#2E2E2E\n\n**이유**: 다크 배경 + 코랄 컬러 스플릿은 스크롤 없이 '500만원'이라는 숫자를 1초 안에 눈에 박히게 한다. 좌측 숫자 패널이 임팩트를 주고 우측 카피 패널이 '나도 할 수 있는 이야기'로 착지시켜, 스캐닝만 해도 메시지가 완결되는 비주얼 계층을 만든다. 레이아웃·컬러 무드·이미지 비중 세 축에서 v1과 명확히 분리된다.\n\n**이미지 프롬프트** (4개):\n- 다크 차콜 배경에 코랄 오렌지 사각 블록과 크림 타이포그래피가 대비를 이루는 추상 레이아웃, 그래픽 디자인 포스터 스타일, 글로벌 아카데믹 톤\n- 어두운 배경 위 코랄 컬러 숫자 '500' 이 강하게 돋보이는 타이포그래피 포스터, 미니멀, 글로벌 아카데믹 톤\n- 차콜 다크 톤 책상 위에 스마트폰 화면과 메모 패드, 따뜻한 스포트라이트 조명, 1인 작업 공간 추상 실루엣, 한국적 정서\n- 어두운 배경에 가는 격자 텍스처와 코랄 포인트 라인, 에디토리얼 레이아웃 가이드선 추상 패턴, 글로벌 아카데믹 톤\n\n### V3 · 서사 내러티브\n_직장인의 월요일 아침 장면에서 시작하는 친근한 이야기체_\n\n**팔레트**: bg=#F5EFE0, fg=#1F1F1F, brand=#2C4E6B, accent=#D85A30, soft=#EDE6D6\n\n**이유**: 30~45세 직장인은 '나도 저 상황이었는데'라는 공감에서 클릭이 일어난다. 월요일 아침 받은편지함 장면이라는 구체적 일상으로 시작해, 블로그·쇼츠·전자책 3개 카드로 '할 일 목록'처럼 명확히 제시한다. v1보다 친근한 카피 톤, v2보다 밝은 컬러 무드, 텍스트+카드 균형 구도로 세 축에서 모두 차별화된다.\n\n**이미지 프롬프트** (5개):\n- 따뜻한 베이지 배경 위 스마트폰 화면과 노트 패드, 텀블러가 놓인 아침 책상, 부드러운 자연광, 1인 작업 분위기, 한국적 정서\n- 크림 톤 배경에 말풍선 모양 카드와 숫자 타이포그래피 추상 일러스트, 따뜻하고 친근한 무드, 한국적 정서\n- 베이지-화이트 팔레트, 세 개의 미니 카드가 나란히 놓인 플랫레이 스타일, 블로그·영상·전자책을 상징하는 아이콘 실루엣, 미니멀\n- 옅은 크림 배경 위 딥블루와 코랄 컬러 포인트 선이 교차하는 추상 노트 레이아웃, 에디토리얼, 글로벌 아카데믹 톤\n- 따뜻한 창가 조명 아래 노트북 화면이 열린 책상 클로즈업, 조용하고 집중된 분위기, 일상적 작업 공간, 한국적 정서",
+  "summary": "코어 캠퍼스 'AI 콘텐츠로 월 500 버는 1인 사업' 히어로 3변형 — 에디토리얼/임팩트/서사",
+  "meta": {
+    "target": "hero",
+    "variants": [
+      {
+        "id": "v1",
+        "name": "에디토리얼 아카데믹",
+        "vibe": "차분한 학술 매거진처럼 — 읽고 싶게 만드는 진중함",
+        "color_palette": {
+          "bg": "#F5EFE0",
+          "fg": "#1F1F1F",
+          "brand": "#2C4E6B",
+          "accent": "#D85A30",
+          "soft": "#EDE6D6"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:720px;margin:0 auto;padding:80px 24px 72px;font-family:'Pretendard Variable',system-ui,sans-serif;word-break:keep-all;\">\n  <div style=\"display:flex;align-items:center;gap:10px;margin-bottom:28px;\">\n    <span style=\"display:inline-block;width:32px;height:2px;background:var(--color-coral,#D85A30);\"></span>\n    <span style=\"font-size:13px;letter-spacing:0.08em;color:var(--color-coral,#D85A30);font-weight:600;text-transform:uppercase;\">Core Campus — 1인 사업 코스</span>\n  </div>\n  <h1 style=\"font-family:'GmarketSans',system-ui,sans-serif;font-size:clamp(32px,5.5vw,54px);font-weight:700;line-height:1.25;letter-spacing:-0.025em;color:var(--color-ink,#1F1F1F);margin:0 0 24px;\">\n    월 500,<br>콘텐츠 하나로<br><span style=\"color:var(--color-coral,#D85A30);\">됩니다.</span>\n  </h1>\n  <p style=\"font-size:clamp(16px,2vw,19px);line-height:1.7;letter-spacing:-0.018em;color:#3D3D3D;max-width:520px;margin:0 0 12px;\">직장 다니면서 블로그 하나 썼고,<br>석 달 뒤 통장에 숫자가 바뀌었습니다.</p>\n  <p style=\"font-size:15px;line-height:1.65;color:var(--color-text-muted,#6B6B6B);max-width:480px;margin:0 0 40px;\">AI로 글 쓰고, 유튜브 올리고, 전자책 팔고—<br>이 셋을 한 코스에 담았습니다.</p>\n  <div style=\"display:flex;flex-wrap:wrap;gap:12px;align-items:center;\">\n    <a href=\"#enroll\" class=\"btn btn--primary btn--lg\" style=\"display:inline-block;background:var(--color-coral,#D85A30);color:#fff;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:700;letter-spacing:-0.01em;text-decoration:none;\">지금 시작하기</a>\n    <a href=\"#curriculum\" style=\"font-size:14px;color:var(--color-deep-blue,#2C4E6B);text-decoration:underline;letter-spacing:-0.01em;\">커리큘럼 먼저 보기 →</a>\n  </div>\n  <div style=\"display:flex;gap:32px;margin-top:48px;padding-top:36px;border-top:1px solid var(--color-border,#E5DFD3);\">\n    <div>\n      <p style=\"font-family:'Gotham',system-ui,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--color-ink,#1F1F1F);margin:0;font-variant-numeric:tabular-nums;\">1,240명</p>\n      <p style=\"font-size:12px;color:var(--color-text-muted,#6B6B6B);margin:4px 0 0;letter-spacing:-0.01em;\">수강 완료</p>\n    </div>\n    <div>\n      <p style=\"font-family:'Gotham',system-ui,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--color-ink,#1F1F1F);margin:0;font-variant-numeric:tabular-nums;\">4.8 / 5</p>\n      <p style=\"font-size:12px;color:var(--color-text-muted,#6B6B6B);margin:4px 0 0;letter-spacing:-0.01em;\">수강생 평점</p>\n    </div>\n    <div>\n      <p style=\"font-family:'Gotham',system-ui,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--color-ink,#1F1F1F);margin:0;font-variant-numeric:tabular-nums;\">90일</p>\n      <p style=\"font-size:12px;color:var(--color-text-muted,#6B6B6B);margin:4px 0 0;letter-spacing:-0.01em;\">완주 로드맵</p>\n    </div>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#F5EFE0",
+          "color_fg": "#1F1F1F",
+          "color_muted": "#6B6B6B",
+          "color_line": "#E5DFD3",
+          "color_brand": "#2C4E6B",
+          "color_brand_2": "#1A3549",
+          "color_accent": "#D85A30",
+          "color_soft": "#EDE6D6",
+          "font_family_sans": "'Pretendard Variable', system-ui, sans-serif",
+          "radius_card": "16px"
+        },
+        "image_prompts": [
+          "베이지 크림 톤 바탕에 열린 노트북과 손글씨 메모지, 커피잔 실루엣이 놓인 책상 클로즈업, 따뜻한 자연광, 미니멀 플랫레이, 한국적 정서",
+          "옅은 황갈색 종이 질감 배경에 가는 격자선과 타이포그래피 레이아웃 보조선, 에디토리얼 매거진 느낌, 추상 기하",
+          "따뜻한 베이지-딥블루 팔레트, 책 페이지를 넘기는 순간을 추상화한 파동 곡선 패턴, 학술 잡지 표지 스타일",
+          "크림 배경 위 코랄 컬러 포인트 원과 딥블루 사각형이 균형 잡힌 추상 컴포지션, 미니멀리즘, 글로벌 아카데믹 톤",
+          "노트에 펜으로 쓴 '월 500' 숫자가 클로즈업된 장면, 따뜻한 사이드 조명, 질감 있는 종이 재질, 한국적 정서"
+        ],
+        "reasoning": "30~45세 직장인·프리랜서는 '과장된 약속'에 먼저 의심을 품는다. 매거진 레이아웃의 차분한 에디토리얼 톤과 수치(1,240명·4.8점·90일)가 신뢰 근거를 눈에 띄게 제시해 8초 안에 '진지한 곳이다'를 각인시킨다. 텍스트 우선 구도로 헤드라인만 읽어도 핵심 메시지가 완결된다."
+      },
+      {
+        "id": "v2",
+        "name": "임팩트 스플릿",
+        "vibe": "좌우 분할로 숫자가 먼저 눈에 꽂히는 강렬한 첫인상",
+        "color_palette": {
+          "bg": "#1F1F1F",
+          "fg": "#F5EFE0",
+          "brand": "#D85A30",
+          "accent": "#F5EFE0",
+          "soft": "#2E2E2E"
+        },
+        "html": "<div class=\"wrap\" style=\"font-family:'Pretendard Variable',system-ui,sans-serif;word-break:keep-all;display:flex;flex-wrap:wrap;min-height:520px;\">\n  <!-- 왼쪽: 임팩트 숫자 패널 -->\n  <div style=\"flex:0 0 clamp(180px,38%,320px);background:var(--color-coral,#D85A30);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(32px,5vw,64px) clamp(24px,4vw,48px);\">\n    <p style=\"font-size:12px;letter-spacing:0.1em;color:rgba(255,255,255,0.7);text-transform:uppercase;margin:0 0 12px;font-weight:600;\">추가 수입 목표</p>\n    <p style=\"font-family:'GmarketSans',system-ui,sans-serif;font-size:clamp(56px,9vw,96px);font-weight:700;color:#fff;line-height:1;margin:0;font-variant-numeric:tabular-nums;letter-spacing:-0.04em;\">500</p>\n    <p style=\"font-family:'Gotham',system-ui,sans-serif;font-size:clamp(20px,3vw,32px);font-weight:700;color:rgba(255,255,255,0.9);margin:4px 0 0;letter-spacing:0.02em;\">만원 / 월</p>\n    <div style=\"width:40px;height:3px;background:rgba(255,255,255,0.5);margin:24px 0;\"></div>\n    <p style=\"font-size:13px;line-height:1.6;color:rgba(255,255,255,0.8);letter-spacing:-0.01em;\">콘텐츠 3개로<br>시작했습니다</p>\n  </div>\n  <!-- 오른쪽: 카피 + CTA 패널 -->\n  <div style=\"flex:1 1 320px;background:#1F1F1F;display:flex;flex-direction:column;justify-content:center;padding:clamp(32px,5vw,64px) clamp(24px,4vw,56px);\">\n    <span style=\"display:inline-block;background:#2E2E2E;color:#D85A30;font-size:11px;font-weight:700;letter-spacing:0.06em;padding:6px 12px;border-radius:9999px;margin-bottom:24px;width:fit-content;\">AI 콘텐츠 × 1인 사업</span>\n    <h1 style=\"font-family:'GmarketSans',system-ui,sans-serif;font-size:clamp(26px,4vw,42px);font-weight:700;line-height:1.3;letter-spacing:-0.025em;color:#F5EFE0;margin:0 0 20px;\">블로그 하나,<br>유튜브 하나,<br>전자책 하나.<br><span style=\"color:#D85A30;\">이게 다입니다.</span></h1>\n    <p style=\"font-size:15px;line-height:1.7;letter-spacing:-0.015em;color:#A0A0A0;max-width:380px;margin:0 0 36px;\">월요일 퇴근 후 2시간. 토요일 오전 3시간.<br>그렇게 석 달이 지났을 때 통장이 달랐습니다.</p>\n    <div style=\"display:flex;flex-wrap:wrap;gap:12px;\">\n      <a href=\"#enroll\" style=\"display:inline-block;background:#D85A30;color:#fff;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:700;letter-spacing:-0.01em;text-decoration:none;\">코스 바로 보기</a>\n      <a href=\"#review\" style=\"display:inline-flex;align-items:center;gap:6px;font-size:14px;color:#6B6B6B;text-decoration:none;letter-spacing:-0.01em;\"><span style=\"font-family:'Gotham',sans-serif;font-variant-numeric:tabular-nums;\">★ 4.8</span> 수강생 후기 →</a>\n    </div>\n    <p style=\"font-size:12px;color:#4A4A4A;margin-top:24px;letter-spacing:-0.01em;\">30~45세 직장인·프리랜서 1,240명 수강 완료</p>\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#1F1F1F",
+          "color_fg": "#F5EFE0",
+          "color_muted": "#A0A0A0",
+          "color_line": "#2E2E2E",
+          "color_brand": "#D85A30",
+          "color_brand_2": "#B84A22",
+          "color_accent": "#F5EFE0",
+          "color_soft": "#2E2E2E",
+          "font_family_sans": "'Pretendard Variable', system-ui, sans-serif",
+          "radius_card": "16px"
+        },
+        "image_prompts": [
+          "다크 차콜 배경에 코랄 오렌지 사각 블록과 크림 타이포그래피가 대비를 이루는 추상 레이아웃, 그래픽 디자인 포스터 스타일, 글로벌 아카데믹 톤",
+          "어두운 배경 위 코랄 컬러 숫자 '500' 이 강하게 돋보이는 타이포그래피 포스터, 미니멀, 글로벌 아카데믹 톤",
+          "차콜 다크 톤 책상 위에 스마트폰 화면과 메모 패드, 따뜻한 스포트라이트 조명, 1인 작업 공간 추상 실루엣, 한국적 정서",
+          "어두운 배경에 가는 격자 텍스처와 코랄 포인트 라인, 에디토리얼 레이아웃 가이드선 추상 패턴, 글로벌 아카데믹 톤"
+        ],
+        "reasoning": "다크 배경 + 코랄 컬러 스플릿은 스크롤 없이 '500만원'이라는 숫자를 1초 안에 눈에 박히게 한다. 좌측 숫자 패널이 임팩트를 주고 우측 카피 패널이 '나도 할 수 있는 이야기'로 착지시켜, 스캐닝만 해도 메시지가 완결되는 비주얼 계층을 만든다. 레이아웃·컬러 무드·이미지 비중 세 축에서 v1과 명확히 분리된다."
+      },
+      {
+        "id": "v3",
+        "name": "서사 내러티브",
+        "vibe": "직장인의 월요일 아침 장면에서 시작하는 친근한 이야기체",
+        "color_palette": {
+          "bg": "#F5EFE0",
+          "fg": "#1F1F1F",
+          "brand": "#2C4E6B",
+          "accent": "#D85A30",
+          "soft": "#EDE6D6"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:680px;margin:0 auto;padding:72px 24px 64px;font-family:'Pretendard Variable',system-ui,sans-serif;word-break:keep-all;\">\n  <!-- 서사 인트로 -->\n  <div style=\"background:#fff;border:1px solid var(--color-border,#E5DFD3);border-radius:16px;padding:24px 28px;margin-bottom:36px;position:relative;\">\n    <div style=\"display:flex;align-items:center;gap:10px;margin-bottom:14px;\">\n      <div style=\"width:36px;height:36px;border-radius:9999px;background:var(--color-soft,#EDE6D6);display:flex;align-items:center;justify-content:center;font-size:16px;\">💼</div>\n      <div>\n        <p style=\"font-size:12px;font-weight:700;color:var(--color-ink,#1F1F1F);margin:0;letter-spacing:-0.01em;\">직장인 이 씨, 34세</p>\n        <p style=\"font-size:11px;color:var(--color-text-muted,#6B6B6B);margin:2px 0 0;\">월요일 오전 8시 47분</p>\n      </div>\n    </div>\n    <p style=\"font-size:14px;line-height:1.75;color:#3D3D3D;margin:0;letter-spacing:-0.015em;\">받은편지함 62통. 오늘도 회의 4개.<br>근데 어제 블로그에서 <strong style=\"color:var(--color-coral,#D85A30);\">34,000원</strong> 들어왔습니다.</p>\n    <div style=\"position:absolute;bottom:-10px;left:28px;width:16px;height:16px;background:#fff;border-right:1px solid var(--color-border,#E5DFD3);border-bottom:1px solid var(--color-border,#E5DFD3);transform:rotate(45deg);\"></div>\n  </div>\n  <!-- 메인 헤드라인 -->\n  <h1 style=\"font-family:'GmarketSans',system-ui,sans-serif;font-size:clamp(30px,5vw,50px);font-weight:700;line-height:1.28;letter-spacing:-0.025em;color:var(--color-ink,#1F1F1F);margin:0 0 20px;\">\n    퇴근 후 2시간으로<br>월 500<span style=\"color:var(--color-coral,#D85A30);\">.</span>\n  </h1>\n  <p style=\"font-size:clamp(15px,1.8vw,17px);line-height:1.75;letter-spacing:-0.018em;color:#3D3D3D;max-width:500px;margin:0 0 10px;\">처음엔 글 하나였습니다. 다음 달엔 유튜브 쇼츠 3개.<br>그 다음엔 전자책 한 권을 올렸습니다.</p>\n  <p style=\"font-size:14px;line-height:1.65;color:var(--color-text-muted,#6B6B6B);max-width:460px;margin:0 0 36px;\">AI가 초안을 쓰고, 내가 다듬고, 플랫폼에 올립니다.<br>매번 새로 배울 게 없습니다.</p>\n  <!-- 3단 콘텐츠 유형 -->\n  <div style=\"display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px;\">\n    <div style=\"flex:1 1 140px;background:#fff;border:1px solid var(--color-border,#E5DFD3);border-radius:12px;padding:16px 18px;\">\n      <p style=\"font-size:11px;font-weight:700;color:var(--color-coral,#D85A30);letter-spacing:0.04em;text-transform:uppercase;margin:0 0 6px;\">블로그</p>\n      <p style=\"font-size:18px;font-weight:700;font-family:'Gotham',system-ui,sans-serif;color:var(--color-ink,#1F1F1F);margin:0;font-variant-numeric:tabular-nums;\">글 1편</p>\n      <p style=\"font-size:12px;color:var(--color-text-muted,#6B6B6B);margin:4px 0 0;letter-spacing:-0.01em;\">작성 30분</p>\n    </div>\n    <div style=\"flex:1 1 140px;background:#fff;border:1px solid var(--color-border,#E5DFD3);border-radius:12px;padding:16px 18px;\">\n      <p style=\"font-size:11px;font-weight:700;color:var(--color-coral,#D85A30);letter-spacing:0.04em;text-transform:uppercase;margin:0 0 6px;\">유튜브 쇼츠</p>\n      <p style=\"font-size:18px;font-weight:700;font-family:'Gotham',system-ui,sans-serif;color:var(--color-ink,#1F1F1F);margin:0;font-variant-numeric:tabular-nums;\">영상 3개</p>\n      <p style=\"font-size:12px;color:var(--color-text-muted,#6B6B6B);margin:4px 0 0;letter-spacing:-0.01em;\">편집 포함 1시간</p>\n    </div>\n    <div style=\"flex:1 1 140px;background:#fff;border:1px solid var(--color-border,#E5DFD3);border-radius:12px;padding:16px 18px;\">\n      <p style=\"font-size:11px;font-weight:700;color:var(--color-coral,#D85A30);letter-spacing:0.04em;text-transform:uppercase;margin:0 0 6px;\">전자책</p>\n      <p style=\"font-size:18px;font-weight:700;font-family:'Gotham',system-ui,sans-serif;color:var(--color-ink,#1F1F1F);margin:0;font-variant-numeric:tabular-nums;\">1권</p>\n      <p style=\"font-size:12px;color:var(--color-text-muted,#6B6B6B);margin:4px 0 0;letter-spacing:-0.01em;\">주말 반나절</p>\n    </div>\n  </div>\n  <!-- CTA -->\n  <div style=\"display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:32px;\">\n    <a href=\"#enroll\" style=\"display:inline-block;background:var(--color-deep-blue,#2C4E6B);color:#fff;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:700;letter-spacing:-0.01em;text-decoration:none;\">90일 로드맵 받기</a>\n    <a href=\"#sample\" style=\"font-size:14px;color:var(--color-coral,#D85A30);text-decoration:underline;letter-spacing:-0.01em;\">샘플 강의 무료로 보기 →</a>\n  </div>\n  <!-- 하단 소셜 프루프 한 줄 -->\n  <p style=\"font-size:13px;color:var(--color-text-muted,#6B6B6B);letter-spacing:-0.01em;\">딱, 90일 로드맵 하나로 정리해드릴게요 — 수강생 1,240명 완주 기준</p>\n</div>",
+        "design_tokens": {
+          "color_bg": "#F5EFE0",
+          "color_fg": "#1F1F1F",
+          "color_muted": "#6B6B6B",
+          "color_line": "#E5DFD3",
+          "color_brand": "#2C4E6B",
+          "color_brand_2": "#1A3549",
+          "color_accent": "#D85A30",
+          "color_soft": "#EDE6D6",
+          "font_family_sans": "'Pretendard Variable', system-ui, sans-serif",
+          "radius_card": "16px"
+        },
+        "image_prompts": [
+          "따뜻한 베이지 배경 위 스마트폰 화면과 노트 패드, 텀블러가 놓인 아침 책상, 부드러운 자연광, 1인 작업 분위기, 한국적 정서",
+          "크림 톤 배경에 말풍선 모양 카드와 숫자 타이포그래피 추상 일러스트, 따뜻하고 친근한 무드, 한국적 정서",
+          "베이지-화이트 팔레트, 세 개의 미니 카드가 나란히 놓인 플랫레이 스타일, 블로그·영상·전자책을 상징하는 아이콘 실루엣, 미니멀",
+          "옅은 크림 배경 위 딥블루와 코랄 컬러 포인트 선이 교차하는 추상 노트 레이아웃, 에디토리얼, 글로벌 아카데믹 톤",
+          "따뜻한 창가 조명 아래 노트북 화면이 열린 책상 클로즈업, 조용하고 집중된 분위기, 일상적 작업 공간, 한국적 정서"
+        ],
+        "reasoning": "30~45세 직장인은 '나도 저 상황이었는데'라는 공감에서 클릭이 일어난다. 월요일 아침 받은편지함 장면이라는 구체적 일상으로 시작해, 블로그·쇼츠·전자책 3개 카드로 '할 일 목록'처럼 명확히 제시한다. v1보다 친근한 카피 톤, v2보다 밝은 컬러 무드, 텍스트+카드 균형 구도로 세 축에서 모두 차별화된다."
+      }
+    ],
+    "brief_echo": {
+      "purpose": "AI 콘텐츠로 월 500 버는 1인 사업 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+      "audience": "직장·부업·프리랜서 가리지 않고 월 500 추가 수입을 원하는 30~45세 1인 사업 준비자",
+      "style_keywords": [
+        "editorial",
+        "warm beige",
+        "trustworthy",
+        "academic"
+      ],
+      "color_mood": "warm",
+      "reference_urls": []
+    },
+    "self_review": {
+      "ok": true,
+      "severity": "pass",
+      "hard_violations": [],
+      "soft_violations": [],
+      "len": 2018,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 0
+      }
+    },
+    "chosen_variant_id": "v1"
+  },
+  "course_id": "",
+  "created_at": "2026-05-19T07:17:42+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 완성하는 주 1회 콘텐츠 발행 시스템",
+    "lesson_no": 1,
+    "lesson_title": "왜 3주에 끊기는가 — 중단 패턴 진단",
+    "objective": "자신의 콘텐츠 중단 원인을 '아이디어·시간·에너지·기준' 4가지 범주로 분류하고 주요 병목 1개를 특정한다",
+    "key_concepts": [
+      "콘텐츠 중단의 4대 병목 유형",
+      "완벽주의 vs 마찰 비용",
+      "시스템 부재와 의지력 소진의 차이"
+    ],
+    "exercise": "나의 중단 원인 진단 워크시트 (병목 유형 체크리스트 + 주요 원인 1줄 선언문 작성)",
+    "duration_min": 15
+  }
+}

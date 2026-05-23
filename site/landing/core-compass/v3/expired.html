@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F5EFE0">
+  <meta name="robots" content="noindex">
+  <title>열람 기간 만료 — Core Compass</title>
+
+  <link rel="stylesheet" href="../../../../design-system/base.css">
+  <link rel="stylesheet" href="../../../../design-system/components.css">
+
+  <style>
+    .expired {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: var(--sp-16) var(--sp-5);
+      text-align: center;
+    }
+    .expired__icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: rgba(44, 78, 107, 0.1);
+      color: var(--color-deep-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin: 0 auto var(--sp-6);
+    }
+    .expired__title {
+      font-size: clamp(26px, 4.5vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.3;
+      margin-bottom: var(--sp-4);
+    }
+    .expired__sub {
+      font-size: var(--fs-md);
+      color: var(--color-ink-soft);
+      line-height: 1.7;
+      margin-bottom: var(--sp-8);
+    }
+    .options {
+      display: grid;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-8);
+      text-align: left;
+    }
+    .option {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-5);
+      transition: border-color var(--duration-base);
+    }
+    .option:hover { border-color: var(--color-coral); }
+    .option__title { font-weight: 700; margin-bottom: var(--sp-2); color: var(--color-ink); }
+    .option__body { font-size: var(--fs-sm); color: var(--color-ink-soft); line-height: 1.65; margin-bottom: var(--sp-3); }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="https://corecampus.kr">
+      <span class="site-logo__mark"></span>
+      Core Compass
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="expired">
+    <div class="expired__icon">⏰</div>
+    <h1 class="expired__title">열람 기간이 지났어요</h1>
+    <p class="expired__sub">
+      개인 URL의 24시간 열람 기간이 만료됐습니다.<br>
+      다음 중 하나를 선택해주세요.
+    </p>
+
+    <div class="options">
+      <div class="option">
+        <div class="option__title">1회 무료 연장 (24시간)</div>
+        <p class="option__body">결제일로부터 30일 이내 1회 무료로 다시 24시간 열어드립니다.</p>
+        <a class="btn btn--primary" href="mailto:support@corecampus.kr?subject=Core Compass 열람 연장 신청">support@corecampus.kr로 연장 신청</a>
+      </div>
+
+      <div class="option">
+        <div class="option__title">PDF로 보관용 다운로드</div>
+        <p class="option__body">2,900원 추가 결제로 진단 리포트 PDF 파일을 영구 보관용으로 받으실 수 있습니다.</p>
+        <a class="btn btn--secondary" href="mailto:support@corecampus.kr?subject=Core Compass PDF 보관용 신청">PDF 보관용 신청</a>
+      </div>
+
+      <div class="option">
+        <div class="option__title">다음 단계로 — Core Campus 코스</div>
+        <p class="option__body">진단 결과를 행동으로 옮길 시점이에요. Core Campus에서 실전 코스를 보실 수 있습니다.</p>
+        <a class="btn btn--ghost" href="https://corecampus.kr">Core Campus 본 페이지 →</a>
+      </div>
+    </div>
+
+    <p style="font-size: var(--fs-sm); color: var(--color-text-muted); line-height: 1.7;">
+      개인 URL은 보안상 영구 저장하지 않습니다. 양해 부탁드립니다.
+    </p>
+  </section>
+</main>
+
+</body>
+</html>

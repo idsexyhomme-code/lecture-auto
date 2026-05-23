@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "tax-basics-solopreneur",
+    "course_title": "1인 사업가 세금 기초 완전정복",
+    "lesson_no": 2,
+    "lesson_title": "수입과 매출, 무엇이 과세 대상인가",
+    "objective": "실제 입금액과 과세 매출액의 차이를 비교하여 본인 사업의 월별 과세 매출 샘플을 계산식으로 작성한다",
+    "key_concepts": [
+      "과세 매출 vs 비과세 매출",
+      "세금계산서·현금영수증 발행 의무",
+      "공급가액과 VAT 분리"
+    ],
+    "exercise": "최근 3개월 수입 내역을 과세·비과세로 분류한 매출 분류 시트",
+    "duration_min": 15
+  }
+}

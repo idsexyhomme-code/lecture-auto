@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "deepwork-1hr-test",
+    "course_title": "딥워크 1시간 진입법",
+    "lesson_no": 2,
+    "lesson_title": "60분 딥워크 세션 설계하기",
+    "objective": "진입 의식(pre-ritual) → 집중 구간 → 종료 의식(shutdown)으로 구성된 자신만의 60분 세션 타임블록 설계도를 완성한다",
+    "key_concepts": [
+      "딥워크 진입 의식(pre-ritual)의 역할",
+      "시간 블로킹과 단일 과업 집중 원칙",
+      "셧다운 루틴으로 인지 부하 해소"
+    ],
+    "exercise": "60분 세션 타임블록 설계도(진입 5분·집중 50분·종료 5분 각 행동 명시)",
+    "duration_min": 15
+  }
+}

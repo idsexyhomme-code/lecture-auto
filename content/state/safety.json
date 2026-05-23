@@ -1,20 +1,14 @@
 {
-  "last_reset_date": "2026-05-07",
-  "daily_brief_count": 50,
+  "last_reset_date": "2026-05-23",
+  "daily_brief_count": 1,
   "daily_agent_calls": {
-    "producer": 23,
-    "marketing": 3,
-    "success": 4,
-    "ui_designer": 4,
-    "site_developer": 5,
-    "blog_publisher": 9,
-    "curriculum": 2
+    "ceo": 1
   },
-  "daily_estimated_cost_usd": 3.499999999999998,
+  "daily_estimated_cost_usd": 0.07,
   "recent_call_timestamps": [
     {
-      "agent": "site_developer",
-      "ts": 1778190270.6249769
+      "agent": "ceo",
+      "ts": 1779494405.331716
     }
   ],
   "paused": false,

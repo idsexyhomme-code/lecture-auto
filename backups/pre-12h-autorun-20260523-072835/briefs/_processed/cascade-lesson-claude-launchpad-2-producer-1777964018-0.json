@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-launchpad",
+    "course_title": "Claude로 부캐 서비스 1주일 런칭",
+    "lesson_no": 2,
+    "lesson_title": "검증된 오퍼 설계: 팔리는 서비스 패키지 만들기",
+    "objective": "Claude와 대화해 선택한 포지션을 기반으로 가격·범위·결과물이 명시된 서비스 패키지 1개를 작성한다",
+    "key_concepts": [
+      "오퍼 구성 요소(결과·기간·가격·보증)",
+      "가치 기반 가격책정",
+      "패키지 네이밍"
+    ],
+    "exercise": "서비스 패키지 원페이저 문서 (제목·대상·포함내용·가격·CTA 포함)",
+    "duration_min": 15
+  }
+}

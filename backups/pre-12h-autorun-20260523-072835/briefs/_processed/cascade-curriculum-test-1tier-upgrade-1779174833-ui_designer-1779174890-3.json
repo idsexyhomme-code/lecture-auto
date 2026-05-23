@@ -1,0 +1,16 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "hero",
+    "purpose": "AI 콘텐츠로 월 500 버는 1인 사업 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+    "audience": "직장·부업·프리랜서 가리지 않고 월 500 추가 수입을 원하는 30~45세 1인 사업 준비자",
+    "style_keywords": [
+      "editorial",
+      "warm beige",
+      "trustworthy",
+      "academic"
+    ],
+    "color_mood": "warm",
+    "additional_context": "코어 캠퍼스 코스 'AI 콘텐츠로 월 500 버는 1인 사업'의 페이지 헤더 시안."
+  }
+}

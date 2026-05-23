@@ -1,0 +1,9 @@
+{
+  "agent": "site_developer",
+  "brief": {
+    "instruction": "지금 사이트 이름은 '강의 홈페이지'이고 헤드라인은 '학습이 짧을수록, 결과는 또렷해집니다'이다. 다음 톤·맥락에 맞게 사이트 이름·헤드라인·서브태그라인을 더 매력적으로 다듬고, 현재 1개뿐인 코스(claude-bizflow)의 표시 제목과 태그라인도 한국어 SEO·검색 친화적으로 다듬어 course_overrides에 반영하라. 또한 course_order에 ['claude-bizflow']를 명시적으로 넣어 정렬을 고정하라.",
+    "brand_tone": "1인 강사, Claude·AI 도구 활용 전문, 차분하고 전문적인 한국어. 말맛은 자연스럽되 군더더기 없이.",
+    "target_audience": "Claude나 ChatGPT를 한 번 이상 써본 1인 콘텐츠 사업가·프리랜서. 자기 사업의 반복 업무를 AI로 줄이고 싶은 사람.",
+    "restrictions": "과장 표현(반드시·100%·최고·완벽한·즉시) 금지, 영어 남발 금지, 비교광고 금지"
+  }
+}

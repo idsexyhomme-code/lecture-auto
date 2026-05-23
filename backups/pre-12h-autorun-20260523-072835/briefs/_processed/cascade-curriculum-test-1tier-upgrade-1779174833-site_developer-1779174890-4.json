@@ -1,0 +1,9 @@
+{
+  "agent": "site_developer",
+  "brief": {
+    "instruction": "새 코스 'AI 콘텐츠로 월 500 버는 1인 사업' (course_id: test-1tier-upgrade-1779174833)가 추가됐습니다. site_config.json의 course_overrides에 이 코스의 *title_override*와 *tagline_override*를 다듬어 주세요. 다른 필드는 절대 만지지 않습니다. 코스 톤 힌트: 영상 하나로 월 500만 원 찍는 1인 사업 설계도",
+    "brand_tone": "차분하고 단단한 한국어, 과장 표현 금지",
+    "target_audience": "직장·부업·프리랜서 가리지 않고 월 500 추가 수입을 원하는 30~45세 1인 사업 준비자",
+    "restrictions": "course_overrides 외 다른 필드 변경 금지, WCAG AA 유지"
+  }
+}

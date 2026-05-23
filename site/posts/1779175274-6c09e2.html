@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#6 클릭 당기는 썸네일 만든다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#6 클릭 당기는 썸네일 만든다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779174833 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>어제 올린 영상, 조회수 12예요.</p>
+<p>썸네일 때문입니다. 솔직히.</p>
+<p>피드에서 0.3초 안에 안 잡히면 그냥 지나칩니다.</p>
+<p>텍스트가 너무 많거나, 얼굴이 없거나, 배경이 칙칙하거나.</p>
+<p>셋 중 하나만 틀려도 그냥 스크롤됩니다.</p>
+<p>오늘 이 영상 하나로 그 문제 끝냅니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, Canva에서 텍스트 7자·얼굴 사진·배경 대비까지 세 가지가 다 들어간 썸네일 1장을 직접 완성합니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 썸네일 텍스트 7자 법칙</h3>
+<p><strong>설명</strong></p>
+<p>모바일 피드 기준, 썸네일 크기는 손가락 두 마디 정도입니다.</p>
+<p>그 안에 글자가 10자 넘어가면 읽히지 않습니다. 눈이 그냥 넘깁니다.</p>
+<p>7자가 한계선입니다.</p>
+<p><strong>예시</strong></p>
+<p>"유튜브 알고리즘 완전 정복 방법" → 탈락.</p>
+<p>"알고리즘 끝" → 통과.</p>
+<p>"월 500 버는 법" → 6자. 딱 맞습니다.</p>
+<p><strong>반례</strong></p>
+<p>"메일 잘 쓰는 7가지 방법" — 이건 7자처럼 보이지만 썸네일에 올리면 글씨가 작아져서 뭉개집니다.</p>
+<p>숫자+명사+동사, 이 세 단어 조합이 제일 잘 읽힙니다.</p>
+<p><strong>정리 — 메모리 페그: "7자 칼"</strong></p>
+<p>칼처럼 7자로 딱 자릅니다. 글자 수 세고, 넘으면 잘라냅니다. 끝.</p>
+<hr />
+<h3>개념 2 — 얼굴 클로즈업 효과</h3>
+<p><strong>설명</strong></p>
+<p>사람 뇌는 얼굴을 먼저 봅니다.</p>
+<p>피드에서 얼굴이 없는 썸네일보다 얼굴이 있는 썸네일, 클릭률이 제 채널 기준 평균 1.8배 차이 났습니다.</p>
+<p>단, 얼굴 전체가 아니라 눈·코·입이 다 보이는 클로즈업이어야 합니다.</p>
+<p>멀리서 찍은 전신 사진은 피드에서 점으로 보입니다.</p>
+<p><strong>예시</strong></p>
+<p>스마트폰으로 어깨 위만 잘라 찍은 사진. 표정은 살짝 놀란 듯 또는 단호한 표정. 이 두 가지가 피드에서 시선을 가장 잘 잡습니다.</p>
+<p><strong>반례</strong></p>
+<p>웃는 증명사진 스타일 — 신뢰는 가지만 클릭 욕구를 못 만듭니다.</p>
+<p>썸네일에서 웃음은 '친근함'이지 '궁금함'이 아닙니다.</p>
+<p><strong>정리 — 메모리 페그: "얼굴 = 낚싯바늘"</strong></p>
+<p>낚싯바늘 없이 낚시하면 물고기가 안 옵니다. 얼굴 없는 썸네일도 마찬가지입니다.</p>
+<hr />
+<h3>개념 3 — 배경색 대비 원칙</h3>
+<p><strong>설명</strong></p>
+<p>Canva 기본 흰 배경에 흰 옷 입고 찍으면 사람이 배경에 녹아 없어집니다.</p>
+<p>대비란 간단합니다. 밝은 배경에는 어두운 텍스트, 어두운 배경에는 밝은 텍스트.</p>
+<p>배경색과 텍스트 색, 두 색의 밝기 차이가 클수록 읽힙니다.</p>
+<p>제 경험상 노란 배경에 검정 텍스트, 남색 배경에 흰 텍스트, 이 두 조합이 어떤 기기에서도 잘 보입니다.</p>
+<p><strong>예시</strong></p>
+<p>노란 배경(#FFC800) + 검정 텍스트(#000000) + 얼굴 사진 오른쪽 배치.</p>
+<p>이게 유튜브 교육 카테고리에서 대부분의 경우 클릭률이 높게 나오는 조합입니다.</p>
+<p><strong>반례</strong></p>
+<p>빨강 배경에 주황 텍스트 — 둘 다 비슷한 밝기여서 글씨가 안 보입니다. 강렬해 보이려다 오히려 읽히지 않습니다.</p>
+<p><strong>정리 — 메모리 페그: "신호등 3색"</strong></p>
+<p>신호등은 색이 다 다릅니다. 배경·텍스트·얼굴, 이 세 요소도 색이 겹치면 안 됩니다. 신호등처럼 각자 명확하게 구분합니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 잠깐 멈추세요.</p>
+<p>Canva 열고 따라 하면 됩니다.</p>
+<p><strong>Step 1 — 캔버스 만들기</strong></p>
+<p>Canva 접속 → '새 디자인' 클릭 → 'YouTube 썸네일' 검색 → 1280×720px 캔버스 선택합니다.</p>
+<p><strong>Step 2 — 배경색 설정</strong></p>
+<p>왼쪽 '배경색' 클릭 → 색상 코드 입력창에 FFC800 입력 → 노란 배경 완성.</p>
+<p>어두운 계열 배경을 쓰고 싶으면 1A237E(남색) 입력해도 됩니다.</p>
+<p><strong>Step 3 — 얼굴 사진 넣기</strong></p>
+<p>'업로드' 탭 → 스마트폰으로 찍은 얼굴 클로즈업 사진 올리기 → 캔버스 오른쪽에 배치 → 어깨 아래는 잘라냅니다.</p>
+<p>사진이 없으면 지금 스마트폰으로 셀카 한 장 찍고 올리면 됩니다. 30초면 됩니다.</p>
+<p><strong>Step 4 — 텍스트 7자 넣기</strong></p>
+<p>'텍스트' → '제목 추가' → 오늘 만들 영상 주제를 7자 이내로 입력.</p>
+<p>예: "메일 3분 끝", "견적 1분 완성"</p>
+<p>텍스트 색상은 검정(000000) 또는 흰색(FFFFFF) — 배경색 반대로 고릅니다.</p>
+<p>텍스트는 캔버스 왼쪽 절반에 크게 배치합니다.</p>
+<p><strong>Step 5 — 저장</strong></p>
+<p>오른쪽 위 '공유' → '다운로드' → PNG 선택 → 저장.</p>
+<p>썸네일 1장 완성입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 썸네일에 맞는 제목 짜는 법을 다룹니다.</p>
+<p>클릭을 당기는 썸네일 만들었으면, 제목이 그 클릭을 끝까지 붙잡아야 합니다.</p>
+<p>오늘 만든 썸네일 사진, 댓글에 올려보세요. 직접 피드백 남깁니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

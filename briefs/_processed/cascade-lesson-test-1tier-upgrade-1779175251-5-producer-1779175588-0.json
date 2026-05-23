@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779175251",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 5,
+    "lesson_title": "블로그 글 1편을 SNS 3곳에 뿌리기",
+    "objective": "블로그 글 1편을 인스타·스레드·링크드인용으로 각각 다르게 잘라 3개 포스팅을 만듭니다",
+    "key_concepts": [
+      "플랫폼별 글자수·톤 차이",
+      "훅 문장 뽑는 법",
+      "해시태그 선택 기준"
+    ],
+    "exercise": "재배포 콘텐츠 3종 세트 — 인스타·스레드·링크드인 각 1편씩 완성된 텍스트",
+    "duration_min": 15
+  }
+}

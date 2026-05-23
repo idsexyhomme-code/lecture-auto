@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#14 월 500 달성 여부를 숫자로 확인하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#14 월 500 달성 여부를 숫자로 확인하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779175251 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>이번 달 말, 통장 잔액 보면서 "내가 일을 안 한 건가?" 싶은 날 있죠.</p>
+<p>분명 글 썼고, 납품도 했는데. 숫자가 안 맞아요.</p>
+<p>500 목표라고 했는데, 어디서 얼마가 들어왔는지 모르겠고. 뭘 더 해야 하는지도 모르겠어요.</p>
+<p>그게 목표를 못 세워서가 아니에요.</p>
+<p>그냥 지금 어디쯤 있는지 확인하는 표가 없어서 그래요.</p>
+<p>이번 차시에서 그 표 하나 만듭니다. 오늘 이후로는 매달 말에 숫자가 딱 나와요.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 영상이 끝나면, 서비스별 건수와 단가를 입력하는 것만으로 이번 달 실수령액과 다음 달 목표가 자동으로 계산되는 스프레드시트를 직접 만들 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 수익 역산 스프레드시트</h3>
+<p><strong>설명</strong></p>
+<p>월 500이라는 숫자, 막연하게 두면 아무 의미 없어요.</p>
+<p>일 단위로 쪼개야 해요.</p>
+<p>월 500만 원 → 주 125만 원 → 하루 약 25만 원.</p>
+<p>이걸 서비스 단가로 나누면 하루 몇 건을 받아야 하는지 나와요.</p>
+<p>그 계산을 매달 반복하는 게 수익 역산이에요.</p>
+<p>표 구조는 딱 6열이에요.</p>
+<p>서비스 이름 / 건수 / 단가 / 합계 / 플랫폼 수수료 / 실수령액.</p>
+<p>이 6열만 있으면 됩니다.</p>
+<p><strong>예시</strong></p>
+<p>블로그 포스팅 단가 3만 원, 이번 달 40건 납품.</p>
+<p>합계 120만 원, 플랫폼 수수료 20% 빼면 실수령 96만 원.</p>
+<p>카카오 채널 뉴스레터 대행 월 15만 원 고정 2곳. 30만 원.</p>
+<p>SNS 카드뉴스 건당 5만 원, 12건 납품. 60만 원.</p>
+<p>세 줄 합산해서 186만 원. 이달 목표의 37%.</p>
+<p>이게 10월 15일 기준 숫자라면, 남은 2주에 314만 원을 더 채워야 해요.</p>
+<p>그게 보여야 움직일 수 있어요.</p>
+<p><strong>반례</strong></p>
+<p>총 수입만 보면 안 돼요.</p>
+<p>입금 예정액이랑 실수령액은 달라요.</p>
+<p>마감 이후 30일 후 정산, 수수료 15%, 세금 3.3%.</p>
+<p>이 세 가지 빼고 남은 금액이 진짜 내 돈이에요.</p>
+<p>입금 예정 300만 원인데 손에 남는 돈이 230만 원이면, 300만 원짜리 계획 세워봐야 매달 말에 이상해지는 거예요.</p>
+<p><strong>정리</strong></p>
+<p>표 이름: <strong>6열 역산표.</strong></p>
+<p>서비스 / 건수 / 단가 / 합계 / 수수료 / 실수령.</p>
+<p>이 순서로 기억하세요.</p>
+<hr />
+<h3>개념 2 — 단가 올리는 조건 2가지</h3>
+<p><strong>설명</strong></p>
+<p>단가를 올리고 싶을 때, 그냥 올리면 안 돼요.</p>
+<p>클라이언트가 수긍하는 조건이 2가지 있어요.</p>
+<p>첫 번째, <strong>납품 이력이 5건 이상</strong> 쌓였을 때.</p>
+<p>두 번째, <strong>수정 요청이 2회 이하</strong>로 줄었을 때.</p>
+<p>이 두 가지가 동시에 되는 시점이 단가 올릴 타이밍이에요.</p>
+<p><strong>예시</strong></p>
+<p>블로그 포스팅을 처음엔 건당 2만 원에 받았어요.</p>
+<p>6건 납품하고 수정이 거의 없었어요.</p>
+<p>그 시점에 "다음 달부터 건당 3만 5천 원으로 조정하겠습니다"라고 메일 한 통 보내요.</p>
+<p>납품 이력이 있고 수정이 없었으니, 클라이언트 입장에서는 올려줄 이유가 생겨요.</p>
+<p>잘 모르는 사람 쓰는 것보다 아는 사람이 낫거든요.</p>
+<p><strong>반례</strong></p>
+<p>이력도 없는데 단가부터 높이면 일 자체가 안 들어와요.</p>
+<p>첫 거래에 "저는 건당 10만 원입니다"라고 하면, 레퍼런스가 없으니 클라이언트가 판단할 근거가 없어요.</p>
+<p>처음엔 낮게 시작하고 이력 쌓은 다음에 올려야 실제로 올려요.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그: <strong>5건 + 수정 2회 이하 = 단가 올릴 신호.</strong></p>
+<p>숫자 두 개만 기억하세요. 5와 2.</p>
+<hr />
+<h3>개념 3 — 재계약률 높이는 방법</h3>
+<p><strong>설명</strong></p>
+<p>새 클라이언트 찾는 것보다 기존 클라이언트 붙잡는 게 훨씬 수월해요.</p>
+<p>찾는 데 드는 시간만 봐도 알아요.</p>
+<p>신규 클라이언트 한 명 잡는 데 제 경험상 평균 3~5일 걸려요.</p>
+<p>기존 클라이언트 재계약은 메일 1통으로 끝나요.</p>
+<p>재계약률을 높이는 방법은 3가지예요.</p>
+<p>납품 후 <strong>피드백 요청 메일 1통</strong>, 월 마감 전 <strong>간단한 성과 정리 1장</strong>, 그리고 <strong>다음 달 제안을 먼저 꺼내는 것.</strong></p>
+<p><strong>예시</strong></p>
+<p>이번 달 블로그 20건 납품 완료했어요.</p>
+<p>납품일에 바로 메일 보내요.</p>
+<p>"이번 달 20건 납품 완료했습니다. 방향이 맞았는지 짧게 피드백 주시면 다음 달 글에 반영할게요."</p>
+<p>이 한 줄짜리 메일이 재계약의 60~70%를 만들어요.</p>
+<p>사람은 챙겨주는 사람한테 다시 연락해요.</p>
+<p><strong>반례</strong></p>
+<p>납품하고 아무 말도 없으면, 클라이언트 입장에서 '다음 달도 줘야 하나' 라는 생각 자체를 안 해요.</p>
+<p>대부분의 경우 클라이언트는 바빠요.</p>
+<p>먼저 말 안 하면 그냥 다른 데 가요. 이건 실력 문제가 아니에요.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그: <strong>납품 → 피드백 요청 → 다음 달 제안. 이 3연타.</strong></p>
+<p>납품이 끝이 아니에요. 납품이 다음 달의 시작이에요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지하세요.</p>
+<p>아래 순서대로 스프레드시트 파일 하나 여세요. 구글 시트도 되고, 엑셀도 됩니다.</p>
+<p><strong>1단계 — 열 만들기</strong></p>
+<p>A열: 서비스 이름
+B열: 건수
+C열: 단가
+D열: 합계 (=B×C 수식 입력)
+E열: 수수료율 (숫자로 입력, 예: 0.2)
+F열: 실수령 (=D×(1-E) 수식 입력)</p>
+<p><strong>2단계 — 이번 달 실적 입력하기</strong></p>
+<p>지금 생각나는 서비스 전부 써요.
+블로그, 뉴스레터, SNS, 뭐든요.
+건수랑 단가 입력하면 합계와 실수령이 자동으로 나와요.</p>
+<p><strong>3단계 — 목표 달성률 열 추가하기</strong></p>
+<p>G열 이름: 목표 대비 달성률
+G2 수식: =F2/$F$10</p>
+<p>여기서 F10은 월 목표 실수령액 입력하는 셀이에요.
+예를 들어 목표 500만 원이면 F10에 5000000 입력.</p>
+<p><strong>4단계 — 숫자 확인</strong></p>
+<p>지금 이번 달 달성률이 몇 퍼센트인지 확인해요.</p>
+<p>50% 이하면 남은 날 기준으로 하루 얼마가 필요한지 계산해요.
+B열 건수 늘릴지, C열 단가 올릴지 결정하는 건 이 숫자 보고 해요.</p>
+<p>이 파일, 매달 1일에 새 시트 탭 만들어서 쓰세요. 3개월 쌓이면 패턴이 보여요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시는 #15입니다.</p>
+<p>글쓰기 서비스 외에 수입 라인 하나 더 얹는 방법, 구체적으로 보여드려요.</p>
+<p>같은 글 쓰는 사람인데 어떤 사람은 월 300에서 멈추고, 어떤 사람은 700 넘는지. 그 차이 딱 하나 있어요.</p>
+<p>다음 영상 이어서 보세요.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

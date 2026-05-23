@@ -1,0 +1,10 @@
+{
+  "agent": "success",
+  "brief": {
+    "mode": "faq",
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 만드는 1인 사업 콘텐츠 엔진",
+    "topic": "블로그·뉴스레터·SNS를 Claude로 반자동화하는 4주 실전",
+    "audience": "Claude 기초 사용 경험이 있으며 콘텐츠 제작 시간을 줄이고 싶은 1인 사업가"
+  }
+}

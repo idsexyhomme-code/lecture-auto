@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 11,
+    "lesson_title": "영상 끝에 구매 링크 넣는다",
+    "objective": "영상 설명란과 자막 CTA에 상품 링크를 삽입하고 클릭 확인까지 마친다",
+    "key_concepts": [
+      "CTA 위치 3곳",
+      "링크 단축 도구",
+      "설명란 첫 줄 공식"
+    ],
+    "exercise": "CTA 링크가 포함된 영상 설명란 텍스트 1개",
+    "duration_min": 15
+  }
+}

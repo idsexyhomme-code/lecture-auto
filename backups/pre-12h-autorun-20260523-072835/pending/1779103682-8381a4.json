@@ -1,0 +1,83 @@
+{
+  "id": "1779103682-8381a4",
+  "agent": "ceo",
+  "kind": "ceo_daily_report",
+  "title": "CEO 일일 보고 — 2026-05-18",
+  "body_md": "# Core Campus 일일 운영 보고\n**2026-05-18 (KST) | CEO 에이전트**\n\n---\n\n## 1. 오늘의 성장 목표\n\n| KPI | 현재 | 오늘 목표 |\n|---|---|---|\n| 블로그 발행 누적 | 171편 (마지막 발행 05-05) | +3편 → 174편 |\n| 예약 발행 소진 | 24편 대기 중 | 3편 → 21편으로 감소 |\n\n**핵심 문제:** 마지막 블로그 발행이 13일 전(05-05)이다. 예약분 24편이 쌓인 채 발행되지 않고 있다. 오늘 발행 재개가 최우선이다.\n\n---\n\n## 2. 오늘 실행할 작업 3개\n\n### ① 블로그 예약 발행 중단 원인 파악 + 재개\n- **작업 단위:** 발행 파이프라인 로그 확인 → 실패 원인 1줄 특정 → 수동 트리거 또는 수정\n- **담당:** CEO 자율 (로그 분석·원인 파악까지) → 파이프라인 수정이 사이트 구조 변경 수준이면 회원 승인 필요\n- **시간:** 30분 이내\n\n### ② 예약 발행 대기 24편 중 우선순위 3편 선별 + 발행\n- **작업 단위:** 검색 유입 가능성 높은 제목 3편 선별 → 오늘 발행 순서 확정\n- **담당:** CEO 자율\n- **시간:** 20분\n\n### ③ pending 1건 브리프 처리\n- **작업 단위:** `last_brief_processed` 2026-05-17T09:00 이후 밀린 브리프 1건 검토·처리\n- **담당:** CEO 자율 (내용에 따라 회원 승인 필요 가능)\n- **시간:** 30분\n\n---\n\n## 3. 예상 효과\n\n| 작업 | KPI 변화 | 수치 |\n|---|---|---|\n| 블로그 3편 발행 | 검색 인덱싱 요청 건수 | +3건 |\n| 블로그 3편 발행 | 예약 대기 소진 | 24 → 21편 |\n| 발행 파이프라인 재개 | 이후 자동 발행 정상화 | 하루 1~2편 유지 가능 |\n| 브리프 1건 처리 | pending → 0건 | 적체 해소 |\n\n블로그 발행 13일 공백이 있었으므로 3편 발행 직후 구글 Search Console 크롤링 요청도 같이 넣는다. 인덱싱 기준 7~14일 안에 유입 수치에 반영될 수 있다.\n\n---\n\n## 4. 필요한 승인 사항\n\n**① 블로그 발행 파이프라인 수정 범위에 따라**\n- 단순 재트리거·설정값 수정: 회원 승인 불필요\n- 사이트 구조 변경 수준(스케줄러 로직 교체·외부 API 추가): **★ 회원 승인 필요**\n- → 오늘 파악 후 즉시 회원님께 보고\n\n**② pending 1건 브리프 내용이 §6 항목(상품 출시·가격·파트너십 등)이면**\n- **★ 회원 승인 필요**\n- 내용 확인 후 바로 알린다\n\n---\n\n## 5. 승인 없이 진행 가능한 작업\n\n- 블로그 발행 파이프라인 로그 분석 + 원인 파악\n- 예약 대기 24편 중 우선순위 3편 선별\n- 선별 3편의 SEO 제목·메타 설명 최종 점검\n- pending 1건 브리프 내용 검토 (§6 해당 여부 판단)\n- 발행 후 구글 Search Console 인덱싱 수동 요청\n- 오늘 발행 3편 SNS 공유 문구 초안 작성\n- 블로그 발행 공백 13일 원인 기록 (내부 메모)\n\n---\n\n## 6. 오늘 생성할 산출물\n\n| # | 산출물 | 형태 |\n|---|---|---|\n| 1 | 블로그 발행 파이프라인 장애 원인 보고 | 내부 메모 1장 |\n| 2 | 발행 3편 (예약 대기 중 선별) | Tistory 포스트 3건 |\n| 3 | 발행 3편 SNS 공유 문구 초안 | 텍스트 3건 |\n| 4 | pending 브리프 1건 처리 결과 | CRM/dispatch 업데이트 |\n| 5 | 내일~금요일 발행 일정 3편 확정 | 스케줄 문서 |\n\n---\n\n## 7. 리스크와 방지책\n\n### 리스크 ① — 블로그 파이프라인 장애 원인 불명확\n- **상황:** 05-05 이후 13일간 발행 0건. blog_failed_today도 0이어서 실패 기록도 없다. 조용히 멈춰 있는 상태.\n- **방지책:** 스케줄러 실행 로그 직접 확인 → 실행 자체가 안 되고 있는지(크론 중단), 발행 API 오류인지, Tistory 인증 만료인지 구분. 30분 안에 원인 1줄 특정 후 회원님께 보고.\n\n### 리스크 ② — 예약 발행 24편 품질 검수 없이 발행\n- **상황:** 오래 쌓인 예약 발행분이 카피 원칙([1] 금지어 포함 여부) 미검수 상태일 수 있다.\n- **방지책:** 발행 전 3편 제목·본문 첫 단락 금지어 자동 점검 후 발행. 금지어 발견 시 해당 글만 보류하고 다음 글로 대체.\n\n---\n\n## 8. 오늘 발행한 작업 티켓 (§11)\n\n```\npending: 1 · in_progress: 1 · completed: 6 · review_required: 0 · approved: 1 · rejected: 0\n```\n\n---\n\n## 9. 각 에이전트별 진행 상태\n\n| 에이전트 | 상태 | 비고 |\n|---|---|---|\n| 블로그 발행 에이전트 | **정지 중** | 05-05 이후 발행 0. 원인 미파악 |\n| 브리프 처리 에이전트 | **1건 대기** | pending 1건, last_processed 05-17T09:00 |\n| 디스패치 에이전트 | in_progress 1건 · completed 6건 | 정상 진행 중 |\n| 결제/수익 에이전트 | **데이터 없음** | 결제 0건, 매출 0원 |\n| 전문가 소싱 에이전트 | (아직 데이터 없음) | §10.8 W1 진행 여부 미확인 |\n\n---\n\n## 10. 검토 대기 결과물 + 회원 ✅ 필요 결과물\n\n| 구분 | 건수 | 내용 |\n|---|---|---|\n| completed | 6건 | 내용 확인 후 별도 보고 가능 |\n| review_required | 0건 | 없음 |\n| approved | 1건 | 처리 완료 대기 |\n| **회원 ✅ 필요** | 조건부 | 블로그 파이프라인 구조 변경 시 / pending 브리프가 §6 해당 시 |\n\n---\n\n## 11. 다음 실행 에이전트 + 병목 지점\n\n**다음 실행:** 블로그 발행 파이프라인 로그 분석 에이전트 → 원인 파악 즉시\n\n**병목 지점 2개:**\n\n| 순위 | 병목 | 정체 기간 | 조치 |\n|---|---|---|---|\n| 1 | 블로그 발행 중단 | **13일** | 오늘 원인 파악 + 재개 |\n| 2 | 결제 0건·매출 0원 | 측정 시작 이후 전체 | 유료 과정 미출시 상태. §6 — 회원 승인 후 첫 결제 상품 출시 필요 |\n\n---\n\n**한 줄 요약:**\n블로그 13일 공백 해소가 오늘 1순위다. 파이프라인 원인 파악 30분 → 재개 → 3편 발행. 그 다음은 결제 0원 상태를 끝낼 첫 유료 상품 출시 논의가 필요하다 — 회원님 ✅ 요청한다.",
+  "summary": "2026-05-18 CEO 일일 보고",
+  "meta": {
+    "brief": {
+      "mode": "daily_report",
+      "today_kst": "2026-05-18",
+      "site_state": {
+        "date_kst": "2026-05-18",
+        "captured_at": "2026-05-18T20:27:08.627518+09:00",
+        "courses_total": 20,
+        "posts_total": 171,
+        "categories_total": 3,
+        "approved_count": 361,
+        "pending_count": 1,
+        "rejected_count": 0,
+        "last_brief_processed": "2026-05-17T09:00:01.047461+09:00",
+        "blog_published_today": 0,
+        "blog_failed_today": 0,
+        "blog_scheduled_total": 24,
+        "last_blog_publish": "2026-05-05T12:20:49.697245+09:00",
+        "payment_today_count": 0,
+        "payment_today_revenue": 0,
+        "payment_total_count": 0,
+        "payment_total_revenue": 0,
+        "payment_by_channel": {},
+        "dispatch_queue": {
+          "pending": 0,
+          "in_progress": 1,
+          "completed": 6,
+          "review_required": 0,
+          "approved": 1,
+          "rejected": 0
+        }
+      },
+      "recent_kpi": {
+        "date_kst": "2026-05-18",
+        "captured_at": "2026-05-18T20:27:08.627518+09:00",
+        "courses_total": 20,
+        "posts_total": 171,
+        "categories_total": 3,
+        "approved_count": 361,
+        "pending_count": 1,
+        "rejected_count": 0,
+        "last_brief_processed": "2026-05-17T09:00:01.047461+09:00",
+        "blog_published_today": 0,
+        "blog_failed_today": 0,
+        "blog_scheduled_total": 24,
+        "last_blog_publish": "2026-05-05T12:20:49.697245+09:00",
+        "payment_today_count": 0,
+        "payment_today_revenue": 0,
+        "payment_total_count": 0,
+        "payment_total_revenue": 0,
+        "payment_by_channel": {}
+      }
+    },
+    "mode": "daily_report",
+    "today_kst": "2026-05-18",
+    "self_review": {
+      "ok": true,
+      "severity": "warn",
+      "hard_violations": [],
+      "soft_violations": [
+        "산출물"
+      ],
+      "len": 3294,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 1
+      }
+    }
+  },
+  "course_id": "core-campus-meta",
+  "created_at": "2026-05-18T11:28:02+00:00",
+  "status": "pending",
+  "telegram_message_id": 1738
+}

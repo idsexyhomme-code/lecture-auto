@@ -1,0 +1,9 @@
+{
+  "agent": "site_developer",
+  "brief": {
+    "instruction": "새 코스 'Claude로 부캐 서비스 1주일 런칭' (course_id: claude-launchpad)가 추가됐습니다. site_config.json의 course_overrides에 이 코스의 *title_override*와 *tagline_override*를 다듬어 주세요. 다른 필드는 절대 만지지 않습니다. 코스 톤 힌트: 아이디어에서 첫 유료 고객까지, 단 7일 완성",
+    "brand_tone": "차분하고 단단한 한국어, 과장 표현 금지",
+    "target_audience": "본업을 유지하면서 자신의 지식·경험을 상품화하려는 1인 사업가 또는 직장인 부업 준비자",
+    "restrictions": "course_overrides 외 다른 필드 변경 금지, WCAG AA 유지"
+  }
+}

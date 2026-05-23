@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 9,
+    "lesson_title": "고객 FAQ 자동 응답 시스템 설계하기",
+    "objective": "자주 받는 질문 10개를 기반으로 Claude가 일관된 답변을 생성하도록 지식 베이스를 구성하고 응답 프롬프트를 작성한다",
+    "key_concepts": [
+      "지식 베이스 설계",
+      "시스템 프롬프트 활용",
+      "일관성 유지 기법"
+    ],
+    "exercise": "FAQ 10개 기반 지식 베이스 문서 + 응답 시스템 프롬프트",
+    "duration_min": 15
+  }
+}

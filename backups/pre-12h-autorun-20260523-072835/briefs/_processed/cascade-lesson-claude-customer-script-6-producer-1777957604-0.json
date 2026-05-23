@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-customer-script",
+    "course_title": "Claude로 CS 자동화: 1인 사업가 생존 키트",
+    "lesson_no": 6,
+    "lesson_title": "악성 리뷰·클레임 대응 스크립트 설계",
+    "objective": "부당 클레임·악성 리뷰 2가지 실제 사례를 기반으로 법적 리스크를 피하면서 브랜드 이미지를 지키는 Claude 응대 스크립트를 비교·선택해 최종본 1개를 완성한다",
+    "key_concepts": [
+      "감정 분리 원칙: 사실(Fact)만 언급하는 문장 구조",
+      "Claude로 대안 스크립트 3개 동시 생성 후 비교하기",
+      "공개 댓글 vs 비공개 DM 채널 선택 기준"
+    ],
+    "exercise": "실제 클레임 사례 2건에 대한 Claude 생성 후보 스크립트 3개 + 최종 선택본이 담긴 '클레임 대응 스크립트 문서'",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "agent": "site_developer",
+  "brief": {
+    "course_id": "_meta_phase1",
+    "title": "Phase 1 — Fast Campus 패턴 흡수 첫 시안",
+    "instruction": "메인 페이지의 유입률·전환율을 끌어올린다. Fast Campus(국내 1위 강의 플랫폼)의 메인 패턴을 분석한 reference 문서를 따른다. 단, Core Campus 정체성(1인 사업가의 시간을 돌려주는 짧은 강의)을 유지하고 헌법 §4 ban(운명·100%·보장·확실히)을 절대 어기지 않는다.\n\n[자율 변경 — 회원 ✅ 없이 진행 가능]\n1. promo_banners를 현재 2개 → 5~7개 캐러셀로 확장. 각 슬라이드 = 코스 1개 + 한 줄 후킹 카피 + CTA. 베스트 코스(claude-bizflow / claude-sop / claude-launchpad / claude-content-engine / claude-autowork / claude-customer-script / deepwork-1hr) 중 5~7개 선정.\n2. categories를 현재 3개 → 6~8개로 확장. 새 카테고리 후보: AI 콘텐츠 제작 / 고객 응대·CX 자동화 / 매출·재무 자동화 / 미팅·문서 자동화 / 1인 사업 출시 7일(Launchpad). 각 카테고리에 이모지 + 해당 코스 ID 배열.\n3. testimonials_html 신설 — '에디터스 픽 5선' 또는 '이번 달 신규 라인업' 카드. 후기 데이터 없는 단계이므로 코스 핵심 차시 1줄 요약으로 대체. div/section 사이즈는 1440 desktop·390 mobile 둘 다 깔끔하게.\n4. hero_html은 현재 비어있음 — 한 줄 헤드라인 + 후킹 한 문장 + 미리보기 CTA 버튼 1개. 폭 한정, 가운데 정렬. 현재 site_headline·site_subtagline은 유지(헌법 §6 잠금 — site_headline은 회원 ✅ 필요).\n5. footer_html은 유지.\n\n[금지]\n- site_headline 변경 (회원 ✅ 필요)\n- site_subtagline 변경 (회원 ✅ 필요)\n- 가격 표시·결제 흐름 변경 (PG 미도입)\n- 가짜 후기·가짜 사회증명 데이터 (헌법 §4)\n- '운명·100%·보장·확실히' 표현\n\n[준수]\n- design-system SKILL.md 자동 주입 규칙 100% 따름\n- WCAG AA 대비\n- 모바일 390px 우선 검증\n- 한정성 카피 사용 시 '검증 가능한 수량 한정'만 (예: '이번 달 신규 5개', '베스트 7선')\n\n[reference]\nFASTCAMPUS_PATTERN.md 파일 참고. 이 산출물은 site_config_change kind로 분류되며 회원 ✅ 받으면 Phase 1.1 hook이 즉시 build.py 실행 + Phase 1.2 hook이 스크린샷·Lighthouse를 텔레그램에 발송한다.",
+    "brand_tone": "차분하고 신뢰감 있는 한국어. 1인 사업가가 시간 부족할 때 휴대폰으로 5초 안에 '이거 나한테 맞다'라고 느낄 카피. 과장·단정 금지.",
+    "target_audience": "월 매출 100~500만원대 1인 사업가. 콘텐츠·SaaS·전문직(약사·세무·법무·디자이너) 1인 운영. 시간 부족이 최대 문제. 도구 도입에 거부감 없지만 '바로 써먹는 결과'를 본 다음에 결제.",
+    "restrictions": "헌법 §4 ban 단어 절대 금지(운명·100%·보장·확실히·반드시·필연적으로). 가짜 후기·가짜 사용자 수 금지. 결제 가격·환불 정책 변경 금지(회원 ✅ 필요). WCAG AA 색 대비 유지. mobile 390px·desktop 1440px 둘 다 자연스러워야 함.",
+    "reference_doc": "FASTCAMPUS_PATTERN.md",
+    "phase": "Phase 1 — 실 페이지 반영 파이프라인",
+    "expected_kind": "site_config_change",
+    "approval_required": true,
+    "priority": "high"
+  }
+}

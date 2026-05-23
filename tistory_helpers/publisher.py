@@ -392,32 +392,48 @@ def publish_post(
                     if modal_clicked:
                         break
 
-            # 9. URL 변경 대기 — newpost에서 실제 글 페이지로
-            try:
-                page.wait_for_url(
-                    lambda u: "/manage/newpost" not in u and "tistory.com" in u,
-                    timeout=15000,
-                )
-                log.info("[tistory] ✓ URL 변경 감지")
-            except Exception as e:
-                log.warning("[tistory] URL 변경 안됨 (%ds 대기): %s", 15, e)
-                # Enter 키 fallback
+            # 9. URL 변경 대기 — 공개 발행에서만 의미 있음
+            # 임시저장(publish=False)은 URL이 manage/newpost에 머물러도 정상이라 대기 X
+            if publish:
                 try:
-                    page.keyboard.press("Enter")
-                    time.sleep(3)
-                except Exception:
-                    pass
+                    page.wait_for_url(
+                        lambda u: "/manage/newpost" not in u and "tistory.com" in u,
+                        timeout=15000,
+                    )
+                    log.info("[tistory] ✓ URL 변경 감지")
+                except Exception as e:
+                    log.warning("[tistory] URL 변경 안됨 (%ds 대기): %s", 15, e)
+                    # Enter 키 fallback
+                    try:
+                        page.keyboard.press("Enter")
+                        time.sleep(3)
+                    except Exception:
+                        pass
+            else:
+                # 임시저장 — 토스트·alert 메시지 대기 (보통 2~3초 안에 완료)
+                time.sleep(3)
+                log.info("[tistory] ✓ 임시저장 모드 — URL 변경 대기 건너뜀")
 
-            time.sleep(3)
+            time.sleep(2)
             _shoot(page, "6-final")
             final_url = page.url
             log.info("[tistory] 🌐 final URL: %s", final_url)
 
             browser.close()
 
-            # 발행 검증 — manage/newpost에 머물러 있으면 실패
-            if "/manage/newpost" in final_url or "/login" in final_url:
-                raise RuntimeError(f"발행 확정 실패. final URL: {final_url}")
+            # 발행 검증
+            # - 세션 만료: 로그인 페이지로 리다이렉트
+            # - 공개 발행 실패: manage/newpost에 그대로 (URL 변경 안 됨)
+            # - 임시저장 성공: manage/newpost에 머물러 있어도 정상 (저장 버튼 클릭은 위에서 처리됨)
+            if "/login" in final_url:
+                raise RuntimeError(f"세션 만료. final URL: {final_url}")
+
+            if publish and "/manage/newpost" in final_url:
+                raise RuntimeError(f"공개 발행 확정 실패. final URL: {final_url}")
+
+            # 임시저장은 manage/posts 목록 URL 반환 (개별 글 URL은 임시저장에선 없음)
+            if not publish:
+                return f"https://{blog}.tistory.com/manage/posts"
 
             return final_url
 

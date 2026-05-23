@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#12 정보상품 판매 페이지 텍스트 쓰기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#12 정보상품 판매 페이지 텍스트 쓰기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779175251 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>판매 페이지 만들다가 결국 포기한 적 있죠?</p>
+<p>헤드라인 한 줄 쓰는 데 두 시간 날리고,
+결국 "지금 바로 구매하세요" 한 줄 쓰고 도망간 그날.</p>
+<p>그게 글 실력 문제가 아닙니다.
+채워야 할 칸이 뭔지 몰라서 그런 거예요.</p>
+<p>오늘 차시 끝나면 달라집니다.
+7개 블록에 문장만 채우면
+판매 페이지 텍스트가 완성됩니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 영상이 끝나면,
+헤드라인부터 구매 버튼 문장까지
+7블록 판매 페이지 텍스트를 처음부터 혼자 씁니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1. 판매 페이지 7블록 구조 — "빵집 진열대"</h3>
+<p><strong>설명</strong></p>
+<p>판매 페이지는 진열대입니다.
+빵집 유리 진열대 생각해 보세요.
+크림빵이 앞에 있고, 가격표가 옆에 있고,
+"오늘만 3개 1,000원" 문구가 딱 붙어 있죠.
+손님은 그 순서대로 눈이 움직입니다.</p>
+<p>판매 페이지도 똑같습니다.
+순서가 틀리면 사람이 그냥 떠납니다.</p>
+<p>7블록 순서는 이렇습니다.</p>
+<ol>
+<li>헤드라인</li>
+<li>대상 독자</li>
+<li>문제 공감</li>
+<li>내용 소개</li>
+<li>가격·혜택</li>
+<li>반론 처리</li>
+<li>구매 버튼 + 마감</li>
+</ol>
+<p><strong>예시</strong></p>
+<p>제가 작년에 만든 "메일 쓰기 강의" 판매 페이지입니다.</p>
+<p>헤드라인: "메일 한 통에 40분 쓰는 사람을 위한 강의"
+대상: "하루 메일 20통 이상 쓰는 1인 사업가"
+문제: "잘 쓰려고 고치고 또 고치다 결국 밤 11시"
+내용: "강의 5개 / 총 55분 / 템플릿 12종 포함"
+가격: "49,000원 / 이번 주 토요일까지 39,000원"
+반론: "강의 많이 들어봤는데 다 똑같더라 → 그래서 템플릿만 뽑았습니다"
+버튼: "지금 신청하기 — 39,000원 (토요일 마감)"</p>
+<p><strong>반례</strong></p>
+<p>이런 페이지는 안 됩니다.</p>
+<p>"저는 10년 경력 카피라이터입니다.
+이 강의로 글쓰기 실력이 올라갑니다.
+지금 바로 구매하세요."</p>
+<p>뭘 배우는지, 얼마인지, 나한테 맞는지.
+하나도 안 나옵니다.
+이렇게 쓰면 클릭이 안 생깁니다.</p>
+<p><strong>정리</strong></p>
+<p>7블록 = 빵집 진열대.
+순서대로 채우면 됩니다.
+창의력은 나중에 써도 됩니다.</p>
+<hr />
+<h3>개념 2. 헤드라인 쓰는 공식 — "숫자 + 대상 + 결과"</h3>
+<p><strong>설명</strong></p>
+<p>헤드라인은 딱 1초 안에 읽힙니다.
+그 1초 안에 "나 얘기구나" 느껴야 합니다.</p>
+<p>제 경험상, 헤드라인 공식 하나면 됩니다.</p>
+<blockquote>
+<p><strong>숫자 + 대상 + 결과</strong></p>
+</blockquote>
+<p>숫자는 구체성을 만듭니다.
+대상은 "나 얘기"라는 신호를 줍니다.
+결과는 "그래서 뭐가 달라지냐"를 답합니다.</p>
+<p><strong>예시</strong></p>
+<p>공식 적용해 보면 이렇습니다.</p>
+<ul>
+<li>"5일 만에 첫 정보상품 올리는 법"</li>
+<li>"보고서 1시간 → 15분으로 줄인 직장인의 방법"</li>
+<li>"메일 30통, 하루 2시간 쓰던 사람이 40분으로 줄인 이유"</li>
+</ul>
+<p>숫자 먼저, 대상 다음, 결과 마지막.
+이 순서로 씁니다.</p>
+<p><strong>반례</strong></p>
+<p>"당신의 글쓰기를 바꿔드립니다"</p>
+<p>숫자 없음. 대상 불분명. 결과 모호함.
+클릭할 이유가 없습니다.</p>
+<p>"AI로 글쓰기 능력을 높이세요"</p>
+<p>AI도 흔하고, 능력도 뜬구름입니다.
+읽는 사람 머릿속에 장면이 안 그려집니다.</p>
+<p><strong>정리</strong></p>
+<p>헤드라인 = 숫자 + 대상 + 결과.
+이 세 개 없으면 다시 씁니다.
+세 개 다 있으면 일단 씁니다.</p>
+<hr />
+<h3>개념 3. 반론 처리 문장 — "그래서 체" 공식</h3>
+<p><strong>설명</strong></p>
+<p>사람은 구매 직전에 멈춥니다.
+"나한테 맞나?", "비싸지 않나?", "또 사기 아니야?"</p>
+<p>이 생각들이 구매 버튼 앞에서 터집니다.
+판매 페이지가 그 질문에 먼저 답해야 합니다.</p>
+<p>공식은 간단합니다.</p>
+<blockquote>
+<p><strong>"~라고 생각하신다면 → 그래서 ~했습니다"</strong></p>
+</blockquote>
+<p>저는 이걸 "그래서 체"라고 부릅니다.
+반론을 직접 꺼내서, 바로 이유를 댑니다.</p>
+<p><strong>예시</strong></p>
+<p>상황 1 — 가격 반론
+"49,000원이 부담스러우시다면,
+그래서 분리 결제 2회를 넣었습니다."</p>
+<p>상황 2 — 시간 반론
+"강의 들을 시간이 없으시다면,
+그래서 총 55분짜리로 만들었습니다."</p>
+<p>상황 3 — 신뢰 반론
+"처음 듣는 강사라 믿기 어려우시다면,
+그래서 1강을 무료로 공개했습니다."</p>
+<p><strong>반례</strong></p>
+<p>"걱정하지 마세요. 다 알아서 해드립니다."</p>
+<p>이 문장은 반론을 처리하지 않습니다.
+뭘 걱정하는지, 뭘 해주는지, 하나도 안 보입니다.</p>
+<p><strong>정리</strong></p>
+<p>반론 처리 = "그래서 체".
+살 사람의 걱정을 내가 먼저 꺼냅니다.
+그러면 버튼 앞에서 멈추는 사람이 줄어듭니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지하세요.
+노션이나 구글독스 열고, 아래 순서대로 씁니다.</p>
+<hr />
+<p><strong>1단계 — 7블록 틀 만들기 (1분)</strong></p>
+<p>문서에 이 7개 제목을 먼저 붙여넣습니다.</p>
+<pre><code>1. 헤드라인
+2. 대상
+3. 문제 공감
+4. 내용 소개
+5. 가격·혜택
+6. 반론 처리
+7. 구매 버튼 + 마감
+</code></pre>
+<hr />
+<p><strong>2단계 — 헤드라인 3개 쓰기 (1분)</strong></p>
+<p>"숫자 + 대상 + 결과" 공식으로
+헤드라인을 3개 씁니다.
+지금 팔 상품이 없어도 됩니다.
+만들고 싶은 상품 하나 잡고 씁니다.</p>
+<hr />
+<p><strong>3단계 — 반론 처리 문장 2개 쓰기 (1분)</strong></p>
+<p>"그래서 체" 공식으로
+구매 망설임 2개를 꺼내고
+바로 이유를 답합니다.</p>
+<hr />
+<p><strong>4단계 — 나머지 블록 채우기 (1분)</strong></p>
+<p>대상, 문제, 내용, 가격, 버튼.
+한 블록당 2~3문장이면 충분합니다.
+완성도보다 칸 채우기가 먼저입니다.</p>
+<hr />
+<p>다 채웠으면 영상 다시 재생하세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #13에서는
+이 판매 페이지 텍스트를
+SNS 홍보 문구로 바꾸는 법을 씁니다.
+페이지 만들고 나서 아무도 안 오는 문제,
+거기서 다룹니다.</p>
+<p>오늘 만든 7블록 문서,
+댓글에 헤드라인 한 줄만 올려주세요.
+제가 직접 읽고 피드백 답글 답니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "hero",
+    "purpose": "Claude로 1페이지 비즈니스 메일 작성법 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+    "audience": "처음 만난 사람·잠재 고객에게 메일 쓸 때 매번 막히는 1인 사업가",
+    "style_keywords": [
+      "editorial",
+      "warm beige",
+      "trustworthy",
+      "academic"
+    ],
+    "color_mood": "warm",
+    "additional_context": "코어 캠퍼스 코스 'Claude로 1페이지 비즈니스 메일 작성법'의 페이지 헤더 시안."
+  }
+}

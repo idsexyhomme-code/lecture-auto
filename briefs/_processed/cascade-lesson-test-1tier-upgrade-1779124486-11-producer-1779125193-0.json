@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779124486",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 11,
+    "lesson_title": "PDF 전자책 하루 만에 완성",
+    "objective": "AI로 전자책 본문 초안 20페이지를 뽑고 Canva에서 표지 포함 PDF 파일로 내보냅니다",
+    "key_concepts": [
+      "챕터별 프롬프트 분할법",
+      "Canva PDF 레이아웃 선택",
+      "저작권 안전한 이미지 삽입"
+    ],
+    "exercise": "판매 가능한 PDF 전자책 파일 1개 (표지+본문 20p 이상)",
+    "duration_min": 15
+  }
+}

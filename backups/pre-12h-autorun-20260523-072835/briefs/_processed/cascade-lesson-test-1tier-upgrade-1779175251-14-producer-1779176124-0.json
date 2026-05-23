@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779175251",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 14,
+    "lesson_title": "월 500 달성 여부를 숫자로 확인하기",
+    "objective": "서비스 유형별 건수·단가·실수령액을 입력해 이번 달 수익을 계산하고 다음 달 목표를 조정합니다",
+    "key_concepts": [
+      "수익 역산 스프레드시트",
+      "단가 올리는 조건 2가지",
+      "재계약률 높이는 방법"
+    ],
+    "exercise": "수익 추적 스프레드시트 — 서비스·건수·단가·합계·목표 대비 달성률이 자동 계산되는 파일",
+    "duration_min": 15
+  }
+}

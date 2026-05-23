@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "tax-basics-solopreneur",
+    "course_title": "1인 사업가 세금 기초 완전정복",
+    "lesson_no": 6,
+    "lesson_title": "절세 전략 비교 — 단순경비율 vs 기장 신고",
+    "objective": "단순경비율 추계신고와 장부 기장 신고의 세부담 차이를 수치로 비교하여 본인에게 유리한 신고 방식을 선택 근거와 함께 서술한다",
+    "key_concepts": [
+      "단순경비율·기준경비율 적용 조건",
+      "복식부기 의무 기준 수입금액",
+      "세무 대리인 활용 판단 기준"
+    ],
+    "exercise": "동일 수입 기준 두 신고 방식의 납부세액 비교표 및 선택 이유 한 단락 작성",
+    "duration_min": 15
+  }
+}

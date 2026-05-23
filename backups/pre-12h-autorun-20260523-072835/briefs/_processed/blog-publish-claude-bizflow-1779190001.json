@@ -1,0 +1,12 @@
+{
+  "agent": "blog_publisher",
+  "brief": {
+    "course_id": "claude-bizflow",
+    "course_title": "혼자 일하면서 시간 늘리기 — 1인 사업 자동화",
+    "topic_hint": "1인 사업가가 반복 업무에 묶여서 본업에 시간을 못 쓰는 문제. Claude를 어떻게 쓰면 하루 2시간 걸리던 일이 30분에 끝나는지 구체 5단계.",
+    "target_audience": "월 매출 100~500만원대 1인 사업가. 콘텐츠·SaaS·전문직 1인 운영. 시간 부족이 최대 문제.",
+    "image_style_hint": "Editorial magazine cover. 카페 분위기 책상, 노트북·따뜻한 머그컵·정리된 종이 — 1인 사업가의 정돈된 작업 공간. 베이지·다크브라운 팔레트.",
+    "approval_required": true,
+    "priority": "high"
+  }
+}

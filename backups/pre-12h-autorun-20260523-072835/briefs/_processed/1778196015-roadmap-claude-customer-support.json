@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-customer-support",
+    "topic": "FAQ·환불·문의 응대를 Claude+RAG로 1인 사업가 톤 그대로 자동화",
+    "audience": "문의 응답이 본업 시간을 잡아먹는 1인 강사·서비스 사업자",
+    "duration_weeks": 4,
+    "lesson_count": 6,
+    "format": "video",
+    "promises_hint": [
+      "내 톤·정책 그대로 답하는 응답 템플릿 20개",
+      "환불·법적 이슈는 사람으로 자동 escalate",
+      "응답 시간 평균 2시간 → 5분 이내"
+    ]
+  }
+}

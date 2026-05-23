@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F5EFE0">
+  <title>코어 캠퍼스 — 혼자 다 하는 사람의 시간을 돌려줍니다 (시안 v2)</title>
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법. 1인 사업가의 AI 수익 시스템.">
+  <meta property="og:title" content="코어 캠퍼스 — 혼자 다 하는 사람의 시간을 돌려줍니다">
+  <meta property="og:description" content="1인 사업가의 AI 수익 시스템. 20개 실전 코스.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/woff2/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="../../../design-system/base.css">
+  <link rel="stylesheet" href="../../../design-system/components.css">
+
+  <style>
+    /* ── Main 전용 스타일 ── */
+    .nav-promo {
+      background: var(--color-coral);
+      color: #fff;
+      padding: var(--sp-2) var(--sp-4);
+      text-align: center;
+      font-size: var(--fs-sm);
+      font-weight: 500;
+    }
+    .nav-promo a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 12px;
+      background: rgba(255,255,255,0.2);
+      border-radius: var(--r-full);
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    /* Hero 강화 */
+    .home-hero {
+      padding: var(--sp-20) 0 var(--sp-16);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .home-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 25%, rgba(216, 90, 48, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(44, 78, 107, 0.06) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .home-hero__content { position: relative; z-index: 1; }
+    .home-hero__eyebrow {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-coral);
+      font-family: var(--font-sans-en);
+      margin-bottom: var(--sp-4);
+    }
+    .home-hero__title {
+      font-size: clamp(32px, 6vw, 60px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--sp-5);
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .home-hero__sub {
+      max-width: 560px;
+      margin: 0 auto var(--sp-8);
+      font-size: var(--fs-lg);
+      line-height: 1.7;
+      color: var(--color-ink-soft);
+      letter-spacing: -0.012em;
+    }
+    .home-hero__actions {
+      display: flex;
+      gap: var(--sp-3);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Compass 배너 — 핫라인 */
+    .compass-banner {
+      max-width: 720px;
+      margin: var(--sp-12) auto 0;
+      padding: var(--sp-5) var(--sp-6);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-coral);
+      border-radius: var(--r-lg);
+      display: flex;
+      gap: var(--sp-4);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .compass-banner__icon {
+      width: 48px;
+      height: 48px;
+      background: var(--color-coral-soft);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .compass-banner__body { flex: 1; min-width: 200px; }
+    .compass-banner__title { font-size: var(--fs-md); font-weight: 700; color: var(--color-ink); margin-bottom: 2px; }
+    .compass-banner__desc { font-size: var(--fs-sm); color: var(--color-text-muted); line-height: 1.55; }
+    .compass-banner__cta { flex-shrink: 0; }
+
+    /* 카테고리 */
+    .cat-row { display: flex; gap: var(--sp-3); justify-content: center; flex-wrap: wrap; margin-bottom: var(--sp-12); }
+    .cat-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-5) var(--sp-6);
+      min-width: 220px;
+      transition: all var(--duration-base);
+      text-align: left;
+      text-decoration: none;
+      color: inherit;
+    }
+    .cat-card:hover { border-color: var(--color-coral); transform: translateY(-2px); }
+    .cat-card__icon { font-size: 28px; margin-bottom: var(--sp-3); display: block; }
+    .cat-card__name { font-size: var(--fs-lg); font-weight: 700; color: var(--color-ink); margin-bottom: var(--sp-1); letter-spacing: -0.018em; }
+    .cat-card__count {
+      font-family: var(--font-sans-en);
+      font-size: var(--fs-sm);
+      color: var(--color-coral);
+      font-weight: 600;
+    }
+
+    /* 코스 그리드 */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--sp-4);
+    }
+    .course-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-5);
+      transition: all var(--duration-base);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+    .course-card:hover { border-color: var(--color-coral); transform: translateY(-2px); }
+    .course-card__cat {
+      font-family: var(--font-sans-en);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--color-coral);
+      text-transform: uppercase;
+    }
+    .course-card__title {
+      font-size: var(--fs-lg);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+      color: var(--color-ink);
+    }
+    .course-card__desc {
+      font-size: var(--fs-sm);
+      line-height: 1.6;
+      color: var(--color-text-muted);
+      flex: 1;
+    }
+    .course-card__meta {
+      font-family: var(--font-sans-en);
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    /* Newsletter */
+    .newsletter {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: var(--sp-8);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--r-lg);
+      text-align: center;
+    }
+    .newsletter__title { font-size: var(--fs-2xl); font-weight: 800; letter-spacing: -0.02em; margin-bottom: var(--sp-3); }
+    .newsletter__sub { color: var(--color-text-muted); margin-bottom: var(--sp-5); font-size: var(--fs-sm); line-height: 1.7; }
+    .newsletter__form { display: flex; gap: var(--sp-2); }
+    .newsletter__input {
+      flex: 1;
+      padding: var(--sp-3) var(--sp-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--r-md);
+      font-family: var(--font-sans-kr);
+      font-size: var(--fs-md);
+      background: var(--color-bg-base);
+      letter-spacing: -0.012em;
+    }
+    .newsletter__input:focus { border-color: var(--color-coral); outline: none; }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: var(--sp-4);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: var(--sp-8) 0;
+      text-align: center;
+    }
+    .stat__num {
+      font-family: var(--font-sans-en);
+      font-size: clamp(32px, 5vw, 44px);
+      font-weight: 700;
+      color: var(--color-coral);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stat__label { font-size: var(--fs-sm); color: var(--color-text-muted); margin-top: var(--sp-2); font-weight: 500; }
+
+    .preview-watermark {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      background: var(--color-warning);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      z-index: 999;
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (max-width: 480px) {
+      .home-hero { padding: var(--sp-12) 0; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="preview-watermark">메인 시안 v2 — 회원 ✅ 전</div>
+
+<!-- 상단 promo -->
+<div class="nav-promo">
+  🎓 첫 코스 무료로 시작 <a href="#courses">코스 보기 →</a>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="#top">
+      <span class="site-logo__mark"></span>
+      코어 캠퍼스
+    </a>
+    <nav style="display: flex; gap: var(--sp-3); align-items: center;">
+      <a href="#courses" style="font-size: var(--fs-sm); color: var(--color-ink-soft);">전체 코스</a>
+      <a href="/site/landing/core-compass/v3/" class="site-header__link">진단 받기</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="home-hero">
+    <div class="container container--wide home-hero__content">
+      <p class="home-hero__eyebrow">1인 사업가의 AI 수익 시스템</p>
+      <h1 class="home-hero__title">
+        혼자 다 하는 사람의<br>
+        <span class="text-coral">시간을 돌려줍니다</span>
+      </h1>
+      <p class="home-hero__sub">
+        Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법.<br>
+        20개 실전 코스로 익히고, 1페이지 진단으로 방향을 잡습니다.
+      </p>
+      <div class="home-hero__actions">
+        <a class="btn btn--primary btn--lg" href="#courses">전체 코스 보기</a>
+        <a class="btn btn--secondary btn--lg" href="/site/landing/core-compass/v3/">9,900원 진단 받기</a>
+      </div>
+
+      <!-- Compass 배너 -->
+      <a href="/site/landing/core-compass/v3/" class="compass-banner" style="text-decoration: none; color: inherit;">
+        <div class="compass-banner__icon">🧭</div>
+        <div class="compass-banner__body">
+          <div class="compass-banner__title">Core Compass — 6명 AI가 한 장으로 정리</div>
+          <div class="compass-banner__desc">어느 코스부터 들어야 할지 모르겠다면, 9,900원에 진단부터.</div>
+        </div>
+        <div class="compass-banner__cta">
+          <span class="badge">한정 100명</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 카테고리 -->
+  <section class="section">
+    <div class="container container--wide">
+      <p class="tg-caption" style="text-align:center;">Categories · 분야 보기</p>
+      <h2 class="tg-display" style="text-align: center; margin-bottom: var(--sp-8);">
+        <span style="display:block; font-size:0.55em; font-weight:500; color:var(--color-text-muted); margin-bottom:6px;">3개 분야</span>
+        관심 가는 분야부터
+      </h2>
+
+      <div class="cat-row">
+        <a href="#cat-automation" class="cat-card">
+          <span class="cat-card__icon">✉️</span>
+          <div class="cat-card__name">반복 업무 줄이기</div>
+          <div class="cat-card__count">7편</div>
+        </a>
+        <a href="#cat-operation" class="cat-card">
+          <span class="cat-card__icon">📋</span>
+          <div class="cat-card__name">혼자도 굴러가는 시스템</div>
+          <div class="cat-card__count">6편</div>
+        </a>
+        <a href="#cat-focus" class="cat-card">
+          <span class="cat-card__icon">🎯</span>
+          <div class="cat-card__name">집중·일하는 법</div>
+          <div class="cat-card__count">2편</div>
+        </a>
+      </div>
+
+      <!-- 코스 그리드 (샘플 8개) -->
+      <h3 class="tg-h2" id="courses" style="margin-top: var(--sp-12); margin-bottom: var(--sp-3);">전체 코스 <span style="font-family:var(--font-sans-en); font-weight:400; font-size:0.7em; color:var(--color-text-muted);">20</span></h3>
+      <p class="tg-body-sm" style="margin-bottom: var(--sp-6); color: var(--color-text-muted);">관심 가는 분야부터 골라 한 편씩 보세요</p>
+
+      <div class="course-grid">
+        <a href="/site/courses/claude-launchpad.html" class="course-card">
+          <span class="course-card__cat">자동화</span>
+          <h3 class="course-card__title">부캐 서비스 7일 런칭</h3>
+          <p class="course-card__desc">아이디어를 7일 안에 첫 유료 결제까지.</p>
+          <span class="course-card__meta">7편 · 2시간 12분</span>
+        </a>
+        <a href="/site/courses/claude-autowork.html" class="course-card">
+          <span class="course-card__cat">자동화</span>
+          <h3 class="course-card__title">반복 업무 시간 줄이기 실전</h3>
+          <p class="course-card__desc">Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법.</p>
+          <span class="course-card__meta">6편 · 1시간 48분</span>
+        </a>
+        <a href="/site/courses/claude-bizflow.html" class="course-card">
+          <span class="course-card__cat">시스템</span>
+          <h3 class="course-card__title">혼자 일하면서 시간 늘리기</h3>
+          <p class="course-card__desc">1인 사업 자동화 흐름을 한 번에 잡습니다.</p>
+          <span class="course-card__meta">6편</span>
+        </a>
+        <a href="/site/courses/claude-content-engine.html" class="course-card">
+          <span class="course-card__cat">시스템</span>
+          <h3 class="course-card__title">콘텐츠, 3주째 끊기지 않게</h3>
+          <p class="course-card__desc">매주 발행하는 루틴 만들기.</p>
+          <span class="course-card__meta">6편</span>
+        </a>
+        <a href="/site/courses/claude-customer-script.html" class="course-card">
+          <span class="course-card__cat">자동화</span>
+          <h3 class="course-card__title">고객 응대 하루 30분으로</h3>
+          <p class="course-card__desc">반복 문의 80% 자동 응대.</p>
+          <span class="course-card__meta">6편</span>
+        </a>
+        <a href="/site/courses/claude-daily-recap.html" class="course-card">
+          <span class="course-card__cat">집중</span>
+          <h3 class="course-card__title">하루 끝 5분 회고</h3>
+          <p class="course-card__desc">매일 5분으로 한 달이 달라집니다.</p>
+          <span class="course-card__meta">2편</span>
+        </a>
+      </div>
+
+      <div style="text-align: center; margin-top: var(--sp-8);">
+        <a class="btn btn--secondary btn--lg" href="/site/courses/">전체 20개 코스 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Stats -->
+  <section class="section section--sm">
+    <div class="container">
+      <div class="stats">
+        <div class="stat">
+          <div class="stat__num">20</div>
+          <div class="stat__label">실전 코스</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">100+</div>
+          <div class="stat__label">블로그 글</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">6</div>
+          <div class="stat__label">AI 에이전트</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">24/7</div>
+          <div class="stat__label">콘텐츠 자동 발행</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Newsletter -->
+  <section class="section" id="newsletter">
+    <div class="container">
+      <div class="newsletter">
+        <h2 class="newsletter__title">새 코스 도착 알림</h2>
+        <p class="newsletter__sub">월 1~2회. 새 코스·블로그 글·진단 리포트 업데이트만.<br>스팸 안 보냅니다. 언제든 구독 해지 가능.</p>
+        <form class="newsletter__form" onsubmit="event.preventDefault(); alert('구독해주셔서 감사합니다.');">
+          <input type="email" class="newsletter__input" placeholder="이메일 주소" required>
+          <button type="submit" class="btn btn--primary">구독</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 최종 CTA -->
+  <section class="section section--sm">
+    <div class="container container--narrow">
+      <div class="final-cta">
+        <h2 class="final-cta__title">시간 한 시간 더,<br>1주 안에 만들기.</h2>
+        <p class="final-cta__sub">20개 실전 코스 · 9,900원 진단</p>
+        <a class="btn btn--primary btn--lg" href="#courses">코스 보기</a>
+        <p class="final-cta__fineprint">첫 코스 무료. 환불 정책 명확.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  © 2026 코어 캠퍼스<span class="site-footer__sep">·</span>1인 사업가의 AI 수익 시스템
+</footer>
+
+</body>
+</html>

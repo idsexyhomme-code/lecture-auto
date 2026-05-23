@@ -1,0 +1,22 @@
+{
+  "date_kst": "2026-05-18",
+  "result": {
+    "stats": {
+      "days": 1,
+      "total": 1,
+      "fail": 0,
+      "warn": 1,
+      "pass": 0,
+      "hard_violation_counts": {},
+      "soft_violation_counts": {
+        "산출물": 1
+      },
+      "fail_by_kind": {}
+    },
+    "promotion": {
+      "promoted_hard": [],
+      "promoted_soft": [],
+      "total_learned": 0
+    }
+  }
+}

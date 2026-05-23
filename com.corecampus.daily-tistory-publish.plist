@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.corecampus.daily-tistory-publish</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/seohyeongmin/Desktop/강의 홈페이지 제작/scripts/daily-tistory-publish.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/seohyeongmin/Desktop/강의 홈페이지 제작</string>
+
+    <!-- 매일 새벽 3:00 KST 실행 -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>3</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/seohyeongmin/Library/Logs/corecampus-daily-publish.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/seohyeongmin/Library/Logs/corecampus-daily-publish.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
+    </dict>
+</dict>
+</plist>

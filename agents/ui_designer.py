@@ -359,13 +359,44 @@ def _parse_response(raw: str) -> dict:
 
 
 # ─────────────────────────────────────────────────────────────────────────
+# Design System SKILL.md 자동 로드 — 매 호출 시 SYSTEM 뒤에 합쳐서 주입
+# ─────────────────────────────────────────────────────────────────────────
+
+def _load_design_system_skill() -> str:
+    """design-system/SKILL.md 내용을 로드. 파일 없으면 빈 문자열."""
+    import os
+    try:
+        here = os.path.dirname(os.path.abspath(__file__))
+        skill_path = os.path.join(here, '..', 'design-system', 'SKILL.md')
+        if os.path.isfile(skill_path):
+            with open(skill_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            return (
+                "\n\n## ━━━ Design System SKILL.md (자동 주입, 최신 v1.1+) ━━━\n\n"
+                "다음은 모든 디자인 산출물이 따라야 할 시스템 규칙입니다.\n"
+                "이 규칙을 위반하는 산출물은 self_review에서 reject됩니다.\n\n"
+                + content
+            )
+    except Exception:
+        pass
+    return ""
+
+
+try:
+    _DS_SKILL = _load_design_system_skill()
+except Exception:
+    _DS_SKILL = ""
+
+
+# ─────────────────────────────────────────────────────────────────────────
 # UIDesigner 본체
 # ─────────────────────────────────────────────────────────────────────────
 
 class UIDesigner(BaseAgent):
     name = "ui_designer"
     display_name = "UI/UX 디자이너"
-    system_prompt = SYSTEM
+    # SKILL.md 강제 주입 (있을 시) — design-system v1.1+ 규칙 자동 반영
+    system_prompt = SYSTEM + _DS_SKILL
 
     def run(self, brief: dict) -> list[AgentResult]:
         target = (brief.get("target") or "hero").strip()

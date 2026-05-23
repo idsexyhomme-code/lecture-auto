@@ -1,0 +1,11 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-launchpad",
+    "topic": "Claude로 신규 부캐 서비스 1주일 런칭하기",
+    "audience": "본업 외 사이드 프로젝트 시작하려는 1인 사업가",
+    "duration_weeks": 4,
+    "lesson_count": 8,
+    "format": "video"
+  }
+}

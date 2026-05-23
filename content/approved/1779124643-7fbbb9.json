@@ -1,0 +1,107 @@
+{
+  "id": "1779124643-7fbbb9",
+  "agent": "ui_designer",
+  "kind": "design_variants",
+  "title": "[디자인 시안] hero — 2개 변형",
+  "body_md": "## hero — 변형 2개\n\n코어 캠퍼스 'AI 글쓰기로 월 500' 히어로 3변형 — 에디토리얼/임팩트/서사\n\n### V1 · 에디토리얼 모던\n_학술 매거진 표지처럼 진중하고 차분한 신뢰감. 텍스트가 주인공._\n\n**팔레트**: bg=#F5EFE0, fg=#1F1F1F, brand=#2C4E6B, accent=#D85A30, soft=#EDE7D9\n\n**이유**: 30~40대 직장인은 '요란한 광고'에 면역이 생겨 있다. 매거진 레이아웃처럼 텍스트 중심으로 정돈된 화면은 신뢰를 먼저 준다. 숫자(22분·8주·1,240명)를 Gotham tabular-nums로 세우면 광고가 아닌 데이터처럼 읽혀, '사기 아닌가' 의심을 한 박자 줄여준다.\n\n**이미지 프롬프트** (4개):\n- 베이지 크림 배경 위 손으로 메모한 노트와 얇은 펜, 따뜻한 간접 조명, 플랫레이 구도, 미니멀 에디토리얼\n- 딥 블루와 코랄 투톤 추상 기하 도형, 격자 텍스처 위에 배치, 학술 매거진 표지 느낌, 한국적 절제미\n- 빈 책상 위 노트북 화면에 텍스트 커서 깜빡이는 순간 클로즈업, 베이지 톤, 필름 그레인 질감\n- 코랄-베이지-딥블루 3색 추상 수채화 번짐, 세로 세 구역으로 나뉜 구도, 글로벌 아카데믹 톤\n\n### V2 · 풀블리드 임팩트\n_강렬하고 단호한 선언. 헤드라인이 화면을 압도하고, 숫자가 증거로 작동._\n\n**팔레트**: bg=#1A1510, fg=#F5EFE0, brand=#D85A30, accent=#F5EFE0, soft=#2E2620\n\n**이유**: 같은 타깃이라도 '이미 결심한 사람'에게는 망설임보다 확신이 필요하다. 다크 배경과 대형 헤드라인은 '이미 증명됐다'는 선언의 무게를 주고, 코랄 강조색이 행동 유도 버튼과 핵심 단어에만 쓰여 시선 흐름을 통제한다.\n\n**이미지 프롬프트** (4개):\n- 짙은 다크 브라운 배경에 미세한 캔버스 그레인 텍스처, 코랄 포인트 라인 하나, 글로벌 아카데믹 톤\n- 밤 도시 창문 너머 야경을 배경으로 노트북 화면만 밝게 빛나는 실루엣, 역광, 영화적 구도, 다크 톤\n- 코랄 오렌지 잉크가 다크 베이지 종이에 번지는 순간, 매크로 클로즈업, 추상적, 한국적 정서\n- 기하학 직선과 원이 다크 배경 위에 희미하게 겹쳐진 패턴, 코랄 한 획만 선명, 미니멀",
+  "summary": "코어 캠퍼스 'AI 글쓰기로 월 500' 히어로 3변형 — 에디토리얼/임팩트/서사",
+  "meta": {
+    "target": "hero",
+    "variants": [
+      {
+        "id": "v1",
+        "name": "에디토리얼 모던",
+        "vibe": "학술 매거진 표지처럼 진중하고 차분한 신뢰감. 텍스트가 주인공.",
+        "color_palette": {
+          "bg": "#F5EFE0",
+          "fg": "#1F1F1F",
+          "brand": "#2C4E6B",
+          "accent": "#D85A30",
+          "soft": "#EDE7D9"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:720px;margin:0 auto;padding:80px 24px 72px;display:flex;flex-direction:column;align-items:flex-start;gap:0;\">\n  <span class=\"badge\" style=\"background:var(--color-deep-blue,#2C4E6B);color:#fff;font-family:'Pretendard Variable',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;padding:4px 12px;border-radius:9999px;margin-bottom:28px;\">AI 글쓰기 · 1인 사업</span>\n\n  <p class=\"section-title-2line__small\" style=\"font-family:'Pretendard Variable',sans-serif;font-size:clamp(14px,2vw,16px);color:#6B6B6B;letter-spacing:-0.015em;margin:0 0 10px;line-height:1.6;word-break:keep-all;\">직장 그만두기 전에 먼저 찍어봤습니다.</p>\n\n  <h1 class=\"section-title-2line\" style=\"font-family:'GmarketSans',sans-serif;font-size:clamp(32px,6vw,58px);font-weight:700;color:#1F1F1F;letter-spacing:-0.028em;line-height:1.22;word-break:keep-all;margin:0 0 28px;\">퇴근 후 2시간,<br>월 500 남깁니다.</h1>\n\n  <p style=\"font-family:'Pretendard Variable',sans-serif;font-size:clamp(15px,2.2vw,18px);color:#4A4A4A;line-height:1.72;letter-spacing:-0.018em;word-break:keep-all;margin:0 0 12px;max-width:520px;\">매일 밤 11시, 회의록 정리하고 보고서 쓰다 지쳤다면 —<br>그 글쓰기 시간을 그대로 돈으로 바꾸는 방법이 있습니다.</p>\n  <p style=\"font-family:'Pretendard Variable',sans-serif;font-size:clamp(14px,1.9vw,16px);color:#6B6B6B;line-height:1.68;letter-spacing:-0.015em;word-break:keep-all;margin:0 0 40px;max-width:480px;\">블로그 글 1개 쓰는 데 3시간? 지금은 22분입니다.</p>\n\n  <div style=\"display:flex;flex-direction:row;flex-wrap:wrap;gap:12px;align-items:center;\">\n    <a href=\"#enroll\" class=\"btn btn--primary btn--lg\" style=\"font-family:'Pretendard Variable',sans-serif;background:#D85A30;color:#fff;font-size:16px;font-weight:700;padding:16px 36px;border-radius:10px;text-decoration:none;letter-spacing:-0.01em;display:inline-block;\">무료 맛보기 보러 가기</a>\n    <span style=\"font-family:'Pretendard Variable',sans-serif;font-size:13px;color:#6B6B6B;letter-spacing:-0.01em;\">수강생 1,240명 · 평균 별점 4.8</span>\n  </div>\n\n  <hr style=\"border:none;border-top:1px solid #E5DFD3;width:100%;margin:48px 0 36px;\">\n\n  <ul style=\"list-style:none;padding:0;margin:0;display:flex;flex-direction:row;flex-wrap:wrap;gap:32px;\">\n    <li style=\"font-family:'Pretendard Variable',sans-serif;font-size:13px;color:#6B6B6B;letter-spacing:-0.015em;line-height:1.6;word-break:keep-all;\">\n      <strong style=\"display:block;font-family:'Gotham','Pretendard Variable',sans-serif;font-size:22px;font-weight:700;color:#1F1F1F;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;\">22분</strong>\n      블로그 글 1개 완성\n    </li>\n    <li style=\"font-family:'Pretendard Variable',sans-serif;font-size:13px;color:#6B6B6B;letter-spacing:-0.015em;line-height:1.6;word-break:keep-all;\">\n      <strong style=\"display:block;font-family:'Gotham','Pretendard Variable',sans-serif;font-size:22px;font-weight:700;color:#1F1F1F;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;\">8주</strong>\n      첫 수익 확인까지\n    </li>\n    <li style=\"font-family:'Pretendard Variable',sans-serif;font-size:13px;color:#6B6B6B;letter-spacing:-0.015em;line-height:1.6;word-break:keep-all;\">\n      <strong style=\"display:block;font-family:'Gotham','Pretendard Variable',sans-serif;font-size:22px;font-weight:700;color:#1F1F1F;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;\">1,240명</strong>\n      함께 시작한 수강생\n    </li>\n  </ul>\n</div>",
+        "design_tokens": {
+          "color_bg": "#F5EFE0",
+          "color_fg": "#1F1F1F",
+          "color_muted": "#6B6B6B",
+          "color_line": "#E5DFD3",
+          "color_brand": "#2C4E6B",
+          "color_brand_2": "#1A3248",
+          "color_accent": "#D85A30",
+          "color_soft": "#EDE7D9",
+          "font_family_sans": "'Pretendard Variable', 'Noto Sans KR', system-ui, sans-serif",
+          "radius_card": "16px"
+        },
+        "image_prompts": [
+          "베이지 크림 배경 위 손으로 메모한 노트와 얇은 펜, 따뜻한 간접 조명, 플랫레이 구도, 미니멀 에디토리얼",
+          "딥 블루와 코랄 투톤 추상 기하 도형, 격자 텍스처 위에 배치, 학술 매거진 표지 느낌, 한국적 절제미",
+          "빈 책상 위 노트북 화면에 텍스트 커서 깜빡이는 순간 클로즈업, 베이지 톤, 필름 그레인 질감",
+          "코랄-베이지-딥블루 3색 추상 수채화 번짐, 세로 세 구역으로 나뉜 구도, 글로벌 아카데믹 톤"
+        ],
+        "reasoning": "30~40대 직장인은 '요란한 광고'에 면역이 생겨 있다. 매거진 레이아웃처럼 텍스트 중심으로 정돈된 화면은 신뢰를 먼저 준다. 숫자(22분·8주·1,240명)를 Gotham tabular-nums로 세우면 광고가 아닌 데이터처럼 읽혀, '사기 아닌가' 의심을 한 박자 줄여준다."
+      },
+      {
+        "id": "v2",
+        "name": "풀블리드 임팩트",
+        "vibe": "강렬하고 단호한 선언. 헤드라인이 화면을 압도하고, 숫자가 증거로 작동.",
+        "color_palette": {
+          "bg": "#1A1510",
+          "fg": "#F5EFE0",
+          "brand": "#D85A30",
+          "accent": "#F5EFE0",
+          "soft": "#2E2620"
+        },
+        "html": "<div class=\"wrap\" style=\"max-width:100%;padding:0;position:relative;overflow:hidden;background:#1A1510;min-height:520px;display:flex;flex-direction:column;justify-content:center;\">\n\n  <div style=\"position:absolute;inset:0;pointer-events:none;\" aria-hidden=\"true\">\n    <img src=\"/assets/placeholder/hero-texture-dark.svg\" alt=\"\" style=\"width:100%;height:100%;object-fit:cover;opacity:0.18;\" />\n  </div>\n\n  <div style=\"position:relative;z-index:1;max-width:720px;margin:0 auto;padding:88px 24px 80px;\">\n\n    <div style=\"display:flex;align-items:center;gap:8px;margin-bottom:24px;\">\n      <span style=\"display:inline-block;width:28px;height:2px;background:#D85A30;\"></span>\n      <span style=\"font-family:'Pretendard Variable',sans-serif;font-size:12px;font-weight:600;color:#D85A30;letter-spacing:0.1em;text-transform:uppercase;\">Core Campus</span>\n    </div>\n\n    <h1 style=\"font-family:'GmarketSans',sans-serif;font-size:clamp(38px,7.5vw,72px);font-weight:700;color:#F5EFE0;letter-spacing:-0.03em;line-height:1.1;word-break:keep-all;margin:0 0 32px;\">\n      월 500,<br>\n      <span style=\"color:#D85A30;\">직장 다니면서</span><br>\n      찍었습니다.\n    </h1>\n\n    <p style=\"font-family:'Pretendard Variable',sans-serif;font-size:clamp(15px,2.2vw,19px);color:#C8BEB0;line-height:1.7;letter-spacing:-0.018em;word-break:keep-all;margin:0 0 44px;max-width:480px;\">밤 10시에 블로그 글 하나 올렸고,<br>다음 날 아침 커피 값이 들어와 있었습니다.<br>그게 첫 번째 달이었고, 지금은 매달 반복됩니다.</p>\n\n    <div style=\"display:flex;flex-direction:row;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:52px;\">\n      <a href=\"#enroll\" class=\"btn btn--primary btn--lg\" style=\"font-family:'Pretendard Variable',sans-serif;background:#D85A30;color:#fff;font-size:17px;font-weight:700;padding:18px 40px;border-radius:10px;text-decoration:none;letter-spacing:-0.01em;display:inline-block;\">지금 시작하기</a>\n      <a href=\"#curriculum\" style=\"font-family:'Pretendard Variable',sans-serif;font-size:14px;color:#C8BEB0;letter-spacing:-0.01em;text-decoration:underline;text-underline-offset:3px;\">커리큘럼 먼저 보기 →</a>\n    </div>\n\n    <div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#3A3028;border-radius:12px;overflow:hidden;\">\n      <div style=\"background:#2E2620;padding:20px 16px;text-align:center;\">\n        <strong style=\"display:block;font-family:'Gotham','Pretendard Variable',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:700;color:#F5EFE0;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;\">22분</strong>\n        <span style=\"font-family:'Pretendard Variable',sans-serif;font-size:12px;color:#8A7E74;letter-spacing:-0.01em;line-height:1.5;\">글 1개 완성</span>\n      </div>\n      <div style=\"background:#2E2620;padding:20px 16px;text-align:center;\">\n        <strong style=\"display:block;font-family:'Gotham','Pretendard Variable',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:700;color:#F5EFE0;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;\">8주</strong>\n        <span style=\"font-family:'Pretendard Variable',sans-serif;font-size:12px;color:#8A7E74;letter-spacing:-0.01em;line-height:1.5;\">첫 수익까지</span>\n      </div>\n      <div style=\"background:#2E2620;padding:20px 16px;text-align:center;\">\n        <strong style=\"display:block;font-family:'Gotham','Pretendard Variable',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:700;color:#F5EFE0;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;\">1,240명</strong>\n        <span style=\"font-family:'Pretendard Variable',sans-serif;font-size:12px;color:#8A7E74;letter-spacing:-0.01em;line-height:1.5;\">수강생</span>\n      </div>\n    </div>\n\n  </div>\n</div>",
+        "design_tokens": {
+          "color_bg": "#1A1510",
+          "color_fg": "#F5EFE0",
+          "color_muted": "#8A7E74",
+          "color_line": "#3A3028",
+          "color_brand": "#D85A30",
+          "color_brand_2": "#B8401E",
+          "color_accent": "#F5EFE0",
+          "color_soft": "#2E2620",
+          "font_family_sans": "'Pretendard Variable', 'Noto Sans KR', system-ui, sans-serif",
+          "radius_card": "12px"
+        },
+        "image_prompts": [
+          "짙은 다크 브라운 배경에 미세한 캔버스 그레인 텍스처, 코랄 포인트 라인 하나, 글로벌 아카데믹 톤",
+          "밤 도시 창문 너머 야경을 배경으로 노트북 화면만 밝게 빛나는 실루엣, 역광, 영화적 구도, 다크 톤",
+          "코랄 오렌지 잉크가 다크 베이지 종이에 번지는 순간, 매크로 클로즈업, 추상적, 한국적 정서",
+          "기하학 직선과 원이 다크 배경 위에 희미하게 겹쳐진 패턴, 코랄 한 획만 선명, 미니멀"
+        ],
+        "reasoning": "같은 타깃이라도 '이미 결심한 사람'에게는 망설임보다 확신이 필요하다. 다크 배경과 대형 헤드라인은 '이미 증명됐다'는 선언의 무게를 주고, 코랄 강조색이 행동 유도 버튼과 핵심 단어에만 쓰여 시선 흐름을 통제한다."
+      }
+    ],
+    "brief_echo": {
+      "purpose": "AI 글쓰기로 월 500 버는 1인 사업 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+      "audience": "직장 다니며 부업으로 월 300~500 찍고 싶은 30~40대 직장인·프리랜서",
+      "style_keywords": [
+        "editorial",
+        "warm beige",
+        "trustworthy",
+        "academic"
+      ],
+      "color_mood": "warm",
+      "reference_urls": []
+    },
+    "self_review": {
+      "ok": true,
+      "severity": "pass",
+      "hard_violations": [],
+      "soft_violations": [],
+      "len": 1127,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 0
+      }
+    },
+    "chosen_variant_id": "v1"
+  },
+  "course_id": "",
+  "created_at": "2026-05-18T17:17:23+00:00",
+  "status": "approved",
+  "telegram_message_id": null
+}

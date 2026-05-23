@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 완성하는 주 1회 콘텐츠 발행 시스템",
+    "lesson_no": 6,
+    "lesson_title": "발행 루틴 설계 — 재개 트리거 SOP 만들기",
+    "objective": "발행이 끊겼을 때 72시간 안에 복귀할 수 있는 재개 트리거 SOP를 Claude와 함께 작성하고 단계별 실행 조건을 명시한다",
+    "key_concepts": [
+      "SOP(표준운영절차) 구성 요소",
+      "최소 발행 기준(Minimum Viable Post) 설정",
+      "중단 감지 신호와 자동 복귀 루프"
+    ],
+    "exercise": "재개 트리거 SOP 1페이지 문서 (중단 감지 조건·복귀 액션 3단계·최소 발행 기준 포함)",
+    "duration_min": 15
+  }
+}

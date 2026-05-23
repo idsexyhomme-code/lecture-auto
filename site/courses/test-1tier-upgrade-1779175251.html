@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI 콘텐츠로 월 500 버는 1인 사업 — 코어 캠퍼스</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+
+
+<section class="course-hero">
+  <div class="wrap course-hero-inner">
+    <div class="course-hero-main">
+      <div class="course-breadcrumb">
+        <a href="../index.html">홈</a> · <a href="../index.html#courses">전체 코스</a> · <span>test-1tier-upgrade-1779175251</span>
+      </div>
+      <span class="badge">강의</span>
+      <h1 data-edit-field="site_config:course_overrides.test-1tier-upgrade-1779175251.title_override">AI 콘텐츠로 월 500 버는 1인 사업</h1>
+      <p class="lead" data-edit-field="site_config:course_overrides.test-1tier-upgrade-1779175251.tagline_override">글 한 편에서 월 500만 원짜리 수입 구조 만들기</p>
+
+      <div class="course-meta-row">
+        <span class="meta-chip">23편</span>
+        <span class="meta-chip">한 편 15분</span>
+        <span class="meta-chip">실습 결과물 남음</span>
+        <span class="meta-chip">평생 보기</span>
+      </div>
+    </div>
+
+    
+    <aside class="course-sidebar">
+      <div class="sidebar-card">
+        <div class="price-block">
+          <div class="price-label">수강료</div>
+          <div class="price-value">지금은 무료</div>
+          <div class="price-note">정식 가격 곧 공개</div>
+        </div>
+        <a href="#scripts" class="cta cta-primary cta-full">첫 편부터 보기</a>
+        <a href="../me/" class="cta cta-secondary cta-full">나중에 보기</a>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-includes">
+          <div class="includes-title">받게 되는 것</div>
+          <ul>
+            <li>✓ 영상 23편 (한 편 15분)</li>
+            <li>✓ 보고 따라 할 수 있는 실습 가이드</li>
+            <li>✓ 막힐 때 보는 Q&amp;A</li>
+            <li>✓ 한 번 결제하면 평생 봅니다</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+
+<article class="course-section">
+  <div class="wrap course-content">
+    <h2>이 코스는요</h2>
+    <div class="course-text"><h1>글 한 편으로 월 500 버는 구조 만들기</h1>
+<blockquote>
+<p>시간도 자신도 없어서 못 시작했다면, 이 16강이 첫 번째 수입 구조가 됩니다. 콘텐츠 1개를 5분 안에 쓰고, 채널 하나로 월 500만 원 숫자를 직접 계산합니다.</p>
+</blockquote>
+<p><strong>CTA:</strong> 지금 사전등록하기</p>
+<h2>이런 문제, 한 번쯤 겪으셨죠</h2>
+<ul>
+<li>퇴근 후 블로그 켜면 커서만 깜빡입니다. 뭘 써야 할지 모르겠습니다.</li>
+<li>유튜브·블로그·뉴스레터 다 해봤는데 팔로워만 늘고 돈은 0원입니다.</li>
+<li>콘텐츠로 돈 번다는 사람 이야기, 내 얘기 같지 않습니다. 나는 왜 안 되지 싶습니다.</li>
+</ul>
+<h2>이 코스는 이렇게 해결합니다</h2>
+<ul>
+<li>콘텐츠 1개를 5분 안에 뽑는 루틴을 직접 짜서 씁니다. 머릿속에서 꺼내는 방법을 처음부터 같이 합니다.</li>
+<li>블로그·유튜브·뉴스레터 중 내 상황에 맞는 채널 1개를 고릅니다. 셋 다 하다 셋 다 망하는 패턴을 끊습니다.</li>
+<li>월 500만 원을 단가·건수·고객 수로 숫자 그대로 쪼갭니다. 막연한 목표가 계산 가능한 숫자로 바뀝니다.</li>
+</ul>
+<h2>수강 후</h2>
+<ul>
+<li>16강 끝나면 내 이름 붙은 콘텐츠 채널 1개가 실제로 열려 있습니다.</li>
+<li>글 1편 쓰는 데 하루 종일 걸리던 게 30분 안으로 줄어듭니다.</li>
+<li>월 500 목표를 단가·고객 수·발행 횟수로 직접 쪼갠 나만의 수입 계획표가 손에 남습니다.</li>
+</ul>
+<h2>커리큘럼</h2>
+<p>16강 동안 채널 선택 → 콘텐츠 제작 루틴 → 첫 수익 구조 설계까지, 단계를 건너뛰지 않고 순서대로 합니다.</p>
+<h2>강사 소개</h2>
+<p>콘텐츠 하나로 월급을 대체한 1인 사업가입니다. 블로그 글 1편이 지금도 매달 견적 문의 3~5건을 만들어 줍니다. 직장 다니며 새벽에 쓴 글이 월 500 수입으로 바뀌는 걸 직접 겪었고, 그 루틴을 그대로 이 강의에 담았습니다.</p>
+<h2>후기</h2>
+<p>[실제 수강생 후기 자리 — 수기 입력]</p>
+<h2>FAQ</h2>
+<p><strong>Q. 콘텐츠 경험이 전혀 없어도 들을 수 있나요?</strong>
+네. 블로그 가입조차 안 된 상태를 기준으로 시작합니다. 글 쓰는 법보다 '뭘, 왜, 어떻게 쓸지'부터 같이 정합니다.</p>
+<p><strong>Q. 직장 다니면서 들을 수 있나요?</strong>
+강의 1개 평균 15~20분입니다. 출퇴근 시간이나 점심 30분으로 들을 수 있도록 잘랐습니다.</p>
+<p><strong>Q. 블로그·유튜브·뉴스레터 중 어떤 걸 해야 할지 모릅니다.</strong>
+강의 초반에 내 상황(시간, 말하기·글쓰기 선호, 현재 직무)에 맞는 채널 1개를 고르는 기준을 같이 정합니다. 셋 다 할 필요 없습니다.</p>
+<p><strong>Q. AI를 잘 몰라도 됩니까?</strong>
+챗GPT 가입만 되어 있으면 됩니다. 어떤 프롬프트를 어떤 순서로 쓰는지 강의에서 화면 그대로 보여줍니다.</p>
+<p><strong>Q. 16강 다 들으면 실제로 수익이 생기나요?</strong>
+강의는 수입 구조를 직접 설계하고 첫 콘텐츠를 발행하는 데까지 안내합니다. 수익 발생 시점은 발행 빈도와 채널에 따라 다릅니다.</p>
+<p><strong>Q. 강의는 언제까지 볼 수 있나요?</strong>
+결제일로부터 12개월 수강 가능합니다. 커리큘럼 업데이트 시 추가 비용 없이 볼 수 있습니다.</p>
+<p><strong>Q. 환불은 어떻게 됩니까?</strong>
+결제 후 7일 이내, 3강 미만 수강 시 전액 환불됩니다. 7일 초과 또는 3강 이상 수강 후에는 환불이 어렵습니다. 결제 전 커리큘럼을 충분히 확인해 주세요.</p>
+<h2>가격</h2>
+<p>얼리버드 가격: ₩390,000 (얼리버드 — 정가 590,000원, 마감일 별도 공지)
+<strong>CTA:</strong> 지금 결제</p></div>
+  </div>
+</article>
+
+
+
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
+    <h2>커리큘럼</h2>
+    <div class="course-text"><h1>AI 콘텐츠로 월 500 버는 1인 사업</h1>
+<blockquote>
+<p>글 한 편에서 월 500만 원짜리 수입 구조 만들기</p>
+</blockquote>
+<h2>결과 약속</h2>
+<ul>
+<li>콘텐츠 1개를 5분 안에 뽑아내는 제작 루틴을 직접 짜서 씁니다</li>
+<li>블로그·유튜브·뉴스레터 중 내 상황에 맞는 채널 1개를 골라 첫 수익 구조를 그립니다</li>
+<li>월 500만 원 목표 달성을 위한 단가·건수·고객 수를 숫자로 직접 계산합니다</li>
+</ul>
+<p><strong>타깃:</strong> 직장을 다니거나 막 그만둔 30~45세, 콘텐츠로 돈을 벌고 싶은데 시간도 자신도 없는 1인</p>
+<p><strong>선수지식:</strong> ChatGPT 또는 Claude 계정 1개 (무료 가능), 블로그·SNS·유튜브 중 계정 1개 이상 보유</p>
+<h2>차시별 커리큘럼</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>제목</th>
+<th>학습목표</th>
+<th>실습</th>
+<th>분</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>월 500, 숫자부터 쪼갭니다</td>
+<td>월 500만 원을 단가·건수·고객 수 3가지 숫자로 쪼개서 나만의 수익 계산표를 작성한다</td>
+<td>내 단가·건수·고객 수를 채운 수익 계산표 1장 (구글 스프레드시트)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1인 사업, 3가지 수익 모델 비교</td>
+<td>강의·컨설팅·콘텐츠 구독 3가지 모델을 비교해서 내 상황에 맞는 모델 1개를 고른다</td>
+<td>3가지 모델 비교표 + 내가 선택한 모델에 동그라미 친 의사결정 시트</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>내 고객, 딱 1명만 그립니다</td>
+<td>내 수익 모델의 고객 1명을 나이·직업·당장 해결하고 싶은 문제 3가지로 묘사한 페르소나 카드를 만든다</td>
+<td>고객 페르소나 카드 1장 (이름·나이·문제 3개·검색어 5개)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>채널 1개만 고릅니다</td>
+<td>블로그·유튜브·뉴스레터 3개 채널을 제작 시간·수익화 속도·내 상황 기준으로 비교해서 1개를 선택한다</td>
+<td>채널 비교 체크리스트 + 내 최종 선택 채널 1개 기재 시트</td>
+<td>15</td>
+</tr>
+<tr>
+<td>5</td>
+<td>AI한테 글 맡기는 프롬프트 짜기</td>
+<td>고객 페르소나와 주제를 넣으면 초안이 나오는 프롬프트 템플릿 1개를 직접 짜서 초안 1편을 뽑는다</td>
+<td>재사용 가능한 프롬프트 템플릿 1개 + 그걸로 뽑은 초안 1편</td>
+<td>15</td>
+</tr>
+<tr>
+<td>6</td>
+<td>AI 초안, 내 말투로 바꾸는 법</td>
+<td>AI가 쓴 초안에서 금지 표현 5개를 찾아내고 내 실제 말투로 고친 최종 글 1편을 완성한다</td>
+<td>수정 전·후 대조 문서 1편 (수정 이유 메모 포함)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>7</td>
+<td>콘텐츠 1개를 3곳에 뿌립니다</td>
+<td>글 1편을 블로그 본문·SNS 카드뉴스 캡션·뉴스레터 요약본으로 각각 다르게 변환해서 3개 포맷을 만든다</td>
+<td>원고 1편 → 3포맷 변환 문서 (블로그·SNS·뉴스레터 각 1개)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>8</td>
+<td>제목만 바꿔도 클릭이 달라집니다</td>
+<td>같은 글에 제목 5개를 써서 숫자형·질문형·문제형으로 분류하고 클릭 가능성이 높은 제목 1개를 고른다</td>
+<td>제목 5개 비교표 + 최종 선택 제목 1개 + 선택 이유 2줄</td>
+<td>15</td>
+</tr>
+<tr>
+<td>9</td>
+<td>영상 대본, 5분 안에 씁니다</td>
+<td>훅·본론·CTA 3단 구조로 3분짜리 영상 대본 1편을 직접 써서 소리 내어 읽어본다</td>
+<td>3분 영상 대본 1편 (훅·본론·CTA 구분 표시 포함)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>10</td>
+<td>영상 찍기 전 세팅 체크리스트</td>
+<td>조명·마이크·배경·카메라 4가지 항목을 내 집 환경 기준으로 점검해서 촬영 세팅 체크리스트를 완성한다</td>
+<td>내 집 환경 맞춤 촬영 세팅 체크리스트 1장</td>
+<td>15</td>
+</tr>
+<tr>
+<td>11</td>
+<td>영상 편집, 컷 편집만 씁니다</td>
+<td>10분 원본 영상에서 말 끊김·침묵·반복 구간을 잘라내 5분 이하 완성본 1편을 만든다</td>
+<td>컷 편집 완료된 영상 파일 1편 + 편집 전·후 시간 비교 메모</td>
+<td>15</td>
+</tr>
+<tr>
+<td>12</td>
+<td>썸네일 1장, 클릭 기준으로 만듭니다</td>
+<td>Canva로 텍스트·얼굴·배경색 3요소를 갖춘 유튜브 썸네일 1장을 만들어 기존 영상에 적용한다</td>
+<td>Canva로 만든 썸네일 1장 (1280x720 PNG)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>13</td>
+<td>콘텐츠 달력, 4주치 채웁니다</td>
+<td>주 2회 업로드 기준으로 4주 콘텐츠 달력을 채우고 각 주제와 예상 발행일을 기재한다</td>
+<td>4주 콘텐츠 달력 1장 (주제·채널·발행일 포함)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>14</td>
+<td>첫 유료 고객 부르는 글 1편</td>
+<td>내 서비스·강의·컨설팅을 소개하는 판매 글 1편을 문제·해결·가격·신청 방법 4단 구조로 직접 써서 발행한다</td>
+<td>4단 구조 판매 글 1편 (실제 발행 링크 포함)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>15</td>
+<td>DM·댓글 답장, 3줄로 씁니다</td>
+<td>자주 오는 문의 유형 3가지(가격·일정·내용)에 대한 답장 문구를 각각 3줄 이내로 써서 복붙용 문서를 만든다</td>
+<td>문의 유형 3가지 × 답장 문구 3줄 = 복붙용 응대 문서 1장</td>
+<td>15</td>
+</tr>
+<tr>
+<td>16</td>
+<td>수익 구조 점검표, 매주 씁니다</td>
+<td>이번 주 콘텐츠 업로드 수·문의 수·실제 수익을 기록하고 다음 주 바꿀 점 1가지를 적은 주간 점검표를 완성한다</td>
+<td>주간 수익 점검표 1장 (이번 주 실적 + 다음 주 개선 1가지 기재)</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<h2>평가</h2>
+<p>4주 안에 콘텐츠 8편 이상 발행 + 판매 글 1편 실제 게시 + 주간 점검표 4장 제출 시 수료 인증 발급</p></div>
+  </div>
+</article>
+
+
+
+<section id="scripts" class="course-section">
+  <div class="wrap">
+    <h2>차시 목록 <span class="muted-count">23편</span></h2>
+    <div class="lesson-list">
+      
+      <a href="../posts/1779175385-e6964c.html" class="lesson-row">
+        <div class="lesson-no">1</div>
+        <div class="lesson-body">
+          <h4>#1 월 500, 숫자부터 쪼갭니다</h4>
+          <p>월 500만 원을 단가·건수·고객 수 3가지 숫자로 쪼개서 나만의 수익 계산표를 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175420-a7ee5f.html" class="lesson-row">
+        <div class="lesson-no">2</div>
+        <div class="lesson-body">
+          <h4>#1 월 500, 숫자부터 쪼갭니다</h4>
+          <p>월 500만 원을 단가·건수·고객 수 3가지 숫자로 쪼개서 나만의 수익 계산표를 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175458-6d07e0.html" class="lesson-row">
+        <div class="lesson-no">3</div>
+        <div class="lesson-body">
+          <h4>#2 내가 팔 수 있는 글 주제 3개 찾기</h4>
+          <p>내 경력·관심사·검색 수요 3가지를 교차해서 수익 가능한 글 주제 3개를 뽑아냅니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175517-9cb98b.html" class="lesson-row">
+        <div class="lesson-no">4</div>
+        <div class="lesson-body">
+          <h4>#3 AI한테 내 목소리로 쓰게 만드는 법</h4>
+          <p>내 실제 글 샘플 3문단을 AI에게 먹여 나만의 톤 지시문을 완성합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175583-4ab98c.html" class="lesson-row">
+        <div class="lesson-no">5</div>
+        <div class="lesson-body">
+          <h4>#4 블로그 글 1편, 30분 안에 끝내기</h4>
+          <p>제목→개요→본문→CTA 순서로 AI와 함께 블로그 글 1편을 완성합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175618-74ebf8.html" class="lesson-row">
+        <div class="lesson-no">6</div>
+        <div class="lesson-body">
+          <h4>#4 블로그 글 1편, 30분 안에 끝내기</h4>
+          <p>제목→개요→본문→CTA 순서로 AI와 함께 블로그 글 1편을 완성합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175641-3dd79a.html" class="lesson-row">
+        <div class="lesson-no">7</div>
+        <div class="lesson-body">
+          <h4>#5 블로그 글 1편을 SNS 3곳에 뿌리기</h4>
+          <p>블로그 글 1편을 인스타·스레드·링크드인용으로 각각 다르게 잘라 3개 포스팅을 만듭니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175709-3e2a72.html" class="lesson-row">
+        <div class="lesson-no">8</div>
+        <div class="lesson-body">
+          <h4>#6 일주일치 글 60분 만에 예약하기</h4>
+          <p>AI로 7편 초안을 뽑고 예약 발행 도구에 등록해 일주일 스케줄을 완성합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175764-7c56fb.html" class="lesson-row">
+        <div class="lesson-no">9</div>
+        <div class="lesson-body">
+          <h4>#7 글이 돈 되는 구조: 링크 심는 법</h4>
+          <p>글 안에 제휴링크·상담 예약·상품 링크를 넣는 위치와 문장을 3곳에 배치합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175831-dc84f6.html" class="lesson-row">
+        <div class="lesson-no">10</div>
+        <div class="lesson-body">
+          <h4>#8 어떤 글이 클릭 받는지 숫자로 읽기</h4>
+          <p>블로그·인스타 인사이트 수치를 보고 조회수 상위 2편과 하위 2편을 비교해 차이점을 씁니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175901-909550.html" class="lesson-row">
+        <div class="lesson-no">11</div>
+        <div class="lesson-body">
+          <h4>#9 고객이 DM 보내게 만드는 글 구조</h4>
+          <p>문제 제기→공감→증거→제안 4단계로 문의 유도 글 1편을 씁니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175936-e7a6ec.html" class="lesson-row">
+        <div class="lesson-no">12</div>
+        <div class="lesson-body">
+          <h4>#9 고객이 DM 보내게 만드는 글 구조</h4>
+          <p>문제 제기→공감→증거→제안 4단계로 문의 유도 글 1편을 씁니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175954-7159cb.html" class="lesson-row">
+        <div class="lesson-no">13</div>
+        <div class="lesson-body">
+          <h4>#10 첫 유료 고객한테 보내는 제안서 쓰기</h4>
+          <p>서비스 내용·가격·납기·범위를 담은 1페이지 제안서를 AI와 함께 완성합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779175994-1ff1ca.html" class="lesson-row">
+        <div class="lesson-no">14</div>
+        <div class="lesson-body">
+          <h4>#10 첫 유료 고객한테 보내는 제안서 쓰기</h4>
+          <p>서비스 내용·가격·납기·범위를 담은 1페이지 제안서를 AI와 함께 완성합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779176006-149d2f.html" class="lesson-row">
+        <div class="lesson-no">15</div>
+        <div class="lesson-body">
+          <h4>#11 정보상품 목차 하루 만에 뽑기</h4>
+          <p>타깃 독자의 질문 10개를 뽑고 그것을 엮어 전자책 또는 영상 강의 목차 1개를 완성합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779176063-c04b28.html" class="lesson-row">
+        <div class="lesson-no">16</div>
+        <div class="lesson-body">
+          <h4>#12 정보상품 판매 페이지 텍스트 쓰기</h4>
+          <p>헤드라인·대상·내용·가격·구매 버튼 순서로 판매 페이지 텍스트를 완성합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779176080-a48a36.html" class="lesson-row">
+        <div class="lesson-no">17</div>
+        <div class="lesson-body">
+          <h4>#12 정보상품 판매 페이지 텍스트 쓰기</h4>
+          <p>헤드라인·대상·내용·가격·구매 버튼 순서로 판매 페이지 텍스트를 완성합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779176120-074eb3.html" class="lesson-row">
+        <div class="lesson-no">18</div>
+        <div class="lesson-body">
+          <h4>#13 글쓰기 대행 한 달 루틴 짜기</h4>
+          <p>수주→글 제작→납품→피드백 4단계를 월간 캘린더에 배치해 실제 운영 일정을 완성합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779176134-75c0bf.html" class="lesson-row">
+        <div class="lesson-no">19</div>
+        <div class="lesson-body">
+          <h4>#13 글쓰기 대행 한 달 루틴 짜기</h4>
+          <p>수주→글 제작→납품→피드백 4단계를 월간 캘린더에 배치해 실제 운영 일정을 완성합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779176184-4b875f.html" class="lesson-row">
+        <div class="lesson-no">20</div>
+        <div class="lesson-body">
+          <h4>#14 월 500 달성 여부를 숫자로 확인하기</h4>
+          <p>서비스 유형별 건수·단가·실수령액을 입력해 이번 달 수익을 계산하고 다음 달 목표를 조정합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779176185-79880d.html" class="lesson-row">
+        <div class="lesson-no">21</div>
+        <div class="lesson-body">
+          <h4>#14 월 500 달성 여부를 숫자로 확인하기</h4>
+          <p>서비스 유형별 건수·단가·실수령액을 입력해 이번 달 수익을 계산하고 다음 달 목표를 조정합니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779176246-bf4891.html" class="lesson-row">
+        <div class="lesson-no">22</div>
+        <div class="lesson-body">
+          <h4>#15 4주 콘텐츠 총정리 영상 만들기</h4>
+          <p>4주간 만든 글·제안서·판매 페이지를 묶어 내 사업을 소개하는 3분짜리 영상 스크립트를 씁니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1779176289-0a0e9b.html" class="lesson-row">
+        <div class="lesson-no">23</div>
+        <div class="lesson-body">
+          <h4>#15 4주 콘텐츠 총정리 영상 만들기</h4>
+          <p>4주간 만든 글·제안서·판매 페이지를 묶어 내 사업을 소개하는 3분짜리 영상 스크립트를 씁니다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
+    <h2>막힐 때 보는 Q&amp;A</h2>
+    
+      <div class="faq-block"><p><strong>Q. 글을 한 번도 써본 적 없어도 되나요?</strong>
+글 못 쓴다는 분들이 오히려 더 잘 따라오세요. 블로그 가입만 돼 있으면 됩니다. 첫 강의 전에 계정 하나만 만들어 오세요.</p>
+<p><strong>Q. AI 툴을 전혀 몰라도 수강 가능한가요?</strong>
+ChatGPT 검색창에 뭔가 쳐본 적 있으면 충분합니다. 툴 사용법은 강의 안에서 처음부터 같이 합니다.</p>
+<p><strong>Q. 직장 다니면서 따라갈 수 있나요?</strong>
+퇴근 후 하루 30분으로 짠 커리큘럼입니다. 영상은 녹화본으로 제공되니 주말에 몰아봐도 됩니다.</p>
+<p><strong>Q. 월 500만 원은 언제부터 가능한가요?</strong>
+시작 시점은 사람마다 다릅니다. 수입 구조를 '어떻게 짜는지'를 배우는 강의라는 점은 미리 말씀드려요.</p>
+<p><strong>Q. 수강료가 부담돼요. 할인 혜택이 있나요?</strong>
+할인 정책은 제가 강사에게 직접 확인 후 답변드릴게요. 성함과 연락처 남겨주시면 바로 확인해 드립니다.</p>
+<p><strong>Q. 환불은 어떻게 되나요?</strong>
+환불 관련은 강사 확인이 필요한 사안입니다. 제가 직접 확인 후 안내드릴게요. 잠깐만 기다려 주세요 😊</p>
+<p><strong>Q. 강의 듣고 나서 질문은 어디서 하나요?</strong>
+수강 중 질문 채널이 따로 있습니다. 강사에게 확인 후 정확한 방법 바로 안내해 드릴게요.</p></div>
+    
+  </div>
+</article>
+
+
+<section class="course-cta-bottom">
+  <div class="wrap">
+    <h3>오늘 한 편</h3>
+    <p>한 편 15분, 보고 따라 하면 그날 일에 바로 씁니다.</p>
+    <div class="cta-row">
+      <a href="#scripts" class="cta cta-primary">첫 편 보기</a>
+      <a href="../index.html#courses" class="cta cta-secondary">다른 코스</a>
+    </div>
+  </div>
+</section>
+
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

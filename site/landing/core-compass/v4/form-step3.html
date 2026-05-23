@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>진단 3/3 — Core Compass</title>
+  <link rel="stylesheet" href="../../../../design-system/base.css">
+  <link rel="stylesheet" href="../../../../design-system/components.css">
+  <style>
+    .form-page { max-width: 520px; margin: 0 auto; padding: var(--sp-8) var(--sp-5); }
+    .form-page__title { font-size: clamp(20px, 4vw, 28px); font-weight: 800; letter-spacing: -0.025em; margin-bottom: var(--sp-3); }
+    .field-group { margin-bottom: var(--sp-6); }
+    .field-label { font-size: var(--fs-sm); font-weight: 600; color: var(--color-ink-soft); margin-bottom: var(--sp-2); }
+    .chip-row { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+    .chip-radio {
+      position: relative; display: inline-flex; align-items: center;
+      padding: var(--sp-3) var(--sp-5);
+      background: var(--color-bg-card); border: 1px solid var(--color-border);
+      border-radius: var(--r-full); cursor: pointer;
+      font-size: var(--fs-sm); font-weight: 500;
+      transition: all var(--duration-base);
+    }
+    .chip-radio input { position: absolute; opacity: 0; pointer-events: none; }
+    .chip-radio:has(input:checked) { background: var(--color-coral); color: #fff; border-color: var(--color-coral); }
+    .chip-radio:hover { border-color: var(--color-coral); }
+    .progress-bar-mini { background: var(--color-bg-subtle); border-radius: var(--r-full); height: 8px; margin-bottom: var(--sp-6); overflow: hidden; }
+    .progress-bar-mini__fill { background: var(--color-coral); height: 100%; transition: width var(--duration-base); }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="https://corecampus.kr"><span class="site-logo__mark"></span>Core Compass</a>
+    <span class="badge badge--blue">3 / 3</span>
+  </div>
+</header>
+<main>
+  <div class="form-page">
+    <div class="progress-bar-mini"><div class="progress-bar-mini__fill" style="width: 100%;"></div></div>
+    <h1 class="form-page__title">시도해본 경험</h1>
+    <p style="color: var(--color-text-muted); font-size: var(--fs-md); margin-bottom: var(--sp-6); line-height: 1.7;">
+      마지막 단계입니다. 6 LLM이 정확한 진단을 위해 사용합니다.
+    </p>
+
+    <form id="step3-form">
+      <div class="field-group">
+        <div class="field-label">현재 단계 (필수)</div>
+        <div class="chip-row">
+          <label class="chip-radio"><input type="radio" name="stage" value="idea" required>아이디어만 있음</label>
+          <label class="chip-radio"><input type="radio" name="stage" value="validating">검증 중</label>
+          <label class="chip-radio"><input type="radio" name="stage" value="first_sale">첫 결제 받음</label>
+          <label class="chip-radio"><input type="radio" name="stage" value="scaling">확장 중</label>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label">사용 가능 예산 (월 마케팅)</div>
+        <div class="chip-row">
+          <label class="chip-radio"><input type="radio" name="budget" value="0">0원 (시간만)</label>
+          <label class="chip-radio"><input type="radio" name="budget" value="100k">10만원 이하</label>
+          <label class="chip-radio"><input type="radio" name="budget" value="500k">50만원 이하</label>
+          <label class="chip-radio"><input type="radio" name="budget" value="1m">100만원 이상</label>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: var(--sp-2);">
+        <a href="form-step2.html" class="btn btn--secondary" style="flex: 1;">← 이전</a>
+        <button type="submit" class="btn btn--primary" style="flex: 2;">분석 시작 →</button>
+      </div>
+    </form>
+
+    <p style="margin-top: var(--sp-4); font-size: var(--fs-xs); color: var(--color-text-muted); text-align: center;">
+      AI 6명이 회원님 답변을 종합해 5~10분 안에 진단을 완성합니다.
+    </p>
+  </div>
+</main>
+<script>
+  document.getElementById('step3-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const step1 = JSON.parse(sessionStorage.getItem('compass_step1') || '{}');
+    const step2 = JSON.parse(sessionStorage.getItem('compass_step2') || '{}');
+    const allData = {
+      ...step1,
+      ...step2,
+      stage: fd.get('stage'),
+      budget: fd.get('budget'),
+    };
+    sessionStorage.setItem('compass_form', JSON.stringify(allData));
+
+    // 실제로는 서버 API 호출 → 진단 생성 시작
+    // 여기는 시안 — wait.html로 리다이렉트
+    window.location.href = 'wait.html';
+  });
+</script>
+</body>
+</html>

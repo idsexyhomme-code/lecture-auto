@@ -172,10 +172,82 @@ def is_html_safe(s: str) -> bool:
     return True
 
 
+# ─────────────────────────────────────────────────────────────────
+# Design System SKILL.md 자동 주입 (v1.1+)
+# ─────────────────────────────────────────────────────────────────
+
+def _load_ds_skill() -> str:
+    import os
+    try:
+        here = os.path.dirname(os.path.abspath(__file__))
+        skill_path = os.path.join(here, '..', 'design-system', 'SKILL.md')
+        if os.path.isfile(skill_path):
+            with open(skill_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            return (
+                "\n\n## ━━━ Design System SKILL.md (자동 주입) ━━━\n\n"
+                "site_developer가 site_config·extra_pages 등을 만들 때 따를 디자인 시스템 규칙:\n\n"
+                + content
+            )
+    except Exception:
+        pass
+    return ""
+
+
+try:
+    _DS_SKILL_SD = _load_ds_skill()
+except Exception:
+    _DS_SKILL_SD = ""
+
+
+def _load_reference_docs() -> str:
+    """Phase 1.3 — Apify·외부 분석 reference 문서 자동 주입.
+
+    리포 루트의 *_PATTERN.md, COMPETITIVE_ANALYSIS.md 같은 reference 문서를
+    하나로 묶어 site_developer SYSTEM에 컨텍스트로 추가.
+    """
+    import os
+    try:
+        here = os.path.dirname(os.path.abspath(__file__))
+        root = os.path.abspath(os.path.join(here, '..'))
+        candidates = [
+            'FASTCAMPUS_PATTERN.md',
+            'COMPETITIVE_ANALYSIS.md',
+        ]
+        chunks = []
+        for name in candidates:
+            p = os.path.join(root, name)
+            if os.path.isfile(p):
+                with open(p, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                # 각 reference 5000자 한도 (token 비용 통제)
+                if len(content) > 5000:
+                    content = content[:5000] + "\n\n[…문서 일부 생략, 전체는 리포 루트 파일 참조…]"
+                chunks.append(f"\n\n## ━━━ Reference: {name} ━━━\n\n{content}")
+        if chunks:
+            return (
+                "\n\n## ━━━ External Reference Docs (자동 주입) ━━━\n\n"
+                "Apify·Chrome MCP로 분석한 외부 1위 사이트의 패턴 문서. "
+                "site_developer는 이 reference의 디자인 원칙을 학습해 Core Compass에 적용한다. "
+                "단, 헌법 §4 ban 단어(운명·100%·보장·확실히)와 §6 잠금 영역(메인 헤드라인·가격)은 절대 위반하지 않는다.\n"
+                + "".join(chunks)
+            )
+    except Exception:
+        pass
+    return ""
+
+
+try:
+    _REF_DOCS_SD = _load_reference_docs()
+except Exception:
+    _REF_DOCS_SD = ""
+
+
 class SiteDeveloper(BaseAgent):
     name = "site_developer"
     display_name = "사이트 개발자"
-    system_prompt = SYSTEM
+    # SKILL.md + Reference docs 강제 주입 — design-system v1.1+ 규칙 + Fast Campus 등 외부 패턴
+    system_prompt = SYSTEM + _DS_SKILL_SD + _REF_DOCS_SD
 
     def run(self, brief: dict) -> list[AgentResult]:
         """brief 예시:

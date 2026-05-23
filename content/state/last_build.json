@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "duration_sec": 1.07,
+  "stdout_tail": "Built site with 23 course(s) and 248 post(s).\n",
+  "stderr_tail": "",
+  "files_changed": 299,
+  "error": null,
+  "ts": 1779248832.4912362
+}

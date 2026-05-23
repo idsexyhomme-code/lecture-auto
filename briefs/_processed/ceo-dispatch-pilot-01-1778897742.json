@@ -1,0 +1,8 @@
+{
+  "agent": "ceo",
+  "brief": {
+    "mode": "dispatch_workflow",
+    "workflow": "pilot_01",
+    "date_kst": "2026-05-16"
+  }
+}

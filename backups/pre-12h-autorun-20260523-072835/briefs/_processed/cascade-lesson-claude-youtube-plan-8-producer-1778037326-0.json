@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-youtube-plan",
+    "course_title": "Claude로 완성하는 1인 사업가 유튜브 기획",
+    "lesson_no": 8,
+    "lesson_title": "나만의 유튜브 기획 SOP 만들기",
+    "objective": "1~7차시 전 과정을 돌아보며 내 채널에 최적화된 영상 1편 제작 표준 프로세스(SOP)를 단계별 체크리스트로 작성하고 재사용 프롬프트 세트를 정리한다",
+    "key_concepts": [
+      "SOP 문서 구조",
+      "프롬프트 라이브러리 구성",
+      "반복 가능한 기획 루틴"
+    ],
+    "exercise": "유튜브 기획 SOP 문서 (단계별 체크리스트 + 재사용 프롬프트 5개 이상)",
+    "duration_min": 15
+  }
+}

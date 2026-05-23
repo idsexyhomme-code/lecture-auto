@@ -1,0 +1,182 @@
+{
+  "claude-autowork": {
+    "slug": "claude-autowork",
+    "title": "반복 업무 시간 줄이기 실전",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "반복 업무 시간 줄이기 실전",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-autowork.html"
+  },
+  "claude-bizflow": {
+    "slug": "claude-bizflow",
+    "title": "혼자 일하면서 시간 늘리기 — 1인 사업 자동화",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "혼자 일하면서 시간 늘리기 — 1인 사업 자동화",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-bizflow.html"
+  },
+  "claude-content-engine": {
+    "slug": "claude-content-engine",
+    "title": "콘텐츠, 3주째 끊기지 않게 씁니다",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "콘텐츠, 3주째 끊기지 않게 씁니다",
+    "category": "반복 업무 줄이기",
+    "price": "₩398,000",
+    "v1_path": "site/courses/claude-content-engine.html"
+  },
+  "claude-customer-script": {
+    "slug": "claude-customer-script",
+    "title": "고객 응대 하루 30분으로 줄이기",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "고객 응대 하루 30분으로 줄이기",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-customer-script.html"
+  },
+  "claude-customer-support": {
+    "slug": "claude-customer-support",
+    "title": "내 말투로 대신 답하는 문의 응답",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "내 말투로 대신 답하는 문의 응답",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-customer-support.html"
+  },
+  "claude-daily-recap": {
+    "slug": "claude-daily-recap",
+    "title": "하루 5분 회고, 매일 쌓이는 루틴",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "하루 5분 회고, 매일 쌓이는 루틴",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-daily-recap.html"
+  },
+  "claude-intro-email": {
+    "slug": "claude-intro-email",
+    "title": "한 페이지 인사메일 — 답장이 오는 메일",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "한 페이지 인사메일 — 답장이 오는 메일",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-intro-email.html"
+  },
+  "claude-launchpad": {
+    "slug": "claude-launchpad",
+    "title": "부캐 서비스 7일 런칭 — 첫 유료 고객까지",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "부캐 서비스 7일 런칭 — 첫 유료 고객까지",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-launchpad.html"
+  },
+  "claude-mail-writing": {
+    "slug": "claude-mail-writing",
+    "title": "1페이지 비즈니스 메일 잘 쓰는 법",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "1페이지 비즈니스 메일 잘 쓰는 법",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-mail-writing.html"
+  },
+  "claude-meeting-notes": {
+    "slug": "claude-meeting-notes",
+    "title": "회의 끝나고 5분, 회의록 정리법",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "회의 끝나고 5분, 회의록 정리법",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-meeting-notes.html"
+  },
+  "claude-monthly-revenue": {
+    "slug": "claude-monthly-revenue",
+    "title": "매출 정리·보고서, 5분으로 끝내기",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "매출 정리·보고서, 5분으로 끝내기",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-monthly-revenue.html"
+  },
+  "claude-pricing-page": {
+    "slug": "claude-pricing-page",
+    "title": "전환 잘 되는 가격 페이지 만들기",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "전환 잘 되는 가격 페이지 만들기",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-pricing-page.html"
+  },
+  "claude-sop-onboarding": {
+    "slug": "claude-sop-onboarding",
+    "title": "팀 온보딩 SOP 6주 완성",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "팀 온보딩 SOP 6주 완성",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-sop-onboarding.html"
+  },
+  "claude-sop": {
+    "slug": "claude-sop",
+    "title": "외주·인수인계 바로 쓰는 SOP 만들기",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "외주·인수인계 바로 쓰는 SOP 만들기",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-sop.html"
+  },
+  "claude-youtube-plan": {
+    "slug": "claude-youtube-plan",
+    "title": "유튜브 채널 기획 4주 완성",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "유튜브 채널 기획 4주 완성",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/claude-youtube-plan.html"
+  },
+  "core-campus-general": {
+    "slug": "core-campus-general",
+    "title": "코어 캠퍼스 안내",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "코어 캠퍼스 안내",
+    "category": "반복 업무 줄이기",
+    "price": "TBD",
+    "v1_path": "site/courses/core-campus-general.html"
+  },
+  "core-campus-meta": {
+    "slug": "core-campus-meta",
+    "title": "core-campus-meta",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "core-campus-meta",
+    "category": "반복 업무 줄이기",
+    "price": "TBD",
+    "v1_path": "site/courses/core-campus-meta.html"
+  },
+  "deepwork-1hr-test": {
+    "slug": "deepwork-1hr-test",
+    "title": "딥워크 1시간 진입법",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "딥워크 1시간 진입법",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/deepwork-1hr-test.html"
+  },
+  "deepwork-1hr": {
+    "slug": "deepwork-1hr",
+    "title": "딥워크 1시간 진입법",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "딥워크 1시간 진입법",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/deepwork-1hr.html"
+  },
+  "tax-basics-solopreneur": {
+    "slug": "tax-basics-solopreneur",
+    "title": "1인 사업가 세금 기초 완전정복",
+    "description": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+    "hero": "1인 사업가 세금 기초 완전정복",
+    "category": "반복 업무 줄이기",
+    "price": "₩390,000",
+    "v1_path": "site/courses/tax-basics-solopreneur.html"
+  }
+}

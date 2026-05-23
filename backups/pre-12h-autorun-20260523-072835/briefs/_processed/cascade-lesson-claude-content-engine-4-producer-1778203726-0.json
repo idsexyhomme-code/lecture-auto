@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 완성하는 주 1회 콘텐츠 발행 시스템",
+    "lesson_no": 4,
+    "lesson_title": "초안 완성 — Claude와 공동 집필로 스크립트 전문 작성",
+    "objective": "뼈대를 바탕으로 Claude 반복 프롬프트(섹션별 확장 요청)를 사용해 촬영 가능한 완성 스크립트 1편(800~1200자)을 완성한다",
+    "key_concepts": [
+      "섹션 단위 확장 프롬프트 패턴",
+      "내 말투를 학습시키는 톤 캘리브레이션 프롬프트",
+      "과잉 생성 결과물 편집 기준(삭제 우선 원칙)"
+    ],
+    "exercise": "촬영용 완성 스크립트 문서 (800~1200자, 장면 전환 큐 포함)",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 2,
+    "lesson_title": "경쟁 콘텐츠 5개 뜯어본다",
+    "objective": "같은 주제 영상 5개를 보고 조회수 높은 이유를 항목별로 비교한 표를 완성한다",
+    "key_concepts": [
+      "조회수 결정 요소",
+      "제목·썸네일 패턴",
+      "댓글에서 읽는 수요 신호"
+    ],
+    "exercise": "경쟁 영상 5개 비교표 (제목·조회수·댓글 수요·내가 쓸 포인트)",
+    "duration_min": 15
+  }
+}

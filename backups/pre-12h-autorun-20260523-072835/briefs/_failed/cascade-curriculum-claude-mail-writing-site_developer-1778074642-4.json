@@ -1,0 +1,9 @@
+{
+  "agent": "site_developer",
+  "brief": {
+    "instruction": "새 코스 'Claude로 1페이지 비즈니스 메일 작성법' (course_id: claude-mail-writing)가 추가됐습니다. site_config.json의 course_overrides에 이 코스의 *title_override*와 *tagline_override*를 다듬어 주세요. 다른 필드는 절대 만지지 않습니다. 코스 톤 힌트: 막히는 인사메일·후속메일을 15분 안에 완성한다",
+    "brand_tone": "차분하고 단단한 한국어, 과장 표현 금지",
+    "target_audience": "처음 만난 사람·잠재 고객에게 메일 쓸 때 매번 막히는 1인 사업가",
+    "restrictions": "course_overrides 외 다른 필드 변경 금지, WCAG AA 유지"
+  }
+}

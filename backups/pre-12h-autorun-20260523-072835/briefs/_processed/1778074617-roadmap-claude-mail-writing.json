@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-mail-writing",
+    "topic": "Claude로 짧고 단단한 인사메일·후속메일을 1페이지 안에 작성하는 법",
+    "audience": "처음 만난 사람·잠재 고객에게 메일 보낼 때 매번 막히는 1인 사업가",
+    "duration_weeks": 3,
+    "lesson_count": 3,
+    "format": "video",
+    "promises_hint": [
+      "5분 안에 깔끔한 인사메일 1통 완성",
+      "후속·재의뢰 메일까지 일관된 톤으로",
+      "답신을 받아내는 문장 패턴"
+    ]
+  }
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Core Campus Design System — Preview</title>
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../components.css">
+  <style>
+    .ds-section { padding: var(--sp-12) 0; border-bottom: 1px solid var(--color-border-soft); }
+    .ds-section__head { margin-bottom: var(--sp-6); }
+    .ds-section__num {
+      font-family: var(--font-sans-en);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--color-coral);
+      margin-bottom: var(--sp-2);
+    }
+    .ds-section__title { font-size: var(--fs-2xl); font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--sp-2); }
+    .ds-section__desc { color: var(--color-text-muted); font-size: var(--fs-sm); }
+
+    .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--sp-3); }
+    .swatch {
+      border-radius: var(--r-md);
+      padding: var(--sp-4);
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-card);
+    }
+    .swatch__chip { width: 100%; height: 64px; border-radius: var(--r-sm); margin-bottom: var(--sp-3); }
+    .swatch__name { font-size: var(--fs-sm); font-weight: 600; color: var(--color-ink); }
+    .swatch__hex { font-family: var(--font-sans-en); font-size: var(--fs-xs); color: var(--color-text-muted); margin-top: 2px; }
+
+    .type-row { padding: var(--sp-4) 0; border-bottom: 1px dashed var(--color-border-soft); }
+    .type-row__meta { font-family: var(--font-sans-en); font-size: var(--fs-xs); color: var(--color-text-muted); margin-bottom: var(--sp-2); }
+
+    .demo-stack > * + * { margin-top: var(--sp-3); }
+    .demo-row { display: flex; gap: var(--sp-2); flex-wrap: wrap; align-items: center; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="#top">
+      <span class="site-logo__mark"></span>
+      Design System
+    </a>
+    <a class="site-header__link" href="../SKILL.md">SKILL.md</a>
+  </div>
+</header>
+
+<main id="top" class="container container--wide">
+
+  <!-- HEADER -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <p class="ds-section__num">00</p>
+      <h1 class="ds-section__title">Core Campus Design System v1.1</h1>
+      <p class="ds-section__desc">디자인 시스템 — 살아있는 컴포넌트 갤러리. 모든 페이지가 이 위에서 만들어집니다.</p>
+    </div>
+  </section>
+
+  <!-- COLOR -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <p class="ds-section__num">01 · Color</p>
+      <h2 class="ds-section__title">컬러 팔레트</h2>
+      <p class="ds-section__desc">회원님 감귤박람회 작업물과 동일한 톤. 코랄 + 베이지 + 딥블루.</p>
+    </div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch__chip" style="background:#D85A30"></div><div class="swatch__name">Coral</div><div class="swatch__hex">#D85A30</div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#FBE6DE"></div><div class="swatch__name">Coral Soft</div><div class="swatch__hex">#FBE6DE</div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#2C4E6B"></div><div class="swatch__name">Deep Blue</div><div class="swatch__hex">#2C4E6B</div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#7A8B5C"></div><div class="swatch__name">Olive</div><div class="swatch__hex">#7A8B5C</div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#F5EFE0;border:1px solid var(--color-border)"></div><div class="swatch__name">BG Base</div><div class="swatch__hex">#F5EFE0</div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#FAF6EB;border:1px solid var(--color-border)"></div><div class="swatch__name">BG Subtle</div><div class="swatch__hex">#FAF6EB</div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#1F1F1F"></div><div class="swatch__name">Ink</div><div class="swatch__hex">#1F1F1F</div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#6B6B6B"></div><div class="swatch__name">Text Muted</div><div class="swatch__hex">#6B6B6B</div></div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <p class="ds-section__num">02 · Typography</p>
+      <h2 class="ds-section__title">타이포 스케일</h2>
+      <p class="ds-section__desc">한글 자간 -0.022em ~ -0.028em. line-height 1.55~1.75. word-break keep-all.</p>
+    </div>
+
+    <div class="type-row">
+      <div class="type-row__meta">tg-hero · GmarketSans 700 · 64px</div>
+      <p class="tg-hero">6단계 AI 분석으로 정리</p>
+    </div>
+    <div class="type-row">
+      <div class="type-row__meta">tg-display · Pretendard 800 · 44px</div>
+      <p class="tg-display">받게 되는 것</p>
+    </div>
+    <div class="type-row">
+      <div class="type-row__meta">tg-h1 · Pretendard 700 · 36px</div>
+      <p class="tg-h1">지금 막혀 있는 곳</p>
+    </div>
+    <div class="type-row">
+      <div class="type-row__meta">tg-h2 · Pretendard 700 · 30px</div>
+      <p class="tg-h2">맞는 사업 3가지</p>
+    </div>
+    <div class="type-row">
+      <div class="type-row__meta">tg-h3 · Pretendard 700 · 20px</div>
+      <p class="tg-h3">일하는 성향</p>
+    </div>
+    <div class="type-row">
+      <div class="type-row__meta">tg-body · Pretendard 400 · 16px / line-height 1.65</div>
+      <p class="tg-body">결제 후 개인 URL로 잠금 해제되는 1페이지 진단 리포트입니다. 나의 일하는 방식, 맞는 사업 방향, 90일 실행 순서를 한 장으로 정리합니다.</p>
+    </div>
+    <div class="type-row">
+      <div class="type-row__meta">tg-body-sm · 13px</div>
+      <p class="tg-body-sm">결제 → 30분 안에 이메일 수신 → 개인 URL에서 24시간 재열람</p>
+    </div>
+    <div class="type-row">
+      <div class="type-row__meta">tg-caption · Gotham 500 · 12px · uppercase</div>
+      <p class="tg-caption">Preview · PDF 미리보기</p>
+    </div>
+    <div class="type-row">
+      <div class="type-row__meta">tg-num · Gotham 400 · tabular-nums</div>
+      <p style="font-size:32px"><span class="tg-num">₩9,900</span></p>
+    </div>
+  </section>
+
+  <!-- BUTTONS -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <p class="ds-section__num">03 · Buttons</p>
+      <h2 class="ds-section__title">버튼</h2>
+    </div>
+    <div class="demo-row">
+      <button class="btn btn--primary btn--lg">9,900원 결제하고 진단 받기</button>
+      <button class="btn btn--primary">받기</button>
+      <button class="btn btn--secondary">자세히 보기</button>
+      <button class="btn btn--ghost">건너뛰기</button>
+    </div>
+  </section>
+
+  <!-- BADGES -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <p class="ds-section__num">04 · Badges</p>
+      <h2 class="ds-section__title">배지</h2>
+    </div>
+    <div class="demo-row">
+      <span class="badge">한정 100명 · 9,900원</span>
+      <span class="badge badge--blue">결제 후 30분</span>
+    </div>
+  </section>
+
+  <!-- CARDS -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <p class="ds-section__num">05 · Cards</p>
+      <h2 class="ds-section__title">카드</h2>
+    </div>
+    <div class="grid grid--3">
+      <div class="card card--feature">
+        <div class="card__index">01</div>
+        <h3 class="card__title">일하는 성향</h3>
+        <p class="card__body">내가 어떤 방식으로 일할 때 오래 가는지, 한 장으로 정리합니다.</p>
+      </div>
+      <div class="card card--feature">
+        <div class="card__index">02</div>
+        <h3 class="card__title">맞는 사업 3가지</h3>
+        <p class="card__body">현재 상황과 성향을 바탕으로 시도해볼 수 있는 방향을 제안합니다.</p>
+      </div>
+      <div class="card card--feature">
+        <div class="card__index">03</div>
+        <h3 class="card__title">90일 로드맵</h3>
+        <p class="card__body">막연한 아이디어를 이번 주부터 시작할 수 있는 실행 순서로 바꿉니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BULLET CARDS -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <p class="ds-section__num">06 · Bullet Cards</p>
+      <h2 class="ds-section__title">문제 불릿</h2>
+    </div>
+    <div class="stack stack--sm">
+      <div class="bullet-card">ChatGPT를 오래 써도 내 상황에 맞는 사업 방향은 잘 나오지 않습니다.</div>
+      <div class="bullet-card">하고 싶은 건 많은데, 무엇부터 시작해야 할지 흐려집니다.</div>
+    </div>
+  </section>
+
+  <!-- STEP DOTS -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <p class="ds-section__num">07 · Step Dots</p>
+      <h2 class="ds-section__title">6단계</h2>
+    </div>
+    <div class="grid grid--6">
+      <div class="step-dot"><div class="step-dot__num">1</div><div class="step-dot__label">성향</div></div>
+      <div class="step-dot"><div class="step-dot__num">2</div><div class="step-dot__label">방향</div></div>
+      <div class="step-dot"><div class="step-dot__num">3</div><div class="step-dot__label">제외</div></div>
+      <div class="step-dot"><div class="step-dot__num">4</div><div class="step-dot__label">아이디어</div></div>
+      <div class="step-dot"><div class="step-dot__num">5</div><div class="step-dot__label">90일</div></div>
+      <div class="step-dot"><div class="step-dot__num">6</div><div class="step-dot__label">3가지</div></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <p class="ds-section__num">08 · FAQ</p>
+      <h2 class="ds-section__title">자주 묻는 질문</h2>
+    </div>
+    <div style="max-width: 720px;">
+      <details class="faq">
+        <summary><span><span class="faq__q-label">Q.</span> PDF 파일을 직접 받나요?</span></summary>
+        <div class="faq__body">PDF 파일은 보내드리지 않고, 결제 후 회원님 전용 URL을 이메일로 보내드립니다.</div>
+      </details>
+      <details class="faq">
+        <summary><span><span class="faq__q-label">Q.</span> 환불 가능한가요?</span></summary>
+        <div class="faq__body">결제 후 개인 URL을 발송하기 전이라면 환불해드립니다.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- TOAST -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <p class="ds-section__num">09 · Toast</p>
+      <h2 class="ds-section__title">토스트 알림</h2>
+    </div>
+    <div class="demo-stack" style="max-width:360px;">
+      <div class="toast toast--success">
+        <span class="toast__icon">✓</span>
+        <div class="toast__body">결제가 완료됐어요. 곧 이메일로 개인 URL 보내드립니다.</div>
+        <button class="toast__close">×</button>
+      </div>
+      <div class="toast toast--warning">
+        <span class="toast__icon">⚠</span>
+        <div class="toast__body">URL 만료까지 30분 남았습니다.</div>
+        <button class="toast__close">×</button>
+      </div>
+      <div class="toast toast--info">
+        <span class="toast__icon">ⓘ</span>
+        <div class="toast__body">결제 후 30분 안에 이메일이 도착하지 않으면 스팸함을 확인해주세요.</div>
+        <button class="toast__close">×</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLTIP -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <p class="ds-section__num">10 · Tooltip</p>
+      <h2 class="ds-section__title">툴팁</h2>
+    </div>
+    <div class="demo-row">
+      <button class="btn btn--secondary tooltip" data-tooltip="결제 직후 30분 이내">진단 받기</button>
+      <span class="badge tooltip" data-tooltip="한정 100명 · Core Compass 첫 테스트 가격">한정 100명</span>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="ds-section">
+    <div class="ds-section__head">
+      <p class="ds-section__num">11 · Final CTA</p>
+      <h2 class="ds-section__title">최종 CTA (워밍블루)</h2>
+    </div>
+    <div style="max-width: 560px;">
+      <div class="final-cta">
+        <h2 class="final-cta__title">지금 결제, 30분 후 진단.</h2>
+        <p class="final-cta__sub">한정 100명 · 9,900원</p>
+        <a class="btn btn--primary btn--lg" href="#">결제하고 진단 받기</a>
+        <p class="final-cta__fineprint">Core Compass는 자기이해 기반 1인 사업 실행 리포트입니다.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  Core Campus Design System v1.1<span class="site-footer__sep">·</span>2026-05-16
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-sop-onboarding",
+    "course_title": "Claude로 팀 온보딩 SOP 완전 자동화",
+    "lesson_no": 5,
+    "lesson_title": "SOP를 영상 스크립트로 구조화하기",
+    "objective": "완성된 SOP 문서를 Claude로 영상 스크립트 형식으로 변환하고 장면·자막·내레이션 구성을 분리한 대본을 작성한다",
+    "key_concepts": [
+      "텍스트 SOP를 영상 대본으로 변환하는 프롬프트 구조",
+      "장면 구분·자막 포인트·내레이션 톤 지정 방법",
+      "시청자(신규 팀원) 관점의 영상 흐름 설계"
+    ],
+    "exercise": "Day 1 SOP를 기반으로 한 '온보딩 영상 스크립트(장면·자막·내레이션 3열 구성) 문서'",
+    "duration_min": 15
+  }
+}

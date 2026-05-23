@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779124486",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 9,
+    "lesson_title": "애드센스·네이버 광고 신청",
+    "objective": "블로그 조건 체크리스트를 채우고 구글 애드센스 또는 네이버 인플루언서 신청서를 제출합니다",
+    "key_concepts": [
+      "애드센스 승인 조건 체크 5가지",
+      "네이버 인플루언서 지수 기준",
+      "거절 사유 top 3와 대응법"
+    ],
+    "exercise": "신청 완료 캡처 화면 1장 + 보완 체크리스트",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779124486",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 4,
+    "lesson_title": "글 1개로 영상 대본 뽑기",
+    "objective": "블로그 글을 붙여넣어 유튜브 쇼츠용 60초 대본 1개를 만들고 구조를 비교합니다",
+    "key_concepts": [
+      "쇼츠 대본 공식 (훅·본문·CTA)",
+      "글→대본 변환 프롬프트",
+      "훅 문장 5가지 패턴"
+    ],
+    "exercise": "쇼츠 대본 워드 파일 1개 (훅·본문·CTA 구분 표시)",
+    "duration_min": 15
+  }
+}

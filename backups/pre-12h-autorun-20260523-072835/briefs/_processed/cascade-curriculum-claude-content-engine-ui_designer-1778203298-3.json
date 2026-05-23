@@ -1,0 +1,16 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "hero",
+    "purpose": "Claude로 완성하는 주 1회 콘텐츠 발행 시스템 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+    "audience": "유튜브·블로그·뉴스레터 발행을 시도했으나 3주 내 중단한 1인 콘텐츠 사업가",
+    "style_keywords": [
+      "editorial",
+      "warm beige",
+      "trustworthy",
+      "academic"
+    ],
+    "color_mood": "warm",
+    "additional_context": "코어 캠퍼스 코스 'Claude로 완성하는 주 1회 콘텐츠 발행 시스템'의 페이지 헤더 시안."
+  }
+}

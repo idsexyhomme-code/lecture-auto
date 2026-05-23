@@ -1,0 +1,20 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "landing_full",
+    "purpose": "1인 사업가 타깃에게 코어 캠퍼스의 단계별 강의 시리즈를 신뢰감 있고 친근하게 전달해 수강 전환율을 높인다",
+    "audience": "Claude를 실무에 활용하고 싶은 1인 사업가 — 실용적 결과를 중시하며 과장된 마케팅에 거부감이 있음",
+    "style_keywords": [
+      "전문적",
+      "친근한",
+      "깔끔한 구조",
+      "읽기 쉬운 타이포그래피",
+      "단계감 있는 레이아웃"
+    ],
+    "color_mood": "warm",
+    "reference_urls": [
+      "https://fastcampus.co.kr/event_online_subscription_2605"
+    ],
+    "additional_context": "코어 캠퍼스는 Claude 실무 활용 시리즈 강의 플랫폼. 현재 등록 코스: 'Claude로 완성하는 1인 사업 자동화', 'Claude 워크플로우 SOP 만들기'. 시안 확정 후 site_developer가 단계별 실제 적용 예정. 과장 없이 차분하고 단단한 한국어 톤 유지."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-sop-onboarding",
+    "course_title": "Claude로 팀 온보딩 SOP 완전 자동화",
+    "lesson_no": 3,
+    "lesson_title": "Day 1 SOP 생성 및 검증",
+    "objective": "Claude를 활용해 신규 팀원의 첫날 체크리스트를 생성하고, 누락 항목을 추가 프롬프트로 보완한다",
+    "key_concepts": [
+      "Day 1 필수 항목 카테고리: 접근 권한·툴 셋업·첫 미팅·문화 안내",
+      "Claude 출력 검증 기준: 완결성·실행 가능성·순서 논리",
+      "반복 프롬프트(이어 쓰기)로 초안 보완하는 방법"
+    ],
+    "exercise": "Claude가 생성한 Day 1 체크리스트를 팀 실정에 맞게 수정 완료한 '최종 Day 1 SOP 문서'",
+    "duration_min": 15
+  }
+}

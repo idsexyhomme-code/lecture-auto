@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#8 어떤 글이 클릭 받는지 숫자로 읽기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#8 어떤 글이 클릭 받는지 숫자로 읽기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779175251 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>지난주에 글 3편 올렸는데, 조회수 보니까 멘탈이 나갔죠.</p>
+<p>한 편은 조회 2,100. 다른 한 편은 47.</p>
+<p>근데 뭐가 달랐는지 모르겠는 거예요.</p>
+<p>그냥 운인가 싶어서 또 감으로 씁니다.</p>
+<p>이게 매번 반복되면, 글 쓰는 게 무서워집니다.</p>
+<p>오늘은 그 두려움을 끝냅니다.</p>
+<p>숫자 3개만 읽으면, 뭐가 터지고 뭐가 안 터지는지 보입니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 내 인사이트 화면에서 잘된 글과 안 된 글의 차이를 딱 집어서 말할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1. 조회수·도달·저장 — 세 숫자의 역할</h3>
+<p><strong>설명</strong></p>
+<p>인사이트 화면에 숫자가 열 개씩 뜹니다.</p>
+<p>그중에 지금 당장 볼 건 세 개뿐입니다.</p>
+<ul>
+<li><strong>도달(Reach)</strong> — 내 글을 본 사람 수.</li>
+<li><strong>조회수(Impression)</strong> — 화면에 뜬 횟수. 한 사람이 두 번 보면 2.</li>
+<li><strong>저장</strong> — 나중에 다시 보려고 챙겨둔 수.</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>A글 도달 800, 저장 92.</p>
+<p>B글 도달 810, 저장 4.</p>
+<p>도달은 비슷한데 저장이 23배 차이납니다.</p>
+<p>저장이 높은 글은 알고리즘이 더 퍼뜨려줍니다.</p>
+<p><strong>반례</strong></p>
+<p>조회수만 높고 저장이 0인 글이 있습니다.</p>
+<p>광고나 해시태그 유입이 많았던 거라, 실제 관심은 낮은 경우입니다.</p>
+<p>조회수 숫자에만 기뻐하면 다음 글도 똑같이 안 퍼집니다.</p>
+<p><strong>정리</strong></p>
+<p>"도달 = 노출, 저장 = 진짜 관심."</p>
+<p>이 두 개를 쌍으로 봅니다. 조회수는 맥락 확인용입니다.</p>
+<blockquote>
+<p>📌 <strong>메모리 페그 — 신호등</strong>
+도달은 초록(들어옴), 저장은 빨강(멈춤). 빨강이 많을수록 좋습니다.</p>
+</blockquote>
+<hr />
+<h3>개념 2. 제목 A/B 비교법 — 같은 내용, 다른 제목</h3>
+<p><strong>설명</strong></p>
+<p>글 내용이 비슷한데 조회수가 3배 이상 차이나는 쌍을 찾습니다.</p>
+<p>그 쌍에서 제목만 따로 뽑아 나란히 놓습니다.</p>
+<p>둘의 차이를 딱 한 단어로 설명해보는 게 A/B 비교입니다.</p>
+<p><strong>예시</strong></p>
+<ul>
+<li>A글 제목: "인스타 잘 쓰는 법"  조회 340</li>
+<li>B글 제목: "인스타 올렸는데 조회수 47이 나온 이유"  조회 2,100</li>
+</ul>
+<p>차이: B는 구체적인 숫자 + 내 실패 경험이 들어갔습니다.</p>
+<p>독자가 제목에서 자기 상황을 바로 발견한 거예요.</p>
+<p><strong>반례</strong></p>
+<p>제목에 숫자를 넣었는데도 조회수가 낮은 경우가 있습니다.</p>
+<p>"매출 10억 가는 법" 같은 제목은 숫자는 있지만 나랑 거리가 멉니다.</p>
+<p>독자가 현실적으로 자기 얘기라고 느껴야 클릭합니다.</p>
+<p><strong>정리</strong></p>
+<p>제목 비교는 '길이·숫자·감정 단어' 세 축으로 봅니다.</p>
+<p>잘된 쪽에서 하나씩 찾으면 패턴이 보입니다.</p>
+<blockquote>
+<p>📌 <strong>메모리 페그 — 쌍둥이 실험</strong>
+내용이 같은 두 글이 쌍둥이. 제목이 옷. 옷 차림이 클릭을 바꿉니다.</p>
+</blockquote>
+<hr />
+<h3>개념 3. 데이터 기록 주기 — 언제 재보나</h3>
+<p><strong>설명</strong></p>
+<p>올린 지 24시간 안의 숫자는 아직 진행 중입니다.</p>
+<p>제 경험상 블로그는 72시간 후, 인스타는 48시간 후에 한 번 기록하는 게 맞습니다.</p>
+<p>그다음은 2주 후 한 번 더.</p>
+<p>이렇게 두 번 찍어야 초반 폭발과 장기 유입을 구별할 수 있습니다.</p>
+<p><strong>예시</strong></p>
+<p>어떤 글이 업로드 후 48시간에 저장 80개였습니다.</p>
+<p>2주 후에 봤더니 저장 82개. 거의 그대로입니다.</p>
+<p>또 다른 글은 48시간에 저장 12개, 2주 후 저장 91개.</p>
+<p>검색 유입이 늦게 붙은 글입니다. 이런 글이 장기적으로 더 값집니다.</p>
+<p><strong>반례</strong></p>
+<p>매일 인사이트를 들여다보면 숫자 변동에 기분이 흔들립니다.</p>
+<p>올린 다음 날 조회가 적다고 글을 삭제한 분이 있었는데, 그 글이 사실 검색 유입형이었던 거예요.</p>
+<p>기록 주기 없이 매일 보면 판단이 흐려집니다.</p>
+<p><strong>정리</strong></p>
+<p>"48시간 후 1차, 2주 후 2차."</p>
+<p>이 두 번만 기록해도 쌓이는 데이터가 생깁니다.</p>
+<blockquote>
+<p>📌 <strong>메모리 페그 — 사진 현상</strong>
+필름 카메라는 현상 전에 열면 망가집니다. 데이터도 너무 빨리 열면 왜곡됩니다. 48시간은 현상 시간입니다.</p>
+</blockquote>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지하고 직접 만들어봅니다.</p>
+<p><strong>준비물:</strong> 블로그 또는 인스타 인사이트 화면, 빈 문서 1개</p>
+<hr />
+<p><strong>1단계 — 글 목록 뽑기 (1분)</strong></p>
+<p>최근 올린 글 중 업로드 후 48시간 이상 지난 것만 고릅니다.</p>
+<p>조회수 또는 도달 기준으로 줄 세웁니다.</p>
+<p>상위 2편, 하위 2편, 총 4편을 고릅니다.</p>
+<hr />
+<p><strong>2단계 — 표에 숫자 채우기 (1분)</strong></p>
+<p>문서에 이 표를 그립니다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>제목</th>
+<th>도달</th>
+<th>저장</th>
+<th>올린 날짜</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>상위 1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>상위 2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>하위 1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>하위 2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>인사이트 화면 보면서 숫자를 채웁니다.</p>
+<hr />
+<p><strong>3단계 — 차이점 한 줄씩 쓰기 (1분)</strong></p>
+<p>표 아래에 이렇게 씁니다.</p>
+<ul>
+<li>상위 2편의 제목에서 공통점: ___</li>
+<li>하위 2편의 제목에서 공통점: ___</li>
+<li>저장 수 차이가 나는 이유, 내 생각: ___</li>
+</ul>
+<p>틀려도 됩니다. 지금은 그냥 쓰는 게 맞습니다.</p>
+<hr />
+<p><strong>4단계 — 문서 저장 (30초)</strong></p>
+<p>파일 이름: 콘텐츠 성과 비교_날짜</p>
+<p>이 문서가 다음 글 쓸 때 첫 번째로 열 파일이 됩니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 비교표를 들고 ChatGPT에게 맡깁니다.</p>
+<p>"잘된 글 패턴으로 제목 5개 뽑아줘" — 이 한 줄이 어떻게 바뀌는지 바로 보여드립니다.</p>
+<p>오늘 만든 비교표, 댓글에 제목 패턴만 한 줄 올려보세요.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

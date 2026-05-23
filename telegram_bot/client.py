@@ -13,6 +13,15 @@ from typing import Any
 
 import requests
 
+# .env 자동 로드 — scripts/* CLI에서 직접 import할 때 환경변수 없이 시작하는 문제 방지
+try:
+    from dotenv import load_dotenv
+    _ENV_FILE = Path(__file__).resolve().parents[1] / ".env"
+    if _ENV_FILE.exists():
+        load_dotenv(_ENV_FILE)
+except ImportError:
+    pass
+
 log = logging.getLogger("telegram_bot")
 
 API = "https://api.telegram.org/bot{token}/{method}"
@@ -63,6 +72,78 @@ def send_text(text: str, *, chat_id: int | None = None,
         disable_web_page_preview=True,
         **({"reply_markup": reply_markup} if reply_markup else {}),
     )
+
+
+def send_photo(photo_path: str, *, caption: str = "",
+               chat_id: int | None = None,
+               parse_mode: str = "Markdown") -> dict:
+    """이미지 파일을 텔레그램에 첨부 전송.
+
+    Phase 1.2 — 사이트 빌드 후 메인 페이지 스크린샷 발송용.
+    """
+    url = API.format(token=_token(), method="sendPhoto")
+    with open(photo_path, "rb") as fh:
+        files = {"photo": (Path(photo_path).name, fh, "image/png")}
+        data = {
+            "chat_id": chat_id or _chat_id(),
+            "caption": caption[:1024],  # 텔레그램 caption 한도
+            "parse_mode": parse_mode,
+        }
+        r = requests.post(url, data=data, files=files, timeout=60)
+    if r.status_code != 200:
+        log.error("telegram sendPhoto failed: %s %s", r.status_code, r.text[:300])
+        r.raise_for_status()
+    body = r.json()
+    if not body.get("ok"):
+        raise RuntimeError(f"telegram sendPhoto not ok: {body}")
+    return body["result"]
+
+
+def send_media_group(photos: list[str], *, caption: str = "",
+                     chat_id: int | None = None) -> dict:
+    """여러 이미지를 한 번에 전송 (최대 10장).
+
+    첫 사진에만 caption이 붙음.
+    """
+    if not photos:
+        raise ValueError("photos must be non-empty")
+    if len(photos) > 10:
+        photos = photos[:10]
+
+    url = API.format(token=_token(), method="sendMediaGroup")
+    media_meta = []
+    files = {}
+    open_handles = []
+    try:
+        for i, p in enumerate(photos):
+            key = f"photo{i}"
+            fh = open(p, "rb")
+            open_handles.append(fh)
+            files[key] = (Path(p).name, fh, "image/png")
+            meta = {"type": "photo", "media": f"attach://{key}"}
+            if i == 0 and caption:
+                meta["caption"] = caption[:1024]
+                meta["parse_mode"] = "Markdown"
+            media_meta.append(meta)
+        data = {
+            "chat_id": chat_id or _chat_id(),
+            "media": json.dumps(media_meta, ensure_ascii=False),
+        }
+        r = requests.post(url, data=data, files=files, timeout=120)
+    finally:
+        for fh in open_handles:
+            try:
+                fh.close()
+            except Exception:
+                pass
+
+    if r.status_code != 200:
+        log.error("telegram sendMediaGroup failed: %s %s", r.status_code, r.text[:300])
+        r.raise_for_status()
+    body = r.json()
+    if not body.get("ok"):
+        raise RuntimeError(f"telegram sendMediaGroup not ok: {body}")
+    return body["result"]
 
 
 def send_approval_card(*, result_id: str, title: str, summary: str,

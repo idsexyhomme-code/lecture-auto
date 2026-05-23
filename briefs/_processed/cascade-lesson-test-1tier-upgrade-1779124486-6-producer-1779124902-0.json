@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779124486",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 6,
+    "lesson_title": "1소재 5콘텐츠 분해표 만들기",
+    "objective": "블로그 글 1개를 쇼츠·카드뉴스·스레드·뉴스레터 4개로 분해한 콘텐츠 맵을 채웁니다",
+    "key_concepts": [
+      "플랫폼별 최적 포맷 차이",
+      "핵심 문장 뽑는 기준",
+      "재사용 가능 소재 vs 플랫폼 전용 소재"
+    ],
+    "exercise": "엑셀·노션 '1소재 5콘텐츠 분해표' 1장",
+    "duration_min": 15
+  }
+}

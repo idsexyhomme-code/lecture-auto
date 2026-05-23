@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779175251",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 12,
+    "lesson_title": "정보상품 판매 페이지 텍스트 쓰기",
+    "objective": "헤드라인·대상·내용·가격·구매 버튼 순서로 판매 페이지 텍스트를 완성합니다",
+    "key_concepts": [
+      "판매 페이지 7블록 구조",
+      "헤드라인 쓰는 공식",
+      "반론 처리 문장"
+    ],
+    "exercise": "판매 페이지 텍스트 초안 — 7블록이 채워진 문서 (노션·구글독스 중 택1)",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 9,
+    "lesson_title": "팔 수 있는 PDF 상품 만든다",
+    "objective": "Notion 또는 구글 독스로 5~10페이지짜리 디지털 PDF 상품 1개를 완성한다",
+    "key_concepts": [
+      "PDF 상품 3가지 유형",
+      "가격 정하는 기준",
+      "표지·목차·본문 구성"
+    ],
+    "exercise": "표지·목차·본문이 담긴 PDF 파일 1개",
+    "duration_min": 15
+  }
+}

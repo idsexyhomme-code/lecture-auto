@@ -1,0 +1,16 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "hero",
+    "purpose": "Claude로 팀 온보딩 SOP 완전 자동화 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+    "audience": "처음 팀원을 채용했지만 온보딩 문서 없이 매번 직접 설명을 반복하는 1인·소규모 팀 운영자",
+    "style_keywords": [
+      "editorial",
+      "warm beige",
+      "trustworthy",
+      "academic"
+    ],
+    "color_mood": "warm",
+    "additional_context": "코어 캠퍼스 코스 'Claude로 팀 온보딩 SOP 완전 자동화'의 페이지 헤더 시안."
+  }
+}

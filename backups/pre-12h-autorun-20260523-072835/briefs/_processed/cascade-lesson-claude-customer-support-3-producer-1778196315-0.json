@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-customer-support",
+    "course_title": "Claude+RAG 문의 자동화 실전",
+    "lesson_no": 3,
+    "lesson_title": "RAG 지식베이스 구축하기",
+    "objective": "FAQ·환불정책·서비스 안내 문서를 청킹 규칙에 따라 분할하고, 벡터 검색용 Notion DB 또는 텍스트 파일 세트를 완성한다",
+    "key_concepts": [
+      "RAG 작동 원리(검색 → 컨텍스트 주입 → 생성)",
+      "청킹 단위 설계(300~500토큰 기준)",
+      "메타데이터 태깅(유형·날짜·우선순위)"
+    ],
+    "exercise": "청킹 완료된 지식베이스 파일 세트 (최소 FAQ 10항목·환불정책 1문서·서비스 안내 1문서)",
+    "duration_min": 15
+  }
+}

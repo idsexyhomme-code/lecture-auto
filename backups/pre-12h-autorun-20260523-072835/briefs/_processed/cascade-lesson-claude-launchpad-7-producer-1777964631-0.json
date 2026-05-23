@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-launchpad",
+    "course_title": "Claude로 부캐 서비스 1주일 런칭",
+    "lesson_no": 7,
+    "lesson_title": "첫 고객 유치: DM & 이메일 세일즈 스크립트 작성",
+    "objective": "Claude로 잠재 고객 유형 2가지에 대응하는 DM 스크립트와 콜드 이메일 템플릿을 각 1개씩 완성한다",
+    "key_concepts": [
+      "콜드 아웃리치 구조(칭찬-공감-제안-CTA)",
+      "거절 대응 스크립트",
+      "팔로업 타이밍"
+    ],
+    "exercise": "DM 스크립트 1개 + 콜드 이메일 템플릿 1개 (총 2종 문서)",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5EFE0"/>
+      <stop offset="100%" stop-color="#FAF6EB"/>
+    </linearGradient>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D85A30"/>
+      <stop offset="100%" stop-color="#2C4E6B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  <circle cx="950" cy="150" r="200" fill="#D85A30" opacity="0.06"/>
+  <circle cx="130" cy="950" r="180" fill="#2C4E6B" opacity="0.05"/>
+
+  <!-- 로고 -->
+  <g transform="translate(80, 100)">
+    <circle cx="20" cy="20" r="20" fill="url(#logoGrad)"/>
+    <text x="56" y="30" font-family="Pretendard, sans-serif" font-size="28" font-weight="700" fill="#1F1F1F">Core Compass</text>
+  </g>
+
+  <!-- 한정 표시 -->
+  <rect x="80" y="200" width="300" height="48" rx="24" fill="#FBE6DE"/>
+  <text x="230" y="232" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="18" font-weight="700" fill="#D85A30">한정 100명 · 9,900원</text>
+
+  <!-- 메인 메시지 -->
+  <text x="80" y="380" font-family="Pretendard, sans-serif" font-size="80" font-weight="800" fill="#1F1F1F" letter-spacing="-3">운명 말고,</text>
+  <text x="80" y="470" font-family="Pretendard, sans-serif" font-size="80" font-weight="800" fill="#D85A30" letter-spacing="-3">90일 행동.</text>
+
+  <!-- 서브 -->
+  <text x="80" y="560" font-family="Pretendard, sans-serif" font-size="28" font-weight="500" fill="#6B6B6B" letter-spacing="-0.5">AI 6명이 한 장에 정리하는</text>
+  <text x="80" y="600" font-family="Pretendard, sans-serif" font-size="28" font-weight="500" fill="#6B6B6B" letter-spacing="-0.5">1인 사업 진단</text>
+
+  <!-- 6 AI 동그라미 -->
+  <g transform="translate(80, 720)">
+    <circle cx="30" cy="30" r="30" fill="#FBE6DE"/>
+    <text x="30" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#D85A30">01</text>
+    <circle cx="100" cy="30" r="30" fill="rgba(122, 139, 92, 0.18)"/>
+    <text x="100" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#7A8B5C">02</text>
+    <circle cx="170" cy="30" r="30" fill="rgba(44, 78, 107, 0.12)"/>
+    <text x="170" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#2C4E6B">03</text>
+    <circle cx="240" cy="30" r="30" fill="#FBE6DE"/>
+    <text x="240" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#D85A30">04</text>
+    <circle cx="310" cy="30" r="30" fill="rgba(122, 139, 92, 0.18)"/>
+    <text x="310" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#7A8B5C">05</text>
+    <circle cx="380" cy="30" r="30" fill="rgba(44, 78, 107, 0.12)"/>
+    <text x="380" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#2C4E6B">06</text>
+    <text x="0" y="100" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#6B6B6B" letter-spacing="2">6 AI AGENTS · 1 PAGE</text>
+  </g>
+
+  <!-- 하단 CTA -->
+  <g transform="translate(80, 920)">
+    <rect x="0" y="0" width="320" height="80" rx="16" fill="#D85A30"/>
+    <text x="160" y="52" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">9,900원 진단 받기 →</text>
+    <text x="0" y="100" font-family="Pretendard, sans-serif" font-size="14" font-style="italic" fill="#6B6B6B">corecampus.kr</text>
+  </g>
+</svg>

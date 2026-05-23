@@ -1,0 +1,12 @@
+{
+  "_comment": "이 파일을 .json으로 복사·편집해서 briefs/ 폴더에 두면 다음 워크플로우 실행에서 처리됩니다. 예시는 Curriculum Architect 호출.",
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-bizflow",
+    "topic": "Claude로 자동화하는 1인 사업가 워크플로우",
+    "audience": "초중급, 1인 콘텐츠 사업가",
+    "duration_weeks": 4,
+    "lesson_count": 8,
+    "format": "video"
+  }
+}

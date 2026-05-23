@@ -1,0 +1,60 @@
+{
+  "id": "1778880114-ebc8c6",
+  "agent": "ceo",
+  "kind": "ceo_daily_report",
+  "title": "CEO 일일 보고 — 2026-05-16",
+  "body_md": "# Core Campus 일일 운영 보고 — 2026-05-16 (KST)\n\n---\n\n## 1. 오늘의 성장 목표\n\n**목표 1.** 블로그 대기 16건 중 **5건 발행 완료**\n→ 현재 publisher session 재실행이 막혀 있는 상태. 오늘 안에 login-tistory.command 재실행 → 5건 라이브까지.\n\n**목표 2.** 외주 파일럿 Step 8 진입 — 김그린dev 섭외 메시지 초안 **오늘 내 회원 전달 완료**\n→ 회원이 승인하면 내일 플랫폼 내부 발송 가능 상태로 만든다.\n\n---\n\n## 2. 오늘 실행할 작업 3개\n\n### 작업 1. 김그린dev 섭외 메시지 초안 작성\n- **내용:** §10.5 구조(인사·발견 경위·요청 사항·권리 조항·답신 항목·마감 기한) 그대로 초안 1편 작성. 크몽 플랫폼 발송용.\n- **소요:** 20분\n- **담당:** CEO 자율 (초안 작성) → 회원 ✅ (발송 전 확인 + 직접 발송)\n\n### 작업 2. login-tistory.command 재실행 + 블로그 16건 발행 재개\n- **내용:** 회원이 세션 명령어 재실행 → publisher가 대기 16건 순서대로 발행. CEO는 발행 순서 우선순위(검색 유입 기대치 기준) 리스트 먼저 정리해서 전달.\n- **소요:** 명령 재실행 5분 + 이후 자동 처리\n- **담당:** 우선순위 리스트 작성 → CEO 자율 / 실행 → 회원 직접\n\n### 작업 3. Instagram 어댑터 토큰 발급 준비 완료 → 회원 토큰 입력 요청\n- **내용:** 어댑터 dry-run 상태 확인 → 회원에게 토큰 발급 절차 단계(Meta 개발자 콘솔 → 앱 토큰 복사 → 설정 파일 입력) 가이드 1장 작성. 토큰 들어오면 바로 첫 게시물 dry-run 테스트 가능.\n- **소요:** 25분\n- **담당:** 가이드 작성 → CEO 자율 / 토큰 발급·입력 → 회원 직접\n\n---\n\n## 3. 예상 효과\n\n| 작업 | KPI 변화 | 시점 |\n|---|---|---|\n| 블로그 5건 발행 | 검색 노출 페이지 +5 / 주간 방문자 +50~120명 예상 | 발행 후 3~7일 |\n| 섭외 메시지 발송 대기 완료 | 파일럿 일정 1일 단축 — W2 계획 유지 | 오늘~내일 |\n| Instagram 토큰 연결 | SNS 채널 +1개 개통. 첫 게시물 발행 가능 상태 | 토큰 입력 당일 |\n\n블로그 16건 전부 발행 완료되면 월 방문자 누적 +300~600명 기대 (SEO 인덱싱 2주 후 반영 기준).\n\n---\n\n## 4. 필요한 승인 사항\n\n★ **회원 승인 필수**\n\n1. **김그린dev 섭외 메시지 발송 승인**\n→ CEO가 초안 작성 후 회원에게 전달. 회원이 내용 확인 후 크몽 내부 채팅에서 직접 발송.\n\n2. **login-tistory.command 재실행**\n→ 회원 로컬 환경에서 직접 실행 필요. CEO가 발행 우선순위 리스트 먼저 전달할 테니, 확인 후 실행 요청.\n\n3. **Instagram 토큰 발급·입력**\n→ Meta 개발자 콘솔 접근은 회원 본인 계정. 발급 절차 가이드 오늘 전달.\n\n---\n\n## 5. 승인 없이 진행 가능한 작업\n\n- 김그린dev 섭외 메시지 초안 작성 (§5 — 외주 발굴 메시지 초안)\n- 블로그 16건 발행 우선순위 리스트 작성 (검색 유입 예상 키워드 기준 정렬)\n- Instagram 토큰 발급 절차 가이드 1장 작성\n- 오늘 발행 예정 블로그 글 5건 제목·메타 설명 최종 검수 (§5 — SEO 제목·메타 설명)\n- 16 concurrent workers plist 설정 상태 점검 리포트 작성\n- 주간 KPI 리포트 초안 작성 (§5 — 주간 KPI 리포트)\n\n---\n\n## 6. 오늘 생성할 산출물\n\n1. **김그린dev 섭외 메시지 초안** (크몽 내부 채팅 발송용 텍스트 — §10.5 구조)\n2. **블로그 발행 우선순위 리스트** (16건 / 키워드·예상 유입 기준 정렬표)\n3. **Instagram 토큰 발급 가이드** (Meta 콘솔 → 토큰 복사 → 입력 파일 경로까지 단계별 1장)\n4. **주간 KPI 리포트 초안** (2026-05-10~16 기준 / 방문·발행·파일럿 진행 상황 포함)\n\n---\n\n## 7. 리스크와 방지책\n\n### 리스크 1. 블로그 publisher session 재실행 실패 반복\n- **원인 가능성:** 티스토리 로그인 쿠키 만료 or 플랫폼 정책 변경\n- **방지책:** 오늘 재실행 1회 시도 후 실패 시 — 수동 발행 임시 전환 (회원이 대기 16건 중 5건만 복사·붙여넣기 직접 발행). 자동 복구는 내일 재시도. publisher 로그 확인 후 원인 진단 리포트 작성.\n\n### 리스크 2. 김그린dev 미응답 or 조건 불일치\n- **원인 가능성:** 응답률 92%이므로 무응답 확률 약 8%. 단가가 예산 게이트 B 상단(80만 원)에 근접할 수 있음\n- **방지책:** 메시지에 답신 기한 7일 명시. 7일 내 무응답 시 — 2순위 후보 탐색 즉시 시작 (회원이 크몽·숨고에서 추가 URL 2~3개 전달해주시면 CEO가 같은 기준으로 평가). 견적이 B 상단 초과 시 회원 승인 없이 계약 진행 금지 — 자동 멈춤.\n\n---\n\n**오늘 회원님이 직접 하실 것 3가지 (요약)**\n\n1. login-tistory.command 재실행\n2. CEO가 전달하는 섭외 메시지 초안 확인 + 크몽에서 직접 발송\n3. Instagram Meta 콘솔 토큰 발급 + 설정 파일 입력\n\n위 3개 완료되면 오늘 목표 달성. 막히는 지점 있으면 바로 알려주세요.",
+  "summary": "2026-05-16 CEO 일일 보고",
+  "meta": {
+    "brief": {
+      "mode": "daily_report",
+      "today_kst": "2026-05-16",
+      "site_state": {
+        "phase_1_2_3_complete": true,
+        "kpi_collection_active": true,
+        "self_review_active": true,
+        "ab_test_active": false,
+        "parallel_mode_active": true,
+        "pilot_status": {
+          "candidate_count": 1,
+          "candidate_name": "김그린dev",
+          "scorecard_total": "34/40",
+          "next_step": "Step 8 섭외 메시지 초안 → 회원 ✅ → 회원 직접 발송"
+        },
+        "blog_status": {
+          "live_published": "회원 재발행 진행 중 (16건 대기)",
+          "publisher_session_status": "회원이 login-tistory.command 재실행 필요"
+        },
+        "infrastructure": {
+          "16_concurrent_workers": "CC_PARALLEL=1 plist 갱신 — 회원이 install-daemon.command 재실행 후 활성",
+          "budget_guard": "DAILY_BUDGET_USD=50 (기본)",
+          "instagram_dry_run": "어댑터 준비 완료 — 토큰 발급 대기"
+        }
+      },
+      "recent_kpi": {
+        "date_kst": "2026-05-16"
+      }
+    },
+    "mode": "daily_report",
+    "today_kst": "2026-05-16",
+    "self_review": {
+      "ok": true,
+      "severity": "warn",
+      "hard_violations": [],
+      "soft_violations": [
+        "산출물"
+      ],
+      "len": 2739,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 1
+      }
+    }
+  },
+  "course_id": "core-campus-meta",
+  "created_at": "2026-05-15T21:21:54+00:00",
+  "status": "approved",
+  "telegram_message_id": 1717
+}

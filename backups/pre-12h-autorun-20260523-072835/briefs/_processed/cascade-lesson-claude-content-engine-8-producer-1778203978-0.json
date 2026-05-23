@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 완성하는 주 1회 콘텐츠 발행 시스템",
+    "lesson_no": 8,
+    "lesson_title": "라이브 런 — 영상 1편 실전 발행 및 회고",
+    "objective": "설계한 파이프라인을 그대로 실행해 영상 1편을 실제 채널에 발행하고 단계별 실제 소요 시간과 병목 1개를 기록한 런 회고 문서를 작성한다",
+    "key_concepts": [
+      "첫 라이브 런 체크리스트 실행",
+      "사후 측정 지표(발행 완료·소요 시간·재수정 횟수)",
+      "반복 개선을 위한 회고 루프(KPT)"
+    ],
+    "exercise": "실제 발행된 영상 URL + 런 회고 문서 (단계별 실소요 시간·병목 1개·다음 회차 개선 액션 포함)",
+    "duration_min": 15
+  }
+}

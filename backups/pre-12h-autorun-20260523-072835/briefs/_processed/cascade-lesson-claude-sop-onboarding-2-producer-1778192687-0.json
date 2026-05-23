@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-sop-onboarding",
+    "course_title": "Claude로 팀 온보딩 SOP 완전 자동화",
+    "lesson_no": 2,
+    "lesson_title": "Claude에게 내 업무 맥락 전달하는 법",
+    "objective": "Claude가 정확한 SOP를 생성하도록 역할·배경·제약 조건을 포함한 컨텍스트 프롬프트를 작성한다",
+    "key_concepts": [
+      "컨텍스트 프롬프트 3요소: 역할 지정·업무 배경·출력 형식 지시",
+      "모호한 지시 vs 구체적 지시 비교",
+      "팀 규모·업종별 맞춤 변수 설정"
+    ],
+    "exercise": "자신의 팀 업무를 담은 '컨텍스트 프롬프트 초안' 문서 1페이지 작성",
+    "duration_min": 15
+  }
+}

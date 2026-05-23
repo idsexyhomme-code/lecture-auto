@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-meeting-notes",
+    "course_title": "Claude로 회의록 즉시 자동화",
+    "lesson_no": 3,
+    "lesson_title": "회의록에서 담당자·마감일이 포함된 액션 리스트를 추출한다",
+    "objective": "회의록 텍스트를 Claude에 다시 입력하여 '담당자 / 액션 / 마감일' 3열 표 형식의 다음 액션 리스트를 생성하고 원본 회의록과 비교·검증한다",
+    "key_concepts": [
+      "체인 프롬프팅(회의록→액션 2단계 분리)",
+      "표 형식 출력 지정(Markdown Table)",
+      "누락 항목 재질의 프롬프트 패턴"
+    ],
+    "exercise": "담당자·액션·마감일 3열이 채워진 Markdown 표 형식의 액션 리스트 파일 1개",
+    "duration_min": 15
+  }
+}

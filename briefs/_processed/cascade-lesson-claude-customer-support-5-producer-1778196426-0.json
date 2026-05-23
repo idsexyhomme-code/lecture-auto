@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-customer-support",
+    "course_title": "Claude+RAG 문의 자동화 실전",
+    "lesson_no": 5,
+    "lesson_title": "자동화 파이프라인 연결하기",
+    "objective": "Make(또는 Zapier) 시나리오를 설정해 이메일·카카오채널 문의 수신 시 Claude가 자동 초안을 생성하고 본인에게 전달되는 흐름을 실제로 작동시킨다",
+    "key_concepts": [
+      "트리거-액션 구조(수신 채널 → Claude API → 발송)",
+      "API 키 발급 및 보안 처리",
+      "인간 검토 게이트 설계(자동발송 vs 초안 승인)"
+    ],
+    "exercise": "작동 확인된 Make/Zapier 시나리오 스크린샷 + 테스트 자동 응답 결과물 1건",
+    "duration_min": 15
+  }
+}

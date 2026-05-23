@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779124486",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 10,
+    "lesson_title": "디지털 상품 첫 번째 기획",
+    "objective": "내 콘텐츠 주제를 기반으로 PDF 전자책 또는 템플릿 1종의 목차와 가격을 결정합니다",
+    "key_concepts": [
+      "팔리는 디지털 상품 3가지 유형",
+      "가격 설정 기준 (시간 대비 가치)",
+      "크몽·클래스101 상품 페이지 구조"
+    ],
+    "exercise": "디지털 상품 기획서 1장 (제목·목차·가격·판매 플랫폼)",
+    "duration_min": 15
+  }
+}

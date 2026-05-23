@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 3,
+    "lesson_title": "좋은 프롬프트의 구조 이해하기",
+    "objective": "역할·맥락·지시·형식 4요소를 포함한 기본 프롬프트 구조를 설명하고 예시 1개를 직접 작성한다",
+    "key_concepts": [
+      "역할 지정(Role)",
+      "맥락 제공(Context)",
+      "출력 형식 지정(Format)"
+    ],
+    "exercise": "4요소 구조로 작성한 나만의 기본 프롬프트 초안",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 2,
+    "lesson_title": "Claude가 잘하는 것 vs 못하는 것",
+    "objective": "Claude의 강점·한계 영역을 각 3개씩 나열하고 실제 업무 사례에 매핑한 비교표를 작성한다",
+    "key_concepts": [
+      "LLM 특성 이해",
+      "환각(Hallucination) 리스크",
+      "적합 업무 유형"
+    ],
+    "exercise": "Claude 강점·한계 매핑 비교표",
+    "duration_min": 15
+  }
+}

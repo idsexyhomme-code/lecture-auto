@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-customer-script",
+    "course_title": "Claude로 CS 자동화: 1인 사업가 생존 키트",
+    "lesson_no": 1,
+    "lesson_title": "내 CS 지옥 지도 그리기",
+    "objective": "수강생 본인의 실제 문의 내역을 분석해 반복 문의 유형 TOP 5를 분류한 '문의 유형 분류표'를 작성한다",
+    "key_concepts": [
+      "80/20 법칙으로 보는 반복 문의 패턴",
+      "문의 유형 분류 기준 (환불·배송·사용법·불만·기타)",
+      "자동화 우선순위 판단 기준 (빈도 × 처리 시간)"
+    ],
+    "exercise": "Google 스프레드시트에 최근 문의 30건을 입력하고 유형·빈도·처리시간 컬럼으로 분류한 '내 CS 문의 유형 분류표'",
+    "duration_min": 15
+  }
+}

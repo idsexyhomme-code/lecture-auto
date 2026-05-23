@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 15,
+    "lesson_title": "월 500 숫자를 거꾸로 계산한다",
+    "objective": "목표 수입 500만 원을 상품가·전환율·필요 조회수로 역산한 수익 계획표를 완성한다",
+    "key_concepts": [
+      "전환율 1% 계산법",
+      "상품가별 필요 판매 건수",
+      "조회수 목표 설정"
+    ],
+    "exercise": "상품가·전환율·조회수 목표가 적힌 월 수익 역산표",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-launchpad",
+    "course_title": "Claude로 부캐 서비스 1주일 런칭",
+    "lesson_no": 5,
+    "lesson_title": "런칭 영상 제작: 60초 서비스 소개 영상 스크립트 & 촬영",
+    "objective": "Claude로 생성한 스크립트를 바탕으로 서비스 핵심 가치를 전달하는 60초 세로형 소개 영상 1편을 촬영·편집한다",
+    "key_concepts": [
+      "훅-문제-해결-CTA 영상 구조",
+      "스마트폰 1인 촬영 세팅",
+      "자막·컷편집 기본"
+    ],
+    "exercise": "60초 서비스 소개 영상 파일 (세로형 MP4, 자막 포함)",
+    "duration_min": 15
+  }
+}

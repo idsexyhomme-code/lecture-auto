@@ -1,0 +1,18 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-bizflow",
+    "course_title": "Claude로 완성하는 1인 사업 자동화",
+    "lesson_no": 3,
+    "lesson_title": "반복 업무 패턴 파악 — 자동화 대상 고르는 법",
+    "objective": "수강생이 자신의 일상 업무 중 Claude로 자동화할 대상을 직접 선별할 수 있다",
+    "key_concepts": [
+      "반복 업무 목록화",
+      "자동화 적합도 판단 기준",
+      "Claude 위임 가능 업무 유형",
+      "우선순위 선정 프레임"
+    ],
+    "exercise": "자신의 주간 반복 업무 5개를 적고, 자동화 적합도를 기준표로 평가해 1순위 업무를 선정한다",
+    "duration_min": 15
+  }
+}

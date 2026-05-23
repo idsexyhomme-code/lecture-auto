@@ -1,0 +1,92 @@
+[
+  {
+    "course_id": "claude-autowork",
+    "path": "content/approved/1778194109-9647a3.json",
+    "title": "하루 3시간 줄여주는 Claude 업무 활용법, 1인 사업가가 직접 씁니다",
+    "body_len": 2314
+  },
+  {
+    "course_id": "claude-bizflow",
+    "path": "content/approved/1778194167-568181.json",
+    "title": "하루 메일 40통, Claude 쓰고 나서 오전이 남았습니다",
+    "body_len": 2233
+  },
+  {
+    "course_id": "claude-content-engine",
+    "path": "content/approved/1778194197-8da6b9.json",
+    "title": "블로그 글 하나에 3시간 쓰던 제가 지금은 30분에 씁니다",
+    "body_len": 2339
+  },
+  {
+    "course_id": "claude-customer-script",
+    "path": "content/approved/1778194284-b05201.json",
+    "title": "고객 응대 문자·메일, 매번 새로 쓰지 않아도 됩니다",
+    "body_len": 2222
+  },
+  {
+    "course_id": "claude-daily-recap",
+    "path": "content/approved/1778194339-595f2b.json",
+    "title": "하루 업무 정리, Claude에게 맡기면 10분 안에 끝납니다",
+    "body_len": 2157
+  },
+  {
+    "course_id": "claude-intro-email",
+    "path": "content/approved/1778194390-b77970.json",
+    "title": "메일 쓰는 데 30분 걸린다면, Claude 쓰는 법부터 배우세요",
+    "body_len": 2167
+  },
+  {
+    "course_id": "claude-launchpad",
+    "path": "content/approved/1778194414-edf35f.json",
+    "title": "1인 사업가가 Claude 쓰기 시작하면 하루 업무 2시간 줄어드는 이유",
+    "body_len": 1966
+  },
+  {
+    "course_id": "claude-meeting-notes",
+    "path": "content/approved/1778194486-effe54.json",
+    "title": "회의 끝나고 5분, Claude로 회의록 정리하는 법",
+    "body_len": 2233
+  },
+  {
+    "course_id": "claude-monthly-revenue",
+    "path": "content/approved/1778194520-2bc21a.json",
+    "title": "한 달 매출 정리, 이제 엑셀 말고 Claude한테 맡깁니다",
+    "body_len": 2137
+  },
+  {
+    "course_id": "claude-pricing-page",
+    "path": "content/approved/1778194597-02244f.json",
+    "title": "Claude 요금제, 1인 사업가는 어떤 걸 써야 할까",
+    "body_len": 2262
+  },
+  {
+    "course_id": "claude-sop",
+    "path": "content/approved/1778194718-709c26.json",
+    "title": "반복 업무 줄이는 Claude 사용법, 1인 사업가 실전 5단계",
+    "body_len": 2258
+  },
+  {
+    "course_id": "claude-sop-onboarding",
+    "path": "content/approved/1778194772-6b7316.json",
+    "title": "혼자 사업하면서 반복 업무에 시간 뺏길 때, Claude 이렇게 씁니다",
+    "body_len": 2063
+  },
+  {
+    "course_id": "core-campus-general",
+    "path": "content/approved/1778194842-9a5b18.json",
+    "title": "하루 3시간 낭비하던 반복 업무, Claude 하나로 줄였습니다",
+    "body_len": 2307
+  },
+  {
+    "course_id": "deepwork-1hr",
+    "path": "content/approved/1778194862-6924a1.json",
+    "title": "하루 1시간, 진짜 일에만 집중하는 1인 사업가의 루틴",
+    "body_len": 1932
+  },
+  {
+    "course_id": "deepwork-1hr-test",
+    "path": "content/approved/1778194895-78e1bc.json",
+    "title": "하루 1시간, 딴짓 없이 일한 적 마지막이 언제였나요",
+    "body_len": 1887
+  }
+]

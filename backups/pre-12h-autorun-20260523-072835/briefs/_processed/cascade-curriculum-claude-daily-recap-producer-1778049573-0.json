@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-daily-recap",
+    "course_title": "Claude로 5분 하루 회고 자동화",
+    "lesson_no": 1,
+    "lesson_title": "5분 회고 프롬프트 설계하기",
+    "objective": "오늘 하루의 업무·감정·결정 정보를 입력하면 회고 초안을 즉시 출력하는 Claude 프롬프트를 1개 작성한다",
+    "key_concepts": [
+      "회고의 3요소: 사실·감정·개선점",
+      "Claude 프롬프트 구조 (역할·입력·출력 형식 지정)",
+      "5분 입력 루틴: 오늘 한 일 3줄 → Claude 실행"
+    ],
+    "exercise": "나의 하루 데이터를 넣어 회고 초안을 생성하는 마스터 프롬프트 문서 (Notion 또는 메모장 1페이지)",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-customer-support",
+    "course_title": "Claude+RAG 문의 자동화 실전",
+    "lesson_no": 2,
+    "lesson_title": "나만의 톤 프로필 만들기",
+    "objective": "기존 응답 문자·DM 5건을 분석해 호칭·문장 길이·이모지 사용 등 말투 규칙 5가지를 문서화한다",
+    "key_concepts": [
+      "브랜드 보이스 구성 요소(어투·호칭·문장 리듬)",
+      "Few-shot 예시 선정 기준",
+      "말투 규칙 → 프롬프트 변환 공식"
+    ],
+    "exercise": "톤 프로필 카드 (말투 규칙 5항목 + 좋은 예·나쁜 예 각 1문장 포함 문서)",
+    "duration_min": 15
+  }
+}

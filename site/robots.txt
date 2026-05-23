@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /site/admin/
+Disallow: /site/_backups/
+Disallow: /site/_design_previews/
+Disallow: /site/landing/core-compass/r/
+Disallow: /site/landing/core-compass/v3/checkout-payapp.html
+Disallow: /site/landing/checkout-toss/
+Disallow: /site/landing/core-compass/v3/result.html
+Disallow: /site/landing/core-compass/v3/expired.html
+Disallow: /site/landing/core-compass/v3/success.html
+
+Sitemap: https://corecampus.kr/site/sitemap.xml

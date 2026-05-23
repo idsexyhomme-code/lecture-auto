@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#5 영상 없이 쇼츠 만들기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#5 영상 없이 쇼츠 만들기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779124486 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>월요일 아침, 쇼츠 올릴 영상 없어서 또 멈췄죠.</p>
+<p>카메라 앞에 서기 싫고, 목소리 넣기도 부담스럽고.</p>
+<p>결국 오늘도 그냥 넘깁니다.</p>
+<p>근데 사실 얼굴도 목소리도 없이 쇼츠 올리는 사람들 있습니다.</p>
+<p>대본 하나만 있으면 됩니다.</p>
+<p>이 영상에서 CapCut이나 Canva로 60초짜리 쇼츠를 바로 만드는 법 보여드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면, 대본 텍스트 하나를 60초 자막 영상 mp4 파일로 저장할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 자막 자동 생성 기능 위치</h3>
+<p><strong>설명</strong></p>
+<p>CapCut 앱 기준입니다.</p>
+<p>새 프로젝트 만들고 영상 소스 하나 올리면 하단 메뉴가 뜹니다.</p>
+<p>거기서 '텍스트' 탭 누르면 '자동 캡션' 버튼 있습니다.</p>
+<p>Canva 기준이면 '프레젠테이션 → 비디오 편집 → 자막 추가' 순서입니다.</p>
+<p><strong>예시</strong></p>
+<p>30초짜리 대본 텍스트를 CapCut에 붙여 넣으면 자막이 자동으로 문장 단위로 잘립니다.</p>
+<p>수동으로 타이밍 맞출 필요 없습니다.</p>
+<p><strong>반례</strong></p>
+<p>단, 자동 자막은 발음 기반이라 텍스트를 직접 붙여 넣는 게 아닙니다.</p>
+<p>음성 파일이 있어야 인식됩니다.</p>
+<p>음성 없이 텍스트만 올리려면 'TTS(텍스트 음성 변환)' 기능을 먼저 쓰고 그 음성 파일에 자막을 붙이는 순서로 해야 합니다.</p>
+<p><strong>정리 — 메모리 페그: '텍스트 → 소리 → 자막' 3단계</strong></p>
+<p>텍스트를 소리로 바꾸고, 그 소리에 자막 붙인다고 기억하세요.</p>
+<hr />
+<h3>개념 2 — 배경 영상 무료 소스 3곳</h3>
+<p><strong>설명</strong></p>
+<p>영상이 없을 때 쓰는 무료 소스 사이트 3곳입니다.</p>
+<p>하나, Pexels (pexels.com/videos)</p>
+<p>둘, Pixabay (pixabay.com/videos)</p>
+<p>셋, Coverr (coverr.co)</p>
+<p>셋 다 상업용 무료고 워터마크 없습니다.</p>
+<p><strong>예시</strong></p>
+<p>'커피숍', '노트북', '도시 야경' 같은 단어로 검색하면 10초~30초짜리 루프 영상이 바로 나옵니다.</p>
+<p>60초 쇼츠라면 같은 영상을 2~3번 반복해도 됩니다.</p>
+<p>어차피 자막이 화면 중심이라 배경은 흐릿하게 써도 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>Unsplash는 사진 위주라 영상이 거의 없습니다.</p>
+<p>헷갈려서 거기서 찾다 시간 낭비하는 경우 많습니다.</p>
+<p>처음부터 Pexels Videos 탭으로 바로 들어가세요.</p>
+<p><strong>정리 — 메모리 페그: 'P·P·C'</strong></p>
+<p>Pexels, Pixabay, Coverr. 이니셜 P·P·C로 기억하세요.</p>
+<hr />
+<h3>개념 3 — 썸네일 텍스트 규칙</h3>
+<p><strong>설명</strong></p>
+<p>썸네일에 텍스트 넣을 때 지키는 규칙 3가지입니다.</p>
+<p>첫째, 글자 수 15자 이내.</p>
+<p>둘째, 폰트 크기는 화면 세로의 15% 이상.</p>
+<p>셋째, 배경 대비 색상 무조건 흰색 또는 노란색.</p>
+<p><strong>예시</strong></p>
+<p>'AI로 쇼츠 대본 쓰는 법' — 14자, 딱 맞습니다.</p>
+<p>배경이 어두운 도시 야경이라면 흰 글씨에 검정 테두리 2px.</p>
+<p>Canva에서 텍스트 효과 → 그림자 or 윤곽선으로 바로 됩니다.</p>
+<p><strong>반례</strong></p>
+<p>'ChatGPT를 이용해서 유튜브 쇼츠 대본을 작성하는 방법' — 이건 30자 넘어서 모바일에서 안 읽힙니다.</p>
+<p>썸네일은 3초 안에 읽혀야 합니다.</p>
+<p>3초 안에 못 읽히면 그냥 지나갑니다.</p>
+<p><strong>정리 — 메모리 페그: '15·15·흰노'</strong></p>
+<p>15자, 15%, 흰색 또는 노란색. 숫자 15 두 번에 색 두 개입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지하고 따라 해보세요.</p>
+<p><strong>1단계 — 대본 준비 (1분)</strong></p>
+<p>지난 4차시에서 만든 쇼츠 대본 텍스트를 엽니다.</p>
+<p>없으면 '30초 안에 읽히는 자막 영상 만드는 법'이라는 주제로 5문장만 씁니다.</p>
+<p><strong>2단계 — 배경 영상 다운로드 (1분)</strong></p>
+<p>Pexels(pexels.com/videos)에서 '노트북' 또는 '타이핑' 검색합니다.</p>
+<p>10초~20초짜리 영상 하나 다운로드합니다.</p>
+<p><strong>3단계 — CapCut 또는 Canva에서 편집 (2분)</strong></p>
+<p>CapCut이면: 새 프로젝트 → 배경 영상 추가 → 텍스트 탭 → TTS로 대본 읽히기 → 자동 캡션 생성.</p>
+<p>Canva이면: 비디오 → 배경 영상 넣기 → 텍스트 추가 → 애니메이션 '페이드' 적용.</p>
+<p><strong>4단계 — 썸네일 텍스트 + 저장 (1분)</strong></p>
+<p>첫 프레임에 15자 이내 텍스트 넣습니다.</p>
+<p>흰색 글씨, 윤곽선 추가합니다.</p>
+<p>mp4로 저장합니다.</p>
+<p>저장된 파일 이름은 '쇼츠_연습_날짜'로 바꿔두세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 영상을 유튜브 쇼츠와 인스타그램 릴스에 올리는 법을 봅니다.</p>
+<p>제목 태그 설명란까지, 업로드 화면에서 뭘 써야 하는지 구체적으로 보여드립니다.</p>
+<p>댓글에 오늘 만든 영상 주제 한 줄만 남겨주세요.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

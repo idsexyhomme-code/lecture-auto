@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0A0E1A">
+  <title>Core Compass — 6명의 AI가 분석하는 1인 사업 진단</title>
+  <meta name="description" content="6개 AI(ChatGPT·Claude·Gemini·Perplexity·Copilot·Bing)가 협업해서 당신의 1인 사업을 지원하는 1페이지 진단. 창업자를 위한 12 영역 분석 리포트.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Core Compass — 6 AI가 분석하는 1인 사업 진단">
+  <meta property="og:description" content="당신의 사업이 망설일 때, 6개 AI가 한 장으로 정리합니다. 창업자를 위한 진단 리포트.">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/woff2/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    /* ━━━━━ Core Compass v5 — yongyong 톤 흡수 (다크 모드) + 1인 사업 톤 ━━━━━ */
+    :root {
+      --bg-deep: #0A0E1A;
+      --bg-card: #151B2E;
+      --bg-elevated: #1E2541;
+      --ink: #FFFFFF;
+      --ink-soft: rgba(255,255,255,0.85);
+      --ink-muted: rgba(255,255,255,0.55);
+      --ink-faint: rgba(255,255,255,0.35);
+      --accent-purple: #7B5DFF;
+      --accent-purple-soft: rgba(123, 93, 255, 0.15);
+      --accent-gold: #F5C842;
+      --accent-pink: #FF5BA8;
+      --accent-coral: #FF6B4A;
+      --accent-mint: #5AC4A0;
+      --gradient-cta: linear-gradient(135deg, #7B5DFF 0%, #5A8AFF 100%);
+      --gradient-gold: linear-gradient(135deg, #F5C842 0%, #FF8A4A 100%);
+      --gradient-bg: radial-gradient(circle at 30% 20%, rgba(123, 93, 255, 0.15) 0%, transparent 50%);
+      --border: rgba(255,255,255,0.08);
+      --shadow-glow: 0 0 40px rgba(123, 93, 255, 0.25);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      margin: 0;
+      background: var(--bg-deep);
+      color: var(--ink);
+      font-family: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', sans-serif;
+      line-height: 1.55;
+      letter-spacing: -0.018em;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      min-height: 100vh;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: 0; background: transparent; font: inherit; color: inherit; }
+
+    /* ━━━━━ 헤더 + 사용자 카운터 ━━━━━ */
+    .topbar {
+      position: sticky; top: 0;
+      background: rgba(10, 14, 26, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+      z-index: 50;
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar__back {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .topbar__title {
+      font-size: 17px; font-weight: 700;
+      background: var(--gradient-cta);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+    .topbar__menu { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; opacity: 0.6; }
+
+    /* ━━━━━ Hero — D-카운트다운 ━━━━━ */
+    .hero {
+      padding: 48px 24px 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-bg);
+      pointer-events: none;
+    }
+    .hero__eyebrow {
+      font-size: 17px;
+      color: var(--ink-soft);
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .hero__brand {
+      font-size: clamp(38px, 9vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #C0C8E8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+      z-index: 1;
+    }
+    .hero__sub-label {
+      font-size: 18px;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .hero__dday {
+      font-size: clamp(56px, 14vw, 88px);
+      font-weight: 800;
+      color: var(--accent-pink);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(255, 91, 168, 0.4);
+      margin-bottom: 48px;
+    }
+
+    /* ━━━━━ Visual 신비 이미지 placeholder (SVG) ━━━━━ */
+    .hero__visual {
+      max-width: 320px;
+      margin: 0 auto 32px;
+      aspect-ratio: 4/5;
+      background: linear-gradient(180deg, #1E2541 0%, #2A3461 50%, #5A8AFF 100%);
+      border-radius: 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+    }
+    .hero__visual svg { width: 100%; height: 100%; }
+
+    /* ━━━━━ 실시간 사용자 카운터 ━━━━━ */
+    .live-counter {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 16px auto;
+      border: 1px solid var(--border);
+    }
+    .live-counter__heart { color: var(--accent-purple); }
+    .live-counter__num { font-variant-numeric: tabular-nums; }
+
+    /* ━━━━━ 블러 처리된 미리보기 카드 ━━━━━ */
+    .preview-card {
+      max-width: 460px;
+      margin: 32px auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    }
+    .preview-item {
+      display: flex; gap: 16px;
+      padding: 14px 0;
+      align-items: flex-start;
+      font-size: 17px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    .preview-item__num {
+      flex-shrink: 0;
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      background: var(--accent-purple-soft);
+      color: var(--accent-purple);
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      margin-top: 1px;
+    }
+    .blur-text {
+      display: inline-block;
+      color: transparent;
+      background: var(--ink-faint);
+      border-radius: 4px;
+      padding: 0 6px;
+      filter: blur(4px);
+      user-select: none;
+      font-weight: 600;
+    }
+
+    /* ━━━━━ Section eyebrow + title ━━━━━ */
+    .sec-eyebrow {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent-mint);
+      margin-bottom: 12px;
+    }
+    .sec-title {
+      font-size: clamp(28px, 6vw, 40px);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .sec-title--gold {
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ━━━━━ Section padding ━━━━━ */
+    .section {
+      padding: 64px 24px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ━━━━━ 사용자 입력 진행률 + 폼 미리보기 ━━━━━ */
+    .form-preview {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid var(--border);
+    }
+    .form-preview__progress-label {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .form-preview__percent { color: var(--accent-purple); }
+    .form-preview__progress-bar {
+      height: 8px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .form-preview__progress-fill {
+      height: 100%;
+      background: var(--gradient-cta);
+      transition: width 1s ease-out;
+    }
+    .form-preview__question {
+      font-size: 14px;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+    .form-preview__title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+    .form-preview__name {
+      font-size: 28px;
+      font-weight: 700;
+      padding-left: 18px;
+      border-left: 4px solid var(--accent-purple);
+      margin-bottom: 24px;
+    }
+    .form-preview__pills { display: flex; gap: 8px; }
+    .pill {
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.15s;
+    }
+    .pill--active { background: var(--ink); color: var(--bg-deep); }
+    .pill--inactive { background: rgba(255,255,255,0.12); color: var(--ink-muted); }
+
+    /* ━━━━━ 사업 명식 — 4 카드 (창업자용 — 시장·상품·자금·운영) ━━━━━ */
+    .business-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 32px 0 16px;
+    }
+    .biz-card {
+      aspect-ratio: 3/4;
+      border-radius: 16px;
+      padding: 12px 8px;
+      display: flex; flex-direction: column;
+      justify-content: space-between; align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .biz-card__type {
+      font-size: 11px;
+      opacity: 0.85;
+    }
+    .biz-card__icon {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .biz-card__label {
+      font-size: 11px;
+      opacity: 0.85;
+    }
+    .biz-card--market { background: linear-gradient(135deg, #FF6B4A 0%, #C73E1D 100%); }
+    .biz-card--product { background: linear-gradient(135deg, #5A8AFF 0%, #2E5BCC 100%); }
+    .biz-card--money { background: linear-gradient(135deg, #F5C842 0%, #C99B26 100%); color: #1a1300; }
+    .biz-card--ops { background: linear-gradient(135deg, #5AC4A0 0%, #2D8362 100%); }
+    .business-col-label {
+      text-align: center;
+      font-size: 13px;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+    .business-labels {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    /* ━━━━━ 6 AI 강조 — 더 화려하게 ━━━━━ */
+    .ai-six {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .ai-orb {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 8px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .ai-orb:hover { border-color: var(--accent-purple); transform: translateY(-2px); }
+    .ai-orb__name {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .ai-orb__role {
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+    .ai-orb--chatgpt { box-shadow: 0 0 20px rgba(16, 163, 127, 0.2); }
+    .ai-orb--claude { box-shadow: 0 0 20px rgba(255, 107, 74, 0.2); }
+    .ai-orb--gemini { box-shadow: 0 0 20px rgba(90, 138, 255, 0.2); }
+    .ai-orb--perplexity { box-shadow: 0 0 20px rgba(123, 93, 255, 0.2); }
+    .ai-orb--copilot { box-shadow: 0 0 20px rgba(90, 196, 160, 0.2); }
+    .ai-orb--bing { box-shadow: 0 0 20px rgba(245, 200, 66, 0.2); }
+
+    /* ━━━━━ 펜타곤 레이더 차트 ━━━━━ */
+    .radar-card {
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 28px 20px;
+      border: 1px solid var(--border);
+    }
+    .radar-card__label {
+      display: inline-block;
+      padding: 8px 18px;
+      background: var(--gradient-cta);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    /* ━━━━━ Line chart (사업운 상승) ━━━━━ */
+    .line-chart-card {
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 28px 24px;
+      border: 1px solid var(--border);
+    }
+
+    /* ━━━━━ 캘린더 강조 점 ━━━━━ */
+    .calendar-card {
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 24px 16px;
+      border: 1px solid var(--border);
+    }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      text-align: center;
+      font-size: 15px;
+    }
+    .cal-head {
+      font-size: 11px;
+      color: var(--ink-muted);
+      padding: 8px 0;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .cal-day {
+      padding: 14px 0;
+      color: var(--ink-soft);
+      position: relative;
+      font-variant-numeric: tabular-nums;
+    }
+    .cal-day--launch {
+      color: var(--accent-gold);
+      position: relative;
+    }
+    .cal-day--launch::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      background: radial-gradient(circle, rgba(245, 200, 66, 0.4) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: -1;
+    }
+    .cal-day--decision {
+      color: var(--accent-pink);
+    }
+    .cal-day--decision::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      background: radial-gradient(circle, rgba(255, 91, 168, 0.4) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: -1;
+    }
+    .cal-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      background: var(--accent-purple);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 999px;
+      margin: 4px 0;
+    }
+
+    /* ━━━━━ 진행률 큰 표시 ━━━━━ */
+    .progress-bar-big {
+      max-width: 460px;
+      margin: 24px auto 0;
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      padding: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 700;
+      letter-spacing: -0.02em;
+      position: relative;
+      overflow: hidden;
+    }
+    .progress-bar-big__fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      background: var(--gradient-cta);
+      border-radius: 999px;
+      z-index: 0;
+    }
+    .progress-bar-big__text { position: relative; z-index: 1; }
+
+    /* ━━━━━ 후기 ━━━━━ */
+    .reviews-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 16px;
+    }
+    .reviews-star { font-size: 22px; color: var(--accent-gold); }
+    .reviews-score {
+      font-size: 28px; font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    .reviews-count { font-size: 14px; color: var(--ink-muted); }
+    .reviews-more {
+      margin-left: auto;
+      padding: 10px 22px;
+      background: var(--gradient-cta);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 14px;
+    }
+    .review-card__head {
+      display: flex; gap: 14px;
+      margin-bottom: 14px;
+      align-items: flex-start;
+    }
+    .review-card__avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .review-card__email {
+      font-size: 14px;
+      color: var(--ink-soft);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .review-card__meta { font-size: 12px; color: var(--ink-muted); }
+    .review-card__industry {
+      font-size: 12px;
+      color: var(--accent-mint);
+      margin-top: 6px;
+      font-weight: 600;
+    }
+    .review-card__stars {
+      color: var(--accent-gold);
+      font-size: 16px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .review-card__body {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+
+    /* ━━━━━ 황금 월계관 트로피 ━━━━━ */
+    .trophy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 32px 0;
+    }
+    .trophy {
+      text-align: center;
+      padding: 24px 12px;
+      background: linear-gradient(180deg, rgba(245, 200, 66, 0.08) 0%, transparent 100%);
+      border-radius: 20px;
+      border: 1px solid rgba(245, 200, 66, 0.2);
+    }
+    .trophy__icon { font-size: 28px; margin-bottom: 8px; }
+    .trophy__label { font-size: 12px; color: var(--ink-muted); margin-bottom: 8px; font-weight: 600; }
+    .trophy__num {
+      font-size: clamp(22px, 5vw, 32px);
+      font-weight: 800;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    /* ━━━━━ 가격 옵션 3종 ━━━━━ */
+    .pricing-stack {
+      display: flex; flex-direction: column; gap: 14px;
+      margin-top: 24px;
+    }
+    .price-option {
+      background: var(--bg-card);
+      border: 2px solid transparent;
+      border-radius: 20px;
+      padding: 22px;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .price-option--featured {
+      border-color: var(--accent-purple);
+      box-shadow: var(--shadow-glow);
+    }
+    .price-option__badge {
+      position: absolute;
+      top: 16px; right: 16px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .price-option__badge--popular { background: var(--accent-mint); color: var(--bg-deep); }
+    .price-option__badge--discount { background: var(--accent-pink); color: white; }
+    .price-option__title {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+    .price-option__desc {
+      font-size: 13px;
+      color: var(--ink-muted);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .price-option__price-row {
+      display: flex; align-items: baseline; gap: 12px;
+      margin-bottom: 12px;
+    }
+    .price-option__discount-tag {
+      background: var(--accent-purple);
+      color: white;
+      padding: 2px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .price-option__strike {
+      color: var(--ink-faint);
+      text-decoration: line-through;
+      font-size: 16px;
+    }
+    .price-option__price {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+    .price-option__tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .price-tag {
+      padding: 4px 12px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+
+    /* ━━━━━ GUARDIAN STAR — 위험 신호 ━━━━━ */
+    .guardian {
+      background: linear-gradient(180deg, var(--bg-card) 0%, #1a2347 100%);
+      border-radius: 24px;
+      padding: 32px 24px;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .guardian__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--accent-mint);
+      margin-bottom: 12px;
+    }
+    .guardian__title {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+    .guardian__title-hint {
+      font-size: 22px;
+      color: var(--ink-muted);
+      margin-left: 8px;
+      font-weight: 500;
+    }
+    .guardian__body {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+    }
+    .guardian__body p { margin: 0 0 16px; }
+    .guardian__blur {
+      filter: blur(5px);
+      user-select: none;
+      color: var(--ink-faint);
+      background: var(--ink-faint);
+      border-radius: 8px;
+      padding: 24px;
+      margin-top: 16px;
+      min-height: 80px;
+    }
+
+    /* ━━━━━ 노란 highlight ━━━━━ */
+    .highlight-yellow {
+      background: linear-gradient(180deg, transparent 50%, rgba(245, 200, 66, 0.35) 50%);
+      padding: 0 4px;
+      color: var(--accent-gold);
+      font-weight: 800;
+    }
+
+    /* ━━━━━ Sticky CTA bottom ━━━━━ */
+    .sticky-bar {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      padding: 14px 20px calc(14px + env(safe-area-inset-bottom));
+      background: rgba(10, 14, 26, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      z-index: 60;
+    }
+    .sticky-bar__inner {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .sticky-bar__live {
+      align-self: center;
+      padding: 6px 14px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--ink-soft);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .sticky-bar__row {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 16px;
+      padding: 12px 16px;
+    }
+    .sticky-bar__timer {
+      flex-shrink: 0;
+    }
+    .sticky-bar__timer-label {
+      font-size: 11px;
+      color: var(--ink-muted);
+      margin-bottom: 2px;
+    }
+    .sticky-bar__timer-value {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+    }
+    .sticky-bar__cta {
+      flex: 1;
+      padding: 14px 20px;
+      background: var(--gradient-cta);
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+      text-align: center;
+      transition: transform 0.1s;
+    }
+    .sticky-bar__cta:active { transform: scale(0.98); }
+
+    /* body bottom padding for sticky */
+    main { padding-bottom: 140px; }
+
+    /* ━━━━━ 책 목차 ━━━━━ */
+    .toc-chapter {
+      background: linear-gradient(135deg, #1a2347 0%, #2a3461 100%);
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-bottom: 16px;
+    }
+    .toc-chapter__num {
+      font-size: 14px;
+      color: var(--accent-gold);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .toc-chapter__title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .toc-items {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .toc-item {
+      display: flex; gap: 16px;
+      align-items: flex-start;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed rgba(255,255,255,0.08);
+    }
+    .toc-item:last-child { border-bottom: 0; padding-bottom: 0; }
+    .toc-item__label {
+      font-size: 12px;
+      color: var(--accent-mint);
+      flex-shrink: 0;
+      width: 50px;
+      padding-top: 2px;
+      font-weight: 700;
+    }
+    .toc-item__text {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ━━━━━ TOP BAR ━━━━━ -->
+<header class="topbar">
+  <button class="topbar__back" aria-label="뒤로">←</button>
+  <div class="topbar__title">Core Compass</div>
+  <button class="topbar__menu" aria-label="메뉴">⋯</button>
+</header>
+
+<main>
+
+  <!-- ━━━━━ HERO — D-카운트다운 ━━━━━ -->
+  <section class="hero">
+    <p class="hero__eyebrow">AI 6명이 분석하는 사업 흐름</p>
+    <h1 class="hero__brand">Core Compass</h1>
+
+    <p class="hero__sub-label">당신의 사업이 바뀌는 날</p>
+    <div class="hero__dday">D-7</div>
+
+    <!-- Visual — 신비로운 일러스트 (간단 SVG) -->
+    <div class="hero__visual" aria-hidden="true">
+      <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1E2541"/>
+            <stop offset="100%" stop-color="#5A8AFF"/>
+          </linearGradient>
+          <radialGradient id="moon" cx="50%" cy="40%" r="20%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="320" height="400" fill="url(#g1)"/>
+        <!-- 별들 -->
+        <g fill="white" opacity="0.7">
+          <circle cx="40" cy="50" r="1.5"/>
+          <circle cx="80" cy="120" r="1"/>
+          <circle cx="280" cy="80" r="2"/>
+          <circle cx="220" cy="180" r="1.2"/>
+          <circle cx="60" cy="200" r="1.5"/>
+          <circle cx="160" cy="80" r="1"/>
+          <circle cx="240" cy="40" r="1.5"/>
+          <circle cx="120" cy="160" r="1"/>
+        </g>
+        <!-- 달 -->
+        <circle cx="160" cy="140" r="60" fill="url(#moon)"/>
+        <!-- 문 아치 -->
+        <path d="M 110 220 Q 110 180 160 180 Q 210 180 210 220 L 210 360 L 110 360 Z" fill="#0a0e1a" stroke="white" stroke-width="2" opacity="0.4"/>
+        <!-- 실루엣 (창업자 윤곽) -->
+        <ellipse cx="160" cy="240" rx="14" ry="16" fill="#0a0e1a"/>
+        <path d="M 145 260 L 145 320 Q 145 340 160 340 Q 175 340 175 320 L 175 260 Z" fill="#0a0e1a"/>
+        <!-- 구름 -->
+        <ellipse cx="50" cy="380" rx="80" ry="25" fill="white" opacity="0.4"/>
+        <ellipse cx="280" cy="380" rx="80" ry="25" fill="white" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <!-- 블러 미리보기 -->
+    <div class="preview-card">
+      <div class="preview-item">
+        <span class="preview-item__num">1</span>
+        <div><span class="blur-text">90일</span> 안에 매출 흐름이 크게 바뀝니다.</div>
+      </div>
+      <div class="preview-item">
+        <span class="preview-item__num">2</span>
+        <div><span class="blur-text">N월</span>에 첫 100명 고객을 잡을 핵심 기회가 옵니다.</div>
+      </div>
+      <div class="preview-item">
+        <span class="preview-item__num">3</span>
+        <div><span class="blur-text">N월</span>에 피해야 할 위험 결정 — 미리 대비하세요.</div>
+      </div>
+    </div>
+
+    <!-- 실시간 카운터 -->
+    <div class="live-counter">
+      <span class="live-counter__heart">💜</span>
+      <span><span class="live-counter__num" id="live-count">18,438</span>명의 창업자가 받았어요</span>
+    </div>
+  </section>
+
+  <!-- ━━━━━ Section: 폼 미리보기 (15%) ━━━━━ -->
+  <section class="section">
+    <p class="sec-eyebrow">STEP · INPUT</p>
+    <h2 class="sec-title">시작하기 전에<br>당신을 알려주세요</h2>
+    <div class="form-preview">
+      <div class="form-preview__progress-label">리포트가 <span class="form-preview__percent">15%</span> 완성됐어요!</div>
+      <div class="form-preview__progress-bar"><div class="form-preview__progress-fill" style="width: 15%;"></div></div>
+      <p class="form-preview__question">당신을 어떻게 부를까요?</p>
+      <p class="form-preview__title">이름과 사업 단계를 알려주세요.</p>
+      <div class="form-preview__name">예비 창업자</div>
+      <div class="form-preview__pills">
+        <button class="pill pill--active">시작 전</button>
+        <button class="pill pill--inactive">초기 1년</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━ Section: 분석 중 (사업 명식) ━━━━━ -->
+  <section class="section">
+    <p class="sec-eyebrow">ANALYZING</p>
+    <h2 class="sec-title">당신의 사업 흐름을<br>분석하고 있어요</h2>
+
+    <div style="background: var(--bg-card); border-radius: 24px; padding: 24px;">
+      <p style="text-align: center; font-size: 14px; color: var(--ink-muted); margin: 0 0 4px;">예비 창업자 님</p>
+      <p style="text-align: center; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--ink-muted); margin: 0 0 20px; letter-spacing: 0.05em;">2026.05.17 · KST</p>
+
+      <div class="business-labels">
+        <div class="business-col-label">시장</div>
+        <div class="business-col-label">상품</div>
+        <div class="business-col-label">자금</div>
+        <div class="business-col-label">운영</div>
+      </div>
+      <div class="business-grid">
+        <div class="biz-card biz-card--market">
+          <span class="biz-card__type">레드오션</span>
+          <span class="biz-card__icon">市</span>
+          <span class="biz-card__label">시장</span>
+        </div>
+        <div class="biz-card biz-card--product">
+          <span class="biz-card__type">디지털</span>
+          <span class="biz-card__icon">商</span>
+          <span class="biz-card__label">상품</span>
+        </div>
+        <div class="biz-card biz-card--money">
+          <span class="biz-card__type">자력</span>
+          <span class="biz-card__icon">財</span>
+          <span class="biz-card__label">자금</span>
+        </div>
+        <div class="biz-card biz-card--ops">
+          <span class="biz-card__type">1인 단독</span>
+          <span class="biz-card__icon">營</span>
+          <span class="biz-card__label">운영</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align: center; margin-top: 24px; font-size: 14px; color: var(--ink-muted);">사업 명식을 불러오는 중이에요...</p>
+    <div class="progress-bar-big">
+      <div class="progress-bar-big__fill" style="width: 16%;"></div>
+      <span class="progress-bar-big__text">16%</span>
+    </div>
+  </section>
+
+  <!-- ━━━━━ Section: 6 LLM 강조 ━━━━━ -->
+  <section class="section">
+    <p class="sec-eyebrow">6 AI · 6 LLM</p>
+    <h2 class="sec-title">6명의 AI가 협업해<br><span class="sec-title--gold">당신의 사업을 분석</span>합니다</h2>
+
+    <p style="font-size: 15.5px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 8px;">
+      한 AI가 아니라 여섯 명의 AI가 함께 봅니다.<br>
+      <strong style="color: var(--ink);">ChatGPT·Claude·Gemini·Perplexity·Copilot·Bing</strong>이 각자 다른 관점으로 분석해, 한쪽으로 치우치지 않게 다중 검증합니다.
+    </p>
+
+    <div class="ai-six">
+      <div class="ai-orb ai-orb--chatgpt"><div class="ai-orb__name">ChatGPT</div><div class="ai-orb__role">시장성</div></div>
+      <div class="ai-orb ai-orb--claude"><div class="ai-orb__name">Claude</div><div class="ai-orb__role">상품화</div></div>
+      <div class="ai-orb ai-orb--gemini"><div class="ai-orb__name">Gemini</div><div class="ai-orb__role">실행 순서</div></div>
+      <div class="ai-orb ai-orb--perplexity"><div class="ai-orb__name">Perplexity</div><div class="ai-orb__role">메시지</div></div>
+      <div class="ai-orb ai-orb--copilot"><div class="ai-orb__name">Copilot</div><div class="ai-orb__role">지표</div></div>
+      <div class="ai-orb ai-orb--bing"><div class="ai-orb__name">Bing</div><div class="ai-orb__role">최종 판단</div></div>
+    </div>
+  </section>
+
+  <!-- ━━━━━ Section: 펜타곤 차트 ━━━━━ -->
+  <section class="section">
+    <p class="sec-eyebrow">CHART · STRENGTH</p>
+    <h2 class="sec-title">당신의 사업 강점·<br>약점 영역</h2>
+
+    <div class="radar-card">
+      <div style="text-align: center; margin-bottom: 12px;">
+        <span class="radar-card__label">사업 운명형</span>
+      </div>
+      <svg viewBox="0 0 320 320" style="width: 100%; height: auto; display: block;">
+        <defs>
+          <radialGradient id="radarFill" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(123, 93, 255, 0.5)"/>
+            <stop offset="100%" stop-color="rgba(123, 93, 255, 0.1)"/>
+          </radialGradient>
+        </defs>
+        <!-- 5-step 펜타곤 그리드 -->
+        <g fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1">
+          <polygon points="160,40 280,128 232,272 88,272 40,128"/>
+          <polygon points="160,72 256,140 220,250 100,250 64,140"/>
+          <polygon points="160,104 232,152 208,228 112,228 88,152"/>
+          <polygon points="160,136 208,164 196,206 124,206 112,164"/>
+          <polygon points="160,168 184,176 184,184 136,184 136,176"/>
+        </g>
+        <!-- 축 -->
+        <g stroke="rgba(255,255,255,0.15)" stroke-width="1">
+          <line x1="160" y1="160" x2="160" y2="40"/>
+          <line x1="160" y1="160" x2="280" y2="128"/>
+          <line x1="160" y1="160" x2="232" y2="272"/>
+          <line x1="160" y1="160" x2="88" y2="272"/>
+          <line x1="160" y1="160" x2="40" y2="128"/>
+        </g>
+        <!-- 데이터 (5축: 매출·고객·상품·운영·마케팅) — 예시 값 -->
+        <polygon points="160,55 268,135 215,255 110,250 60,140"
+                 fill="url(#radarFill)"
+                 stroke="#7B5DFF" stroke-width="2"/>
+        <!-- 데이터 점 -->
+        <g fill="#7B5DFF">
+          <circle cx="160" cy="55" r="5"/>
+          <circle cx="268" cy="135" r="5"/>
+          <circle cx="215" cy="255" r="5"/>
+          <circle cx="110" cy="250" r="5"/>
+          <circle cx="60" cy="140" r="5"/>
+        </g>
+        <!-- 라벨 -->
+        <g fill="white" font-family="Pretendard, sans-serif" font-size="16" font-weight="700" text-anchor="middle">
+          <text x="160" y="26">매출</text>
+          <text x="295" y="128">고객</text>
+          <text x="255" y="298">상품</text>
+          <text x="65" y="298">운영</text>
+          <text x="25" y="128">마케팅</text>
+        </g>
+        <!-- 중심 점수 표시 -->
+        <g fill="rgba(255,255,255,0.4)" font-family="Inter, sans-serif" font-size="10">
+          <text x="170" y="55">100</text>
+          <text x="170" y="90">80</text>
+          <text x="170" y="120">60</text>
+          <text x="170" y="150">40</text>
+          <text x="170" y="180">20</text>
+        </g>
+      </svg>
+    </div>
+
+    <p style="text-align: center; margin-top: 24px; font-size: 14px; color: var(--ink-muted);">5개 핵심 영역으로 강점·약점 시각화</p>
+    <div class="progress-bar-big">
+      <div class="progress-bar-big__fill" style="width: 49%;"></div>
+      <span class="progress-bar-big__text">49%</span>
+    </div>
+  </section>
+
+  <!-- ━━━━━ Section: 90일 사업운 라인 차트 ━━━━━ -->
+  <section class="section">
+    <p class="sec-eyebrow">FORECAST · 90 DAYS</p>
+    <h2 class="sec-title">앞으로 90일,<br>당신의 사업 운 흐름</h2>
+
+    <div class="line-chart-card">
+      <svg viewBox="0 0 480 280" style="width: 100%; height: auto;">
+        <!-- 그리드 -->
+        <g stroke="rgba(255,255,255,0.06)" stroke-dasharray="3,3">
+          <line x1="40" y1="40" x2="460" y2="40"/>
+          <line x1="40" y1="120" x2="460" y2="120"/>
+          <line x1="40" y1="200" x2="460" y2="200"/>
+        </g>
+        <!-- Y 라벨 -->
+        <g fill="rgba(255,255,255,0.5)" font-family="Inter, sans-serif" font-size="12">
+          <text x="0" y="44">100%</text>
+          <text x="0" y="124">50%</text>
+          <text x="0" y="204">0%</text>
+        </g>
+        <!-- 차트 영역 fill -->
+        <path d="M 40 180 L 100 170 L 160 175 L 220 50 L 280 70 L 340 90 L 400 110 L 460 100 L 460 240 L 40 240 Z"
+              fill="url(#chartFill)" opacity="0.6"/>
+        <defs>
+          <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#7B5DFF"/>
+            <stop offset="100%" stop-color="rgba(123, 93, 255, 0)"/>
+          </linearGradient>
+        </defs>
+        <!-- 라인 -->
+        <polyline points="40,180 100,170 160,175 220,50 280,70 340,90 400,110 460,100"
+                  fill="none" stroke="#7B5DFF" stroke-width="3"/>
+        <!-- 강조 점 + 라벨 -->
+        <circle cx="220" cy="50" r="6" fill="#FF5BA8"/>
+        <rect x="170" y="20" width="100" height="22" rx="11" fill="#7B5DFF"/>
+        <text x="220" y="35" text-anchor="middle" fill="white" font-family="Pretendard" font-size="12" font-weight="700">사업운 상승</text>
+        <!-- X 라벨 -->
+        <g fill="rgba(255,255,255,0.5)" font-family="Pretendard" font-size="12">
+          <text x="40" y="260" text-anchor="middle">D-0</text>
+          <text x="160" y="260" text-anchor="middle">30일</text>
+          <text x="280" y="260" text-anchor="middle">60일</text>
+          <text x="400" y="260" text-anchor="middle">90일</text>
+        </g>
+      </svg>
+    </div>
+
+    <p style="text-align: center; margin-top: 24px; font-size: 14px; color: var(--ink-muted);">90일 사업 흐름 계산하는 중...</p>
+    <div class="progress-bar-big">
+      <div class="progress-bar-big__fill" style="width: 74%;"></div>
+      <span class="progress-bar-big__text">74%</span>
+    </div>
+  </section>
+
+  <!-- ━━━━━ Section: 사업 결정 캘린더 ━━━━━ -->
+  <section class="section">
+    <p class="sec-eyebrow">DECISION · CALENDAR</p>
+    <h2 class="sec-title">당신의 사업이<br>전환되는 핵심 일자</h2>
+
+    <div class="calendar-card">
+      <div class="cal-grid">
+        <div class="cal-head">MON</div>
+        <div class="cal-head">TUE</div>
+        <div class="cal-head">WED</div>
+        <div class="cal-head">THU</div>
+        <div class="cal-head">FRI</div>
+        <div class="cal-head">SAT</div>
+        <div class="cal-head">SUN</div>
+        <div class="cal-day"></div>
+        <div class="cal-day">1</div>
+        <div class="cal-day">2</div>
+        <div class="cal-day">3</div>
+        <div class="cal-day">4</div>
+        <div class="cal-day">5</div>
+        <div class="cal-day cal-day--launch">6</div>
+      </div>
+      <div style="text-align: center; margin: 4px 0;"><span class="cal-tag" style="background: var(--accent-gold); color: var(--bg-deep);">출시 일</span></div>
+      <div class="cal-grid">
+        <div class="cal-day">7</div>
+        <div class="cal-day">8</div>
+        <div class="cal-day">9</div>
+        <div class="cal-day">10</div>
+        <div class="cal-day">11</div>
+        <div class="cal-day">12</div>
+        <div class="cal-day">13</div>
+        <div class="cal-day cal-day--decision">14</div>
+        <div class="cal-day">15</div>
+        <div class="cal-day">16</div>
+        <div class="cal-day">17</div>
+        <div class="cal-day">18</div>
+        <div class="cal-day">19</div>
+        <div class="cal-day">20</div>
+      </div>
+      <div style="text-align: center; margin: 4px 0;"><span class="cal-tag" style="background: var(--accent-pink); color: white;">핵심 결정</span></div>
+      <div class="cal-grid">
+        <div class="cal-day">21</div>
+        <div class="cal-day">22</div>
+        <div class="cal-day">23</div>
+        <div class="cal-day">24</div>
+        <div class="cal-day">25</div>
+        <div class="cal-day">26</div>
+        <div class="cal-day">27</div>
+        <div class="cal-day">28</div>
+        <div class="cal-day"></div>
+        <div class="cal-day"></div>
+        <div class="cal-day"></div>
+        <div class="cal-day"></div>
+        <div class="cal-day"></div>
+        <div class="cal-day"></div>
+      </div>
+    </div>
+
+    <p style="text-align: center; margin-top: 24px; font-size: 14px; color: var(--ink-muted);">사업 전환점을 탐색하는 중...</p>
+    <div class="progress-bar-big">
+      <div class="progress-bar-big__fill" style="width: 94%;"></div>
+      <span class="progress-bar-big__text">94%</span>
+    </div>
+  </section>
+
+  <!-- ━━━━━ Section: GUARDIAN STAR — 위험 신호 ━━━━━ -->
+  <section class="section">
+    <p style="text-align: center; font-size: 26px; font-weight: 800; line-height: 1.4; letter-spacing: -0.03em; margin-bottom: 32px;">
+      당신의 향후 90일을<br><span class="highlight-yellow">망칠 수도 있는 위험 신호</span>
+    </p>
+
+    <div class="guardian">
+      <div class="guardian__label">DANGER SIGNAL · 위험 신호 #1</div>
+      <h3 class="guardian__title">
+        과잉 확장<span class="guardian__title-hint">Overextension</span>
+      </h3>
+      <div class="guardian__body">
+        <p>예비 창업자님은 원래 아이디어 감각이 예민한 편이에요. 시장 반응을 빠르게 읽고 "뭔가 가능성 있는데?"를 먼저 느끼는 타입이고, 그래서 기회가 보이면 마음이 먼저 들떠지죠.</p>
+        <p>다만 이 성향이 활성화되면, 한 가지 사업을 충분히 검증하기 전에 다음 아이디어로 옮겨가는 경향이 강해질 수 있어요. 시간·자금·집중력이 분산되면서 '분명히 열심히 했는데 남는 게 없는 느낌'을 자주 받을 수 있어요.</p>
+        <p>과잉 확장에서 벗어나는 법은 생각보다 간단해요.</p>
+        <div class="guardian__blur"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━ Section: 책 목차 (1장·2장·3장) ━━━━━ -->
+  <section class="section">
+    <p class="sec-eyebrow">CONTENTS · 리포트 구성</p>
+    <h2 class="sec-title">60,000자 이상 분량<br>당신의 사업을 책임질<br>90일 전략</h2>
+
+    <div class="toc-chapter">
+      <div class="toc-chapter__num">1장</div>
+      <div class="toc-chapter__title">내 사업의 핵심 지도 제대로 읽기</div>
+      <div class="toc-items">
+        <div class="toc-item"><div class="toc-item__label">풀이 1</div><div class="toc-item__text">나의 사업 원국 분석</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 2</div><div class="toc-item__text">12 영역 · 6 AI · 4 축</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 3</div><div class="toc-item__text">가장 강한 강점 2개 — 사고방식·실행력·인생의 주무기</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 4</div><div class="toc-item__text">사업가로서 타고난 재능</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 5</div><div class="toc-item__text">사업의 메인 과제 (무거운 영역)</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 6</div><div class="toc-item__text">사업 명식과 시장의 교차점</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 7</div><div class="toc-item__text">사업이 추천하는 행운 시기</div></div>
+      </div>
+    </div>
+
+    <div class="toc-chapter">
+      <div class="toc-chapter__num">2장</div>
+      <div class="toc-chapter__title">사업 6대 영역 풀이</div>
+      <div class="toc-items">
+        <div class="toc-item"><div class="toc-item__label">풀이 1</div><div class="toc-item__text">매출 운 — 분기별 흐름</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 2</div><div class="toc-item__text">고객 운 — 첫 100명 잡는 시기</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 3</div><div class="toc-item__text">상품 운 — 잘 맞는 가격대·형식</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 4</div><div class="toc-item__text">운영 운 — 자동화·외주 결정 시점</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 5</div><div class="toc-item__text">마케팅 운 — 잘 맞는 채널·메시지</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 6</div><div class="toc-item__text">성취 운 — 이번 90일 안 도달 가능 목표</div></div>
+      </div>
+    </div>
+
+    <div class="toc-chapter">
+      <div class="toc-chapter__num">3장</div>
+      <div class="toc-chapter__title">향후 1년 미래 풀이</div>
+      <div class="toc-items">
+        <div class="toc-item"><div class="toc-item__label">풀이 1</div><div class="toc-item__text">앞으로 1년, 매출·고객 상승·하락 구간</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 2</div><div class="toc-item__text">반드시 끊어내야 할 위험 결정</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 3</div><div class="toc-item__text">반드시 잡아야 할 핵심 기회</div></div>
+        <div class="toc-item"><div class="toc-item__label">풀이 4</div><div class="toc-item__text">사업 바꾸는 핵심 액션</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━ Section: 리뷰 ━━━━━ -->
+  <section class="section">
+    <p class="sec-eyebrow">REVIEWS</p>
+    <h2 class="sec-title">창업자들이 직접 남긴<br>실제 후기</h2>
+
+    <div class="reviews-header">
+      <span class="reviews-star">★</span>
+      <span class="reviews-score">4.9</span>
+      <span class="reviews-count">(3,498개 리뷰)</span>
+      <a class="reviews-more" href="#">더보기</a>
+    </div>
+
+    <div class="review-card">
+      <div class="review-card__head">
+        <div class="review-card__avatar">🐰</div>
+        <div>
+          <div class="review-card__email">yj8***@naver.com</div>
+          <div class="review-card__meta">1일 전 · 카페 창업 준비 중</div>
+          <div class="review-card__industry">F&B · 1년차</div>
+        </div>
+      </div>
+      <div class="review-card__stars">★★★★★</div>
+      <div class="review-card__body">
+        진단 앱만 너댓 개 깔아서 비교해보는 편인데, Core Compass는 진짜 차원이 달라요. 사주가 큰 틀을 잡아준다면 Core Compass는 거기에 사업 영역별로 딱딱 나눠 보여주는 느낌이에요. 특히 90일 흐름 그래프가 나오는데, 내년 봄에 매출이 확 오른다고 나와서 좀 망설였거든요;; 근데 읽어보니까 신규 시장이 아니라 기존 메뉴 확장 가능성이라고 풀어줘서 납득했어요.
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-card__head">
+        <div class="review-card__avatar">🐶</div>
+        <div>
+          <div class="review-card__email">dh0***@naver.com</div>
+          <div class="review-card__meta">1일 전 · 디지털 상품 판매</div>
+          <div class="review-card__industry">노션 템플릿 판매</div>
+        </div>
+      </div>
+      <div class="review-card__stars">★★★★★</div>
+      <div class="review-card__body">
+        매출 떨어져서 멘탈 나간 상태에서 봤는데ㅋㅋ 재무 파트에서 올해 하반기부터 매출 흐름이 반등한다고 나오더라고요. 근데 단순히 좋다 나쁘다가 아니라 어떤 종류의 상품이 맞는지, 구독형 vs 단발 이런 것까지 풀어줘서 진짜 신기했음. 명식이라는 걸 처음 봤는데 차트처럼 생겨서 이해하기도 쉽고, 저장해놓고 계속 보게 돼요.
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-card__head">
+        <div class="review-card__avatar">🐎</div>
+        <div>
+          <div class="review-card__email">sr4***@gmail.com</div>
+          <div class="review-card__meta">2일 전 · 부부 공동 창업</div>
+          <div class="review-card__industry">서비스업 · 시작 단계</div>
+        </div>
+      </div>
+      <div class="review-card__stars">★★★★★</div>
+      <div class="review-card__body">
+        남편이 작년에 사업 시작했는데 자꾸 불안한 거예요. 그래서 Core Compass에 돌려봤더니 초반 2년은 고비인데 3년차부터 매출이 트인다고 나왔어요;; 실제로 지금 딱 힘든 시기라 소름이었고… 구체적으로 어떤 업종이 사업 에너지랑 맞는지까지 나와서 남편한테 보여줬더니 본인도 고개를 끄덕이더라고요. 리포트 디자인도 깔끔해서 보기 좋았어요 그래프로 흐름 보여주니까 한눈에 들어옴.
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━ Section: 황금 월계관 트로피 ━━━━━ -->
+  <section class="section">
+    <div style="text-align: center; margin-bottom: 8px;">
+      <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: var(--accent-gold); font-weight: 700; letter-spacing: 0.1em;">🏆 국내 첫 6 LLM AI 진단</p>
+      <h2 class="sec-title sec-title--gold" style="font-size: 30px; margin-top: 12px;">창업자들이 가장 많이<br>선택한 진단 서비스</h2>
+    </div>
+
+    <div class="trophy-grid">
+      <div class="trophy">
+        <div class="trophy__icon">🥇</div>
+        <div class="trophy__label">누적 진단 수</div>
+        <div class="trophy__num">1.2만 건<br>이상</div>
+      </div>
+      <div class="trophy">
+        <div class="trophy__icon">⭐</div>
+        <div class="trophy__label">만족 리뷰 수</div>
+        <div class="trophy__num">3,498건<br>이상</div>
+      </div>
+      <div class="trophy">
+        <div class="trophy__icon">🤖</div>
+        <div class="trophy__label">분석 AI</div>
+        <div class="trophy__num">6 LLM<br>다중 검증</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━ Section: 결제 옵션 3종 ━━━━━ -->
+  <section class="section">
+    <p class="sec-eyebrow">PRICING</p>
+    <h2 class="sec-title">당신의 사업 단계에<br>맞는 옵션</h2>
+
+    <div class="pricing-stack">
+      <!-- 기본 -->
+      <div class="price-option">
+        <div class="price-option__title">Core Compass Lite</div>
+        <div class="price-option__desc">1페이지 7섹션 진단 — 시작 전·초기 1년 창업자에게</div>
+        <div class="price-option__price-row">
+          <span class="price-option__discount-tag">-50%</span>
+          <span class="price-option__strike">19,900원</span>
+        </div>
+        <div class="price-option__price">9,900원</div>
+        <div class="price-option__tags">
+          <span class="price-tag">7섹션</span>
+          <span class="price-tag">24h 재열람</span>
+        </div>
+      </div>
+
+      <!-- 인기 -->
+      <div class="price-option price-option--featured">
+        <div class="price-option__badge price-option__badge--popular">인기</div>
+        <div class="price-option__title">Core Compass + 코칭</div>
+        <div class="price-option__desc">[1순위] 진단 + 1:1 줌 30분 코칭 — 검증 받고 싶다면</div>
+        <div class="price-option__price-row">
+          <span class="price-option__discount-tag">-38%</span>
+          <span class="price-option__strike">79,000원</span>
+        </div>
+        <div class="price-option__price">49,000원</div>
+        <div class="price-option__tags">
+          <span class="price-tag">진단</span>
+          <span class="price-tag">1:1 줌 30분</span>
+          <span class="price-tag">녹화 영구</span>
+        </div>
+      </div>
+
+      <!-- 프리미엄 -->
+      <div class="price-option">
+        <div class="price-option__badge price-option__badge--discount">38% 할인</div>
+        <div class="price-option__title">90일 그룹 코호트</div>
+        <div class="price-option__desc">진단 + 90일 그룹 — 실행 동반</div>
+        <div class="price-option__price-row">
+          <span class="price-option__discount-tag">-38%</span>
+          <span class="price-option__strike">159,800원</span>
+        </div>
+        <div class="price-option__price">99,000원</div>
+        <div class="price-option__tags">
+          <span class="price-tag">진단</span>
+          <span class="price-tag">12주 그룹</span>
+          <span class="price-tag">매주 라이브</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 24px; font-size: 13px; color: var(--ink-muted); text-align: center; line-height: 1.7;">
+      Core Compass는 운명 예측이 아니라, 자기이해 기반 1인 사업 실행 리포트입니다.<br>
+      개인 URL 발송 전 전액 환불 가능.
+    </p>
+  </section>
+
+</main>
+
+<!-- ━━━━━ STICKY BAR ━━━━━ -->
+<div class="sticky-bar">
+  <div class="sticky-bar__inner">
+    <div class="sticky-bar__live">
+      <span>💜</span>
+      <span><span id="live-count-2">18,438</span>명의 창업자가 받았어요</span>
+    </div>
+    <div class="sticky-bar__row">
+      <div class="sticky-bar__timer">
+        <div class="sticky-bar__timer-label">출시 프로모션</div>
+        <div class="sticky-bar__timer-value" id="timer">00:17:30</div>
+      </div>
+      <a class="sticky-bar__cta" href="#pricing">Core Compass 리포트 받기</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ━━━━━ 실시간 카운터 (가짜 증가) ━━━━━
+  let count = 18438;
+  const els = [document.getElementById('live-count'), document.getElementById('live-count-2')];
+  setInterval(() => {
+    if (Math.random() < 0.4) {
+      count++;
+      els.forEach(el => { if (el) el.textContent = count.toLocaleString(); });
+    }
+  }, 6000);
+
+  // ━━━━━ 카운트다운 타이머 ━━━━━
+  let total = 17 * 60 + 30; // 17:30
+  const timerEl = document.getElementById('timer');
+  setInterval(() => {
+    total = Math.max(0, total - 1);
+    const h = String(Math.floor(total / 3600)).padStart(2, '0');
+    const m = String(Math.floor((total % 3600) / 60)).padStart(2, '0');
+    const s = String(total % 60).padStart(2, '0');
+    if (timerEl) timerEl.textContent = `${h}:${m}:${s}`;
+  }, 1000);
+</script>
+
+</body>
+</html>

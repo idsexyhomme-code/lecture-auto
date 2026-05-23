@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "deepwork-1hr",
+    "course_title": "딥워크 1시간 진입법",
+    "lesson_no": 1,
+    "lesson_title": "딥워크 환경 설계하기",
+    "objective": "나의 방해 요소 Top 5를 목록으로 작성하고, 각각에 대응하는 차단 규칙을 1개씩 정의한다",
+    "key_concepts": [
+      "딥워크 vs 얕은 작업 구분",
+      "주의 잔류물(Attention Residue) 개념",
+      "물리적·디지털 환경 분리 원칙"
+    ],
+    "exercise": "방해 요소 차단 프로토콜 워크시트 (방해 요소 5개 + 대응 규칙 5개를 표로 정리한 문서)",
+    "duration_min": 15
+  }
+}

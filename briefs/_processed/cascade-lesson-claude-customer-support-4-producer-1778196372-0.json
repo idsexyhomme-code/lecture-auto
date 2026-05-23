@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-customer-support",
+    "course_title": "Claude+RAG 문의 자동화 실전",
+    "lesson_no": 4,
+    "lesson_title": "Claude 시스템 프롬프트 작성하기",
+    "objective": "톤 프로필과 지식베이스를 결합해 역할·제약·출력 형식이 명시된 시스템 프롬프트를 작성하고, 3가지 테스트 질문으로 응답 품질을 검증한다",
+    "key_concepts": [
+      "시스템 프롬프트 구조(역할 정의·컨텍스트 삽입·출력 규칙)",
+      "할루시네이션 방지 제약 문구",
+      "Few-shot 예시 삽입 위치와 개수"
+    ],
+    "exercise": "완성된 시스템 프롬프트 문서 + 테스트 Q&A 3쌍 비교 스크린샷",
+    "duration_min": 15
+  }
+}

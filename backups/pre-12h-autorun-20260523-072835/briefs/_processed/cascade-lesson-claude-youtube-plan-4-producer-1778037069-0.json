@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-youtube-plan",
+    "course_title": "Claude로 완성하는 1인 사업가 유튜브 기획",
+    "lesson_no": 4,
+    "lesson_title": "30일 콘텐츠 캘린더 자동 생성하기",
+    "objective": "채널 전략서를 프롬프트로 변환해 Claude가 생성한 30일 콘텐츠 아이디어 목록을 업로드 빈도·카테고리별로 배치한 캘린더를 완성한다",
+    "key_concepts": [
+      "콘텐츠 캘린더 구조",
+      "카테고리 배분 전략",
+      "반복 프롬프트 기법"
+    ],
+    "exercise": "30일 콘텐츠 캘린더 (날짜·영상 제목·카테고리·핵심 키워드 포함)",
+    "duration_min": 15
+  }
+}

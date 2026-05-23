@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-meeting-notes",
+    "course_title": "Claude로 회의록 즉시 자동화",
+    "lesson_no": 1,
+    "lesson_title": "회의 원본을 Claude가 읽을 수 있는 형태로 변환한다",
+    "objective": "녹음 파일 또는 손메모를 Claude에 입력 가능한 텍스트로 변환하고, 입력 방법 3가지(붙여넣기·파일 업로드·음성→텍스트 변환 툴 연계)를 직접 시연한다",
+    "key_concepts": [
+      "Claude 입력 한계(토큰·파일 형식)",
+      "음성→텍스트 변환 무료 툴(Otter·Clova Note)",
+      "입력 텍스트 전처리(불필요한 필러 제거)"
+    ],
+    "exercise": "실제 회의 녹음 또는 샘플 음성 파일을 텍스트로 변환하여 Claude에 붙여넣은 스크린샷 1장",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 12,
+    "lesson_title": "댓글·DM으로 첫 고객 잡는다",
+    "objective": "댓글 또는 DM 문의 5개에 답장 템플릿을 써서 구매 유도 메시지를 보낸다",
+    "key_concepts": [
+      "댓글 답장 타이밍",
+      "DM 3줄 응대 공식",
+      "거절 대응 방법"
+    ],
+    "exercise": "DM 응대 3줄 템플릿 3가지 (문의형·관심형·가격질문형)",
+    "duration_min": 15
+  }
+}

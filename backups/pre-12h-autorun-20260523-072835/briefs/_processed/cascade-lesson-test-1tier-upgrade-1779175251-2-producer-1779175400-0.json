@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779175251",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 2,
+    "lesson_title": "내가 팔 수 있는 글 주제 3개 찾기",
+    "objective": "내 경력·관심사·검색 수요 3가지를 교차해서 수익 가능한 글 주제 3개를 뽑아냅니다",
+    "key_concepts": [
+      "네이버 키워드 조회",
+      "경험 재고 정리법",
+      "주제 수익성 판단 기준"
+    ],
+    "exercise": "주제 선정 워크시트 — 경력·관심사·검색량 3열로 채운 후 최종 주제 3개 표시",
+    "duration_min": 15
+  }
+}

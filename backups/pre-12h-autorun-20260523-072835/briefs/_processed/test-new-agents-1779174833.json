@@ -1,0 +1,13 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "topic": "AI 콘텐츠 자동화로 월 500만 원 1인 사업 만들기",
+    "target_audience": "N잡 직장인·1인 사업 초기(3개월 이내) — 콘텐츠 만드는 시간이 너무 오래 걸려서 손익이 안 맞는 사람",
+    "before_state": "AI 도구는 알지만 실제 매출로 연결 안 됨. 콘텐츠 만들기에 시간 소진",
+    "after_state": "ChatGPT·Claude로 블로그 글 1편을 30분 안에 완성하고, 그것을 인스타·뉴스레터로 자동 재생산하는 시스템 구축",
+    "duration_weeks": 4,
+    "duration_minutes_per_lesson": 18,
+    "tone": "단호하고 결과 지향. 동사형. 측정 가능"
+  }
+}

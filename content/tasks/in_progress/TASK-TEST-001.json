@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-TEST-001",
+  "assigned_agent": "market_research_agent",
+  "objective": "test",
+  "scope": {
+    "포함": [
+      "t1"
+    ],
+    "제외": []
+  },
+  "do_not": [
+    "x"
+  ],
+  "acceptance_criteria": [
+    "c1"
+  ],
+  "approval_required": false,
+  "created_at": "2026-05-16T07:02:38.694637+09:00",
+  "status": "pending"
+}

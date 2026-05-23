@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "tax-basics-solopreneur",
+    "course_title": "1인 사업가 세금 기초 완전정복",
+    "lesson_no": 1,
+    "lesson_title": "1인 사업가가 내야 할 세금 지도 그리기",
+    "objective": "종합소득세·부가가치세·지방소득세 3가지 세목을 구분하여 각 세금의 납부 주체·시기·계산 기준을 1장짜리 세금 지도 표로 작성한다",
+    "key_concepts": [
+      "세목 분류(소득세 vs 부가세)",
+      "과세 기간과 신고 기한",
+      "사업자 유형(일반·간이·면세)"
+    ],
+    "exercise": "세금 유형별 정리표 (세목명·신고월·납부 기준 3열 구성) 작성 워크시트",
+    "duration_min": 15
+  }
+}

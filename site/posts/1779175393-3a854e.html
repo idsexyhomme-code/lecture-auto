@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#8 1주 3편 업로드 루틴 짠다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#8 1주 3편 업로드 루틴 짠다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779174833 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>월요일 아침, 지난주 영상 하나 못 올린 채 한 주가 또 시작됩니다.
+"이번 주는 꼭 3편 올려야지" — 근데 금요일에 보면 0편이에요.
+이게 의지 문제가 아닙니다.
+언제 찍고, 언제 편집하고, 언제 올릴지 날짜 자체가 없는 거예요.
+오늘 이 영상 끝나면 4주 캘린더가 손에 쥐어집니다.
+날짜, 주제, 상태 칸까지 채운 채로요.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면 월·수·금 업로드 기준으로
+촬영 날, 편집 날, 올리는 날이 전부 적힌
+4주짜리 캘린더 하나를 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 배치 촬영: "빵집 굽기 법칙"</h3>
+<p><strong>설명</strong>
+빵집은 매일 굽지 않습니다.
+화요일 한 번에 3일치를 굽고, 진열만 매일 합니다.
+영상도 똑같이 쓸 수 있어요.
+월요일에 3편을 한꺼번에 찍는 겁니다.
+이걸 배치 촬영이라고 부릅니다.</p>
+<p><strong>예시</strong>
+매주 월요일 오전 2시간.
+같은 옷, 같은 배경, 대본 3개.
+찍는 시간 총 90분, 옮기는 시간 30분.
+그 한 번이 그 주 콘텐츠 전부를 채웁니다.</p>
+<p><strong>반례</strong>
+"나는 영감 오는 날 찍어야 잘 나오더라."
+맞아요, 처음엔 그게 나아 보입니다.
+근데 영감은 주 3번 오지 않습니다.
+대부분의 경우 2주 지나면 업로드가 멈춰요.
+루틴이 영감을 이깁니다.</p>
+<p><strong>정리</strong>
+배치 촬영 = 찍는 날 1회, 올리는 날 3회.
+빵집처럼 굽는 날과 파는 날을 분리합니다.</p>
+<hr />
+<h3>개념 2 — 하루 1시간 배분: "30·20·10 공식"</h3>
+<p><strong>설명</strong>
+제작 시간이 없다는 말은, 대부분의 경우 시간이 없는 게 아닙니다.
+뭘 얼마나 할지 모르는 겁니다.
+1시간을 3덩어리로 자릅니다.
+촬영 30분, 편집 20분, 업로드·썸네일 10분.
+이게 30·20·10 공식입니다.</p>
+<p><strong>예시</strong>
+월요일 배치 촬영일 기준으로 보면,
+3편을 각 10분씩 찍으면 촬영 끝.
+화요일 편집 20분 × 3일 = 3편 완성.
+수·금·다음 월요일에 하나씩 올립니다.</p>
+<p><strong>반례</strong>
+"편집에 2시간 걸리는데요."
+처음엔 그렇습니다.
+근데 편집이 오래 걸리는 이유는 대부분 컷 수가 많아서가 아닙니다.
+뭘 남기고 뭘 버릴지 기준이 없어서예요.
+편집 기준 하나만 정해도 — 예를 들어 '말 막히면 자른다' —
+20분 안으로 들어옵니다.</p>
+<p><strong>정리</strong>
+30·20·10.
+이 숫자를 손목에 적어둘 것.
+시간 배분이 먼저, 퀄리티는 나중입니다.</p>
+<hr />
+<h3>개념 3 — 아이디어 비축법: "냉동실 보관 원칙"</h3>
+<p><strong>설명</strong>
+아이디어는 올 때 잡지 않으면 사라집니다.
+근데 찍을 때마다 주제를 새로 생각하면 찍기 전에 지칩니다.
+냉동실처럼 미리 쌓아두는 겁니다.
+메모앱이든 노션이든 상관없어요.
+제목 한 줄짜리 아이디어를 12개 이상 항상 쌓아둡니다.</p>
+<p><strong>예시</strong>
+주 3편이면 한 달에 12편.
+그러면 냉동실에 항상 12개 이상 있어야 안전합니다.
+매주 금요일 5분, 아이디어 3개를 추가합니다.
+12개 채우고 나면 그다음 주 촬영 주제 고민이 0초입니다.</p>
+<p><strong>반례</strong>
+"아이디어가 12개나 있으면 좋은데, 생각이 안 나요."
+막힌다면 방법이 있습니다.
+내가 지난달에 받은 질문을 씁니다.
+고객한테 받은 메일, 댓글, DM — 거기에 주제가 다 있습니다.
+내 경험상 질문 10개를 보면 아이디어 7개는 바로 나옵니다.</p>
+<p><strong>정리</strong>
+냉동실 원칙 = 항상 12개 비축.
+매주 금요일 5분, 3개 추가.
+떨어지기 전에 채웁니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지하고 직접 만들어 봅니다.
+구글 시트, 노션, 엑셀, 종이 — 뭐든 괜찮습니다.</p>
+<p><strong>1단계 — 표 만들기 (1분)</strong>
+컬럼 4개를 만듭니다.
+날짜 / 주제 / 작업 유형 / 상태.
+작업 유형 칸엔 촬영·편집·업로드 중 하나가 들어갑니다.
+상태 칸엔 예정·완료·건너뜀 중 하나가 들어갑니다.</p>
+<p><strong>2단계 — 4주 날짜 채우기 (1분)</strong>
+오늘부터 4주, 총 28일을 씁니다.
+그 중 월·수·금에만 '업로드' 표시를 합니다.
+12개 칸에 업로드 표시가 생깁니다.</p>
+<p><strong>3단계 — 촬영·편집일 넣기 (1분)</strong>
+각 업로드일 기준으로 거꾸로 셉니다.
+업로드 전날 = 편집.
+편집 전날 = 촬영.
+촬영·편집 칸에 작업 유형을 채웁니다.</p>
+<p><strong>4단계 — 주제 12개 넣기 (1분)</strong>
+냉동실에서 꺼내듯, 아이디어 12개를 주제 칸에 하나씩 씁니다.
+아직 12개가 없으면 지금 떠오르는 것 5개만 먼저 채웁니다.
+나머지는 이번 주 금요일 5분으로 채웁니다.</p>
+<p>캘린더가 완성됐습니다.
+이 표 하나가 지금부터 4주를 끌고 갑니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #9에서는 이 캘린더대로 찍은 영상을
+어떻게 썸네일 하나로 클릭률을 올리는지 다룹니다.
+찍어도 안 눌린다면, 다음 영상이 답입니다.
+오늘 만든 캘린더 사진 찍어서 댓글에 올려주세요.
+보는 것만으로도 올릴 확률이 올라갑니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>페이지를 찾을 수 없어요 — Core Compass</title>
+  <link rel="stylesheet" href="../../../../design-system/base.css">
+  <link rel="stylesheet" href="../../../../design-system/components.css">
+  <style>
+    .err {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: var(--sp-20) var(--sp-5);
+      text-align: center;
+    }
+    .err__code {
+      font-family: var(--font-sans-en);
+      font-size: 80px;
+      font-weight: 700;
+      color: var(--color-coral);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: var(--sp-4);
+    }
+    .err__title {
+      font-size: clamp(22px, 4vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.022em;
+      margin-bottom: var(--sp-3);
+    }
+    .err__sub {
+      font-size: var(--fs-md);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: var(--sp-8);
+    }
+    .err__friendly {
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+      font-style: italic;
+      margin-top: var(--sp-6);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="https://corecampus.kr">
+      <span class="site-logo__mark"></span>
+      Core Compass
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="err">
+    <div class="err__code">404</div>
+    <h1 class="err__title">길을 잃으셨나요?</h1>
+    <p class="err__sub">
+      찾으시는 페이지가 없거나 URL이 만료됐을 수 있습니다.
+    </p>
+    <a class="btn btn--primary btn--lg" href="https://corecampus.kr">Core Campus로 돌아가기</a>
+    <p class="err__friendly">개인 URL이 만료된 거라면, support@corecampus.kr로 연장 신청해주세요.</p>
+  </section>
+</main>
+
+</body>
+</html>

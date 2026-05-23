@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "tax-basics-solopreneur",
+    "course_title": "1인 사업가 세금 기초 완전정복",
+    "lesson_no": 4,
+    "lesson_title": "부가가치세 신고 흐름 따라하기",
+    "objective": "매출세액과 매입세액을 계산하여 납부 또는 환급 세액을 산출하는 부가세 계산 시뮬레이션을 완성한다",
+    "key_concepts": [
+      "매출세액·매입세액 공제 구조",
+      "예정신고 vs 확정신고",
+      "환급 발생 조건"
+    ],
+    "exercise": "가상 매출·매입 데이터를 입력해 납부세액을 도출하는 부가세 계산 시뮬레이션 시트",
+    "duration_min": 15
+  }
+}

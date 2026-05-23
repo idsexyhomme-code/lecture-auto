@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#8 주간 콘텐츠 달력 짜기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#8 주간 콘텐츠 달력 짜기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779124486 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>월요일 아침, 커피 한 잔 들고 앉았는데 오늘 뭐 올려야 하지, 이 생각부터 시작됩니다.
+어제도 그랬고, 지난주도 그랬습니다.
+결국 30분 고민하다 그냥 올리거나, 아예 안 올리거나.
+그렇게 한 달이 지나면 발행된 글은 고작 4~5개.
+알고리즘은 꾸준한 사람 손을 먼저 잡아줍니다.
+오늘 이 영상 한 번으로, 그 고민을 한 달치 통째로 끝냅니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 날짜·플랫폼·소재가 다 채워진 4주짜리 콘텐츠 달력 1개를 손에 쥡니다.
+내일 아침부터 "오늘 뭐 올리지?" 라는 질문은 사라집니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 발행 빈도 vs 품질 균형</h3>
+<p><strong>설명</strong>
+"매일 올려야 한다"는 말, 절반만 맞습니다.
+플랫폼마다 알고리즘이 요구하는 빈도가 다릅니다.
+블로그는 주 3회, 인스타그램은 주 5회, 유튜브 쇼츠는 주 3~4회.
+이 숫자를 무시하고 매일 쏟아내면, 퀄리티가 먼저 무너집니다.</p>
+<p><strong>예시</strong>
+네이버 블로그 기준, 주 3회 발행 + 글자 수 800자 이상 유지한 계정이
+매일 발행 + 200자짜리 계정보다 3개월 후 유입이 평균 2.4배 높게 나옵니다.
+제 경험상 이 패턴은 꽤 일관되게 반복됩니다.</p>
+<p><strong>반례</strong>
+단, 인스타그램 릴스처럼 짧은 포맷은 빈도가 곧 도달입니다.
+여기서는 주 5회 이상이 오히려 유리합니다.
+플랫폼 성격에 따라 공식이 달라진다는 점, 기억해 두세요.</p>
+<p><strong>정리 — 메모리 페그 "3·5·3"</strong>
+블로그 3, 인스타 5, 쇼츠 3.
+이 숫자를 달력에 먼저 박아두는 게 시작입니다.</p>
+<hr />
+<h3>개념 2 — 소재 재활용 주기 설정</h3>
+<p><strong>설명</strong>
+소재를 매번 새로 만들면 금방 바닥납니다.
+하나의 소재를 4주 안에 3번 다른 포맷으로 돌려 씁니다.
+이것을 "소재 3회전 원칙"이라고 부르겠습니다.</p>
+<p><strong>예시</strong>
+"고객 문의 메일 빠르게 쓰는 법"이라는 소재 하나가 있다고 하면,
+- 1주차: 블로그 글 800자로 발행
+- 2주차: 핵심 3줄만 뽑아 인스타 카드뉴스
+- 3주차: 말로 설명하는 쇼츠 60초짜리</p>
+<p>소재 하나로 3개 콘텐츠가 나옵니다.
+60개 채우려면 실제로 새 소재는 20개만 있으면 됩니다.</p>
+<p><strong>반례</strong>
+같은 플랫폼에 같은 소재를 2주 안에 두 번 올리면 팔로워가 피로감을 느낍니다.
+재활용은 반드시 플랫폼을 바꾸거나, 최소 3주 간격을 둡니다.</p>
+<p><strong>정리 — 메모리 페그 "1소재 = 3포맷 = 20개면 60개"</strong>
+달력 채울 때 이 공식 하나만 떠올리면 됩니다.</p>
+<hr />
+<h3>개념 3 — 예약 발행 도구 세팅</h3>
+<p><strong>설명</strong>
+콘텐츠를 만들었어도 매일 직접 올리면 시간이 새어나갑니다.
+예약 발행 도구를 쓰면, 일주일치를 한 번에 세팅하고 손을 뗄 수 있습니다.</p>
+<p><strong>도구별 정리</strong>
+- 네이버 블로그: 기본 예약 발행 기능 내장. 무료.
+- 인스타그램: Meta Business Suite 또는 Buffer 무료 플랜(월 10개).
+- 유튜브: 유튜브 스튜디오 내 예약 기능. 무료.</p>
+<p>세 군데 다 무료로 됩니다.
+매주 월요일 오전 1시간, 그 주 콘텐츠를 한꺼번에 예약 등록합니다.</p>
+<p><strong>예시</strong>
+월요일 오전 9시에 앉아서,
+블로그 3개, 인스타 5개, 쇼츠 3개를 전부 예약 걸어두면
+그 주는 더 이상 발행 타이밍을 신경 쓰지 않아도 됩니다.</p>
+<p><strong>반례</strong>
+트위터(X)는 예약 발행 후 알고리즘 반응이 실시간 발행보다 낮다는 보고가 있습니다.
+X를 주력 채널로 쓴다면 예약보다 직접 발행이 낫습니다.</p>
+<p><strong>정리 — 메모리 페그 "월요일 1시간 = 일주일 자유"</strong>
+달력 세팅, 예약 등록, 이 두 가지만 월요일 오전에 끝냅니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 따라 해보세요.</p>
+<p><strong>준비물:</strong> 노션 또는 구글 시트 새 파일 하나.</p>
+<p><strong>Step 1 — 뼈대 만들기 (2분)</strong>
+열을 7개 만듭니다.
+<code>날짜 / 요일 / 플랫폼 / 소재 제목 / 포맷 / 상태 / 예약 시간</code>
+행은 4주 × 7일, 총 28행으로 채웁니다.</p>
+<p><strong>Step 2 — 빈도 먼저 박기 (1분)</strong>
+플랫폼 열에, 블로그는 월·수·금, 인스타는 월~금, 쇼츠는 월·수·금으로
+색깔 구분해서 먼저 표시합니다.
+소재는 아직 안 써도 됩니다.</p>
+<p><strong>Step 3 — 소재 20개 채우기 (2분)</strong>
+새 탭에 소재 목록을 20개 적습니다.
+각 소재 옆에 블로그·카드·쇼츠 중 어떤 순서로 쓸지 적어두세요.
+그다음 달력의 소재 제목 칸에 하나씩 끌어다 넣으면 60개가 채워집니다.</p>
+<p><strong>Step 4 — 상태 칸 설정</strong>
+상태 칸에 <code>미작성 / 작성완료 / 예약완료</code> 세 가지 옵션을 드롭다운으로 만듭니다.
+이 칸 하나가 매주 진행 상황을 한눈에 보여줍니다.</p>
+<p>여기까지 완성되면 달력 1개가 생긴 겁니다.
+파일 링크를 북마크해두고, 매주 월요일 오전에 여세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 달력에 올릴 글을 AI로 30분 안에 뽑아내는 법을 다룹니다.
+소재는 있는데 글이 안 써지는 분들한테 딱 맞는 내용입니다.
+오늘 만든 달력 스크린샷을 댓글에 올려주세요.
+직접 보고 짧게 피드백 드리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#12 외주 문의 받는 프로필 페이지 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#12 외주 문의 받는 프로필 페이지<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779124486 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>크몽 프로필 만들다가 '포트폴리오 없음'에서 손 멈춘 적 있죠?</p>
+<p>서비스 소개란 앞에서 한 시간째 커서만 깜빡이고 있는 거, 저도 해봤습니다.</p>
+<p>"나 아직 경력도 없는데, 누가 맡기겠어."</p>
+<p>그 생각 때문에 프로필 창을 닫아버린 겁니다.</p>
+<p>오늘은 그 창 다시 열고, 30분 안에 URL 하나 뽑습니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 영상이 끝나면 서비스 패키지 3개와 대체 증거, 첫 문장까지 갖춘 외주 프로필 URL 1개를 공개 상태로 올려놓을 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1. 서비스 패키지 3단계 가격 구성</h3>
+<p><strong>설명</strong></p>
+<p>가격 1개만 올려놓으면 고객은 "비싸다, 싸다" 둘 중 하나만 판단합니다.</p>
+<p>3개를 나란히 놓는 순간, 고객의 뇌는 비교를 시작합니다.</p>
+<p>비교하면 이탈률이 줄고 중간 가격에 시선이 꽂힙니다.</p>
+<p>이걸 <strong>'3단 가격 앵커'</strong> 라고 기억하세요.</p>
+<p>냉면 가게 메뉴판 떠올려 보세요. 물냉면·비빔냉면·특냉면, 딱 3개죠.</p>
+<p><strong>예시</strong></p>
+<ul>
+<li>BASIC 3만 원 — SNS 카드뉴스 문구 5장</li>
+<li>STANDARD 7만 원 — 블로그 포스팅 1건 + 카드뉴스 문구 3장</li>
+<li>PREMIUM 15만 원 — 블로그 3건 + 뉴스레터 1건 + 수정 2회 포함</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>"저는 서비스가 1개뿐인데요?" — 괜찮습니다.</p>
+<p>1개 서비스를 분량·수정 횟수·납기일로 쪼개면 3단계가 됩니다.</p>
+<p>예를 들어 블로그 글쓰기 하나도 '1건·3건·5건+수정 무제한'으로 나뉩니다.</p>
+<p><strong>정리</strong></p>
+<p>3단 앵커: 싼 것(미끼) → 중간(진짜 팔 것) → 비싼 것(기준점).</p>
+<p>중간 패키지에 '추천' 뱃지 하나만 달아도 클릭이 그쪽으로 쏠립니다.</p>
+<hr />
+<h3>개념 2. 포트폴리오 없을 때 대체 증거 만들기</h3>
+<p><strong>설명</strong></p>
+<p>포트폴리오는 "나 이런 거 해봤어요" 증거입니다.</p>
+<p>그런데 처음이면 그게 없죠. 없으면 만들면 됩니다.</p>
+<p>단, 가짜 고객 후기는 절대 안 됩니다.</p>
+<p><strong>세 가지 대체 증거</strong>를 기억하세요. 숫자로 박습니다. <strong>0→3</strong>.</p>
+<p>아무것도 없는 상태(0)에서 3가지로 채운다는 뜻입니다.</p>
+<p><strong>예시</strong></p>
+<ol>
+<li><strong>셀프 샘플</strong> — 내가 직접 주제 잡고 쓴 글 1편. "삼성전자 채용공고 분석 글 샘플" 이런 식으로 PDF로 저장해서 링크.</li>
+<li><strong>과정 스크린샷</strong> — 프롬프트 입력 화면 + 결과물 비교 캡처. "이런 식으로 작업합니다"를 보여주는 거.</li>
+<li><strong>지인 피드백 한 줄</strong> — 돈 안 받고 써준 글에 "읽기 편했어요"라는 카카오톡 한 줄도 증거입니다. 이름 이니셜로 처리하면 됩니다.</li>
+</ol>
+<p><strong>반례</strong></p>
+<p>"샘플도 글을 잘 써야 의미 있지 않나요?" — 아닙니다.</p>
+<p>샘플의 목적은 '문체와 작업 방식 보여주기'입니다.</p>
+<p>맞춤법 없는 초고보다, 주제 선정 이유 한 줄 붙인 샘플이 훨씬 낫습니다.</p>
+<p><strong>정리</strong></p>
+<p>포트폴리오 없음 = 기회 없음이 아닙니다.</p>
+<p>셀프 샘플·과정 캡처·지인 피드백, 이 3개가 있으면 일단 출발합니다.</p>
+<hr />
+<h3>개념 3. 문의 전환율 높이는 첫 문장</h3>
+<p><strong>설명</strong></p>
+<p>프로필 상단 첫 문장은 광고판 헤드라인과 같습니다.</p>
+<p>3초 안에 "이 사람 나한테 필요하다"가 안 느껴지면 고객은 뒤로 가기를 누릅니다.</p>
+<p>이걸 <strong>'3초 한 줄 테스트'</strong> 라고 기억하세요.</p>
+<p>공식은 간단합니다.</p>
+<blockquote>
+<p><strong>[고객이 원하는 결과] + [내가 쓰는 방법] + [기간 또는 분량]</strong></p>
+</blockquote>
+<p><strong>예시</strong></p>
+<p>나쁜 예 → "안녕하세요, AI 글쓰기 전문가입니다."</p>
+<p>좋은 예 → "블로그 글 1편, 저한테 맡기면 24시간 안에 넘어옵니다."</p>
+<p>또 다른 좋은 예 → "SNS 카드뉴스 문구가 매번 막힌다면, 5장 세트로 드립니다."</p>
+<p><strong>반례</strong></p>
+<p>"너무 직접적인 거 아닌가요?" — 직접적인 게 맞습니다.</p>
+<p>"감성적이고 트렌디한 글쓰기로 브랜드 가치를 높여드립니다" 같은 문장은 누구한테나 할 수 있는 말입니다.</p>
+<p>고객은 본인 얘기를 원합니다.</p>
+<p><strong>정리</strong></p>
+<p>첫 문장에 숫자(24시간, 5장, 3건)가 하나라도 들어가면 신뢰감이 달라집니다.</p>
+<p>지금 내 프로필 첫 줄이 누구한테나 쓸 수 있는 말이면, 오늘 바꿉니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>영상 여기서 일시정지하고 따라오세요.</p>
+<p>크몽이나 노션, 지금 열어놓고 시작합니다.</p>
+<p><strong>Step 1 — 서비스 패키지 잡기 (5분)</strong></p>
+<p>종이 한 장에 내가 할 수 있는 글쓰기 작업을 3개 적습니다.</p>
+<p>분량, 수정 횟수, 납기일 기준으로 BASIC·STANDARD·PREMIUM 나눕니다.</p>
+<p>가격은 시장 평균보다 10~20% 낮게 잡아도 됩니다. 지금은 첫 리뷰가 목표입니다.</p>
+<p><strong>Step 2 — 대체 증거 1개 준비 (5분)</strong></p>
+<p>셀프 샘플 주제를 지금 하나 정합니다.</p>
+<p>예: "중소 쇼핑몰 상세페이지 문구 샘플 — 스킨케어 브랜드 가정"</p>
+<p>A4 반 장 분량으로 써서 PDF 저장, 구글 드라이브에 올리고 공유 링크 복사합니다.</p>
+<p><strong>Step 3 — 첫 문장 쓰기 (3분)</strong></p>
+<p>빈 텍스트 파일 열고 아래 공식에 대입합니다.</p>
+<blockquote>
+<p>[고객이 원하는 결과] + [내가 쓰는 방법] + [기간 또는 분량]</p>
+</blockquote>
+<p>초안 3개 써보고 그 중 숫자가 들어간 문장 1개를 고릅니다.</p>
+<p><strong>Step 4 — 프로필 페이지에 올리기 (5분)</strong></p>
+<p>크몽이면 '서비스 등록' 페이지에 그대로 붙여넣습니다.</p>
+<p>노션이면 템플릿 없어도 됩니다. 제목·서비스 패키지 표·샘플 링크·첫 문장 순서로 블록 4개만 만들면 됩니다.</p>
+<p>공개 설정으로 저장하고 URL 복사합니다.</p>
+<p>이게 오늘 만들 것 전부입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #13에서는 이 프로필 URL을 들고 어디에 뿌릴지 다룹니다.</p>
+<p>재능마켓 말고, 지금 당장 문의 올 수 있는 채널 3곳을 짚어드립니다.</p>
+<p>오늘 만든 프로필 URL, 댓글에 달아두세요.</p>
+<p>제가 직접 보고 피드백 남깁니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

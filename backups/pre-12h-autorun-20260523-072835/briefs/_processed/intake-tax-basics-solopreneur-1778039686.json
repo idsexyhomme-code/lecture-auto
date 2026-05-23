@@ -1,0 +1,11 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "tax-basics-solopreneur",
+    "topic": "1인 사업가를 위한 세금 기초",
+    "audience": "Claude를 실무에 활용하는 1인 사업가 — 세금 신고·절세 개념이 낯선 초보자",
+    "duration_weeks": 4,
+    "lesson_count": 8,
+    "format": "pdf"
+  }
+}

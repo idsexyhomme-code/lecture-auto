@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779175251",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 6,
+    "lesson_title": "일주일치 글 60분 만에 예약하기",
+    "objective": "AI로 7편 초안을 뽑고 예약 발행 도구에 등록해 일주일 스케줄을 완성합니다",
+    "key_concepts": [
+      "배치 글쓰기 방식",
+      "메타 비즈니스·버퍼 예약 기능",
+      "초안 품질 빠른 검수법"
+    ],
+    "exercise": "7일 발행 스케줄표 — 날짜·플랫폼·제목·예약 상태가 채워진 스프레드시트",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "tistory-auto",
+    "topic": "Claude로 티스토리 블로그 발행 전과정 자동화",
+    "audience": "티스토리로 수익화를 노리는 일반 블로거",
+    "duration_weeks": 6,
+    "lesson_count": 12,
+    "format": "video"
+  }
+}

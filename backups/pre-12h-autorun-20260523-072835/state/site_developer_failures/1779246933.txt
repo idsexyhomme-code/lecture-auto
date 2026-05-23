@@ -1,0 +1,221 @@
+```json
+{
+  "site_name": "코어 캠퍼스",
+  "site_tagline_top": "1인 운영자를 위한 Claude 실습",
+  "site_headline": "혼자 다 하는 사람의 시간을 돌려줍니다",
+  "site_subtagline": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+  "course_order": [
+    "claude-bizflow",
+    "claude-sop",
+    "claude-launchpad",
+    "claude-youtube-plan",
+    "tax-basics-solopreneur",
+    "claude-daily-recap",
+    "claude-mail-writing",
+    "claude-meeting-notes",
+    "claude-pricing-page",
+    "claude-sop-onboarding",
+    "claude-customer-support",
+    "claude-content-engine",
+    "test-1tier-upgrade-1779124486",
+    "test-1tier-upgrade-1779174833",
+    "test-1tier-upgrade-1779175251"
+  ],
+  "course_overrides": {
+    "claude-bizflow": {
+      "title_override": "혼자 일하면서 시간 늘리기 — 1인 사업 자동화",
+      "tagline_override": "반복 업무를 줄여 본업에 시간을 쏟는 8차시 실습"
+    },
+    "claude-sop": {
+      "title_override": "외주·인수인계 바로 쓰는 SOP 만들기",
+      "tagline_override": "한 번 만들면 재사용 가능한 업무 문서 실습 과정"
+    },
+    "claude-customer-script": {
+      "title_override": "고객 응대 하루 30분으로 줄이기",
+      "tagline_override": "CS 답변 시간을 줄이는 실전 스크립트 8차시"
+    },
+    "claude-launchpad": {
+      "title_override": "부캐 서비스 7일 런칭 — 첫 유료 고객까지",
+      "tagline_override": "아이디어에서 결제까지, 1주일 실전 과정"
+    },
+    "claude-youtube-plan": {
+      "title_override": "유튜브 채널 기획 4주 완성",
+      "tagline_override": "채널 콘셉트부터 스크립트까지, 4주 단계별 실습"
+    },
+    "claude-daily-recap": {
+      "title_override": "하루 5분 회고, 매일 쌓이는 루틴",
+      "tagline_override": "부담 없이 5분으로 끝내는 회고 실습 과정"
+    },
+    "claude-customer-support": {
+      "title_override": "내 말투로 대신 답하는 문의 응답",
+      "tagline_override": "하루 1~2시간 문의 답변 시간을 줄이는 설정법"
+    },
+    "claude-content-engine": {
+      "title_override": "콘텐츠, 3주째 끊기지 않게 씁니다",
+      "tagline_override": "블로그·뉴스레터·SNS를 주 1회 꾸준히 쓰는 루틴"
+    },
+    "claude-autowork": {
+      "title_override": "반복 업무 시간 줄이기 실전",
+      "tagline_override": "하루 2시간 걸리던 일을 30분 안에 끝내는 8차시"
+    },
+    "claude-monthly-revenue": {
+      "title_override": "매출 정리·보고서, 5분으로 끝내기",
+      "tagline_override": "월간 보고서 1시간을 5분으로 줄이는 실습"
+    },
+    "claude-pricing-page": {
+      "title_override": "전환 잘 되는 가격 페이지 만들기",
+      "tagline_override": "헤드라인부터 FAQ까지, 4주 가격 페이지 실전"
+    },
+    "claude-intro-email": {
+      "title_override": "한 페이지 인사메일 — 답장이 오는 메일",
+      "tagline_override": "신규 고객·파트너에게 한 번에 닿는 메일 작성법"
+    },
+    "claude-mail-writing": {
+      "title_override": "1페이지 비즈니스 메일 잘 쓰는 법",
+      "tagline_override": "거절·요청·제안 메일 30분 → 5분으로 줄이는 실습"
+    },
+    "claude-meeting-notes": {
+      "title_override": "회의 끝나고 5분, 회의록 정리법",
+      "tagline_override": "1시간 회의를 5분 회의록으로 정리하는 실전 4차시"
+    },
+    "claude-sop-onboarding": {
+      "title_override": "팀 온보딩 SOP 6주 완성",
+      "tagline_override": "신규 팀원이 혼자 따라가는 Day 1·Week 1·Month 1"
+    },
+    "core-campus-general": {
+      "title_override": "코어 캠퍼스 안내",
+      "tagline_override": "사이트 전반 안내"
+    }
+  },
+  "design_tokens": {
+    "color_bg": "#F5EFE0",
+    "color_fg": "#1F1F1F",
+    "color_muted": "#6B6B6B",
+    "color_line": "#E5DFD3",
+    "color_brand": "#2C4E6B",
+    "color_brand_2": "#1A3549",
+    "color_accent": "#D85A30",
+    "color_soft": "#EDE6D6",
+    "font_family_sans": "'Pretendard Variable', system-ui, sans-serif",
+    "radius_card": "16px"
+  },
+  "promo_banners": [
+    {
+      "label": "⏱ 메일 5통, 5분이면 끝납니다 — 비즈니스 메일 쓰는 법",
+      "color": "primary",
+      "link": "#courses"
+    },
+    {
+      "label": "📋 한 번 만들면 계속 씁니다 — SOP 만들기",
+      "color": "secondary",
+      "link": "#courses"
+    },
+    {
+      "label": "🚀 아이디어에서 첫 결제까지 7일 — 부캐 런칭",
+      "color": "primary",
+      "link": "#courses"
+    },
+    {
+      "label": "✍️ 3주째 끊기지 않게 씁니다 — 콘텐츠 루틴",
+      "color": "secondary",
+      "link": "#courses"
+    },
+    {
+      "label": "🗂 회의 끝나고 5분으로 정리 끝납니다 — 회의록 정리법",
+      "color": "primary",
+      "link": "#courses"
+    },
+    {
+      "label": "🤝 고객 응대 하루 30분으로 줄입니다 — CS 스크립트",
+      "color": "secondary",
+      "link": "#courses"
+    },
+    {
+      "label": "🎯 하루 2시간 걸리던 일, 30분으로 — 반복 업무 줄이기",
+      "color": "primary",
+      "link": "#courses"
+    }
+  ],
+  "categories": [
+    {
+      "id": "writing",
+      "name": "메일·문서 쓰기",
+      "icon": "✉️",
+      "courses": [
+        "claude-mail-writing",
+        "claude-intro-email",
+        "claude-meeting-notes"
+      ]
+    },
+    {
+      "id": "content",
+      "name": "콘텐츠 제작",
+      "icon": "✍️",
+      "courses": [
+        "claude-content-engine",
+        "claude-youtube-plan",
+        "test-1tier-upgrade-1779124486",
+        "test-1tier-upgrade-1779174833",
+        "test-1tier-upgrade-1779175251"
+      ]
+    },
+    {
+      "id": "customer",
+      "name": "고객 응대·CX",
+      "icon": "🤝",
+      "courses": [
+        "claude-customer-support",
+        "claude-customer-script"
+      ]
+    },
+    {
+      "id": "revenue",
+      "name": "매출·재무 정리",
+      "icon": "📊",
+      "courses": [
+        "claude-monthly-revenue",
+        "tax-basics-solopreneur",
+        "claude-pricing-page"
+      ]
+    },
+    {
+      "id": "docs",
+      "name": "문서·인수인계",
+      "icon": "📋",
+      "courses": [
+        "claude-sop",
+        "claude-sop-onboarding",
+        "claude-bizflow"
+      ]
+    },
+    {
+      "id": "launch",
+      "name": "1인 사업 출시",
+      "icon": "🚀",
+      "courses": [
+        "claude-launchpad"
+      ]
+    },
+    {
+      "id": "repeat",
+      "name": "반복 업무 줄이기",
+      "icon": "⏱",
+      "courses": [
+        "claude-autowork",
+        "claude-bizflow"
+      ]
+    },
+    {
+      "id": "focus",
+      "name": "집중·일하는 법",
+      "icon": "🎯",
+      "courses": [
+        "deepwork-1hr",
+        "claude-daily-recap"
+      ]
+    }
+  ],
+  "hero_html": "<div class=\"wrap\" style=\"max-width:680px;margin:0 auto;padding:72px 24px 64px;font-family:'Pretendard Variable',system-ui,sans-serif;word-break:keep-all;\">\n  <div style=\"display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;background:var(--soft,#EDE6D6);padding:6px 14px;border-radius:9999px;\">\n    <span style=\"display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent,#D85A30);\"></span>\n    <span style=\"font-size:12px;letter-spacing:0.04em;color:var(--accent,#D85A30);font-weight:600;\">이번 달 신규 5개 코스 열렸습니다</span>\n  </div>\n  <h1 style=\"font-size:clamp(30px,5.5vw,52px);font-weight:800;line-height:1.22;letter-spacing:-0.028em;color:var(--fg,#1F1F1F);margin:0 0 20px;\">\n    혼자 다 하는 사람의<br><span style=\"color:var(--accent,#D85A30);\">시간을 돌려줍니다</span>\n  </h1>\n  <p style=\"font-size:clamp(15px,2vw,18px);line-height:1.7;letter-spacing:-0.018em;color:#3D3D3D;max-width:500px;margin:0 0 10px;\">메일 쓰고, 회의록 정리하고, 고객 응대하다<br>정작 본업은 저녁에 시작하고 있다면.</p>\n  <p style=\"font-size:14px;line-height:1.65;letter-spacing:-0.015em;color:var(--muted,#6B6B6B);max-width:460px;margin:0 0 36px;\">보고 따라 하면 오늘 일에 바로 씁니다.<br>짧게, 실습 중심으로 만들었습니다.</p>\n  <div style=\"display:flex;flex-wrap:wrap;gap:12px;align-items:center;\">\n    <a href=\"#courses\" style=\"display:inline-block;background:var(--accent,#D85A30);color:#fff;padding:15px 32px;border-radius:10px;font-size:15px;font-weight:700;letter-spacing:-0.01em;text-decoration:none;\">코스 둘러보기</a>\n    <a href=\"#categories\" style=\"font-size:13px;color:var(--brand,#2C4E6B);text-decoration:underline;letter-spacing:-0.01em;\">카테고리로 찾기 →</a>\n  </div>\n  <div style=\"display:flex;flex-wrap:wrap;gap:24px;margin-top:44px;padding-top:32px;border-top:1px solid var(--line,#E5DFD3);\">\n    <div>\n      <p style=\"font-size:clamp(20px,2.8vw,28px);font-weight:800;color:var(--fg,#1F1F1F);margin:0;font-variant-numeric:tabular-nums;letter-spacing:-0.02em;\">16개</p>\n      <p style=\"font-size:12px;color:var(--muted,#6B6B6B);margin:4px 0 0;letter-spacing:-0.01em;\">실습 코스</p>\n    </div>\n    <div>\n      <p style=\"font-size:clamp(20px,2.8vw,28px);font-weight:800;color:var(--fg,#1F1F1F);margin:0;font-variant-numeric:tabular-nums;letter-spacing:-0.02em;\">4~8차시</p>\n      <p style=\"font-size:12px;color:var(--muted,#6B6B6B);margin:4px 0 0;letter-spacing:-0.01em;\">코스당 분량</p>\n    </div>\n    <div>\n      <p style=\"font-size:clamp(20px,2.8vw,28px);font-weight:800;color:var(--fg,#1F1F1F);margin:0;font-variant-numeric:tabular-nums;letter-spacing:-0.02em;\">한 번 결제</p>\n      <p style=\"font-size:12px;color:var(--muted,#6B6B6B);margin:4px 0 0;letter-spacing:-0.01em;\">평생 수강</p>\n    </div>\n  </div>\n</div>",
+  "home_intro_html": "<div style=\"max-width:680px;margin:0 auto;padding:0 24px 12px;font-family:'Pretendard Variable',system-ui,sans-serif;word-break:keep-all;\">\n  <h2 style=\"font-size:clamp(18px,2.5vw,24px);font-weight:700;letter-spacing:-0.022em;color:var(--fg,#1F1F1F);margin:0 0 8px;\">전체 코스</h2>\n  <p style=\"font-size:14px;color:var(--muted,#6B6B6B);margin:0;letter-spacing:-0.01em;\">실습 중심, 짧게, 오늘 일에 바로 씁니다.</p>\n</div>",
+  "categories_html": "<nav id=\"categories\" aria-label=\"코스 카테고리\" style=\"padding:32px 24px 8px;font-family:'Pretendard Variable',system-ui,sans-serif;word-break:keep-all;\">\n  <div style=\"max-width:760px;margin:0 auto;\">\n    <p style=\"font-size:11px;letter-spacing:0.06em;color:var(--muted,#6B6B6B);font-weight:600;margin:0 0 14px;text-transform:uppercase;\">카테고리로 찾기</p>\n    <div style=\"display:flex;flex-wrap:wrap;gap:8px;\">\n      <a href=\"#courses\" style=\"display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:9999px;background:var(--soft,#EDE6D6);color:var(--fg,#1F1F1F);font-size:13px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;border:1.5px solid transparent;\" title=\"전체 코스\">전체</a>\n      <a href=\"#courses\" style=\"display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:9999px;background:var(--soft,#EDE6D6);color:var(--fg,#1F1F1F);font-size:13px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;border:1.5px solid transparent;\" title=\"메일·문서 쓰기\"><span aria-hidden=\"true\">✉️</span> 메일·문서 쓰기</a>\n      <a href=\"#courses\" style=\"display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:9999px;background:var(--soft,#EDE6D6);color:var(--fg,#1F1F1F);font-size:13px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;border:1.5px solid transparent;\" title=\"콘텐츠 제작\"><span aria-hidden=\"true\">✍️</span> 콘텐츠 제작</a>\n      <a href=\"#courses\" style=\"display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:9999px;background:var(--soft,#EDE6D6);color:var(--fg,#1F1F1F);font-size:13px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;border:1.5px solid transparent;\" title=\"고객 응대·CX\"><span aria-hidden=\"true\">🤝</span> 고객 응대·CX</a>\n      <a href=\"#courses\" style=\"display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:9999px;background:var(--soft,#EDE6D6);color:var(--fg,#1F1F1F);font-size:13px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;border:1.5px solid transparent;\" title=\"매출·재무 정리\"><span aria-hidden=\"true\">📊</span> 매출·재무 정리</a>\n      <a href=\"#courses\" style=\"display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:9999px;background:var(--soft,#EDE6D6);color:var(--fg,#1F1F1F);font-size:13px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;border:1.5px solid transparent;\" title=\"문서·인수인계\"><span aria-hidden=\"true\">📋</span> 문서·인수인계</a>\n      <a href=\"#courses\" style=\"display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:9999px;background:var(--soft,#EDE6D6);color:var(--fg,#1F1F1F);font-size:13px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;border:1.5px solid transparent;\" title=\"1인 사업 출시\"><span aria-hidden=\"true\">🚀</span> 1인 사업 출시</a>\n      <a href=\"#courses\" style=\"display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:9999px;background:var(--soft,#EDE6D6);color:var(--fg,#1F1F1F);font-size:13px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;border:1.5px solid transparent;\" title=\"반복 업무 줄이기\"><span aria-hidden=\"true\">⏱</span> 반복 업무 줄이기</a>\n      <a href=\"#courses\" style=\"display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:9999px;background:var(--soft,#EDE6D6);color:var(--fg,#1F1F1F);font-size:13px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;border:1.5px solid transparent;\" title=\"집중·일하는 법\"><span aria-hidden=\"true\">🎯</span> 집중·일하는 법</a>\n    </div>\n  </div>\n</nav>",
+  "cta_html": "<section aria-label=\"코스 안내\" style=\"padding:40px 24px;font-family:'Pretendard Variable',system-ui,sans-serif;word-break:keep-all;\">\n  <div style=\"max-width:680px;margin:0 auto;background:var(--brand,#2C4E6B);border-radius:var(--radius-card,16px);padding:36px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;\">\n    <div>\n      <p style=\"font-size:12px;letter-spacing:0.06em;color:rgba(255,255,255,0.6);font-weight:600;margin:0 

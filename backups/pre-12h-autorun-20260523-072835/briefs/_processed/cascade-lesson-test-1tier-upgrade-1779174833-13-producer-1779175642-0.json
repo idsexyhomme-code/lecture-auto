@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 13,
+    "lesson_title": "숫자로 뭐가 팔렸는지 본다",
+    "objective": "2주치 영상 데이터를 조회수·클릭·판매 건수 기준으로 표로 정리한다",
+    "key_concepts": [
+      "유튜브 스튜디오 3가지 지표",
+      "클릭률 기준 해석",
+      "안 팔린 영상 판단 기준"
+    ],
+    "exercise": "2주치 영상 성과 비교표 (영상명·조회수·클릭률·판매 건수)",
+    "duration_min": 15
+  }
+}

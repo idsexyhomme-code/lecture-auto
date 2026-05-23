@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "deepwork-1hr-test",
+    "course_title": "딥워크 1시간 진입법",
+    "lesson_no": 1,
+    "lesson_title": "내 집중 도둑 지도 만들기",
+    "objective": "지난 3일간 작업 방해 요인을 외부·내부·디지털 3가지 범주로 분류한 '방해 요인 목록표'를 작성한다",
+    "key_concepts": [
+      "딥워크 vs 얕은 작업(shallow work) 정의",
+      "주의 분산의 3가지 유형(외부·내부·디지털)",
+      "주의 잔여물(attention residue) 메커니즘"
+    ],
+    "exercise": "방해 요인 분류 워크시트(3범주 × 각 3개 항목 이상 기입)",
+    "duration_min": 15
+  }
+}

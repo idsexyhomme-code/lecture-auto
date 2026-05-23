@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "deepwork-1hr-test",
+    "course_title": "딥워크 1시간 진입법",
+    "lesson_no": 3,
+    "lesson_title": "나만의 딥워크 프로토콜 영상 제작",
+    "objective": "1~2차시 산출물을 바탕으로 자신의 딥워크 루틴을 소개하는 2분 이내 셀프 설명 영상을 촬영·완성한다",
+    "key_concepts": [
+      "프로토콜 문서화가 습관 형성에 미치는 효과",
+      "영상 자기선언(public commitment)의 실행력 강화 원리",
+      "반복 실행을 위한 체크리스트 설계"
+    ],
+    "exercise": "개인 딥워크 프로토콜 소개 영상 파일(2분 이내, 루틴 3단계 포함)",
+    "duration_min": 15
+  }
+}

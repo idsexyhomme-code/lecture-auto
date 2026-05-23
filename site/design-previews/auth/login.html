@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>로그인 — 코어 캠퍼스 (시안)</title>
+  <link rel="stylesheet" href="../../../design-system/base.css">
+  <link rel="stylesheet" href="../../../design-system/components.css">
+  <style>
+    .auth-page { max-width: 420px; margin: 0 auto; padding: var(--sp-16) var(--sp-5) var(--sp-12); }
+    .auth-title { font-size: clamp(24px, 4vw, 32px); font-weight: 800; letter-spacing: -0.025em; text-align: center; margin-bottom: var(--sp-2); }
+    .auth-sub { text-align: center; color: var(--color-text-muted); margin-bottom: var(--sp-8); font-size: var(--fs-md); }
+    .auth-form { display: flex; flex-direction: column; gap: var(--sp-4); }
+    .field-input {
+      padding: var(--sp-3) var(--sp-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--r-md);
+      font-family: var(--font-sans-kr);
+      font-size: var(--fs-md);
+      background: var(--color-bg-card);
+    }
+    .field-input:focus { outline: none; border-color: var(--color-coral); }
+    .divider-with-text {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin: var(--sp-6) 0;
+      color: var(--color-text-muted);
+      font-size: var(--fs-sm);
+    }
+    .divider-with-text::before, .divider-with-text::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+    .sso-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-2);
+      padding: var(--sp-3) var(--sp-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--r-md);
+      font-size: var(--fs-md);
+      font-weight: 600;
+      background: var(--color-bg-card);
+      transition: all var(--duration-fast);
+      cursor: pointer;
+    }
+    .sso-button:hover { border-color: var(--color-ink); }
+    .sso-button--kakao { background: #FEE500; color: #181600; border-color: #FEE500; }
+    .sso-button--naver { background: #03C75A; color: #fff; border-color: #03C75A; }
+    .sso-button--google { background: #fff; }
+    .preview-watermark { position: fixed; top: 12px; right: 12px; background: var(--color-warning); color: #fff; padding: 4px 10px; border-radius: var(--r-full); font-size: 11px; font-weight: 700; z-index: 999; }
+  </style>
+</head>
+<body>
+<div class="preview-watermark">시안 — 회원 ✅ 전</div>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="/site/index.html"><span class="site-logo__mark"></span>코어 캠퍼스</a>
+  </div>
+</header>
+
+<main>
+  <div class="auth-page">
+    <h1 class="auth-title">로그인</h1>
+    <p class="auth-sub">진단 결과·내 코스를 다시 보세요.</p>
+
+    <button class="sso-button sso-button--kakao">💬 카카오로 계속하기</button>
+    <button class="sso-button sso-button--naver" style="margin-top: var(--sp-2);">N 네이버로 계속하기</button>
+    <button class="sso-button sso-button--google" style="margin-top: var(--sp-2);">G 구글로 계속하기</button>
+
+    <div class="divider-with-text">또는 이메일로</div>
+
+    <form class="auth-form">
+      <input type="email" class="field-input" placeholder="이메일" required>
+      <input type="password" class="field-input" placeholder="비밀번호" required>
+      <button type="submit" class="btn btn--primary btn--lg">로그인</button>
+    </form>
+
+    <p style="margin-top: var(--sp-4); text-align: center; font-size: var(--fs-sm); color: var(--color-text-muted);">
+      처음이신가요? <a href="signup.html" style="color: var(--color-coral); font-weight: 600;">회원가입</a>
+    </p>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 AI 글쓰기 첫 번째 세팅 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 AI 글쓰기 첫 번째 세팅<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779124486 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>월요일 오전, 블로그 글 하나 써달라고 ChatGPT에 입력했더니
+완전 남 얘기처럼 딱딱한 문장이 나왔죠.</p>
+<p>그래서 다시 씁니다.
+또 다시 씁니다.
+결국 제가 다 고칩니다.</p>
+<p>이게 매번 반복되는 이유가 있어요.
+ChatGPT가 나를 모르기 때문입니다.</p>
+<p>오늘 이 영상 끝나고 나면,
+ChatGPT한테 "나 이런 사람이야" 한 번만 알려주면
+다음부터는 내 말투로 바로 써줍니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면,
+ChatGPT에 붙여넣기만 해도 내 말투로 글이 나오는
+시스템 프롬프트 .txt 파일 1개를 손에 쥡니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1. 시스템 프롬프트는 '명함'이다</h3>
+<p><strong>설명</strong>
+ChatGPT는 대화를 시작할 때 아무것도 모릅니다.
+내가 누구인지, 어떤 말투를 쓰는지, 뭘 싫어하는지 — 전부 백지 상태입니다.
+시스템 프롬프트는 그 백지에 미리 박아두는 명함입니다.
+역할, 형식, 금지어, 세 가지만 들어가면 됩니다.</p>
+<p><strong>예시</strong></p>
+<pre><code>역할: 너는 30대 여성 1인 브랜드 운영자의 블로그 글쓰기 파트너야.
+형식: 한 문장 25자 이내. 목차 없이 흐르듯 써.
+금지어: 솔루션, 여정, 성장, 함께해요 — 이 단어들은 절대 쓰지 마.
+</code></pre>
+<p>이렇게 세 줄만 써도 결과물이 달라집니다.</p>
+<p><strong>반례</strong>
+"좋은 글을 써줘"라고만 넣으면 어떻게 될까요.
+ChatGPT는 '좋은 글'의 기준을 자기가 정합니다.
+그래서 깔끔하고 밋밋한 교과서 문장이 나오는 겁니다.
+기준을 내가 쥐고 있어야 합니다.</p>
+<p><strong>정리</strong>
+페그 이미지: <strong>명함 3칸</strong> — 역할·형식·금지어.
+이 3칸짜리 명함을 매번 새 대화에 꽂아줍니다.</p>
+<hr />
+<h3>개념 2. 말투를 복사하려면 예시를 그대로 붙여넣는다</h3>
+<p><strong>설명</strong>
+"친근하게 써줘"는 안 먹힙니다.
+'친근하다'의 기준이 사람마다 다르기 때문입니다.
+대신 내가 실제로 쓴 문장 3~5개를 그대로 넣어줍니다.
+ChatGPT는 그 패턴을 읽고 따라합니다.</p>
+<p><strong>예시</strong>
+내가 평소에 이렇게 씁니다:</p>
+<blockquote>
+<p>"솔직히 말하면 저 처음에 진짜 막막했거든요."
+"그냥 이거 하나만 바꿨는데 달라졌어요."
+"다들 어렵다고 하는데, 제 경험상 아니더라고요."</p>
+</blockquote>
+<p>이 세 문장을 프롬프트 안에 넣고 이렇게 씁니다:</p>
+<pre><code>아래 문장들이 내 말투야. 이 느낌 그대로 써줘.
+(예시 3문장 붙여넣기)
+</code></pre>
+<p><strong>반례</strong>
+유명 작가 이름을 대는 건 생각보다 약합니다.
+"김훈 스타일로 써줘"라고 하면
+제 이름을 달고 나온 글이 아닌 느낌이 납니다.
+독자는 그 어색함을 금방 알아챕니다.
+내 문장을 직접 넣는 게 훨씬 빠릅니다.</p>
+<p><strong>정리</strong>
+페그 숫자: <strong>예시 3문장</strong>.
+설명 말고 실제 내 문장 3개를 그대로 복사해서 붙입니다.</p>
+<hr />
+<h3>개념 3. 프롬프트는 .txt 파일에 저장해서 꺼내 씁니다</h3>
+<p><strong>설명</strong>
+잘 만든 프롬프트를 매번 다시 타이핑하면 의미가 없습니다.
+메모장(.txt) 파일 하나에 저장해두고,
+새 대화창 열면 복사 → 붙여넣기 → 끝입니다.
+파일 이름은 날짜를 붙입니다: <code>myprompt_250601.txt</code></p>
+<p>업데이트할 때마다 날짜를 새로 붙이면
+어떤 버전이 더 잘 됐는지 비교할 수 있습니다.</p>
+<p><strong>예시</strong>
+제 경험상, 프롬프트를 3번 정도 수정하고 나면
+그 다음부터는 거의 손을 안 대게 됩니다.
+처음 세팅이 조금 귀찮을 뿐입니다.</p>
+<p><strong>반례</strong>
+Notion이나 구글 드라이브에 넣어두면
+링크 찾는 데 시간이 더 걸리기도 합니다.
+바탕화면에 .txt 파일 하나 두는 게
+솔직히 제일 빠릅니다.</p>
+<p><strong>정리</strong>
+페그 이미지: <strong>바탕화면 .txt 아이콘</strong>.
+열고 → 복사하고 → 붙여넣기.
+세 번 클릭으로 끝납니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지하고 따라해 보세요.
+메모장 하나 열어둡니다.</p>
+<p><strong>1단계 — 역할 한 줄 쓰기</strong>
+나는 어떤 사람인가요.
+직업, 대상 독자, 주제를 한 줄로 씁니다.</p>
+<p>예: <code>너는 40대 남성 1인 컨설턴트의 뉴스레터 글쓰기 파트너야.</code></p>
+<p><strong>2단계 — 형식 한 줄 쓰기</strong>
+문장 길이, 목차 유무, 분위기를 씁니다.</p>
+<p>예: <code>한 문장 25자 이내. 번호 목차 없이. 딱딱하지 않게.</code></p>
+<p><strong>3단계 — 금지어 3개 고르기</strong>
+내 글에서 절대 안 쓰는 단어 3개를 골라 씁니다.</p>
+<p>예: <code>절대 쓰지 마: 패러다임, 인사이트, 솔루션.</code></p>
+<p><strong>4단계 — 내 말투 예시 3문장 붙이기</strong>
+지금 카톡, 블로그, SNS에서 내가 쓴 문장 3개를 복사해서 붙입니다.
+없으면 지금 이 순간 말하듯이 문장 3개를 써봅니다.</p>
+<p><strong>5단계 — 파일 저장</strong>
+파일 이름: <code>myprompt_오늘날짜.txt</code>
+바탕화면에 저장합니다.</p>
+<p>다 됐으면 ChatGPT 새 대화창 열고 붙여넣어 보세요.
+느낌이 달라지는 거 바로 보입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 프롬프트를 들고
+블로그 글 1편을 30분 안에 뽑는 법을 봅니다.
+초안부터 제목까지 한 번에 끝냅니다.</p>
+<p>오늘 만든 .txt 파일, 댓글에 역할 한 줄만 공유해 보세요.
+비슷한 분들이 서로 참고하면 훨씬 빨리 됩니다.</p>
+<hr />
+<p>예상 분량: 14분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

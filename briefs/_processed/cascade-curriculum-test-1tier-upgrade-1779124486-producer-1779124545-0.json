@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779124486",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 1,
+    "lesson_title": "돈 되는 주제 고르기",
+    "objective": "내 경험·직무 키워드 20개 중 수익 가능성 높은 5개를 골라 우선순위 표를 채웁니다",
+    "key_concepts": [
+      "검색량 vs 경쟁도 교차 분석",
+      "내 경험을 돈으로 바꾸는 주제 공식",
+      "네이버·구글 자동완성 읽는 법"
+    ],
+    "exercise": "A4 1장 분량 '내 수익 주제 5선' 우선순위 표",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "agent": "blog_publisher",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "콘텐츠, 3주째 끊기지 않게 씁니다",
+    "topic_hint": "블로그·뉴스레터·SNS 콘텐츠가 2주차에 끊기는 진짜 이유. Claude를 어떻게 쓰면 주 1회 꾸준히 쓰는 루틴이 잡히는지.",
+    "target_audience": "콘텐츠를 시작했다가 2~3주차에 멈춘 경험이 있는 1인 사업가·프리랜서. 글쓰기가 부담스러움.",
+    "image_style_hint": "Editorial magazine cover. 책상 위 빈 노트와 펜, 시간의 흐름·꾸준함을 암시하는 시각. 베이지·다크브라운. 차분하지만 동기부여.",
+    "approval_required": true,
+    "priority": "high"
+  }
+}

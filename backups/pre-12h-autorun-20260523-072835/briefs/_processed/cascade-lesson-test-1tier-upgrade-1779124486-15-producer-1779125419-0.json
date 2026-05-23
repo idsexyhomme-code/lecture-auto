@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779124486",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 15,
+    "lesson_title": "최종 영상 포트폴리오 완성",
+    "objective": "4주 동안 만든 콘텐츠 중 대표작 3개를 골라 60초 소개 영상 1편으로 편집합니다",
+    "key_concepts": [
+      "포트폴리오 영상 구성 (문제-과정-결과)",
+      "3개 콘텐츠 하이라이트 컷 선정 기준",
+      "유튜브 또는 링크드인 업로드 세팅"
+    ],
+    "exercise": "4주 성과를 담은 포트폴리오 영상 1편 (mp4, 60초)",
+    "duration_min": 15
+  }
+}

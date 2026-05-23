@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 5,
+    "lesson_title": "편집 없이 자막만 붙인다",
+    "objective": "CapCut 자동 자막 기능으로 영상 1편에 자막을 입히고 파일로 저장한다",
+    "key_concepts": [
+      "CapCut 자동 자막 경로",
+      "자막 오류 수정 3곳",
+      "파일 저장 해상도 설정"
+    ],
+    "exercise": "자막 입힌 완성 영상 파일 1개 (1080p)",
+    "duration_min": 15
+  }
+}

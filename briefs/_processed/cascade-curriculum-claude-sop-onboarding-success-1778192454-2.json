@@ -1,0 +1,10 @@
+{
+  "agent": "success",
+  "brief": {
+    "mode": "faq",
+    "course_id": "claude-sop-onboarding",
+    "course_title": "Claude로 팀 온보딩 SOP 완전 자동화",
+    "topic": "같은 설명 반복 끝, 채용 즉시 쓸 SOP를 Claude가 만든다",
+    "audience": "처음 팀원을 채용했지만 온보딩 문서 없이 매번 직접 설명을 반복하는 1인·소규모 팀 운영자"
+  }
+}

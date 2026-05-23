@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-monthly-revenue",
+    "course_title": "Claude로 매출 자동 분석·보고서 완성",
+    "lesson_no": 3,
+    "lesson_title": "트렌드 발견: 주차별·채널별 비교 분석",
+    "objective": "주차별 또는 판매 채널별 매출을 비교하는 프롬프트를 작성하고 Claude가 생성한 비교 표를 시트에 붙여넣어 완성한다",
+    "key_concepts": [
+      "비교 분석 프롬프트",
+      "테이블 출력 지시",
+      "세그먼트 분류"
+    ],
+    "exercise": "주차별/채널별 비교 표가 붙여넣어진 구글 시트 또는 엑셀 파일 1개",
+    "duration_min": 15
+  }
+}

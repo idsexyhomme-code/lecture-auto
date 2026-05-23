@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#9 고객이 DM 보내게 만드는 글 구조 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#9 고객이 DM 보내게 만드는 글 구조<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779175251 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>인스타 포스팅 올렸는데 좋아요 12개, DM은 0건.</p>
+<p>그 기분 압니다.</p>
+<p>글은 썼는데 아무도 안 옵니다.</p>
+<p>정확히 말하면, 글은 '소개'만 했지 '이유'를 주지 않았습니다.</p>
+<p>이 영상에서 딱 한 가지 구조를 드립니다.</p>
+<p>그걸로 포스팅 1편 쓰면, 읽던 사람이 DM을 보냅니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 문제→공감→증거→제안 4단계가 담긴 문의 유도 포스팅 1편을 직접 완성합니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — PAS 구조: 세 개의 방 🚪</h3>
+<p><strong>설명</strong></p>
+<p>PAS는 세 개의 방입니다.</p>
+<p>첫 번째 방 <strong>P(Problem)</strong>, 문제.
+두 번째 방 <strong>A(Agitate)</strong>, 증폭.
+세 번째 방 <strong>S(Solution)</strong>, 해결.</p>
+<p>독자를 첫 번째 방에 집어넣고,
+두 번째 방에서 꽉 조이고,
+세 번째 방에서 숨구멍을 엽니다.</p>
+<p><strong>예시</strong></p>
+<blockquote>
+<p>"매달 마지막 주, 매출 정리에 3시간 씁니다."</p>
+</blockquote>
+<p>이게 P, 문제입니다.</p>
+<blockquote>
+<p>"그런데 그 3시간 동안 새 고객 문의가 두 건 들어왔고, 둘 다 놓쳤습니다."</p>
+</blockquote>
+<p>이게 A, 증폭입니다.</p>
+<blockquote>
+<p>"저는 지금 매출 정리를 15분 안에 끝냅니다."</p>
+</blockquote>
+<p>이게 S, 해결입니다.</p>
+<p><strong>반례</strong></p>
+<p>많은 분들이 P 없이 S부터 씁니다.</p>
+<p>"저는 AI로 업무 시간을 줄였어요!"</p>
+<p>그냥 지나칩니다.</p>
+<p>왜냐면 읽는 사람이 아직 방에 안 들어왔으니까요.</p>
+<p>문제부터 써야 독자가 멈춥니다.</p>
+<p><strong>정리</strong></p>
+<p>P는 독자가 어제 겪은 장면으로 씁니다.
+A는 그 장면이 반복되면 어떻게 되는지 씁니다.
+S는 내가 그걸 어떻게 끝냈는지 씁니다.</p>
+<p>메모리 페그 👉 <strong>세 개의 방, 열고 조이고 뚫는다.</strong></p>
+<hr />
+<h3>개념 2 — 소셜 증거: 숫자와 이름이 전부입니다 📌</h3>
+<p><strong>설명</strong></p>
+<p>소셜 증거는 "저 잘해요"가 아닙니다.</p>
+<p>"OO 씨가 이걸 써봤고, 이렇게 됐습니다"입니다.</p>
+<p>두 가지만 넣으면 됩니다.</p>
+<p>숫자 하나, 사람 하나.</p>
+<p><strong>예시</strong></p>
+<p>나쁜 버전:</p>
+<blockquote>
+<p>"많은 고객들이 만족하셨습니다."</p>
+</blockquote>
+<p>좋은 버전:</p>
+<blockquote>
+<p>"지난달 저와 작업한 카페 사장님, 포스팅 3편으로 예약 문의 11건 받으셨습니다."</p>
+</blockquote>
+<p>카페 사장님 — 사람입니다.
+포스팅 3편, 문의 11건 — 숫자입니다.</p>
+<p>읽는 사람이 '나도 저 상황이네' 하고 멈춥니다.</p>
+<p><strong>반례</strong></p>
+<p>후기를 길게 쓰면 안 읽습니다.</p>
+<p>3줄이 넘어가면 스크롤합니다.</p>
+<p>숫자 + 결과 + 한 줄. 그게 전부입니다.</p>
+<p><strong>정리</strong></p>
+<p>소셜 증거는 짧을수록 믿깁니다.</p>
+<p>메모리 페그 👉 <strong>숫자 하나, 사람 하나. 딱 두 개.</strong></p>
+<hr />
+<h3>개념 3 — DM 유도 CTA: 문 세 가지 🔑</h3>
+<p><strong>설명</strong></p>
+<p>CTA는 문을 여는 겁니다.</p>
+<p>문이 너무 무거우면 아무도 안 엽니다.</p>
+<p>DM 유도 CTA는 세 가지 유형이 있습니다.</p>
+<ul>
+<li><strong>질문형</strong>: "혹시 이런 상황이면 DM 주세요."</li>
+<li><strong>조건형</strong>: "이번 주 3명만 먼저 봐드립니다."</li>
+<li><strong>퀴즈형</strong>: "지금 월 매출이 얼마인지 DM으로 알려주시면 제가 뭐가 막혔는지 말씀드립니다."</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>질문형 CTA:</p>
+<blockquote>
+<p>"매달 마지막 주에 매출 정리로 반나절 날리는 분, DM 한 줄만 주세요."</p>
+</blockquote>
+<p>읽는 사람이 '나 그거야' 하면 손가락이 먼저 움직입니다.</p>
+<p><strong>반례</strong></p>
+<p>"궁금하신 분은 DM 주세요."</p>
+<p>이 문장은 문이 아닙니다. 벽입니다.</p>
+<p>'궁금한 사람'이 나인지 모릅니다.</p>
+<p>누구를 위한 DM인지 안 쓰면, 아무도 안 씁니다.</p>
+<p><strong>정리</strong></p>
+<p>CTA에는 '대상'을 먼저 씁니다.</p>
+<p>"○○한 분은"으로 시작하면 됩니다.</p>
+<p>메모리 페그 👉 <strong>질문·조건·퀴즈, 문은 세 가지. 대상 먼저 쓴다.</strong></p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>영상을 지금 일시정지하세요.</p>
+<p>아래 순서대로 따라 쓰세요.</p>
+<hr />
+<p><strong>Step 1 — 독자의 어제 장면 쓰기 (P)</strong></p>
+<p>내가 파는 것을 사줄 사람이 어제 어디서 막혔는지 씁니다.</p>
+<p>장면 하나, 2–3줄.</p>
+<p>예:</p>
+<blockquote>
+<p>"월요일 오전, 받은 메일 87통. 어디서 시작해야 할지 모름."</p>
+</blockquote>
+<hr />
+<p><strong>Step 2 — 그 장면이 계속되면 (A)</strong></p>
+<p>그게 한 달, 세 달 반복되면 어떤 일이 생기는지 씁니다.</p>
+<p>1–2줄로 끝냅니다.</p>
+<p>예:</p>
+<blockquote>
+<p>"그 상태로 3개월 지나면, 고객 답장 늦어서 한 건씩 빠져나갑니다."</p>
+</blockquote>
+<hr />
+<p><strong>Step 3 — 내가 어떻게 끝냈는지 (S)</strong></p>
+<p>내 경험이나 고객 사례로 씁니다.</p>
+<p>숫자 하나 꼭 넣습니다.</p>
+<p>예:</p>
+<blockquote>
+<p>"저는 지금 메일 정리를 하루 20분으로 끝냅니다."</p>
+</blockquote>
+<hr />
+<p><strong>Step 4 — 소셜 증거 한 줄</strong></p>
+<p>고객 이름(닉네임이나 직업) + 숫자 + 결과.</p>
+<p>예:</p>
+<blockquote>
+<p>"지난달 온라인 강사 분, 이 방법으로 문의 응대 시간을 하루 40분 줄이셨습니다."</p>
+</blockquote>
+<hr />
+<p><strong>Step 5 — CTA 한 줄</strong></p>
+<p>"○○한 분은 DM 한 줄 주세요"로 씁니다.</p>
+<p>대상 먼저, 행동 하나만.</p>
+<hr />
+<p><strong>Step 6 — 이미지 메모</strong></p>
+<p>쓴 글 옆에 쓸 이미지를 한 줄로 적습니다.</p>
+<p>예: "받은편지함 가득 찬 캡처 / 또는 타이머 15분 사진"</p>
+<hr />
+<p>여기까지 쓴 게 포스팅 1편입니다.</p>
+<p>다시 재생하세요.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #10에서는 이 포스팅을 올린 뒤 DM이 왔을 때, 첫 메시지를 어떻게 쓰는지 다룹니다.</p>
+<p>DM 받고 나서 답장 한 줄 잘못 쓰면 그냥 끊깁니다.</p>
+<p>그 첫 문장 구조, 다음 영상에서 바로 드립니다.</p>
+<p>지금 댓글에 오늘 쓴 CTA 한 줄만 남겨주세요.</p>
+<p>제가 직접 읽고 피드백 드립니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

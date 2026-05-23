@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#FFF8EB">
+  <title>숲사주 — 나만의 사주 숲이 열립니다</title>
+  <meta name="description" content="생년월일을 넣으면 나만의 사주 숲이 열립니다. 연애, 재물, 일, 관계의 흐름을 귀여운 숲속 카드처럼 정리해드려요. 9,900원.">
+  <meta property="og:title" content="숲사주 — 나만의 사주 숲이 열립니다">
+  <meta property="og:description" content="귀여운 숲속 카드로 받는 AI 사주 리포트. 9,900원.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/woff2/PretendardVariable.woff2">
+
+  <style>
+    @font-face {
+      font-family: 'Pretendard Variable';
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/woff2/PretendardVariable.woff2') format('woff2-variations');
+    }
+
+    :root {
+      /* 색감 — 회원 지정 */
+      --cream:      #FFF8EB;
+      --cream-2:    #FBF1DC;
+      --green-soft: #D4F1C5;
+      --green-mid:  #B8E0A0;
+      --yellow:     #FFF3A0;
+      --yellow-mid: #FFE675;
+      --pink:       #FFD6E1;
+      --pink-mid:   #FFB8CC;
+      --purple:     #E8DEF8;
+      --purple-mid: #C9B8F0;
+      --brown:      #8B6F47;
+      --brown-deep: #5D4A30;
+      --brown-soft: #C9B59A;
+
+      /* 베이스 톤 */
+      --bg:         var(--cream);
+      --bg-card:    #FFFFFF;
+      --ink:        var(--brown-deep);
+      --ink-soft:   #6B5640;
+      --ink-muted:  #9A876D;
+      --border:     #ECE0CB;
+
+      /* 네이버페이 그린 (결제 CTA만) */
+      --naver-green: #00C73C;
+      --naver-green-deep: #009E2F;
+      --gradient-cta: linear-gradient(135deg, #00C73C 0%, #009E2F 100%);
+
+      --shadow-soft: 0 4px 14px rgba(139, 111, 71, 0.10);
+      --shadow-card: 0 8px 28px rgba(139, 111, 71, 0.14);
+      --shadow-glow: 0 0 24px rgba(0, 199, 60, 0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', sans-serif;
+      line-height: 1.65;
+      letter-spacing: -0.012em;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      padding-bottom: 110px;  /* sticky bar 자리 */
+    }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: 0; background: transparent; font: inherit; color: inherit; }
+    img, svg { display: block; max-width: 100%; }
+
+    /* ━━━━━ 배경 패턴 — 부드러운 도트 ━━━━━ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(212, 241, 197, 0.25) 0%, transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(255, 214, 225, 0.20) 0%, transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(232, 222, 248, 0.18) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    main { position: relative; z-index: 1; }
+
+    /* ━━━━━ Header ━━━━━ */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 14px 22px;
+      background: rgba(255, 248, 235, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--brown-deep);
+      letter-spacing: -0.02em;
+    }
+    .header__brand-leaf { font-size: 22px; }
+    .header__menu {
+      width: 36px; height: 36px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink-muted);
+      font-size: 18px;
+    }
+
+    /* ━━━━━ 공통 섹션 ━━━━━ */
+    .section {
+      padding: 56px 22px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .section--tight { padding: 32px 22px; }
+
+    .sec-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--brown);
+      background: var(--cream-2);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .sec-title {
+      font-size: clamp(24px, 6vw, 30px);
+      font-weight: 800;
+      line-height: 1.32;
+      letter-spacing: -0.025em;
+      color: var(--brown-deep);
+      margin: 0 0 16px;
+    }
+    .sec-desc {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      margin: 0 0 28px;
+    }
+
+    /* ━━━━━ HERO ━━━━━ */
+    .hero {
+      text-align: center;
+      padding: 56px 24px 40px;
+      position: relative;
+    }
+    .hero__forest-bg {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 340px;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .hero__eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brown);
+      background: var(--green-soft);
+      padding: 7px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .hero__title {
+      font-size: clamp(38px, 11vw, 52px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--brown-deep);
+      margin: 0 0 16px;
+      position: relative;
+    }
+    .hero__title-emoji {
+      font-size: clamp(40px, 11vw, 56px);
+      display: inline-block;
+      margin-right: 4px;
+      vertical-align: -4px;
+    }
+    .hero__sub {
+      font-size: clamp(15px, 4vw, 17px);
+      line-height: 1.75;
+      color: var(--ink-soft);
+      margin: 0 0 32px;
+      position: relative;
+    }
+    .hero__sub strong {
+      color: var(--brown-deep);
+      font-weight: 700;
+      background: linear-gradient(180deg, transparent 60%, var(--yellow) 60%);
+      padding: 0 4px;
+    }
+    .hero__visual {
+      max-width: 280px;
+      margin: 0 auto 32px;
+      aspect-ratio: 1 / 1;
+      border-radius: 32px;
+      background: linear-gradient(135deg, var(--green-soft) 0%, var(--purple) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero__visual-emoji {
+      font-size: 100px;
+      animation: hero-bob 4s ease-in-out infinite;
+    }
+    @keyframes hero-bob {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+    .hero__visual::before, .hero__visual::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(20px);
+      opacity: 0.6;
+    }
+    .hero__visual::before {
+      width: 80px; height: 80px;
+      background: var(--yellow);
+      top: 14px; right: 18px;
+    }
+    .hero__visual::after {
+      width: 100px; height: 100px;
+      background: var(--pink);
+      bottom: 14px; left: 12px;
+    }
+    /* 떠다니는 작은 요소들 */
+    .hero__float {
+      position: absolute;
+      font-size: 22px;
+      opacity: 0.7;
+      animation: float-around 6s ease-in-out infinite;
+    }
+    .hero__float--1 { top: 10%; left: 8%; animation-delay: 0s; }
+    .hero__float--2 { top: 18%; right: 10%; animation-delay: 1s; font-size: 18px; }
+    .hero__float--3 { bottom: 22%; left: 12%; animation-delay: 2s; }
+    .hero__float--4 { bottom: 30%; right: 8%; animation-delay: 3s; font-size: 20px; }
+    @keyframes float-around {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ━━━━━ CTA 버튼 ━━━━━ */
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      background: var(--gradient-cta);
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      border-radius: 16px;
+      border: none;
+      transition: transform 0.1s, box-shadow 0.2s;
+      box-shadow: var(--shadow-glow);
+    }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:hover { box-shadow: 0 0 36px rgba(0, 199, 60, 0.32); }
+    .btn-primary__icon {
+      width: 20px; height: 20px;
+      background: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--naver-green-deep);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    /* ━━━━━ 카테고리 그리드 ━━━━━ */
+    .category-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .cat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 14px;
+      text-align: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: var(--shadow-soft);
+    }
+    .cat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+    .cat-card__emoji {
+      font-size: 36px;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .cat-card__title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--brown-deep);
+      margin: 0 0 4px;
+    }
+    .cat-card__sub {
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+    /* 카드별 배경 액센트 */
+    .cat-card--1 { background: linear-gradient(180deg, #FFFFFF 0%, var(--green-soft) 100%); }
+    .cat-card--2 { background: linear-gradient(180deg, #FFFFFF 0%, var(--pink) 100%); }
+    .cat-card--3 { background: linear-gradient(180deg, #FFFFFF 0%, var(--purple) 100%); }
+    .cat-card--4 { background: linear-gradient(180deg, #FFFFFF 0%, var(--yellow) 100%); }
+    .cat-card--5 { background: linear-gradient(180deg, #FFFFFF 0%, var(--green-soft) 100%); }
+    .cat-card--6 { background: linear-gradient(180deg, #FFFFFF 0%, var(--pink) 100%); }
+    .cat-card--7 { background: linear-gradient(180deg, #FFFFFF 0%, var(--purple) 100%); }
+    .cat-card--8 { background: linear-gradient(180deg, #FFFFFF 0%, var(--yellow) 100%); }
+
+    /* ━━━━━ 결과 미리보기 ━━━━━ */
+    .preview-frame {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px 20px;
+      box-shadow: var(--shadow-card);
+      margin-top: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .preview-frame__badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: var(--green-soft);
+      color: var(--brown);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .preview-frame__name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--brown-deep);
+      margin: 0 0 4px;
+    }
+    .preview-frame__date {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      margin: 0 0 18px;
+    }
+    .preview-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    .preview-row:last-child { border-bottom: 0; }
+    .preview-row__emoji {
+      font-size: 28px;
+      width: 44px;
+      height: 44px;
+      background: var(--cream-2);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .preview-row__body { flex: 1; }
+    .preview-row__title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--brown-deep);
+      margin: 0 0 2px;
+    }
+    .preview-row__text {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    .preview-row__locked {
+      display: inline-block;
+      background: var(--cream-2);
+      color: var(--ink-muted);
+      padding: 0 8px;
+      border-radius: 6px;
+      filter: blur(3px);
+      user-select: none;
+      font-weight: 600;
+    }
+    .preview-frame__cta {
+      margin-top: 22px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--ink-muted);
+      padding: 12px;
+      background: var(--cream-2);
+      border-radius: 12px;
+    }
+    .preview-frame__cta strong { color: var(--brown-deep); }
+
+    .preview-link {
+      display: block;
+      text-align: center;
+      margin-top: 14px;
+      font-size: 13.5px;
+      color: var(--brown);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ━━━━━ 구매 후 진행 (3 step) ━━━━━ */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      box-shadow: var(--shadow-soft);
+    }
+    .step__num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green-soft);
+      color: var(--brown-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+    .step--2 .step__num { background: var(--yellow); }
+    .step--3 .step__num { background: var(--pink); }
+    .step--4 .step__num { background: var(--purple); }
+    .step__body { flex: 1; }
+    .step__title {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--brown-deep);
+      margin: 0 0 4px;
+    }
+    .step__desc {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ━━━━━ 가격 카드 ━━━━━ */
+    .pricing {
+      background: linear-gradient(180deg, var(--bg-card) 0%, var(--cream-2) 100%);
+      border: 2px solid var(--green-mid);
+      border-radius: 28px;
+      padding: 36px 24px;
+      text-align: center;
+      position: relative;
+      box-shadow: var(--shadow-card);
+    }
+    .pricing__ribbon {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green-mid);
+      color: var(--brown-deep);
+      padding: 6px 18px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+    .pricing__title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--brown-deep);
+      margin: 0 0 6px;
+    }
+    .pricing__sub {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin: 0 0 18px;
+    }
+    .pricing__price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .pricing__strike {
+      color: var(--ink-muted);
+      text-decoration: line-through;
+      font-size: 16px;
+      font-variant-numeric: tabular-nums;
+    }
+    .pricing__price {
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--brown-deep);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+    .pricing__note {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      margin: 0 0 24px;
+    }
+    .pricing__tags {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .price-tag {
+      padding: 5px 12px;
+      background: var(--cream-2);
+      color: var(--brown);
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+
+    /* ━━━━━ FAQ ━━━━━ */
+    .faq {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 4px 22px;
+      box-shadow: var(--shadow-soft);
+    }
+    .faq__item {
+      border-bottom: 1px dashed var(--border);
+      padding: 20px 0;
+    }
+    .faq__item:last-child { border-bottom: 0; }
+    .faq__q {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--brown-deep);
+      margin: 0 0 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .faq__q::before {
+      content: 'Q';
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      background: var(--green-soft);
+      color: var(--brown-deep);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+    .faq__a {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      padding-left: 30px;
+      margin: 0;
+    }
+
+    /* ━━━━━ 주의문구 ━━━━━ */
+    .disclaimer {
+      max-width: 480px;
+      margin: 28px auto 0;
+      padding: 20px;
+      background: var(--cream-2);
+      border-radius: 16px;
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.75;
+      text-align: center;
+    }
+
+    /* ━━━━━ Footer ━━━━━ */
+    .footer {
+      max-width: 560px;
+      margin: 40px auto 0;
+      padding: 28px 22px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+    .footer a { color: var(--brown); text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ━━━━━ Sticky bottom ━━━━━ */
+    .sticky-bottom {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(255, 248, 235, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border);
+      z-index: 60;
+    }
+    .sticky-bottom__inner {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .sticky-bottom .btn-primary {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ━━━━━ HEADER ━━━━━ -->
+<header class="header">
+  <div class="header__brand">
+    <span class="header__brand-leaf">🌿</span>
+    <span>숲사주</span>
+  </div>
+  <button class="header__menu" aria-label="메뉴">⋯</button>
+</header>
+
+<main>
+
+  <!-- ━━━━━ HERO ━━━━━ -->
+  <section class="hero">
+    <span class="hero__float hero__float--1">🍄</span>
+    <span class="hero__float hero__float--2">⭐</span>
+    <span class="hero__float hero__float--3">🌱</span>
+    <span class="hero__float hero__float--4">☁️</span>
+
+    <div class="hero__eyebrow">생년월일 기반 AI 사주 리포트</div>
+    <h1 class="hero__title">
+      <span class="hero__title-emoji">🌳</span>숲사주
+    </h1>
+
+    <div class="hero__visual">
+      <span class="hero__visual-emoji">🐰</span>
+    </div>
+
+    <p class="hero__sub">
+      생년월일을 넣으면<br>
+      <strong>나만의 사주 숲</strong>이 열립니다.<br><br>
+      연애, 재물, 일, 관계의 흐름을<br>
+      귀여운 숲속 카드처럼 정리해드려요.
+    </p>
+
+    <a href="#" class="btn-primary checkout-link">
+      <span class="btn-primary__icon">N</span>
+      네이버페이로 결제하기
+    </a>
+  </section>
+
+  <!-- ━━━━━ 어떤 운세 ━━━━━ -->
+  <section class="section">
+    <span class="sec-eyebrow">🌲 어떤 운세를 볼 수 있나요?</span>
+    <h2 class="sec-title">숲 속 8개의<br>사주 카드</h2>
+    <p class="sec-desc">
+      생년월일과 태어난 시간을 넣으면, 8개 영역의 흐름을 귀여운 카드로 정리해서 보여드려요.
+    </p>
+
+    <div class="category-grid">
+      <div class="cat-card cat-card--1">
+        <span class="cat-card__emoji">🌱</span>
+        <div class="cat-card__title">기본 성향</div>
+        <div class="cat-card__sub">나의 뿌리</div>
+      </div>
+      <div class="cat-card cat-card--2">
+        <span class="cat-card__emoji">💗</span>
+        <div class="cat-card__title">연애운</div>
+        <div class="cat-card__sub">설레는 흐름</div>
+      </div>
+      <div class="cat-card cat-card--3">
+        <span class="cat-card__emoji">💍</span>
+        <div class="cat-card__title">결혼·동반자</div>
+        <div class="cat-card__sub">함께할 사람</div>
+      </div>
+      <div class="cat-card cat-card--4">
+        <span class="cat-card__emoji">🪙</span>
+        <div class="cat-card__title">재물운</div>
+        <div class="cat-card__sub">돈의 흐름</div>
+      </div>
+      <div class="cat-card cat-card--5">
+        <span class="cat-card__emoji">🌳</span>
+        <div class="cat-card__title">일·사업운</div>
+        <div class="cat-card__sub">자라는 가지</div>
+      </div>
+      <div class="cat-card cat-card--6">
+        <span class="cat-card__emoji">🤝</span>
+        <div class="cat-card__title">인간관계운</div>
+        <div class="cat-card__sub">숲 속 친구</div>
+      </div>
+      <div class="cat-card cat-card--7">
+        <span class="cat-card__emoji">🌧️</span>
+        <div class="cat-card__title">조심할 흐름</div>
+        <div class="cat-card__sub">피해야 할 길</div>
+      </div>
+      <div class="cat-card cat-card--8">
+        <span class="cat-card__emoji">🍀</span>
+        <div class="cat-card__title">이번 달 조언</div>
+        <div class="cat-card__sub">한 줄 가이드</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━ 결과 페이지 미리보기 ━━━━━ -->
+  <section class="section">
+    <span class="sec-eyebrow">🍃 결과 페이지는 이렇게 생겼어요</span>
+    <h2 class="sec-title">PDF 아니에요.<br>웹페이지에서 바로 봐요.</h2>
+    <p class="sec-desc">
+      결제하면 구매자 전용 결과 페이지가 만들어져요. 언제든 다시 들어와서 볼 수 있어요.
+    </p>
+
+    <div class="preview-frame">
+      <span class="preview-frame__badge">🌳 미리보기</span>
+      <h3 class="preview-frame__name">토끼님의 숲사주</h3>
+      <p class="preview-frame__date">1995.04.12 · 오전 9시 22분</p>
+
+      <div class="preview-row">
+        <div class="preview-row__emoji">🌱</div>
+        <div class="preview-row__body">
+          <p class="preview-row__title">기본 성향 — 봄의 뿌리</p>
+          <p class="preview-row__text">사람들 속에서 자연스럽게 따뜻함을 나누는 타입이에요.</p>
+        </div>
+      </div>
+      <div class="preview-row">
+        <div class="preview-row__emoji">💗</div>
+        <div class="preview-row__body">
+          <p class="preview-row__title">연애운 — 두근거리는 잎</p>
+          <p class="preview-row__text">앞으로 <span class="preview-row__locked">3개월 안에 설레는 만남이 있어요</span></p>
+        </div>
+      </div>
+      <div class="preview-row">
+        <div class="preview-row__emoji">🪙</div>
+        <div class="preview-row__body">
+          <p class="preview-row__title">재물운 — 햇살 받는 열매</p>
+          <p class="preview-row__text"><span class="preview-row__locked">2026년 하반기에 작은 기회가 옵니다</span></p>
+        </div>
+      </div>
+
+      <div class="preview-frame__cta">
+        결제 후 <strong>8개 영역 모두 잠금해제</strong>됩니다 🌳
+      </div>
+    </div>
+
+    <a class="preview-link" href="result-sample.html">샘플 결과 페이지 전체 보기 →</a>
+  </section>
+
+  <!-- ━━━━━ 구매 후 진행 ━━━━━ -->
+  <section class="section">
+    <span class="sec-eyebrow">🌿 구매 후 어떻게 받나요?</span>
+    <h2 class="sec-title">간단해요. 4단계.</h2>
+
+    <div class="step-list">
+      <div class="step step--1">
+        <div class="step__num">1</div>
+        <div class="step__body">
+          <h3 class="step__title">네이버페이로 결제</h3>
+          <p class="step__desc">9,900원. 네이버 스마트스토어에서 진행돼요.</p>
+        </div>
+      </div>
+      <div class="step step--2">
+        <div class="step__num">2</div>
+        <div class="step__body">
+          <h3 class="step__title">정보 입력</h3>
+          <p class="step__desc">결제 후 안내 페이지에서 이름·성별·생년월일·태어난 시간을 입력해주세요.</p>
+        </div>
+      </div>
+      <div class="step step--3">
+        <div class="step__num">3</div>
+        <div class="step__body">
+          <h3 class="step__title">24시간 안에 리포트 도착</h3>
+          <p class="step__desc">구매자 전용 결과 페이지 링크를 이메일로 보내드려요.</p>
+        </div>
+      </div>
+      <div class="step step--4">
+        <div class="step__num">4</div>
+        <div class="step__body">
+          <h3 class="step__title">언제든 다시 보기</h3>
+          <p class="step__desc">결과 페이지는 영구 보관돼요. 북마크해두고 두고두고 봐주세요 🌳</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━ 가격 카드 ━━━━━ -->
+  <section class="section">
+    <div class="pricing">
+      <div class="pricing__ribbon">🌳 출시 프로모션</div>
+      <h2 class="pricing__title">숲사주 한 그루</h2>
+      <p class="pricing__sub">한 명의 생년월일 · 8개 카드 · 영구 보관</p>
+
+      <div class="pricing__price-row">
+        <span class="pricing__strike">19,900원</span>
+        <span class="pricing__price">9,900원</span>
+      </div>
+      <p class="pricing__note">정가의 50% 할인 · 출시 한정</p>
+
+      <a href="#" class="btn-primary checkout-link">
+        <span class="btn-primary__icon">N</span>
+        네이버페이로 결제하기
+      </a>
+
+      <div class="pricing__tags">
+        <span class="price-tag">🌱 8개 영역</span>
+        <span class="price-tag">📩 24시간 발송</span>
+        <span class="price-tag">♾️ 영구 보관</span>
+        <span class="price-tag">🔒 본인 전용 URL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━ FAQ ━━━━━ -->
+  <section class="section">
+    <span class="sec-eyebrow">🐰 자주 묻는 질문</span>
+    <h2 class="sec-title">결제 전에<br>가장 많이 물어보세요</h2>
+
+    <div class="faq">
+      <div class="faq__item">
+        <p class="faq__q">결제 후 결과는 언제 받나요?</p>
+        <p class="faq__a">정보 입력 완료 시점부터 24시간 안에 결과 페이지 링크를 이메일로 보내드려요.</p>
+      </div>
+      <div class="faq__item">
+        <p class="faq__q">PDF로 받나요? 이메일 첨부파일인가요?</p>
+        <p class="faq__a">아니요. 구매자 전용 웹페이지를 만들어드려요. 모바일에서 바로 보고 두고두고 다시 보실 수 있어요.</p>
+      </div>
+      <div class="faq__item">
+        <p class="faq__q">결과 페이지는 언제까지 볼 수 있나요?</p>
+        <p class="faq__a">영구 보관됩니다. 만료 없어요. 북마크해두고 두고두고 보세요 🌳</p>
+      </div>
+      <div class="faq__item">
+        <p class="faq__q">태어난 시간을 모르면 어떻게 해요?</p>
+        <p class="faq__a">"모름"으로 입력하셔도 돼요. 다만 시간을 알려주시면 더 정밀한 카드를 그려드려요.</p>
+      </div>
+      <div class="faq__item">
+        <p class="faq__q">다른 사람 사주도 같이 볼 수 있나요?</p>
+        <p class="faq__a">한 결제 = 한 명의 생년월일 기준이에요. 다른 분 사주를 보시려면 별도 결제가 필요해요.</p>
+      </div>
+      <div class="faq__item">
+        <p class="faq__q">환불 가능한가요?</p>
+        <p class="faq__a">결과 페이지 발송 전에는 전액 환불 가능합니다. 발송 후엔 디지털 콘텐츠 특성상 환불이 어려워요.</p>
+      </div>
+      <div class="faq__item">
+        <p class="faq__q">사주가 다 맞나요?</p>
+        <p class="faq__a">정답은 아니에요. 자기이해와 한 달 흐름을 정리하는 <strong>참고용 카드</strong>로 즐겨주세요.</p>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      🌳 본 리포트는 <strong>재미와 자기이해</strong>를 위한 참고용 콘텐츠예요.<br>
+      중요한 의사결정·투자·법률·의료 판단을 대신하지 않아요.<br>
+      마음에 드는 부분만 가볍게 받아주세요.
+    </div>
+  </section>
+
+  <!-- ━━━━━ Footer ━━━━━ -->
+  <footer class="footer">
+    숲사주 · 귀여운 AI 사주 리포트<br>
+    문의: hello@forest-saju.app · <a href="#">이용약관</a> · <a href="#">개인정보처리방침</a><br>
+    © 2026 숲사주 All rights reserved.
+  </footer>
+
+</main>
+
+<!-- ━━━━━ Sticky bottom CTA ━━━━━ -->
+<div class="sticky-bottom">
+  <div class="sticky-bottom__inner">
+    <a href="#" class="btn-primary checkout-link">
+      <span class="btn-primary__icon">N</span>
+      9,900원 · 네이버페이로 결제하기
+    </a>
+  </div>
+</div>
+
+<script>
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // [회원 설정] 네이버 스마트스토어 상품 URL
+  // 출시 후 아래 URL만 본인 스토어 상품 링크로 교체하세요.
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  const SMARTSTORE_URL = "https://smartstore.naver.com/YOUR_STORE_NAME/products/YOUR_PRODUCT_ID";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".checkout-link").forEach(link => {
+      link.href = SMARTSTORE_URL;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    });
+  });
+</script>
+
+</body>
+</html>

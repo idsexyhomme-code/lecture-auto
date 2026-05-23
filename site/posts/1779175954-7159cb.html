@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#10 첫 유료 고객한테 보내는 제안서 쓰기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#10 첫 유료 고객한테 보내는 제안서 쓰기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779175251 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>첫 고객이 "견적서 보내주세요" 했을 때 멍해진 적 있죠?</p>
+<p>뭘 얼마에, 어디까지 해줄지 —
+막상 쓰려니 손이 안 움직입니다.</p>
+<p>그냥 카카오톡으로 금액만 툭 던졌다가
+"생각보다 비싸네요" 한마디에 끝난 경험,
+한 번쯤 있을 겁니다.</p>
+<p>오늘은 그 상황을 끝냅니다.</p>
+<p>AI와 함께 1페이지 제안서를 만들면
+"얼마예요?"라는 질문이 와도
+30분 안에 문서를 보낼 수 있습니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면
+서비스 내용, 가격, 납기, 포함·불포함 항목이 담긴
+1페이지 제안서를 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 1페이지 제안서 5요소</h3>
+<p><strong>설명</strong></p>
+<p>제안서가 길면 고객은 안 읽습니다.
+딱 1페이지, 5가지만 넣으세요.</p>
+<p>① 서비스명 — 내가 뭘 해주는지 한 줄
+② 가격 — 숫자 하나, 명확하게
+③ 납기 — 몇 영업일 안에 전달되는지
+④ 포함 항목 — 이건 해드립니다
+⑤ 불포함 항목 — 이건 안 합니다</p>
+<p><strong>예시</strong></p>
+<p>블로그 포스팅 대행을 판다고 해보겠습니다.</p>
+<ul>
+<li>서비스명: 네이버 블로그 포스팅 1편 작성</li>
+<li>가격: 5만 원</li>
+<li>납기: 의뢰일로부터 3영업일</li>
+<li>포함: 키워드 선정 1개, 원고 1편, 수정 1회</li>
+<li>불포함: 이미지 제작, 직접 업로드, 추가 키워드 조사</li>
+</ul>
+<p><strong>반례</strong></p>
+<p>"퀄리티 높은 콘텐츠 제공, 빠른 납품, 성실히 작업합니다" —
+이건 제안서가 아닙니다.
+숫자가 없고, 범위도 없습니다.
+고객은 결제 버튼을 못 누릅니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 <strong>'5칸 도시락'</strong> 입니다.
+칸마다 하나씩 채워야 완성입니다.
+빈 칸이 있으면 고객 머릿속에 물음표가 생깁니다.</p>
+<hr />
+<h3>개념 2 — 가격 제시 방법, 앵커링</h3>
+<p><strong>설명</strong></p>
+<p>가격을 하나만 쓰면 고객은 비싸다고 느낍니다.
+먼저 큰 숫자를 보여준 뒤 내 가격을 제시하면
+같은 금액도 합리적으로 읽힙니다.
+이걸 앵커링이라고 합니다.</p>
+<p><strong>예시</strong></p>
+<p>제안서에 이렇게 씁니다.</p>
+<blockquote>
+<p>에이전시 외주 시 동일 작업 기준 15만~20만 원.
+본 서비스 가격: 월 4편 패키지 16만 원.</p>
+</blockquote>
+<p>고객 머릿속에 "에이전시보다 싸네"가 먼저 박힙니다.
+그다음 16만 원이 들어옵니다.</p>
+<p><strong>반례</strong></p>
+<p>앵커를 너무 부풀리면 역효과가 납니다.
+"원래 100만 원짜리인데 10만 원에 드립니다" —
+이건 신뢰를 깎습니다.
+제 경험상 앵커는 내 가격의 1.5~2배 수준이 자연스럽습니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 <strong>'저울 두 개'</strong> 입니다.
+왼쪽에 무거운 추(앵커)를 먼저 올려야
+오른쪽 내 가격이 가볍게 느껴집니다.</p>
+<hr />
+<h3>개념 3 — 범위 명시로 분쟁 막는 법</h3>
+<p><strong>설명</strong></p>
+<p>대부분의 분쟁은 "그것도 해줄 줄 알았어요"에서 납니다.
+제안서에 <strong>불포함 항목</strong>을 명확히 쓰면
+그 말이 나올 여지를 처음부터 닫습니다.</p>
+<p><strong>예시</strong></p>
+<p>블로그 포스팅 불포함 항목 예시입니다.</p>
+<ul>
+<li>SNS 2차 가공 불포함</li>
+<li>포스팅 직접 업로드 불포함</li>
+<li>수정은 1회, 탈고 후 5영업일 이내 요청 건만 해당</li>
+</ul>
+<p>이걸 명시한 뒤 "확인하셨죠?"라고 한 번 더 물어봅니다.
+고객이 "네"라고 답한 순간 계약이 완성됩니다.</p>
+<p><strong>반례</strong></p>
+<p>"기타 협의 가능" — 이 한 줄이 가장 위험합니다.
+협의 가능하다고 쓰면 고객은 전부 협의할 수 있다고 읽습니다.
+추가 작업이 무한정 들어옵니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그는 <strong>'울타리'</strong> 입니다.
+울타리 안이 내 일입니다.
+울타리 밖은 별도 견적입니다.
+울타리를 안 치면 내 시간이 줄줄 샙니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 멈추고 직접 만들어 보세요.
+노션이나 한글, 뭐든 좋습니다.</p>
+<p><strong>1단계 — 서비스명 한 줄 쓰기</strong></p>
+<p>내가 파는 것을 딱 한 줄로 씁니다.
+"○○○ 작성 대행 1편" 형태로.</p>
+<p><strong>2단계 — 가격 쓰기</strong></p>
+<p>숫자 하나만 씁니다.
+그 위에 앵커 한 줄 추가합니다.
+"시중 ○○ 기준 ○만 원, 본 서비스 ○만 원"</p>
+<p><strong>3단계 — 납기 쓰기</strong></p>
+<p>의뢰일 기준 며칠 안에 드리는지 씁니다.
+"의뢰일로부터 ○영업일 이내 초안 전달"</p>
+<p><strong>4단계 — 포함 항목 3가지 쓰기</strong></p>
+<p>내가 해주는 것만 씁니다.
+총알 3개, 딱 3줄입니다.</p>
+<p><strong>5단계 — 불포함 항목 2~3가지 쓰기</strong></p>
+<p>울타리 밖을 명시합니다.
+총알 2~3개, 짧게.</p>
+<p>다 썼으면 PDF로 저장하거나 노션 링크를 만드세요.
+이게 오늘 완성본입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시는 이 제안서를 보낸 뒤,
+고객이 "좀 깎아주세요"라고 했을 때
+어떻게 답하는지 다룹니다.</p>
+<p>할인 안 하고도 계약 끝내는 말 한 마디,
+다음 영상에서 바로 이어집니다.</p>
+<p>아래 댓글에 오늘 만든 서비스명 한 줄만 남겨주세요.
+피드백 드리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

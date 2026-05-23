@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#13 숫자로 뭐가 팔렸는지 본다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#13 숫자로 뭐가 팔렸는지 본다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779174833 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>지난 2주 동안 영상 4개 올렸는데, 뭐가 팔렸는지 모릅니다.
+댓글은 몇 개 달렸고, 좋아요도 좀 눌렸는데.
+그게 돈이랑 연결됐는지는 아무도 말 안 해줬습니다.
+유튜브 스튜디오 켜도 숫자만 잔뜩이고, 어디를 봐야 하는지 모릅니다.
+오늘 이 영상 끝나면, 그 숫자들 중에 딱 3개만 봅니다.
+그리고 어떤 영상이 돈을 벌었는지, 표 하나로 정리됩니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면, 2주치 영상 데이터를 조회수·클릭률·판매 건수 기준으로 표에 채울 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 유튜브 스튜디오에서 볼 숫자는 딱 3개</h3>
+<p><strong>설명</strong>
+유튜브 스튜디오에 들어가면 숫자가 30개쯤 됩니다.
+시청 지속률, 노출수, 구독자 증감, 평균 시청 시간...
+전부 볼 필요 없습니다.
+1인 사업자가 봐야 할 건 딱 3개입니다.</p>
+<ul>
+<li><strong>노출수</strong>: 유튜브가 내 영상을 몇 번 보여줬나</li>
+<li><strong>클릭률(CTR)</strong>: 본 사람 중에 몇 %가 클릭했나</li>
+<li><strong>조회수</strong>: 실제로 영상을 본 사람 수</li>
+</ul>
+<p><strong>예시</strong>
+노출수 1,000 / 클릭률 4% / 조회수 40.
+이 영상은 유튜브가 1,000명한테 썸네일 보여줬고,
+그 중 40명이 클릭해서 들어온 겁니다.</p>
+<p><strong>반례</strong>
+조회수 500이라도 노출수가 10,000이면 클릭률 5%.
+조회수 500인데 노출수가 5,000이면 클릭률 10%.
+두 영상은 조회수는 같아도 썸네일 성과가 두 배 차이 납니다.
+조회수만 보면 이 차이를 절대 못 잡습니다.</p>
+<p><strong>정리</strong>
+메모리 페그 — <strong>"노출·클릭·조회 = 문·손잡이·입장"</strong>
+문(노출)이 있어야, 손잡이(클릭)를 잡고, 방에 들어옵니다(조회).
+이 순서가 끊기는 지점이 어딘지 보는 겁니다.</p>
+<hr />
+<h3>개념 2 — 클릭률, 이 숫자가 낮으면 썸네일이 문제</h3>
+<p><strong>설명</strong>
+클릭률 기준은 유튜브 공식 데이터 기준으로 이렇게 봅니다.</p>
+<ul>
+<li>2% 이하 → 썸네일·제목이 눈에 안 들어옴</li>
+<li>2~5% → 평균 수준</li>
+<li>5~10% → 썸네일이 잘 당기는 편</li>
+<li>10% 초과 → 구독자 충성도가 높거나, 제목이 아주 정확하게 꽂힌 케이스</li>
+</ul>
+<p>단, 노출수가 200 이하일 땐 이 기준을 적용하면 안 됩니다.
+표본이 너무 적어서 숫자가 튑니다.</p>
+<p><strong>예시</strong>
+영상 A — 노출수 2,000 / 클릭률 1.8% → 썸네일 바꿔야 함.
+영상 B — 노출수 1,500 / 클릭률 6.2% → 제목·썸네일 이 조합 다음 영상에 씁니다.</p>
+<p><strong>반례</strong>
+클릭률 12%인데 조회수 6.
+노출수가 50밖에 안 됩니다.
+이건 지인 3명이 클릭한 거일 수 있습니다.
+클릭률은 노출수 500 이상일 때부터 의미가 생깁니다.</p>
+<p><strong>정리</strong>
+메모리 페그 — <strong>"클릭률은 낚싯바늘"</strong>
+물에 던졌을 때(노출) 물고기가 무는 비율(클릭률)입니다.
+500마리 이상 있는 연못에서 던져야 바늘이 좋은지 나쁜지 압니다.</p>
+<hr />
+<h3>개념 3 — 안 팔린 영상 판단 기준</h3>
+<p><strong>설명</strong>
+조회수 괜찮은데 판매가 0건인 영상이 있습니다.
+이걸 "실패"라고 바로 결론 내리면 틀립니다.
+3가지를 순서대로 봅니다.</p>
+<ol>
+<li><strong>조회수 대비 링크 클릭 수</strong> — 영상 설명란 링크를 클릭했는가</li>
+<li><strong>링크 클릭 대비 판매 건수</strong> — 링크 들어갔는데 안 샀는가</li>
+<li><strong>판매 건수 0 + 링크 클릭도 0</strong> — 링크 자체를 안 달았거나, 영상에서 언급을 안 한 것</li>
+</ol>
+<p>제 경험상, 판매 0인 영상의 대부분은 세 번째입니다.
+영상 안에서 링크 언급을 안 했거나, 설명란에 링크가 없습니다.</p>
+<p><strong>예시</strong>
+조회수 200 / 링크 클릭 0 / 판매 0.
+영상 다시 보니까 끝에 "구매 링크는 설명란에 있어요" 한 마디가 없었습니다.
+그 한 마디 넣고 다음 영상에서 같은 주제로 다시 올렸더니
+조회수 180 / 링크 클릭 22 / 판매 3건 나왔습니다.</p>
+<p><strong>반례</strong>
+링크 클릭 30 / 판매 0이면, 랜딩 페이지 문제입니다.
+영상은 잘 됐는데, 들어간 다음에 사기 싫어진 겁니다.
+이 경우엔 영상이 아니라 판매 페이지를 손봐야 합니다.</p>
+<p><strong>정리</strong>
+메모리 페그 — <strong>"조회수는 손님 수, 클릭은 가게 입장, 판매는 계산대"</strong>
+손님이 100명인데 가게 문을 못 찾으면 조회수 문제.
+가게 들어왔는데 계산 안 하면 판매 페이지 문제.
+이 3단계 중 어디가 막혔는지만 찾으면 됩니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지하고 따라 해봅니다.</p>
+<p><strong>준비물</strong>: 유튜브 스튜디오, 구글 시트 또는 엑셀</p>
+<hr />
+<p><strong>Step 1 — 표 틀 만들기 (1분)</strong></p>
+<p>구글 시트 열고, 맨 위 행에 이렇게 씁니다.</p>
+<table>
+<thead>
+<tr>
+<th>영상명</th>
+<th>업로드일</th>
+<th>노출수</th>
+<th>클릭률(%)</th>
+<th>조회수</th>
+<th>링크 클릭</th>
+<th>판매 건수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>열 7개입니다. 그대로 복사해도 됩니다.</p>
+<hr />
+<p><strong>Step 2 — 유튜브 스튜디오에서 데이터 가져오기 (2분)</strong></p>
+<ol>
+<li>유튜브 스튜디오 → 왼쪽 메뉴 '콘텐츠' 클릭</li>
+<li>최근 2주 영상 목록 확인</li>
+<li>영상 하나 클릭 → 상단 '분석' 탭 클릭</li>
+<li>'노출수', '클릭률', '조회수' 숫자를 표에 채웁니다</li>
+<li>영상별로 반복</li>
+</ol>
+<hr />
+<p><strong>Step 3 — 판매 건수 채우기 (1분)</strong></p>
+<p>판매 플랫폼(크몽, 클래스101, 자사몰 등)에서
+같은 기간 판매 내역 확인합니다.
+영상 업로드일 기준 ±3일 안에 들어온 주문을 해당 영상 행에 씁니다.
+정확히 안 맞아도 됩니다. 근사치로 씁니다.</p>
+<hr />
+<p><strong>Step 4 — 색 표시 (30초)</strong></p>
+<p>클릭률 2% 이하 셀 → 빨간색으로 표시.
+판매 건수 0 + 링크 클릭 0 셀 → 노란색으로 표시.</p>
+<p>이 표가 지금부터 매주 업데이트할 성과 기록지가 됩니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #14에서는, 이 표에서 잘 팔린 영상 하나를 골라서
+제목·썸네일·설명란을 어떻게 다시 쓰는지 봅니다.
+만든 표 구글 시트 캡처해서 댓글에 올려주세요.
+클릭률이 제일 낮은 영상 제목도 같이 써주시면, 다음 영상에서 직접 고쳐봅니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

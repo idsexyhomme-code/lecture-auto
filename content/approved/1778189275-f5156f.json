@@ -11,7 +11,9 @@
     "hero_image_url": "https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-pricing-page-hero.png",
     "tistory_url": null,
     "tistory_status": "scheduled",
-    "scheduled_at": "2026-05-09T07:00:00+09:00"
+    "scheduled_at": "2026-05-09T07:00:00+09:00",
+    "published_url": "https://jejumomdad.tistory.com/manage/posts/",
+    "published_at": 1779371113
   },
   "course_id": "claude-pricing-page",
   "created_at": "2026-05-07T21:27:55+00:00",

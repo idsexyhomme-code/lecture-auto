@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779175251",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 13,
+    "lesson_title": "글쓰기 대행 한 달 루틴 짜기",
+    "objective": "수주→글 제작→납품→피드백 4단계를 월간 캘린더에 배치해 실제 운영 일정을 완성합니다",
+    "key_concepts": [
+      "수주 채널 3곳(크몽·탈잉·직접 영업)",
+      "납기 관리 방법",
+      "피드백 처리 기준"
+    ],
+    "exercise": "1개월 운영 캘린더 — 수주·제작·납품 일정이 날짜별로 채워진 스프레드시트",
+    "duration_min": 15
+  }
+}

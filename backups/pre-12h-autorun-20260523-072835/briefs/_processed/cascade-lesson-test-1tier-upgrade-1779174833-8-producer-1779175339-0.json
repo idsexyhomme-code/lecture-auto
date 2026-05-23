@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 8,
+    "lesson_title": "1주 3편 업로드 루틴 짠다",
+    "objective": "월·수·금 업로드 기준으로 촬영-편집-업로드 날짜가 적힌 4주 캘린더를 완성한다",
+    "key_concepts": [
+      "배치 촬영 개념",
+      "하루 1시간 제작 시간 배분",
+      "콘텐츠 아이디어 비축법"
+    ],
+    "exercise": "4주 영상 업로드 캘린더 (날짜·주제·상태 컬럼 포함)",
+    "duration_min": 15
+  }
+}

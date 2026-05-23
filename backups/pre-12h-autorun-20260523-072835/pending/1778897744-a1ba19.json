@@ -1,0 +1,42 @@
+{
+  "id": "1778897744-a1ba19",
+  "agent": "ceo",
+  "kind": "ceo_dispatch",
+  "title": "🎩 CEO 디스패치 — pilot_01 5개 티켓",
+  "body_md": "# CEO 디스패치 — pilot_01 (2026-05-16)\n\n## 발행된 작업 티켓 5개\n\n- **TASK-20260516-001** → `market_research_agent` (자율)\n  - Core Campus 첫 외주 강의 파일럿(주제: 1인 사업가를 위한 AI 업무 자동화)의 시장 수요·경쟁 현황을 수치 기반으로 정리한다. 진입 권고 또는 비권고를 명확한 근거와 \n- **TASK-20260516-002** → `expert_sourcing_agent` (자율)\n  - 현재 CRM의 김그린dev(34/40)를 재평가하고, 추가 후보 2명 수집용 검색 키워드 5개 + 평가 기준 체크리스트를 정리한다.\n- **TASK-20260516-003** → `curriculum_agent` (자율)\n  - 외주 파일럿 강의 '1인 사업가를 위한 AI 업무 자동화' 6강 커리큘럼 초안. 각 강 12~15분, 측정 가능한 학습목표, 실습 결과물 1개씩.\n- **TASK-20260516-004** → `outreach_draft_agent` (★ 회원 ✅)\n  - 김그린dev(kmong/gig/546955)에게 보낼 섭외 메시지 v1·v2 초안. §10.5 6단 구조 엄격. 가격은 질문만. 발송은 회원 직접.\n- **TASK-20260516-005** → `rights_checklist_agent` (★ 회원 ✅)\n  - 외주 전문가 계약 표준 조항 10개 체크리스트. 회원이 견적 받은 후 전문가에 발송할 양식.\n\n\n## 다음 단계\n\n데몬·worker_pool이 content/tasks/pending/ 에서 *순차적으로* 티켓을 픽업해 처리합니다.\n완료된 결과는 content/tasks/completed/ 에 저장되고, CEO가 다시 검수해 라벨링합니다.\n\n## 헌법 §11 준수\n\n- 회원 ✅ 필요 티켓: 2개 (텔레그램 카드로 도착)\n- 자율 실행 가능: 3개\n- 자동 실행 금지 조건(§11 §7) 7개 모두 자가 검수 완료",
+  "summary": "pilot_01 워크플로 5개 티켓 발행",
+  "meta": {
+    "brief": {
+      "mode": "dispatch_workflow",
+      "workflow": "pilot_01",
+      "date_kst": "2026-05-16"
+    },
+    "mode": "dispatch_workflow",
+    "workflow": "pilot_01",
+    "ticket_count": 5,
+    "dispatched_paths": [
+      "content/tasks/pending/TASK-20260516-001.json",
+      "content/tasks/pending/TASK-20260516-002.json",
+      "content/tasks/pending/TASK-20260516-003.json",
+      "content/tasks/pending/TASK-20260516-004.json",
+      "content/tasks/pending/TASK-20260516-005.json"
+    ],
+    "self_review": {
+      "ok": true,
+      "severity": "pass",
+      "hard_violations": [],
+      "soft_violations": [],
+      "len": 978,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 0
+      }
+    }
+  },
+  "course_id": "core-campus-meta",
+  "created_at": "2026-05-16T02:15:44+00:00",
+  "status": "pending",
+  "telegram_message_id": 1723
+}

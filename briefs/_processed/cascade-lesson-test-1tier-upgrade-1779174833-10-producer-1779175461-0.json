@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 10,
+    "lesson_title": "크몽·클래스101에 상품 올린다",
+    "objective": "크몽 또는 클래스101에 상품 설명·가격·대표 이미지를 입력하고 판매 등록을 완료한다",
+    "key_concepts": [
+      "플랫폼별 수수료 비교",
+      "상품 설명 첫 줄 공식",
+      "대표 이미지 규격"
+    ],
+    "exercise": "판매 등록 완료 페이지 URL 또는 스크린샷",
+    "duration_min": 15
+  }
+}

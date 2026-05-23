@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-sop-onboarding",
+    "course_title": "Claude로 팀 온보딩 SOP 완전 자동화",
+    "lesson_no": 6,
+    "lesson_title": "SOP 유지·개선 루틴 설계",
+    "objective": "팀원 교체나 업무 변경 시 SOP를 Claude로 빠르게 업데이트하는 반복 가능한 개선 프로세스를 설계하고 문서화한다",
+    "key_concepts": [
+      "SOP 버전 관리 원칙: 변경 이력·트리거 조건 정의",
+      "Claude에게 기존 SOP 비교·수정 요청하는 프롬프트 패턴",
+      "팀원 피드백을 SOP 개선에 반영하는 루틴"
+    ],
+    "exercise": "SOP 업데이트 조건·담당자·주기를 명시한 '온보딩 SOP 유지관리 플레이북' 1페이지",
+    "duration_min": 15
+  }
+}

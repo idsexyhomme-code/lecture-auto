@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 완성하는 주 1회 콘텐츠 발행 시스템",
+    "lesson_no": 2,
+    "lesson_title": "소재 은행 만들기 — Claude로 4주치 아이디어 뽑기",
+    "objective": "Claude에 자신의 타깃·전문 분야·채널 포맷을 입력해 4주치 영상 소재 목록 20개를 생성하고 우선순위 4개를 선택한다",
+    "key_concepts": [
+      "소재 생성 마스터 프롬프트 구조",
+      "청중 고통점 기반 소재 필터링",
+      "상록수 소재 vs 시의성 소재 구분"
+    ],
+    "exercise": "Claude 대화 결과를 정리한 '4주 소재 뱅크 스프레드시트' (제목·타깃 고통점·포맷·발행 예정일 포함)",
+    "duration_min": 15
+  }
+}

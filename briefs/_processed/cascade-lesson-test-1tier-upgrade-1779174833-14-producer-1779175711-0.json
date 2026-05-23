@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 14,
+    "lesson_title": "잘 팔린 영상 하나 더 만든다",
+    "objective": "성과 비교표에서 클릭률 높은 영상 1개를 골라 후속 편 대본을 완성한다",
+    "key_concepts": [
+      "클릭률 높은 영상 공통점 찾기",
+      "후속 편 제목 공식",
+      "시리즈 구성법"
+    ],
+    "exercise": "후속 편 대본 1편 (후크·본문·CTA 포함)",
+    "duration_min": 15
+  }
+}

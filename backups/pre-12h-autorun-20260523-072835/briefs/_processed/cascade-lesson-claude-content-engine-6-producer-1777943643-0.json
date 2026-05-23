@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 만드는 1인 사업 콘텐츠 엔진",
+    "lesson_no": 6,
+    "lesson_title": "SNS 카드뉴스·숏폼 문구 일괄 생성하기",
+    "objective": "블로그 초안 1개를 입력해 인스타그램·링크드인·X(트위터) 각각의 형식에 맞는 SNS 문구 세트를 단일 프롬프트로 동시에 출력한다",
+    "key_concepts": [
+      "멀티 포맷 출력 프롬프트 설계",
+      "플랫폼별 글자 수·해시태그·어조 규칙",
+      "배치 출력(Batch Output) 기법"
+    ],
+    "exercise": "3개 플랫폼용 SNS 문구 세트 시트 (플랫폼별 탭 구분)",
+    "duration_min": 15
+  }
+}

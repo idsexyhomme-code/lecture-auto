@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-customer-support",
+    "course_title": "Claude+RAG 문의 자동화 실전",
+    "lesson_no": 1,
+    "lesson_title": "내 문의 지옥 진단하기",
+    "objective": "지난 30일 수신 문의를 FAQ·환불·기타 3가지 유형으로 분류하고, 응답 소요 시간 합계를 수치로 산출한다",
+    "key_concepts": [
+      "문의 유형 분류 기준(FAQ / 환불·취소 / 기타 민원)",
+      "시간 손실 가시화(시간 × 건수 매트릭스)",
+      "자동화 우선순위 설정 원칙"
+    ],
+    "exercise": "문의 유형별 건수·응답시간 집계표 (구글 스프레드시트 템플릿 완성본)",
+    "duration_min": 15
+  }
+}

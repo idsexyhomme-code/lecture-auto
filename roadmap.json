@@ -61,7 +61,7 @@
     {
       "course_id": "claude-sop-onboarding",
       "title": "Claude로 신규 입사자 온보딩 SOP 한 시간에 만들기",
-      "status": "planned",
+      "status": "proposed",
       "priority": 4,
       "topic": "팀 합류 시 Day 1·Week 1·Month 1 단계별 SOP를 Claude가 생성·구조화",
       "audience": "팀 채용 시작했지만 SOP 없이 매번 같은 설명 반복하는 1인→소규모 팀 운영자",
@@ -72,12 +72,13 @@
         "신입 첫날·첫주·첫달 체크리스트 3종",
         "외주·인턴에도 그대로 통하는 단단한 SOP",
         "신규 합류자 자기주도 학습 경로 자동화"
-      ]
+      ],
+      "proposed_at": "2026-05-08T07:20:11.854972+09:00"
     },
     {
       "course_id": "claude-customer-support",
       "title": "Claude로 1인 사업가 CS 자동 응대 시스템 만들기",
-      "status": "planned",
+      "status": "proposed",
       "priority": 5,
       "topic": "FAQ·환불·문의 응대를 Claude+RAG로 1인 사업가 톤 그대로 자동화",
       "audience": "문의 응답이 본업 시간을 잡아먹는 1인 강사·서비스 사업자",
@@ -88,12 +89,13 @@
         "내 톤·정책 그대로 답하는 응답 템플릿 20개",
         "환불·법적 이슈는 사람으로 자동 escalate",
         "응답 시간 평균 2시간 → 5분 이내"
-      ]
+      ],
+      "proposed_at": "2026-05-08T08:20:15.139911+09:00"
     },
     {
       "course_id": "claude-content-engine",
       "title": "Claude 콘텐츠 엔진 — 1주 1콘텐츠 시스템",
-      "status": "planned",
+      "status": "proposed",
       "priority": 6,
       "topic": "주 1회 발행 리듬을 끊지 않게 — 아이디어→초안→편집→발행을 Claude로 시스템화",
       "audience": "글·영상 발행 시도했지만 3주 만에 끊긴 1인 콘텐츠 사업가",
@@ -104,7 +106,8 @@
         "한 달치 콘텐츠 캘린더 1시간에 완성",
         "발행 끊김 없이 12주 연속 운영하는 시스템",
         "3개 채널 동시 발행 자동 분배"
-      ]
+      ],
+      "proposed_at": "2026-05-08T10:20:46.534438+09:00"
     }
   ],
   "log": [
@@ -125,6 +128,24 @@
       "action": "auto_pump",
       "at": "2026-05-08T06:20:09.125030+09:00",
       "brief_file": "1778188809-roadmap-claude-pricing-page.json"
+    },
+    {
+      "course_id": "claude-sop-onboarding",
+      "action": "auto_pump",
+      "at": "2026-05-08T07:20:11.854972+09:00",
+      "brief_file": "1778192411-roadmap-claude-sop-onboarding.json"
+    },
+    {
+      "course_id": "claude-customer-support",
+      "action": "auto_pump",
+      "at": "2026-05-08T08:20:15.139911+09:00",
+      "brief_file": "1778196015-roadmap-claude-customer-support.json"
+    },
+    {
+      "course_id": "claude-content-engine",
+      "action": "auto_pump",
+      "at": "2026-05-08T10:20:46.534438+09:00",
+      "brief_file": "1778203246-roadmap-claude-content-engine.json"
     }
   ]
 }

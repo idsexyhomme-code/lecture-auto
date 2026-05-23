@@ -224,12 +224,18 @@ HTML로만 답하세요. 코드펜스 금지. AI 티 나는 단어 *0개*."""
             blog_dir = REPO_ROOT / "site" / "blog-drafts" / course_id
             blog_dir.mkdir(parents=True, exist_ok=True)
             html_path = blog_dir / "post.html"
+            # design-system v1.1 톤 통일 — Pretendard·코랄·한글 자간
             html_full = (
                 f"<!doctype html><html lang=\"ko\"><head><meta charset=\"utf-8\">"
                 f"<title>{title}</title>"
-                f"<style>body{{max-width:720px;margin:24px auto;padding:0 20px;"
-                f"font-family:-apple-system,Pretendard,sans-serif;line-height:1.6}}"
-                f"h1{{color:#1A3558}}</style></head><body>"
+                f"<style>"
+                f"body{{max-width:720px;margin:24px auto;padding:0 20px;"
+                f"font-family:'Pretendard Variable',Pretendard,-apple-system,'Apple SD Gothic Neo',sans-serif;"
+                f"line-height:1.65;letter-spacing:-0.012em;color:#1F1F1F;word-break:keep-all}}"
+                f"h1{{font-weight:800;letter-spacing:-0.025em;line-height:1.3;color:#1F1F1F}}"
+                f"h2{{font-weight:700;letter-spacing:-0.02em;color:#1F1F1F;margin-top:32px}}"
+                f"a{{color:#D85A30}}"
+                f"</style></head><body>"
                 f"<h1>{title}</h1>{body_html}</body></html>"
             )
             html_path.write_text(html_full, encoding="utf-8")

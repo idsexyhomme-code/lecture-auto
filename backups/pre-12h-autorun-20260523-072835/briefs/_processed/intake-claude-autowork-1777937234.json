@@ -1,0 +1,11 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-autowork",
+    "topic": "Claude로 업무 자동화 — 반복 업무를 줄이는 AI 워크플로우 설계",
+    "audience": "Claude를 실무에 활용하고 싶은 1인 사업가",
+    "duration_weeks": 12,
+    "lesson_count": 16,
+    "format": "video"
+  }
+}

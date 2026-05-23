@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-customer-support",
+    "course_title": "Claude+RAG 문의 자동화 실전",
+    "lesson_no": 6,
+    "lesson_title": "운영 루틴·개선 사이클 설계하기",
+    "objective": "주간 오답 리뷰·지식베이스 업데이트·프롬프트 버전 관리 절차를 담은 운영 SOP를 작성하고, 4주 후 재측정 지표를 설정한다",
+    "key_concepts": [
+      "응답 품질 측정 지표(수정률·응답 시간·고객 재문의율)",
+      "지식베이스 버전 관리 원칙",
+      "자동화 ROI 계산법(절약 시간 × 시간당 단가)"
+    ],
+    "exercise": "운영 SOP 1페이지 문서 (주간 체크리스트 + 4주 후 비교 지표 표 포함)",
+    "duration_min": 15
+  }
+}

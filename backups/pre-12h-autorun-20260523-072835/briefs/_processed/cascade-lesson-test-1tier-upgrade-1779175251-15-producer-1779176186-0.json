@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779175251",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 15,
+    "lesson_title": "4주 콘텐츠 총정리 영상 만들기",
+    "objective": "4주간 만든 글·제안서·판매 페이지를 묶어 내 사업을 소개하는 3분짜리 영상 스크립트를 씁니다",
+    "key_concepts": [
+      "영상 스크립트 3단 구조(훅·본론·CTA)",
+      "화면 구성 메모 방법",
+      "업로드 플랫폼 선택 기준"
+    ],
+    "exercise": "3분 영상 스크립트 1개 — 훅·본론·CTA가 포함된 완성 대본 텍스트 파일",
+    "duration_min": 15
+  }
+}

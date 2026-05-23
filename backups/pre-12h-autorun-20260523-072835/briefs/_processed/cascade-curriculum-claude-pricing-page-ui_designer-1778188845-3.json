@@ -1,0 +1,16 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "hero",
+    "purpose": "Claude로 만드는 전환 가격 페이지 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+    "audience": "강의·코칭·서비스 가격 페이지에서 전환이 막히는 1인 사업가",
+    "style_keywords": [
+      "editorial",
+      "warm beige",
+      "trustworthy",
+      "academic"
+    ],
+    "color_mood": "warm",
+    "additional_context": "코어 캠퍼스 코스 'Claude로 만드는 전환 가격 페이지'의 페이지 헤더 시안."
+  }
+}

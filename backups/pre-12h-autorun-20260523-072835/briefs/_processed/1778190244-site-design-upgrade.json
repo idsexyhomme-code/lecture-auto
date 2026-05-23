@@ -1,0 +1,9 @@
+{
+  "agent": "site_developer",
+  "brief": {
+    "instruction": "사이트 메인 디자인을 *전환에 강한 형태*로 업그레이드. Tier 4 슬롯 모두 활용:\n  1) hero_html: 새 헤드라인 + 서브카피 + 큰 CTA 버튼 1개. 8초 안에 가치 전달.\n  2) cta_html: Hero 직후 *체험 신청 + 코스 둘러보기* 버튼 2개 영역 (warm beige 큰 버튼)\n  3) categories_html: 카테고리 nav (Claude 자동화 / 1인 사업 SOP / 콘텐츠 생산 / 딥워크). 칩 형태 anchor 링크.\n  4) home_intro_html: 짧은 사이트 소개 (3줄 이내, '왜 코어 캠퍼스인가')\n  5) testimonials_html: 빈 placeholder (실제 후기 없음 — '실 사용 후기 곧 도착' 한 줄)\n  6) footer_html: 운영자 소개 + 문의 이메일 + 저작권\n현재 design_tokens (베이지·다크브라운) 톤 유지. 한국어 자연스럽게.",
+    "brand_tone": "차분하고 단단한 한국어, 과장 표현 절대 금지",
+    "target_audience": "혼자 다 하느라 본업 시간 못 내는 1인 사업가, Claude 처음 검토",
+    "restrictions": "design_tokens 색상은 기존 유지, course_overrides는 변경 X, WCAG AA 대비 유지"
+  }
+}

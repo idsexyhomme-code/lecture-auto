@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 완성하는 주 1회 콘텐츠 발행 시스템",
+    "lesson_no": 7,
+    "lesson_title": "시스템 통합 — 주간 콘텐츠 파이프라인 워크플로 구축",
+    "objective": "아이디어→초안→편집→발행 각 단계의 Claude 프롬프트와 도구를 연결한 나만의 주간 워크플로 다이어그램을 작성하고 각 단계 소요 시간을 명시한다",
+    "key_concepts": [
+      "파이프라인 단계별 책임(RACI 간소화)",
+      "도구 스택 최소화 원칙",
+      "시간 블록 스케줄링과 배치 작업"
+    ],
+    "exercise": "주간 콘텐츠 파이프라인 다이어그램 (단계·사용 프롬프트·소요 시간·산출물 명시, Notion 또는 Figma 1장)",
+    "duration_min": 15
+  }
+}

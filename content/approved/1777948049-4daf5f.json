@@ -11,7 +11,9 @@
     "hero_image_url": "https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-sop-hero.png",
     "tistory_url": null,
     "tistory_status": "ignored_old_failure",
-    "_ignore_reason": "같은 코스의 최신 글이 이미 처리됨 (1777951082-1e9e80.json)"
+    "_ignore_reason": "같은 코스의 최신 글이 이미 처리됨 (1777951082-1e9e80.json)",
+    "published_url": "https://jejumomdad.tistory.com/manage/posts/",
+    "published_at": 1779371798
   },
   "course_id": "claude-sop",
   "created_at": "2026-05-05T02:27:29+00:00",

@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "topic": "주 1회 발행 리듬을 끊지 않게 — 아이디어→초안→편집→발행을 Claude로 시스템화",
+    "audience": "글·영상 발행 시도했지만 3주 만에 끊긴 1인 콘텐츠 사업가",
+    "duration_weeks": 5,
+    "lesson_count": 8,
+    "format": "video",
+    "promises_hint": [
+      "한 달치 콘텐츠 캘린더 1시간에 완성",
+      "발행 끊김 없이 12주 연속 운영하는 시스템",
+      "3개 채널 동시 발행 자동 분배"
+    ]
+  }
+}

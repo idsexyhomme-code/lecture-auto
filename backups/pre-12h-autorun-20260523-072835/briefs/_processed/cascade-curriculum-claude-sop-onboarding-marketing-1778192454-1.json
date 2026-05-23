@@ -1,0 +1,96 @@
+{
+  "agent": "marketing",
+  "brief": {
+    "course_id": "claude-sop-onboarding",
+    "curriculum": {
+      "title": "Claude로 팀 온보딩 SOP 완전 자동화",
+      "tagline": "같은 설명 반복 끝, 채용 즉시 쓸 SOP를 Claude가 만든다",
+      "promises": [
+        "Claude 프롬프트 하나로 Day 1·Week 1·Month 1 온보딩 SOP 초안을 30분 내 완성한다",
+        "반복 설명 없이 신규 팀원이 스스로 따라갈 수 있는 단계별 체크리스트를 산출한다",
+        "팀이 바뀌어도 재사용 가능한 SOP 템플릿 구조를 설계하고 유지·개선한다"
+      ],
+      "target_audience": "처음 팀원을 채용했지만 온보딩 문서 없이 매번 직접 설명을 반복하는 1인·소규모 팀 운영자",
+      "prerequisites": [
+        "Claude(claude.ai) 계정 보유 및 기본 채팅 사용 경험",
+        "자신의 팀 업무 흐름을 한 문단 이상 구두로 설명할 수 있는 수준의 업무 이해"
+      ],
+      "lessons": [
+        {
+          "no": 1,
+          "title": "온보딩 SOP란 무엇이고 왜 지금 필요한가",
+          "objective": "SOP의 3단계(Day 1·Week 1·Month 1) 구조를 자신의 팀 상황에 맞게 표로 분류한다",
+          "key_concepts": [
+            "SOP(Standard Operating Procedure) 정의와 온보딩에서의 역할",
+            "Day 1·Week 1·Month 1 단계별 목적 차이",
+            "1인 운영자가 SOP 없이 겪는 반복 비용"
+          ],
+          "exercise": "내 팀에서 신규 팀원에게 반복 설명하는 항목을 Day 1·Week 1·Month 1 세 열로 나눈 '현황 분류 표' 작성",
+          "duration_min": 15
+        },
+        {
+          "no": 2,
+          "title": "Claude에게 내 업무 맥락 전달하는 법",
+          "objective": "Claude가 정확한 SOP를 생성하도록 역할·배경·제약 조건을 포함한 컨텍스트 프롬프트를 작성한다",
+          "key_concepts": [
+            "컨텍스트 프롬프트 3요소: 역할 지정·업무 배경·출력 형식 지시",
+            "모호한 지시 vs 구체적 지시 비교",
+            "팀 규모·업종별 맞춤 변수 설정"
+          ],
+          "exercise": "자신의 팀 업무를 담은 '컨텍스트 프롬프트 초안' 문서 1페이지 작성",
+          "duration_min": 15
+        },
+        {
+          "no": 3,
+          "title": "Day 1 SOP 생성 및 검증",
+          "objective": "Claude를 활용해 신규 팀원의 첫날 체크리스트를 생성하고, 누락 항목을 추가 프롬프트로 보완한다",
+          "key_concepts": [
+            "Day 1 필수 항목 카테고리: 접근 권한·툴 셋업·첫 미팅·문화 안내",
+            "Claude 출력 검증 기준: 완결성·실행 가능성·순서 논리",
+            "반복 프롬프트(이어 쓰기)로 초안 보완하는 방법"
+          ],
+          "exercise": "Claude가 생성한 Day 1 체크리스트를 팀 실정에 맞게 수정 완료한 '최종 Day 1 SOP 문서'",
+          "duration_min": 15
+        },
+        {
+          "no": 4,
+          "title": "Week 1·Month 1 SOP 연속 생성 및 연결",
+          "objective": "Day 1 문서를 입력 맥락으로 활용해 Week 1·Month 1 SOP를 생성하고 세 단계가 논리적으로 연결된 전체 온보딩 문서를 완성한다",
+          "key_concepts": [
+            "이전 출력을 다음 프롬프트 맥락으로 재사용하는 체이닝 기법",
+            "Week 1 목표: 독립 업무 수행 기준 설정",
+            "Month 1 목표: 성과 체크포인트·피드백 루프 포함"
+          ],
+          "exercise": "Day 1·Week 1·Month 1이 하나로 연결된 '3단계 온보딩 SOP 통합 문서'",
+          "duration_min": 15
+        },
+        {
+          "no": 5,
+          "title": "SOP를 영상 스크립트로 구조화하기",
+          "objective": "완성된 SOP 문서를 Claude로 영상 스크립트 형식으로 변환하고 장면·자막·내레이션 구성을 분리한 대본을 작성한다",
+          "key_concepts": [
+            "텍스트 SOP를 영상 대본으로 변환하는 프롬프트 구조",
+            "장면 구분·자막 포인트·내레이션 톤 지정 방법",
+            "시청자(신규 팀원) 관점의 영상 흐름 설계"
+          ],
+          "exercise": "Day 1 SOP를 기반으로 한 '온보딩 영상 스크립트(장면·자막·내레이션 3열 구성) 문서'",
+          "duration_min": 15
+        },
+        {
+          "no": 6,
+          "title": "SOP 유지·개선 루틴 설계",
+          "objective": "팀원 교체나 업무 변경 시 SOP를 Claude로 빠르게 업데이트하는 반복 가능한 개선 프로세스를 설계하고 문서화한다",
+          "key_concepts": [
+            "SOP 버전 관리 원칙: 변경 이력·트리거 조건 정의",
+            "Claude에게 기존 SOP 비교·수정 요청하는 프롬프트 패턴",
+            "팀원 피드백을 SOP 개선에 반영하는 루틴"
+          ],
+          "exercise": "SOP 업데이트 조건·담당자·주기를 명시한 '온보딩 SOP 유지관리 플레이북' 1페이지",
+          "duration_min": 15
+        }
+      ],
+      "assessment": "수강생이 제출한 3단계 온보딩 SOP 통합 문서와 Day 1 영상 스크립트를 기준으로, Day 1·Week 1·Month 1 각 단계에 측정 가능한 완료 기준이 포함되어 있고 영상 스크립트에 장면·자막·내레이션이 분리 구성된 경우 수료 인증 발급"
+    },
+    "price_hint": "30~70만원대"
+  }
+}

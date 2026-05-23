@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "tax-basics-solopreneur",
+    "course_title": "1인 사업가 세금 기초 완전정복",
+    "lesson_no": 3,
+    "lesson_title": "경비 처리로 세금 줄이기 — 인정되는 비용 vs 안 되는 비용",
+    "objective": "사업 관련 지출 20개 항목을 필요경비 인정·불인정·조건부로 분류하여 경비 판단 체크리스트를 완성한다",
+    "key_concepts": [
+      "필요경비 요건(사업 관련성·증빙)",
+      "가사경비 혼용 주의",
+      "증빙 종류(세금계산서·카드영수증·간이영수증 한도)"
+    ],
+    "exercise": "경비 항목별 인정 여부 판단 체크리스트 (항목·금액·인정여부·증빙방법 4열)",
+    "duration_min": 15
+  }
+}

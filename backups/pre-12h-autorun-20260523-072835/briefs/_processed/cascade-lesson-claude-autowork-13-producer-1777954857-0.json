@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 13,
+    "lesson_title": "AI 워크플로우 오류 진단 및 개선하기",
+    "objective": "Claude 출력에서 발생하는 4가지 오류 유형(사실 오류·형식 불일치·어조 이탈·누락)을 분류하고 각 유형별 수정 프롬프트를 작성한다",
+    "key_concepts": [
+      "오류 유형 분류",
+      "품질 검수 체크리스트",
+      "프롬프트 디버깅"
+    ],
+    "exercise": "오류 유형별 진단 체크리스트 + 수정 프롬프트 4종",
+    "duration_min": 15
+  }
+}

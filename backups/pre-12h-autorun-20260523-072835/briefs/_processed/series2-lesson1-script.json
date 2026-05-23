@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-sop",
+    "course_title": "Claude 워크플로우 SOP 만들기",
+    "lesson_no": 1,
+    "lesson_title": "SOP가 왜 필요한가 — 프롬프트의 수명을 늘려라",
+    "objective": "자신의 반복 업무 중 SOP화 우선순위 상위 3개를 선정 기준표에 따라 분류한다",
+    "key_concepts": [
+      "프롬프트 vs SOP의 차이",
+      "재사용 가능성 판단 기준 (빈도·복잡도·위임 가능성)",
+      "80/20 업무 선별법"
+    ],
+    "exercise": "내 반복 업무 목록과 SOP 우선순위 선정표 (워크시트 1장)",
+    "duration_min": 15
+  }
+}

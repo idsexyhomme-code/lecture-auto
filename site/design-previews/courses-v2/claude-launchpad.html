@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F5EFE0">
+  <title>부캐 서비스 7일 런칭 — 첫 유료 고객까지 — 코어 캠퍼스</title>
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법">
+  <meta property="og:title" content="부캐 서비스 7일 런칭 — 첫 유료 고객까지">
+  <meta property="og:description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/woff2/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="../../../design-system/base.css">
+  <link rel="stylesheet" href="../../../design-system/components.css">
+
+  <style>
+    .breadcrumb { max-width: var(--container-medium); margin: 0 auto; padding: var(--sp-4) var(--sp-5) 0; font-size: var(--fs-sm); color: var(--color-text-muted); }
+    .breadcrumb a { color: var(--color-text-muted); transition: color var(--duration-fast); }
+    .breadcrumb a:hover { color: var(--color-ink); }
+    .breadcrumb__sep { margin: 0 var(--sp-2); opacity: 0.5; }
+    .course-hero { padding: var(--sp-8) 0 var(--sp-12); }
+    .course-hero__meta { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-4); }
+    .meta-chip { padding: var(--sp-1) var(--sp-3); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--r-full); font-size: var(--fs-xs); font-weight: 500; color: var(--color-ink-soft); }
+    .course-hero__title { font-size: clamp(28px, 5.5vw, 48px); font-weight: 800; line-height: 1.2; letter-spacing: -0.028em; margin-bottom: var(--sp-4); }
+    .course-hero__sub { font-size: var(--fs-lg); line-height: 1.7; color: var(--color-ink-soft); max-width: 580px; margin-bottom: var(--sp-6); }
+    .price-block { display: flex; align-items: baseline; gap: var(--sp-3); margin-bottom: var(--sp-3); }
+    .price-block__main { font-family: var(--font-sans-en); font-size: clamp(36px, 6vw, 48px); font-weight: 700; color: var(--color-ink); letter-spacing: -0.035em; }
+    .price-block__suffix { font-size: var(--fs-md); color: var(--color-text-muted); }
+    .price-block__sub { font-size: var(--fs-sm); color: var(--color-coral); font-weight: 600; }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--sp-3); margin: var(--sp-8) 0; padding: var(--sp-6); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 20px; }
+    .info-cell__label { font-family: var(--font-sans-en); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.08em; color: var(--color-text-muted); margin-bottom: var(--sp-1); text-transform: uppercase; }
+    .info-cell__value { font-size: var(--fs-md); font-weight: 700; color: var(--color-ink); letter-spacing: -0.015em; }
+    .sec-eyebrow { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-coral); font-family: var(--font-sans-en); margin-bottom: var(--sp-3); }
+    .sec-title { font-size: clamp(22px, 4vw, 32px); font-weight: 800; line-height: 1.3; letter-spacing: -0.025em; margin-bottom: var(--sp-8); }
+    .sec-title__small { display: block; font-size: 0.55em; font-weight: 500; color: var(--color-text-muted); margin-bottom: 6px; }
+    .preview-watermark { position: fixed; top: 12px; right: 12px; background: var(--color-warning); color: #fff; padding: 4px 10px; border-radius: var(--r-full); font-size: 11px; font-weight: 700; letter-spacing: 0.04em; z-index: 999; box-shadow: var(--shadow-sm); }
+  </style>
+</head>
+<body>
+<div class="preview-watermark">시안 — 회원 ✅ 전</div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="/site/index.html"><span class="site-logo__mark"></span>코어 캠퍼스</a>
+    <a class="site-header__link" href="/site/index.html#courses">전체 코스</a>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <a href="/site/index.html">홈</a><span class="breadcrumb__sep">›</span>
+  <a href="/site/index.html#courses">전체 코스</a><span class="breadcrumb__sep">›</span>
+  부캐 서비스 7일 런칭 — 첫 유료 고객까지
+</nav>
+
+<main>
+  <section class="course-hero">
+    <div class="container">
+      <div class="course-hero__meta">
+        <span class="meta-chip">반복 업무 줄이기</span>
+        <span class="meta-chip">실전 코스</span>
+      </div>
+      <h1 class="course-hero__title">부캐 서비스 7일 런칭<br><span class="text-coral">첫 유료 고객까지</span></h1>
+      <p class="course-hero__sub">Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법</p>
+      <div class="price-block">
+        <span class="price-block__main">₩390,000</span>
+        <span class="price-block__suffix">1회 결제 · 무기한 시청</span>
+      </div>
+      <div class="price-block__sub">🔥 첫 100명까지 출시가 적용</div>
+      <div style="margin-top: var(--sp-6);">
+        <a class="btn btn--primary btn--lg" href="#enroll">지금 시작하기</a>
+        <a class="btn btn--secondary" href="#curriculum" style="margin-left: var(--sp-2);">커리큘럼 먼저 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section section--sm">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-cell"><div class="info-cell__label">Total</div><div class="info-cell__value">6편</div></div>
+        <div class="info-cell"><div class="info-cell__label">Duration</div><div class="info-cell__value">약 2시간</div></div>
+        <div class="info-cell"><div class="info-cell__label">Level</div><div class="info-cell__value">입문 → 실전</div></div>
+        <div class="info-cell"><div class="info-cell__label">Format</div><div class="info-cell__value">영상 + PDF</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="container">
+      <p class="sec-eyebrow">Receive · 받게 되는 것</p>
+      <h2 class="sec-title"><span class="sec-title__small">이 코스를 들으면</span>손에 남는 3가지</h2>
+      <div class="grid grid--3">
+                <div class="card card--feature"><div class="card__index">01</div><h3 class="card__title">실행 가능한 결과물</h3><p class="card__body">부캐 서비스 7일 런칭 — 첫 유료 고객까지 완료 시 손에 남는 명확한 결과.</p></div>
+        <div class="card card--feature"><div class="card__index">02</div><h3 class="card__title">다음 단계 실행 순서</h3><p class="card__body">결제만으로 끝이 아니라, 다음에 뭘 해야 할지 정리된 로드맵.</p></div>
+        <div class="card card--feature"><div class="card__index">03</div><h3 class="card__title">반복 가능한 루틴</h3><p class="card__body">한 번 익히면 다른 주제에도 그대로 쓸 수 있는 방법.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="container">
+      <p class="sec-eyebrow">Curriculum · 차시</p>
+      <h2 class="sec-title"><span class="sec-title__small">전체 커리큘럼</span>단계별로 정리</h2>
+      <p class="tg-body" style="margin-top: calc(-1 * var(--sp-6)); margin-bottom: var(--sp-6); color: var(--color-text-muted);">각 차시는 시간 분배·실행 가능성·후속 조치 기준으로 설계됐습니다. 차시별 상세는 결제 후 학습 페이지에서 확인하실 수 있습니다.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="container">
+      <p class="sec-eyebrow">FAQ</p>
+      <h2 class="sec-title"><span class="sec-title__small">결제 전 확인하기</span>궁금하실 것들</h2>
+      <details class="faq"><summary><span><span class="faq__q-label">Q.</span> 어떤 분에게 가장 잘 맞나요?</span></summary><div class="faq__body">이 코스는 Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법에게 가장 잘 맞습니다.</div></details>
+      <details class="faq"><summary><span><span class="faq__q-label">Q.</span> 환불 가능한가요?</span></summary><div class="faq__body">첫 영상 시청 전이라면 100% 환불해드립니다. 그 이후엔 디지털 콘텐츠 특성상 환불이 어렵습니다.</div></details>
+      <details class="faq"><summary><span><span class="faq__q-label">Q.</span> 수강 기간 제한이 있나요?</span></summary><div class="faq__body">1회 결제하시면 영구 시청 가능합니다. 추후 코스 업데이트도 무료로 제공됩니다.</div></details>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section" id="enroll">
+    <div class="container container--narrow">
+      <div class="final-cta">
+        <h2 class="final-cta__title">런칭, 7일 안에.</h2>
+        <p class="final-cta__sub"><span class="tg-num">₩390,000</span></p>
+        <a class="btn btn--primary btn--lg" href="#">지금 시작하기</a>
+        <p class="final-cta__fineprint">첫 영상 시청 전이라면 100% 환불.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  © 2026 코어 캠퍼스<span class="site-footer__sep">·</span>1인 사업가의 AI 수익 시스템
+</footer>
+</body>
+</html>

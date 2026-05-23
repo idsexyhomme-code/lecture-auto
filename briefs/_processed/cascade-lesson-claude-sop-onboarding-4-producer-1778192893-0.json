@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-sop-onboarding",
+    "course_title": "Claude로 팀 온보딩 SOP 완전 자동화",
+    "lesson_no": 4,
+    "lesson_title": "Week 1·Month 1 SOP 연속 생성 및 연결",
+    "objective": "Day 1 문서를 입력 맥락으로 활용해 Week 1·Month 1 SOP를 생성하고 세 단계가 논리적으로 연결된 전체 온보딩 문서를 완성한다",
+    "key_concepts": [
+      "이전 출력을 다음 프롬프트 맥락으로 재사용하는 체이닝 기법",
+      "Week 1 목표: 독립 업무 수행 기준 설정",
+      "Month 1 목표: 성과 체크포인트·피드백 루프 포함"
+    ],
+    "exercise": "Day 1·Week 1·Month 1이 하나로 연결된 '3단계 온보딩 SOP 통합 문서'",
+    "duration_min": 15
+  }
+}

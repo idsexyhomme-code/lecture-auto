@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 1,
+    "lesson_title": "내 업무에서 AI가 대체할 수 있는 것 찾기",
+    "objective": "자신의 주간 업무 목록에서 반복·위임 가능 업무를 최소 10개 분류하고 우선순위 표를 작성한다",
+    "key_concepts": [
+      "반복 업무 vs 판단 업무",
+      "80/20 업무 분석",
+      "자동화 적합성 기준"
+    ],
+    "exercise": "주간 업무 인벤토리 워크시트 (자동화 적합도 점수 포함)",
+    "duration_min": 15
+  }
+}

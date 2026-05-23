@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>팀 온보딩 SOP 6주 완성 — 코어 캠퍼스</title>
+  <link rel="stylesheet" href="../styles.css?v=1778943652" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+
+
+<section class="course-hero">
+  <div class="wrap course-hero-inner">
+    <div class="course-hero-main">
+      <div class="course-breadcrumb">
+        <a href="../index.html">홈</a> · <a href="../index.html#courses">전체 코스</a> · <span>claude-sop-onboarding</span>
+      </div>
+      <span class="badge">강의</span>
+      <h1 data-edit-field="site_config:course_overrides.claude-sop-onboarding.title_override">팀 온보딩 SOP 6주 완성</h1>
+      <p class="lead" data-edit-field="site_config:course_overrides.claude-sop-onboarding.tagline_override">신규 팀원이 혼자 따라가는 Day 1·Week 1·Month 1</p>
+
+      <div class="course-meta-row">
+        <span class="meta-chip">7편</span>
+        <span class="meta-chip">한 편 15분</span>
+        <span class="meta-chip">실습 결과물 남음</span>
+        <span class="meta-chip">평생 보기</span>
+      </div>
+    </div>
+
+    
+    <aside class="course-sidebar">
+      <div class="sidebar-card">
+        <div class="price-block">
+          <div class="price-label">수강료</div>
+          <div class="price-value">지금은 무료</div>
+          <div class="price-note">정식 가격 곧 공개</div>
+        </div>
+        <a href="#scripts" class="cta cta-primary cta-full">첫 편부터 보기</a>
+        <a href="../me/" class="cta cta-secondary cta-full">나중에 보기</a>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-includes">
+          <div class="includes-title">받게 되는 것</div>
+          <ul>
+            <li>✓ 영상 7편 (한 편 15분)</li>
+            <li>✓ 보고 따라 할 수 있는 실습 가이드</li>
+            <li>✓ 막힐 때 보는 Q&amp;A</li>
+            <li>✓ 한 번 결제하면 평생 봅니다</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+
+<article class="course-section">
+  <div class="wrap course-content">
+    <h2>이 코스는요</h2>
+    <div class="course-text"><h1>매번 직접 설명, 이제 Claude가 대신한다</h1>
+<blockquote>
+<p>채용 당일 바로 쓸 Day 1 SOP를 30분 안에. Claude 프롬프트 하나로 온보딩 문서 전체를 자동 완성합니다.</p>
+</blockquote>
+<p><strong>CTA:</strong> 지금 사전등록하기</p>
+<h2>이런 문제, 한 번쯤 겪으셨죠</h2>
+<ul>
+<li>신규 팀원이 들어올 때마다 같은 내용을 처음부터 다시 설명한다</li>
+<li>온보딩 문서를 만들려 해도 무엇을, 어떤 순서로 써야 할지 막막하다</li>
+<li>겨우 만든 문서도 팀원이 바뀌면 또 처음부터 수정해야 한다</li>
+</ul>
+<h2>이 코스는 이렇게 해결합니다</h2>
+<ul>
+<li>Claude 프롬프트 하나로 Day 1·Week 1·Month 1 SOP 초안을 30분 내 완성한다</li>
+<li>신규 팀원이 혼자 따라갈 수 있는 단계별 체크리스트를 자동으로 산출한다</li>
+<li>팀이 바뀌어도 재사용 가능한 SOP 템플릿 구조를 설계해 유지·개선한다</li>
+</ul>
+<h2>수강 후</h2>
+<ul>
+<li>수강 후 첫 채용 당일, 직접 설명 없이 SOP 문서 하나로 온보딩을 시작할 수 있다</li>
+<li>6주 차에는 Day 1·Week 1·Month 1 체크리스트가 모두 갖춰진 온보딩 패키지를 손에 쥔다</li>
+<li>다음 채용 때는 템플릿을 열고 Claude에 붙여넣는 것만으로 새 SOP를 30분 내 업데이트한다</li>
+</ul>
+<h2>커리큘럼</h2>
+<p>6차시 실습 중심으로, 강의가 끝날 때마다 실제 쓸 수 있는 SOP 결과물이 하나씩 쌓입니다.</p>
+<h2>강사 소개</h2>
+<p>현직 1인 스튜디오·소규모 팀 운영 경험을 바탕으로 Claude 프롬프트 설계를 연구해 왔습니다. 직접 반복 설명의 고통을 겪은 뒤 SOP 자동화 루틴을 구축했고, 이 과정에서 검증된 프롬프트와 템플릿만 엄선해 커리큘럼에 담았습니다. 수강생이 강의 중 실제 문서를 완성해 나가는 방식으로 수업을 설계했습니다.</p>
+<h2>후기</h2>
+<p>[실제 수강생 후기 자리 — 수기 입력]</p>
+<h2>FAQ</h2>
+<p><strong>Q. Claude 유료 플랜이 없어도 수강할 수 있나요?</strong>
+Claude 무료 플랜으로도 실습 대부분을 따라갈 수 있습니다. 다만 긴 문서 생성 실습에서는 Claude Pro(월 약 20달러)를 권장합니다. 강의 내에서 플랜별 차이를 안내합니다.</p>
+<p><strong>Q. AI 사용 경험이 전혀 없어도 괜찮나요?</strong>
+네. 1차시에서 Claude 계정 생성부터 첫 프롬프트 입력까지 단계별로 안내합니다. 사전 AI 지식은 필요하지 않습니다.</p>
+<p><strong>Q. 어떤 업종·직종에 적합한가요?</strong>
+프리랜서 에이전시, 1인 쇼핑몰, 소규모 콘텐츠팀, 스타트업 초기 팀 등 2~10인 규모 운영자에게 맞습니다. 업종별 SOP 예시를 커리큘럼 안에 포함합니다.</p>
+<p><strong>Q. 강의는 언제 어디서든 들을 수 있나요?</strong>
+모든 강의는 녹화 영상으로 제공되며, 수강 기간 내 시간·장소 제한 없이 반복 시청할 수 있습니다.</p>
+<p><strong>Q. 수강 기간이 지나면 자료는 어떻게 되나요?</strong>
+수강 기간 종료 후에는 영상 접근이 제한됩니다. 단, 제공된 프롬프트 템플릿 파일과 SOP 문서 양식은 별도 파일로 영구 보관할 수 있습니다.</p>
+<p><strong>Q. 6차시를 모두 완료하는 데 시간이 얼마나 걸리나요?</strong>
+차시당 평균 40~50분 영상과 실습 시간 30분을 포함해 총 8~10시간을 예상합니다. 주 2회 학습 기준으로 3주 내 완료 가능합니다.</p>
+<p><strong>Q. 환불 정책은 어떻게 되나요?</strong>
+결제 후 7일 이내, 영상 시청 횟수가 1차시 미만인 경우 전액 환불을 신청할 수 있습니다. 이후에는 콘텐츠 특성상 환불이 어렵습니다. 환불 신청은 고객센터 이메일로 접수합니다.</p>
+<h2>가격</h2>
+<p>얼리버드 가격: ₩390,000 (얼리버드 — 정가 590,000원, 마감일 별도 공지)
+<strong>CTA:</strong> 지금 결제</p></div>
+  </div>
+</article>
+
+
+
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
+    <h2>커리큘럼</h2>
+    <div class="course-text"><h1>Claude로 팀 온보딩 SOP 완전 자동화</h1>
+<blockquote>
+<p>같은 설명 반복 끝, 채용 즉시 쓸 SOP를 Claude가 만든다</p>
+</blockquote>
+<h2>결과 약속</h2>
+<ul>
+<li>Claude 프롬프트 하나로 Day 1·Week 1·Month 1 온보딩 SOP 초안을 30분 내 완성한다</li>
+<li>반복 설명 없이 신규 팀원이 스스로 따라갈 수 있는 단계별 체크리스트를 산출한다</li>
+<li>팀이 바뀌어도 재사용 가능한 SOP 템플릿 구조를 설계하고 유지·개선한다</li>
+</ul>
+<p><strong>타깃:</strong> 처음 팀원을 채용했지만 온보딩 문서 없이 매번 직접 설명을 반복하는 1인·소규모 팀 운영자</p>
+<p><strong>선수지식:</strong> Claude(claude.ai) 계정 보유 및 기본 채팅 사용 경험, 자신의 팀 업무 흐름을 한 문단 이상 구두로 설명할 수 있는 수준의 업무 이해</p>
+<h2>차시별 커리큘럼</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>제목</th>
+<th>학습목표</th>
+<th>실습</th>
+<th>분</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>온보딩 SOP란 무엇이고 왜 지금 필요한가</td>
+<td>SOP의 3단계(Day 1·Week 1·Month 1) 구조를 자신의 팀 상황에 맞게 표로 분류한다</td>
+<td>내 팀에서 신규 팀원에게 반복 설명하는 항목을 Day 1·Week 1·Month 1 세 열로 나눈 '현황 분류 표' 작성</td>
+<td>15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Claude에게 내 업무 맥락 전달하는 법</td>
+<td>Claude가 정확한 SOP를 생성하도록 역할·배경·제약 조건을 포함한 컨텍스트 프롬프트를 작성한다</td>
+<td>자신의 팀 업무를 담은 '컨텍스트 프롬프트 초안' 문서 1페이지 작성</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Day 1 SOP 생성 및 검증</td>
+<td>Claude를 써서 신규 팀원의 첫날 체크리스트를 생성하고, 누락 항목을 추가 프롬프트로 보완한다</td>
+<td>Claude가 생성한 Day 1 체크리스트를 팀 실정에 맞게 수정 완료한 '최종 Day 1 SOP 문서'</td>
+<td>15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Week 1·Month 1 SOP 연속 생성 및 연결</td>
+<td>Day 1 문서를 입력 맥락으로 써서 Week 1·Month 1 SOP를 생성하고 세 단계가 논리적으로 연결된 전체 온보딩 문서를 완성한다</td>
+<td>Day 1·Week 1·Month 1이 하나로 연결된 '3단계 온보딩 SOP 통합 문서'</td>
+<td>15</td>
+</tr>
+<tr>
+<td>5</td>
+<td>SOP를 영상 스크립트로 구조화하기</td>
+<td>완성된 SOP 문서를 Claude로 영상 스크립트 형식으로 변환하고 장면·자막·내레이션 구성을 분리한 대본을 작성한다</td>
+<td>Day 1 SOP를 기반으로 한 '온보딩 영상 스크립트(장면·자막·내레이션 3열 구성) 문서'</td>
+<td>15</td>
+</tr>
+<tr>
+<td>6</td>
+<td>SOP 유지·개선 루틴 설계</td>
+<td>팀원 교체나 업무 변경 시 SOP를 Claude로 빠르게 업데이트하는 반복 가능한 개선 순서를 설계하고 문서화한다</td>
+<td>SOP 업데이트 조건·담당자·주기를 명시한 '온보딩 SOP 유지관리 플레이북' 1페이지</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<h2>평가</h2>
+<p>수강생이 제출한 3단계 온보딩 SOP 통합 문서와 Day 1 영상 스크립트를 기준으로, Day 1·Week 1·Month 1 각 단계에 측정 가능한 완료 기준이 포함되어 있고 영상 스크립트에 장면·자막·내레이션이 분리 구성된 경우 수료 인증 발급</p></div>
+  </div>
+</article>
+
+
+
+<section id="scripts" class="course-section">
+  <div class="wrap">
+    <h2>차시 목록 <span class="muted-count">7편</span></h2>
+    <div class="lesson-list">
+      
+      <a href="../posts/1778192546-b7908f.html" class="lesson-row">
+        <div class="lesson-no">1</div>
+        <div class="lesson-body">
+          <h4>#1 온보딩 SOP란 무엇이고 왜 지금 필요한가</h4>
+          <p>SOP의 3단계(Day 1·Week 1·Month 1) 구조를 자신의 팀 상황에 맞게 표로 분류한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1778192814-a98cc8.html" class="lesson-row">
+        <div class="lesson-no">2</div>
+        <div class="lesson-body">
+          <h4>#2 Claude에게 내 업무 맥락 전달하는 법</h4>
+          <p>Claude가 정확한 SOP를 생성하도록 역할·배경·제약 조건을 포함한 컨텍스트 프롬프트를 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1778192818-8bef3d.html" class="lesson-row">
+        <div class="lesson-no">3</div>
+        <div class="lesson-body">
+          <h4>#2 Claude에게 내 업무 맥락 전달하는 법</h4>
+          <p>Claude가 정확한 SOP를 생성하도록 역할·배경·제약 조건을 포함한 컨텍스트 프롬프트를 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1778192890-4f75f2.html" class="lesson-row">
+        <div class="lesson-no">4</div>
+        <div class="lesson-body">
+          <h4>#3 Day 1 SOP 생성 및 검증</h4>
+          <p>Claude를 써서 신규 팀원의 첫날 체크리스트를 생성하고, 누락 항목을 추가 프롬프트로 보완한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1778192943-8c7797.html" class="lesson-row">
+        <div class="lesson-no">5</div>
+        <div class="lesson-body">
+          <h4>#4 Week 1·Month 1 SOP 연속 생성 및 연결</h4>
+          <p>Day 1 문서를 입력 맥락으로 써서 Week 1·Month 1 SOP를 생성하고 세 단계가 논리적으로 연결된 전체 온보딩 문서를 완성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1778193009-783c09.html" class="lesson-row">
+        <div class="lesson-no">6</div>
+        <div class="lesson-body">
+          <h4>#5 SOP를 영상 스크립트로 구조화하기</h4>
+          <p>완성된 SOP 문서를 Claude로 영상 스크립트 형식으로 변환하고 장면·자막·내레이션 구성을 분리한 대본을 작성한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1778193073-78f445.html" class="lesson-row">
+        <div class="lesson-no">7</div>
+        <div class="lesson-body">
+          <h4>#6 SOP 유지·개선 루틴 설계</h4>
+          <p>팀원 교체나 업무 변경 시 SOP를 Claude로 빠르게 업데이트하는 반복 가능한 개선 순서를 설계하고 문서화한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
+    <h2>막힐 때 보는 Q&amp;A</h2>
+    
+      <div class="faq-block"><p><strong>Q. Claude를 써본 적 없어도 들을 수 있나요?</strong>
+처음이라 걱정되시죠 😊 Claude 가입부터 실습까지 단계별로 안내해 드리니 비전공자도 괜찮아요. 수강 전 Claude 무료 계정만 만들어 두세요.</p>
+<p><strong>Q. 팀원이 아직 없는데 미리 들어도 되나요?</strong>
+채용 전에 준비하시는 거 정말 현명한 선택이에요. 강의 내용은 채용 전 SOP 초안 제작에도 바로 사용 가능해요. 수강 후 템플릿을 미리 완성해 두시면 됩니다.</p>
+<p><strong>Q. 제 업종·직무에 맞는 SOP 예시가 나오나요?</strong>
+업종마다 다를 수 있어 걱정되시죠. 강의에서 어떤 업무든 적용 가능한 범용 프롬프트 구조를 다뤄요. 수강 중 실습 때 본인 업무로 직접 만들어 보실 수 있어요.</p>
+<p><strong>Q. 강의 수강 기간이 얼마나 되나요?</strong>
+기간이 짧을까봐 불안하시죠. 정확한 수강 기간은 제가 강사에게 직접 확인 후 답변드릴게요. 잠시만 기다려 주세요!</p>
+<p><strong>Q. 환불은 어떻게 되나요?</strong>
+환불 조건이 궁금하신 마음 충분히 이해해요. 환불 정책은 강사 확인이 필요한 사항이라 정확한 안내를 위해 강사에게 확인 후 알려드릴게요.</p>
+<p><strong>Q. 강의 완주 후 실제로 SOP를 만들 수 있나요?</strong>
+결과물이 나올지 반신반의하시는 거 당연해요. 강의 내 실습 미션으로 수강 중에 SOP 1개를 완성하는 구조로 설계되어 있어요. 수강 시작 전 자주 반복 설명하는 업무 1개를 미리 떠올려 두세요.</p>
+<p><strong>Q. 강의 수준이 너무 어렵지는 않을까요?</strong>
+IT 지식 없이도 따라갈 수 있을지 걱정되시죠. 코딩·개발 지식 없이 Claude 대화만으로 진행하는 실무 중심 강의예요. 먼저 소개 영상을 확인해 보시면 수준을 바로 파악하실 수 있어요.</p></div>
+    
+  </div>
+</article>
+
+
+<section class="course-cta-bottom">
+  <div class="wrap">
+    <h3>오늘 한 편</h3>
+    <p>한 편 15분, 보고 따라 하면 그날 일에 바로 씁니다.</p>
+    <div class="cta-row">
+      <a href="#scripts" class="cta cta-primary">첫 편 보기</a>
+      <a href="../index.html#courses" class="cta cta-secondary">다른 코스</a>
+    </div>
+  </div>
+</section>
+
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

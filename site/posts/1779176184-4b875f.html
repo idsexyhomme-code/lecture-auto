@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#14 월 500 달성 여부를 숫자로 확인하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#14 월 500 달성 여부를 숫자로 확인하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779175251 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>이번 달 돈을 얼마 벌었는지 바로 말할 수 있나요?</p>
+<p>메일 대신 써준 거 3건, 블로그 포스팅 5건, 상세페이지 2건.</p>
+<p>근데 합치면 얼마인지 모릅니다.</p>
+<p>그냥 "좀 벌었겠지" 하고 넘어갑니다.</p>
+<p>월말에 통장 보고 나서야 "이게 전부야?" 싶은 거죠.</p>
+<p>이게 반복되면 500이 아니라 50도 어렵습니다.</p>
+<p>오늘 이 영상 하나로, 지금 당장 숫자로 확인합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면, 이번 달 수익을 서비스 종류별로 쪼개서 보고 다음 달 목표 건수를 숫자로 뽑아낼 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 수익 역산 스프레드시트</h3>
+<p><strong>설명</strong></p>
+<p>월 500달러를 목표로 잡았다면, 거기서 거꾸로 내려옵니다.</p>
+<p>500달러 ÷ 내 단가 = 이번 달 필요한 건수.</p>
+<p>이걸 미리 뽑아두지 않으면, 매번 느낌으로 일합니다.</p>
+<p>느낌으로 일하면 월말에 항상 부족합니다.</p>
+<p><strong>예시</strong></p>
+<p>블로그 포스팅 단가 25달러라면, 500달러엔 20건이 필요합니다.</p>
+<p>한 달 20건, 주당 5건, 하루 1건 이하.</p>
+<p>숫자로 보면 갑자기 "할 수 있겠는데?" 싶어집니다.</p>
+<p><strong>반례</strong></p>
+<p>"나는 단가가 다 달라서 역산이 안 돼요."</p>
+<p>괜찮습니다. 서비스 유형별로 줄을 나눠서 각각 계산하면 됩니다.</p>
+<p>블로그 10건 + 메일 카피 3건 + 상세페이지 1건 = 합계.</p>
+<p>한 줄로 합칠 필요 없습니다.</p>
+<p><strong>정리</strong></p>
+<p>머릿속 이미지: 500달러짜리 케이크를 조각으로 자르는 장면.</p>
+<p>각 조각이 서비스 하나입니다.</p>
+<p>조각 크기(단가)가 클수록 조각 수(건수)는 줄어듭니다.</p>
+<hr />
+<h3>개념 2 — 단가를 올리는 조건 2가지</h3>
+<p><strong>설명</strong></p>
+<p>단가는 그냥 올리면 클라이언트가 떠납니다.</p>
+<p>올릴 수 있는 조건이 딱 2가지 있습니다.</p>
+<p>첫째, 납품 실적이 쌓였을 때.</p>
+<p>둘째, 클라이언트가 재계약을 요청할 때.</p>
+<p><strong>예시</strong></p>
+<p>처음엔 블로그 1건에 20달러로 시작했습니다.</p>
+<p>3개월 후, 그 클라이언트가 "다음 달도 부탁드려요" 하고 먼저 연락을 보냅니다.</p>
+<p>그때 "이번엔 건당 28달러로 진행하겠습니다"라고 씁니다.</p>
+<p>클라이언트 입장에선 이미 믿는 사람이니까, 대부분 그냥 수락합니다.</p>
+<p><strong>반례</strong></p>
+<p>"첫 달부터 높은 단가를 써야 나중에 안 낮아지지 않나요?"</p>
+<p>첫 달 단가를 너무 높게 쓰면 계약 자체가 안 됩니다.</p>
+<p>계약이 없으면 실적도 없고, 단가를 올릴 근거도 없습니다.</p>
+<p>낮은 단가로 시작해서 실적을 쌓고, 그 다음에 올리는 게 실제로 빠릅니다.</p>
+<p><strong>정리</strong></p>
+<p>숫자 페그: 조건 2개, 실적 + 재계약 요청.</p>
+<p>이 두 개가 없으면 단가 인상 얘기 꺼내지 않습니다.</p>
+<hr />
+<h3>개념 3 — 재계약률을 높이는 방법</h3>
+<p><strong>설명</strong></p>
+<p>신규 클라이언트 한 명 구하는 데 드는 시간, 생각보다 깁니다.</p>
+<p>플랫폼 지원서 쓰고, 샘플 보내고, 조율하고.</p>
+<p>반면 기존 클라이언트가 다시 연락 오면 그 과정이 없습니다.</p>
+<p>재계약률이 올라갈수록 일 구하는 데 쓰는 시간이 줄어듭니다.</p>
+<p><strong>예시</strong></p>
+<p>납품 후 3일 안에 짧은 메시지를 보냅니다.</p>
+<p>"이번 글 반응이 궁금해서요. 잘 쓰셨나요?"</p>
+<p>딱 한 줄입니다.</p>
+<p>이 한 줄이 다음 달 재계약 연락으로 돌아오는 경우가 많습니다.</p>
+<p><strong>반례</strong></p>
+<p>"납품하고 나면 클라이언트가 먼저 연락 오지 않나요?"</p>
+<p>기다리면 대부분 안 옵니다.</p>
+<p>그들도 바쁘고, 다른 작가 알아보고 있을 수 있습니다.</p>
+<p>먼저 한 줄 보내는 것과 안 보내는 것, 재계약 확률이 달라집니다.</p>
+<p><strong>정리</strong></p>
+<p>이미지 페그: 납품 후 3일, 한 줄 문자.</p>
+<p>신규 한 명 구하는 시간 vs. 한 줄 문자 10초.</p>
+<p>어느 쪽이 낫냐고요? 답이 정해져 있습니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 따라오세요.</p>
+<p>스프레드시트를 새로 열고, 아래 5개 열을 만드세요.</p>
+<blockquote>
+<p><strong>A열: 서비스 종류 / B열: 건수 / C열: 건당 단가(달러) / D열: 합계 / E열: 이번 달 목표 대비 달성률</strong></p>
+</blockquote>
+<hr />
+<p><strong>1단계 — 서비스 입력</strong></p>
+<p>A열에 이번 달 한 서비스를 한 줄씩 씁니다.</p>
+<p>예) 블로그 포스팅 / 메일 카피 / 상세페이지 / SNS 게시물.</p>
+<p>아직 없어도 괜찮습니다. 할 예정인 서비스를 넣어도 됩니다.</p>
+<hr />
+<p><strong>2단계 — 건수와 단가 입력</strong></p>
+<p>B열에 실제 납품했거나 계약된 건수를 씁니다.</p>
+<p>C열에 건당 받은 금액을 씁니다.</p>
+<hr />
+<p><strong>3단계 — 합계 자동 계산</strong></p>
+<p>D열 첫 번째 칸에 <code>=B2*C2</code> 를 입력합니다.</p>
+<p>나머지 줄도 같은 방식으로 내려줍니다.</p>
+<p>D열 마지막 줄엔 <code>=SUM(D2:D10)</code> 으로 총합을 냅니다.</p>
+<hr />
+<p><strong>4단계 — 달성률 계산</strong></p>
+<p>E열에 <code>=D합계셀/500*100</code> 을 넣습니다.</p>
+<p>500달러 목표 기준으로 지금 몇 퍼센트인지 바로 나옵니다.</p>
+<hr />
+<p><strong>5단계 — 확인</strong></p>
+<p>숫자가 나왔나요?</p>
+<p>목표의 40%라면, 남은 기간에 몇 건이 더 필요한지 B열 숫자를 조정해 보세요.</p>
+<p>느낌이 아니라 숫자로 보입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #15에서는 플랫폼 없이 직접 클라이언트를 찾는 방법을 다룹니다.</p>
+<p>오늘 만든 스프레드시트에 숫자를 채워봤다면, 지금 댓글에 이번 달 달성률 숫자만 딱 한 줄 남겨주세요.</p>
+<p>숫자를 공개하는 순간, 다음 달이 달라집니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

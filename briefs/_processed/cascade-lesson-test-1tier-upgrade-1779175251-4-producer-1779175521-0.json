@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779175251",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 4,
+    "lesson_title": "블로그 글 1편, 30분 안에 끝내기",
+    "objective": "제목→개요→본문→CTA 순서로 AI와 함께 블로그 글 1편을 완성합니다",
+    "key_concepts": [
+      "BLUF 구조(결론 먼저)",
+      "AI 초안 수정 3단계",
+      "CTA 문장 유형"
+    ],
+    "exercise": "완성된 블로그 글 1편 — 제목·소제목·본문·CTA 포함 800자 이상 텍스트 파일",
+    "duration_min": 15
+  }
+}

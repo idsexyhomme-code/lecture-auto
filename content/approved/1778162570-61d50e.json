@@ -11,7 +11,9 @@
     "hero_image_url": "https://raw.githubusercontent.com/idsexyhomme-code/lecture-auto/main/site/blog-images/claude-daily-recap-hero.png",
     "tistory_url": null,
     "tistory_status": "failed",
-    "scheduled_at": null
+    "scheduled_at": null,
+    "published_url": "https://jejumomdad.tistory.com/manage/posts/",
+    "published_at": 1779371303
   },
   "course_id": "claude-daily-recap",
   "created_at": "2026-05-07T14:02:50+00:00",

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779124486",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 2,
+    "lesson_title": "AI 글쓰기 첫 번째 세팅",
+    "objective": "ChatGPT에 내 말투·주제를 학습시킨 '나만의 시스템 프롬프트'를 작성합니다",
+    "key_concepts": [
+      "시스템 프롬프트 구조 (역할·형식·금지어)",
+      "말투 복사하는 예시 입력법",
+      "프롬프트 저장·재사용"
+    ],
+    "exercise": "복사해서 바로 쓸 수 있는 나만의 프롬프트 파일 1개 (.txt)",
+    "duration_min": 15
+  }
+}

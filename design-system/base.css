@@ -1,0 +1,319 @@
+/* ============================================
+ * Core Campus Design System — Base
+ * tokens.json → CSS variables + reset + 한글 타이포 최적화
+ * ============================================ */
+
+@import url('./fonts.css');
+
+:root {
+  /* ── 컬러 — 브랜드 ── */
+  --color-coral: #D85A30;
+  --color-coral-hover: #C04A24;
+  --color-coral-soft: #FBE6DE;
+  --color-deep-blue: #2C4E6B;
+  --color-deep-blue-hover: #1F3A52;
+  --color-olive: #7A8B5C;
+  --color-warm-red: #C53030;
+
+  /* ── 컬러 — 뉴트럴 ── */
+  --color-ink: #1F1F1F;
+  --color-ink-soft: #3A3A3A;
+  --color-text-muted: #6B6B6B;
+  --color-border: #E5DFD3;
+  --color-border-soft: #EFE9DC;
+  --color-bg: #F5EFE0;
+  --color-bg-card: #FFFFFF;
+  --color-bg-subtle: #FAF6EB;
+
+  /* ── 시맨틱 ── */
+  --color-success: #2E7D5B;
+  --color-warning: #C68A2E;
+  --color-danger: #C53030;
+  --color-info: #2C4E6B;
+
+  /* ── 타이포 ── */
+  --font-sans-kr: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --font-impact-kr: 'GmarketSans', 'Pretendard Variable', sans-serif;
+  --font-sans-en: 'Gotham', 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+  /* ── 폰트 사이즈 (8-step scale, 모바일 기준) ── */
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-base: 15px;
+  --fs-md: 16px;
+  --fs-lg: 18px;
+  --fs-xl: 20px;
+  --fs-2xl: 24px;
+  --fs-3xl: 30px;
+  --fs-4xl: 36px;
+  --fs-5xl: 44px;
+  --fs-6xl: 56px;
+  --fs-hero: 64px;
+
+  /* ── 간격 ── */
+  --sp-0: 0;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+  --sp-32: 128px;
+  --sp-40: 160px;
+
+  /* ── 라운드 ── */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-2xl: 32px;
+  --r-full: 9999px;
+
+  /* ── 그림자 (절제) ── */
+  --shadow-xs: 0 1px 2px rgba(31, 31, 31, 0.04);
+  --shadow-sm: 0 2px 6px rgba(31, 31, 31, 0.06);
+  --shadow-md: 0 6px 18px rgba(31, 31, 31, 0.08);
+  --shadow-lg: 0 14px 36px rgba(31, 31, 31, 0.10);
+  --shadow-coral-glow: 0 8px 24px rgba(216, 90, 48, 0.22);
+
+  /* ── 트랜지션 ── */
+  --transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── 컨테이너 max-width ── */
+  --container-narrow: 560px;
+  --container-medium: 720px;
+  --container-wide: 960px;
+  --container-full: 1200px;
+
+  /* ── Motion ── */
+  --duration-instant: 80ms;
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --duration-slower: 500ms;
+  --duration-pageload: 700ms;
+  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --easing-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── z-index 스택 ── */
+  --z-below: -1;
+  --z-base: 0;
+  --z-raised: 10;
+  --z-dropdown: 20;
+  --z-sticky: 30;
+  --z-sticky-bar: 40;
+  --z-header: 50;
+  --z-overlay: 60;
+  --z-modal: 70;
+  --z-popover: 80;
+  --z-toast: 90;
+  --z-tooltip: 100;
+}
+
+/* ============================================
+ * Reset (관습 보존, 최소 침습)
+ * ============================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Focus visible — 키보드 사용자 */
+*:focus { outline: none; }
+*:focus-visible {
+  outline: 2px solid var(--color-coral);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { margin: 0; }
+img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+input, button, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; border: 0; background: transparent; padding: 0; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; padding: 0; margin: 0; }
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+
+/* ============================================
+ * Body 기본 — 한글 최적화
+ * ============================================ */
+body {
+  font-family: var(--font-sans-kr);
+  font-size: var(--fs-md);
+  line-height: 1.65;                /* 한글 본문 — 영문보다 살짝 넓게 */
+  letter-spacing: -0.015em;         /* 한글 자간 음수 (조밀하게) */
+  color: var(--color-ink);
+  background: var(--color-bg);
+  font-feature-settings: 'ss10', 'cv11';  /* Pretendard 한글 자형 최적화 옵션 */
+  word-break: keep-all;              /* 한글은 단어 단위 줄바꿈 */
+  overflow-wrap: anywhere;
+}
+
+/* ============================================
+ * Typography Scale — Utility Classes
+ * ============================================ */
+
+/* Hero — 랜딩 H1 (랜덤 강조시만) */
+.tg-hero {
+  font-family: var(--font-impact-kr);
+  font-size: clamp(36px, 7vw, var(--fs-hero));
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+}
+
+.tg-display {
+  font-family: var(--font-sans-kr);
+  font-size: clamp(28px, 5.5vw, var(--fs-5xl));
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.028em;
+  color: var(--color-ink);
+}
+
+.tg-h1 {
+  font-size: clamp(24px, 4.5vw, var(--fs-4xl));
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.022em;
+}
+
+.tg-h2 {
+  font-size: clamp(20px, 3.5vw, var(--fs-3xl));
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.tg-h3 {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.018em;
+}
+
+.tg-h4 {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+}
+
+.tg-body-lg {
+  font-size: var(--fs-lg);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.012em;
+  color: var(--color-ink-soft);
+}
+
+.tg-body {
+  font-size: var(--fs-md);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: -0.012em;
+  color: var(--color-ink-soft);
+}
+
+.tg-body-sm {
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: var(--color-text-muted);
+}
+
+.tg-caption {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-coral);
+  font-family: var(--font-sans-en);
+}
+
+.tg-num {
+  font-family: var(--font-sans-en);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* ============================================
+ * Layout Helpers
+ * ============================================ */
+.container { width: 100%; max-width: var(--container-medium); margin: 0 auto; padding: 0 var(--sp-5); }
+.container--narrow { max-width: var(--container-narrow); }
+.container--wide { max-width: var(--container-wide); }
+.container--full { max-width: var(--container-full); }
+
+.section { padding: var(--sp-20) 0; }
+.section--lg { padding: var(--sp-24) 0; }
+.section--sm { padding: var(--sp-12) 0; }
+
+@media (max-width: 640px) {
+  .section { padding: var(--sp-16) 0; }
+  .section--lg { padding: var(--sp-20) 0; }
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  border: 0;
+  margin: 0;
+}
+
+.stack > * + * { margin-top: var(--sp-4); }
+.stack--sm > * + * { margin-top: var(--sp-2); }
+.stack--lg > * + * { margin-top: var(--sp-6); }
+.stack--xl > * + * { margin-top: var(--sp-8); }
+
+/* ============================================
+ * Utility — Color
+ * ============================================ */
+.text-coral { color: var(--color-coral); }
+.text-blue { color: var(--color-deep-blue); }
+.text-muted { color: var(--color-text-muted); }
+.text-ink { color: var(--color-ink); }
+
+.bg-coral { background: var(--color-coral); color: #fff; }
+.bg-blue { background: var(--color-deep-blue); color: #fff; }
+.bg-card { background: var(--color-bg-card); }
+.bg-subtle { background: var(--color-bg-subtle); }
+
+/* ============================================
+ * Animation — 절제된 페이드인
+ * ============================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

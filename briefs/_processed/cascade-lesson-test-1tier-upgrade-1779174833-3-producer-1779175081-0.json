@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 3,
+    "lesson_title": "첫 영상 대본 5분짜리 쓴다",
+    "objective": "후크 15초·본문 3분·CTA 1분 구조로 대본 1편을 완성한다",
+    "key_concepts": [
+      "후크 공식 3가지",
+      "본문 3-블록 구조",
+      "CTA 문장 패턴"
+    ],
+    "exercise": "후크·본문·CTA가 담긴 5분짜리 영상 대본 1편",
+    "duration_min": 15
+  }
+}

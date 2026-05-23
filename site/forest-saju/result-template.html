@@ -1,0 +1,429 @@
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     숲사주 — 구매자 전용 결과 페이지 템플릿
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     사용법:
+     1. result-sample.html 디자인과 동일한 구조
+     2. {{변수}}를 실제 데이터로 치환 (Jinja2, 또는 수동)
+     3. site/forest-saju/results/{token}.html 로 저장
+     4. 사용자에게 이메일로 URL 발송:
+        https://yourdomain.com/forest-saju/results/{token}.html
+
+     치환 변수:
+     - {{NAME}}              : 토끼님 (사용자 이름 + "님")
+     - {{BIRTH_DATE}}        : 1995.04.12
+     - {{BIRTH_TIME}}        : 오전 9시 22분
+     - {{GENDER}}            : 여성
+     - {{SEASON}}            : 2026년 봄
+     - {{POEM}}              : Hero 시 (4줄)
+     - {{TITLE_EMOJI}}       : 🐰 (사용자 띠/계절 기반)
+     - {{CARD_01_TITLE}}     : 봄에 자라난 어린 새싹
+     - {{CARD_01_BODY_1}}    : 카드 본문 1단락
+     - {{CARD_01_BODY_2}}    : 카드 본문 2단락
+     - {{CARD_01_HIGHLIGHT}} : 카드 마지막 강조 한 줄
+     - {{CARD_02_TITLE}}     : ...
+     - ... 카드 1~8까지 동일 패턴
+     - {{FOREST_NAME}}       : "봄의 작은 숲" (사주 종합 별명)
+     - {{FOREST_VISUAL}}     : 🌳🍄🐰🌱☁️ (이모지 5개 조합)
+     - {{FOREST_DESC}}       : 사주 숲 한 줄 설명
+
+     스타일은 result-sample.html과 100% 동일.
+     이 파일은 그 디자인을 변수로 외부화한 버전입니다.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FFF8EB">
+  <title>{{NAME}}의 숲사주</title>
+  <meta name="description" content="{{NAME}}을 위한 숲사주 리포트입니다.">
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/woff2/PretendardVariable.woff2">
+
+  <style>
+    @font-face {
+      font-family: 'Pretendard Variable';
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/woff2/PretendardVariable.woff2') format('woff2-variations');
+    }
+    :root {
+      --cream: #FFF8EB; --cream-2: #FBF1DC;
+      --green-soft: #D4F1C5; --green-mid: #B8E0A0;
+      --yellow: #FFF3A0; --yellow-mid: #FFE675;
+      --pink: #FFD6E1; --pink-mid: #FFB8CC;
+      --purple: #E8DEF8; --purple-mid: #C9B8F0;
+      --brown: #8B6F47; --brown-deep: #5D4A30; --brown-soft: #C9B59A;
+      --bg: var(--cream); --bg-card: #FFFFFF;
+      --ink: var(--brown-deep); --ink-soft: #6B5640; --ink-muted: #9A876D;
+      --border: #ECE0CB; --naver-green: #00C73C;
+      --shadow-soft: 0 4px 14px rgba(139, 111, 71, 0.10);
+      --shadow-card: 0 8px 28px rgba(139, 111, 71, 0.14);
+      --gradient-cta: linear-gradient(135deg, #00C73C 0%, #009E2F 100%);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+      line-height: 1.7; letter-spacing: -0.012em;
+      word-break: keep-all; padding-bottom: 80px;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image:
+        radial-gradient(circle at 25% 20%, rgba(212, 241, 197, 0.30) 0%, transparent 30%),
+        radial-gradient(circle at 75% 75%, rgba(255, 214, 225, 0.22) 0%, transparent 30%);
+      pointer-events: none; z-index: 0;
+    }
+    main { position: relative; z-index: 1; }
+    a { color: inherit; text-decoration: none; }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      padding: 12px 20px;
+      background: rgba(255, 248, 235, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .top-bar__brand {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 16px; font-weight: 800; color: var(--brown-deep);
+    }
+    .top-bar__badge {
+      background: var(--green-soft); color: var(--brown-deep);
+      padding: 4px 10px; border-radius: 999px;
+      font-size: 11px; font-weight: 700;
+    }
+
+    .result-hero {
+      text-align: center; padding: 48px 24px 32px;
+      max-width: 520px; margin: 0 auto;
+    }
+    .result-hero__title-emoji {
+      font-size: 72px; display: inline-block; margin-bottom: 12px;
+      animation: hero-bob 4s ease-in-out infinite;
+    }
+    @keyframes hero-bob {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-6px) rotate(3deg); }
+    }
+    .result-hero__greeting {
+      font-size: 13px; color: var(--brown);
+      background: var(--cream-2); display: inline-block;
+      padding: 6px 14px; border-radius: 999px;
+      margin-bottom: 14px; font-weight: 600;
+    }
+    .result-hero__name {
+      font-size: 32px; font-weight: 900; color: var(--brown-deep);
+      margin: 0 0 6px; letter-spacing: -0.02em; line-height: 1.2;
+    }
+    .result-hero__sub {
+      font-size: 14px; color: var(--ink-muted);
+      margin: 0 0 24px; font-variant-numeric: tabular-nums;
+    }
+    .result-hero__poem {
+      font-size: 15px; color: var(--ink-soft);
+      background: linear-gradient(135deg, var(--cream-2) 0%, var(--green-soft) 100%);
+      border-radius: 18px; padding: 20px 22px;
+      line-height: 1.75; box-shadow: var(--shadow-soft);
+    }
+
+    .section { max-width: 520px; margin: 0 auto; padding: 16px 20px; }
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 22px; padding: 24px 22px;
+      margin-bottom: 16px; box-shadow: var(--shadow-soft);
+    }
+    .card__head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .card__emoji {
+      flex-shrink: 0; width: 54px; height: 54px;
+      border-radius: 16px; display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+    }
+    .card__title-wrap { flex: 1; }
+    .card__label {
+      font-size: 11px; color: var(--brown);
+      font-weight: 700; letter-spacing: 0.06em; margin-bottom: 2px;
+    }
+    .card__title {
+      font-size: 19px; font-weight: 800; color: var(--brown-deep);
+      margin: 0; letter-spacing: -0.02em;
+    }
+    .card__body { font-size: 14.5px; color: var(--ink-soft); line-height: 1.75; }
+    .card__body p { margin: 0 0 10px; }
+    .card__body p:last-child { margin-bottom: 0; }
+    .card__body strong { color: var(--brown-deep); font-weight: 700; }
+    .card__highlight {
+      background: var(--cream-2); padding: 14px 16px;
+      border-radius: 12px; margin-top: 14px;
+      font-size: 14px; color: var(--brown);
+      font-weight: 600; line-height: 1.6;
+    }
+    .card__highlight--accent {
+      background: linear-gradient(135deg, var(--yellow) 0%, var(--pink) 100%);
+      color: var(--brown-deep);
+    }
+
+    .card--seed   .card__emoji { background: var(--green-soft); }
+    .card--love   .card__emoji { background: var(--pink); }
+    .card--ring   .card__emoji { background: var(--purple); }
+    .card--coin   .card__emoji { background: var(--yellow); }
+    .card--tree   .card__emoji { background: var(--green-soft); }
+    .card--hand   .card__emoji { background: var(--pink); }
+    .card--rain   .card__emoji { background: var(--purple); }
+    .card--clover .card__emoji { background: var(--yellow); }
+
+    .forest-card {
+      background: linear-gradient(180deg, var(--green-soft) 0%, var(--cream) 100%);
+      border-radius: 22px; padding: 36px 24px;
+      text-align: center; margin-bottom: 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--green-mid);
+    }
+    .forest-card__title {
+      font-size: 13px; color: var(--brown);
+      font-weight: 700; letter-spacing: 0.06em; margin-bottom: 14px;
+    }
+    .forest-card__visual { font-size: 80px; line-height: 1; margin-bottom: 14px; }
+    .forest-card__name {
+      font-size: 22px; font-weight: 800; color: var(--brown-deep); margin: 0 0 8px;
+    }
+    .forest-card__desc { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
+
+    .share-row {
+      display: flex; gap: 12px; margin-top: 24px; padding: 0 20px;
+      max-width: 520px; margin-left: auto; margin-right: auto;
+    }
+    .share-btn {
+      flex: 1; padding: 13px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; color: var(--brown);
+      font-size: 13.5px; font-weight: 700; text-align: center;
+    }
+    .share-btn--primary {
+      background: var(--gradient-cta); color: white; border: none;
+    }
+
+    .closing {
+      max-width: 480px; margin: 32px auto 0;
+      padding: 24px 20px; background: var(--cream-2);
+      border-radius: 18px; text-align: center;
+      font-size: 13.5px; color: var(--ink-muted); line-height: 1.75;
+    }
+    .closing strong { color: var(--brown-deep); }
+
+    .footer {
+      max-width: 520px; margin: 24px auto 0;
+      padding: 20px; text-align: center;
+      font-size: 11.5px; color: var(--ink-muted);
+    }
+    .footer a { color: var(--brown); text-decoration: underline; text-underline-offset: 2px; }
+  </style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="top-bar__brand">🌿 숲사주</div>
+  <span class="top-bar__badge">내 결과</span>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="result-hero">
+    <div class="result-hero__title-emoji">{{TITLE_EMOJI}}</div>
+    <div class="result-hero__greeting">{{SEASON}} · 숲사주 리포트</div>
+    <h1 class="result-hero__name">{{NAME}}의 숲사주</h1>
+    <p class="result-hero__sub">{{BIRTH_DATE}} · {{BIRTH_TIME}} · {{GENDER}}</p>
+
+    <div class="result-hero__poem">
+      {{POEM}}
+    </div>
+  </section>
+
+  <!-- CARD 01: 기본 성향 -->
+  <section class="section">
+    <div class="card card--seed">
+      <div class="card__head">
+        <div class="card__emoji">🌱</div>
+        <div class="card__title-wrap">
+          <div class="card__label">CARD 01 · 기본 성향</div>
+          <h2 class="card__title">{{CARD_01_TITLE}}</h2>
+        </div>
+      </div>
+      <div class="card__body">
+        <p>{{CARD_01_BODY_1}}</p>
+        <p>{{CARD_01_BODY_2}}</p>
+      </div>
+      <div class="card__highlight">{{CARD_01_HIGHLIGHT}}</div>
+    </div>
+  </section>
+
+  <!-- CARD 02: 연애운 -->
+  <section class="section">
+    <div class="card card--love">
+      <div class="card__head">
+        <div class="card__emoji">💗</div>
+        <div class="card__title-wrap">
+          <div class="card__label">CARD 02 · 연애운</div>
+          <h2 class="card__title">{{CARD_02_TITLE}}</h2>
+        </div>
+      </div>
+      <div class="card__body">
+        <p>{{CARD_02_BODY_1}}</p>
+        <p>{{CARD_02_BODY_2}}</p>
+      </div>
+      <div class="card__highlight">{{CARD_02_HIGHLIGHT}}</div>
+    </div>
+  </section>
+
+  <!-- CARD 03: 결혼·동반자 -->
+  <section class="section">
+    <div class="card card--ring">
+      <div class="card__head">
+        <div class="card__emoji">💍</div>
+        <div class="card__title-wrap">
+          <div class="card__label">CARD 03 · 결혼·동반자</div>
+          <h2 class="card__title">{{CARD_03_TITLE}}</h2>
+        </div>
+      </div>
+      <div class="card__body">
+        <p>{{CARD_03_BODY_1}}</p>
+        <p>{{CARD_03_BODY_2}}</p>
+      </div>
+      <div class="card__highlight">{{CARD_03_HIGHLIGHT}}</div>
+    </div>
+  </section>
+
+  <!-- CARD 04: 재물운 -->
+  <section class="section">
+    <div class="card card--coin">
+      <div class="card__head">
+        <div class="card__emoji">🪙</div>
+        <div class="card__title-wrap">
+          <div class="card__label">CARD 04 · 재물운</div>
+          <h2 class="card__title">{{CARD_04_TITLE}}</h2>
+        </div>
+      </div>
+      <div class="card__body">
+        <p>{{CARD_04_BODY_1}}</p>
+        <p>{{CARD_04_BODY_2}}</p>
+      </div>
+      <div class="card__highlight">{{CARD_04_HIGHLIGHT}}</div>
+    </div>
+  </section>
+
+  <!-- CARD 05: 일·사업운 -->
+  <section class="section">
+    <div class="card card--tree">
+      <div class="card__head">
+        <div class="card__emoji">🌳</div>
+        <div class="card__title-wrap">
+          <div class="card__label">CARD 05 · 일·사업운</div>
+          <h2 class="card__title">{{CARD_05_TITLE}}</h2>
+        </div>
+      </div>
+      <div class="card__body">
+        <p>{{CARD_05_BODY_1}}</p>
+        <p>{{CARD_05_BODY_2}}</p>
+      </div>
+      <div class="card__highlight">{{CARD_05_HIGHLIGHT}}</div>
+    </div>
+  </section>
+
+  <!-- CARD 06: 인간관계운 -->
+  <section class="section">
+    <div class="card card--hand">
+      <div class="card__head">
+        <div class="card__emoji">🤝</div>
+        <div class="card__title-wrap">
+          <div class="card__label">CARD 06 · 인간관계운</div>
+          <h2 class="card__title">{{CARD_06_TITLE}}</h2>
+        </div>
+      </div>
+      <div class="card__body">
+        <p>{{CARD_06_BODY_1}}</p>
+        <p>{{CARD_06_BODY_2}}</p>
+      </div>
+      <div class="card__highlight">{{CARD_06_HIGHLIGHT}}</div>
+    </div>
+  </section>
+
+  <!-- CARD 07: 조심할 흐름 -->
+  <section class="section">
+    <div class="card card--rain">
+      <div class="card__head">
+        <div class="card__emoji">🌧️</div>
+        <div class="card__title-wrap">
+          <div class="card__label">CARD 07 · 조심할 흐름</div>
+          <h2 class="card__title">{{CARD_07_TITLE}}</h2>
+        </div>
+      </div>
+      <div class="card__body">
+        <p>{{CARD_07_BODY_1}}</p>
+        <p>{{CARD_07_BODY_2}}</p>
+      </div>
+      <div class="card__highlight">{{CARD_07_HIGHLIGHT}}</div>
+    </div>
+  </section>
+
+  <!-- CARD 08: 이번 달 조언 -->
+  <section class="section">
+    <div class="card card--clover">
+      <div class="card__head">
+        <div class="card__emoji">🍀</div>
+        <div class="card__title-wrap">
+          <div class="card__label">CARD 08 · 이번 달 한 줄 조언</div>
+          <h2 class="card__title">{{CARD_08_TITLE}}</h2>
+        </div>
+      </div>
+      <div class="card__highlight card__highlight--accent">
+        {{CARD_08_HIGHLIGHT}}
+      </div>
+    </div>
+  </section>
+
+  <!-- 사주 숲 시각 종합 -->
+  <section class="section">
+    <div class="forest-card">
+      <div class="forest-card__title">🌳 {{NAME}}의 사주 숲</div>
+      <div class="forest-card__visual">{{FOREST_VISUAL}}</div>
+      <h3 class="forest-card__name">"{{FOREST_NAME}}"</h3>
+      <p class="forest-card__desc">
+        {{FOREST_DESC}}
+      </p>
+    </div>
+  </section>
+
+  <!-- 공유 -->
+  <div class="share-row">
+    <a class="share-btn" href="#" onclick="navigator.clipboard?.writeText(location.href); alert('내 결과 페이지 링크가 복사됐어요 🌿'); return false;">
+      🔗 링크 복사
+    </a>
+    <a class="share-btn share-btn--primary" href="../index.html">
+      🌳 다른 사람도 받기
+    </a>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    🌿 본 리포트는 <strong>재미와 자기이해</strong>를 위한 참고용 카드예요.<br>
+    중요한 의사결정, 투자, 법률, 의료 판단을 대신하지 않아요.<br>
+    마음에 드는 부분만 가볍게 받아주세요.
+  </div>
+
+  <footer class="footer">
+    🌿 숲사주 · 귀여운 AI 사주 리포트<br>
+    {{NAME}}을 위한 결과 페이지입니다. 영구 보관됩니다.<br>
+    문의: hello@forest-saju.app · <a href="../index.html">홈으로</a>
+  </footer>
+
+</main>
+
+</body>
+</html>

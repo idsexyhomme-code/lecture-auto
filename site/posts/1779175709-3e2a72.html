@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#6 일주일치 글 60분 만에 예약하기 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#6 일주일치 글 60분 만에 예약하기<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779175251 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>일요일 밤 11시, 내일 올릴 글이 없습니다.</p>
+<p>머릿속으로는 "이번 주는 매일 올려야지" 다짐했는데,
+월요일 하나, 화요일 건너뜀, 수요일 또 건너뜀.</p>
+<p>이게 매주 반복되는 이유는 의지 문제가 아닙니다.
+글을 매일 그날 쓰기 때문입니다.</p>
+<p>오늘 차시에서 이 루틴을 끊습니다.
+60분 한 번으로 일주일치 7편을 뽑고,
+예약 발행 도구에 넣어두는 방법을 그대로 보여드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면,
+AI로 초안 7편을 뽑고 메타 비즈니스 또는 버퍼에 예약 등록한
+7일짜리 발행 스케줄표를 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 배치 글쓰기 방식</h3>
+<p><strong>설명</strong></p>
+<p>배치(batch)는 원래 제빵 용어입니다.
+빵 하나씩 굽는 게 아니라, 반죽 한 번에 20개를 한꺼번에 굽는 것.
+글쓰기도 똑같습니다.
+월요일에 하나, 화요일에 하나 쓰지 않고,
+일요일 오전에 7편을 한 번에 뽑습니다.</p>
+<p>왜 이게 빠를까요?
+글 하나 쓸 때마다 '오늘 뭐 쓰지?' 고민 시간이 들어갑니다.
+제 경험상 이 고민만 편당 15분은 씁니다.
+7편이면 105분이 그냥 사라집니다.</p>
+<p>배치 방식은 이 고민을 딱 한 번으로 줄입니다.
+주제 7개를 한 번에 정하고, AI에게 한 번에 넘깁니다.</p>
+<p><strong>예시</strong></p>
+<p>인스타그램 피드 7편 기준으로 보겠습니다.
+일요일 오전 10시, AI에게 이렇게 씁니다.</p>
+<blockquote>
+<p>"내 블로그 주제는 1인 사업 세금 절세야.
+초보 사업자가 궁금해할 주제 7개 뽑아줘.
+각 주제는 제목 1줄 + 핵심 메시지 2줄로 정리해줘."</p>
+</blockquote>
+<p>30초 안에 7개가 나옵니다.
+여기서 마음에 안 드는 2개만 고치면 됩니다.
+그다음 7개 각각에 초안 요청을 넣습니다.</p>
+<p><strong>반례</strong></p>
+<p>"AI가 쓴 초안을 그대로 쓰면 되겠네?"
+안 됩니다.</p>
+<p>AI 초안은 제 말투가 없고, 제 사례가 없습니다.
+그냥 올리면 읽는 사람이 느낍니다.
+배치 방식의 목표는 초안을 '0에서 만드는 시간'을 줄이는 것이지,
+퇴고를 없애는 게 아닙니다.</p>
+<p><strong>정리 — 메모리 페그: 빵집 은유</strong></p>
+<blockquote>
+<p>🍞 반죽 한 번 = 주제 7개 한 번에 정하기
+오븐 한 번 = AI 초안 7편 한 번에 뽑기
+포장 = 퇴고 + 예약 등록</p>
+</blockquote>
+<p>이 세 단계가 배치 글쓰기의 전부입니다.</p>
+<hr />
+<h3>핵심 개념 2 — 메타 비즈니스·버퍼 예약 기능</h3>
+<p><strong>설명</strong></p>
+<p>초안을 뽑았으면 예약 도구에 넣어야 합니다.
+도구는 두 가지를 봅니다.</p>
+<ul>
+<li><strong>메타 비즈니스 스위트</strong> — 무료, 페이스북·인스타그램 전용</li>
+<li><strong>버퍼(Buffer)</strong> — 무료 플랜 기준 채널 3개, 예약 10건까지 가능</li>
+</ul>
+<p>플랫폼이 메타 계열이면 메타 비즈니스로 충분합니다.
+블로그·링크드인·X까지 한 번에 잡으려면 버퍼가 낫습니다.</p>
+<p><strong>예시</strong></p>
+<p>메타 비즈니스 기준으로 예약 흐름을 보겠습니다.</p>
+<ol>
+<li>business.facebook.com 접속</li>
+<li>왼쪽 메뉴 → 플래너</li>
+<li>날짜 클릭 → 글 붙여넣기 → 이미지 업로드</li>
+<li>발행 시간 설정 → '예약' 클릭</li>
+</ol>
+<p>7편 기준, 익숙해지면 편당 4분이면 됩니다.
+7편 × 4분 = 28분.</p>
+<p><strong>반례</strong></p>
+<p>예약 도구를 믿고 확인을 안 하는 경우가 있습니다.
+대부분의 경우 잘 올라가지만,
+인스타그램 계정 연결이 끊기거나
+이미지 비율이 안 맞으면 예약이 실패합니다.</p>
+<p>목요일쯤 예약 목록을 한 번 훑는 습관을 들이면
+이 문제는 거의 잡힙니다.</p>
+<p><strong>정리 — 메모리 페그: 우체통 숫자 2</strong></p>
+<blockquote>
+<p>📬 도구 2개 — 메타(무료·메타 전용) vs 버퍼(무료·멀티채널)
+내 플랫폼이 인스타·페북만이면 메타,
+그 외 채널이 있으면 버퍼.</p>
+</blockquote>
+<hr />
+<h3>핵심 개념 3 — 초안 품질 빠른 검수법</h3>
+<p><strong>설명</strong></p>
+<p>7편 초안을 전부 처음부터 다시 쓰면 배치의 의미가 없습니다.
+빠른 검수는 딱 3가지만 봅니다.</p>
+<blockquote>
+<p><strong>3C 검수 — 3개만 확인한다</strong>
+1. <strong>Cast(내 말투)</strong> — 내가 실제로 쓰는 단어가 들어가 있나?
+2. <strong>Concrete(구체성)</strong> — 숫자나 내 사례가 하나라도 있나?
+3. <strong>Cut(군더더기)</strong> — 빼도 되는 문장이 보이면 그냥 지운다.</p>
+</blockquote>
+<p>편당 5분 이내로 끝냅니다.
+7편이면 35분.</p>
+<p><strong>예시</strong></p>
+<p>AI 초안에 이런 문장이 나왔다고 합시다.</p>
+<blockquote>
+<p>"세금 신고는 많은 분들이 어려워하는 부분입니다."</p>
+</blockquote>
+<p>Cast 검수: 저는 "많은 분들"이라는 말을 안 씁니다.
+→ "종합소득세 신고, 저도 처음엔 3번 틀렸습니다."로 바꿉니다.</p>
+<p>Concrete 검수: 숫자 '3번'이 들어갔습니다. 통과.</p>
+<p>Cut 검수: 없애도 되는 문장 없음. 통과.</p>
+<p>이게 한 문장 수정의 전부입니다.</p>
+<p><strong>반례</strong></p>
+<p>"3C를 모든 문장에 다 적용해야 하나?"
+아닙니다.</p>
+<p>글 전체에서 Cast 1곳, Concrete 1곳만 고쳐도
+독자 입장에서 체감이 확 달라집니다.
+문장 하나하나 다 뜯으면 시간만 씁니다.</p>
+<p><strong>정리 — 메모리 페그: 3C 이미지</strong></p>
+<blockquote>
+<p>✂️ 3C — Cast / Concrete / Cut
+편당 5분, 7편에 35분.
+초안 → 3C → 예약 등록. 끝.</p>
+</blockquote>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 직접 만들어 보세요.</p>
+<p>완성 목표물은 이겁니다.
+<strong>날짜·플랫폼·제목·예약 상태 4개 열이 채워진 7행짜리 스프레드시트.</strong></p>
+<hr />
+<p><strong>Step 1 — 스프레드시트 열 만들기 (1분)</strong></p>
+<p>구글 시트 또는 엑셀을 엽니다.
+A열: 날짜 (월~일 7칸)
+B열: 플랫폼 (인스타, 블로그 등)
+C열: 제목·주제
+D열: 예약 상태 (미작성 / 초안완료 / 예약완료)</p>
+<hr />
+<p><strong>Step 2 — AI로 주제 7개 뽑기 (2분)</strong></p>
+<p>ChatGPT 또는 Claude에 이 형식으로 넣습니다.</p>
+<blockquote>
+<p>"내 주제는 [본인 주제]. 타깃은 [독자]. 이번 주 올릴 제목 7개 뽑아줘. 각 제목은 20자 이내로."</p>
+</blockquote>
+<p>나온 결과를 C열에 붙여넣습니다.
+마음에 안 드는 것만 수정합니다.</p>
+<hr />
+<p><strong>Step 3 — 예약 상태 채우기 (1분)</strong></p>
+<p>지금 당장 예약 도구에 넣을 수 없어도 됩니다.
+D열에 '미작성' 또는 '초안완료' 중 현재 상태를 씁니다.
+이 표가 다음 주 월요일 전까지 D열이 전부 '예약완료'로 바뀌는 게 목표입니다.</p>
+<hr />
+<p><strong>Step 4 — 확인</strong></p>
+<p>7행 전부 채워졌으면 캡처하거나 저장합니다.
+댓글에 올려두면 제가 직접 봅니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시 #7에서는 이 7편이 실제로 돈과 연결되는 구조를 봅니다.
+링크 하나로 7편을 수익 창구에 묶는 방법입니다.</p>
+<p>이번 차시에서 만든 스케줄표, 댓글에 올려주세요.
+제목만이라도 괜찮습니다.
+다른 분들 보면서 "이 주제 괜찮네" 하는 힌트 얻어가는 분들 꽤 많습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

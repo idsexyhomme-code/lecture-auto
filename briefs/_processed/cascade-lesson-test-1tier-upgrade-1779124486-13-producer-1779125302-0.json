@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779124486",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 13,
+    "lesson_title": "수익 루트별 월 목표 쪼개기",
+    "objective": "광고·디지털상품·외주 3개 루트에 월 500 목표를 분배한 수익 계획표를 채웁니다",
+    "key_concepts": [
+      "루트별 수익 안정성 비교",
+      "건당 단가 × 건수 계산법",
+      "첫 달 현실적 목표 설정"
+    ],
+    "exercise": "엑셀 '월 수익 3루트 계획표' 1장 (목표액·필요 건수·달성 방법)",
+    "duration_min": 15
+  }
+}

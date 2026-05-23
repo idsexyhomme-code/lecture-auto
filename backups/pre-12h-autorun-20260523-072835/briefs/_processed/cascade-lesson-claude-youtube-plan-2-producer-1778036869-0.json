@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-youtube-plan",
+    "course_title": "Claude로 완성하는 1인 사업가 유튜브 기획",
+    "lesson_no": 2,
+    "lesson_title": "경쟁 채널 분석표 만들기",
+    "objective": "Claude를 활용해 동일 분야 유튜브 채널 5개를 분석하고 콘텐츠 유형·업로드 패턴·썸네일 전략을 분류한 비교표를 완성한다",
+    "key_concepts": [
+      "경쟁 채널 분석 프레임",
+      "콘텐츠 유형 분류법",
+      "차별화 포인트 추출"
+    ],
+    "exercise": "경쟁 채널 5개 비교 분석표 (스프레드시트 또는 Notion 테이블)",
+    "duration_min": 15
+  }
+}

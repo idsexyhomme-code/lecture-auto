@@ -1,0 +1,338 @@
+{
+  "id": "1779174964-07b7db",
+  "agent": "site_developer",
+  "kind": "site_config_change",
+  "title": "사이트 메타데이터·디자인 토큰 변경 제안 (Tier 2)",
+  "body_md": "## 변경 요약 (Tier 2: 메타데이터 + 디자인 토큰)\n\n**site_name**\n- 이전: 코어 캠퍼스\n- 제안: (없음)\n\n**site_tagline_top**\n- 이전: 1인 운영자를 위한 Claude 실습\n- 제안: (없음)\n\n**site_headline**\n- 이전: 혼자 다 하는 사람의 시간을 돌려줍니다\n- 제안: (없음)\n\n**site_subtagline**\n- 이전: Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법\n- 제안: (없음)\n\n**course_overrides[test-1tier-upgrade-1779174833]**\n- 이전: (없음)\n- 제안: {'title_override': '영상 하나로 월 500 남기는 1인 사업 설계', 'tagline_override': '콘텐츠 구조 한 번 잡으면 글·영상·SNS가 같이 돌아갑니다'}\n\n## 변경 이유\n`test-1tier-upgrade-1779174833`의 title_override는 톤 힌트(\"영상 하나로 월 500만 원 찍는 1인 사업 설계도\")에서 과장 표현 \"찍는\"과 \"만 원\"을 덜어내고 \"남기는\"으로 바꿔 사실 근거 톤을 유지했다. tagline_override는 원본 힌트에 없던 구조적 이득(\"콘텐츠 구조 한 번 잡으면 글·영상·SNS가 같이 돌아갑니다\")을 한 줄로 압축해 타깃(30~45세 1인 사업 준비자)이 실제로 원하는 결과—반복 작업 없이 채널이 돌아가는 그림—를 보여준다. 다른 필드는 일체 변경하지 않았다.",
+  "summary": "`test-1tier-upgrade-1779174833`의 title_override는 톤 힌트(\"영상 하나로 월 500만 원 찍는 1인 사업 설계도\")에서 과장 표현 \"찍는\"과 \"만 원\"을 덜어내고 \"남기는\"으로",
+  "meta": {
+    "new_config": {
+      "extra_pages": [],
+      "course_overrides": {
+        "claude-bizflow": {
+          "title_override": "혼자 일하면서 시간 늘리기 — 1인 사업 자동화",
+          "tagline_override": "반복 업무를 줄여 본업에 시간을 쏟는 8차시 실습"
+        },
+        "claude-sop": {
+          "title_override": "외주·인수인계 바로 쓰는 SOP 만들기",
+          "tagline_override": "한 번 만들면 재사용 가능한 업무 문서 실습 과정"
+        },
+        "claude-customer-script": {
+          "title_override": "고객 응대 하루 30분으로 줄이기",
+          "tagline_override": "CS 답변 시간을 줄이는 실전 스크립트 8차시"
+        },
+        "claude-launchpad": {
+          "title_override": "부캐 서비스 7일 런칭 — 첫 유료 고객까지",
+          "tagline_override": "아이디어에서 결제까지, 1주일 실전 과정"
+        },
+        "claude-youtube-plan": {
+          "title_override": "유튜브 채널 기획 4주 완성",
+          "tagline_override": "채널 콘셉트부터 스크립트까지, 4주 단계별 실습"
+        },
+        "claude-daily-recap": {
+          "title_override": "하루 5분 회고, 매일 쌓이는 루틴",
+          "tagline_override": "부담 없이 5분으로 끝내는 회고 실습 과정"
+        },
+        "claude-customer-support": {
+          "title_override": "내 말투로 대신 답하는 문의 응답",
+          "tagline_override": "하루 1~2시간 문의 답변 시간을 줄이는 설정법"
+        },
+        "claude-content-engine": {
+          "title_override": "콘텐츠, 3주째 끊기지 않게 씁니다",
+          "tagline_override": "블로그·뉴스레터·SNS를 주 1회 꾸준히 쓰는 루틴"
+        },
+        "claude-autowork": {
+          "title_override": "반복 업무 시간 줄이기 실전",
+          "tagline_override": "하루 2시간 걸리던 일을 30분 안에 끝내는 8차시"
+        },
+        "claude-monthly-revenue": {
+          "title_override": "매출 정리·보고서, 5분으로 끝내기",
+          "tagline_override": "월간 보고서 1시간을 5분으로 줄이는 실습"
+        },
+        "claude-pricing-page": {
+          "title_override": "전환 잘 되는 가격 페이지 만들기",
+          "tagline_override": "헤드라인부터 FAQ까지, 4주 가격 페이지 실전"
+        },
+        "claude-intro-email": {
+          "title_override": "한 페이지 인사메일 — 답장이 오는 메일",
+          "tagline_override": "신규 고객·파트너에게 한 번에 닿는 메일 작성법"
+        },
+        "claude-mail-writing": {
+          "title_override": "1페이지 비즈니스 메일 잘 쓰는 법",
+          "tagline_override": "거절·요청·제안 메일 30분 → 5분으로 줄이는 실습"
+        },
+        "claude-meeting-notes": {
+          "title_override": "회의 끝나고 5분, 회의록 정리법",
+          "tagline_override": "1시간 회의를 5분 회의록으로 정리하는 실전 4차시"
+        },
+        "claude-sop-onboarding": {
+          "title_override": "팀 온보딩 SOP 6주 완성",
+          "tagline_override": "신규 팀원이 혼자 따라가는 Day 1·Week 1·Month 1"
+        },
+        "core-campus-general": {
+          "title_override": "코어 캠퍼스 안내",
+          "tagline_override": "사이트 전반 안내"
+        },
+        "test-1tier-upgrade-1779174833": {
+          "title_override": "영상 하나로 월 500 남기는 1인 사업 설계",
+          "tagline_override": "콘텐츠 구조 한 번 잡으면 글·영상·SNS가 같이 돌아갑니다"
+        }
+      },
+      "design_tokens": {
+        "color_bg": "#F5EFE0",
+        "color_fg": "#1F1F1F",
+        "color_brand": "#2C4E6B",
+        "color_accent": "#D85A30",
+        "color_soft": "#EDE7D9",
+        "font_family_sans": "'Pretendard Variable', 'Noto Sans KR', system-ui, sans-serif",
+        "radius_card": "16px",
+        "color_muted": "#6B6B6B",
+        "color_line": "#E5DFD3",
+        "color_brand_2": "#1A3248"
+      },
+      "promo_banners": [
+        {
+          "label": "🎓 첫 코스 무료",
+          "color": "primary",
+          "link": "#courses"
+        },
+        {
+          "label": "📩 새 코스 도착 알림",
+          "color": "secondary",
+          "link": "#newsletter"
+        }
+      ],
+      "categories": [
+        {
+          "id": "automation",
+          "name": "반복 업무 줄이기",
+          "icon": "✉️",
+          "courses": [
+            "claude-autowork",
+            "claude-content-engine",
+            "claude-monthly-revenue",
+            "claude-customer-script",
+            "claude-launchpad",
+            "claude-pricing-page",
+            "claude-customer-support"
+          ]
+        },
+        {
+          "id": "operation",
+          "name": "혼자도 굴러가는 시스템",
+          "icon": "📋",
+          "courses": [
+            "claude-sop",
+            "claude-bizflow",
+            "claude-intro-email",
+            "claude-mail-writing",
+            "claude-meeting-notes",
+            "claude-sop-onboarding"
+          ]
+        },
+        {
+          "id": "focus",
+          "name": "집중·일하는 법",
+          "icon": "🎯",
+          "courses": [
+            "deepwork-1hr",
+            "claude-daily-recap"
+          ]
+        }
+      ],
+      "course_order": [
+        "claude-bizflow",
+        "claude-sop",
+        "claude-launchpad",
+        "claude-youtube-plan",
+        "tax-basics-solopreneur",
+        "claude-daily-recap",
+        "claude-mail-writing",
+        "claude-meeting-notes",
+        "claude-pricing-page",
+        "claude-sop-onboarding",
+        "claude-customer-support",
+        "claude-content-engine",
+        "test-1tier-upgrade-1779124486",
+        "test-1tier-upgrade-1779174833"
+      ]
+    },
+    "old_config": {
+      "course_overrides": {
+        "claude-bizflow": {
+          "title_override": "혼자 일하면서 시간 늘리기 — 1인 사업 자동화",
+          "tagline_override": "반복 업무를 줄여 본업에 시간을 쏟는 8차시 실습"
+        },
+        "claude-sop": {
+          "title_override": "외주·인수인계 바로 쓰는 SOP 만들기",
+          "tagline_override": "한 번 만들면 재사용 가능한 업무 문서 실습 과정"
+        },
+        "claude-customer-script": {
+          "title_override": "고객 응대 하루 30분으로 줄이기",
+          "tagline_override": "CS 답변 시간을 줄이는 실전 스크립트 8차시"
+        },
+        "claude-launchpad": {
+          "title_override": "부캐 서비스 7일 런칭 — 첫 유료 고객까지",
+          "tagline_override": "아이디어에서 결제까지, 1주일 실전 과정"
+        },
+        "claude-youtube-plan": {
+          "title_override": "유튜브 채널 기획 4주 완성",
+          "tagline_override": "채널 콘셉트부터 스크립트까지, 4주 단계별 실습"
+        },
+        "claude-daily-recap": {
+          "title_override": "하루 5분 회고, 매일 쌓이는 루틴",
+          "tagline_override": "부담 없이 5분으로 끝내는 회고 실습 과정"
+        },
+        "claude-customer-support": {
+          "title_override": "내 말투로 대신 답하는 문의 응답",
+          "tagline_override": "하루 1~2시간 문의 답변 시간을 줄이는 설정법"
+        },
+        "claude-content-engine": {
+          "title_override": "콘텐츠, 3주째 끊기지 않게 씁니다",
+          "tagline_override": "블로그·뉴스레터·SNS를 주 1회 꾸준히 쓰는 루틴"
+        },
+        "claude-autowork": {
+          "title_override": "반복 업무 시간 줄이기 실전",
+          "tagline_override": "하루 2시간 걸리던 일을 30분 안에 끝내는 8차시"
+        },
+        "claude-monthly-revenue": {
+          "title_override": "매출 정리·보고서, 5분으로 끝내기",
+          "tagline_override": "월간 보고서 1시간을 5분으로 줄이는 실습"
+        },
+        "claude-pricing-page": {
+          "title_override": "전환 잘 되는 가격 페이지 만들기",
+          "tagline_override": "헤드라인부터 FAQ까지, 4주 가격 페이지 실전"
+        },
+        "claude-intro-email": {
+          "title_override": "한 페이지 인사메일 — 답장이 오는 메일",
+          "tagline_override": "신규 고객·파트너에게 한 번에 닿는 메일 작성법"
+        },
+        "claude-mail-writing": {
+          "title_override": "1페이지 비즈니스 메일 잘 쓰는 법",
+          "tagline_override": "거절·요청·제안 메일 30분 → 5분으로 줄이는 실습"
+        },
+        "claude-meeting-notes": {
+          "title_override": "회의 끝나고 5분, 회의록 정리법",
+          "tagline_override": "1시간 회의를 5분 회의록으로 정리하는 실전 4차시"
+        },
+        "claude-sop-onboarding": {
+          "title_override": "팀 온보딩 SOP 6주 완성",
+          "tagline_override": "신규 팀원이 혼자 따라가는 Day 1·Week 1·Month 1"
+        },
+        "core-campus-general": {
+          "title_override": "코어 캠퍼스 안내",
+          "tagline_override": "사이트 전반 안내"
+        }
+      },
+      "site_subtagline": "Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법",
+      "site_headline": "혼자 다 하는 사람의 시간을 돌려줍니다",
+      "extra_pages": [],
+      "home_intro_html": "",
+      "footer_html": "<div style=\"text-align:center;line-height:1.75;\">\n  <div style=\"color:white;font-size:17px;font-weight:700;margin-bottom:6px;\">코어 캠퍼스</div>\n  <div style=\"color:rgba(255,255,255,0.7);font-size:13px;\">1인 사업가의 시간을 돌려주는 짧은 강의들</div>\n  <div style=\"margin-top:14px;font-size:13px;\">\n    <a href=\"mailto:idsexyhomme@gmail.com\" style=\"color:#C99756;\">문의 idsexyhomme@gmail.com</a>\n  </div>\n  <div style=\"margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);\">© 2026 코어 캠퍼스</div>\n</div>",
+      "testimonials_html": "",
+      "pricing_html": "",
+      "course_order": [
+        "claude-bizflow",
+        "claude-sop",
+        "claude-launchpad",
+        "claude-youtube-plan",
+        "tax-basics-solopreneur",
+        "claude-daily-recap",
+        "claude-mail-writing",
+        "claude-meeting-notes",
+        "claude-pricing-page",
+        "claude-sop-onboarding",
+        "claude-customer-support",
+        "claude-content-engine",
+        "test-1tier-upgrade-1779124486",
+        "test-1tier-upgrade-1779174833"
+      ],
+      "categories": [
+        {
+          "id": "automation",
+          "name": "반복 업무 줄이기",
+          "icon": "✉️",
+          "courses": [
+            "claude-autowork",
+            "claude-content-engine",
+            "claude-monthly-revenue",
+            "claude-customer-script",
+            "claude-launchpad",
+            "claude-pricing-page",
+            "claude-customer-support"
+          ]
+        },
+        {
+          "id": "operation",
+          "name": "혼자도 굴러가는 시스템",
+          "icon": "📋",
+          "courses": [
+            "claude-sop",
+            "claude-bizflow",
+            "claude-intro-email",
+            "claude-mail-writing",
+            "claude-meeting-notes",
+            "claude-sop-onboarding"
+          ]
+        },
+        {
+          "id": "focus",
+          "name": "집중·일하는 법",
+          "icon": "🎯",
+          "courses": [
+            "deepwork-1hr",
+            "claude-daily-recap"
+          ]
+        }
+      ],
+      "cta_html": "",
+      "site_name": "코어 캠퍼스",
+      "design_tokens": {
+        "color_bg": "#F5EFE0",
+        "color_fg": "#1F1F1F",
+        "color_brand": "#2C4E6B",
+        "color_accent": "#D85A30",
+        "color_soft": "#EDE7D9",
+        "font_family_sans": "'Pretendard Variable', 'Noto Sans KR', system-ui, sans-serif",
+        "radius_card": "16px",
+        "color_muted": "#6B6B6B",
+        "color_line": "#E5DFD3",
+        "color_brand_2": "#1A3248"
+      },
+      "categories_html": "",
+      "promo_banners": [
+        {
+          "label": "🎓 첫 코스 무료",
+          "color": "primary",
+          "link": "#courses"
+        },
+        {
+          "label": "📩 새 코스 도착 알림",
+          "color": "secondary",
+          "link": "#newsletter"
+        }
+      ],
+      "hero_html": "<div class=\"wrap\" style=\"max-width:720px;margin:0 auto;padding:80px 24px 72px;display:flex;flex-direction:column;align-items:flex-start;gap:0;\">\n  <span class=\"badge\" style=\"background:var(--color-deep-blue,#2C4E6B);color:#fff;font-family:'Pretendard Variable',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;padding:4px 12px;border-radius:9999px;margin-bottom:28px;\">AI 글쓰기 · 1인 사업</span>\n\n  <p class=\"section-title-2line__small\" style=\"font-family:'Pretendard Variable',sans-serif;font-size:clamp(14px,2vw,16px);color:#6B6B6B;letter-spacing:-0.015em;margin:0 0 10px;line-height:1.6;word-break:keep-all;\">직장 그만두기 전에 먼저 찍어봤습니다.</p>\n\n  <h1 class=\"section-title-2line\" style=\"font-family:'GmarketSans',sans-serif;font-size:clamp(32px,6vw,58px);font-weight:700;color:#1F1F1F;letter-spacing:-0.028em;line-height:1.22;word-break:keep-all;margin:0 0 28px;\">퇴근 후 2시간,<br>월 500 남깁니다.</h1>\n\n  <p style=\"font-family:'Pretendard Variable',sans-serif;font-size:clamp(15px,2.2vw,18px);color:#4A4A4A;line-height:1.72;letter-spacing:-0.018em;word-break:keep-all;margin:0 0 12px;max-width:520px;\">매일 밤 11시, 회의록 정리하고 보고서 쓰다 지쳤다면 —<br>그 글쓰기 시간을 그대로 돈으로 바꾸는 방법이 있습니다.</p>\n  <p style=\"font-family:'Pretendard Variable',sans-serif;font-size:clamp(14px,1.9vw,16px);color:#6B6B6B;line-height:1.68;letter-spacing:-0.015em;word-break:keep-all;margin:0 0 40px;max-width:480px;\">블로그 글 1개 쓰는 데 3시간? 지금은 22분입니다.</p>\n\n  <div style=\"display:flex;flex-direction:row;flex-wrap:wrap;gap:12px;align-items:center;\">\n    <a href=\"#enroll\" class=\"btn btn--primary btn--lg\" style=\"font-family:'Pretendard Variable',sans-serif;background:#D85A30;color:#fff;font-size:16px;font-weight:700;padding:16px 36px;border-radius:10px;text-decoration:none;letter-spacing:-0.01em;display:inline-block;\">무료 맛보기 보러 가기</a>\n    <span style=\"font-family:'Pretendard Variable',sans-serif;font-size:13px;color:#6B6B6B;letter-spacing:-0.01em;\">수강생 1,240명 · 평균 별점 4.8</span>\n  </div>\n\n  <hr style=\"border:none;border-top:1px solid #E5DFD3;width:100%;margin:48px 0 36px;\">\n\n  <ul style=\"list-style:none;padding:0;margin:0;display:flex;flex-direction:row;flex-wrap:wrap;gap:32px;\">\n    <li style=\"font-family:'Pretendard Variable',sans-serif;font-size:13px;color:#6B6B6B;letter-spacing:-0.015em;line-height:1.6;word-break:keep-all;\">\n      <strong style=\"display:block;font-family:'Gotham','Pretendard Variable',sans-serif;font-size:22px;font-weight:700;color:#1F1F1F;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;\">22분</strong>\n      블로그 글 1개 완성\n    </li>\n    <li style=\"font-family:'Pretendard Variable',sans-serif;font-size:13px;color:#6B6B6B;letter-spacing:-0.015em;line-height:1.6;word-break:keep-all;\">\n      <strong style=\"display:block;font-family:'Gotham','Pretendard Variable',sans-serif;font-size:22px;font-weight:700;color:#1F1F1F;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;\">8주</strong>\n      첫 수익 확인까지\n    </li>\n    <li style=\"font-family:'Pretendard Variable',sans-serif;font-size:13px;color:#6B6B6B;letter-spacing:-0.015em;line-height:1.6;word-break:keep-all;\">\n      <strong style=\"display:block;font-family:'Gotham','Pretendard Variable',sans-serif;font-size:22px;font-weight:700;color:#1F1F1F;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;\">1,240명</strong>\n      함께 시작한 수강생\n    </li>\n  </ul>\n</div>",
+      "site_tagline_top": "1인 운영자를 위한 Claude 실습"
+    },
+    "notes": "`test-1tier-upgrade-1779174833`의 title_override는 톤 힌트(\"영상 하나로 월 500만 원 찍는 1인 사업 설계도\")에서 과장 표현 \"찍는\"과 \"만 원\"을 덜어내고 \"남기는\"으로 바꿔 사실 근거 톤을 유지했다. tagline_override는 원본 힌트에 없던 구조적 이득(\"콘텐츠 구조 한 번 잡으면 글·영상·SNS가 같이 돌아갑니다\")을 한 줄로 압축해 타깃(30~45세 1인 사업 준비자)이 실제로 원하는 결과—반복 작업 없이 채널이 돌아가는 그림—를 보여준다. 다른 필드는 일체 변경하지 않았다.",
+    "self_review": {
+      "ok": true,
+      "severity": "pass",
+      "hard_violations": [],
+      "soft_violations": [],
+      "len": 753,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 0
+      }
+    },
+    "ceo_comment": "통과 권고 — title_override의 \"월 500 남기는\"이 수강생 실제 결과 검증 데이터와 맞는지 한 번 확인하면 된다."
+  },
+  "course_id": "",
+  "created_at": "2026-05-19T07:16:04+00:00",
+  "status": "pending",
+  "telegram_message_id": 1903
+}

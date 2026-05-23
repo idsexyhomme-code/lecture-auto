@@ -1,0 +1,12 @@
+{
+  "agent": "blog_publisher",
+  "brief": {
+    "course_id": "claude-launchpad",
+    "course_title": "부캐 서비스 7일 런칭 — 첫 유료 고객까지",
+    "topic_hint": "아이디어가 있는데 7일 안에 첫 유료 고객까지 가는 실전 흐름. Day 1~7 각 단계에서 Claude를 어떻게 쓰는지.",
+    "target_audience": "본업 있고 부캐로 사이드 프로젝트·작은 서비스 시작하고 싶은 30~40대. 시간 적음, 첫 결제가 두려움.",
+    "image_style_hint": "Editorial magazine cover. 미니멀한 카운트다운 또는 7개의 작은 단계 시각화. 따뜻한 베이지 톤. 실험·시작의 분위기.",
+    "approval_required": true,
+    "priority": "high"
+  }
+}

@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>회의 끝나고 5분, 회의록 정리법 — 코어 캠퍼스</title>
+  <link rel="stylesheet" href="../styles.css?v=1778943652" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+
+
+<section class="course-hero">
+  <div class="wrap course-hero-inner">
+    <div class="course-hero-main">
+      <div class="course-breadcrumb">
+        <a href="../index.html">홈</a> · <a href="../index.html#courses">전체 코스</a> · <span>claude-meeting-notes</span>
+      </div>
+      <span class="badge">강의</span>
+      <h1 data-edit-field="site_config:course_overrides.claude-meeting-notes.title_override">회의 끝나고 5분, 회의록 정리법</h1>
+      <p class="lead" data-edit-field="site_config:course_overrides.claude-meeting-notes.tagline_override">1시간 회의를 5분 회의록으로 정리하는 실전 4차시</p>
+
+      <div class="course-meta-row">
+        <span class="meta-chip">4편</span>
+        <span class="meta-chip">한 편 15분</span>
+        <span class="meta-chip">실습 결과물 남음</span>
+        <span class="meta-chip">평생 보기</span>
+      </div>
+    </div>
+
+    
+    <aside class="course-sidebar">
+      <div class="sidebar-card">
+        <div class="price-block">
+          <div class="price-label">수강료</div>
+          <div class="price-value">지금은 무료</div>
+          <div class="price-note">정식 가격 곧 공개</div>
+        </div>
+        <a href="#scripts" class="cta cta-primary cta-full">첫 편부터 보기</a>
+        <a href="../me/" class="cta cta-secondary cta-full">나중에 보기</a>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-includes">
+          <div class="includes-title">받게 되는 것</div>
+          <ul>
+            <li>✓ 영상 4편 (한 편 15분)</li>
+            <li>✓ 보고 따라 할 수 있는 실습 가이드</li>
+            <li>✓ 막힐 때 보는 Q&amp;A</li>
+            <li>✓ 한 번 결제하면 평생 봅니다</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+
+<article class="course-section">
+  <div class="wrap course-content">
+    <h2>이 코스는요</h2>
+    <div class="course-text"><h1>회의 끝나고 5분, 회의록 완성</h1>
+<blockquote>
+<p>녹음 파일 하나를 Claude에 붙여넣으면
+담당자·마감일이 정리된 회의록이 3분 안에 나옵니다.</p>
+</blockquote>
+<p><strong>CTA:</strong> 지금 사전등록하기</p>
+<h2>이런 문제, 한 번쯤 겪으셨죠</h2>
+<ul>
+<li>회의 직후 30분을 써도 회의록이 절반밖에 안 완성된다</li>
+<li>액션아이템을 적어뒀는데 담당자와 마감일이 빠져 있다</li>
+<li>정리를 미루다 다음 회의가 먼저 온다</li>
+</ul>
+<h2>이 코스는 이렇게 해결합니다</h2>
+<ul>
+<li>녹음·메모를 Claude 프롬프트에 넣으면 구조화된 회의록이 3분 안에 완성된다</li>
+<li>담당자·마감일이 자동 추출된 액션 리스트를 그 자리에서 팀과 공유할 수 있다</li>
+<li>4차시 안에 반복 회의에 쓸 나만의 Claude 프롬프트 템플릿을 직접 만든다</li>
+</ul>
+<h2>수강 후</h2>
+<ul>
+<li>회의 직후 5분, 회의록 초안을 완성하는 루틴이 생긴다</li>
+<li>액션아이템에 담당자·마감일이 자동으로 붙어 후속 관리가 쉬워진다</li>
+<li>내 회의 패턴에 맞는 재사용 프롬프트 템플릿을 갖게 된다</li>
+</ul>
+<h2>커리큘럼</h2>
+<p>4차시, 실습 중심으로 설계된 커리큘럼 — 각 차시마다 바로 쓸 수 있는 프롬프트를 가져갑니다.</p>
+<h2>강사 소개</h2>
+<p>AI 업무 자동화 전문가로 1인 사업가·소규모 팀 대상 Claude 실습 워크숍을 진행해 왔습니다. 복잡한 세팅 없이 Claude 하나로 반복 업무를 줄이는 방법을 직접 설계하고 검증했습니다. 현장에서 실제로 쓰는 프롬프트만 골라 가르칩니다.</p>
+<h2>후기</h2>
+<p>[실제 수강생 후기 자리 — 수기 입력]</p>
+<h2>FAQ</h2>
+<p><strong>Q. Claude 유료 플랜이 있어야 하나요?</strong>
+Claude.ai 무료 플랜으로도 실습 가능합니다. 단, 무료 플랜은 일일 사용량 제한이 있어 Pro 플랜(월 약 22달러)을 권장합니다.</p>
+<p><strong>Q. AI나 코딩을 전혀 몰라도 따라올 수 있나요?</strong>
+네. 코딩 지식은 필요 없습니다. 복사·붙여넣기와 기본 텍스트 편집만 할 수 있으면 됩니다.</p>
+<p><strong>Q. 수업은 어떤 방식으로 진행되나요?</strong>
+온라인 녹화 강의로 제공됩니다. 수강 기간 내에 원하는 시간에 반복 시청할 수 있습니다.</p>
+<p><strong>Q. 수강 기간은 얼마나 되나요?</strong>
+결제일로부터 90일간 무제한 재수강 가능합니다.</p>
+<p><strong>Q. 실제 회의 녹음 파일이 없어도 실습이 가능한가요?</strong>
+네. 강의에서 제공하는 샘플 녹취록·메모로 모든 실습을 진행할 수 있습니다.</p>
+<p><strong>Q. 완성된 프롬프트 템플릿을 팀원과 공유할 수 있나요?</strong>
+네. 수업에서 만든 템플릿은 제한 없이 팀 내에서 사용·공유할 수 있습니다.</p>
+<p><strong>Q. 환불 정책은 어떻게 되나요?</strong>
+결제 후 7일 이내, 그리고 전체 강의의 20% 미만 수강 시 전액 환불해 드립니다. 이후에는 환불이 어렵습니다. 자세한 내용은 수강 전 공지사항을 확인해 주세요.</p>
+<h2>가격</h2>
+<p>얼리버드 가격: ₩390,000 (얼리버드 — 모집 마감 시 종료)
+<strong>CTA:</strong> 지금 결제</p></div>
+  </div>
+</article>
+
+
+
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
+    <h2>커리큘럼</h2>
+    <div class="course-text"><h1>Claude로 회의록 즉시 자동화</h1>
+<blockquote>
+<p>녹음 하나로 회의록·액션아이템을 5분 안에 완성</p>
+</blockquote>
+<h2>결과 약속</h2>
+<ul>
+<li>회의 직후 녹음·메모를 Claude 프롬프트에 넣어 구조화된 회의록을 3분 안에 만들 수 있다</li>
+<li>회의록에서 담당자·마감일이 명시된 다음 액션 리스트를 자동 추출할 수 있다</li>
+<li>반복 회의에 재사용 가능한 나만의 Claude 프롬프트 템플릿을 직접 제작할 수 있다</li>
+</ul>
+<p><strong>타깃:</strong> 회의 후 정리를 매번 미루는 1인 사업가 및 5인 이하 소규모 팀 리더</p>
+<p><strong>선수지식:</strong> Claude.ai 계정 생성 및 기본 채팅 사용 경험, 회의 녹음 또는 텍스트 메모를 파일로 저장할 수 있는 환경</p>
+<h2>차시별 커리큘럼</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>제목</th>
+<th>학습목표</th>
+<th>실습</th>
+<th>분</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>회의 원본을 Claude가 읽을 수 있는 형태로 변환한다</td>
+<td>녹음 파일 또는 손메모를 Claude에 입력 가능한 텍스트로 변환하고, 입력 방법 3가지(붙여넣기·파일 업로드·음성→텍스트 변환 툴 연계)를 직접 시연한다</td>
+<td>실제 회의 녹음 또는 샘플 음성 파일을 텍스트로 변환하여 Claude에 붙여넣은 스크린샷 1장</td>
+<td>15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>회의록 초안을 생성하는 프롬프트를 작성한다</td>
+<td>회의 원본 텍스트를 입력으로 넣어 '배경·논의 내용·결정 사항' 3섹션으로 구성된 회의록 초안을 Claude로 출력한다</td>
+<td>자신의 실제 회의 내용을 넣어 생성한 회의록 초안 문서(Google Docs 또는 Notion 1페이지)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>회의록에서 담당자·마감일이 포함된 액션 리스트를 추출한다</td>
+<td>회의록 텍스트를 Claude에 다시 입력하여 '담당자 / 액션 / 마감일' 3열 표 형식의 다음 액션 리스트를 생성하고 원본 회의록과 비교·검증한다</td>
+<td>담당자·액션·마감일 3열이 채워진 Markdown 표 형식의 액션 리스트 파일 1개</td>
+<td>15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>반복 사용 가능한 나만의 회의 정리 프롬프트 템플릿을 제작한다</td>
+<td>앞 3차시에서 사용한 프롬프트들을 결합하여 회의 유형(영업·기획·팀 스탠드업)별로 교체 가능한 변수를 포함한 재사용 프롬프트 템플릿을 설계하고 문서화한다</td>
+<td>회의 유형 3가지에 적용 가능한 변수 포함 프롬프트 템플릿 문서(Notion·Google Docs 1페이지)와 실제 적용 결과 스크린샷</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<h2>평가</h2>
+<p>수강생이 자신의 실제 회의 녹음·메모를 사용하여 ①회의록 초안 ②액션 리스트 ③재사용 템플릿 3가지를 모두 포함한 최종 방법 영상(3분 내외 화면 녹화)을 제출하면 완주 인증 발급</p></div>
+  </div>
+</article>
+
+
+
+<section id="scripts" class="course-section">
+  <div class="wrap">
+    <h2>차시 목록 <span class="muted-count">4편</span></h2>
+    <div class="lesson-list">
+      
+      <a href="../posts/1778163523-55b8a9.html" class="lesson-row">
+        <div class="lesson-no">1</div>
+        <div class="lesson-body">
+          <h4>#1 회의 원본을 Claude가 읽을 수 있는 형태로 변환한다</h4>
+          <p>녹음 파일 또는 손메모를 Claude에 입력 가능한 텍스트로 변환하고, 입력 방법 3가지(붙여넣기·파일 업로드·음성→텍스트 변환 툴 연계)를 직접 시연한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1778163854-10f3c6.html" class="lesson-row">
+        <div class="lesson-no">2</div>
+        <div class="lesson-body">
+          <h4>#2 회의록 초안을 생성하는 프롬프트를 작성한다</h4>
+          <p>회의 원본 텍스트를 입력으로 넣어 &#39;배경·논의 내용·결정 사항&#39; 3섹션으로 구성된 회의록 초안을 Claude로 출력한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1778163928-f1dfa8.html" class="lesson-row">
+        <div class="lesson-no">3</div>
+        <div class="lesson-body">
+          <h4>#3 회의록에서 담당자·마감일이 포함된 액션 리스트를 추출한다</h4>
+          <p>회의록 텍스트를 Claude에 다시 입력하여 &#39;담당자 / 액션 / 마감일&#39; 3열 표 형식의 다음 액션 리스트를 생성하고 원본 회의록과 비교·검증한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+      <a href="../posts/1778164003-9812a9.html" class="lesson-row">
+        <div class="lesson-no">4</div>
+        <div class="lesson-body">
+          <h4>#4 반복 사용 가능한 나만의 회의 정리 프롬프트 템플릿을 제작한다</h4>
+          <p>앞 3차시에서 사용한 프롬프트들을 결합하여 회의 유형(영업·기획·팀 스탠드업)별로 교체 가능한 변수를 포함한 재사용 프롬프트 템플릿을 설계하고 문서화한다</p>
+        </div>
+        <div class="lesson-meta">
+          <span class="duration">15분</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<article class="course-section course-section-soft">
+  <div class="wrap course-content">
+    <h2>막힐 때 보는 Q&amp;A</h2>
+    
+      <div class="faq-block"><p><strong>Q. AI나 Claude를 전혀 몰라도 들을 수 있나요?</strong>
+처음이라 걱정되시죠 😊 완전 초보 기준으로 설계했어요. 수강 전 사전 지식은 필요 없으니 바로 등록하세요.</p>
+<p><strong>Q. 어떤 녹음 파일 형식을 지원하나요?</strong>
+형식이 맞는지 미리 확인하고 싶으시군요. 강의에서 다루는 지원 형식은 강사에게 직접 확인 후 답변드릴게요.</p>
+<p><strong>Q. 수강 후 실제로 5분 안에 회의록이 완성되나요?</strong>
+정말 되는지 반신반의하시는 거 이해해요. 실습 영상에서 실시간으로 검증하니 강의 커리큘럼을 먼저 확인해 보세요.</p>
+<p><strong>Q. Claude 유료 플랜이 있어야 하나요?</strong>
+추가 비용이 생길까 봐 걱정되시죠. 필요한 플랜 조건은 강사에게 직접 확인 후 정확히 안내드릴게요.</p>
+<p><strong>Q. 수강 기간이나 다시보기 기한이 있나요?</strong>
+언제든 복습하고 싶으신 마음 당연해요. 수강 기간 정책은 강사 확인 후 정확히 안내드릴게요.</p>
+<p><strong>Q. 팀원과 함께 사용할 수 있는 방법도 알려주나요?</strong>
+팀 전체에 바로 적용하고 싶으신 거죠. 5인 이하 팀 협업 사용법을 별도 챕터로 다루니 커리큘럼을 확인해 보세요.</p>
+<p><strong>Q. 환불 규정이 어떻게 되나요?</strong>
+구매 전 꼭 확인하셔야 할 중요한 부분이에요. 환불 정책은 강사 확인이 필요하니 문의 남겨 주시면 전달드릴게요.</p></div>
+    
+  </div>
+</article>
+
+
+<section class="course-cta-bottom">
+  <div class="wrap">
+    <h3>오늘 한 편</h3>
+    <p>한 편 15분, 보고 따라 하면 그날 일에 바로 씁니다.</p>
+    <div class="cta-row">
+      <a href="#scripts" class="cta cta-primary">첫 편 보기</a>
+      <a href="../index.html#courses" class="cta cta-secondary">다른 코스</a>
+    </div>
+  </div>
+</section>
+
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

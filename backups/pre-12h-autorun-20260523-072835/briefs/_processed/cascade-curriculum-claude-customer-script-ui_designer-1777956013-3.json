@@ -1,0 +1,16 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "hero",
+    "purpose": "Claude로 CS 자동화: 1인 사업가 생존 키트 코스의 핵심 메시지를 8초에 전달하는 랜딩 hero",
+    "audience": "CS 응대에 하루 1~3시간을 소모하는 1인 사업가·프리랜서·소규모 셀러",
+    "style_keywords": [
+      "editorial",
+      "warm beige",
+      "trustworthy",
+      "academic"
+    ],
+    "color_mood": "warm",
+    "additional_context": "코어 캠퍼스 코스 'Claude로 CS 자동화: 1인 사업가 생존 키트'의 페이지 헤더 시안."
+  }
+}

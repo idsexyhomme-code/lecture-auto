@@ -1,0 +1,2 @@
+{"mode": "DRY_RUN", "step": "create_container", "image_url": "http://example.com/x.png", "caption_len": 19, "fake_id": "dryrun-container-1778852630", "ts": "2026-05-15T22:43:50.663071+09:00"}
+{"mode": "DRY_RUN", "step": "publish", "container_id": "dryrun-container-1778852630", "fake_post_id": "dryrun-post-1778852630", "ts": "2026-05-15T22:43:50.663572+09:00"}

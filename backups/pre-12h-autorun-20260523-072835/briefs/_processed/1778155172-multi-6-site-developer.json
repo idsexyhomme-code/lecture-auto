@@ -1,0 +1,9 @@
+{
+  "agent": "site_developer",
+  "brief": {
+    "instruction": "Tier 4 cta_html 슬롯에 '무료 상담 신청 + 코스 미리보기' 영역을 추가하세요. 큰 버튼 2개 (Primary: 무료 상담, Secondary: 코스 둘러보기). 베이지·다크브라운 톤. 카피는 호기심 유발형 (예: '먼저 한 시간만 — 자동화가 가능한지 검토해보세요'). 다른 키는 절대 변경 금지.",
+    "brand_tone": "차분하고 단단한 한국어, 과장 표현 금지",
+    "target_audience": "1인 사업가, Claude 자동화 처음 검토",
+    "restrictions": "cta_html 외 다른 필드 변경 금지, WCAG AA 유지"
+  }
+}

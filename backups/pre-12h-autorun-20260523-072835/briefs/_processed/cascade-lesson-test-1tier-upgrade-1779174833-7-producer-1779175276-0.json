@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779174833",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 7,
+    "lesson_title": "유튜브·인스타에 올린다",
+    "objective": "유튜브 쇼츠와 인스타 릴스에 같은 영상을 업로드하고 게시 설정을 완료한다",
+    "key_concepts": [
+      "쇼츠 vs 릴스 업로드 차이",
+      "해시태그 5개 고르는 법",
+      "첫 댓글 고정 전략"
+    ],
+    "exercise": "유튜브·인스타 각 1건 업로드 완료 스크린샷",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#11 영상 끝에 구매 링크 넣는다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#11 영상 끝에 구매 링크 넣는다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779174833 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>영상 50개를 올렸는데 판매가 0건입니다.
+조회수는 있어요. 댓글도 달립니다.
+근데 통장은 텅 비어 있습니다.</p>
+<p>이유는 딱 하나입니다.
+사람들이 영상을 보고 나서 살 곳을 몰랐던 겁니다.
+링크가 없거나, 있어도 보이지 않는 곳에 숨어 있었던 거예요.</p>
+<p>이번 차시에서 그 문제를 끝냅니다.
+설명란 첫 줄, 자막, 고정 댓글.
+이 세 곳에 링크를 제대로 박아 넣는 법을 보여드립니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 영상이 끝나면
+유튜브 설명란 첫 줄에 클릭 가능한 상품 링크가 들어간
+설명란 텍스트 1개를 직접 완성할 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — CTA 위치 3곳</h3>
+<p><strong>설명</strong>
+링크를 어디에 두느냐가 클릭률을 바꿉니다.
+제 경험상 클릭이 일어나는 위치는 세 곳입니다.</p>
+<p>첫째, 설명란 첫 줄.
+둘째, 영상 자막 오른쪽 아래 엔드카드.
+셋째, 고정 댓글.</p>
+<p>이 세 곳을 페그로 기억하세요.
+<strong>위 / 아래 / 댓글창.</strong>
+그게 전부입니다.</p>
+<p><strong>예시</strong>
+설명란 첫 줄에 이렇게 씁니다.
+"▶ 강의 신청 바로 가기 → bit.ly/xxxxx"
+유튜브는 설명란을 접어서 보여줍니다.
+펼치기 전에 보이는 딱 두 줄이 첫 줄입니다.
+그 두 줄 안에 링크가 없으면 대부분 그냥 닫습니다.</p>
+<p><strong>반례</strong>
+링크를 설명란 맨 아래에만 뒀을 때.
+스크롤을 끝까지 내리는 시청자는 소수입니다.
+링크가 있어도 클릭이 안 됩니다.</p>
+<p><strong>정리</strong>
+위 / 아래 / 댓글창.
+세 곳 중 설명란 첫 줄이 우선입니다.</p>
+<hr />
+<h3>개념 2 — 링크 단축 도구</h3>
+<p><strong>설명</strong>
+원본 링크는 깁니다.
+클래스101이나 크몽 링크는 60자를 넘기도 합니다.
+긴 링크는 설명란에서 줄 바꿈이 생기고,
+자막에 넣으면 화면을 가립니다.
+단축 링크를 씁니다.</p>
+<p>단축 도구는 두 가지만 씁니다.
+<strong>Bitly</strong>와 <strong>스마트 스토어 단축 URL</strong>.</p>
+<p>Bitly는 무료 계정으로 월 링크 5개까지 만들 수 있습니다.
+클릭 수도 대시보드에서 바로 확인됩니다.
+스마트 스토어는 상품 URL 자체가 짧게 나옵니다.</p>
+<p><strong>예시</strong>
+원본: https://www.class101.net/ko/products/xxxxxxxxxxxxxxxx
+단축: bit.ly/my-course-link</p>
+<p>자막에 넣어도 딱 한 줄입니다.</p>
+<p><strong>반례</strong>
+링크드인 인앱 브라우저나 인스타그램 바이오처럼
+링크 클릭이 막힌 플랫폼에서는
+단축 링크도 작동이 안 될 수 있습니다.
+유튜브 설명란 기준으로 씁니다.</p>
+<p><strong>정리</strong>
+Bitly로 짧게 만들고, 클릭 수 확인까지 합니다.
+링크 하나당 3초면 됩니다.</p>
+<hr />
+<h3>개념 3 — 설명란 첫 줄 공식</h3>
+<p><strong>설명</strong>
+설명란 첫 줄은 공식이 있습니다.
+<strong>[행동 유도어] + [상품 이름] + [링크]</strong>
+세 칸을 채우면 됩니다.</p>
+<p>행동 유도어는 다섯 글자 이내로 씁니다.
+"신청하기", "지금 받기", "바로 가기".
+상품 이름은 검색어 기준으로 씁니다.
+"AI 글쓰기 강의"처럼 시청자가 검색할 단어로.
+링크는 단축 URL을 씁니다.</p>
+<p><strong>예시</strong>
+"▶ 지금 신청하기 | AI 글쓰기 강의 → bit.ly/ai-write"</p>
+<p>이게 전부입니다.
+두 줄을 넘기지 않습니다.</p>
+<p><strong>반례</strong>
+첫 줄에 인사를 쓰는 경우가 있습니다.
+"안녕하세요, 이번 영상에서는…"
+이렇게 쓰면 링크가 접힌 설명란 안으로 들어갑니다.
+클릭률이 낮아집니다.</p>
+<p><strong>정리</strong>
+<strong>[행동 유도어] + [상품 이름] + [링크]</strong>
+이 공식을 그대로 복붙하세요.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지합니다.</p>
+<p><strong>1단계 — 링크 준비 (1분)</strong>
+본인 상품 URL을 복사합니다.
+Bitly(bitly.com)에 접속해서
+'Create new link'에 붙여넣고 단축 링크를 만듭니다.
+링크를 메모장에 적어둡니다.</p>
+<p><strong>2단계 — 공식 채우기 (1분)</strong>
+아래 빈칸을 채웁니다.</p>
+<p>"▶ [행동 유도어] | [상품 이름] → [단축 링크]"</p>
+<p>예시: "▶ 지금 신청하기 | 영상 편집 클래스 → bit.ly/edit-class"</p>
+<p><strong>3단계 — 두 줄 확인 (1분)</strong>
+완성한 텍스트를 유튜브 스튜디오 설명란에 붙여넣습니다.
+모바일로 내 채널에 들어가서
+설명란이 접힌 상태에서 링크가 보이는지 확인합니다.
+링크가 접힌 안쪽으로 들어가면 한 줄 올립니다.</p>
+<p><strong>4단계 — 클릭 확인 (1분)</strong>
+본인이 직접 링크를 한 번 눌러봅니다.
+Bitly 대시보드에서 클릭 1회가 찍히면 완성입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시는 #12입니다.
+영상 하나를 올리면 유튜브·블로그·인스타에
+동시에 뿌리는 법을 다룹니다.
+콘텐츠 1개를 3곳에 내보내는 구조입니다.</p>
+<p>이번 영상이 도움됐다면
+완성한 설명란 텍스트를 댓글에 붙여넣어 주세요.
+피드백 드립니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

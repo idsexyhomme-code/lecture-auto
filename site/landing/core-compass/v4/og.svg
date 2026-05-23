@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- 배경 -->
+  <defs>
+    <radialGradient id="bgGlow1" cx="20%" cy="25%" r="50%">
+      <stop offset="0%" stop-color="#D85A30" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#D85A30" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgGlow2" cx="85%" cy="75%" r="50%">
+      <stop offset="0%" stop-color="#2C4E6B" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#2C4E6B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D85A30"/>
+      <stop offset="100%" stop-color="#2C4E6B"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#F5EFE0"/>
+  <rect width="1200" height="630" fill="url(#bgGlow1)"/>
+  <rect width="1200" height="630" fill="url(#bgGlow2)"/>
+
+  <!-- 로고 -->
+  <g transform="translate(80, 80)">
+    <circle cx="14" cy="14" r="14" fill="url(#logoGrad)"/>
+    <text x="40" y="22" font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif" font-size="20" font-weight="700" fill="#1F1F1F" letter-spacing="-0.4">Core Compass</text>
+  </g>
+
+  <!-- 배지 -->
+  <g transform="translate(80, 200)">
+    <rect x="0" y="0" width="220" height="40" rx="20" fill="#FBE6DE"/>
+    <circle cx="20" cy="20" r="4" fill="#D85A30"/>
+    <text x="34" y="26" font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif" font-size="14" font-weight="600" fill="#D85A30">한정 100명 · 9,900원</text>
+  </g>
+
+  <!-- 메인 타이틀 -->
+  <g transform="translate(80, 280)">
+    <text x="0" y="0" font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif" font-size="62" font-weight="800" fill="#1F1F1F" letter-spacing="-1.8">6단계로 정리하는</text>
+    <text x="0" y="80" font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif" font-size="62" font-weight="800" fill="#1F1F1F" letter-spacing="-1.8">당신의 <tspan fill="#D85A30">1인 사업 진단</tspan></text>
+  </g>
+
+  <!-- 6명 에이전트 -->
+  <g transform="translate(80, 480)">
+    <circle cx="22" cy="22" r="22" fill="#FBE6DE"/>
+    <text x="22" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#D85A30">01</text>
+    <circle cx="74" cy="22" r="22" fill="rgba(122, 139, 92, 0.18)"/>
+    <text x="74" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#7A8B5C">02</text>
+    <circle cx="126" cy="22" r="22" fill="rgba(44, 78, 107, 0.12)"/>
+    <text x="126" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#2C4E6B">03</text>
+    <circle cx="178" cy="22" r="22" fill="#FBE6DE"/>
+    <text x="178" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#D85A30">04</text>
+    <circle cx="230" cy="22" r="22" fill="rgba(122, 139, 92, 0.18)"/>
+    <text x="230" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#7A8B5C">05</text>
+    <circle cx="282" cy="22" r="22" fill="rgba(44, 78, 107, 0.12)"/>
+    <text x="282" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#2C4E6B">06</text>
+    <text x="0" y="76" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#6B6B6B" letter-spacing="2">6 AI AGENTS · 1 PAGE REPORT</text>
+  </g>
+
+  <!-- 우측 — 큰 ₩9,900 -->
+  <g transform="translate(720, 280)">
+    <text x="0" y="0" font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif" font-size="20" font-weight="500" fill="#6B6B6B" letter-spacing="-0.2">출시 프로모션</text>
+    <text x="0" y="120" font-family="Inter, sans-serif" font-size="160" font-weight="700" fill="#1F1F1F" letter-spacing="-6">₩9,900</text>
+    <text x="0" y="170" font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif" font-size="18" font-weight="500" fill="#6B6B6B" letter-spacing="-0.2">1페이지 진단 · 24시간 열람</text>
+  </g>
+
+  <!-- 우하단 — 친근 카피 -->
+  <g transform="translate(80, 590)">
+    <text x="0" y="0" font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif" font-size="16" font-style="italic" fill="#6B6B6B" letter-spacing="-0.2">딱, 한 장으로 정리해드릴게요.</text>
+  </g>
+</svg>

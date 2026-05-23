@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F5EFE0">
+  <meta name="robots" content="noindex">
+  <title>AI 6명이 분석 중 — Core Compass</title>
+  <link rel="stylesheet" href="../../../../design-system/base.css">
+  <link rel="stylesheet" href="../../../../design-system/components.css">
+
+  <style>
+    .wait-page {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: var(--sp-12) var(--sp-5);
+      text-align: center;
+    }
+    .wait-title {
+      font-size: clamp(24px, 4vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.3;
+      margin-bottom: var(--sp-3);
+    }
+    .wait-sub {
+      font-size: var(--fs-md);
+      color: var(--color-text-muted);
+      margin-bottom: var(--sp-8);
+      line-height: 1.7;
+    }
+
+    /* 6 AI 분석 중 시각화 */
+    .agents-working {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-8);
+    }
+    .agent-cell {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--r-md);
+      padding: var(--sp-4) var(--sp-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+      transition: all var(--duration-base);
+      position: relative;
+      overflow: hidden;
+    }
+    .agent-cell.is-working {
+      border-color: var(--color-coral);
+      background: var(--color-coral-soft);
+    }
+    .agent-cell.is-done {
+      border-color: var(--color-success);
+      background: rgba(46, 125, 91, 0.05);
+    }
+    .agent-cell__name {
+      font-family: var(--font-sans-en);
+      font-weight: 700;
+      font-size: var(--fs-sm);
+    }
+    .agent-cell__role {
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+    }
+    .agent-cell__status {
+      font-size: 18px;
+      margin-top: var(--sp-1);
+    }
+
+    /* 전체 진행률 */
+    .overall-progress {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-5);
+      margin-bottom: var(--sp-6);
+    }
+    .overall-progress__label {
+      font-size: var(--fs-sm);
+      color: var(--color-ink-soft);
+      margin-bottom: var(--sp-2);
+    }
+    .overall-progress__percent {
+      font-family: var(--font-sans-en);
+      font-size: var(--fs-4xl);
+      font-weight: 700;
+      color: var(--color-coral);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: var(--sp-3);
+    }
+    .overall-progress__bar {
+      height: 10px;
+      background: var(--color-bg-subtle);
+      border-radius: var(--r-full);
+      overflow: hidden;
+    }
+    .overall-progress__fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-coral), #E0683F);
+      transition: width 1s var(--easing-decelerate);
+    }
+    .overall-progress__time {
+      margin-top: var(--sp-3);
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+    }
+
+    .help-note {
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-top: var(--sp-4);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="https://corecampus.kr">
+      <span class="site-logo__mark"></span>
+      Core Compass
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="wait-page">
+    <h1 class="wait-title">AI 6명이 분석 중이에요</h1>
+    <p class="wait-sub">
+      <strong>{{USER_NAME}}님</strong>의 1인 사업 진단을 6 LLM이 다중 검증 중입니다.<br>
+      평균 5~10분 소요됩니다.
+    </p>
+
+    <!-- 전체 진행률 -->
+    <div class="overall-progress">
+      <div class="overall-progress__label">분석 진행률</div>
+      <div class="overall-progress__percent" id="overall-percent">12%</div>
+      <div class="overall-progress__bar">
+        <div class="overall-progress__fill" id="overall-fill" style="width: 12%;"></div>
+      </div>
+      <div class="overall-progress__time" id="time-left">예상 남은 시간: 약 8분</div>
+    </div>
+
+    <!-- 6 AI 작업 상태 -->
+    <div class="agents-working">
+      <div class="agent-cell is-done" data-step="1">
+        <div class="agent-cell__name">ChatGPT</div>
+        <div class="agent-cell__role">시장성</div>
+        <div class="agent-cell__status">✓</div>
+      </div>
+      <div class="agent-cell is-working" data-step="2">
+        <div class="agent-cell__name">Claude</div>
+        <div class="agent-cell__role">상품화</div>
+        <div class="agent-cell__status">⚡</div>
+      </div>
+      <div class="agent-cell" data-step="3">
+        <div class="agent-cell__name">Gemini</div>
+        <div class="agent-cell__role">실행 순서</div>
+        <div class="agent-cell__status">⏳</div>
+      </div>
+      <div class="agent-cell" data-step="4">
+        <div class="agent-cell__name">Perplexity</div>
+        <div class="agent-cell__role">메시지</div>
+        <div class="agent-cell__status">⏳</div>
+      </div>
+      <div class="agent-cell" data-step="5">
+        <div class="agent-cell__name">Copilot</div>
+        <div class="agent-cell__role">지표</div>
+        <div class="agent-cell__status">⏳</div>
+      </div>
+      <div class="agent-cell" data-step="6">
+        <div class="agent-cell__name">Bing</div>
+        <div class="agent-cell__role">최종 판단</div>
+        <div class="agent-cell__status">⏳</div>
+      </div>
+    </div>
+
+    <p class="help-note">
+      완료 후 <strong>{{EMAIL}}</strong>로 개인 URL을 보내드립니다.<br>
+      이 페이지를 닫으셔도 진단은 계속 진행됩니다.
+    </p>
+  </div>
+</main>
+
+<script>
+  // 진행률 시뮬레이션 (실제로는 서버 polling 또는 SSE)
+  let percent = 12;
+  const cells = document.querySelectorAll('.agent-cell');
+  const tickInterval = 3000;  // 3초마다 1% 증가
+  let timer = setInterval(() => {
+    percent = Math.min(100, percent + 1);
+    document.getElementById('overall-percent').textContent = percent + '%';
+    document.getElementById('overall-fill').style.width = percent + '%';
+
+    // 시간 갱신
+    const remaining = Math.max(0, Math.round((100 - percent) * 0.06));
+    document.getElementById('time-left').textContent =
+      percent >= 100
+        ? '완료! 곧 이메일이 도착합니다.'
+        : `예상 남은 시간: 약 ${remaining}분`;
+
+    // 단계별 상태 갱신
+    const step = Math.min(6, Math.floor(percent / 17));
+    cells.forEach((cell, i) => {
+      cell.classList.remove('is-working', 'is-done');
+      if (i < step) {
+        cell.classList.add('is-done');
+        cell.querySelector('.agent-cell__status').textContent = '✓';
+      } else if (i === step) {
+        cell.classList.add('is-working');
+        cell.querySelector('.agent-cell__status').textContent = '⚡';
+      } else {
+        cell.querySelector('.agent-cell__status').textContent = '⏳';
+      }
+    });
+
+    if (percent >= 100) {
+      clearInterval(timer);
+      // 완료 후 결과 페이지로 (3초 후)
+      setTimeout(() => {
+        // window.location.href = '/site/landing/core-compass/r/{{TOKEN}}/';
+      }, 3000);
+    }
+  }, tickInterval);
+</script>
+
+</body>
+</html>

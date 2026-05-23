@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#3 AI한테 내 목소리로 쓰게 만드는 법 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#3 AI한테 내 목소리로 쓰게 만드는 법<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779175251 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>ChatGPT로 글 썼더니 클라이언트가 딱 한 마디 했습니다.</p>
+<p>"글이 너무 AI 같아요."</p>
+<p>그 말 듣는 순간, 진짜 뭔가 싶죠.</p>
+<p>열심히 프롬프트 짰는데, 나온 글은 죄다 비슷한 냄새.</p>
+<p>문장이 길고, 단어가 교과서 같고, 읽다 보면 누가 쓴 건지 모르겠고.</p>
+<p>그 이유는 딱 하나입니다.</p>
+<p>AI한테 내 목소리를 아직 안 알려줬기 때문입니다.</p>
+<p>오늘 이걸 바꿉니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 내 글 샘플 3문단으로 만든 톤 지시문 하나를 손에 쥡니다.</p>
+<p>그걸 ChatGPT에 붙여 넣으면, 내가 직접 쓴 것처럼 나옵니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1. AI 톤 학습 프롬프트 — "카피 선생님 프레임"</h3>
+<p><strong>설명</strong></p>
+<p>AI는 원래 목소리가 없습니다.</p>
+<p>그냥 인터넷에 있는 글 전부를 평균 낸 목소리로 씁니다.</p>
+<p>그래서 지시를 안 하면, 매번 교과서 문체가 나옵니다.</p>
+<p>해결법은 간단합니다.</p>
+<p>"내 글을 보여주고, 이 스타일대로 써"라고 말하면 됩니다.</p>
+<p>이게 AI 톤 학습 프롬프트입니다.</p>
+<p><strong>예시</strong></p>
+<p>이렇게 씁니다.</p>
+<blockquote>
+<p>"아래 글 3개를 읽고, 내 문체 특징 5가지를 뽑아줘. 앞으로 내 글을 쓸 때 이 특징을 지켜."</p>
+</blockquote>
+<p>그리고 내 블로그 글, 카카오톡 공지, 인스타 캡션 중 아무거나 3개를 붙여 넣습니다.</p>
+<p><strong>반례</strong></p>
+<p>"친근하게 써줘"라고만 하면 안 됩니다.</p>
+<p>AI가 생각하는 친근함과 내 친근함이 다릅니다.</p>
+<p>누군가의 친근함은 이모지 가득한 문장이고,</p>
+<p>저의 친근함은 문장이 짧고 끊기는 겁니다.</p>
+<p>추상적인 형용사 하나로는 절대 내 목소리가 안 나옵니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그 — <strong>"요리 레시피"</strong>.</p>
+<p>요리사가 레시피 없이 맛을 흉내 내는 건 운입니다.</p>
+<p>AI도 내 글 샘플이라는 레시피가 있어야 같은 맛이 납니다.</p>
+<hr />
+<h3>개념 2. 글 샘플 수집 방법 — "3·3·3 법칙"</h3>
+<p><strong>설명</strong></p>
+<p>샘플 고를 때 막막한 분들이 많습니다.</p>
+<p>원칙은 하나입니다.</p>
+<p>"내가 쓴 글 중에 읽고 나서 '이거 나답다' 싶었던 것."</p>
+<p>그리고 숫자를 기억하세요.</p>
+<p><strong>3가지 채널에서, 3문단씩, 3개.</strong></p>
+<p><strong>예시</strong></p>
+<p>채널 1 — 블로그나 브런치 글 1개.</p>
+<p>채널 2 — 카카오톡 공지나 단체 문자 1개.</p>
+<p>채널 3 — 인스타 캡션이나 짧은 소개글 1개.</p>
+<p>이렇게 하면 격식체와 구어체가 섞여서 AI가 내 스펙트럼 전체를 배웁니다.</p>
+<p><strong>반례</strong></p>
+<p>보고서나 제안서를 샘플로 넣으면 안 됩니다.</p>
+<p>그건 회사 문체입니다. 내 목소리가 아닙니다.</p>
+<p>또, 글이 하나도 없다고 하시는 분들 있는데요.</p>
+<p>그러면 카카오톡 채팅창 열어서 내가 길게 쓴 메시지 3개만 골라도 됩니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그 — <strong>"3·3·3"</strong>.</p>
+<p>채널 3개, 문단 3개, 샘플 3개.</p>
+<p>이 숫자만 기억하면 샘플 수집은 5분 안에 끝납니다.</p>
+<hr />
+<h3>개념 3. 금지어·선호어 설정 — "빨간 줄·파란 줄"</h3>
+<p><strong>설명</strong></p>
+<p>샘플만 넣으면 70점입니다.</p>
+<p>나머지 30점은 금지어와 선호어로 채웁니다.</p>
+<p>금지어는 AI가 쓰면 내 목소리가 깨지는 단어들입니다.</p>
+<p>선호어는 내가 자주 쓰고 좋아하는 표현들입니다.</p>
+<p><strong>예시</strong></p>
+<p>금지어 예시 — "솔직히 저는 '~를 통해', '~함으로써', '효과적인' 이런 말 절대 안 씁니다. 쓰지 마세요."</p>
+<p>선호어 예시 — "저는 문장을 짧게 끊고, '그래서', '그러니까', '근데'를 자주 씁니다. 이 패턴을 유지해 주세요."</p>
+<p><strong>반례</strong></p>
+<p>금지어 목록만 30개 넘게 만드는 분들이 있는데요.</p>
+<p>너무 많으면 AI가 쓸 말이 없어집니다.</p>
+<p>제 경험상 금지어 5개, 선호어 5개가 딱 맞습니다.</p>
+<p>그 이상은 오히려 문장이 어색해집니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그 — <strong>"빨간 줄 5, 파란 줄 5"</strong>.</p>
+<p>빨간 줄은 절대 쓰지 말 것, 파란 줄은 꼭 쓸 것.</p>
+<p>이 10개짜리 리스트가 톤 지시문의 뼈대입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 멈추고 따라 해보세요.</p>
+<p>4단계입니다.</p>
+<p><strong>1단계 — 샘플 3개 복사하기 (2분)</strong></p>
+<p>방금 말한 3가지 채널에서 각 1개씩 꺼냅니다.</p>
+<p>블로그, 카카오톡 공지, 인스타 캡션.</p>
+<p>없으면 카톡 채팅창에서 내가 길게 쓴 메시지 3개.</p>
+<p>메모장에 붙여 넣습니다.</p>
+<p><strong>2단계 — 금지어·선호어 각 5개씩 쓰기 (1분)</strong></p>
+<p>AI가 쓰면 기분 나쁜 단어 5개.</p>
+<p>내가 입에 달고 사는 단어 5개.</p>
+<p>메모장에 이어서 씁니다.</p>
+<p><strong>3단계 — 톤 지시문 틀에 끼워 넣기 (1분)</strong></p>
+<p>아래 틀을 그대로 복사하세요.</p>
+<hr />
+<blockquote>
+<p>아래는 내 글 샘플 3개입니다. 내 문체 특징을 파악하고 앞으로 이 스타일로 써주세요.</p>
+<p>[샘플 1], [샘플 2], [샘플 3]</p>
+<p>절대 쓰지 말 것: [금지어 5개]</p>
+<p>꼭 쓸 것: [선호어 5개]</p>
+<p>확인 차원에서 내 문체 특징 3가지를 먼저 말해줘. 맞으면 "확인했습니다"라고 하고 다음 요청을 기다려.</p>
+</blockquote>
+<hr />
+<p><strong>4단계 — ChatGPT에 붙여 넣고 확인하기</strong></p>
+<p>틀에 샘플과 단어를 채웠으면 ChatGPT 새 채팅에 붙여 넣습니다.</p>
+<p>AI가 내 문체 특징 3가지를 제대로 뽑아냈는지 읽어보세요.</p>
+<p>틀리면 "3번이 아니라 이렇게 바꿔줘"라고 수정합니다.</p>
+<p>이걸 완성된 톤 지시문으로 저장해 두면 됩니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 톤 지시문으로 실제 블로그 글 1개를 처음부터 끝까지 씁니다.</p>
+<p>초안 나오는 데 7분 걸립니다.</p>
+<p>오늘 만든 톤 지시문 댓글에 붙여 넣어 주세요.</p>
+<p>다른 분들 거랑 비교하면 내 것이 더 잘 보입니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

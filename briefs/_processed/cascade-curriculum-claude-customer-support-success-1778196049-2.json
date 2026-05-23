@@ -1,0 +1,10 @@
+{
+  "agent": "success",
+  "brief": {
+    "mode": "faq",
+    "course_id": "claude-customer-support",
+    "course_title": "Claude+RAG 문의 자동화 실전",
+    "topic": "내 말투 그대로, 문의 응답을 AI가 대신한다",
+    "audience": "하루 1~2시간을 문의 응답에 쓰는 1인 강사·서비스 사업자"
+  }
+}

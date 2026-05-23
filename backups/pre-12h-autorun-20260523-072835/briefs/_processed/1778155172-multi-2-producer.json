@@ -1,0 +1,15 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude 자동화 실전",
+    "lesson_no": 9,
+    "lesson_title": "전체 시스템 운영 점검 — 매월 5분 헬스체크",
+    "duration_min": 12,
+    "promises": [
+      "월간 헬스체크 5분 안에 끝내는 체크리스트",
+      "실패 패턴 5가지 + 즉시 대응법",
+      "비용 모니터링 자동 알림 셋업"
+    ]
+  }
+}

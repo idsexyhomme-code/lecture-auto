@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779175251",
+    "course_title": "AI 콘텐츠로 월 500 버는 1인 사업",
+    "lesson_no": 1,
+    "lesson_title": "월 500, 숫자부터 쪼갭니다",
+    "objective": "월 500만 원을 단가·건수·고객 수 3가지 숫자로 쪼개서 나만의 수익 계산표를 작성한다",
+    "key_concepts": [
+      "단가 설정",
+      "월 목표 건수",
+      "고객 1명당 LTV"
+    ],
+    "exercise": "내 단가·건수·고객 수를 채운 수익 계산표 1장 (구글 스프레드시트)",
+    "duration_min": 15
+  }
+}

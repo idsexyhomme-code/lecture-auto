@@ -1,0 +1,2 @@
+{"token": "30f9dcea294242450fb6bb6a950697cb", "order_id": "test_order", "email": "test@example.com", "created_at": "2026-05-17T00:44:18.553198+09:00", "expires_at": "2026-05-18T00:44:18.553198+09:00", "used_count": 0}
+{"token": "ab49c19af03570a88546d4765b320ca3", "order_id": "test_order_001", "email": "test@example.com", "created_at": "2026-05-17T00:45:42.408847+09:00", "expires_at": "2026-05-18T00:45:42.408847+09:00", "used_count": 0}

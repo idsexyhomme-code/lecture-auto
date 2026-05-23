@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>결제 관리 — Core Campus Admin</title>
+  <link rel="stylesheet" href="../../design-system/base.css">
+  <link rel="stylesheet" href="../../design-system/components.css">
+
+  <style>
+    body { padding-bottom: var(--sp-12); }
+
+    .admin-header {
+      background: var(--color-deep-blue);
+      color: #fff;
+      padding: var(--sp-4) var(--sp-6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .admin-header__title { font-size: var(--fs-lg); font-weight: 700; }
+    .admin-header__badge {
+      background: rgba(255,255,255,0.15);
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      font-size: var(--fs-xs);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--sp-3);
+      padding: var(--sp-6);
+      background: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .stat-box {
+      background: var(--color-bg-subtle);
+      padding: var(--sp-4);
+      border-radius: var(--r-md);
+    }
+    .stat-box__label {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--sp-2);
+    }
+    .stat-box__value {
+      font-family: var(--font-sans-en);
+      font-size: var(--fs-2xl);
+      font-weight: 700;
+      color: var(--color-coral);
+      letter-spacing: -0.02em;
+    }
+    .stat-box__sub { font-size: var(--fs-xs); color: var(--color-text-muted); margin-top: 2px; }
+
+    .filter-bar {
+      padding: var(--sp-4) var(--sp-6);
+      display: flex;
+      gap: var(--sp-3);
+      align-items: center;
+      flex-wrap: wrap;
+      background: var(--color-bg-card);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .filter-pill {
+      padding: var(--sp-2) var(--sp-4);
+      background: var(--color-bg-base);
+      border: 1px solid var(--color-border);
+      border-radius: var(--r-full);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--duration-fast);
+    }
+    .filter-pill.active {
+      background: var(--color-coral);
+      color: #fff;
+      border-color: var(--color-coral);
+    }
+
+    .pay-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--fs-sm);
+    }
+    .pay-table thead { background: var(--color-bg-subtle); }
+    .pay-table th, .pay-table td {
+      padding: var(--sp-3) var(--sp-4);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+    .pay-table th {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+    .pay-table td.tg-num { font-family: var(--font-sans-en); }
+
+    .status-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: var(--r-full);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+    }
+    .status-pill--completed { background: rgba(46, 125, 91, 0.15); color: var(--color-success); }
+    .status-pill--pending { background: rgba(198, 138, 46, 0.15); color: var(--color-warning); }
+    .status-pill--refunded { background: rgba(107, 107, 107, 0.15); color: var(--color-text-muted); }
+    .status-pill--failed { background: rgba(197, 48, 48, 0.15); color: var(--color-danger); }
+
+    .pg-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: var(--r-sm);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      font-family: var(--font-sans-en);
+    }
+    .pg-payapp { background: #FFE9D6; color: #C45A1F; }
+    .pg-toss { background: #DAEBFE; color: #1968D9; }
+    .pg-naver { background: #DCF5E2; color: #03A437; }
+  </style>
+</head>
+<body>
+
+<div class="admin-header">
+  <div class="admin-header__title">💳 결제 관리</div>
+  <span class="admin-header__badge">Admin · 2026-05-16</span>
+</div>
+
+<!-- 통계 -->
+<div class="stats-row">
+  <div class="stat-box">
+    <div class="stat-box__label">오늘 결제</div>
+    <div class="stat-box__value"><span class="tg-num">0</span></div>
+    <div class="stat-box__sub">건 / ₩0</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-box__label">이번 달</div>
+    <div class="stat-box__value"><span class="tg-num">0</span></div>
+    <div class="stat-box__sub">건 / ₩0</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-box__label">Core Compass</div>
+    <div class="stat-box__value"><span class="tg-num">0/100</span></div>
+    <div class="stat-box__sub">출시 프로모션</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-box__label">환불 처리</div>
+    <div class="stat-box__value"><span class="tg-num">0</span></div>
+    <div class="stat-box__sub">건 (총 ₩0)</div>
+  </div>
+</div>
+
+<!-- 필터 -->
+<div class="filter-bar">
+  <span class="tg-body-sm">필터:</span>
+  <button class="filter-pill active">전체</button>
+  <button class="filter-pill">완료</button>
+  <button class="filter-pill">대기</button>
+  <button class="filter-pill">환불</button>
+  <button class="filter-pill">실패</button>
+  <span style="margin-left: auto;">
+    <button class="btn btn--ghost">CSV 내보내기</button>
+  </span>
+</div>
+
+<!-- 결제 내역 -->
+<div class="container container--full" style="padding-top: var(--sp-6);">
+  <table class="pay-table">
+    <thead>
+      <tr>
+        <th>주문 ID</th>
+        <th>일시</th>
+        <th>고객</th>
+        <th>상품</th>
+        <th>PG</th>
+        <th>금액</th>
+        <th>상태</th>
+        <th>액션</th>
+      </tr>
+    </thead>
+    <tbody id="payment-rows">
+      <!-- payments_completed.jsonl 에서 로드 -->
+      <tr>
+        <td colspan="8" style="text-align: center; color: var(--color-text-muted); padding: var(--sp-8);">
+          결제 내역이 없습니다. 페이앱·토스페이먼츠 키 설정 후 첫 결제부터 표시됩니다.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  // 실제로는 fetch('/api/admin/payments') 또는 정적 로드
+  // 회원이 키 입력 후 동작
+  async function loadPayments() {
+    try {
+      const res = await fetch('/content/state/payments_completed.jsonl');
+      if (!res.ok) return;
+      const text = await res.text();
+      const rows = text.trim().split('\n').filter(Boolean).map(l => JSON.parse(l));
+      renderRows(rows);
+    } catch (e) {
+      // 정적 호스팅에서는 로그 파일 직접 못 읽음 — admin server 필요
+    }
+  }
+
+  function renderRows(rows) {
+    const tbody = document.getElementById('payment-rows');
+    if (!rows.length) return;
+    tbody.innerHTML = rows.map(r => `
+      <tr>
+        <td><code>${r.order_id || '-'}</code></td>
+        <td>${new Date((r.ts || 0) * 1000).toLocaleString('ko-KR')}</td>
+        <td>${r.email || '-'}</td>
+        <td>${r.product_id || '-'}</td>
+        <td><span class="pg-pill pg-${r.pg}">${(r.pg || '').toUpperCase()}</span></td>
+        <td class="tg-num">₩${(r.amount || 0).toLocaleString()}</td>
+        <td><span class="status-pill status-pill--completed">완료</span></td>
+        <td><a href="#" style="color: var(--color-coral); font-weight: 600;">상세</a></td>
+      </tr>
+    `).join('');
+  }
+
+  loadPayments();
+</script>
+
+</body>
+</html>

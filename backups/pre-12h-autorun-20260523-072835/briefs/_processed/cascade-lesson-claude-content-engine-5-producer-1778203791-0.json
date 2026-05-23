@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-content-engine",
+    "course_title": "Claude로 완성하는 주 1회 콘텐츠 발행 시스템",
+    "lesson_no": 5,
+    "lesson_title": "편집 전 준비 — 썸네일·제목·설명을 Claude로 배치 생성",
+    "objective": "완성 스크립트를 입력해 썸네일 카피 3안·영상 제목 5안·유튜브 설명란 초안을 Claude로 동시에 생성하고 각 항목별로 최종 채택안 1개를 선택·수정한다",
+    "key_concepts": [
+      "배치 생성 프롬프트(single input multi output)",
+      "클릭률 높은 제목의 3가지 패턴",
+      "SEO 설명란 구성 요소"
+    ],
+    "exercise": "발행 메타데이터 패키지 문서 (채택된 제목·썸네일 카피·설명란·태그 목록 포함)",
+    "duration_min": 15
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "test-1tier-upgrade-1779124486",
+    "course_title": "AI 글쓰기로 월 500 버는 1인 사업",
+    "lesson_no": 12,
+    "lesson_title": "외주 문의 받는 프로필 페이지",
+    "objective": "크몽 또는 노션으로 서비스 종류·가격·포트폴리오가 담긴 외주 프로필 페이지를 완성합니다",
+    "key_concepts": [
+      "서비스 패키지 3단계 가격 구성",
+      "포트폴리오 없을 때 대체 증거 만들기",
+      "문의 전환율 높이는 첫 문장"
+    ],
+    "exercise": "공개 가능한 외주 프로필 URL 1개",
+    "duration_min": 15
+  }
+}

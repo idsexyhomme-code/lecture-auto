@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-autowork",
+    "course_title": "Claude로 업무 자동화 실전 마스터",
+    "lesson_no": 4,
+    "lesson_title": "프롬프트 반복 테스트로 품질 높이기",
+    "objective": "동일 업무에 대해 프롬프트를 3회 이상 수정하며 결과를 비교하고 개선 이유를 기록한 로그를 완성한다",
+    "key_concepts": [
+      "이터레이션 설계",
+      "출력 평가 기준",
+      "프롬프트 버전 관리"
+    ],
+    "exercise": "프롬프트 개선 실험 로그 (v1~v3 비교표)",
+    "duration_min": 15
+  }
+}

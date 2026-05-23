@@ -1,0 +1,16 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-sop-onboarding",
+    "topic": "팀 합류 시 Day 1·Week 1·Month 1 단계별 SOP를 Claude가 생성·구조화",
+    "audience": "팀 채용 시작했지만 SOP 없이 매번 같은 설명 반복하는 1인→소규모 팀 운영자",
+    "duration_weeks": 3,
+    "lesson_count": 6,
+    "format": "video",
+    "promises_hint": [
+      "신입 첫날·첫주·첫달 체크리스트 3종",
+      "외주·인턴에도 그대로 통하는 단단한 SOP",
+      "신규 합류자 자기주도 학습 경로 자동화"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "agent": "curriculum",
+  "brief": {
+    "course_id": "claude-youtube-plan",
+    "topic": "Claude로 완성하는 1인 사업가 유튜브 기획",
+    "audience": "Claude를 실무에 활용하는 1인 사업가",
+    "duration_weeks": 4,
+    "lesson_count": 8,
+    "format": "video"
+  }
+}

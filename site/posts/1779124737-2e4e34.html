@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#2 AI 글쓰기 첫 번째 세팅 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779541409" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#2 AI 글쓰기 첫 번째 세팅<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: test-1tier-upgrade-1779124486 · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>월요일 아침, 글 한 편 써야 하는데
+ChatGPT 켜고 첫 문장부터 막힙니다.</p>
+<p>"뭘 어떻게 입력하지?"</p>
+<p>그냥 "블로그 글 써줘" 치면
+딱 봐도 내 글 아닌 글이 나옵니다.
+말투도 다르고, 단어도 낯설고.
+결국 다 지우고 처음부터 씁니다.</p>
+<p>오늘은 그 상황을 끝냅니다.
+ChatGPT가 처음부터 내 말투로 쓰게 만드는
+시스템 프롬프트를 직접 만듭니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면,
+ChatGPT를 켤 때마다 붙여넣는 것만으로
+내 말투로 글을 써주는 프롬프트 파일 1개가 손에 남습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1. 시스템 프롬프트 구조 — 역할·형식·금지어</h3>
+<p><strong>설명</strong></p>
+<p>시스템 프롬프트는 ChatGPT에게 주는 '첫 번째 지시문'입니다.
+대화 시작 전에 "너는 이런 사람이야, 이렇게 써줘"라고
+미리 설정해두는 텍스트입니다.</p>
+<p>구조는 딱 세 칸입니다.</p>
+<p>첫째, <strong>역할</strong> — "너는 누구야"
+둘째, <strong>형식</strong> — "어떻게 써줘"
+셋째, <strong>금지어</strong> — "이건 절대 쓰지 마"</p>
+<p><strong>예시</strong></p>
+<blockquote>
+<p>역할: "너는 30대 1인 사업가를 위한 블로그 글 작가야."
+형식: "문단은 3줄 이내. 제목은 숫자로 시작해."
+금지어: "반드시, 혁신, 솔루션, 여러분"</p>
+</blockquote>
+<p><strong>반례</strong></p>
+<p>역할만 쓰고 형식과 금지어를 빼면 어떻게 될까요?
+"블로그 글 작가야"만 입력하면
+ChatGPT는 여전히 어색한 문어체로 씁니다.
+세 칸이 다 채워져야 내 글처럼 나옵니다.</p>
+<p><strong>정리</strong></p>
+<p>메모리 페그로 기억하세요 — <strong>역·형·금, 세 칸짜리 서랍</strong>.
+서랍 하나라도 비면 글이 삐걱거립니다.</p>
+<hr />
+<h3>개념 2. 말투 복사하는 예시 입력법 — '내 글 3문장'의 힘</h3>
+<p><strong>설명</strong></p>
+<p>ChatGPT는 예시를 보여주면 그 말투를 따라 씁니다.
+이걸 'Few-shot 입력'이라고 하는데,
+어렵게 생각할 것 없습니다.
+내가 직접 쓴 문장 3개를 그냥 붙여넣으면 됩니다.</p>
+<p><strong>예시</strong></p>
+<p>프롬프트 안에 이렇게 씁니다.</p>
+<blockquote>
+<p>"아래는 내가 실제로 쓴 문장이야. 이 말투로 써줘."
+예시 1: "그냥 솔직히 말하면, 저는 이 방법 씁니다."
+예시 2: "복잡하게 생각 안 했어요. 그냥 해봤는데 됐습니다."
+예시 3: "이거 하나만 바꿨더니 문의가 늘었습니다."</p>
+</blockquote>
+<p>이 세 문장이 들어가는 순간,
+ChatGPT의 출력 말투가 눈에 띄게 달라집니다.</p>
+<p><strong>반례</strong></p>
+<p>"친근하고 자연스러운 말투로 써줘"라고만 하면
+ChatGPT가 생각하는 '친근함'이 나옵니다.
+내 친근함이 아닙니다.
+말로 설명하지 말고, 예시를 보여주세요.</p>
+<p><strong>정리</strong></p>
+<p>페그 — <strong>설명 1줄 &lt; 예시 3줄</strong>.
+말투는 설명이 아니라 보여주는 겁니다.</p>
+<hr />
+<h3>개념 3. 프롬프트 저장·재사용 — .txt 파일 하나의 가치</h3>
+<p><strong>설명</strong></p>
+<p>잘 만든 프롬프트도 매번 다시 쓰면 시간이 깎입니다.
+.txt 파일 하나에 저장해두고,
+새 대화를 열 때마다 복사해서 붙여넣는 것만으로 끝납니다.</p>
+<p>파일 이름 규칙도 정해두면 편합니다.
+예: <code>prompt_블로그_v1.txt</code>
+버전 번호를 붙이면 수정 이력이 남습니다.</p>
+<p><strong>예시</strong></p>
+<p>제 경험상, 프롬프트를 한 번 다듬으면
+ChatGPT 출력을 고치는 시간이 절반 이하로 줄었습니다.
+글 1편에 30분 걸리던 게 12분 안으로 들어왔습니다.</p>
+<p><strong>반례</strong></p>
+<p>ChatGPT의 '커스텀 인스트럭션' 기능만 믿으면 안 됩니다.
+유료 계정 없으면 안 보이고,
+기기 바꾸면 설정이 날아가기도 합니다.
+.txt 파일은 어디서든 열립니다.</p>
+<p><strong>정리</strong></p>
+<p>페그 — <strong>프롬프트 = 나만의 도장</strong>.
+도장은 새기는 데 시간이 걸리지만,
+한 번 새기면 찍을 때마다 공짜입니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지하고 따라 만들어 보세요.
+메모장이나 노션, 아무 데나 괜찮습니다.</p>
+<p><strong>Step 1 — 역할 쓰기 (1분)</strong></p>
+<p>아래 문장을 그대로 복사하고,
+괄호 안만 내 정보로 바꾸세요.</p>
+<blockquote>
+<p>"너는 [내 직업/분야]를 다루는 블로그 글 작가야.
+독자는 [타깃 독자]이고, 글 목적은 [목적]이야."</p>
+</blockquote>
+<p>예: "너는 소자본 카페 창업을 다루는 블로그 글 작가야.
+독자는 카페 창업을 준비하는 30대이고, 글 목적은 정보 제공이야."</p>
+<p><strong>Step 2 — 형식 쓰기 (1분)</strong></p>
+<p>아래 항목 중 내 글에 맞는 것을 골라 붙이세요.</p>
+<blockquote>
+<ul>
+<li>문단은 3줄 이내로 써줘.</li>
+<li>소제목은 숫자로 시작해.</li>
+<li>글 길이는 600자 내외로 써줘.</li>
+<li>마지막 문장은 질문형으로 끝내줘.</li>
+</ul>
+</blockquote>
+<p><strong>Step 3 — 금지어와 예시 쓰기 (1분)</strong></p>
+<p>내가 절대 안 쓰는 단어 3개를 적고,
+평소 내 글에서 문장 3개를 골라 붙이세요.</p>
+<blockquote>
+<p>금지어: [단어1], [단어2], [단어3]
+말투 예시:
+1. [내 문장]
+2. [내 문장]
+3. [내 문장]</p>
+</blockquote>
+<p><strong>Step 4 — 저장 (30초)</strong></p>
+<p>완성된 텍스트를 .txt 파일로 저장하세요.
+파일 이름: <code>prompt_[주제]_v1.txt</code></p>
+<p>이 파일이 오늘 만든 나만의 글쓰기 도장입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 프롬프트를 들고
+블로그 글 1편을 실제로 뽑아봅니다.
+제목 뽑는 법부터 본문 구성까지,
+처음부터 끝까지 같이 씁니다.</p>
+<p>오늘 만든 프롬프트 파일,
+댓글에 역할 부분만 딱 한 줄 올려주세요.
+피드백 드리겠습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

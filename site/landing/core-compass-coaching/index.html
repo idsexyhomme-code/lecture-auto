@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F5EFE0">
+  <title>Core Compass + 코칭 — 진단 + 1:1 줌 30분</title>
+  <meta name="description" content="9,900원 진단으로 부족하다면. 49,000원에 진단 + 1:1 줌 30분. 핵심 질문 받고 직접 답 받기.">
+  <meta property="og:title" content="Core Compass + 코칭 — 49,000원">
+  <meta property="og:description" content="진단 결과 + 1:1 줌 30분 코칭. 핵심 막힌 곳 직접 풀어드립니다.">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/woff2/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="../../../design-system/base.css">
+  <link rel="stylesheet" href="../../../design-system/components.css">
+
+  <style>
+    .promo-bar { background: linear-gradient(90deg, var(--color-coral), #E0683F); color: #fff; text-align: center; padding: var(--sp-3); font-size: var(--fs-sm); font-weight: 500; }
+    .hero { padding: var(--sp-12) 0 var(--sp-16); text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(216, 90, 48, 0.08) 0%, transparent 50%); pointer-events: none; }
+    .hero__content { position: relative; z-index: 1; }
+    .hero__title { font-size: clamp(28px, 5vw, 48px); font-weight: 800; line-height: 1.22; letter-spacing: -0.028em; margin-bottom: var(--sp-5); }
+    .hero__sub { font-size: var(--fs-lg); line-height: 1.7; color: var(--color-ink-soft); max-width: 540px; margin: 0 auto var(--sp-8); }
+
+    .compare-table { max-width: 720px; margin: 0 auto; background: var(--color-bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--color-border); }
+    .compare-header { display: grid; grid-template-columns: 1fr 1fr 1fr; background: var(--color-bg-subtle); padding: var(--sp-4); gap: var(--sp-3); font-weight: 700; text-align: center; }
+    .compare-row { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid var(--color-border-soft); }
+    .compare-cell { padding: var(--sp-4); font-size: var(--fs-sm); }
+    .compare-cell--label { font-weight: 600; color: var(--color-ink-soft); border-right: 1px solid var(--color-border-soft); }
+    .compare-cell--lite { color: var(--color-text-muted); border-right: 1px solid var(--color-border-soft); text-align: center; }
+    .compare-cell--coaching { color: var(--color-coral); font-weight: 700; text-align: center; background: rgba(216, 90, 48, 0.04); }
+
+    .coaching-flow { background: var(--color-bg-card); border-radius: 20px; padding: var(--sp-8); border: 1px solid var(--color-border); }
+    .step-card { display: flex; gap: var(--sp-4); padding: var(--sp-3) 0; border-bottom: 1px dashed var(--color-border-soft); }
+    .step-card:last-child { border-bottom: 0; }
+    .step-num { font-family: var(--font-sans-en); font-size: var(--fs-xl); font-weight: 700; color: var(--color-coral); flex-shrink: 0; line-height: 1; padding-top: 2px; min-width: 36px; }
+    .step-body { flex: 1; }
+    .step-title { font-weight: 700; color: var(--color-ink); margin-bottom: 4px; }
+    .step-desc { font-size: var(--fs-sm); color: var(--color-text-muted); line-height: 1.65; }
+
+    .pricing-coaching { max-width: 480px; margin: 0 auto; background: var(--color-bg-card); border: 2px solid var(--color-coral); border-radius: 24px; padding: var(--sp-10) var(--sp-6); text-align: center; }
+    .pricing-coaching__strike { font-family: var(--font-sans-en); font-size: var(--fs-lg); color: var(--color-text-muted); text-decoration: line-through; margin-bottom: var(--sp-1); }
+    .pricing-coaching__main { font-family: var(--font-sans-en); font-size: clamp(48px, 8vw, 72px); font-weight: 700; color: var(--color-ink); letter-spacing: -0.035em; line-height: 1; }
+
+    .sec-eyebrow { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-coral); font-family: var(--font-sans-en); margin-bottom: var(--sp-3); }
+    .sec-title { font-size: clamp(22px, 4vw, 32px); font-weight: 800; line-height: 1.3; letter-spacing: -0.025em; margin-bottom: var(--sp-8); }
+    .sec-title__small { display: block; font-size: 0.55em; font-weight: 500; color: var(--color-text-muted); margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+<div class="promo-bar">
+  💬 출시 한정 — 주 5명만 운영. 9,900원 → 49,000원 업그레이드 가능
+</div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="https://corecampus.kr"><span class="site-logo__mark"></span>Core Compass</a>
+    <a class="site-header__link" href="../core-compass/v4/">기본 진단으로 →</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero__content">
+      <span class="badge">한정 주 5명 · 49,000원</span>
+      <h1 class="hero__title" style="margin-top: var(--sp-4);">
+        진단 받고도<br>
+        막막하면, <span class="text-coral">직접 풀어드릴게요.</span>
+      </h1>
+      <p class="hero__sub">
+        9,900원 진단으로 부족하다면. 49,000원에 진단 + 1:1 줌 30분.<br>
+        핵심 막힌 곳 받고, 그 자리에서 답을 드립니다.
+      </p>
+      <a class="btn btn--primary btn--lg" href="#pricing">49,000원 받기</a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="container">
+      <p class="sec-eyebrow">Compare</p>
+      <h2 class="sec-title" style="text-align: center;">
+        <span class="sec-title__small">Lite vs Coaching</span>
+        무엇이 다른가
+      </h2>
+
+      <div class="compare-table">
+        <div class="compare-header">
+          <div></div>
+          <div>Lite (9,900원)</div>
+          <div style="color: var(--color-coral);">+ 코칭 (49,000원)</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-cell--label">7섹션 진단 리포트</div>
+          <div class="compare-cell compare-cell--lite">✓</div>
+          <div class="compare-cell compare-cell--coaching">✓</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-cell--label">개인 URL 24h</div>
+          <div class="compare-cell compare-cell--lite">✓</div>
+          <div class="compare-cell compare-cell--coaching">✓</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-cell--label">1:1 줌 30분</div>
+          <div class="compare-cell compare-cell--lite">✗</div>
+          <div class="compare-cell compare-cell--coaching">✓</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-cell--label">회의 녹화본 제공</div>
+          <div class="compare-cell compare-cell--lite">✗</div>
+          <div class="compare-cell compare-cell--coaching">✓</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-cell--label">사후 1주 이메일 Q&A</div>
+          <div class="compare-cell compare-cell--lite">✗</div>
+          <div class="compare-cell compare-cell--coaching">✓</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="container container--narrow">
+      <p class="sec-eyebrow">Flow</p>
+      <h2 class="sec-title">
+        <span class="sec-title__small">결제 후 4단계</span>
+        24h 안 줌 미팅
+      </h2>
+
+      <div class="coaching-flow">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <div class="step-title">결제 (49,000원)</div>
+            <div class="step-desc">페이앱·토스 안전결제. 영수증·환불 정책 동일.</div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <div class="step-title">3 Step 입력 + AI 진단 (5~10분)</div>
+            <div class="step-desc">기본 Lite와 같은 7섹션 진단 리포트 자동 생성.</div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <div class="step-title">Calendly로 줌 일정 잡기 (24h 안)</div>
+            <div class="step-desc">결제 직후 이메일로 Calendly 링크 받음. 본인 편한 시간 선택.</div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <div class="step-title">줌 30분 — 진단 결과 + 질문 풀이</div>
+            <div class="step-desc">진단 리포트 보면서 질문 받고 답 드립니다. 녹화본 제공.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section" id="pricing">
+    <div class="container container--narrow">
+      <h2 class="sec-title" style="text-align: center;">
+        <span class="sec-title__small">한정 주 5명</span>
+        49,000원에 받기
+      </h2>
+
+      <div class="pricing-coaching">
+        <div class="pricing-coaching__strike">정가 79,000원</div>
+        <div class="pricing-coaching__main">₩49,000</div>
+        <p style="margin-top: var(--sp-2); color: var(--color-text-muted); font-size: var(--fs-sm);">출시 프로모션 · 한정 주 5명</p>
+
+        <ul class="pricing__features" style="text-align: left; margin-top: var(--sp-6);">
+          <li>Lite 진단 7섹션 리포트</li>
+          <li>1:1 줌 30분 라이브 코칭</li>
+          <li>회의 녹화본 제공 (영구 보관)</li>
+          <li>사후 1주 이메일 Q&A</li>
+          <li>Core Campus 추천 코스 우선 할인</li>
+        </ul>
+
+        <a class="btn btn--primary btn--lg btn--block" href="#" style="margin-top: var(--sp-6);">
+          ₩49,000 코칭 받기
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="container container--narrow">
+      <p class="sec-eyebrow">FAQ</p>
+      <h2 class="sec-title">
+        <span class="sec-title__small">결제 전 확인</span>
+        궁금하실 것들
+      </h2>
+
+      <details class="faq">
+        <summary><span><span class="faq__q-label">Q.</span> Lite (9,900원) 결제하고 나서 업그레이드 가능한가요?</span></summary>
+        <div class="faq__body">네. Lite 결제 후 7일 안에 39,100원만 추가 결제하시면 코칭으로 업그레이드 가능합니다.</div>
+      </details>
+      <details class="faq">
+        <summary><span><span class="faq__q-label">Q.</span> 줌 일정 잡기 어려우면?</span></summary>
+        <div class="faq__body">평일·주말 모두 가능. 일정 잡지 못한 경우 결제 후 14일 안 환불 가능.</div>
+      </details>
+      <details class="faq">
+        <summary><span><span class="faq__q-label">Q.</span> 30분 짧지 않나요?</span></summary>
+        <div class="faq__body">진단 리포트가 이미 있어서 30분 안에 핵심 질문 3개·답 정리 가능. 추가 시간 원하시면 별도 협의.</div>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  © 2026 Core Compass<span class="site-footer__sep">·</span>a Core Campus product
+</footer>
+
+</body>
+</html>

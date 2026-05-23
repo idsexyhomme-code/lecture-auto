@@ -1,0 +1,17 @@
+{
+  "agent": "ui_designer",
+  "brief": {
+    "target": "landing_full",
+    "purpose": "1인 사업가가 코어 캠퍼스를 첫눈에 신뢰하고 코스를 탐색하도록 유도",
+    "audience": "Claude를 실무에 활용하려는 1인 사업가",
+    "style_keywords": [
+      "미니멀",
+      "모던",
+      "깔끔한 타이포그래피",
+      "여백 활용"
+    ],
+    "color_mood": "monochrome",
+    "reference_urls": [],
+    "additional_context": "코어 캠퍼스 브랜드 톤 — 차분하고 단단한 한국어. 과장 금지. 등록된 코스 11개를 시리즈 흐름으로 자연스럽게 노출."
+  }
+}

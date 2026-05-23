@@ -585,6 +585,30 @@ def handle_callback(cq: dict):
                 )
                 log.info("site_config.json updated from %s", r.id)
 
+        # ★ Phase 1.1 — 빌드 자동 hook (site_config·landing·curriculum 등 영향 시)
+        # ★ Phase 1.2 — 빌드 성공 + 시각 변경 큰 kind → 스냅샷 + 텔레그램 전송
+        build_msg = ""
+        try:
+            from scripts.auto_build import (
+                should_trigger_build, should_trigger_snapshot,
+                run_build, format_telegram_card, trigger_snapshot_async,
+            )
+            if should_trigger_build(r.kind):
+                log.info("[auto_build] %s 승인 → site_builder/build.py 즉시 실행", r.kind)
+                br = run_build(timeout=120)
+                build_msg = "\n\n" + format_telegram_card(br, r.kind, r.title)
+                if br.get("ok"):
+                    log.info("[auto_build] ✓ %.1fs, files_changed=%d",
+                             br.get("duration_sec", 0), br.get("files_changed", 0))
+                    # 시각 영향 큰 kind만 스냅샷 (메인 페이지·디자인 변경 등)
+                    if should_trigger_snapshot(r.kind):
+                        log.info("[snapshot] %s 빌드 성공 → 스냅샷 + 텔레그램 전송", r.kind)
+                        trigger_snapshot_async(r.kind, r.title)
+                else:
+                    log.warning("[auto_build] ❌ %s", br.get("error"))
+        except Exception as e:
+            log.exception("[auto_build] hook failed: %s", e)
+
         # ★ Phase A2 — 자동 캐스케이드 (다음 단계 brief 자동 생성)
         cascaded_briefs = _cascade_after_approve(r)
         cascade_msg = ""
@@ -601,7 +625,8 @@ def handle_callback(cq: dict):
         tg.answer_callback(cq["id"], "✅ 승인 완료 — 사이트에 반영됩니다")
         tg.edit_message_text(
             chat_id, message_id,
-            f"✅ *승인됨* — `{r.kind}`\n*{r.title}*\n\n다음 빌드에서 사이트에 반영돼요." + cascade_msg,
+            f"✅ *승인됨* — `{r.kind}`\n*{r.title}*\n\n다음 빌드에서 사이트에 반영돼요."
+            + build_msg + cascade_msg,
         )
 
     elif action == "reject":

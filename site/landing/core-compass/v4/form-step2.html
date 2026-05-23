@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>진단 2/3 — Core Compass</title>
+  <link rel="stylesheet" href="../../../../design-system/base.css">
+  <link rel="stylesheet" href="../../../../design-system/components.css">
+  <style>
+    .form-page { max-width: 520px; margin: 0 auto; padding: var(--sp-8) var(--sp-5); }
+    .form-page__title { font-size: clamp(20px, 4vw, 28px); font-weight: 800; letter-spacing: -0.025em; margin-bottom: var(--sp-3); }
+    .field-group { margin-bottom: var(--sp-6); }
+    .field-label { font-size: var(--fs-sm); font-weight: 600; color: var(--color-ink-soft); margin-bottom: var(--sp-2); }
+    .field-textarea {
+      width: 100%; min-height: 100px;
+      padding: var(--sp-3) var(--sp-4);
+      background: var(--color-bg-card); border: 1px solid var(--color-border);
+      border-radius: var(--r-md); font-family: var(--font-sans-kr);
+      font-size: var(--fs-md); line-height: 1.6; letter-spacing: -0.012em;
+      resize: vertical;
+    }
+    .field-textarea:focus { outline: none; border-color: var(--color-coral); }
+    .progress-bar-mini { background: var(--color-bg-subtle); border-radius: var(--r-full); height: 8px; margin-bottom: var(--sp-6); overflow: hidden; }
+    .progress-bar-mini__fill { background: var(--color-coral); height: 100%; transition: width var(--duration-base); }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="https://corecampus.kr"><span class="site-logo__mark"></span>Core Compass</a>
+    <span class="badge badge--blue">2 / 3</span>
+  </div>
+</header>
+<main>
+  <div class="form-page">
+    <div class="progress-bar-mini"><div class="progress-bar-mini__fill" style="width: 66%;"></div></div>
+    <h1 class="form-page__title">지금 가장 막혀 있는 곳</h1>
+    <p style="color: var(--color-text-muted); font-size: var(--fs-md); margin-bottom: var(--sp-6); line-height: 1.7;">
+      구체적으로 적어주실수록 진단이 더 정확해집니다.
+    </p>
+
+    <form id="step2-form">
+      <div class="field-group">
+        <div class="field-label">지금 1인 사업 시작에서 가장 막힌 부분 (필수)</div>
+        <textarea class="field-textarea" name="blocked" required placeholder="예: 아이디어는 많은데 무엇부터 시작해야 할지 모르겠어요. 카피·디자인은 잘하는데 가격 책정·결제 시스템이 어렵습니다."></textarea>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label">90일 뒤 이루고 싶은 것 (선택)</div>
+        <textarea class="field-textarea" name="goal" placeholder="예: 첫 결제 3건 받기. 또는 월 100만원 부수입 만들기."></textarea>
+      </div>
+
+      <div style="display: flex; gap: var(--sp-2);">
+        <a href="form-step1.html" class="btn btn--secondary" style="flex: 1;">← 이전</a>
+        <button type="submit" class="btn btn--primary" style="flex: 2;">다음 →</button>
+      </div>
+    </form>
+  </div>
+</main>
+<script>
+  document.getElementById('step2-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const data = { blocked: fd.get('blocked'), goal: fd.get('goal') };
+    sessionStorage.setItem('compass_step2', JSON.stringify(data));
+    window.location.href = 'form-step3.html';
+  });
+</script>
+</body>
+</html>

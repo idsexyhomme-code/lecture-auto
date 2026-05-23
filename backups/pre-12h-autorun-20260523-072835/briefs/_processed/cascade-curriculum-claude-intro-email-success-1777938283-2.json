@@ -1,0 +1,10 @@
+{
+  "agent": "success",
+  "brief": {
+    "mode": "faq",
+    "course_id": "claude-intro-email",
+    "course_title": "Claude로 완성하는 한 페이지 인사메일",
+    "topic": "1인 사업가를 위한 AI 메일 작성 실전 3단계",
+    "audience": "Claude를 일상 업무에 이미 사용하는 1인 사업가"
+  }
+}

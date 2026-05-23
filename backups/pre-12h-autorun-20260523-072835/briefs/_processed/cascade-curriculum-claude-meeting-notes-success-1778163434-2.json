@@ -1,0 +1,10 @@
+{
+  "agent": "success",
+  "brief": {
+    "mode": "faq",
+    "course_id": "claude-meeting-notes",
+    "course_title": "Claude로 회의록 즉시 자동화",
+    "topic": "녹음 하나로 회의록·액션아이템을 5분 안에 완성",
+    "audience": "회의 후 정리를 매번 미루는 1인 사업가 및 5인 이하 소규모 팀 리더"
+  }
+}

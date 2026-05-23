@@ -1,0 +1,17 @@
+{
+  "agent": "producer",
+  "brief": {
+    "course_id": "claude-daily-recap",
+    "course_title": "Claude로 5분 하루 회고 자동화",
+    "lesson_no": 2,
+    "lesson_title": "나만의 회고 템플릿 고정하기",
+    "objective": "매일 동일한 구조로 회고가 출력되도록 커스텀 템플릿 변수(섹션·질문 항목)를 정의하고 Claude 시스템 프롬프트에 적용한다",
+    "key_concepts": [
+      "시스템 프롬프트 vs 사용자 프롬프트 차이",
+      "템플릿 변수 설계: 오늘의 성과·막힌 지점·내일 우선순위",
+      "출력 포맷 고정: 마크다운 헤더·불릿 구조"
+    ],
+    "exercise": "섹션 3개 이상을 포함한 나만의 회고 템플릿이 적용된 Claude 시스템 프롬프트 파일 (복사·붙여넣기 즉시 사용 가능한 텍스트 파일)",
+    "duration_min": 15
+  }
+}
