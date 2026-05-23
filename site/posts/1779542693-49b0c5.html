@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#4 편집·발송까지 1시간 루틴으로 굳힙니다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779542699" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#4 편집·발송까지 1시간 루틴으로 굳힙니다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-newsletter-engine · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>월요일 밤 11시.</p>
+<p>뉴스레터 초안은 열려 있습니다.</p>
+<p>그런데 어디서부터 손봐야 할지 모르겠습니다.</p>
+<p>결국 "이번 주도 그냥 건너뛰자"가 됩니다.</p>
+<p>뉴스레터가 안 써지는 게 아닙니다.</p>
+<p>언제, 얼마나, 어떤 순서로 할지가 안 정해진 겁니다.</p>
+<p>오늘 이 영상 하나로 그 모호함을 끊습니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이 차시가 끝나면, 선별 15분·작성 30분·편집·발송 15분짜리 루틴표를 직접 만들고, 다음 주에 그대로 꺼내 쓸 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>핵심 개념 1 — 시간 블록 쪼개기: "15·30·15"</h3>
+<p><strong>설명</strong></p>
+<p>1시간을 통째로 잡으면 시작이 무겁습니다.</p>
+<p>15분·30분·15분으로 쪼개면 달라집니다.</p>
+<p>각 블록에 딱 한 가지 일만 넣습니다.</p>
+<ul>
+<li>첫 번째 블록(15분): 소재 2~3개 고르기</li>
+<li>두 번째 블록(30분): 본문 초안 쓰기</li>
+<li>세 번째 블록(15분): 제목·본문 다듬고 발송 누르기</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>화요일 오전 7시에 앉습니다.</p>
+<p>7:00~7:15 — 지난주 스크랩 폴더에서 소재 3개 고릅니다.</p>
+<p>7:15~7:45 — 그 중 1개로 본문 씁니다.</p>
+<p>7:45~8:00 — 제목 3개 써보고 1개 고른 뒤 발송합니다.</p>
+<p>8시 정각에 끝납니다.</p>
+<p><strong>반례</strong></p>
+<p>"소재 고르다가 30분 쓴 적 있어요."</p>
+<p>그건 블록이 없어서입니다.</p>
+<p>소재 고르기에 15분을 배정했는데 15분이 지났다면, 그 시점에 있는 소재 중에서 고릅니다.</p>
+<p>완벽한 소재를 찾는 시간이 아닙니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>"15·30·15"를 신호등 3칸으로 기억합니다.</p>
+<p>빨강(선별)·노랑(작성)·초록(발송).</p>
+<p>초록에서 반드시 버튼을 누릅니다.</p>
+<hr />
+<h3>핵심 개념 2 — 루틴 고정 장치: "요일·시간대·도구"</h3>
+<p><strong>설명</strong></p>
+<p>루틴이 안 굳는 이유는 하나입니다.</p>
+<p>"언젠가 해야지"로 두기 때문입니다.</p>
+<p>요일, 시간대, 도구 3가지를 못 박으면 결정 비용이 사라집니다.</p>
+<ul>
+<li>요일: 매주 같은 날 (화요일, 수요일 등 한 가지)</li>
+<li>시간대: 출근 전·점심 직후·퇴근 후 중 딱 하나</li>
+<li>도구: 노션·구글 독스·메모앱 중 한 곳으로만</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>매주 수요일 점심 12:30, 노션에서 시작합니다.</p>
+<p>이 3가지가 같으면 뇌가 "지금 뉴스레터 쓰는 시간"으로 자동 인식합니다.</p>
+<p>제 경험상 4주가 지나면 앱을 열기도 전에 손이 먼저 움직입니다.</p>
+<p><strong>반례</strong></p>
+<p>"도구를 여러 개 쓰면 더 편하지 않나요?"</p>
+<p>노션에서 초안 쓰고, 메모앱에서 수정하고, 이메일로 옮기면 전환 비용이 쌓입니다.</p>
+<p>한 번 옮길 때마다 2~3분씩 새고, 4주면 30분 이상입니다.</p>
+<p>도구는 하나만 씁니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>세 발 의자를 떠올립니다.</p>
+<p>요일·시간대·도구 중 하나라도 빠지면 의자가 쓰러집니다.</p>
+<p>3개 다 있어야 루틴이 서 있습니다.</p>
+<hr />
+<h3>핵심 개념 3 — 막히는 지점 찾기: "타임로그 1줄"</h3>
+<p><strong>설명</strong></p>
+<p>매주 어디서 시간이 새는지 모르면 같은 곳에서 계속 막힙니다.</p>
+<p>해결법은 간단합니다.</p>
+<p>각 블록이 끝날 때 실제 걸린 시간을 딱 1줄만 적습니다.</p>
+<p>형식은 이겁니다.</p>
+<blockquote>
+<p>선별: 22분 / 작성: 38분 / 편집·발송: 9분</p>
+</blockquote>
+<p><strong>예시</strong></p>
+<p>3주치 기록을 보면 패턴이 보입니다.</p>
+<p>"작성 블록에서 매번 35~40분 쓰고 있네"라면, 소재를 더 구체적으로 좁혀야 한다는 신호입니다.</p>
+<p>"선별이 20분 넘어가네"라면, 소재 수집 자체를 평소에 미리 해둬야 한다는 신호입니다.</p>
+<p><strong>반례</strong></p>
+<p>"기록 자체가 귀찮아요."</p>
+<p>앱, 노트, 뭐든 상관없습니다.</p>
+<p>스마트폰 메모앱에 숫자 3개만 찍어두면 됩니다.</p>
+<p>10초면 끝납니다.</p>
+<p><strong>정리 — 메모리 페그</strong></p>
+<p>피트니스 앱의 운동 기록을 떠올립니다.</p>
+<p>기록 없이는 어디서 멈췄는지 알 수 없습니다.</p>
+<p>타임로그 1줄이 그 역할을 합니다.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상을 일시정지합니다.</p>
+<p>아래 순서대로 따라합니다.</p>
+<hr />
+<p><strong>1단계 — 루틴표 만들기 (5분)</strong></p>
+<p>종이 한 장 또는 메모앱을 엽니다.</p>
+<p>다음 3가지를 적습니다.</p>
+<ul>
+<li>내가 뉴스레터를 쓸 요일: (예) 수요일</li>
+<li>내가 앉을 시간대: (예) 오전 7:00</li>
+<li>내가 쓸 도구: (예) 노션</li>
+</ul>
+<p>그 아래에 타임 블록을 그립니다.</p>
+<blockquote>
+<p>7:00–7:15 소재 선별
+7:15–7:45 본문 작성
+7:45–8:00 편집·발송</p>
+</blockquote>
+<hr />
+<p><strong>2단계 — 이번 주 뉴스레터 1통 발송하기</strong></p>
+<p>지금 갖고 있는 소재 중 하나를 고릅니다.</p>
+<p>타이머를 15분으로 맞추고 선별 블록을 시작합니다.</p>
+<p>30분 타이머로 본문을 씁니다.</p>
+<p>15분 타이머로 다듬고 발송 버튼을 누릅니다.</p>
+<hr />
+<p><strong>3단계 — 타임로그 찍기</strong></p>
+<p>발송 직후 스마트폰 카메라를 켭니다.</p>
+<p>1~3분짜리 영상으로 각 블록에 실제 걸린 시간을 말합니다.</p>
+<blockquote>
+<p>"선별 18분, 작성 33분, 편집·발송 12분. 총 63분."</p>
+</blockquote>
+<p>이 영상이 다음 주 루틴을 다듬는 기준이 됩니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 구독자 이탈을 줄이는 제목 쓰는 법을 다룹니다.</p>
+<p>열람율이 20%대에서 안 오른다면, 다음 영상이 그 이유를 짚어줍니다.</p>
+<p>오늘 만든 루틴표, 댓글에 사진으로 올려주세요.</p>
+<p>다른 분들 루틴 보면서 참고할 수 있습니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>

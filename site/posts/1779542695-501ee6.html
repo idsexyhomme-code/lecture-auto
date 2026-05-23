@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>#4 초안에서 발행본까지 한 번에 마무리합니다 — 강의 홈페이지</title>
+  <link rel="stylesheet" href="../styles.css?v=1779542699" />
+  <meta name="description" content="Claude로 메일·회의록·고객 응대를 줄여 본업에 시간을 쏟는 법" />
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get("admin") !== "1") return;
+        var l = document.createElement("link");
+        l.rel = "stylesheet"; l.href = "../admin.css";
+        document.head.appendChild(l);
+        var s = document.createElement("script");
+        s.src = "../admin.js"; s.defer = true;
+        document.head.appendChild(s);
+      } catch (e) { console.error("[admin] loader error", e); }
+    })();
+  </script>
+</head>
+<body>
+
+  
+  <div class="promo-bar">
+    <div class="wrap">
+      
+      <a href="#courses" class="promo-chip promo-primary">🎓 첫 코스 무료</a>
+      
+      <a href="#newsletter" class="promo-chip promo-secondary">📩 새 코스 도착 알림</a>
+      
+    </div>
+  </div>
+  
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand" data-edit-field="site_config:site_name">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">코어 캠퍼스</span>
+      </a>
+
+      <div class="nav-cat-wrap">
+        <button class="nav-cat-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="cat-icon">☰</span> 분야 보기
+        </button>
+        
+        <div class="nav-cat-menu">
+          
+          <a href="../index.html#cat-automation" class="cat-item">
+            <span class="cat-emoji">✉️</span>
+            <span class="cat-name">반복 업무 줄이기</span>
+            <span class="cat-count">7편</span>
+          </a>
+          
+          <a href="../index.html#cat-operation" class="cat-item">
+            <span class="cat-emoji">📋</span>
+            <span class="cat-name">혼자도 굴러가는 시스템</span>
+            <span class="cat-count">6편</span>
+          </a>
+          
+          <a href="../index.html#cat-focus" class="cat-item">
+            <span class="cat-emoji">🎯</span>
+            <span class="cat-name">집중·일하는 법</span>
+            <span class="cat-count">2편</span>
+          </a>
+          
+        </div>
+        
+      </div>
+
+      <form class="nav-search" onsubmit="event.preventDefault(); doSearch();">
+        <input type="search" id="navSearchInput" placeholder="찾는 코스 제목 입력" />
+      </form>
+
+      <nav class="nav-actions">
+        <a href="../index.html#courses">전체 코스</a>
+        <a href="../me/" class="nav-me">
+          <span class="me-icon">👤</span>
+          <span>나중에 보기</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  
+<article class="body">
+  <div class="wrap">
+    <a href="../index.html" class="muted">← 홈으로</a>
+    <h1>#4 초안에서 발행본까지 한 번에 마무리합니다<span class="kind-tag">lecture_script</span></h1>
+    <p class="muted">코스: claude-blog-research-flow · 에이전트: producer</p>
+    <hr style="border:none;border-top:1px solid var(--line); margin:24px 0;" />
+    <h2>HOOK (45초)</h2>
+<p>초안 완성하고 나서 멈칫한 적 있죠?</p>
+<p>'이거 그냥 올려도 되나?' 하고 탭 닫아본 적, 저도 있습니다.</p>
+<p>검색에 안 걸리는 글은 그냥 일기입니다.</p>
+<p>오늘은 그 찜찜함을 없앱니다.</p>
+<p>SEO 체크리스트 7항목, Claude로 5분 안에 다 채웁니다.</p>
+<p>초안이 있으면 바로 시작합니다.</p>
+<hr />
+<h2>PROMISE (30초)</h2>
+<p>이번 차시가 끝나면, 초안 하나를 SEO 7항목 기준으로 직접 점검하고 발행 준비 완료본으로 만들 수 있습니다.</p>
+<hr />
+<h2>CORE (8–10분)</h2>
+<h3>개념 1 — 발행 전 SEO 체크리스트 7항목</h3>
+<p>먼저 전체 그림을 봅니다.</p>
+<p>항목은 딱 7개입니다.</p>
+<p><strong>① 제목 태그</strong> — 키워드 포함, 30자 이내
+<strong>② 메타 디스크립션</strong> — 키워드 포함, 80자 이내
+<strong>③ H1·H2 구조</strong> — 키워드 자연스럽게 1회 이상
+<strong>④ 본문 첫 단락</strong> — 키워드 첫 100자 안에 등장
+<strong>⑤ 이미지 ALT 텍스트</strong> — 키워드 또는 설명어 삽입
+<strong>⑥ 내부 링크</strong> — 본문 안 1개 이상
+<strong>⑦ CTA 문장</strong> — 글 마지막에 독자 행동 유도 1문장</p>
+<p>숫자로 외웁니다. <strong>7 = 제·메·H·첫·ALT·내·CTA.</strong></p>
+<p>'제메H첫알내씨' — 이렇게 소리내어 한 번 읽어보세요.</p>
+<p>이게 오늘의 메모리 페그입니다.</p>
+<p><strong>예시</strong>
+키워드 '1인 사업자 세금 신고' 로 쓴 글이 있습니다.</p>
+<p>제목에 키워드 들어갔나요? → '1인 사업자 세금 신고, 이 순서로 하면 됩니다' ✓</p>
+<p>메타 디스크립션에 키워드 있나요? → '1인 사업자 세금 신고 방법을 순서대로 정리했습니다. 신고 전 놓치는 항목 3가지 포함.' ✓</p>
+<p><strong>반례</strong>
+제목을 '세금 걱정 끝!' 이라고만 쓰면 키워드가 없습니다.</p>
+<p>검색창에 아무도 '세금 걱정 끝'이라고 치지 않습니다.</p>
+<p><strong>정리</strong>
+7항목 중 하나라도 빠지면 글이 검색 결과 2페이지 이하로 밀립니다.</p>
+<p>체크 안 한 항목이 하나라도 있으면 지금 채웁니다.</p>
+<hr />
+<h3>개념 2 — 메타 디스크립션과 제목 태그, Claude로 뽑는 법</h3>
+<p>메타 디스크립션, 직접 쓰면 10분 걸립니다.</p>
+<p>Claude한테 맡기면 30초입니다.</p>
+<p>프롬프트 구조는 이렇게 씁니다.</p>
+<blockquote>
+<p>"아래 글의 메타 디스크립션을 써줘.
+조건: 키워드 '[키워드]' 포함, 80자 이내, 독자가 클릭하고 싶게.
+[글 본문 붙여넣기]"</p>
+</blockquote>
+<p>제목 태그도 같은 방식입니다.</p>
+<blockquote>
+<p>"이 글의 제목 태그 3개 뽑아줘.
+조건: 키워드 '[키워드]' 포함, 30자 이내, 클릭률 높게."</p>
+</blockquote>
+<p><strong>예시</strong>
+키워드 '블로그 글쓰기' 로 넣으면,</p>
+<p>Claude가 이렇게 뽑아줍니다.</p>
+<ul>
+<li>'블로그 글쓰기, 초안부터 발행까지 1시간 안에'</li>
+<li>'블로그 글쓰기 막히면 이 순서로 하세요'</li>
+<li>'블로그 글쓰기 초보가 자주 틀리는 3가지'</li>
+</ul>
+<p>3개 중 내 글 내용과 제일 가까운 걸 씁니다.</p>
+<p><strong>반례</strong>
+Claude한테 '좋은 제목 써줘'라고만 하면 키워드 없는 제목이 나옵니다.</p>
+<p>조건을 구체적으로 주지 않으면 그냥 문학적인 문장이 나옵니다.</p>
+<p><strong>정리</strong>
+프롬프트에 키워드, 글자 수, 목적 — 이 3가지를 넣으면 바로 씁니다.</p>
+<hr />
+<h3>개념 3 — 내부 링크와 CTA 삽입 위치 기준</h3>
+<p>내부 링크 위치 고민하다가 그냥 안 넣는 경우가 많습니다.</p>
+<p>기준 하나 드립니다.</p>
+<p><strong>내부 링크 → 본문 2번째 단락 끝, 또는 소제목 바로 아래.</strong></p>
+<p>독자가 막 관심 생긴 직후에 넣습니다.</p>
+<p>관심 없는 자리에 링크 넣으면 아무도 안 누릅니다.</p>
+<p><strong>CTA 문장 → 글 마지막 단락.</strong></p>
+<p>CTA는 딱 1개만 씁니다.</p>
+<p>뉴스레터 구독이면 구독만, 다음 글 유도면 그것만.</p>
+<p>2개 이상 넣으면 독자가 아무것도 안 합니다.</p>
+<p><strong>예시</strong>
+본문에서 '세금 신고 일정'을 설명하다가 → '세금 신고 캘린더 정리한 글도 있습니다' 링크 삽입.</p>
+<p>마지막에 → '다음 글에서는 경비 처리 항목을 정리합니다. 구독하면 올라오자마자 받아볼 수 있습니다.'</p>
+<p><strong>반례</strong>
+글 중간 5곳에 링크 3개, CTA 2개 넣은 글.</p>
+<p>독자 입장에서 팝업 천지처럼 느껴집니다.</p>
+<p>이탈률 올라갑니다.</p>
+<p><strong>정리</strong>
+내부 링크 1개, CTA 1개, 위치는 각각 '관심 직후'와 '글 끝'.</p>
+<hr />
+<h2>EXERCISE (3–4분)</h2>
+<p>지금 영상 일시정지합니다.</p>
+<p>3차시에서 만든 초안을 펴주세요.</p>
+<p><strong>1단계 — 체크리스트 복사</strong></p>
+<p>아래 7항목을 메모장에 붙여넣습니다.</p>
+<blockquote>
+<p>□ 제목 태그 (키워드 포함, 30자 이내)
+□ 메타 디스크립션 (키워드 포함, 80자 이내)
+□ H1·H2 안에 키워드 1회 이상
+□ 첫 단락 100자 안에 키워드
+□ 이미지 ALT 텍스트
+□ 내부 링크 1개 이상
+□ 마지막 CTA 문장 1개</p>
+</blockquote>
+<p><strong>2단계 — 초안 대조</strong></p>
+<p>초안과 체크리스트를 나란히 놓고 빠진 항목에 ✗ 표시합니다.</p>
+<p><strong>3단계 — Claude로 채우기</strong></p>
+<p>✗ 표시된 항목마다 앞서 본 프롬프트 형식으로 Claude에 요청합니다.</p>
+<p>제목 태그, 메타 디스크립션부터 시작합니다.</p>
+<p><strong>4단계 — 붙여넣고 저장</strong></p>
+<p>Claude가 뽑아준 내용을 초안에 넣습니다.</p>
+<p>블로그 에디터 임시저장하거나, 완성본을 PDF로 저장합니다.</p>
+<p>7항목 전부 체크되면 끝입니다.</p>
+<hr />
+<h2>CTA (30초)</h2>
+<p>다음 차시에서는 이 발행 준비 완료본을 실제로 올리는 타이밍과 제목 A/B 테스트 기준을 봅니다.</p>
+<p>올리고 나서 조회수 0인 이유, 거기서 짚습니다.</p>
+<p>오늘 만든 발행 준비 완료본, 댓글에 임시저장 캡처나 체크리스트 완료 화면 올려주세요.</p>
+<p>직접 봐드립니다.</p>
+<hr />
+<p>예상 분량: 15분</p>
+  </div>
+</article>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      
+        <div style="text-align:center;line-height:1.75;">
+  <div style="color:white;font-size:17px;font-weight:700;margin-bottom:6px;">코어 캠퍼스</div>
+  <div style="color:rgba(255,255,255,0.7);font-size:13px;">1인 사업가의 시간을 돌려주는 짧은 강의들</div>
+  <div style="margin-top:14px;font-size:13px;">
+    <a href="mailto:idsexyhomme@gmail.com" style="color:#C99756;">문의 idsexyhomme@gmail.com</a>
+  </div>
+  <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.5);">© 2026 코어 캠퍼스</div>
+</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-cat-toggle');
+      const menu = document.querySelector('.nav-cat-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+      });
+      document.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    })();
+
+    function doSearch() {
+      const q = (document.getElementById('navSearchInput').value || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-course-id], .course-card');
+      if (!q) { cards.forEach(c => c.style.display = ''); return; }
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? '' : 'none';
+      });
+    }
+    document.getElementById('navSearchInput')?.addEventListener('input', doSearch);
+  </script>
+</body>
+</html>
