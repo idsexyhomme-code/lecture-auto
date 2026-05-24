@@ -1,0 +1,73 @@
+{
+  "id": "1779604084-211aaf",
+  "agent": "ceo",
+  "kind": "ceo_daily_report",
+  "title": "CEO 일일 보고 — 2026-05-24",
+  "body_md": "# Core Campus 일일 보고 — 2026-05-24 (KST)\n\n---\n\n## 1. 오늘의 성장 목표\n\n**목표 1.** 블로그 예약 발행 재개 — 오늘 안으로 글 2편 발행 (현재 예약 9편 적체, 마지막 발행 2026-05-05)\n**목표 2.** pending 댓글 5건 처리 완료 → approved 568건, pending 0건\n\n---\n\n## 2. 오늘 실행할 작업 3개\n\n| # | 작업 제목 | 단위 작업 | 담당 |\n|---|---|---|---|\n| 1 | **예약 글 발행 재개** | blog_scheduled_total 9편 중 2편 오늘 발행. 발행 실패 원인(지난 19일 공백) 점검 → 오류 로그 확인 → 수동 발행 트리거 | **CEO 자율** (기술 오류 시 회원 ✅) |\n| 2 | **pending 댓글 5건 검토·처리** | 관리자 패널 진입 → 5건 내용 검토 → approved 또는 rejected 분류 → 완료 | **CEO 자율** |\n| 3 | **예약 발행 공백 원인 보고서 작성** | 2026-05-05 이후 발행이 멈춘 이유 분석 (크론 오류 / 콘텐츠 부족 / 수동 일시정지 여부) → 1페이지 요약 | **CEO 자율** |\n\n---\n\n## 3. 예상 효과\n\n| 작업 | 움직이는 KPI | 예상 수치 |\n|---|---|---|\n| 블로그 2편 발행 | posts_total | 274 → 276 |\n| 블로그 2편 발행 | 검색 색인 노출 가능 URL | +2개 (발행 후 24~72시간 내 색인) |\n| 댓글 5건 처리 | approved_count | 563 → 568 |\n| 댓글 5건 처리 | pending_count | 5 → 0 |\n| 예약 9편 전체 소진 (이번 주 내) | 주간 게시물 | +7편 → 검색 유입 기반 확대 |\n\n---\n\n## 4. 필요한 승인 사항\n\n발행 실패 원인이 **기술적 오류(서버 크론·API 연결 문제)** 로 확인될 경우:\n- 수정 작업이 사이트 구조 변경 수준이면 → **★ 회원 승인 필수**\n\n현재 확인된 범위 내에서는 오늘 승인 필요 사항 없음.\n단, 점검 결과에 따라 승인 요청 추가 가능 — 발견 즉시 별도 보고.\n\n---\n\n## 5. 승인 없이 진행 가능한 작업\n\n- 예약 글 2편 수동 발행 트리거\n- pending 댓글 5건 승인/거부 처리\n- 발행 공백 원인 분석 보고서 작성\n- 예약 발행 일정 재정비 (9편 → 주 2~3편 간격 배분 계획 작성)\n- 블로그 글 제목·메타 설명 최종 점검 (SEO 기준)\n- 오늘 발행 2편의 내부 링크·태그 정리\n\n---\n\n## 6. 오늘 생성할 산출물\n\n1. **발행 완료 글 2편** — 예약 큐에서 우선순위 2편 선정 후 발행\n2. **발행 공백 원인 분석 보고서** — 1페이지 (원인 / 현재 상태 / 재발 방지 조치)\n3. **예약 발행 일정표** — 남은 9편 → 날짜 배분 (오늘 2편 포함 → 잔여 7편 이번 주~다음 주 배분)\n4. **댓글 처리 완료 확인 로그** — pending 5건 처리 결과 요약 1줄\n\n---\n\n## 7. 리스크와 방지책\n\n| 리스크 | 가능성 | 방지책 |\n|---|---|---|\n| **블로그 예약 발행이 기술 오류로 또 실패** | 중간 (19일째 공백 — 크론 문제 가능성 있음) | 발행 전 로그 먼저 확인. 오류 발견 시 즉시 회원 보고 후 수동 발행 대기. 자동 재시도 전 원인 미확인 상태로 반복 실행 금지. |\n| **댓글 5건 중 스팸·악성 콘텐츠 포함 가능성** | 낮음 (현재 rejected 0건이지만 신규 5건 미검토) | 내용 전수 확인 후 처리. §4 금기 해당 내용은 즉시 rejected. 판단 애매하면 회원 확인 후 결정. |\n\n---\n\n## 8. 오늘 발행한 작업 티켓 (§11)\n\n```\npending: 0 · in_progress: 1 · completed: 6 · review_required: 0 · approved: 1 · rejected: 0\n```\n\n---\n\n## 9. 각 에이전트별 진행 상태\n\n| 에이전트 | 상태 |\n|---|---|\n| 블로그 발행 에이전트 | in_progress: 1건 진행 중 / completed: 6건 완료 |\n| 댓글 검토 에이전트 | pending 5건 대기 중 — 오늘 처리 예정 |\n| 강의 콘텐츠 에이전트 | 코스 31개 유지 중 — 신규 추가 없음 |\n| 외주 전문가 소싱 에이전트 | (아직 데이터 없음) |\n\n---\n\n## 10. 검토 대기 결과물 + 회원 ✅ 필요 결과물\n\n- **completed 6건** — 이미 완료 처리됨. 별도 조치 불필요.\n- **approved 1건** — 승인된 항목 1건 있음. 후속 실행 단계 확인 필요.\n- **review_required 0건** — 현재 검토 대기 없음.\n- **회원 ✅ 필요 결과물** — 오늘 기준 없음. 단, 블로그 발행 기술 오류 확인 시 즉시 추가.\n\n---\n\n## 11. 다음 실행 에이전트 + 병목 지점\n\n**다음 실행:** 블로그 발행 에이전트 — 예약 큐 9편 중 2편 오늘 발행\n\n**병목:**\n→ **마지막 발행 2026-05-05 — 19일째 공백.**\n예약 글 9편이 적체된 상태. 발행이 안 되는 동안 검색 유입 기반이 멈춰 있음.\n오늘 원인 파악 + 2편 발행이 이 병목의 핵심 처리.\n발행 재개 안 되면 90일 KPI (방문 3,000명) 달성 일정이 밀린다.\n\n---\n\n*다음 보고: 2026-05-25 (KST)*",
+  "summary": "2026-05-24 CEO 일일 보고",
+  "meta": {
+    "brief": {
+      "mode": "daily_report",
+      "today_kst": "2026-05-24",
+      "site_state": {
+        "date_kst": "2026-05-24",
+        "captured_at": "2026-05-24T15:27:24.653800+09:00",
+        "courses_total": 31,
+        "posts_total": 274,
+        "categories_total": 3,
+        "approved_count": 563,
+        "pending_count": 5,
+        "rejected_count": 0,
+        "last_brief_processed": "2026-05-23T22:23:48.994206+09:00",
+        "blog_published_today": 0,
+        "blog_failed_today": 0,
+        "blog_scheduled_total": 9,
+        "last_blog_publish": "2026-05-05T12:20:49.697245+09:00",
+        "dispatch_queue": {
+          "pending": 0,
+          "in_progress": 1,
+          "completed": 6,
+          "review_required": 0,
+          "approved": 1,
+          "rejected": 0
+        }
+      },
+      "recent_kpi": {
+        "date_kst": "2026-05-24",
+        "captured_at": "2026-05-24T15:27:24.653800+09:00",
+        "courses_total": 31,
+        "posts_total": 274,
+        "categories_total": 3,
+        "approved_count": 563,
+        "pending_count": 5,
+        "rejected_count": 0,
+        "last_brief_processed": "2026-05-23T22:23:48.994206+09:00",
+        "blog_published_today": 0,
+        "blog_failed_today": 0,
+        "blog_scheduled_total": 9,
+        "last_blog_publish": "2026-05-05T12:20:49.697245+09:00"
+      }
+    },
+    "mode": "daily_report",
+    "today_kst": "2026-05-24",
+    "self_review": {
+      "ok": true,
+      "severity": "warn",
+      "hard_violations": [],
+      "soft_violations": [
+        "산출물"
+      ],
+      "len": 2694,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 1
+      }
+    }
+  },
+  "course_id": "core-campus-meta",
+  "created_at": "2026-05-24T06:28:04+00:00",
+  "status": "pending",
+  "telegram_message_id": 2196
+}
