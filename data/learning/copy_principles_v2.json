@@ -1,6 +1,6 @@
 {
   "_version": 1,
-  "_last_updated": "2026-05-18T00:00:04.651890+09:00",
+  "_last_updated": "2026-05-25T00:02:14.539727+09:00",
   "learned_banned_words": [],
   "fail_pattern_counts": {},
   "warn_pattern_counts": {
@@ -9,13 +9,13 @@
     "최적화": 1,
     "솔루션": 1,
     "효율적": 1,
-    "산출물": 2
+    "산출물": 4
   },
   "success_signals": [],
   "stats": {
-    "total_reviews": 6,
+    "total_reviews": 8,
     "fail_count": 0,
-    "warn_count": 4,
+    "warn_count": 6,
     "pass_count": 2
   }
 }
