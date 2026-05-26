@@ -74,16 +74,22 @@ def get_daily_cap() -> float:
 
 def record_usage(
     agent: str, model: str, input_tokens: int, output_tokens: int,
-    *, kind: str = "", brief: str = "",
+    *, cache_creation_tokens: int = 0, cache_read_tokens: int = 0,
+    kind: str = "", brief: str = "",
 ):
     """사용량 기록 + daily 누적 갱신."""
-    cost = calc_cost(model, input_tokens, output_tokens)
+    cost = calc_cost(
+        model, input_tokens, output_tokens,
+        cache_creation_tokens, cache_read_tokens,
+    )
     entry = {
         "ts": datetime.now(KST).isoformat(),
         "agent": agent,
         "model": model,
         "input_tokens": input_tokens,
         "output_tokens": output_tokens,
+        "cache_creation_tokens": cache_creation_tokens,
+        "cache_read_tokens": cache_read_tokens,
         "cost_usd": round(cost, 6),
         "kind": kind,
         "brief": brief,
