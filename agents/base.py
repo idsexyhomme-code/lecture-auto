@@ -190,9 +190,6 @@ class BaseAgent:
                 agent_c.acall("prompt 3"),
             )
         """
-        sys = self.system_prompt
-        if extra_system:
-            sys = sys + "\n\n" + extra_system
         # 비용 가드
         try:
             from .budget_guard import check_budget
@@ -209,7 +206,7 @@ class BaseAgent:
         msg = await self.async_client.messages.create(
             model=self.model,
             max_tokens=max_tokens,
-            system=sys,
+            system=self._build_system(extra_system),
             messages=[{"role": "user", "content": user_prompt}],
         )
 
@@ -217,9 +214,11 @@ class BaseAgent:
             from .budget_guard import record_usage
             usage = getattr(msg, "usage", None)
             if usage:
+                cc, cr = self._cache_tokens(usage)
                 record_usage(
                     agent=self.name, model=self.model,
                     input_tokens=usage.input_tokens, output_tokens=usage.output_tokens,
+                    cache_creation_tokens=cc, cache_read_tokens=cr,
                 )
         except Exception:
             pass
