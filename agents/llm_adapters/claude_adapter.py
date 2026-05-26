@@ -30,12 +30,18 @@ class ClaudeAdapter(BaseAdapter):
         if not self.enabled:
             return self.disabled_response()
 
+        # 시스템 프롬프트에 cache_control(ephemeral) 부착 → 반복 호출 시 캐시 히트.
+        # 짧은 프롬프트면 API가 무시하므로 안전. 빈 값은 캐싱 생략.
+        sys_param = (
+            [{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}]
+            if system else ""
+        )
         t0 = time.time()
         try:
             msg = await self.client.messages.create(
                 model=self.model,
                 max_tokens=max_tokens,
-                system=system or "",
+                system=sys_param,
                 messages=[{"role": "user", "content": prompt}],
             )
             text = "".join(
