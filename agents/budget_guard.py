@@ -32,9 +32,22 @@ PRICING = {
 }
 
 
-def calc_cost(model: str, input_tokens: int, output_tokens: int) -> float:
+def calc_cost(
+    model: str, input_tokens: int, output_tokens: int,
+    cache_creation_tokens: int = 0, cache_read_tokens: int = 0,
+) -> float:
+    """토큰 비용(USD). 프롬프트 캐싱 토큰은 별도 단가로 계산.
+
+    - cache_creation(캐시 쓰기): input 단가의 1.25x
+    - cache_read(캐시 히트):     input 단가의 0.10x  ← 절감의 핵심
+    """
     p = PRICING.get(model) or PRICING["claude-sonnet-4-6"]
-    return (input_tokens / 1_000_000) * p["input"] + (output_tokens / 1_000_000) * p["output"]
+    return (
+        (input_tokens / 1_000_000) * p["input"]
+        + (output_tokens / 1_000_000) * p["output"]
+        + (cache_creation_tokens / 1_000_000) * p["input"] * 1.25
+        + (cache_read_tokens / 1_000_000) * p["input"] * 0.10
+    )
 
 
 def today_kst() -> str:
