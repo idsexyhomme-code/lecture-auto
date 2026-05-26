@@ -99,6 +99,41 @@ class BaseAgent:
             self._async_client = AsyncAnthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
         return self._async_client
 
+    # ── 프롬프트 캐싱 (비용 절감) ──────────────────────────────────
+    def _build_system(self, extra_system: str = ""):
+        """system 파라미터를 캐싱 가능한 블록 구조로 변환.
+
+        안정적인 self.system_prompt 블록에 cache_control(ephemeral)을 달아,
+        같은 에이전트의 반복 호출 시 시스템 프롬프트 입력 토큰을 캐시 히트시킨다
+        (5분 TTL, 캐시 읽기 단가 ≈ input 0.1x). 캐시는 내용 해시 기준이라
+        워커 인스턴스가 달라도 동일 프롬프트면 공유된다.
+
+        extra_system은 호출마다 달라질 수 있으므로 캐시 경계 뒤(비캐시) 별도
+        블록으로 둬서 안정 프롬프트의 캐시 히트를 깨지 않게 한다.
+
+        프롬프트가 짧으면(최소 토큰 미만) API가 cache_control을 그냥 무시하므로
+        무조건 붙여도 안전하다. 단 빈 시스템 프롬프트는 기존 문자열 방식 유지.
+        """
+        base = self.system_prompt or ""
+        if not base.strip():
+            return (base + ("\n\n" + extra_system if extra_system else "")) or ""
+        blocks = [{
+            "type": "text",
+            "text": base,
+            "cache_control": {"type": "ephemeral"},
+        }]
+        if extra_system:
+            blocks.append({"type": "text", "text": extra_system})
+        return blocks
+
+    @staticmethod
+    def _cache_tokens(usage) -> tuple[int, int]:
+        """usage에서 (cache_creation, cache_read) 토큰 추출 — 없으면 0."""
+        return (
+            getattr(usage, "cache_creation_input_tokens", 0) or 0,
+            getattr(usage, "cache_read_input_tokens", 0) or 0,
+        )
+
     # ── 동기 호출 (기존 직렬 워크플로우 그대로) ─────────────────────
     def call(self, user_prompt: str, *, max_tokens: int = 4000,
              extra_system: str = "") -> str:
