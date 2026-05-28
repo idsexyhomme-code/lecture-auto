@@ -266,3 +266,5 @@
 {"ts": "2026-05-23T22:24:55.611001+09:00", "agent": "producer", "model": "claude-sonnet-4-6", "input_tokens": 2010, "output_tokens": 2606, "cost_usd": 0.04512, "kind": "", "brief": ""}
 {"ts": "2026-05-24T15:28:04.965372+09:00", "agent": "ceo", "model": "claude-sonnet-4-6", "input_tokens": 9804, "output_tokens": 2252, "cost_usd": 0.063192, "kind": "", "brief": ""}
 {"ts": "2026-05-24T15:28:13.911879+09:00", "agent": "ceo", "model": "claude-sonnet-4-6", "input_tokens": 9804, "output_tokens": 2422, "cost_usd": 0.065742, "kind": "", "brief": ""}
+{"ts": "2026-05-28T09:00:51.576153+09:00", "agent": "ceo", "model": "claude-sonnet-4-6", "input_tokens": 1128, "output_tokens": 2634, "cache_creation_tokens": 8748, "cache_read_tokens": 0, "cost_usd": 0.075699, "kind": "", "brief": ""}
+{"ts": "2026-05-28T09:00:54.634600+09:00", "agent": "ceo", "model": "claude-sonnet-4-6", "input_tokens": 3, "output_tokens": 2685, "cache_creation_tokens": 1125, "cache_read_tokens": 8748, "cost_usd": 0.047127, "kind": "", "brief": ""}
