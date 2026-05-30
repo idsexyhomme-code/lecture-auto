@@ -270,3 +270,4 @@
 {"ts": "2026-05-28T09:00:54.634600+09:00", "agent": "ceo", "model": "claude-sonnet-4-6", "input_tokens": 3, "output_tokens": 2685, "cache_creation_tokens": 1125, "cache_read_tokens": 8748, "cost_usd": 0.047127, "kind": "", "brief": ""}
 {"ts": "2026-05-29T09:00:50.917274+09:00", "agent": "ceo", "model": "claude-sonnet-4-6", "input_tokens": 1128, "output_tokens": 2779, "cache_creation_tokens": 8748, "cache_read_tokens": 0, "cost_usd": 0.077874, "kind": "", "brief": ""}
 {"ts": "2026-05-30T09:30:16.295162+09:00", "agent": "ceo", "model": "claude-sonnet-4-6", "input_tokens": 1128, "output_tokens": 3069, "cache_creation_tokens": 8748, "cache_read_tokens": 0, "cost_usd": 0.082224, "kind": "", "brief": ""}
+{"ts": "2026-05-30T09:30:21.758684+09:00", "agent": "ceo", "model": "claude-sonnet-4-6", "input_tokens": 3, "output_tokens": 2952, "cache_creation_tokens": 1125, "cache_read_tokens": 8748, "cost_usd": 0.051132, "kind": "", "brief": ""}
