@@ -1,0 +1,37 @@
+{
+  "agent": "ceo",
+  "brief": {
+    "mode": "daily_report",
+    "today_kst": "2026-05-30",
+    "site_state": {
+      "date_kst": "2026-05-30",
+      "captured_at": "2026-05-30T09:29:23.221428+09:00",
+      "courses_total": 31,
+      "posts_total": 274,
+      "categories_total": 3,
+      "approved_count": 568,
+      "pending_count": 5,
+      "rejected_count": 0,
+      "last_brief_processed": "2026-05-29T09:00:04.630274+09:00",
+      "blog_published_today": 0,
+      "blog_failed_today": 0,
+      "blog_scheduled_total": 9,
+      "last_blog_publish": "2026-05-05T12:20:49.697245+09:00"
+    },
+    "recent_kpi": {
+      "date_kst": "2026-05-30",
+      "captured_at": "2026-05-30T09:29:23.221428+09:00",
+      "courses_total": 31,
+      "posts_total": 274,
+      "categories_total": 3,
+      "approved_count": 568,
+      "pending_count": 5,
+      "rejected_count": 0,
+      "last_brief_processed": "2026-05-29T09:00:04.630274+09:00",
+      "blog_published_today": 0,
+      "blog_failed_today": 0,
+      "blog_scheduled_total": 9,
+      "last_blog_publish": "2026-05-05T12:20:49.697245+09:00"
+    }
+  }
+}
