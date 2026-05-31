@@ -1,0 +1,73 @@
+{
+  "id": "1780185646-1b0fea",
+  "agent": "ceo",
+  "kind": "ceo_daily_report",
+  "title": "CEO 일일 보고 — 2026-05-31",
+  "body_md": "# Core Campus 일일 보고 — 2026-05-31 (KST)\n\n---\n\n## 1. 오늘의 성장 목표\n\n**목표 1.** 블로그 9편 예약 발행 — 마지막 실제 발행이 2026-05-05(26일 공백). 오늘 안에 예약된 9편 중 최소 3편 발행 상태로 전환.\n\n**목표 2.** pending 7건 브리프 검토 완료 — 오늘 중 0건으로 소화.\n\n---\n\n## 2. 오늘 실행할 작업 3개\n\n| # | 작업 | 단위 | 담당 |\n|---|---|---|---|\n| **A** | **블로그 예약 발행 재가동 점검** — blog_scheduled_total 9편의 발행 상태 확인. 발행 실패 원인(스케줄러 중단·API 오류) 진단 후 재가동. | 30분 이내. 로그 확인 → 원인 특정 → 재가동 명령. | **CEO 자율** |\n| **B** | **pending 브리프 7건 일괄 검토** — approved_count 568에서 pending 7건을 분류. 자동 승인 가능 건과 회원 확인 필요 건을 구분해 보고. | 30분 이내. 브리프 목록 추출 → 분류표 작성. | **CEO 자율 (분류까지) → 회원 ✅ (최종 승인 건)** |\n| **C** | **코스 32번째 등록 준비 — 커리큘럼 초안 작성** — 현재 코스 31개. 검색 유입이 가장 높은 주제 1개를 SEO 기준으로 선정해 커리큘럼 초안 및 강의 설명문 초안 완성. | 30분 이내. 주제 선정 → 5차시 개요 → 설명문 300자. | **CEO 자율** |\n\n---\n\n## 3. 예상 효과\n\n| 작업 | KPI 변화 |\n|---|---|\n| A — 블로그 재가동 | 예약 9편 → 발행 3편(오늘) + 6편(이번 주 내). 검색 유입 추정 +30~50명/편. 3편이면 이번 주 +90~150 UV. |\n| B — pending 7건 처리 | pending 0건. approved_count 568 → 최대 575. 콘텐츠 파이프라인 정체 해소. |\n| C — 32번 코스 초안 | 다음 48시간 안에 코스 등록 준비 완료. 코스 1개 추가 시 사이트 체류 시간 +2~5분 (방문자당) 추정. |\n\n---\n\n## 4. 필요한 승인 사항\n\n- **pending 7건 중 회원 확인 필요 건** — CEO가 분류 후 별도 목록 전달. 건수는 오늘 작업 B 완료 후 확정.\n- 이 외 오늘은 없음.\n\n---\n\n## 5. 승인 없이 진행 가능한 작업\n\n- 블로그 스케줄러 상태 진단 및 재가동 (§5 — 기존 콘텐츠 업로드 일정 관리)\n- pending 브리프 분류표 작성 (§5 — 사용자 피드백 분류)\n- 32번 코스 커리큘럼 초안 및 설명문 작성 (§5 — 커리큘럼 초안 작성 / 강의 설명문 개선)\n- SEO 제목·메타 설명 9편 일괄 작성 (§5 — SEO 제목·메타 설명 작성)\n- 주간 KPI 리포트 초안 (§5 — 주간 KPI 리포트 작성)\n\n---\n\n## 6. 오늘 생성할 산출물\n\n1. **블로그 스케줄러 진단 리포트** — 중단 원인·재가동 결과 1페이지\n2. **pending 브리프 분류표** — 7건 × (자동승인 가능 / 회원 확인 필요 / 반려) 3열\n3. **코스 32번 커리큘럼 초안** — 5차시 개요 + 강의 설명문 300자 + SEO 제목 후보 3개\n4. **블로그 9편 SEO 메타 설명** — 편당 120자 이내, 검색 키워드 포함\n\n---\n\n## 7. 리스크와 방지책\n\n| 리스크 | 방지책 |\n|---|---|\n| **블로그 26일 공백** — 스케줄러가 재가동돼도 한꺼번에 9편이 발행되면 검색엔진이 스팸으로 판정할 수 있음. | 하루 2~3편씩 나눠 발행. 발행 간격 최소 4시간. 오늘 3편, 내일 3편, 모레 3편. |\n| **pending 7건 방치 장기화** — 어제까지 already 1일 이상 대기. 파이프라인 정체가 누적되면 콘텐츠 발행 전체가 늦어짐. | 오늘 오후 6시 이전 분류표 완성. 회원 확인 필요 건은 오늘 중 텔레그램 메시지로 요약 전달. |\n\n---\n\n## 8. 오늘 발행한 작업 티켓\n\n```\npending: 0 · in_progress: 1 · completed: 6 · review_required: 0 · approved: 1 · rejected: 0\n```\n\n---\n\n## 9. 각 에이전트별 진행 상태\n\n| 에이전트 | 상태 |\n|---|---|\n| 블로그 발행 에이전트 | **정체** — 마지막 발행 2026-05-05. 예약 9편 대기 중. 오늘 재가동 점검 필요. |\n| 브리프 처리 에이전트 | **지연** — pending 7건 미처리. last_brief_processed 2026-05-30T09:29. 당일 처리 기준 초과. |\n| dispatch 에이전트 | in_progress 1건 진행 중. completed 6건 완료. 병목 없음. |\n| 코스 등록 에이전트 | (아직 데이터 없음) — 오늘 작업 C 완료 후 연결 예정. |\n| 전문가 소싱 에이전트 (§10) | (아직 데이터 없음) — 회원 첫 검색어·예산 입력 대기 중. |\n\n---\n\n## 10. 검토 대기 결과물 + 회원 ✅ 필요 결과물\n\n| 구분 | 건수 | 내용 |\n|---|---|---|\n| completed | **6건** | dispatch 완료. 내용 확인 후 approved 전환 가능. |\n| review_required | **0건** | 현재 없음. |\n| 회원 ✅ 필요 | **pending 7건 중 일부** | 오늘 작업 B 분류 후 확정. 텔레그램으로 별도 전달. |\n\n---\n\n## 11. 다음 실행 에이전트 + 병목 지점\n\n**다음 실행:** 블로그 발행 에이전트 재가동 → pending 브리프 처리 에이전트 → 코스 32번 등록 준비.\n\n**현재 가장 큰 병목:**\n> 블로그 26일 공백. 예약 9편이 발행되지 않은 채 쌓여 있음. 스케줄러 재가동이 오늘 가장 급한 단일 작업.\n\n---\n\n*보고 기준: 2026-05-31T09:00 KST. 다음 보고: 2026-06-01T09:00 KST.*",
+  "summary": "2026-05-31 CEO 일일 보고",
+  "meta": {
+    "brief": {
+      "mode": "daily_report",
+      "today_kst": "2026-05-31",
+      "site_state": {
+        "date_kst": "2026-05-31",
+        "captured_at": "2026-05-31T09:00:05.296332+09:00",
+        "courses_total": 31,
+        "posts_total": 274,
+        "categories_total": 3,
+        "approved_count": 568,
+        "pending_count": 7,
+        "rejected_count": 0,
+        "last_brief_processed": "2026-05-30T09:29:23.411921+09:00",
+        "blog_published_today": 0,
+        "blog_failed_today": 0,
+        "blog_scheduled_total": 9,
+        "last_blog_publish": "2026-05-05T12:20:49.697245+09:00",
+        "dispatch_queue": {
+          "pending": 0,
+          "in_progress": 1,
+          "completed": 6,
+          "review_required": 0,
+          "approved": 1,
+          "rejected": 0
+        }
+      },
+      "recent_kpi": {
+        "date_kst": "2026-05-31",
+        "captured_at": "2026-05-31T09:00:05.296332+09:00",
+        "courses_total": 31,
+        "posts_total": 274,
+        "categories_total": 3,
+        "approved_count": 568,
+        "pending_count": 7,
+        "rejected_count": 0,
+        "last_brief_processed": "2026-05-30T09:29:23.411921+09:00",
+        "blog_published_today": 0,
+        "blog_failed_today": 0,
+        "blog_scheduled_total": 9,
+        "last_blog_publish": "2026-05-05T12:20:49.697245+09:00"
+      }
+    },
+    "mode": "daily_report",
+    "today_kst": "2026-05-31",
+    "self_review": {
+      "ok": true,
+      "severity": "warn",
+      "hard_violations": [],
+      "soft_violations": [
+        "산출물"
+      ],
+      "len": 2957,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 1
+      }
+    }
+  },
+  "course_id": "core-campus-meta",
+  "created_at": "2026-05-31T00:00:46+00:00",
+  "status": "pending",
+  "telegram_message_id": 2209
+}
