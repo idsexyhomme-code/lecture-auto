@@ -84,6 +84,21 @@ def _run_async_batch(brief_paths: list[str]) -> list[dict]:
                     "elapsed": time.time() - t0,
                 }
 
+            # ★ 안전장치 게이트 — conductor.run_brief()와 동일 (일일 한도/비용/버스트)
+            from agents import safety
+            allowed, deny_msg = safety.gate(agent_key)
+            if not allowed:
+                # conductor와 동일 — 차단된 brief은 _failed/로 격리하지 않고 그대로 둬서
+                # 정지 해제 후 다음 cycle이 재시도하게 함 (FAILED 이동 금지)
+                log.warning("[safety] blocked: %s", deny_msg)
+                return {
+                    "path": str(path),
+                    "ok": False,
+                    "error": f"safety gate blocked: {agent_key}",
+                    "skipped": True,
+                    "elapsed": time.time() - t0,
+                }
+
             agent = AGENTS[agent_key]()
             # arun() 사용 — BaseAgent에서 async 지원 (P1)
             # arun을 override한 에이전트면 진짜 비동기, 아니면 thread pool fallback

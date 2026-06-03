@@ -168,6 +168,11 @@ def _auto_approve(r: AgentResult, path: Path) -> bool:
         log.info("[auto] site_config_change %s — HITL fallback (메인 페이지 변경 잠금)", r.id)
         return False
 
+    # ★ landing_copy는 blog_publisher 외부 발행 cascade를 트리거하므로 회원 승인 필수
+    if r.kind == "landing_copy":
+        log.info("[auto] landing_copy %s — HITL fallback (블로그 발행 cascade 보호)", r.id)
+        return False
+
     label = LABEL.get(r.agent, r.agent)
 
     # site_config 변경 — new_config 그대로 적용
