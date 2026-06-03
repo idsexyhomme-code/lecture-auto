@@ -172,13 +172,16 @@ HTML로만 답하세요. 코드펜스 금지. AI 티 나는 단어 *0개*. 템�
         except Exception as e:
             log.warning("[blog] hero image gen failed (텍스트로만 진행): %s", e)
 
-        # 티스토리 자동 게시 시도 — 실패하면 로컬 HTML 파일로 fallback
+        # 티스토리 자동 게시 시도 — 기본은 공개/예약 발행 금지, 로컬 HTML draft만 저장
         published_url = None
         schedule_at = None  # ★ 모든 분기에서 안전하게 참조 가능하도록 최상위 정의
         skip_tistory = os.environ.get("TISTORY_SKIP", "").lower() in ("1", "true", "yes")
+        auto_publish = os.environ.get("TISTORY_AUTO_PUBLISH", "").lower() in ("1", "true", "yes")
 
         if skip_tistory:
             log.info("[blog] TISTORY_SKIP=true — 자동 게시 건너뜀 (수동 복붙용 HTML만 저장)")
+        elif not auto_publish:
+            log.info("[blog] TISTORY_AUTO_PUBLISH 미설정 — 티스토리 공개/예약 발행 건너뜀 (로컬 draft만 저장)")
         else:
             try:
                 from tistory_helpers.publisher import publish_post
@@ -187,10 +190,8 @@ HTML로만 답하세요. 코드펜스 금지. AI 티 나는 단어 *0개*. 템�
                     log.warning("[blog] TISTORY_BLOG 미설정 — 게시 건너뜀")
                 else:
                     tags = ["Claude", "1인 사업가", "코어 캠퍼스", course_title[:20]]
-                    # publish=True — 모달에 *공개 발행* 버튼만 있어서 임시저장 불가능.
-                    # 즉시 라이브 게시. 회원님이 글 검토 후 비공개 처리는 블로그에서.
-                    # headless=False — 헤드리스 모드에서 모달 클릭이 불안정.
-                        # 환경변수로 강제 가능: TISTORY_HEADLESS=1 → headless=True
+                    # 명시적 opt-in(TISTORY_AUTO_PUBLISH)일 때만 공개/예약 발행 허용.
+                    # 환경변수로 강제 가능: TISTORY_HEADLESS=1 → headless=True
                     headless = os.environ.get("TISTORY_HEADLESS", "0").lower() in ("1", "true", "yes")
 
                     # ★ 자동 분산 예약 발행 — 일일 한도 회피
