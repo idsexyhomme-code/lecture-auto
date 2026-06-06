@@ -1,0 +1,73 @@
+{
+  "id": "1780704059-aa07fc",
+  "agent": "ceo",
+  "kind": "ceo_daily_report",
+  "title": "CEO 일일 보고 — 2026-06-06",
+  "body_md": "# Core Campus 일일 보고 — 2026-06-06 (KST)\n\n---\n\n## 1. 오늘의 성장 목표\n\n**목표 1.** 블로그 예약 발행 9편 → 오늘 중 1편 이상 실제 게시 확인\n- 마지막 발행: 2026-05-05. 32일 공백. 오늘 이 구멍을 막는다.\n\n**목표 2.** pending 브리프 13건 → 오늘 내 5건 이상 처리 완료 (approved 568 → 573 이상)\n\n---\n\n## 2. 오늘 실행할 작업 3개\n\n### 작업 1. 블로그 발행 공백 원인 진단 + 즉시 수동 발행 1편\n- **단위:** scheduled_total 9편 중 1편 선택 → 발행 상태 확인 → 수동 트리거 또는 직접 발행 (30분)\n- **담당:** CEO 자율 (진단·초안 검토) + 회원 직접 (발행 버튼 확인 또는 수동 게시)\n- **이유:** 2026-05-05 이후 발행 0건. 예약 9편이 쌓인 채 멈춘 것 — 설정 오류인지, 스케줄러 오류인지 오늘 특정해야 한다.\n\n### 작업 2. pending 브리프 13건 분류·처리\n- **단위:** 13건을 열어 \"바로 approved 처리 가능 / 회원 검토 필요\" 두 그룹으로 분류 → 가능한 건 즉시 처리 (30분)\n- **담당:** CEO 자율 (분류·처리) — §4 금기 위반 여부 1차 검수 포함\n- **이유:** pending 13건이 하루 더 쌓이면 콘텐츠 파이프라인이 막힌다.\n\n### 작업 3. 블로그 발행 재개 후 SEO 제목·메타 설명 점검 1편\n- **단위:** 오늘 발행 예정 1편의 제목·메타 설명을 §카피 원칙 기준으로 재검토 + 개선안 작성 (30분)\n- **담당:** CEO 자율\n\n---\n\n## 3. 예상 효과\n\n| 작업 | KPI | 예상 변화 |\n|---|---|---|\n| 블로그 발행 1편 | posts_total | 274 → 275 |\n| 블로그 발행 1편 | 검색 유입 | 발행 후 3~7일 내 신규 유입 예상 1~5건 |\n| pending 5건 처리 | approved_count | 568 → 573 이상 |\n| pending 5건 처리 | pending_count | 13 → 8 이하 |\n| SEO 점검 | 클릭률 | 제목 수정 시 CTR +0.3~0.8%p (30일 누적 기준 추정) |\n\n---\n\n## 4. 필요한 승인 사항\n\n**★ 회원 승인 필수 — 1건**\n\n> **블로그 스케줄러 발행 중단 원인 확인 후 조치 방향**\n>\n> 예약 9편이 2026-05-05 이후 자동 발행되지 않고 있다.\n> 원인이 설정 오류·API 문제·플랫폼 문제 중 어느 것인지 확인 후 — 수동 발행로 전환할지, 스케줄러를 재설정할지 — 방향 결정이 필요하다.\n> CEO는 진단 리포트를 오늘 오전 중 작성한다. 회원님이 확인 후 ✅ 주시면 바로 실행한다.\n\n---\n\n## 5. 승인 없이 진행 가능한 작업\n\n- pending 13건 §4 금기·§8 톤 기준 1차 분류·검수\n- 블로그 발행 중단 원인 진단 리포트 작성\n- 예약 1편 SEO 제목·메타 설명 개선안 작성\n- 오늘 발행 후보 1편 강의 태그 정리\n- 이번 주 콘텐츠 발행 일정 재정비안 작성 (scheduled 9편 순서·날짜 조정 초안)\n- dispatch_queue in_progress 1건 진행 상태 확인 및 요약\n\n---\n\n## 6. 오늘 생성할 산출물\n\n1. **블로그 발행 중단 진단 리포트** — 원인·재발 방지책·조치 옵션 2가지 포함\n2. **블로그 발행 후보 1편 SEO 개선안** — 제목 3개 후보 + 메타 설명 1개\n3. **pending 브리프 13건 분류표** — approved 처리 가능 N건 / 회원 검토 필요 N건\n4. **이번 주 콘텐츠 발행 일정 초안** — 2026-06-06~06-12, 총 발행 목표 편수 포함\n\n---\n\n## 7. 리스크와 방지책\n\n### 리스크 1. 블로그 스케줄러가 32일째 멈춘 원인을 오늘 특정하지 못하면 — 9편이 추가로 묻힌다\n- **방지책:** 오늘 오전 중 진단 리포트 완료 → 원인 불명 시 수동 발행으로 즉시 전환. 스케줄러 의존도를 낮추는 백업 발행 루틴 병행 제안.\n\n### 리스크 2. pending 13건 중 §4 금기 위반 콘텐츠가 섞여 있을 수 있다\n- **방지책:** CEO 1차 검수에서 금기어 리스트 대조 후 — 위반 의심 건은 approved 처리 없이 회원 검토 필요로 분류. 0건 오승인 목표.\n\n---\n\n## 8. 오늘 발행한 작업 티켓 (§11)\n\n```\npending: 0 · in_progress: 1 · completed: 6 · review_required: 0 · approved: 1 · rejected: 0\n```\n\n---\n\n## 9. 각 에이전트별 진행 상태\n\n| 에이전트 | 상태 | 비고 |\n|---|---|---|\n| 브리프 처리 에이전트 | **in_progress 1건** | 현재 처리 중 — 완료까지 모니터링 |\n| 블로그 발행 에이전트 | **정체 중** | 마지막 발행 2026-05-05. 32일 공백. 오늘 진단 필요 |\n| 디스패치 에이전트 | completed 6건 / approved 1건 확인 | 정상 작동 중 |\n| 콘텐츠 승인 에이전트 | pending 13건 대기 중 | 오늘 처리 시작 |\n| 외부 전문가 소싱 에이전트 | (아직 데이터 없음) | §10.8 W1 단계 미착수 |\n\n---\n\n## 10. 검토 대기 결과물 + 회원 ✅ 필요 결과물\n\n**completed 6건**\n- 디스패치 완료 상태. 내용 확인 후 closed 처리 가능.\n\n**review_required 0건**\n- 현재 검토 대기 없음.\n\n**★ 회원 승인 필요**\n1. 블로그 스케줄러 재개 방향 결정 (수동 전환 vs 스케줄러 재설정) — 오늘 오전 진단 리포트 제출 후 ✅ 요청\n2. pending 13건 중 회원 검토 필요로 분류된 건 — 오후 중 목록 전달 예정\n\n---\n\n## 11. 다음 실행 에이전트 + 병목 지점\n\n**다음 실행:** 블로그 발행 에이전트 — 스케줄러 진단 후 수동 발행 1편 트리거\n\n**가장 오래 정체된 항목:**\n> 블로그 발행 32일 공백.\n> scheduled 9편이 발행 안 된 채 쌓여 있다.\n> 검색 유입의 핵심 채널이 한 달 넘게 멈춘 상태 — 오늘 이 병목 하나를 뚫는 게 최우선이다.\n\n---\n\n*보고 기준 시각: 2026-06-06 09:00 KST*\n*다음 보고: 2026-06-07 09:00 KST*",
+  "summary": "2026-06-06 CEO 일일 보고",
+  "meta": {
+    "brief": {
+      "mode": "daily_report",
+      "today_kst": "2026-06-06",
+      "site_state": {
+        "date_kst": "2026-06-06",
+        "captured_at": "2026-06-06T09:00:12.045110+09:00",
+        "courses_total": 31,
+        "posts_total": 274,
+        "categories_total": 3,
+        "approved_count": 568,
+        "pending_count": 13,
+        "rejected_count": 0,
+        "last_brief_processed": "2026-06-05T09:00:09.586557+09:00",
+        "blog_published_today": 0,
+        "blog_failed_today": 0,
+        "blog_scheduled_total": 9,
+        "last_blog_publish": "2026-05-05T12:20:49.697245+09:00",
+        "dispatch_queue": {
+          "pending": 0,
+          "in_progress": 1,
+          "completed": 6,
+          "review_required": 0,
+          "approved": 1,
+          "rejected": 0
+        }
+      },
+      "recent_kpi": {
+        "date_kst": "2026-06-06",
+        "captured_at": "2026-06-06T09:00:12.045110+09:00",
+        "courses_total": 31,
+        "posts_total": 274,
+        "categories_total": 3,
+        "approved_count": 568,
+        "pending_count": 13,
+        "rejected_count": 0,
+        "last_brief_processed": "2026-06-05T09:00:09.586557+09:00",
+        "blog_published_today": 0,
+        "blog_failed_today": 0,
+        "blog_scheduled_total": 9,
+        "last_blog_publish": "2026-05-05T12:20:49.697245+09:00"
+      }
+    },
+    "mode": "daily_report",
+    "today_kst": "2026-06-06",
+    "self_review": {
+      "ok": true,
+      "severity": "warn",
+      "hard_violations": [],
+      "soft_violations": [
+        "산출물"
+      ],
+      "len": 3167,
+      "checks": {
+        "no_hard_ban": true,
+        "no_empty": true,
+        "min_length": true,
+        "soft_ban_count": 1
+      }
+    }
+  },
+  "course_id": "core-campus-meta",
+  "created_at": "2026-06-06T00:00:59+00:00",
+  "status": "pending",
+  "telegram_message_id": 2226
+}
