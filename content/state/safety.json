@@ -1,14 +1,18 @@
 {
-  "last_reset_date": "2026-06-06",
-  "daily_brief_count": 1,
+  "last_reset_date": "2026-06-07",
+  "daily_brief_count": 2,
   "daily_agent_calls": {
-    "ceo": 1
+    "ceo": 2
   },
-  "daily_estimated_cost_usd": 0.07,
+  "daily_estimated_cost_usd": 0.14,
   "recent_call_timestamps": [
     {
       "agent": "ceo",
-      "ts": 1780704012.347517
+      "ts": 1780805220.252563
+    },
+    {
+      "agent": "ceo",
+      "ts": 1780805220.306993
     }
   ],
   "paused": false,
