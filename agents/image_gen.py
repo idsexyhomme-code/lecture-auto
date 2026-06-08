@@ -67,6 +67,18 @@ def _generate_image_openai(
     prompt: str, slug: str, size: str, quality: str, save_dir: Optional[Path]
 ) -> tuple[Path, str]:
     """OpenAI gpt-image-1로 생성. (DEFAULT_IMAGE_MODEL=gpt-image-1, quality=high)"""
+    if os.environ.get("OPENAI_API_KEY_DISABLED_20260608"):
+        msg = (
+            "OpenAI image generation is intentionally disabled "
+            "(OPENAI_API_KEY_DISABLED_20260608 is set)."
+        )
+        log.error("[openai-disabled] %s", msg)
+        raise RuntimeError(msg)
+    if os.environ.get("OPENAI_API_BLOCKED", "").lower() in {"1", "true", "yes"}:
+        msg = "OpenAI image generation is blocked by OPENAI_API_BLOCKED."
+        log.error("[openai-disabled] %s", msg)
+        raise RuntimeError(msg)
+
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY 없음")
@@ -181,6 +193,13 @@ def generate_blog_image(
     Returns: (로컬 파일 경로, GitHub Pages URL)
     """
     backend = os.environ.get("BLOG_IMAGE_MODEL", "gemini").lower()
+    # 중앙 과금 가드 — 기본 차단(fail-safe). 이미지 생성은 콘솔 과금이므로
+    # CC_ALLOW_API_BILLING=1 없으면 openai·gemini 둘 다 거부.
+    from agents.billing_guard import billing_block_reason
+    reason = billing_block_reason(f"image:{backend}")
+    if reason:
+        log.error("[billing-blocked] %s", reason)
+        raise RuntimeError(reason)
     if backend == "openai":
         return _generate_image_openai(prompt, slug, size, quality, save_dir)
     return _generate_image_gemini(prompt, slug, save_dir)

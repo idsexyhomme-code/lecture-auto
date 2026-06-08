@@ -52,7 +52,7 @@ URL 끝의 32자를 복사. 하이픈 있으면 제거.
 
 아래 2줄 추가:
 ```bash
-NOTION_TOKEN=secret_여기에_1단계_토큰
+NOTION_TOKEN=REDACTED_20260608
 NOTION_PARENT_PAGE_ID=여기에_3단계_32자ID
 ```
 

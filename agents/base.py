@@ -87,7 +87,16 @@ class BaseAgent:
 
     def __init__(self, client: Anthropic | None = None, model: str | None = None,
                  async_client: AsyncAnthropic | None = None):
-        self.client = client or Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+        # 과금 차단 가드 (2026-06-08) — 기본 차단. 키가 있어도 막혀 있으면
+        # 클라이언트를 만들지 않는다(환경변수 읽기조차 생략).
+        from .billing_guard import billing_block_reason
+        self._billing_block = billing_block_reason("anthropic")
+        if client is not None:
+            self.client = client
+        elif self._billing_block:
+            self.client = None
+        else:
+            self.client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
         self.model = model or os.environ.get("WORKER_MODEL", "claude-sonnet-4-6")
         if async_client is not None:
             self._async_client = async_client
@@ -96,6 +105,8 @@ class BaseAgent:
     def async_client(self) -> AsyncAnthropic:
         """비동기 클라이언트 — 처음 .acall() 호출 시 lazy 생성."""
         if self._async_client is None:
+            if self._billing_block:
+                raise RuntimeError(self._billing_block)
             self._async_client = AsyncAnthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
         return self._async_client
 
@@ -137,6 +148,9 @@ class BaseAgent:
     # ── 동기 호출 (기존 직렬 워크플로우 그대로) ─────────────────────
     def call(self, user_prompt: str, *, max_tokens: int = 4000,
              extra_system: str = "") -> str:
+        # 과금 차단 가드 — 막혀 있으면 API 호출 전에 즉시 거부
+        if getattr(self, "_billing_block", None):
+            raise RuntimeError(self._billing_block)
         # 비용 가드 (Step 27) — 한도 초과 시 즉시 차단
         try:
             from .budget_guard import check_budget, record_usage
@@ -190,6 +204,9 @@ class BaseAgent:
                 agent_c.acall("prompt 3"),
             )
         """
+        # 과금 차단 가드 — 막혀 있으면 API 호출 전에 즉시 거부
+        if getattr(self, "_billing_block", None):
+            raise RuntimeError(self._billing_block)
         # 비용 가드
         try:
             from .budget_guard import check_budget

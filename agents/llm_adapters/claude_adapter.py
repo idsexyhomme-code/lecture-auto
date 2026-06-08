@@ -1,11 +1,15 @@
 """Claude (Anthropic) adapter — Core Compass의 6 AI 중 #1."""
 from __future__ import annotations
 
+import logging
+import os
 import time
 
 from anthropic import AsyncAnthropic
 
 from .base_adapter import BaseAdapter, LLMResponse
+
+log = logging.getLogger(__name__)
 
 
 class ClaudeAdapter(BaseAdapter):
@@ -25,8 +29,31 @@ class ClaudeAdapter(BaseAdapter):
             self._client = AsyncAnthropic(api_key=self.api_key)
         return self._client
 
+    @staticmethod
+    def _blocked_reason() -> str | None:
+        # 중앙 과금 가드 — 기본 차단(fail-safe). CC_ALLOW_API_BILLING 없으면 막힘.
+        from ..billing_guard import billing_block_reason
+        central = billing_block_reason("anthropic")
+        if central:
+            return central
+        if os.environ.get("ANTHROPIC_API_KEY_DISABLED_20260608"):
+            return (
+                "Anthropic API key is intentionally disabled "
+                "(ANTHROPIC_API_KEY_DISABLED_20260608 is set)."
+            )
+        if os.environ.get("ANTHROPIC_API_BLOCKED", "").lower() in {"1", "true", "yes"}:
+            return "Anthropic API calls are blocked by ANTHROPIC_API_BLOCKED."
+        return None
+
     async def generate(self, prompt: str, system: str = "",
                        max_tokens: int = 2000) -> LLMResponse:
+        blocked_reason = self._blocked_reason()
+        if blocked_reason:
+            log.error("[anthropic-disabled] %s", blocked_reason)
+            return LLMResponse(
+                llm=self.llm_name, model=self.model, text="", success=False,
+                latency_ms=0, error=blocked_reason,
+            )
         if not self.enabled:
             return self.disabled_response()
 

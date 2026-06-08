@@ -1,9 +1,13 @@
 """OpenAI (ChatGPT) adapter — 6 AI 중 #2. 회원이 이미 OPENAI_API_KEY 보유."""
 from __future__ import annotations
 
+import logging
+import os
 import time
 
 from .base_adapter import BaseAdapter, LLMResponse
+
+log = logging.getLogger(__name__)
 
 
 class OpenAIAdapter(BaseAdapter):
@@ -17,6 +21,21 @@ class OpenAIAdapter(BaseAdapter):
         super().__init__(model=model, api_key=api_key)
         self._client = None
 
+    def _blocked_reason(self) -> str:
+        # 중앙 과금 가드 — 기본 차단(fail-safe). CC_ALLOW_API_BILLING 없으면 막힘.
+        from ..billing_guard import billing_block_reason
+        central = billing_block_reason("openai")
+        if central:
+            return central
+        if os.environ.get("OPENAI_API_KEY_DISABLED_20260608"):
+            return (
+                "OpenAI API key is intentionally disabled "
+                "(OPENAI_API_KEY_DISABLED_20260608 is set)."
+            )
+        if os.environ.get("OPENAI_API_BLOCKED", "").lower() in {"1", "true", "yes"}:
+            return "OpenAI API calls are blocked by OPENAI_API_BLOCKED."
+        return ""
+
     @property
     def client(self):
         if self._client is None:
@@ -26,6 +45,14 @@ class OpenAIAdapter(BaseAdapter):
 
     async def generate(self, prompt: str, system: str = "",
                        max_tokens: int = 2000) -> LLMResponse:
+        blocked_reason = self._blocked_reason()
+        if blocked_reason:
+            log.error("[openai-disabled] %s", blocked_reason)
+            return LLMResponse(
+                llm=self.llm_name, model=self.model, text="", success=False,
+                error=blocked_reason,
+            )
+
         if not self.enabled:
             return self.disabled_response()
 

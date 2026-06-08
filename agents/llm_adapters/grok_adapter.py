@@ -28,6 +28,13 @@ class GrokAdapter(BaseAdapter):
 
     async def generate(self, prompt: str, system: str = "",
                        max_tokens: int = 2000) -> LLMResponse:
+        from ..billing_guard import billing_block_reason
+        reason = billing_block_reason("grok")
+        if reason:
+            return LLMResponse(
+                llm=self.llm_name, model=self.model, text="", success=False,
+                error=reason,
+            )
         if not self.enabled:
             return self.disabled_response()
 
