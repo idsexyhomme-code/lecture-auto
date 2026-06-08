@@ -1,5 +1,5 @@
 {
-  "last_reset_date": "2026-06-07",
+  "last_reset_date": "2026-06-08",
   "daily_brief_count": 2,
   "daily_agent_calls": {
     "ceo": 2
@@ -8,11 +8,11 @@
   "recent_call_timestamps": [
     {
       "agent": "ceo",
-      "ts": 1780805220.252563
+      "ts": 1780913404.33759
     },
     {
       "agent": "ceo",
-      "ts": 1780805220.306993
+      "ts": 1780913404.59608
     }
   ],
   "paused": false,
