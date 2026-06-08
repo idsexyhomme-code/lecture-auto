@@ -24,3 +24,7 @@ node_modules/
 
 # Cross-process locks (P3 — fcntl.flock 기반, 런타임 전용)
 content/state/locks/
+
+# 티스토리 세션 토큰 — 절대 커밋 금지 (2026-06-08 폐기)
+tistory_session.json
+**/tistory_session.json
